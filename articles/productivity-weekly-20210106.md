@@ -13,61 +13,52 @@ published: false
 
 今回が第8回目です。
 
-以前までは [note](https://note.com/korosuke613/m/mf1e0bba11f48) で投稿をしていましたが、note の執筆体験が自分には合わずツラかったので、今回は試しに並列して Zenn で投稿してみようと思います。
-
 # news
-## Docker for Mac の Apple Silicon 対応の Tech Preview 版が出た
-https://www.docker.com/blog/download-and-try-the-tech-preview-of-docker-desktop-for-m1/
-Apple Silicon で動作する Docker for Mac のプレビュー版がリリースされました。
-もともとマルチプラットフォームビルドに対応していたこともあって、Apple Silicon で動作する Mac でも x86 イメージと ARM イメージの両方をビルドして実行できるようです。ただ、プレビュー版ということもあってかまだ全てのイメージが動くというわけではなさそうです。（[参考](https://qiita.com/ao41/items/5feb96cd01c312407a2b)）
+## [アップデート] AWS Compute Optimizer で Lambda 関数の最適なメモリサイズがレコメンド可能になりました！
+https://dev.classmethod.jp/articles/aws-compute-optimizer-delivers-recommendations-aws-lambda-functions/
 
-## GitHub がパスワード認証による Git 操作を廃止すると発表
-https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/
-GitHub がパスワード認証による Git 操作を廃止すると発表しました。今後はトークンまたは ssh キーによる認証が必要となります。
-パスワードを使用してコマンドラインで Git 操作（push、pull など）をしている場合や、パスワードを使用して GitHub.com の Git リポジトリにアクセスするアプリ・サービスを使っている場合は影響を受けます。したがって、すでに ssh による認証を行っている場合は影響を受けません。また、GitHub Enterprise Server に対しては、現時点でパスワード認証による Git 操作を廃止する予定はないようです。
-2021年8月13日(おそらく UTC)から施行されますが、混乱を抑えるために 2021年6月30日 や 2021年7月28日の限られた時間においても一時的に施行されるとのことです。
+AWS Compute Optimizer が Lambda の最適なメモリサイズを推奨してくれるようになった。
+記事ではメモリサイズを上げる方が処理時間、コストが下がる（可能性がある）例が紹介されている。
 
 
-## npm パッケージに型定義情報が含まれているかどうかが npm レジストリで確認できるようになった
-https://github.blog/changelog/2020-12-16-npm-displays-packages-with-bundled-typescript-declarations/
-npm パッケージに型定義情報が含まれているかどうかが npm レジストリで確認できるようになりました。ライブラリ選定時に型情報が含まれているかどうかすぐにわかるようになったので地味に嬉しいです。
+## 『Webブラウザセキュリティ ― Webアプリケーションの安全性を支える仕組みを整理する』の発売を開始しました
+https://www.lambdanote.com/blogs/news/web-web
 
-僕が作ってるパッケージにもちゃんと表示されていました。
-https://www.npmjs.com/package/trekin
+> ・リソース間に境界を設定し、アプリケーションに制限を課す機構（Origin、SOP、CORS、CSPなど）
+> ・Webブラウザの動作をOSのプロセスレベルで考察することで役割が理解できる機構（CORB、CORP、Fetch Metadataなど）
+> ・通信路や受け取ったデータの状態に関するもの（HSTS、SRIなど）
+> ・現在のWebアプリケーションにとって不可欠なCookieに関するセキュリティ機構
+> https://www.lambdanote.com/collections/wbs
+
+このあたり詳しくなりたい人によさそう。
+
+## IntelliJ IDEA のコード補完の順番並び替えに機械学習を使えるようになった。
+https://twitter.com/intellijidea/status/1344961599338004480
+設定変更することで機械学習による順番の上下を確認できる。
+
+https://twitter.com/IntelliJSupport/status/1345618540162936837
+外部にデータ送信されてるわけではなさそう。
 
 # know-how
-## Ansible で接続可能な EC2 の Windows Server デプロイを自動化する
-https://zenn.dev/hiyokotaisa/articles/b781eb91125098
-AWS EC2 のユーザーデータを使って、EC2 の 公式 Windows Server 2019 上で WinRM を有効にする話です。
-Ansible から Windows 環境に接続するためには WinRM が有効になっている必要があるのですが、EC2 で公式に提供されている Windows Server 2019 AMI はデフォルトで有効化されていません。この記事では、インスタンス起動時に WinRM を有効にして Ansible を自動で使えるようにする方法が載せられています。
+## 【2021年版】GitHub × Go製ツールのリリースフロー
+https://zenn.dev/kyoh86/articles/5e7fe8c16a39aa3d3796
 
-## Flaky Test の話が盛り上がってるっぽい。
-Flaky Test の話で界隈が盛り上がっているのか、Flaky Test に関する記事が立て続けに投稿されています。
+Go のパッケージを GitHub Actions の workflow_dispatch でタグを打ってリリースする例。
 
-> Flaky Testとは、実行結果が不安定なテストのことです。 コードを変更していないにもかかわらず、実行するたびにテストが成功したり失敗したり結果が変化するため、原因が追及しにくく非常にやっかいな問題です。
-> https://blog.cybozu.io/entry/2020/12/23/100000
+## TabFS is a browser extension that mounts your browser tabs as a filesystem on your computer.
+https://omar.website/tabfs/
 
-僕たち自身も Flaky Test に苦しめられています。長い時間かけてテストを待ったにも関わらず、不安定なことが原因でテストが落ちたときに落胆します。落ちた原因がコードの変更によるものなのかそうでないのかを判断するのにも時間がかかることがあります。常に同じ要因でテストに失敗するというわけでもないので、調査も難しく、不安定さを取り除くのも大変です。
+ブラウザのタブをファイルシステムとしてマウントするブラウザ拡張機能。魔改造感ある
 
-最近投稿された以下の記事で Flaky Test の分析や測定、対策などが語られています。まだちゃんと読めていないので、参考にしたいところです。
+## 1Password に保存しているクレデンシャルを環境変数として利用するためのツールを作った
+https://blog.ssrf.in/post/set-the-credetnial-in-1password-as-an-environment/
 
-- [Google Testing Blog: Test Flakiness - One of the main challenges of automated testing](https://testing.googleblog.com/2020/12/test-flakiness-one-of-main-challenges.html)
-- [Reducing flaky builds by 18x - The GitHub Blog](https://github.blog/2020-12-16-reducing-flaky-builds-by-18x/)
-- [Probabilistic flakiness: How do you test your tests? - Facebook Engineering](https://engineering.fb.com/2020/12/10/developer-tools/probabilistic-flakiness/)
-- [Flaky Testとの戦い - Cybozu Inside Out | サイボウズエンジニアのブログ](https://blog.cybozu.io/entry/2020/12/23/100000)
+クレデンシャルの管理が楽になりそう。
 
-## Renovate の Tips
-https://quipper.hatenablog.com/entry/2020/12/10/080000
-ライブラリのバージョン更新をしてくれるツール・サービスに Renovate がありますが、Renovate は設定項目がとても多く、機能を使いこなせている人は決して多くないと思います。
-この記事では Renovate の Tips が紹介されています。これから Renovate を導入する人にも既に導入している人にもおすすめの記事です。
+## GitHubのサービスを駆使してウェブサイトの死活監視が無料で行える「Upptime」
+https://gigazine.net/news/20210104-upptime/
 
-## TypeScript の Tips
-https://zenn.dev/tak_iwamoto/articles/d367f989eb4a33
-TypeScript の(主に型に関する) Tips がまとまった記事です。TypeScript は柔軟に型を扱えますが、あまりよくわかっていないという人におすすめです。
-
-## Terraform 運用事例
-https://qiita.com/chroju/items/13d8f5c6719e2f4711f3
-Terraform を積極的に扱っているチームの方が書いた、Terraform 運用事例です。チームでどのように Terraform を扱っているかや、Terraform Cloud のことについてなど、他チームの Terraform 運用について知れるのがありがたいです。参考になります。
+複数サイトの死活監視を簡単に行えるテンプレートリポジトリ。useして監視したいサイトを設定すればすぐに使える。
 
 # あとがき
 今年最後の Productivity Weekly でした。次回は年明けになります。
