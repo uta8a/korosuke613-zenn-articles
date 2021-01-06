@@ -1,0 +1,78 @@
+---
+title: "Productivity Weekly(2021-01-06号)"
+emoji: "🎍"
+type: "idea" # tech: 技術記事 / idea: アイデア
+topics: ["productivityweekly", "生産性向上"]
+published: false
+---
+
+こんにちは。サイボウズ株式会社 [生産性向上チーム](https://blog.cybozu.io/entry/2020/08/31/080000)の平木場です。
+
+僕たち生産性向上チームは毎週水曜日に Productivity Weekly という「1週間の間に発見された開発者の生産性向上に関するネタを共有する会」を社内で開催しています。
+本記事はその時のネタをまとめたものです。
+
+今回が第8回目です。
+
+以前までは [note](https://note.com/korosuke613/m/mf1e0bba11f48) で投稿をしていましたが、note の執筆体験が自分には合わずツラかったので、今回は試しに並列して Zenn で投稿してみようと思います。
+
+# news
+## Docker for Mac の Apple Silicon 対応の Tech Preview 版が出た
+https://www.docker.com/blog/download-and-try-the-tech-preview-of-docker-desktop-for-m1/
+Apple Silicon で動作する Docker for Mac のプレビュー版がリリースされました。
+もともとマルチプラットフォームビルドに対応していたこともあって、Apple Silicon で動作する Mac でも x86 イメージと ARM イメージの両方をビルドして実行できるようです。ただ、プレビュー版ということもあってかまだ全てのイメージが動くというわけではなさそうです。（[参考](https://qiita.com/ao41/items/5feb96cd01c312407a2b)）
+
+## GitHub がパスワード認証による Git 操作を廃止すると発表
+https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/
+GitHub がパスワード認証による Git 操作を廃止すると発表しました。今後はトークンまたは ssh キーによる認証が必要となります。
+パスワードを使用してコマンドラインで Git 操作（push、pull など）をしている場合や、パスワードを使用して GitHub.com の Git リポジトリにアクセスするアプリ・サービスを使っている場合は影響を受けます。したがって、すでに ssh による認証を行っている場合は影響を受けません。また、GitHub Enterprise Server に対しては、現時点でパスワード認証による Git 操作を廃止する予定はないようです。
+2021年8月13日(おそらく UTC)から施行されますが、混乱を抑えるために 2021年6月30日 や 2021年7月28日の限られた時間においても一時的に施行されるとのことです。
+
+
+## npm パッケージに型定義情報が含まれているかどうかが npm レジストリで確認できるようになった
+https://github.blog/changelog/2020-12-16-npm-displays-packages-with-bundled-typescript-declarations/
+npm パッケージに型定義情報が含まれているかどうかが npm レジストリで確認できるようになりました。ライブラリ選定時に型情報が含まれているかどうかすぐにわかるようになったので地味に嬉しいです。
+
+僕が作ってるパッケージにもちゃんと表示されていました。
+https://www.npmjs.com/package/trekin
+
+# know-how
+## Ansible で接続可能な EC2 の Windows Server デプロイを自動化する
+https://zenn.dev/hiyokotaisa/articles/b781eb91125098
+AWS EC2 のユーザーデータを使って、EC2 の 公式 Windows Server 2019 上で WinRM を有効にする話です。
+Ansible から Windows 環境に接続するためには WinRM が有効になっている必要があるのですが、EC2 で公式に提供されている Windows Server 2019 AMI はデフォルトで有効化されていません。この記事では、インスタンス起動時に WinRM を有効にして Ansible を自動で使えるようにする方法が載せられています。
+
+## Flaky Test の話が盛り上がってるっぽい。
+Flaky Test の話で界隈が盛り上がっているのか、Flaky Test に関する記事が立て続けに投稿されています。
+
+> Flaky Testとは、実行結果が不安定なテストのことです。 コードを変更していないにもかかわらず、実行するたびにテストが成功したり失敗したり結果が変化するため、原因が追及しにくく非常にやっかいな問題です。
+> https://blog.cybozu.io/entry/2020/12/23/100000
+
+僕たち自身も Flaky Test に苦しめられています。長い時間かけてテストを待ったにも関わらず、不安定なことが原因でテストが落ちたときに落胆します。落ちた原因がコードの変更によるものなのかそうでないのかを判断するのにも時間がかかることがあります。常に同じ要因でテストに失敗するというわけでもないので、調査も難しく、不安定さを取り除くのも大変です。
+
+最近投稿された以下の記事で Flaky Test の分析や測定、対策などが語られています。まだちゃんと読めていないので、参考にしたいところです。
+
+- [Google Testing Blog: Test Flakiness - One of the main challenges of automated testing](https://testing.googleblog.com/2020/12/test-flakiness-one-of-main-challenges.html)
+- [Reducing flaky builds by 18x - The GitHub Blog](https://github.blog/2020-12-16-reducing-flaky-builds-by-18x/)
+- [Probabilistic flakiness: How do you test your tests? - Facebook Engineering](https://engineering.fb.com/2020/12/10/developer-tools/probabilistic-flakiness/)
+- [Flaky Testとの戦い - Cybozu Inside Out | サイボウズエンジニアのブログ](https://blog.cybozu.io/entry/2020/12/23/100000)
+
+## Renovate の Tips
+https://quipper.hatenablog.com/entry/2020/12/10/080000
+ライブラリのバージョン更新をしてくれるツール・サービスに Renovate がありますが、Renovate は設定項目がとても多く、機能を使いこなせている人は決して多くないと思います。
+この記事では Renovate の Tips が紹介されています。これから Renovate を導入する人にも既に導入している人にもおすすめの記事です。
+
+## TypeScript の Tips
+https://zenn.dev/tak_iwamoto/articles/d367f989eb4a33
+TypeScript の(主に型に関する) Tips がまとまった記事です。TypeScript は柔軟に型を扱えますが、あまりよくわかっていないという人におすすめです。
+
+## Terraform 運用事例
+https://qiita.com/chroju/items/13d8f5c6719e2f4711f3
+Terraform を積極的に扱っているチームの方が書いた、Terraform 運用事例です。チームでどのように Terraform を扱っているかや、Terraform Cloud のことについてなど、他チームの Terraform 運用について知れるのがありがたいです。参考になります。
+
+# あとがき
+今年最後の Productivity Weekly でした。次回は年明けになります。
+
+また、今回初めて Zenn を使ってみました。note と比べると圧倒的に書きやすいです。今回はブラウザでの投稿でしたが、次回からは VS Code を使って投稿してみようと思います。
+
+生産性向上チームでは毎週こういったネタを共有する会を行っています。そんな生産性向上チームが気になる方は下のリンクをクリック！
+https://blog.cybozu.io/entry/2020/08/31/080000

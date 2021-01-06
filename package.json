@@ -1,0 +1,9 @@
+{
+  "name": "korosuke613-zenn",
+  "description": "Zennの記事を管理する",
+  "keywords": [],
+  "author": "Futa Hirakoba <korosuke613613@gmail.com> (https://korosuke613.github.io/)",
+  "dependencies": {
+    "zenn-cli": "^0.1.67"
+  }
+}
