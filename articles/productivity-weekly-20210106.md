@@ -1,5 +1,5 @@
 ---
-title: "Productivity Weekly(2021-01-06号)"
+title: "Productivity Weekly (2021-01-06号)"
 emoji: "🎍"
 type: "idea" # tech: 技術記事 / idea: アイデア
 topics: ["ProductivityWeekly", "生産性向上", "AWS", "IntelliJ", "GitHubActions"]
@@ -11,7 +11,7 @@ published: true
 僕たち生産性向上チームは毎週水曜日に Productivity Weekly という「1週間の間に発見された開発者の生産性向上に関するネタを共有する会」を社内で開催しています。
 本記事はその時のネタをまとめたものです。
 
-今回が第8回目です。
+今回が第8回目です。過去の記事は[こちら](https://zenn.dev/topics/productivityweekly)。
 
 # news
 ## AWS Compute Optimizer で Lambda 関数の最適なメモリサイズがレコメンド可能になりました！
