@@ -4,6 +4,9 @@
   "keywords": [],
   "author": "Futa Hirakoba <korosuke613613@gmail.com> (https://korosuke613.github.io/)",
   "devDependencies": {
-    "zenn-cli": "^0.1.70"
+    "zenn-cli": "^0.1.72"
+  },
+  "scripts": {
+    "start": "zenn preview"
   }
 }
