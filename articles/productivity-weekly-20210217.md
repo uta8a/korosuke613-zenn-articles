@@ -1,6 +1,6 @@
 ---
 title: "Productivity Weekly (2021-02-17号)"
-emoji: "👁"
+emoji: "😢"
 type: "idea" # tech: 技術記事 / idea: アイデア
 topics: ["ProductivityWeekly", "生産性向上"]
 published: true
