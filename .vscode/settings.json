@@ -1,0 +1,4 @@
+{
+    "textlint.configPath": "./.textlintrc",
+    "textlint.nodePath": "./node_modules"
+}
