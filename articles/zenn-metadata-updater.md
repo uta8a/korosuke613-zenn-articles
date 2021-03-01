@@ -122,7 +122,7 @@ jobs:
 
 これでとうとう**ポチポチするだけで記事を公開できますね！**
 
-## 実装
+# 実装
 実装の話です。Action の作り方自体はググればたくさん出てくるので省略します。
 
 今回作ったアクションでは大まかに次のことを行います。
@@ -135,9 +135,9 @@ jobs:
 この記事に直接書いてあるコードは記事用に修正したコードです。そのため例外処理などは省いています。しっかりとしたテストなどを行っていないため、もしかしたら動かないコードがあるかもしれません。
 :::
 
-### 1. 変更された Markdown のファイルパス一覧を取得する
+## 1. 変更された Markdown のファイルパス一覧を取得する
 
-#### 変更されたファイルのファイルパス一覧を取得する
+### 変更されたファイルのファイルパス一覧を取得する
 まずは変更されたファイルのファイルパス一覧を取得します。git のコミットログを利用することにしました。
 
 以下のコマンドを叩くことで、指定したコミットで変更されたファイルのファイルパス一覧を取得できます。また、`<コミットのハッシュ値>`を省略するか `.` を指定すると最新のコミットが対象になります。
@@ -181,7 +181,7 @@ async function getChangedFiles(githubSha: string): Promise<string[]> {
 [@actions/exec](https://github.com/actions/toolkit/tree/master/packages/exec) は node から任意の CLI コマンドを実行したい時に使える便利パッケージです。`listeners`を設定することで標準出力や標準エラー出力を取得できます。
 :::
 
-#### Markdown のみ抽出する
+### Markdown のみ抽出する
 取得したファイル一覧を取得したら、Markdown だけを抽出します。
 以下のようなコードで実現できます。
 ```ts
@@ -190,7 +190,7 @@ function getMarkdowns(changedFiles: string[]): string[] {
 }
 ```
 
-### 2. 抽出した Markdown ごとにメタデータを更新する
+## 2. 抽出した Markdown ごとにメタデータを更新する
 `1.` で抽出した Markdown ごとに以下の流れでメタデータを更新します。
 
 1. Markdown のメタデータを取得
@@ -199,7 +199,7 @@ function getMarkdowns(changedFiles: string[]): string[] {
 
 一連の処理は[こちら](https://github.com/korosuke613/zenn-metadata-updater/blob/ee7229adb429beab300bb73c877229fce3cb5a51/src/Updater.ts)で行っています。
 
-#### Markdown のメタデータを取得
+### Markdown のメタデータを取得
 前述したように、Zenn の記事は Markdown の先頭に以下のようなメタデータを持っています。
 
 ```md
@@ -229,7 +229,7 @@ function getMetadata(markdownPath: string): ReturnType<typeof loadFront>{
 }
 ```
 
-#### Zenn の記事であるかどうかを確認
+### Zenn の記事であるかどうかを確認
 取得したメタデータが `title` 、`emoji`、`type`、`topics`、`published`のパラメータを持つ場合は Zenn の記事だと判断し、メタデータの更新します。しかし、どれか 1 つでもパラメータを持ってない場合はその他の Markdown だと判断し、メタデータの更新は行いません。
 
 以下のようなコードで実現できます。
@@ -249,7 +249,7 @@ function isZennArticleMetadata(metadata: ReturnType<typeof loadFront>): boolean 
 }
 ```
 
-#### メタデータを更新してファイル保存
+### メタデータを更新してファイル保存
 メタデータを object で取得し、`published: true`にして、YAML Front Matter 形式の文字列に変換します。
 元のファイルのメタデータ部分を変換した文字列で置き換えてファイルを保存します。
 
@@ -278,7 +278,7 @@ function saveUpdatedZennArticle(markdownPath: string, updateKey: string, updateV
 ```
 
 
-### 3. 更新した Markdown ごとにプルリクエスト作成をする
+## 3. 更新した Markdown ごとにプルリクエスト作成をする
 `2.`で Markdown を更新したので、ブランチ作成、コミット、push、プルリクエスト作成を行います。
 
 以下のような流れで行います。
@@ -286,7 +286,7 @@ function saveUpdatedZennArticle(markdownPath: string, updateKey: string, updateV
 1. ブランチ作成、コミット、push
 2. プルリクエスト作成
 
-#### ブランチ作成、コミット、push
+### ブランチ作成、コミット、push
 ブランチの作成、コミット、push を行います。
 
 ブランチ名は `zenn-metadata-updater/<ファイルパス>` という風にしました。また、`git commit`時に `user.name`と `user.email` が設定されている必要があるので、`-c`オプションを使ってこの処理の中でだけ bot の名前と email を設定しています。
@@ -353,7 +353,7 @@ async function pushChange(
 `user.email='41898282+github-actions[bot]@users.noreply.github.com'` を設定すると GitHub 上で bot ユーザが行ったコミットのように表示されます。([参考](https://github.community/t/github-actions-bot-email-address/17204/6))
 :::
 
-#### プルリクエスト作成
+### プルリクエスト作成
 先ほど push したブランチのプルリクエストを作成します。[@actions/github](https://github.com/actions/toolkit/tree/main/packages/github) パッケージを利用することで、簡単に認証済みの GitHub API クライアントを使うことができます。
 
 プルリクエストの作成には write 権限を付与したトークンが必要なので、ワークフローから Action を呼び出す際に `${{ GITHUB_TOKEN }}`を渡してもらう必要があります[^github-token]。ワークフローから渡されるパラメータの取得には [@actions/core](https://github.com/actions/toolkit/tree/main/packages/core) パッケージの `getInput()` を利用します。
@@ -397,9 +397,9 @@ export async function createPullRequest(
 ```
 
 
-## つまづきポイント
+# つまづきポイント
 
-### 思ったより Action の作成に時間がかかった
+## 思ったより Action の作成に時間がかかった
 Action を初めて作ったのでノウハウがなかったり、変更されたファイル一覧を取得する方法を模索するところから始まったりと、色々な場面でつまづきました。その結果 `publish: true` にするだけの Action の作成にえらい時間がかかってしまいました。もっと早く終わるだろうとたかを括っていました。
 
 「自動化をすることで節約できるリソース」と「開発、保守、運用にかかるコスト」を天秤にかけた時、「開発、保守、運用にかかるコスト」の方が重い場合は基本的に自動化しない方がいいという考えを僕は持っています。
@@ -408,10 +408,10 @@ Action を初めて作ったのでノウハウがなかったり、変更され�
 
 でもまあ**作りたいから作ったわけだし、色々と勉強になったので良いんです**。
 
-### git の仕様に苦しめられた
+## git の仕様に苦しめられた
 git の仕様に大変苦しめられました。
 
-#### 標準エラー出力の件
+### 標準エラー出力の件
 git のコマンドを叩くために `@actios/exec` パッケージの `exec()` を使いました。`exec()`では標準出力、標準エラー出力をキャプチャできます。標準エラー出力が吐かれたら内容を throw するように設定していました。
 
 `git switch -c hoge` でプログラムが終了してしまったため、エラー内容を見たところ、`Switched to a new branch 'hoge'`というメッセージがエラーとなっていました。この文章は正しくブランチを作れた時にでるメッセージなのでもちろんエラーではありません。
@@ -425,7 +425,7 @@ https://www.imokuri123.com/blog/2016/01/git-push-output-is-stderr/
 
 git の仕様で混乱したのはありましたが、**コマンドが失敗したかどうかを判断する際はしっかりと ExitCode をみないといけないな**という勉強にもなりました。
 
-#### コミットログがまとめられてると変更したファイル一覧を取得できない件
+### コミットログがまとめられてると変更したファイル一覧を取得できない件
 「[変更されたファイルのファイルパス一覧を取得する](#変更されたファイルのファイルパス一覧を取得する)」ではコミットログを利用することでそのコミットにおいて変更されたファイル一覧を取得できることを書きました。
 
 ただ、これはコミットログひとつしかない場合は機能しません。例えば、`git clone --depth=1 hoge/hoge`という風に clone すると、変更されたファイル一覧を取得するのではなく、git で管理している全てのファイルを取得することになります。
@@ -474,7 +474,7 @@ tree 42e8c5f669dc5a2fe0716f25023d0fb02e87ef5b
 
 [^checkout]: GitHub Actions を使うほとんどの人は actions/checkout を使って clone しているのではないでしょうか？
 
-### TypeScript をコンパイルし忘れてコードの変更が反映されてないことに気づきづらい
+## TypeScript をコンパイルし忘れてコードの変更が反映されてないことに気づきづらい
 GitHub Action を node で動かす場合、JavaScript のコードをコミットする必要があります。そのため、TypeScript でコードを書いた場合、コンパイルしてからコミットする必要があります[^ts]。
 
 単純な話ですが、コンパイルし忘れたため、ts のコードを修正してコミット & push しても GitHub Actions 上で結果が変わらないなんてことがとてもたくさん起きました。色々調べた挙句コンパイルし忘れた〜となるため、作っていてとても大変でした。
