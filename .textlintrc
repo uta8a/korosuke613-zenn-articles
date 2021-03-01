@@ -5,16 +5,7 @@
     }
   },
   "rules": {
-    "preset-ja-technical-writing": {
-        "no-exclamation-question-mark": {
-        "allowFullWidthExclamation": true,
-        "allowFullWidthQuestion": true
-      },
-      "no-doubled-joshi": {
-         "strict": false,
-         "allow": ["か"] // 助詞のうち「か」は複数回の出現を許す(e.g.: するかどうか)
-      }
-    },
+    "preset-ja-technical-writing": true,
     "preset-ja-spacing": {
       "ja-space-between-half-and-full-width": {
         "space": "always",
@@ -25,6 +16,7 @@
         "after": true
       }
     },
+    "ja-technical-writing/no-exclamation-question-mark": false,
     "ja-technical-writing/ja-no-mixed-period": {
       "allowPeriodMarks": [":"]
     },
@@ -32,6 +24,9 @@
     "ja-technical-writing/max-kanji-continuous-len": {
       // 連続できる漢字の文字数制限
       "allow": ["技術者資格制度", "依存関係更新"]
+    },
+    "@proofdict/proofdict": {
+      "dictURL": "https://<your-name>.github.io/proof-dictionary/"
     }
   }
 }
