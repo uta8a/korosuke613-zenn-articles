@@ -1,9 +1,9 @@
 ---
 title: "published: trueを自動化することで Zenn への記事投稿フローを改善した話"
 emoji: "💪"
-type: "tech" # tech: 技術記事 / idea: アイデア
+type: "tech"
 topics: ["Zenn", "githubactions", "git", "typescript", "typescript"]
-published: false
+published: true
 ---
 
 僕は Zenn の記事を GitHub で管理しています。今回、記事のメタデータを更新する GitHub Action を作ってデプロイフローを改善したのでそれを紹介します。
