@@ -1,7 +1,7 @@
 ---
 title: "Productivity Weekly (20xx-xx-xx号)"
 emoji: ""
-type: "idea" # tech: 技術記事 / idea: アイデア
+type: "idea"
 topics: ["ProductivityWeekly", "生産性向上"]
 published: false
 ---
