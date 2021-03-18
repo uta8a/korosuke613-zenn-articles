@@ -3,15 +3,17 @@
   "description": "Zennの記事を管理する",
   "keywords": [],
   "author": "Futa Hirakoba <korosuke613613@gmail.com> (https://korosuke613.github.io/)",
+
+  "scripts": {
+    "start": "zenn preview"
+  },
+
   "devDependencies": {
     "@proofdict/textlint-rule-proofdict": "^3.1.1",
     "textlint": "^11.8.2",
     "textlint-rule-preset-ja-spacing": "^2.0.2",
     "textlint-rule-preset-ja-technical-writing": "^4.0.1",
     "textlint-rule-spellcheck-tech-word": "^5.0.0",
-    "zenn-cli": "^0.1.75"
-  },
-  "scripts": {
-    "start": "zenn preview"
+    "zenn-cli": "^0.1.77"
   }
 }
