@@ -2,7 +2,7 @@
 title: "Productivity Weekly (2021-03-17号)"
 emoji: "🌑"
 type: "idea"
-topics: ["ProductivityWeekly", "生産性向上", "EngineeringProductivity"]
+topics: ["ProductivityWeekly", "生産性向上"]
 published: true
 ---
 
