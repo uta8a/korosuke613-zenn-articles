@@ -12,3 +12,6 @@ gotemplate --var count=$next_count --var year=$1 --var month="$2" --var day=$3 -
 
 # カウントを更新する
 echo $next_count > $source_dir/productivity-weekly-count.txt
+
+# ブランチ生成
+git switch -c "pw-20$1$2$3"
