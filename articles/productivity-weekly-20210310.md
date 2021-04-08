@@ -33,11 +33,17 @@ GitHub が発行する認証用トークンのフォーマットが変わり、�
 ## Secret scanning: Notifications for commit authors on private repositories - GitHub Changelog
 https://github.blog/changelog/2021-03-05-secret-scanning-notifications-for-commit-authors-on-private-repositories/
 
-GitHub の Secret scanning 機能が Private リポジトリでも使えるようになりました。（ただし AdvancedSecurity ライセンスを持った組織のみ利用可能です。）
+GitHub の Private リポジトリにおいて、 secret scanning による通知がコミット作成者にも飛ぶようになりました。
 
-Secret scanning 機能とは、外部サービス[^gaibu]で利用するためのシークレットがソースコードにそのまま埋め込まれている場合に GitHub がアラートを出してくれる機能です。シークレットが公開されていることを早期に発見できるので、シークレットが不正使用される可能性を減らすことができます。これまでは Public リポジトリのみで自動的に有効とされていました。今回の変更で、Private リポジトリでもその恩恵を受けられるようになります。
+Secret scanning 機能とは、外部サービス[^gaibu]で利用するためのシークレットがソースコードにそのまま埋め込まれている場合に GitHub がアラートを出してくれる機能です。シークレットが公開されていることを早期に発見できるので、シークレットが不正使用される可能性を減らすことができます。[去年の5月ごろ](https://github.blog/changelog/2020-05-06-github-advanced-security-secret-scanning-for-private-repositories-now-available-in-limited-public-beta/)から Private リポジトリでも利用できるようになりました。（ただし AdvancedSecurity ライセンスを持った組織のみ利用可能です。）
+
+これまでは、secret scanning でシークレットが見つかった場合、リポジトリ管理者と Organization 管理者に通知が飛ぶようになっていました。これからは、Private リポジトリでシークレットが見つかった場合に、その変更を加えたコミット作成者にも通知が飛ぶようになるため、これまで以上に素早く修正できるようになると思います。
 
 [^gaibu]: 外部サービス一覧は[ドキュメント](https://docs.github.com/en/github/administering-a-repository/about-secret-scanning)を参照してください。
+
+:::message warning
+2021/04/08 内容に誤りがあったため修正しました。
+:::
 
 # know-how
 ## 軽量Dockerイメージに安易にAlpineを使うのはやめたほうがいいという話 - inductor's blog
