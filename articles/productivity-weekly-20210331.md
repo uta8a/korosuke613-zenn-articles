@@ -26,6 +26,11 @@ CircleCI において、セットアップ・ワークフローという機能�
 
 [^orb]: CircleCI Cloud の方はあまり使ってないため、Orb のことや version: 2.1 のことがよくわかってないです。紹介する以上はちゃんと使っていかなきゃ・・・
 
+### 2021/04/26 追記
+path-filtering使ってみました。
+
+https://zenn.dev/korosuke613/scraps/74e6ccaf6f8b67
+
 ## Packages: Container registry now supports GITHUB_TOKEN - GitHub Changelog
 https://github.blog/changelog/2021-03-24-packages-container-registry-now-supports-github_token/
 
