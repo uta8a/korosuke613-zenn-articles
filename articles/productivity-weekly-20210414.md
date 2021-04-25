@@ -1,5 +1,5 @@
 ---
-title: "Productivity Weekly (2021-4-14号)"
+title: "Productivity Weekly (2021-04-14号)"
 emoji: "🎪"
 type: "idea"
 topics: ["ProductivityWeekly", "生産性向上"]
