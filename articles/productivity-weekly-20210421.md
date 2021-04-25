@@ -31,6 +31,10 @@ GitHub Actions にワークフローやジョブの同時実行を制限する�
 
 デプロイや他の環境を使う CI などの同時に実行されたくない処理をコントロールするためには、運用でカバーしたり `repository_dispatch` を使って頑張るしかなかったと思いますが、これからは楽に間違いなくコントロールできるので良いですね。
 
+### 2021/04/25 22:30 追記
+concurrencyさわってみました。jobにconcurrencyを設定してワークフローまたぐとキャンセルされたりされなかったりするのがちょっと謎。ベータ版だからまだまだしょうがないのかもしれません。
+https://zenn.dev/korosuke613/scraps/4e465aad5538d0
+
 ## Bash Uploader Security Update - Codecov
 https://about.codecov.io/security-update/
 
