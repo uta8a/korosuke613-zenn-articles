@@ -3,7 +3,7 @@ title: "Zennで連載記事を書くときの生産性を上げるアレコレ"
 emoji: "🦾"
 type: "tech"
 topics: ["ProductivityWeekly", "生産性向上", "gomplate", "shellscript"]
-published: false
+published: true
 ---
 
 こんにちは。僕は Zenn で Productivity Weekly という記事を連載しています。連載記事なので、毎回記事の構成やタイトルなどはほぼ固定されているため、記事の中身を書き始めるまでの準備作業は定型化されています。今回は、記事を書く準備作業を半自動化し、記事を書き始めるまでのスピードを上げた話をします。
