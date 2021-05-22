@@ -1,5 +1,5 @@
 ---
-title: "Productivity Weekly (20{{ .year }}-{{ .month }}-{{ .day }}号)"
+title: "Productivity Weekly (20{{ .Env.PW_YEAR }}-{{ .Env.PW_MONTH }}-{{ .Env.PW_DAY }}号)"
 emoji: ""
 type: "idea"
 topics: ["ProductivityWeekly", "生産性向上"]
@@ -11,7 +11,7 @@ published: false
 僕たち生産性向上チームは毎週水曜日に Productivity Weekly という「1 週間の間に発見された開発者の生産性向上に関するネタを共有する会」を社内で開催しています。
 本記事はその時のネタをまとめたものです。
 
-今回が第 {{.count}} 回目です。過去の記事は[こちら](https://zenn.dev/topics/productivityweekly)。
+今回が第 {{ .Env.PW_COUNT }} 回目です。過去の記事は[こちら](https://zenn.dev/topics/productivityweekly)。
 
 # news 📺
 
