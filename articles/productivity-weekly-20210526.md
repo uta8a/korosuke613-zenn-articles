@@ -69,7 +69,7 @@ https://whimsical.com/
 
 Whimsical はナレッジマネジメントツールと図形描画ツールを融合させたようなサービスです。このサービスを紹介してくれた @\_\_sakito\_\_ さんによると、[Confluence](https://www.atlassian.com/ja/software/confluence) と [draw.io](https://www.diagrams.net/) の融合に近いそうです。
 
-https://twitter.com/\_\_sakito\_\_/status/1397433961651916802?s=20
+https://twitter.com/\_\_sakito\_\_/status/1397433961651916802?s=20?conversation=none
 
 早速実際に使ってみました。公開設定にしたので以下のリンクから閲覧できます。
 
