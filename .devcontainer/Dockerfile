@@ -15,6 +15,18 @@ FROM mcr.microsoft.com/vscode/devcontainers/javascript-node:0-${VARIANT}
 # [Optional] Uncomment if you want to install more global node modules
 # RUN su node -c "npm install -g <your-package-list-here>"
 
-RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
-     && apt-get -y install --no-install-recommends go
-RUN go install github.com/hairyhenderson/gomplate@latest
+# SHELL ["/bin/bash", "-c"]
+
+# RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
+#  && apt-get -y install --no-install-recommends tz-data
+
+RUN mkdir -p /usr/local/bin && chown node:node /usr/local/bin
+
+USER node
+
+RUN curl -o /usr/local/bin/gomplate -sSL https://github.com/hairyhenderson/gomplate/releases/latest/download/gomplate_linux-amd64 \
+ && chmod 755 /usr/local/bin/gomplate
+
+ENV TZ=Asia/Tokyo
+
+# RUN go install github.com/hairyhenderson/gomplate@latest
