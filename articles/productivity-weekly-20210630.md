@@ -35,7 +35,12 @@ Issue 駆動で開発していたり、OSS を運用してたりする場合に�
 https://copilot.github.com/
 GitHub が OpenAI と協力し、機械学習を基に関数名やコメントからコードを提案する GitHub Copilot[^copilot]を発表しました（プレビュー）。OpenAI のシステムにより何十億行といったパブリックコードを学習し、コーディング中、コンテキストにあったコードを提案してくれるようです。
 
-まだ Technical Preview であり、サインアップすることで waitlist に追加されます（僕はまだ使えてません..）。現在は Python、JavaScript、TypeScript、Ruby、Go をサポートしており、VSCode と GitHub Codespaces で利用可能です。
+まだ Technical Preview であり、サインアップすることで waitlist に追加されます（僕はまだ使えてません..）。VSCode と GitHub Codespaces で利用可能です。また、さまざまな言語やフレームワークに対応していますが、Python、JavaScript、TypeScript、Ruby、Go について特に優れているとのことです。
+
+:::message warning
+2021/07/02 追記
+「現在は Python、JavaScript、TypeScript、Ruby、Go をサポートしており〜」と書いていましたが、実際はさまざまな言語やフレームワークをサポートしていたため、文章を修正しました。
+:::
 
 また、[Copilot を使った研究の詳細](https://docs.github.com/en/github/copilot/research-recitation)も公開されています。（まだ読めてない）
 
