@@ -3,7 +3,7 @@ title: "Productivity Weekly (2021-07-07号)"
 emoji: "⚰"
 type: "idea"
 topics: ["ProductivityWeekly", "生産性向上"]
-published: false
+published: true
 ---
 
 こんにちは。サイボウズ株式会社 [生産性向上チーム](https://blog.cybozu.io/entry/2020/08/31/080000)の平木場です。
