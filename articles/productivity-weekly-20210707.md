@@ -114,6 +114,8 @@ CircleCI Server 3 系は四半期ごとに Feature Release を行うとのこと
 2021/07/13 追記
 CircleCI Cloud の場合は Scale プランが必要ですが、Server 版のランナーでは Scale プランを契約しなくても利用可能[^onpre]とのご指摘をいただいたため、`（しかし、セルフホストランナーを利用するには Scale プランの契約が必要です。）` の記述を削除しました[^scale]。ご指摘ありがとうございました🙇
 
+追加料金なしで使えるとのことで、Server 版使いにとってはとても嬉しいですね。
+
 [^onpre]: そもそも Server 版に Scale プランはありませんでした。
 [^scale]: [ドキュメント](https://circleci.com/docs/2.0/runner-overview/)に `CircleCI runner is available on the Scale Plan and for server customers running server v3.1.0 and up.` とあり、`and` の意味を「かつ」だと勘違いしてしまったため、今回間違ってしまいました...英語むずい。
 :::
