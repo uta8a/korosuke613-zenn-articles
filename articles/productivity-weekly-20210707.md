@@ -105,9 +105,18 @@ https://circleci.com/server/changelog/#release-3-1-0
 
 3.0 系に比べて、いくつかの新機能や構成の変更などが追加されています。特に大きな機能としては[セットアップワークフロー](https://zenn.dev/korosuke613/articles/productivity-weekly-20210331#%E3%82%BB%E3%83%83%E3%83%88%E3%82%A2%E3%83%83%E3%83%97%E3%83%BB%E3%83%AF%E3%83%BC%E3%82%AF%E3%83%95%E3%83%AD%E3%83%BC(%E3%83%A2%E3%83%8E%E3%83%AC%E3%83%9D%E5%AF%BE%E5%BF%9C)-%E3%83%97%E3%83%AC%E3%83%93%E3%83%A5%E3%83%BC%E3%81%AB%E5%8F%82%E5%8A%A0%E3%81%97%E3%82%88%E3%81%86%EF%BC%81---community---circleci-discuss)による動的な config 生成ができるようになったことと、[セルフホストランナー](https://note.com/korosuke613/n/nc50daec1a988#4RmnD#:~:text=CircleCI%20Cloud%E3%81%A7%E3%82%BB%E3%83%AB%E3%83%95%E3%83%9B%E3%82%B9%E3%83%88%E3%83%A9%E3%83%B3%E3%83%8A%E3%83%BC%E3%81%8C%E4%BD%BF%E3%81%88%E3%82%8B%E3%82%88%E3%81%86%E3%81%AB%E3%81%AA%E3%81%A3%E3%81%9F)が利用できることになったことでしょうか。
 
-セルフホストランナーについてはそもそも CircleCI Server がオンプレ何だから別途セルフホストランナー用意するメリットあるか？となるかもしれませんが、[ランナーが使えることで、マシンスペックを柔軟に決めることができたり、macOS が使えるようになったりできます](https://circleci.com/docs/2.0/runner-overview/?section=executors-and-images)。（しかし、セルフホストランナーを利用するには Scale プランの契約が必要です。）
+セルフホストランナーについてはそもそも CircleCI Server がオンプレ何だから別途セルフホストランナー用意するメリットあるか？となるかもしれませんが、[ランナーが使えることで、マシンスペックを柔軟に決めることができたり、macOS が使えるようになったりできます](https://circleci.com/docs/2.0/runner-overview/?section=executors-and-images)。
 
 CircleCI Server 3 系は四半期ごとに Feature Release を行うとのことなので、次は 10 月ごろに大きなアップデートが来るかもしれません。やっぱり 2 系に比べてクラウド版の機能が活発に入りそうなので嬉しいですね。
+
+
+:::message warning
+2021/07/13 追記
+CircleCI Cloud の場合は Scale プランが必要ですが、Server 版のランナーでは Scale プランを契約しなくても利用可能[^onpre]とのご指摘をいただいたため、`（しかし、セルフホストランナーを利用するには Scale プランの契約が必要です。）` の記述を削除しました[^scale]。ご指摘ありがとうございました🙇
+
+[^onpre]: そもそも Server 版に Scale プランはありませんでした。
+[^scale]: [ドキュメント](https://circleci.com/docs/2.0/runner-overview/)に `CircleCI runner is available on the Scale Plan and for server customers running server v3.1.0 and up.` とあり、`and` の意味を「かつ」だと勘違いしてしまったため、今回間違ってしまいました...英語むずい。
+:::
 
 # know-how 🎓
 
