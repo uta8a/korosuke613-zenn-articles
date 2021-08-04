@@ -1,5 +1,7 @@
 name: ci
+
 on: [pull_request]
+
 jobs:
   textlint:
     name: textlint
@@ -25,3 +27,21 @@ jobs:
           level: warning
           reporter: github-check
           textlint_flags: "${{ env.ARTICLES_PATH }}/**/**"
+
+  actionlint:
+    name: actionlint
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+      - uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+      - run: npm ci
+      - name: actionlint
+        run: npm run lint:node-actionlint

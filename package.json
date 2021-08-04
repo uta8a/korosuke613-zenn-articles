@@ -4,7 +4,8 @@
   "keywords": [],
   "author": "Futa Hirakoba <korosuke613613@gmail.com> (https://korosuke613.github.io/)",
   "scripts": {
-    "start": "zenn preview"
+    "start": "zenn preview",
+    "lint:node-actionlint": "node-actionlint"
   },
   "engines": {
     "node": "14.x",
@@ -12,6 +13,7 @@
   },
   "devDependencies": {
     "@proofdict/textlint-rule-proofdict": "^3.1.2",
+    "node-actionlint": "^1.1.0",
     "textlint": "^12.0.2",
     "textlint-filter-rule-comments": "^1.2.2",
     "textlint-rule-preset-ja-spacing": "^2.2.0",
