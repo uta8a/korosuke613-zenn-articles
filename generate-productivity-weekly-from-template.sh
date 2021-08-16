@@ -18,5 +18,7 @@ gomplate -f ./articles/template/productivity-weekly-template.md.tmpl > ./article
 # カウントを更新する
 echo $PW_COUNT > ./articles/template/productivity-weekly-count.txt
 
+mkdir -p ./images/productivity-weekly-${PW_YEAR}${PW_MONTH}${PW_DAY}
+
 git add ./articles/template/productivity-weekly-count.txt ./articles/productivity-weekly-${PW_YEAR}${PW_MONTH}${PW_DAY}.md
 git commit -m "feat: Productivity Weekly(${PW_YEAR}/${PW_MONTH}/${PW_DAY})"
