@@ -60,7 +60,9 @@ EOF
 
 
 :::message
-Docker Desktop for Mac v3.6.0 では使えないと記述していたのですが、誤りでした。Dockerfile の先頭に `# syntax=docker/dockerfile:1.3-labs` を追加すれば使えました。僕は間違えて `# syntax=docker.io/docker/dockerfile:1.3.0` を追加してしまっていたため使えていませんでした。誤った情報を書いてしまい申し訳ありませんでした。
+2021/08/18 追記
+
+Docker Desktop for Mac v3.6.0 では使えないと記述していたのですが、誤りであったため修正しました。Dockerfile の先頭に `# syntax=docker/dockerfile:1.3-labs` を追加すれば使えました。僕は間違えて `# syntax=docker.io/docker/dockerfile:1.3.0` を追加してしまっていたため使えていませんでした。誤った情報を書いてしまい申し訳ありませんでした。
 :::
 
 さっそく実行してみました。Dockerfile の先頭に `# syntax=docker/dockerfile:1.3-labs` という行を追加することでヒアドキュメントが使えます。（buildkit のバージョンが新しければ無くても動作すると思われます。）
