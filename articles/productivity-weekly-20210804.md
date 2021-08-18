@@ -58,12 +58,17 @@ with open("/hello", "w") as f:
 EOF
 ```
 
-さっそく実行したのですが、僕が使っている最新版(v3.6.0)の Docker Desktop for Mac はまだ対応していませんでした[^buildx]。そのうち対応すると思いますが、早く使ってみたいですね。
+
+:::message
+Docker Desktop for Mac v3.6.0 では使えないと記述していたのですが、誤りでした。Dockerfile の先頭に `# syntax=docker/dockerfile:1.3-labs` を追加すれば使えました。僕は間違えて `# syntax=docker.io/docker/dockerfile:1.3.0` を追加してしまっていたため使えていませんでした。誤った情報を書いてしまい申し訳ありませんでした。
+:::
+
+さっそく実行してみました。Dockerfile の先頭に `# syntax=docker/dockerfile:1.3-labs` という行を追加することでヒアドキュメントが使えます。（buildkit のバージョンが新しければ無くても動作すると思われます。）
 
 :::details Docker Desktop for Mac v3.6.0 でヒアドキュメントを使った際のログ
 
 ```dockerfile:食わせたDockerfile
-# syntax=docker.io/docker/dockerfile:1.3.0
+# syntax=docker/dockerfile:1.3-labs
 
 FROM ubuntu
 
@@ -77,18 +82,30 @@ EOF
 ```
 
 ```text:Docker Desktop for Mac v3.6.0では使えなかった
-❯ docker build .                                                                                             
-[+] Building 2.5s (7/7) FINISHED                                                                                                                                                                   
- => [internal] load build definition from Dockerfile                                                                                                                                          0.0s
- => => transferring dockerfile: 193B                                                                                                                                                          0.0s
- => [internal] load .dockerignore                                                                                                                                                             0.0s
- => => transferring context: 2B                                                                                                                                                               0.0s
- => resolve image config for docker.io/docker/dockerfile:1.3.0                                                                                                                                2.1s
- => [auth] docker/dockerfile:pull token for registry-1.docker.io                                                                                                                              0.0s
- => CACHED docker-image://docker.io/docker/dockerfile:1.3.0@sha256:9e2c9eca7367393aecc68795c671f93466818395a2693498debe831fd67f5e89                                                           0.0s
- => [internal] load .dockerignore                                                                                                                                                             0.0s
- => [internal] load build definition from Dockerfile                                                                                                                                          0.0s
-failed to solve with frontend dockerfile.v0: failed to solve with frontend gateway.v0: rpc error: code = Unknown desc = dockerfile parse error on line 6: unknown instruction: apt-get
+❯ docker build .
+[+] Building 44.7s (12/12) FINISHED                                                                                                                                    
+ => [internal] load build definition from Dockerfile                                                                                                              0.0s
+ => => transferring dockerfile: 188B                                                                                                                              0.0s
+ => [internal] load .dockerignore                                                                                                                                 0.0s
+ => => transferring context: 2B                                                                                                                                   0.0s
+ => resolve image config for docker.io/docker/dockerfile:1.3-labs                                                                                                 3.0s
+ => [auth] docker/dockerfile:pull token for registry-1.docker.io                                                                                                  0.0s
+ => docker-image://docker.io/docker/dockerfile:1.3-labs@sha256:03ca0e50aa4b6e76365fa9a5607c3f988bc9284de6a82672eab5ad627324e1fe                                   0.9s
+ => => resolve docker.io/docker/dockerfile:1.3-labs@sha256:03ca0e50aa4b6e76365fa9a5607c3f988bc9284de6a82672eab5ad627324e1fe                                       0.0s
+ => => sha256:03ca0e50aa4b6e76365fa9a5607c3f988bc9284de6a82672eab5ad627324e1fe 2.00kB / 2.00kB                                                                    0.0s
+ => => sha256:c6afe91d6f5e32ee187adf7516f1ced1d7d2f9621ff4e907ce70323c35a9a375 528B / 528B                                                                        0.0s
+ => => sha256:456bbe8ddbe759d5109d4f5bfe8ce105c0086863298fde8bb49a79d3d7e134b3 1.21kB / 1.21kB                                                                    0.0s
+ => => sha256:ce897ecde42e8c45c0056748ec1a17a3edc5b7d3b091dae356a488f44ca9394a 9.67MB / 9.67MB                                                                    0.6s
+ => => extracting sha256:ce897ecde42e8c45c0056748ec1a17a3edc5b7d3b091dae356a488f44ca9394a                                                                         0.3s
+ => [internal] load build definition from Dockerfile                                                                                                              0.0s
+ => [internal] load .dockerignore                                                                                                                                 0.0s
+ => [internal] load metadata for docker.io/library/ubuntu:latest                                                                                                  1.4s
+ => [auth] library/ubuntu:pull token for registry-1.docker.io                                                                                                     0.0s
+ => CACHED [1/2] FROM docker.io/library/ubuntu@sha256:82becede498899ec668628e7cb0ad87b6e1c371cb8a1e597d83a47fac21d6af3                                            0.0s
+ => [2/2] RUN <<EOF (apt-get update...)                                                                                                                          38.8s
+ => exporting to image                                                                                                                                            0.2s
+ => => exporting layers                                                                                                                                           0.2s
+ => => writing image sha256:a0a8b99d9e4c3e78d79111a6f088bce551910c1bc52c9474e6682cf26c5178b2                                                                      0.0s
 ```
 
 :::
