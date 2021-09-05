@@ -45,3 +45,15 @@ jobs:
       - run: npm ci
       - name: actionlint
         run: npm run lint:node-actionlint
+
+  validate-renovate-config:
+    name: Validate Renovate config
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 'lts/*'
+          cache: 'npm'
+      - run: npm ci
+      - run: npm run lint:renovate-config-validator
