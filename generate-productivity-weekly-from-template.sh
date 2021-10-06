@@ -22,3 +22,6 @@ mkdir -p ./images/productivity-weekly-${PW_YEAR}${PW_MONTH}${PW_DAY}
 
 git add ./articles/template/productivity-weekly-count.txt ./articles/productivity-weekly-${PW_YEAR}${PW_MONTH}${PW_DAY}.md
 git commit -m "feat: Productivity Weekly(${PW_YEAR}/${PW_MONTH}/${PW_DAY})"
+
+# Renovate による npm パッケージの更新をローカルの node_modules に反映するため
+npm install
