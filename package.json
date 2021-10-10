@@ -8,9 +8,9 @@
     "lint:node-actionlint": "node-actionlint",
     "lint:renovate-config-validator": "renovate-config-validator"
   },
+  "packageManager": "npm@7.24.2",
   "engines": {
-    "node": "14.x",
-    "npm": "8.x"
+    "node": "16.x"
   },
   "devDependencies": {
     "@proofdict/textlint-rule-proofdict": "3.1.2",
