@@ -3,10 +3,8 @@ title: "Productivity Weekly (2021-10-13号)"
 emoji: "💻"
 type: "idea"
 topics: ["ProductivityWeekly", "生産性向上"]
-published: false
-user_defined: 
-  # This block is user-defined.
-  publish_link: https://zenn.dev/korosuke613/articles/productivity-weekly-20211013
+published: true
+user_defined: {"publish_link": "https://zenn.dev/korosuke613/articles/productivity-weekly-20211013"}
 ---
 
 こんにちは。サイボウズ株式会社 [生産性向上チーム](https://blog.cybozu.io/entry/2020/08/31/080000)の平木場です。
