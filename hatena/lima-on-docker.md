@@ -119,7 +119,7 @@ Docker CLI は [Homebrew](https://formulae.brew.sh/formula/docker) でインス�
 
 正式リリースされたらもしかしたら Docker CLI にバンドルされるかもしれません。
 
-## `DOCKER_HOST` 環境変数を設定する && `~/ssh/config` を設定する
+## `DOCKER_HOST` 環境変数を設定する && `~/ssh/config` を設定する（2021/10/22 追記）
 Docker CLI はデフォルトでは `unix:///var/run/docker.sock` を見に行きますが、`DOCKER_HOST` 環境変数を設定することでソケットの読み先を変えることができます。
 
 どう設定すればいいかのヒントは `example/docker.yaml` に書かれています。
@@ -141,6 +141,14 @@ Docker CLI はデフォルトでは `unix:///var/run/docker.sock` を見に行�
 `~/ssh/config` の一部
 
 <script src="https://gist.github.com/korosuke613/b0256b90794a13508a03ba1500e69b88.js?file=ssh_config"></script>
+
+**2021/10/22 追記**
+
+[lima v0.7.2](https://github.com/lima-vm/lima/releases/tag/v0.7.2) にて、`limactl show-ssh` コマンドが追加されました。このコマンドを使うことで、以下のような `~/.ssh/config` の設定を生成できます。`~/.ssh` 下にある IdentityFile が追加されるので、不必要であれば調整してください。
+
+<script src="https://gist.github.com/korosuke613/b0256b90794a13508a03ba1500e69b88.js?file=ssh_config_by_lima"></script>
+
+**2021/10/22 追記終わり**
 
 もう一度 `docker version` してみます。
 
