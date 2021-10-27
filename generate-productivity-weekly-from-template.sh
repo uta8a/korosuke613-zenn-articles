@@ -25,3 +25,6 @@ git commit -m "feat: Productivity Weekly(${PW_YEAR}/${PW_MONTH}/${PW_DAY})"
 
 # Renovate による npm パッケージの更新をローカルの node_modules に反映するため
 npm install
+
+# 忘れないうちにプルリクを作成
+gh pr create 
