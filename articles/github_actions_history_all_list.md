@@ -1,9 +1,9 @@
 ---
 title: "GitHub Actions の Changelog リスト"
 emoji: "🚀"
-type: "tech" # tech: 技術記事 / idea: アイデア
+type: "tech"
 topics: ["GitHubActions"]
-published: false
+published: true
 ---
 
 :::message
