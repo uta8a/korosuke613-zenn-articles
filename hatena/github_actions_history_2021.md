@@ -56,7 +56,8 @@ GitHub Changelog を元に、GitHub Actions がどのように更新されてい
 <!-- 2021/4Q https://www.google.com/search?q=github+actions&tbs=cdr%3A1%2Ccd_min%3A10%2F1%2F2021%2Ccd_max%3A12%2F31%2F2021 -->
 
 <h1 id="history"># 歴史</h1>
-まず、<a href="https://github.blog/changelog/" target="_blank" rel="noopener">GitHub Changelog</a> をひたすら目 grep して Actions に関わる変更をリスト化((リストはZennの記事として投稿しています。<a href="https://zenn.dev/korosuke613/articles/github_actions_history_all_list" target="_blank" rel="noopener">GitHub Actions の Changelog リスト</a>))し、Zenn のスクラップ（<a href="https://zenn.dev/korosuke613/scraps/f43dd22a243e18" target="_blank" rel="noopener">GitHub Actionsの歴史を調査</a>）にまとめました。
+
+まず、<a href="https://github.blog/changelog/" target="_blank" rel="noopener">GitHub Changelog</a> をひたすら目 grep して Actions に関わる変更を<a href="https://zenn.dev/korosuke613/articles/github_actions_history_all_list" target="_blank" rel="noopener">リスト化</a>し、Zenn のスクラップ（<a href="https://zenn.dev/korosuke613/scraps/f43dd22a243e18" target="_blank" rel="noopener">GitHub Actionsの歴史を調査</a>）にまとめました。
 
 そして、その中でも特にエンドユーザに関係ありそうな変更をピックアップしてこの記事に載っけています。
 
