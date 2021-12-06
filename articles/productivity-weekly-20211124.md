@@ -43,7 +43,7 @@ GitHub Actions のキャッシュサイズがリポジトリあたり 5GB → 10
 会ではお金出してキャッシュサイズ増やせたらいいのにねって話とかしてました。
 :::
 
-[^layar_caching]: Buildkit 登場前は大変（というよりほぼできなかった）でしたが、最近は割と簡単にできるようになりました。例：[Github Actionsでのdocker buildでキャッシュを有効にする](https://zenn.dev/74th/articles/c966c3bf389247https://zenn.dev/74th/articles/c966c3bf389247)
+[^layar_caching]: Buildkit 登場前は大変（というよりほぼできなかった）でしたが、最近は割と簡単にできるようになりました。例：[Github Actionsでのdocker buildでキャッシュを有効にする](https://zenn.dev/74th/articles/c966c3bf389247)
 
 ## Release v1.6.0 · aws-actions/configure-aws-credentials
 https://github.com/aws-actions/configure-aws-credentials/releases/tag/v1.6.0
