@@ -3,7 +3,7 @@ title: "Productivity Weekly 記事 1 周年 🎉 〜続けてみてのアレコ�
 emoji: "🎂"
 type: "idea"
 topics: ["ProductivityWeekly", "生産性向上"]
-published: false
+published: true
 ---
 
 こんにちは。サイボウズ株式会社 [生産性向上チーム](https://note.com/cybozu_dev/n/n1c1b44bf72f6)の平木場です。
