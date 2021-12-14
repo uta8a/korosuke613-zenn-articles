@@ -1,6 +1,6 @@
 ---
 title: "Productivity Weekly (2021-12-08号)"
-emoji: ""
+emoji: "👫"
 type: "idea"
 topics: ["ProductivityWeekly", "生産性向上"]
 published: false
