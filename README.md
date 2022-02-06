@@ -1,9 +1,9 @@
-# Zenn Contents
+# Zenn Contents for korosuke613
 
 * [📘 How to use](https://zenn.dev/zenn/articles/zenn-cli-guide)
 * [📘 Markdown guide](https://zenn.dev/zenn/articles/markdown-guide)
 
-## Usage
+## Preview
 ```
 npm run start
 ```
