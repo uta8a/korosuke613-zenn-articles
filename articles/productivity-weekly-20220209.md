@@ -72,7 +72,7 @@ https://github.blog/changelog/2022-02-02-the-new-github-issues-02-02-update/
 
 # know-how 🎓
 
-##　Blog Series of Introduction of Developer Productivity Engineering at Mercari | Mercari Engineering
+## Blog Series of Introduction of Developer Productivity Engineering at Mercari | Mercari Engineering
 https://engineering.mercari.com/en/blog/entry/20220116-blog-series-of-introduction-of-developer-productivity-engineering-at-mercari/
 
 メルカリの Developer Productivity Engineering を紹介する一連のブログ記事まとめです。
@@ -116,7 +116,7 @@ Productivity Weekly で出たネタを全て紹介したいけど体力が持た
   - この記事ではまともな運用にするためにやった施策（権限の最小化、IaC 化、監査ログの有効化、SAML SSO の強制など）が書かれている
 
 # あとがき
-遅くなってしまいすみません。今週号はあまり僕の時間が取れず、ネタを検証する時間が取れませんでした（sigstore 実際に試すよ余裕なかった...）。
+遅くなってしまいすみません。今週号はあまり僕の時間が取れず、ネタを検証する時間が取れませんでした（sigstore 実際に試す余裕なかった...）。
 
 そういえば、Zenn に記事を投稿する際、`published: true` にするプルリクエストを作るアクション [korosuke613/zenn-metadata-updater-action の v1.1.0](https://github.com/korosuke613/zenn-metadata-updater-action/releases/tag/v1.1.0) をリリースしました。v1.1.0 では Zenn のメタデータを検証する機能を追加しました。メタデータがおかしいとこんな感じで怒ってくれます。 
 
