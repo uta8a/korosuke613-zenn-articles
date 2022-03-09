@@ -1,5 +1,5 @@
 ---
-title: "Productivity Weekly (2022-02-23号)"
+title: "Productivity Weekly (2022-03-02号)"
 emoji: "🇺🇦"
 type: "idea"
 topics: ["ProductivityWeekly", "生産性向上"]
