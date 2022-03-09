@@ -3,7 +3,7 @@ title: "Productivity Weekly (2022-02-23号)"
 emoji: "🇺🇦"
 type: "idea"
 topics: ["ProductivityWeekly", "生産性向上"]
-published: false
+published: true
 user_defined: {"publish_link": "https://zenn.dev/korosuke613/articles/productivity-weekly-20220223"}
 ---
 
