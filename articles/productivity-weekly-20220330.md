@@ -43,7 +43,7 @@ https://github.blog/changelog/2022-03-24-ignore-commits-in-the-blame-view-beta/
 
 GitHub の blame 画面において、`.git-blame-ignore-revs` ファイルに書かれたコミットを無視して表示できるようになりました（ベータ）。
 
-`git blame` は任意のファイルの各行がどのコミットによって変更されたかを調べるためのコマンドです。~~よく意図のわからないコードを書いた人を特定するために使われます。~~`git blame` は Git のコマンドですが、GitHub 上でも同じようなことができます。
+`git blame` は任意のファイルの各行がどのコミットによって変更されたかを調べるためのコマンドです。~~よく意図のわからないコードがどのコミットで追加されたかを特定するために使われます。~~`git blame` は Git のコマンドですが、GitHub 上でも同じようなことができます。
 
 Git コマンドの方では、`git blame --ignore-revs-file <ignoreしたいコミットが載ったファイル> <対象ファイル>` で blame に出すコミットを無視できます。今回の GitHub の変更も同じようなもののようです。
 
