@@ -7,7 +7,7 @@ published: true
 ---
 
 :::message
-最終更新日： 2021/12/01
+最終更新日： 2022/04/08
 :::
 
 # 概要
@@ -19,8 +19,36 @@ GitHub Actions の歴史についてまとめたものも投稿してます。
 
 https://korosuke613.hatenablog.com/entry/history-of-github-actions
 
-# Actions が関係する Changelog
 
+# Actions が関係する Changelog
+<!-- 注釈ゾーン -->
+[^1201-ensure]: status check で actions の check じゃないとダメって設定できるようになったやつ。
+[^1207-ghes]: ghes で ephemeral runner が使えるようになったやつ。
+[^1209-depe]: 
+
+- 2022-04-06 [GitHub Action for dependency review enforcement | GitHub Changelog](https://github.blog/changelog/2022-04-06-github-action-for-dependency-review-enforcement/)
+- 2022-04-04 [GitHub Actions: Job management hooks for self-hosted runners | GitHub Changelog](https://github.blog/changelog/2022-04-04-github-actions-job-management-hooks-for-self-hosted-runners/)
+- 2022-03-21 [GitHub Actions: Restrict self-hosted runner groups to specific workflows | GitHub Changelog](https://github.blog/changelog/2022-03-21-github-actions-restrict-self-hosted-runner-groups-to-specific-workflows/)
+- 2022-03-17 [GitHub Actions: Re-run only failed or individual jobs | GitHub Changelog](https://github.blog/changelog/2022-03-17-github-actions-re-run-only-failed-or-individual-jobs/)
+- 2022-03-17 [View cache usage in your Action workflows | GitHub Changelog](https://github.blog/changelog/2022-03-17-view-cache-usage-in-your-action-workflows/)
+- 2022-03-15 [GitHub Enterprise Server 3.4 is now generally available | GitHub Changelog](https://github.blog/changelog/2022-03-15-github-enterprise-server-3-4-is-now-generally-available/)
+- 2022-03-04 [Sharing GitHub Actions within your enterprise is now GA | GitHub Changelog](https://github.blog/changelog/2022-03-04-sharing-github-actions-within-your-enterprise-is-now-ga/)
+- 2022-02-22 [Discover code scanning partner integrations on the GitHub Actions tab | GitHub Changelog](https://github.blog/changelog/2022-02-22-discover-code-scanning-partner-integrations-on-the-github-actions-tab/)
+- 2022-02-01 [GitHub Actions: Self-hosted runners can now disable automatic updates | GitHub Changelog](https://github.blog/changelog/2022-02-01-github-actions-self-hosted-runners-can-now-disable-automatic-updates/)
+- 2022-01-31 [Dependency graph adds support for GitHub Actions | GitHub Changelog](https://github.blog/changelog/2022-01-31-dependency-graph-adds-support-for-github-actions/)
+- 2022-01-25 [GitHub Actions: Reusable workflows can be referenced locally | GitHub Changelog](https://github.blog/changelog/2022-01-25-github-actions-reusable-workflows-can-be-referenced-locally/)
+- 2022-01-21 [Share GitHub Actions within your enterprise | GitHub Changelog](https://github.blog/changelog/2022-01-21-share-github-actions-within-your-enterprise/)
+- 2022-01-14 [GitHub Actions: Prevent GitHub Actions from approving pull requests | GitHub Changelog](https://github.blog/changelog/2022-01-14-github-actions-prevent-github-actions-from-approving-pull-requests/)
+- 2022-01-14 [Updates to the Checks Data Retention Policy | GitHub Changelog](https://github.blog/changelog/2022-01-14-updates-to-the-checks-data-retention-policy/)
+- 2022-01-13 [GitHub Actions - Update on OIDC based deployments to AWS | GitHub Changelog](https://github.blog/changelog/2022-01-13-github-actions-update-on-oidc-based-deployments-to-aws/)
+- 2022-01-11 [GitHub Actions: Jobs running on `windows-latest` are now running on Windows Server 2022. | GitHub Changelog](https://github.blog/changelog/2022-01-11-github-actions-jobs-running-on-windows-latest-are-now-running-on-windows-server-2022/)
+- 2022-01-04 [GitHub Actions: Changing the search order for self-hosted runners | GitHub Changelog](https://github.blog/changelog/2022-01-04-github-actions-changing-the-search-order-for-self-hosted-runners/)
+- 2021-12-17 [GitHub Actions: Improvements to GitHub Actions starter experience | GitHub Changelog](https://github.blog/changelog/2021-12-17-github-actions-improvements-to-github-actions-starter-experience/)
+- 2021-12-16 [GitHub Pages: using GitHub Actions for builds and deployments for public repositories | GitHub Changelog](https://github.blog/changelog/2021-12-16-github-pages-using-github-actions-for-builds-and-deployments-for-public-repositories/)
+- 2021-12-10 [GitHub Actions: GitHub-hosted runners now run Node.js 16 by default | GitHub Changelog](https://github.blog/changelog/2021-12-10-github-actions-github-hosted-runners-now-run-node-js-16-by-default/)
+- 2021-12-09 [GitHub Actions: Changes to permissions in workflows triggered by Dependabot | GitHub Changelog](https://github.blog/changelog/2021-12-09-github-actions-changes-to-permissions-in-workflows-triggered-by-dependabot/)
+- 2021-12-07 [GitHub Enterprise Server 3.3 is Generally Available | GitHub Changelog](https://github.blog/changelog/2021-12-07-github-enterprise-server-3-3-is-generally-available/)[^1207-ghes]
+- 2021-12-01 [Ensure required status checks provided by the intended app | GitHub Changelog](https://github.blog/changelog/2021-12-01-ensure-required-status-checks-provided-by-the-intended-app/)[^1201-ensure]
 - 2021-11-30 [GitHub Actions: Workflows triggered by Dependabot receive dependabot secrets | GitHub Changelog](https://github.blog/changelog/2021-11-30-github-actions-workflows-triggered-by-dependabot-receive-dependabot-secrets/)
 - 2021-11-25 [API support for managing labels of Actions self-hosted runners | GitHub Changelog](https://github.blog/changelog/2021-11-25-api-support-for-managing-labels-of-actions-self-hosted-runners/)
 - 2021-11-24 [GitHub Actions: Reusable workflows are generally available | GitHub Changelog](https://github.blog/changelog/2021-11-24-github-actions-reusable-workflows-are-generally-available/)
@@ -156,7 +184,12 @@ https://korosuke613.hatenablog.com/entry/history-of-github-actions
 
 ### 管理用
 
-#### `[<タイトル>](<URL>)` から `- <日付> [<タイトル>](<URL>)` にするための正規表現
+#### `<タイトル>\n<URL>` から `- <日付> [<タイトル>](<URL>)` にするための正規表現
+
+- 検索文字列: `(.*)\n(.*)(\d\d\d\d-\d\d-\d\d)(.*)`
+- 痴漢文字列: `- $3 [$1]($2$3$4)`
+
+#### `- [<タイトル>](<URL>)` から `- <日付> [<タイトル>](<URL>)` にするための正規表現
 
 - 検索文字列: `- (\[.*)(\d\d\d\d-\d\d-\d\d)(.*)`
 - 置換文字列: `- $2 $1$2$3`
