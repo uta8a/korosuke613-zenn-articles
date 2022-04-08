@@ -13,7 +13,7 @@ GitHub Changelog を元に、GitHub Actions がどのように更新されてい
 
 ~~わりと雑に作ったので~~漏れや間違いがあったらコメントとか下さい。
 
-**2021/12/01 までの情報をもとにこの記事は書かれています。**
+**2022/04/08 までの情報をもとにこの記事は書かれています。**
 
 **この記事は <a href="https://qiita.com/advent-calendar/2021/github-actions" target="_blank" rel="noopener">GitHub Actions Advent Calendar 2021</a> の 1 日目の記事です 🎅🎂**
 
@@ -25,6 +25,7 @@ GitHub Changelog を元に、GitHub Actions がどのように更新されてい
 **目次**
 
 - [# はじめに](#start)
+  - [## 更新履歴](#changelog)
 - [# 歴史](#history)
   - [## 発表 〜 正式リリース（2018/10 〜 2019/11）](#beta)
   - [## 2020](#2020)
@@ -54,6 +55,11 @@ GitHub Changelog を元に、GitHub Actions がどのように更新されてい
 <!-- 2021/2Q https://www.google.com/search?q=github+actions&tbs=cdr%3A1%2Ccd_min%3A4%2F1%2F2021%2Ccd_max%3A6%2F30%2F2021 -->
 <!-- 2021/3Q https://www.google.com/search?q=github+actions&tbs=cdr%3A1%2Ccd_min%3A7%2F1%2F2021%2Ccd_max%3A9%2F30%2F2021 -->
 <!-- 2021/4Q https://www.google.com/search?q=github+actions&tbs=cdr%3A1%2Ccd_min%3A10%2F1%2F2021%2Ccd_max%3A12%2F31%2F2021 -->
+
+<h2 id="changelog">## 更新履歴</h2>
+
+- 2022/04/08 更新 (差分: [#178](https://github.com/korosuke613/zenn-articles/pull/178))
+- 2021/12/01 公開 (差分: [#116](https://github.com/korosuke613/zenn-articles/pull/116))
 
 <h1 id="history"># 歴史</h1>
 
@@ -416,6 +422,7 @@ actions/setup-\* アクションにキャッシュ機能が生え始めました
 ##### ##### Self-hosted runner
 
 - `FEATURE🚀`, <a href="<https://zenn.dev/korosuke613/articles/productivity-weekly-20210915#support-the---ephemeral-flag-(%23660" target="_blank" rel="noopener">`PW💪`</a>-%C2%B7-actions%2Frunner>): <a href="https://github.blog/changelog/2021-09-20-github-actions-ephemeral-self-hosted-runners-new-webhooks-for-auto-scaling/" target="_blank" rel="noopener">使い捨てのセルフホストランナー（ephemeral runner）が使えるように</a>
+  - [Enterprise Server でも 3.3 から対応](https://github.blog/changelog/2021-12-07-github-enterprise-server-3-3-is-generally-available/)
 
 #### #### API
 
@@ -448,6 +455,9 @@ OpenID Connect を利用できるようになりました。これにより、�
 - `FEATURE🚀`, `SECURITY🔐`, <a href="https://zenn.dev/korosuke613/articles/productivity-weekly-20211108#github-actions%3A-secure-cloud-deployments-with-openid-connect-%7C-github-changelog" target="_blank" rel="noopener">`PW💪`</a>: <a href="https://github.blog/changelog/2021-10-27-github-actions-secure-cloud-deployments-with-openid-connect/" target="_blank" rel="noopener">OpenID Connect が利用可能に</a>（<a href="https://github.blog/changelog/2021-11-23-secure-cloud-deployments-with-oidc-is-now-ga/" target="_blank" rel="noopener">その後 GA</a>）。クラウドサービス利用をより安全にできるようになった
 - `FEATURE🚀`, `SECURITY🔐`, <a href="https://zenn.dev/korosuke613/articles/productivity-weekly-20211013#github-actions%3A-workflows-triggered-by-dependabot-prs-will-respect-permissions-key-in-workflows-%7C-github-changelog" target="_blank" rel="noopener">`PW💪`</a>: <a href="https://github.blog/changelog/2021-10-06-github-actions-workflows-triggered-by-dependabot-prs-will-respect-permissions-key-in-workflows/" target="_blank" rel="noopener">Dependabot のプルリクエストによってトリガーされるワークフローが `permissions` を尊重するように</a>
 - `FEATURE🚀`, `SECURITY🔐`, <a href="https://zenn.dev/korosuke613/articles/productivity-weekly-20211013#github-actions%3A-workflows-triggered-by-dependabot-prs-will-respect-permissions-key-in-workflows-%7C-github-changelog" target="_blank" rel="noopener">`PW💪`</a>: <a href="https://github.blog/changelog/2021-11-30-github-actions-workflows-triggered-by-dependabot-receive-dependabot-secrets/" target="_blank" rel="noopener">Dependabot の PR によってトリガーされるワークフローが Dependabot のシークレットを読み込めるように</a>
+- `BRAKING CHANGE💥`, `SECURITY🔐`, [`PW💪`](https://zenn.dev/korosuke613/articles/productivity-weekly-20211215#github-actions%3A-changes-to-permissions-in-workflows-triggered-by-dependabot-%7C-github-changelog): [Dependabot の PR によってトリガーされる一部ワークフローの権限が制限された](https://github.blog/changelog/2021-12-09-github-actions-changes-to-permissions-in-workflows-triggered-by-dependabot/)
+  - `create`、`deployment`、`deployment_status` でトリガーされるワークフローは常に read-only なトークンとなり、シークレットは読めなくなる
+  - `pull_request_target` でトリガーされたワークフローが dependabot が作成したコミットを対象とする場合、常に read-only なトークンとなり、シークレットは読めなくなる
 
 #### #### Workflow
 
@@ -466,10 +476,17 @@ OpenID Connect を利用できるようになりました。これにより、�
 - `FEATURE🚀`: <a href="https://github.blog/changelog/2021-11-23-github-actions-cache-size-is-now-increased-to-10gb-per-repository/" target="_blank" rel="noopener">キャッシュサイズが 5GB から 10GB に増加</a>
 - `FEATURE🚀`: <a href="https://github.blog/changelog/2021-11-23-github-actions-setup-python-now-supports-dependency-caching/" target="_blank" rel="noopener">actions/setup-python アクションがキャッシュをサポート</a>。actions/cache のステップを書かずとも pip/pipenv のキャッシュを利用できるように
 
+#### #### Runner
+
+##### ##### GitHub-hosted runner
+- `FEATURE🚀`, `BRAKING CHANGE💥`, `SECURITY🔐`: [GitHub-hosted runner において、Node.js 16、npm 8 がデフォルトバージョンとなった](https://github.blog/changelog/2021-12-10-github-actions-github-hosted-runners-now-run-node-js-16-by-default/)
+
 #### #### Management
 
 - `FEATURE🚀`, `SECURITY🔐`, <a href="https://zenn.dev/korosuke613/articles/productivity-weekly-20211013#github-actions%3A-granular-personal-access-token-scopes-for-self-hosted-runners-in-enterprises-%7C-github-changelog" target="_blank" rel="noopener">`PW💪`</a>: <a href="https://github.blog/changelog/2021-10-11-github-actions-granular-personal-access-token-scopes-for-self-hosted-runners-in-enterprises/" target="_blank" rel="noopener">Enterprise 内でセルフホストランナーを管理する場合に必要な権限のみを持つ `manage_runners:enterprise` スコープが登場</a>。`admin:enterprise` スコープを持つパーソナルアクセストークンが必要なくなった。不要な権限を与えずに済むように
 - `FEATURE🚀`: <a href="https://github.blog/changelog/2021-11-25-api-support-for-managing-labels-of-actions-self-hosted-runners/" target="_blank" rel="noopener">API を使ってセルフホストランナーのラベルを管理できるように</a>
+- `FEATURE🚀`, `SECURITY🔐`: [ブランチ保護の status checks において、どの GitHub App の status checks かを指定できるように](https://github.blog/changelog/2021-12-01-ensure-required-status-checks-provided-by-the-intended-app/)
+- 
 
 <h2 id="2022">## 2022</h2>
 
