@@ -63,7 +63,7 @@ GitHub Changelog を元に、GitHub Actions がどのように更新されてい
 
 <h1 id="history"># 歴史</h1>
 
-まず、<a href="https://github.blog/changelog/" target="_blank" rel="noopener">GitHub Changelog</a> をひたすら目 grep して Actions に関わる変更を<a href="https://zenn.dev/korosuke613/articles/github_actions_history_all_list" target="_blank" rel="noopener">リスト化</a>し、Zenn のスクラップ（<a href="https://zenn.dev/korosuke613/scraps/f43dd22a243e18" target="_blank" rel="noopener">GitHub Actionsの歴史を調査</a>）にまとめました。
+まず、<a href="https://github.blog/changelog/" target="_blank" rel="noopener">GitHub Changelog</a> をひたすら目 grep して Actions に関わる変更を<a href="https://zenn.dev/korosuke613/articles/github_actions_history_all_list" target="_blank" rel="noopener">リスト化</a>し、Zenn のスクラップ（<a href="https://zenn.dev/korosuke613/scraps/f43dd22a243e18" target="_blank" rel="noopener">GitHub Actions の歴史を調査</a>）にまとめました。
 
 そして、その中でも特にエンドユーザに関係ありそうな変更をピックアップしてこの記事に載っけています。
 
@@ -458,6 +458,7 @@ OpenID Connect を利用できるようになりました。これにより、�
 - `BRAKING CHANGE💥`, `SECURITY🔐`, [`PW💪`](https://zenn.dev/korosuke613/articles/productivity-weekly-20211215#github-actions%3A-changes-to-permissions-in-workflows-triggered-by-dependabot-%7C-github-changelog): [Dependabot の PR によってトリガーされる一部ワークフローの権限が制限された](https://github.blog/changelog/2021-12-09-github-actions-changes-to-permissions-in-workflows-triggered-by-dependabot/)
   - `create`、`deployment`、`deployment_status` でトリガーされるワークフローは常に read-only なトークンとなり、シークレットは読めなくなる
   - `pull_request_target` でトリガーされたワークフローが dependabot が作成したコミットを対象とする場合、常に read-only なトークンとなり、シークレットは読めなくなる
+- `FEATURE🚀`, [`PW💪`](https://zenn.dev/korosuke613/articles/productivity-weekly-20211222#github-pages%3A-using-github-actions-for-builds-and-deployments-for-public-repositories-%7C-github-changelog): [GitHub Pages のビルドとデプロイのログが GitHub Actions で見られるように](https://github.blog/changelog/2021-12-16-github-pages-using-github-actions-for-builds-and-deployments-for-public-repositories/)。関連アクションも近いうちに出る予定とのこと。
 
 #### #### Workflow
 
@@ -475,6 +476,7 @@ OpenID Connect を利用できるようになりました。これにより、�
 - `FEATURE🚀`: <a href="https://github.blog/changelog/2021-11-17-debugging-codeql-code-scanning-made-easier-by-retaining-diagnostic-artifacts-in-actions/" target="_blank" rel="noopener">github/codeql-action/init アクションに CodeQL の利用時に問題が発生した際、デバッグを容易にするための設定（`debug`）が追加</a>。有効にすると CodeQL のログや DB などがアーティファクトに保存される。GitHub のサポートから求められる可能性もある
 - `FEATURE🚀`: <a href="https://github.blog/changelog/2021-11-23-github-actions-cache-size-is-now-increased-to-10gb-per-repository/" target="_blank" rel="noopener">キャッシュサイズが 5GB から 10GB に増加</a>
 - `FEATURE🚀`: <a href="https://github.blog/changelog/2021-11-23-github-actions-setup-python-now-supports-dependency-caching/" target="_blank" rel="noopener">actions/setup-python アクションがキャッシュをサポート</a>。actions/cache のステップを書かずとも pip/pipenv のキャッシュを利用できるように
+- `FEATURE🚀`, [`PW💪`](https://zenn.dev/korosuke613/articles/productivity-weekly-20211222#github-pages%3A-using-github-actions-for-builds-and-deployments-for-public-repositories-%7C-github-changelog): [GitHub Pages のビルドとデプロイのログが GitHub Actions で見られるように](https://github.blog/changelog/2021-12-16-github-pages-using-github-actions-for-builds-and-deployments-for-public-repositories/)。関連アクションも近いうちに出る予定とのこと。
 
 #### #### Runner
 
@@ -486,7 +488,9 @@ OpenID Connect を利用できるようになりました。これにより、�
 - `FEATURE🚀`, `SECURITY🔐`, <a href="https://zenn.dev/korosuke613/articles/productivity-weekly-20211013#github-actions%3A-granular-personal-access-token-scopes-for-self-hosted-runners-in-enterprises-%7C-github-changelog" target="_blank" rel="noopener">`PW💪`</a>: <a href="https://github.blog/changelog/2021-10-11-github-actions-granular-personal-access-token-scopes-for-self-hosted-runners-in-enterprises/" target="_blank" rel="noopener">Enterprise 内でセルフホストランナーを管理する場合に必要な権限のみを持つ `manage_runners:enterprise` スコープが登場</a>。`admin:enterprise` スコープを持つパーソナルアクセストークンが必要なくなった。不要な権限を与えずに済むように
 - `FEATURE🚀`: <a href="https://github.blog/changelog/2021-11-25-api-support-for-managing-labels-of-actions-self-hosted-runners/" target="_blank" rel="noopener">API を使ってセルフホストランナーのラベルを管理できるように</a>
 - `FEATURE🚀`, `SECURITY🔐`: [ブランチ保護の status checks において、どの GitHub App の status checks かを指定できるように](https://github.blog/changelog/2021-12-01-ensure-required-status-checks-provided-by-the-intended-app/)
-- 
+
+#### #### WebUI
+- `FEATURE🚀`: [ワークフローを WebUI 上で 1 から作るときに、リポジトリの中身を分析しておすすめテンプレートを示すように](https://github.blog/changelog/2021-12-17-github-actions-improvements-to-github-actions-starter-experience/)
 
 <h2 id="2022">## 2022</h2>
 
