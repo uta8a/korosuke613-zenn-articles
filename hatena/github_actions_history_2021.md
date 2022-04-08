@@ -498,11 +498,22 @@ OpenID Connect を利用できるようになりました。これにより、�
 
 2022/1Q に起こる予定の Changelog も書いておきます。
 
+#### #### System
+- [`PW💪`](https://zenn.dev/korosuke613/articles/productivity-weekly-20220119#github-actions---update-on-oidc-based-deployments-to-aws-%7C-github-changelog): [OIDC で AWS の認証している場合にワークフローが動かなくなってしまう問題への対処方法について](https://github.blog/changelog/2022-01-13-github-actions-update-on-oidc-based-deployments-to-aws/)
+- `BRAKING CHANGE💥`: [400日以上経過した checks がアーカイブされるように](https://github.blog/changelog/2022-01-14-updates-to-the-checks-data-retention-policy/)
+  - ワークフローを実行してから 400 日以上放置したプルリクなどでは再度ワークフローを実行する必要があります
+- `FEATURE🚀`, `SECURITY🔐`, [`PW💪`](https://zenn.dev/korosuke613/articles/productivity-weekly-20220119#github-actions%3A-prevent-github-actions-from-approving-pull-requests-%7C-github-changelog): [GitHub Actions を使ってプルリクエストを approve できるかどうかをコントロールできるように](https://github.blog/changelog/2022-01-14-github-actions-prevent-github-actions-from-approving-pull-requests/)。これまでは actions を使って Write 権限を持ったユーザが自由に approve できてしまいました。
+  - しかし、既存のワークフローを壊さないようにデフォルトでは approve できるようになっています
+
 #### #### Runner
 
 ##### ##### GitHub-hosted runner
 
 - `BRAKING CHANGE💥`: <a href="https://github.blog/changelog/2021-10-19-github-actions-the-windows-2016-runner-image-will-be-removed-from-github-hosted-runners-on-march-15-2022/" target="_blank" rel="noopener">Windows Server 2016 ランナーが 2022/03/15 に削除される予定</a>
+- `FEATURE🚀`, `BRAKING CHANGE💥`: [`windows-latest` が Windows Server 2022 を指すように](https://github.blog/changelog/2022-01-11-github-actions-jobs-running-on-windows-latest-are-now-running-on-windows-server-2022/)
+
+##### ##### Self-hosted runner
+- `FEATURE🚀`, [`PW💪`](https://zenn.dev/korosuke613/articles/productivity-weekly-20220105#github-actions%3A-changing-the-search-order-for-self-hosted-runners-%7C-github-changelog): [GitHub がセルフホストランナーを探す際の検索順序が変更され、早くランナーがジョブに割り当てられるように](https://github.blog/changelog/2022-01-04-github-actions-changing-the-search-order-for-self-hosted-runners/)
 
 <h1 id="end"># おわりに</h1>
 
