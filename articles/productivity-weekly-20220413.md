@@ -85,7 +85,7 @@ S3 バケットを多く扱っているプロジェクトにおいては移行�
 [^other]: 他にもアプデを試した方が記事を出しているので、こちらも参考になると思います。[[Changes to S3 Bucket Drift Detection] Terraform AWS Provider 4.9のaws_s3_bucketリソースにおけるアップデート内容 | gkzz.dev](https://gkzz.dev/posts/changes-to-s3-bucket-drift-detection-with-aws-provider-v4/)
 
 # know-how 🎓
-「システム運用アンチパターン」という書籍を翻訳しました｜yuichielectric｜note
+## 「システム運用アンチパターン」という書籍を翻訳しました｜yuichielectric｜note
 https://note.com/yuichielectric/n/n45b907b9dd93
 
 最近発売した「システム運用アンチパターン」という書籍の翻訳をした方による書籍の紹介記事です。
