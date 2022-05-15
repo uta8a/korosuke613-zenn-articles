@@ -99,6 +99,12 @@ Node.js v16 で使えるようになった機能は別にしんどくないブ�
 
 - [Node.js v16 の主な変更点 - 別にしんどくないブログ](https://shisama.hatenablog.com/entry/2021/04/22/090000)
 
+:::message
+これ書いてる途中で正式発表がありました。みなさん Node.js v16 を利用するようにしましょう。
+
+https://aws.amazon.com/jp/blogs/compute/node-js-16-x-runtime-now-available-in-aws-lambda/
+:::
+
 # tool 🔨
 
 ## test-summary/action: Show a helpful summary of test results in GitHub Actions CI/CD workflow runs
