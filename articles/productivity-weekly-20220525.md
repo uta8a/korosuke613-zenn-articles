@@ -14,6 +14,11 @@ user_defined: {"publish_link": "https://zenn.dev/korosuke613/articles/productivi
 
 今回が第 75 回目です。過去の記事は[こちら](https://zenn.dev/topics/productivityweekly?order=latest)。
 
+:::message
+追記
+- 2022/05/30: [コメント](https://zenn.dev/link/comments/11c5b9a47ee514)にて Civilization の綴りの誤りをご指摘いただいたので修正しました。ありがとうございました！
+:::
+
 # news 📺
 
 ## Terraform 1.2 Improves Exception Handling and Updates to the CLI-driven Workflow
@@ -137,7 +142,7 @@ Productivity Weekly で出たネタを全て紹介したいけど体力が持た
 
 昨日先週号を出したばっかなのであんまりあとがきに書くこともないっすね。
 
-そういえば僕は Sivilization という文明を指導して世界の覇権国家を目指すゲームが好きなんですけど、その Sivilization っぽいゲーム Old World が日本語対応するみたいなので買って遊んでみました（[ターン制ストラテジー「Old World」のSteam/GOG版の配信がスタート。日本語表示は6月中に実装予定](https://www.4gamer.net/games/504/G050406/20220519129/)）。遊んでみた感想としてはめちゃくちゃ Siv っぽいのですが、考えることが多くて慣れるまで難しいです。でも面白いです。そっくりすぎないところは良かったですね。
+そういえば僕は Civilization という文明を指導して世界の覇権国家を目指すゲームが好きなんですけど、その Civilization っぽいゲーム Old World が日本語対応するみたいなので買って遊んでみました（[ターン制ストラテジー「Old World」のSteam/GOG版の配信がスタート。日本語表示は6月中に実装予定](https://www.4gamer.net/games/504/G050406/20220519129/)）。遊んでみた感想としてはめちゃくちゃ Civ っぽいのですが、考えることが多くて慣れるまで難しいです。でも面白いです。そっくりすぎないところは良かったですね。
 
 :::message
 そういえば、Revue を試験的に始めてみました。Subscribe すると、Productivity Weekly 最新号が出たらメールが届きます。よかったら登録してみてください。
