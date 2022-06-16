@@ -16,11 +16,11 @@ npm run start
 
 ### 記事公開
 1. 作成されたプルリクエストをマージ（[例](https://github.com/korosuke613/zenn-articles/pull/199)）
-2. zenn.dev のダッシュボード（https://zenn.dev/dashboard）で内容確認
+2. zenn.dev のダッシュボード (https://zenn.dev/dashboard) で内容確認
 3. `published: true` にするプルリクエストをマージ（[例](https://github.com/korosuke613/zenn-articles/pull/200)）
 
 ### 記事宣伝
-Revue で自動的に生まれている Issue を編集（https://www.getrevue.co/app/issues/current）する。
+Revue で自動的に生まれている Issue を編集 (https://www.getrevue.co/app/issues/current) する。
 
 1. `SUBJECT`: Productivity Weekly (<日付>号)
 2. `Type your introductory text here`: <日付>号を公開しました
