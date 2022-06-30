@@ -37,7 +37,7 @@ GitHub が OpenAI と協力し、機械学習を基に関数名やコメント�
 
 まだ Technical Preview であり、サインアップすることで waitlist に追加されます（僕はまだ使えてません..）。VSCode と GitHub Codespaces で利用可能です。また、さまざまな言語やフレームワークに対応していますが、Python、JavaScript、TypeScript、Ruby、Go について特に優れているとのことです。
 
-:::message warning
+:::message
 2021/07/02 追記
 「現在は Python、JavaScript、TypeScript、Ruby、Go をサポートしており〜」と書いていましたが、実際はさまざまな言語やフレームワークをサポートしていたため、文章を修正しました。
 :::
