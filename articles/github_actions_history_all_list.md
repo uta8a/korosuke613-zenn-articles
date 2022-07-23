@@ -7,7 +7,7 @@ published: true
 ---
 
 :::message
-最終更新日： 2022/04/08
+最終更新日： 2022/07/24
 :::
 
 # 概要
@@ -26,6 +26,17 @@ https://korosuke613.hatenablog.com/entry/history-of-github-actions
 [^1207-ghes]: ghes で ephemeral runner が使えるようになったやつ。
 [^1209-depe]: 
 
+- 2022-07-20 [GitHub Actions The macOS 10.15 Actions runner image is being deprecated and will be removed by 8/30/22](https://github.blog/changelog/2022-07-20-github-actions-the-macos-10-15-actions-runner-image-is-being-deprecated-and-will-be-removed-by-8-30-22/)
+- 2022-06-27 [List and delete caches in your Actions workflows | GitHub Changelog](https://github.blog/changelog/2022-06-27-list-and-delete-caches-in-your-actions-workflows)
+- 2022-06-13 [GitHub Actions: macOS 12 for GitHub-hosted runners is now generally available | GitHub Changelog](https://github.blog/changelog/2022-06-13-github-actions-macos-12-for-github-hosted-runners-is-now-generally-available)
+- 2022-06-10 [GitHub Actions: Inputs unified across manual and reusable workflows | GitHub Changelog](https://github.blog/changelog/2022-06-10-github-actions-inputs-unified-across-manual-and-reusable-workflows)
+- 2022-05-24 [GitHub Actions: Re-run jobs with debug logging | GitHub Changelog](https://github.blog/changelog/2022-05-24-github-actions-re-run-jobs-with-debug-logging)
+- 2022-05-20 [Actions can now run in a Node.js 16 runtime | GitHub Changelog](https://github.blog/changelog/2022-05-20-actions-can-now-run-in-a-node-js-16-runtime)
+- 2022-05-10 [GitHub Actions: Beta of Ubuntu 22.04 for GitHub-hosted runners is now available | GitHub Changelog](https://github.blog/changelog/2022-05-10-github-actions-beta-of-ubuntu-22-04-for-github-hosted-runners-is-now-available)
+- 2022-05-09 [GitHub Actions: Enhance your actions with job summaries | GitHub Changelog](https://github.blog/changelog/2022-05-09-github-actions-enhance-your-actions-with-job-summaries)
+- 2022-05-03 [GitHub Actions: Prevent GitHub Actions from creating and approving pull requests | GitHub Changelog](https://github.blog/changelog/2022-05-03-github-actions-prevent-github-actions-from-creating-and-approving-pull-requests)
+- 2022-05-03 [GitHub Actions: Simplify using secrets with reusable workflows | GitHub Changelog](https://github.blog/changelog/2022-05-03-github-actions-simplify-using-secrets-with-reusable-workflows)
+- 2022-04-25 [GitHub Actions: Public beta of macOS 12 for GitHub-hosted runners is now available | GitHub Changelog](https://github.blog/changelog/2022-04-25-github-actions-public-beta-of-macos-12-for-github-hosted-runners-is-now-available)
 - 2022-04-06 [GitHub Action for dependency review enforcement | GitHub Changelog](https://github.blog/changelog/2022-04-06-github-action-for-dependency-review-enforcement/)
 - 2022-04-04 [GitHub Actions: Job management hooks for self-hosted runners | GitHub Changelog](https://github.blog/changelog/2022-04-04-github-actions-job-management-hooks-for-self-hosted-runners/)
 - 2022-03-21 [GitHub Actions: Restrict self-hosted runner groups to specific workflows | GitHub Changelog](https://github.blog/changelog/2022-03-21-github-actions-restrict-self-hosted-runner-groups-to-specific-workflows/)
