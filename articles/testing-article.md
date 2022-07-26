@@ -1,5 +1,5 @@
 ---
-title: "test article"
+title: "testing article"
 emoji: "🫠"
 type: "idea"
 topics: ["test"]
