@@ -1,0 +1,25 @@
+h1 {
+  font-weight: bold;
+  
+  code {
+    font-weight: bold;
+  }
+}
+
+.footnotes-sep {
+  @apply mt-2 opacity-40;
+}
+
+.footnotes {
+  @apply text-sm opacity-75;
+}
+
+.footnote-backref {
+  display: none;
+}
+
+.slidev-layout p {
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+}
+
