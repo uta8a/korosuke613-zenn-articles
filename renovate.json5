@@ -8,7 +8,9 @@
     ":semanticCommitTypeAll(chore)", // If semantic commits detected, use semantic commit type chore for all
     "schedule:weekly"
   ],
-
+  "ignorePaths": [
+    "slides/" // バージョンアップによりスライドが生成できなくなることがあるので更新しない
+  ],
   "separateMajorMinor": false,
   "packageRules": [
     {
