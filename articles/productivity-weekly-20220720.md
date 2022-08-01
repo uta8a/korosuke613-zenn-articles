@@ -19,7 +19,7 @@ user_defined: {"publish_link": "https://zenn.dev/korosuke613/articles/productivi
 ## Carbon, a new programming language from Google, aims to be C++ successor
 https://9to5google.com/2022/07/19/carbon-programming-language-google-cpp/
 
-Google が C++ の後継者とするための新しいプログラミング言語 Carbon を発表しました（exprimental）。
+Google が C++ の後継者とするための新しいプログラミング言語 Carbon を発表しました（experimental）。
 
 Rust が C++の後継者であるという考え方もありますが、その実 Java や kotlin のような双方向の相互運用性が無いため、実際に C++プロジェクトを移行することは困難であると記事で提唱されています。Carbon は既存の C++コードと完全に相互運用可能であり、C++から Carbon への移行をできるだけ簡単にすることを目標としています。
 
