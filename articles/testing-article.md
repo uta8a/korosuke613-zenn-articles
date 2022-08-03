@@ -1,6 +1,6 @@
 ---
 title: "testing article"
-emoji: "🫠"
+emoji: "🫥"
 type: "idea"
 topics: ["test"]
 published: false
