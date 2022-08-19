@@ -22,8 +22,8 @@ npm run start
 ### 記事宣伝
 Revue で自動的に生まれている Issue を編集 (https://www.getrevue.co/app/issues/current) する。
 
-1. `SUBJECT`: Productivity Weekly (<日付>号)
-2. `Type your introductory text here`: <日付>号を公開しました
+1. `SUBJECT`: Productivity Weekly (<日付>号) を公開しました
+2. `Type your introductory text here`: <空白>
 3. Link の作成
    1. `Link` をクリック
    2. 公開した記事の URL を入力
