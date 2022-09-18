@@ -1,0 +1,21 @@
+name: CI for Renovate
+
+on: 
+  pull_request:
+    paths: 
+      - .github/workflows/ci-renovate.yaml
+      - renovate.json5
+
+jobs:
+  validate-renovate-config:
+    name: Validate config
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+          cache: 'npm'
+      - run: corepack enable npm
+      - run: npm ci
+      - run: npm run lint:renovate-config-validator

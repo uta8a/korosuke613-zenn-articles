@@ -3,11 +3,12 @@ name: CI for Zenn
 on: 
   pull_request:
     paths: 
-      - 'articles/**.md'
+      - .github/workflows/ci-zenn.yaml
+      - articles/**.md
 
 jobs:  
   validate-zenn-metadata:
-    name: Validate Zenn metadata
+    name: Validate metadata
     runs-on: ubuntu-latest
       
     steps:
@@ -18,3 +19,29 @@ jobs:
         with:
           validate-only: true
           github-token: ""
+
+  textlint:
+    name: Check textlint
+    runs-on: ubuntu-latest
+    env:
+      ARTICLES_PATH: articles
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+      - uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+      - run: corepack enable npm
+      - run: npm ci
+      - name: textlint / github-check
+        uses: tsuyoshicho/action-textlint@v3
+        with:
+          github_token: ${{ secrets.github_token }}
+          level: warning
+          reporter: github-check
+          textlint_flags: "${{ env.ARTICLES_PATH }}/**/**"
