@@ -1,0 +1,23 @@
+name: CI for npm
+
+on: 
+  pull_request:
+    paths: 
+      - package.json
+      - package-lock.json
+      - .github/workflows/ci-npm.yaml
+
+jobs:
+  check-run-zenn-cli:
+    name: Check run zenn-cli
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+          cache: 'npm'
+      - run: corepack enable npm
+      - run: npm ci
+      - run: npm run start &
+      - run: curl localhost:8000
