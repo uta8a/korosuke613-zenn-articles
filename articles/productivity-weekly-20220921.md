@@ -15,6 +15,11 @@ user_defined: {"publish_link": "https://zenn.dev/korosuke613/articles/productivi
 
 今回が第 92 回目です。過去の記事は[こちら](https://zenn.dev/topics/productivityweekly?order=latest)。
 
+:::message
+最近多忙のためなかなか Weekly を書く時間が取れないので、今月は**いつもより分量少なめの簡易版**とします。
+ご了承ください。
+:::
+
 # news 📺
 
 ## Improved control over Personal Access Tokens (PATs) · Issue #184 · github/roadmap
