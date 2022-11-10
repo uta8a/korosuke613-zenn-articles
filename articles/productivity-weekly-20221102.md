@@ -1,5 +1,5 @@
 ---
-title: "Productivity Weekly (2022-11-02号) 簡易版"
+title: "Productivity Weekly (2022-11-02号)"
 emoji: "🥅"
 type: "idea"
 topics: ["ProductivityWeekly", "生産性向上"]
@@ -14,10 +14,6 @@ user_defined: {"publish_link": "https://zenn.dev/korosuke613/articles/productivi
 本記事はその時のネタをまとめたものです。
 
 今回が第 98 回目です。過去の記事は[こちら](https://zenn.dev/topics/productivityweekly?order=latest)。
-
-:::message
-今週とてもネタ少なめなので簡易版としました。
-:::
 
 # news 📺
 
