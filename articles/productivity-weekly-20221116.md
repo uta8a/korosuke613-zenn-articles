@@ -129,7 +129,7 @@ Scalar で有効になる Git の機能や利用有無によるパフォーマ�
 
 Git の今年のアップデート（特に大規模リポジトリ関連）を追えていない人にお勧めしたいスライドです。
 
-## GitHub Actionsで並列処理を作っていてヒヤッとした話
+## GitHub Actionsで並列処理を作っていてヒヤッとした話 - ゆるりと
 https://khasegawa.hatenablog.com/entry/2022/11/14/100000
 
 GitHub Actions において、`matrix` 利用時にヒヤッとした話です。
