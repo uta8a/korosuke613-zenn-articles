@@ -3,7 +3,7 @@ title: "Renovate config の変更が想定通りか確認する 〜真の dry-ru
 emoji: "🕵️‍♂️"
 type: "tech"
 topics: ["Renovate"]
-published: false
+published: true
 publication_name: "cybozu_ept"
 user_defined: {"publish_link": "https://zenn.dev/korosuke613/articles/compare-renovate-dry-run"}
 ---
