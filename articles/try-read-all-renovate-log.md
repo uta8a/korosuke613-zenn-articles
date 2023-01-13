@@ -1,5 +1,5 @@
 ---
-title: "Renovate の実行ログぜんぶ読んでみる"
+title: "Renovate のログぜんぶ読む"
 emoji: "🤯"
 type: "tech"
 topics: ["Renovate"]
