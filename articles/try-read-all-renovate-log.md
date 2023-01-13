@@ -63,3 +63,91 @@ file.ts の `getConfig()` という関数を呼び出すと出てくる。
 
 ## WARN: cli config dryRun property has been changed to full
 cli の config（引数）で dry-run をしているため、それのメッセージ。
+
+## DEBUG: File config
+
+```json
+"config": {
+    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+    "extends": [
+        "config:base",
+        ":label(renovate)",
+        ":timezone(Asia/Tokyo)",
+        ":enableVulnerabilityAlertsWithLabel(security)",
+        ":semanticCommitTypeAll(chore)",
+        "schedule:weekly"
+    ],
+    "separateMajorMinor": true,
+    "packageRules": [
+        {
+            "matchManagers": ["npm"],
+            "matchPaths": ["tools/package.json"],
+            "groupName": "npm-tools"
+        },
+        {
+            "matchManagers": ["npm"],
+            "matchPaths": ["+(package.json)"],
+            "groupName": "npm-root"
+        }
+    ]
+}
+```       
+
+## DEBUG: CLI config
+
+```json
+"config": {
+    "repositories": ["korosuke613/homepage-2nd"],
+    "dryRun": "full",
+    "requireConfig": "ignored",
+    "schedule": []
+}
+```       
+
+## DEBUG: Env config
+
+```json
+"config": {
+    "hostRules": [],
+    "token": "***********",
+    "username": "renovate[bot]",
+    "gitAuthor": "renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>"
+}
+```
+
+## DEBUG: Combined config
+
+```json
+"config": {
+    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+    "extends": [
+        "config:base",
+        ":label(renovate)",
+        ":timezone(Asia/Tokyo)",
+        ":enableVulnerabilityAlertsWithLabel(security)",
+        ":semanticCommitTypeAll(chore)",
+        "schedule:weekly"
+    ],
+    "separateMajorMinor": true,
+    "packageRules": [
+        {
+            "matchManagers": ["npm"],
+            "matchPaths": ["tools/package.json"],
+            "groupName": "npm-tools"
+        },
+        {
+            "matchManagers": ["npm"],
+            "matchPaths": ["+(package.json)"],
+            "groupName": "npm-root"
+        }
+    ],
+    "hostRules": [],
+    "token": "***********",
+    "username": "renovate[bot]",
+    "gitAuthor": "renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>",
+    "repositories": ["korosuke613/homepage-2nd"],
+    "dryRun": "full",
+    "requireConfig": "ignored",
+    "schedule": []
+}
+```
