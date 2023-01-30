@@ -9,5 +9,7 @@
         "ORAS",
         "Rubo",
         "Speee"
-    ]
+    ],
+  "deno.enable": true,
+  "deno.unstable": true
 }

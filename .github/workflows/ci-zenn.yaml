@@ -20,6 +20,25 @@ jobs:
           validate-only: true
           github-token: ""
 
+  check-duplicate-emoji:
+    name: Check duplicate emoji
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+
+      - name: Fetch main branch
+        run: |
+          git fetch origin main:main
+
+      - uses: denoland/setup-deno@v1
+        with:
+          deno-version: v1.x
+
+      - run: |
+          deno run --allow-read --allow-run=git,grep ./tools/checkDuplicateEmoji.ts
+
   textlint:
     name: Check textlint
     runs-on: ubuntu-latest
