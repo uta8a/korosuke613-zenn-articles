@@ -8,6 +8,9 @@ export PW_COUNT=$(($(cat ./articles/template/productivity-weekly-count.txt) + 1)
 export PW_YEAR=$1
 export PW_MONTH=$2
 export PW_DAY=$3
+export PW_PREV_YEAR=${4:-}
+export PW_PREV_MONTH=${5:-}
+export PW_PREV_DAY=${6:-}
 
 # ブランチ生成
 git checkout -b "pw-${PW_YEAR}${PW_MONTH}${PW_DAY}"

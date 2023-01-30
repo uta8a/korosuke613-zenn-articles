@@ -10,9 +10,18 @@ npm run start
 
 ## Productivity Weekly
 ### 新しく記事を書く
+
+#### 単独号の場合
 ```
 ./generate-productivity-weekly-template.sh <西暦> <月> <日>
 ```
+
+#### 隔週号の場合
+```
+./generate-productivity-weekly-template.sh <西暦> <月> <日> <前回の西暦> <前回の月> <前回の日>
+```
+
+タイトル等には `<西暦>`、`<月>`、`<日>` が入ります。
 
 ### 記事公開
 1. 作成されたプルリクエストをマージ（[例](https://github.com/korosuke613/zenn-articles/pull/199)）
