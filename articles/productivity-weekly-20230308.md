@@ -1,5 +1,5 @@
 ---
-title: "Productivity Weekly (2023-03-08号)"
+title: "GitHub Actions Importer、CircleCIのM1 Macインスタンスなど | Productivity Weekly (2023-03-08号)"
 emoji: "🔔"
 type: "idea"
 topics: ["ProductivityWeekly", "生産性向上"]
