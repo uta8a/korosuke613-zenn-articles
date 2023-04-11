@@ -163,8 +163,6 @@ https://docs.google.com/presentation/d/1hDY2pb-nYVSLr0HrtQ4EVyrDU4QGgwp4-VRG-Rf2
 
 [^haikyo]: 自分らで作ったものもあれば、人からもらったものもある。
 
-# tool 🔨
-
 # read more 🍘
 Productivity Weekly で出たネタを全て紹介したいけど紹介する体力が持たなかったネタを一言程度で書くコーナーです。
 
