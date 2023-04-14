@@ -2,70 +2,70 @@
 title: "リポジトリ: セットアップ"
 ---
 
-##  INFO: Repository started (repository=korosuke613/homepage-2nd)
+##  `INFO: Repository started (repository=korosuke613/homepage-2nd)`
 
-[renovate.log.json#L100](https://github.com/korosuke613/zenn-articles/blob/read-all-renovate-log/books/try-read-all-renovate-log/renovate.log.json#L100)
+[#L100](https://github.com/korosuke613/zenn-articles/blob/read-all-renovate-log/books/try-read-all-renovate-log/#L100)
 
 ```json
        "renovateVersion": "34.100.1"
 ```
 
-## DEBUG: Using localDir: /tmp/renovate/repos/github/korosuke613/homepage-2nd (repository=korosuke613/homepage-2nd)
+## `DEBUG: Using localDir: /tmp/renovate/repos/github/korosuke613/homepage-2nd (repository=korosuke613/homepage-2nd)`
 
-[renovate.log.json#L102](https://github.com/korosuke613/zenn-articles/blob/read-all-renovate-log/books/try-read-all-renovate-log/renovate.log.json#L102)
+[#L102](https://github.com/korosuke613/zenn-articles/blob/read-all-renovate-log/books/try-read-all-renovate-log/#L102)
 
-## DEBUG: PackageFiles.clear() - Package files deleted (repository=korosuke613/homepage-2nd)
+## `DEBUG: PackageFiles.clear() - Package files deleted (repository=korosuke613/homepage-2nd)`
 
-[renovate.log.json#L103](https://github.com/korosuke613/zenn-articles/blob/read-all-renovate-log/books/try-read-all-renovate-log/renovate.log.json#L103)
-
-
-## DEBUG: initRepo("korosuke613/homepage-2nd") (repository=korosuke613/homepage-2nd)
-
-[renovate.log.json#L104](https://github.com/korosuke613/zenn-articles/blob/read-all-renovate-log/books/try-read-all-renovate-log/renovate.log.json#L104)
+[#L103](https://github.com/korosuke613/zenn-articles/blob/read-all-renovate-log/books/try-read-all-renovate-log/#L103)
 
 
-## DEBUG: korosuke613/homepage-2nd default branch = main (repository=korosuke613/homepage-2nd)
+## `DEBUG: initRepo("korosuke613/homepage-2nd") (repository=korosuke613/homepage-2nd)`
 
-[renovate.log.json#L105](https://github.com/korosuke613/zenn-articles/blob/read-all-renovate-log/books/try-read-all-renovate-log/renovate.log.json#L105)
-
-## DEBUG: Using app token for git init (repository=korosuke613/homepage-2nd)
-
-[renovate.log.json#L106](https://github.com/korosuke613/zenn-articles/blob/read-all-renovate-log/books/try-read-all-renovate-log/renovate.log.json#L106)
-
-## DEBUG: Resetting npmrc (repository=korosuke613/homepage-2nd)
-
-[renovate.log.json#L107](https://github.com/korosuke613/zenn-articles/blob/read-all-renovate-log/books/try-read-all-renovate-log/renovate.log.json#L107)
-
-## DEBUG: checkOnboarding() (repository=korosuke613/homepage-2nd)
-
-[renovate.log.json#L108](https://github.com/korosuke613/zenn-articles/blob/read-all-renovate-log/books/try-read-all-renovate-log/renovate.log.json#L108)
+[#L104](https://github.com/korosuke613/zenn-articles/blob/read-all-renovate-log/books/try-read-all-renovate-log/#L104)
 
 
-## DEBUG: isOnboarded() (repository=korosuke613/homepage-2nd)
+## `DEBUG: korosuke613/homepage-2nd default branch = main (repository=korosuke613/homepage-2nd)`
 
-[renovate.log.json#L109](https://github.com/korosuke613/zenn-articles/blob/read-all-renovate-log/books/try-read-all-renovate-log/renovate.log.json#L109)
+[#L105](https://github.com/korosuke613/zenn-articles/blob/read-all-renovate-log/books/try-read-all-renovate-log/#L105)
 
-## DEBUG: Config file will be ignored (repository=korosuke613/homepage-2nd)
+## `DEBUG: Using app token for git init (repository=korosuke613/homepage-2nd)`
 
-[renovate.log.json#L110](https://github.com/korosuke613/zenn-articles/blob/read-all-renovate-log/books/try-read-all-renovate-log/renovate.log.json#L110)
+[#L106](https://github.com/korosuke613/zenn-articles/blob/read-all-renovate-log/books/try-read-all-renovate-log/#L106)
 
-## DEBUG: Repo is onboarded (repository=korosuke613/homepage-2nd)
+## `DEBUG: Resetting npmrc (repository=korosuke613/homepage-2nd)`
 
-[renovate.log.json#L111](https://github.com/korosuke613/zenn-articles/blob/read-all-renovate-log/books/try-read-all-renovate-log/renovate.log.json#L111)
+[#L107](https://github.com/korosuke613/zenn-articles/blob/read-all-renovate-log/books/try-read-all-renovate-log/#L107)
 
+## `DEBUG: checkOnboarding() (repository=korosuke613/homepage-2nd)`
 
-## DEBUG: migrateAndValidate() (repository=korosuke613/homepage-2nd)
-
-[renovate.log.json#L112](https://github.com/korosuke613/zenn-articles/blob/read-all-renovate-log/books/try-read-all-renovate-log/renovate.log.json#L112)
-
-## DEBUG: No config migration necessary (repository=korosuke613/homepage-2nd)
-
-[renovate.log.json#L113](https://github.com/korosuke613/zenn-articles/blob/read-all-renovate-log/books/try-read-all-renovate-log/renovate.log.json#L113)
+[#L108](https://github.com/korosuke613/zenn-articles/blob/read-all-renovate-log/books/try-read-all-renovate-log/#L108)
 
 
-## DEBUG: massaged config (repository=korosuke613/homepage-2nd)
+## `DEBUG: isOnboarded() (repository=korosuke613/homepage-2nd)`
 
-[renovate.log.json#L114](https://github.com/korosuke613/zenn-articles/blob/read-all-renovate-log/books/try-read-all-renovate-log/renovate.log.json#L114)
+[#L109](https://github.com/korosuke613/zenn-articles/blob/read-all-renovate-log/books/try-read-all-renovate-log/#L109)
+
+## `DEBUG: Config file will be ignored (repository=korosuke613/homepage-2nd)`
+
+[#L110](https://github.com/korosuke613/zenn-articles/blob/read-all-renovate-log/books/try-read-all-renovate-log/#L110)
+
+## `DEBUG: Repo is onboarded (repository=korosuke613/homepage-2nd)`
+
+[#L111](https://github.com/korosuke613/zenn-articles/blob/read-all-renovate-log/books/try-read-all-renovate-log/#L111)
+
+
+## `DEBUG: migrateAndValidate() (repository=korosuke613/homepage-2nd)`
+
+[#L112](https://github.com/korosuke613/zenn-articles/blob/read-all-renovate-log/books/try-read-all-renovate-log/#L112)
+
+## `DEBUG: No config migration necessary (repository=korosuke613/homepage-2nd)`
+
+[#L113](https://github.com/korosuke613/zenn-articles/blob/read-all-renovate-log/books/try-read-all-renovate-log/#L113)
+
+
+## `DEBUG: massaged config (repository=korosuke613/homepage-2nd)`
+
+[#L114](https://github.com/korosuke613/zenn-articles/blob/read-all-renovate-log/books/try-read-all-renovate-log/#L114)
 
 ```json
        "config": {
@@ -80,8 +80,8 @@ title: "リポジトリ: セットアップ"
        }
 ```
 
-## DEBUG: migrated config (repository=korosuke613/homepage-2nd)
-[renovate.log.json#L125](https://github.com/korosuke613/zenn-articles/blob/read-all-renovate-log/books/try-read-all-renovate-log/renovate.log.json#L125)
+## `DEBUG: migrated config (repository=korosuke613/homepage-2nd)`
+[#L125](https://github.com/korosuke613/zenn-articles/blob/read-all-renovate-log/books/try-read-all-renovate-log/#L125)
 
 ```json
        "config": {
@@ -97,7 +97,7 @@ title: "リポジトリ: セットアップ"
 ```       
 
 
-## DEBUG: Setting hostRules from config (repository=korosuke613/homepage-2nd)
+## `DEBUG: Setting hostRules from config (repository=korosuke613/homepage-2nd)`
 
-[renovate.log.json#L136](https://github.com/korosuke613/zenn-articles/blob/read-all-renovate-log/books/try-read-all-renovate-log/renovate.log.json#L136)
+[#L136](https://github.com/korosuke613/zenn-articles/blob/read-all-renovate-log/books/try-read-all-renovate-log/#L136)
 
