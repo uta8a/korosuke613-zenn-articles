@@ -4,7 +4,7 @@ title: "Renovateのセットアップ"
 
 
 ## DEBUG: Using RE2 as regex engine
-[https://gist.github.com/korosuke613/449f19c3cc1572835f84f1da16a3b5d8#file-renovate-log-json-L1](https://gist.github.com/korosuke613/449f19c3cc1572835f84f1da16a3b5d8#file-renovate-log-json-L1)
+[renovate.log.json#L1](https://github.com/korosuke613/zenn-articles/blob/read-all-renovate-log/books/try-read-all-renovate-log/renovate.log.json#L1)
 
 ### 実装
 https://github.com/renovatebot/renovate/blob/3b72d500983036ec76d33e70a1a177f800321d78/lib/util/regex.ts#L15
@@ -17,7 +17,7 @@ https://github.com/renovatebot/renovate/blob/3b72d500983036ec76d33e70a1a177f8003
 
 ## DEBUG: Parsing configs
 
-[https://gist.github.com/korosuke613/449f19c3cc1572835f84f1da16a3b5d8#file-renovate-log-json-L2](https://gist.github.com/korosuke613/449f19c3cc1572835f84f1da16a3b5d8#file-renovate-log-json-L2)
+[renovate.log.json#L2](https://github.com/korosuke613/zenn-articles/blob/read-all-renovate-log/books/try-read-all-renovate-log/renovate.log.json#L2)
 
 ### 実装
 
@@ -41,7 +41,7 @@ https://github.com/renovatebot/renovate/blob/3b72d500983036ec76d33e70a1a177f8003
 
 ## DEBUG: Checking for config file in <configのパス>
 
-[https://gist.github.com/korosuke613/449f19c3cc1572835f84f1da16a3b5d8#file-renovate-log-json-L3](https://gist.github.com/korosuke613/449f19c3cc1572835f84f1da16a3b5d8#file-renovate-log-json-L3)
+[renovate.log.json#L3](https://github.com/korosuke613/zenn-articles/blob/read-all-renovate-log/books/try-read-all-renovate-log/renovate.log.json#L3)
 
 ### 利用箇所
 
@@ -61,12 +61,12 @@ file.ts の `getConfig()` という関数を呼び出すと出てくる。
 ## WARN: cli config dryRun property has been changed to full
 cli の config（引数）で dry-run をしているため、それのメッセージ。
 
-[https://gist.github.com/korosuke613/449f19c3cc1572835f84f1da16a3b5d8#file-renovate-log-json-L4](https://gist.github.com/korosuke613/449f19c3cc1572835f84f1da16a3b5d8#file-renovate-log-json-L4)
+[renovate.log.json#L4](https://github.com/korosuke613/zenn-articles/blob/read-all-renovate-log/books/try-read-all-renovate-log/renovate.log.json#L4)
 
 
 ## DEBUG: File config
 
-[https://gist.github.com/korosuke613/449f19c3cc1572835f84f1da16a3b5d8#file-renovate-log-json-L5](https://gist.github.com/korosuke613/449f19c3cc1572835f84f1da16a3b5d8#file-renovate-log-json-L5)
+[renovate.log.json#L5](https://github.com/korosuke613/zenn-articles/blob/read-all-renovate-log/books/try-read-all-renovate-log/renovate.log.json#L5)
 
 ```json
 "config": {
@@ -97,7 +97,7 @@ cli の config（引数）で dry-run をしているため、それのメッセ
 
 ## DEBUG: CLI config
 
-[https://gist.github.com/korosuke613/449f19c3cc1572835f84f1da16a3b5d8#file-renovate-log-json-L30](https://gist.github.com/korosuke613/449f19c3cc1572835f84f1da16a3b5d8#file-renovate-log-json-L30)
+[renovate.log.json#L30](https://github.com/korosuke613/zenn-articles/blob/read-all-renovate-log/books/try-read-all-renovate-log/renovate.log.json#L30)
 
 ```json
 "config": {
@@ -110,7 +110,7 @@ cli の config（引数）で dry-run をしているため、それのメッセ
 
 ## DEBUG: Env config
 
-[https://gist.github.com/korosuke613/449f19c3cc1572835f84f1da16a3b5d8#file-renovate-log-json-L37](https://gist.github.com/korosuke613/449f19c3cc1572835f84f1da16a3b5d8#file-renovate-log-json-L37)
+[renovate.log.json#L37](https://github.com/korosuke613/zenn-articles/blob/read-all-renovate-log/books/try-read-all-renovate-log/renovate.log.json#L37)
 
 ```json
 "config": {
@@ -123,7 +123,7 @@ cli の config（引数）で dry-run をしているため、それのメッセ
 
 ## DEBUG: Combined config
 
-[https://gist.github.com/korosuke613/449f19c3cc1572835f84f1da16a3b5d8#file-renovate-log-json-L44](https://gist.github.com/korosuke613/449f19c3cc1572835f84f1da16a3b5d8#file-renovate-log-json-L44)
+[renovate.log.json#L44](https://github.com/korosuke613/zenn-articles/blob/read-all-renovate-log/books/try-read-all-renovate-log/renovate.log.json#L44)
 
 ```json
 "config": {
@@ -162,17 +162,17 @@ cli の config（引数）で dry-run をしているため、それのメッセ
 
 ## DEBUG: Found valid git version: 2.39.0
 
-[https://gist.github.com/korosuke613/449f19c3cc1572835f84f1da16a3b5d8#file-renovate-log-json-L77](https://gist.github.com/korosuke613/449f19c3cc1572835f84f1da16a3b5d8#file-renovate-log-json-L77)
+[renovate.log.json#L77](https://github.com/korosuke613/zenn-articles/blob/read-all-renovate-log/books/try-read-all-renovate-log/renovate.log.json#L77)
 
 
 ## DEBUG: Using default github endpoint: https://api.github.com/
 
-[https://gist.github.com/korosuke613/449f19c3cc1572835f84f1da16a3b5d8#file-renovate-log-json-L78](https://gist.github.com/korosuke613/449f19c3cc1572835f84f1da16a3b5d8#file-renovate-log-json-L78)
+[renovate.log.json#L78](https://github.com/korosuke613/zenn-articles/blob/read-all-renovate-log/books/try-read-all-renovate-log/renovate.log.json#L78)
 
 
 ## DEBUG: Platform config
 
-[https://gist.github.com/korosuke613/449f19c3cc1572835f84f1da16a3b5d8#file-renovate-log-json-L79](https://gist.github.com/korosuke613/449f19c3cc1572835f84f1da16a3b5d8#file-renovate-log-json-L79)
+[renovate.log.json#L79](https://github.com/korosuke613/zenn-articles/blob/read-all-renovate-log/books/try-read-all-renovate-log/renovate.log.json#L79)
 
 ```json
        "platformConfig": {
@@ -187,17 +187,17 @@ cli の config（引数）で dry-run をしているため、それのメッセ
 
 ## DEBUG: Using configured gitAuthor (renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>)
 
-[https://gist.github.com/korosuke613/449f19c3cc1572835f84f1da16a3b5d8#file-renovate-log-json-L87](https://gist.github.com/korosuke613/449f19c3cc1572835f84f1da16a3b5d8#file-renovate-log-json-L87)
+[renovate.log.json#L87](https://github.com/korosuke613/zenn-articles/blob/read-all-renovate-log/books/try-read-all-renovate-log/renovate.log.json#L87)
 
 
 ## DEBUG: Adding token authentication for api.github.com to hostRules
 
-[https://gist.github.com/korosuke613/449f19c3cc1572835f84f1da16a3b5d8#file-renovate-log-json-L88](https://gist.github.com/korosuke613/449f19c3cc1572835f84f1da16a3b5d8#file-renovate-log-json-L88)
+[renovate.log.json#L88](https://github.com/korosuke613/zenn-articles/blob/read-all-renovate-log/books/try-read-all-renovate-log/renovate.log.json#L88)
 
 
 ## DEBUG: Using *Dir
 
-[https://gist.github.com/korosuke613/449f19c3cc1572835f84f1da16a3b5d8#file-renovate-log-json-L89-L91](https://gist.github.com/korosuke613/449f19c3cc1572835f84f1da16a3b5d8#file-renovate-log-json-L89-L91)
+[renovate.log.json#L89-L91](https://github.com/korosuke613/zenn-articles/blob/read-all-renovate-log/books/try-read-all-renovate-log/renovate.log.json#L89-L91)
 
 ```
 DEBUG: Using baseDir: /tmp/renovate
@@ -208,36 +208,36 @@ DEBUG: Using containerbaseDir: /tmp/renovate/cache/containerbase
 
 ## DEBUG: Initializing Renovate internal cache into /tmp/renovate/cache/renovate/renovate-cache-v1
 
-[https://gist.github.com/korosuke613/449f19c3cc1572835f84f1da16a3b5d8#file-renovate-log-json-L92](https://gist.github.com/korosuke613/449f19c3cc1572835f84f1da16a3b5d8#file-renovate-log-json-L92)
+[renovate.log.json#L92](https://github.com/korosuke613/zenn-articles/blob/read-all-renovate-log/books/try-read-all-renovate-log/renovate.log.json#L92)
 
 ## DEBUG: Commits limit = null
 
-[https://gist.github.com/korosuke613/449f19c3cc1572835f84f1da16a3b5d8#file-renovate-log-json-L93](https://gist.github.com/korosuke613/449f19c3cc1572835f84f1da16a3b5d8#file-renovate-log-json-L93)
+[renovate.log.json#L93](https://github.com/korosuke613/zenn-articles/blob/read-all-renovate-log/books/try-read-all-renovate-log/renovate.log.json#L93)
 
 ## DEBUG: Setting global hostRules
 
-[https://gist.github.com/korosuke613/449f19c3cc1572835f84f1da16a3b5d8#file-renovate-log-json-L94](https://gist.github.com/korosuke613/449f19c3cc1572835f84f1da16a3b5d8#file-renovate-log-json-L94)
+[renovate.log.json#L94](https://github.com/korosuke613/zenn-articles/blob/read-all-renovate-log/books/try-read-all-renovate-log/renovate.log.json#L94)
 
 ## DEBUG: Adding token authentication for api.github.com to hostRules
 
-[https://gist.github.com/korosuke613/449f19c3cc1572835f84f1da16a3b5d8#file-renovate-log-json-L95](https://gist.github.com/korosuke613/449f19c3cc1572835f84f1da16a3b5d8#file-renovate-log-json-L95)
+[renovate.log.json#L95](https://github.com/korosuke613/zenn-articles/blob/read-all-renovate-log/books/try-read-all-renovate-log/renovate.log.json#L95)
 
 
 ## DEBUG: validatePresets()
 
-[https://gist.github.com/korosuke613/449f19c3cc1572835f84f1da16a3b5d8#file-renovate-log-json-L96](https://gist.github.com/korosuke613/449f19c3cc1572835f84f1da16a3b5d8#file-renovate-log-json-L96)
+[renovate.log.json#L96](https://github.com/korosuke613/zenn-articles/blob/read-all-renovate-log/books/try-read-all-renovate-log/renovate.log.json#L96)
 
 
 ## DEBUG: Reinitializing hostRules for repo
 
-[https://gist.github.com/korosuke613/449f19c3cc1572835f84f1da16a3b5d8#file-renovate-log-json-L97](https://gist.github.com/korosuke613/449f19c3cc1572835f84f1da16a3b5d8#file-renovate-log-json-L97)
+[renovate.log.json#L97](https://github.com/korosuke613/zenn-articles/blob/read-all-renovate-log/books/try-read-all-renovate-log/renovate.log.json#L97)
 
 ## DEBUG: Clearing hostRules
 
-[https://gist.github.com/korosuke613/449f19c3cc1572835f84f1da16a3b5d8#file-renovate-log-json-L98](https://gist.github.com/korosuke613/449f19c3cc1572835f84f1da16a3b5d8#file-renovate-log-json-L98)
+[renovate.log.json#L98](https://github.com/korosuke613/zenn-articles/blob/read-all-renovate-log/books/try-read-all-renovate-log/renovate.log.json#L98)
 
 
 ## DEBUG: Adding token authentication for api.github.com to hostRules
 
-[https://gist.github.com/korosuke613/449f19c3cc1572835f84f1da16a3b5d8#file-renovate-log-json-L99](https://gist.github.com/korosuke613/449f19c3cc1572835f84f1da16a3b5d8#file-renovate-log-json-L99)
+[renovate.log.json#L99](https://github.com/korosuke613/zenn-articles/blob/read-all-renovate-log/books/try-read-all-renovate-log/renovate.log.json#L99)
 

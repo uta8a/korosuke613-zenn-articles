@@ -4,7 +4,7 @@ title: "リポジトリ: 結果"
 
 ## DEBUG: GitHub failure: Resource not accessible by integration (repository=korosuke613/homepage-2nd, branch=renovate/npm-tools)
 
-[https://gist.github.com/korosuke613/449f19c3cc1572835f84f1da16a3b5d8#file-renovate-log-json-L2229](https://gist.github.com/korosuke613/449f19c3cc1572835f84f1da16a3b5d8#file-renovate-log-json-L2229)
+[renovate.log.json#L2229](https://github.com/korosuke613/zenn-articles/blob/read-all-renovate-log/books/try-read-all-renovate-log/renovate.log.json#L2229)
 
 :::details 中身
 
@@ -90,15 +90,15 @@ title: "リポジトリ: 結果"
 
 ## DEBUG: Branch protection: Do not have permissions to detect branch protection (repository=korosuke613/homepage-2nd, branch=renovate/npm-tools)
 
-[https://gist.github.com/korosuke613/449f19c3cc1572835f84f1da16a3b5d8#file-renovate-log-json-L2305](https://gist.github.com/korosuke613/449f19c3cc1572835f84f1da16a3b5d8#file-renovate-log-json-L2305)
+[renovate.log.json#L2305](https://github.com/korosuke613/zenn-articles/blob/read-all-renovate-log/books/try-read-all-renovate-log/renovate.log.json#L2305)
 
 ## DEBUG: Skipping behind base branch check due to rebaseWhen=auto (repository=korosuke613/homepage-2nd, branch=renovate/npm-tools)
 
-[https://gist.github.com/korosuke613/449f19c3cc1572835f84f1da16a3b5d8#file-renovate-log-json-L2306](https://gist.github.com/korosuke613/449f19c3cc1572835f84f1da16a3b5d8#file-renovate-log-json-L2306)
+[renovate.log.json#L2306](https://github.com/korosuke613/zenn-articles/blob/read-all-renovate-log/books/try-read-all-renovate-log/renovate.log.json#L2306)
 
 ## DEBUG: Branch lists (repository=korosuke613/homepage-2nd)
 
-[https://gist.github.com/korosuke613/449f19c3cc1572835f84f1da16a3b5d8#file-renovate-log-json-L2721](https://gist.github.com/korosuke613/449f19c3cc1572835f84f1da16a3b5d8#file-renovate-log-json-L2721)
+[renovate.log.json#L2721](https://github.com/korosuke613/zenn-articles/blob/read-all-renovate-log/books/try-read-all-renovate-log/renovate.log.json#L2721)
 
 ```json
        "branchList": [
@@ -120,7 +120,7 @@ title: "リポジトリ: 結果"
 
 ## DEBUG: Branch summary (repository=korosuke613/homepage-2nd)
 
-[https://gist.github.com/korosuke613/449f19c3cc1572835f84f1da16a3b5d8#file-renovate-log-json-L2741](https://gist.github.com/korosuke613/449f19c3cc1572835f84f1da16a3b5d8#file-renovate-log-json-L2741)
+[renovate.log.json#L2741](https://github.com/korosuke613/zenn-articles/blob/read-all-renovate-log/books/try-read-all-renovate-log/renovate.log.json#L2741)
 
 ```json
        "cacheModified": undefined,
@@ -172,7 +172,7 @@ title: "リポジトリ: 結果"
 
 ## DEBUG: Renovate repository PR statistics (repository=korosuke613/homepage-2nd)
 
-[https://gist.github.com/korosuke613/449f19c3cc1572835f84f1da16a3b5d8#file-renovate-log-json-L2787](https://gist.github.com/korosuke613/449f19c3cc1572835f84f1da16a3b5d8#file-renovate-log-json-L2787)
+[renovate.log.json#L2787](https://github.com/korosuke613/zenn-articles/blob/read-all-renovate-log/books/try-read-all-renovate-log/renovate.log.json#L2787)
 
 ```json
        "stats": {"total": 17, "open": 4, "closed": 2, "merged": 11}
@@ -180,11 +180,11 @@ title: "リポジトリ: 結果"
 
 ## DEBUG: Repository result: done, status: activated, enabled: true, onboarded: true (repository=korosuke613/homepage-2nd)
 
-[https://gist.github.com/korosuke613/449f19c3cc1572835f84f1da16a3b5d8#file-renovate-log-json-L2789](https://gist.github.com/korosuke613/449f19c3cc1572835f84f1da16a3b5d8#file-renovate-log-json-L2789)
+[renovate.log.json#L2789](https://github.com/korosuke613/zenn-articles/blob/read-all-renovate-log/books/try-read-all-renovate-log/renovate.log.json#L2789)
 
 ## DEBUG: Repository timing splits (milliseconds) (repository=korosuke613/homepage-2nd)
 
-[https://gist.github.com/korosuke613/449f19c3cc1572835f84f1da16a3b5d8#file-renovate-log-json-L2790](https://gist.github.com/korosuke613/449f19c3cc1572835f84f1da16a3b5d8#file-renovate-log-json-L2790)
+[renovate.log.json#L2790](https://github.com/korosuke613/zenn-articles/blob/read-all-renovate-log/books/try-read-all-renovate-log/renovate.log.json#L2790)
 
 ```json
        "splits": {
@@ -199,7 +199,7 @@ title: "リポジトリ: 結果"
 
 ## DEBUG: Package cache statistics (repository=korosuke613/homepage-2nd)
 
-[https://gist.github.com/korosuke613/449f19c3cc1572835f84f1da16a3b5d8#file-renovate-log-json-L2799](https://gist.github.com/korosuke613/449f19c3cc1572835f84f1da16a3b5d8#file-renovate-log-json-L2799)
+[renovate.log.json#L2799](https://github.com/korosuke613/zenn-articles/blob/read-all-renovate-log/books/try-read-all-renovate-log/renovate.log.json#L2799)
 
 ```json
        "get": {"count": 133, "avgMs": 13, "medianMs": 1, "maxMs": 227},
@@ -208,7 +208,7 @@ title: "リポジトリ: 結果"
 
 ## DEBUG: http statistics (repository=korosuke613/homepage-2nd)
 
-[https://gist.github.com/korosuke613/449f19c3cc1572835f84f1da16a3b5d8#file-renovate-log-json-L2802](https://gist.github.com/korosuke613/449f19c3cc1572835f84f1da16a3b5d8#file-renovate-log-json-L2802)
+[renovate.log.json#L2802](https://github.com/korosuke613/zenn-articles/blob/read-all-renovate-log/books/try-read-all-renovate-log/renovate.log.json#L2802)
 
 ```json
        "urls": {
@@ -368,14 +368,14 @@ title: "リポジトリ: 結果"
 
 ## DEBUG: dns cache (repository=korosuke613/homepage-2nd)
 
-[https://gist.github.com/korosuke613/449f19c3cc1572835f84f1da16a3b5d8#file-renovate-log-json-L2956](https://gist.github.com/korosuke613/449f19c3cc1572835f84f1da16a3b5d8#file-renovate-log-json-L2956)
+[renovate.log.json#L2956](https://github.com/korosuke613/zenn-articles/blob/read-all-renovate-log/books/try-read-all-renovate-log/renovate.log.json#L2956)
 
 ```json
        "hosts": []
 ```
 
 ##  INFO: Repository finished (repository=korosuke613/homepage-2nd)
-[https://gist.github.com/korosuke613/449f19c3cc1572835f84f1da16a3b5d8#file-renovate-log-json-L2958](https://gist.github.com/korosuke613/449f19c3cc1572835f84f1da16a3b5d8#file-renovate-log-json-L2958)
+[renovate.log.json#L2958](https://github.com/korosuke613/zenn-articles/blob/read-all-renovate-log/books/try-read-all-renovate-log/renovate.log.json#L2958)
 
 ```json
        "cloned": true,
@@ -384,4 +384,4 @@ title: "リポジトリ: 結果"
 
 ## DEBUG: Renovate exiting
 
-[https://gist.github.com/korosuke613/449f19c3cc1572835f84f1da16a3b5d8#file-renovate-log-json-L2961](https://gist.github.com/korosuke613/449f19c3cc1572835f84f1da16a3b5d8#file-renovate-log-json-L2961)
+[renovate.log.json#L2961](https://github.com/korosuke613/zenn-articles/blob/read-all-renovate-log/books/try-read-all-renovate-log/renovate.log.json#L2961)
