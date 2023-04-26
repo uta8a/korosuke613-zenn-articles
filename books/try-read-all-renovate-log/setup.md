@@ -84,7 +84,7 @@ DEBUG: Checking for config file in /home/runner/work/homepage-2nd/homepage-2nd/r
         }
     ```
 
-[renovate_config_file]: `RENOVATE_CONFIG_FILE` は `DEBUG: Checking for config file in <configのパス>` でチェックされるので例外。
+[^renovate_config_file]: `RENOVATE_CONFIG_FILE` は `DEBUG: Checking for config file in <configのパス>` でチェックされるので例外。
 
 ### `DEBUG: Combined config` [#L44-L76](https://github.com/korosuke613/zenn-articles/blob/read-all-renovate-log/books/try-read-all-renovate-log/renovate.log.json#L44-L76)
 - 各 config をマージしたものを表示する（[参考](https://github.com/renovatebot/renovate/blob/b548a938bcb30c220e1775f8ddddcc447f5627eb/lib/workers/global/config/parse/index.ts#L26-L31)）
