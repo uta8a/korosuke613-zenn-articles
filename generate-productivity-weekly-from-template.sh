@@ -30,4 +30,4 @@ git commit -m "feat: Productivity Weekly(${PW_YEAR}/${PW_MONTH}/${PW_DAY})"
 npm install
 
 # 忘れないうちにプルリクを作成
-gh pr create 
+echo Next: gh pr create 
