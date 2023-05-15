@@ -35,7 +35,22 @@ user_defined: {"publish_link": "https://zenn.dev/korosuke613/articles/productivi
 https://github.blog/changelog/2023-05-09-more-secure-private-attachments/
 
 宮田さんのツイート
-https://twitter.com/miyajan/status/1655914766102298629?conversation=none
+@[tweet](https://twitter.com/miyajan/status/1655914766102298629)
+
+GitHub の Issue や Pull Request などに添付したファイルは、今まで URL さえ知っていれば無期限でアクセスすることができました。
+企業などは機微情報を載せないよう気をつけながら運用していたように思います。
+
+それが、このブログが公開された5月9日以降に添付されたファイルへのアクセスには認証が必要になりました。
+
+具体的には次のような変更があります。
+- ウェブブラウザから Issue や Pull Request を閲覧する際に表示される画像の URL には jwt のパラメータが付与されており、5分で失効して以降は404が返ります。
+  - 次のような形で jwt が入っています
+  - https://private-user-images.githubusercontent.com/xxx.png?jwt=xxx
+- プライベートリポジトリに関する電子メールには Issue や Pull Request で添付されたファイルは直接載らないようになり、代わりに URL が載るようになりました。
+
+なお、今回の変更は過去に遡っては適用されないため、注意が必要です。
+
+組織によっては機微情報を含むファイルを載せても良くなるかもしれず、便利になりそうですね。
 
 *本項の執筆者: [@defaultcf](https://twitter.com/defaultcf)*
 
@@ -176,12 +191,39 @@ https://twitter.com/Shitimi_613/status/1655958448176259072?conversation=none
 ## Terraform Cloud no-code provisioning is now GA with new features
 https://www.hashicorp.com/blog/terraform-cloud-no-code-provisioning-is-now-ga-with-new-features
 
+Terraform Cloud にて、ノーコードで簡単にモジュールをデプロイすることができるようになりました。
+
+Terraform Cloud の Business tier である必要があります。
+
+通常のモジュール開発と違って、ノーコードモジュールは次の特徴があります。
+- provider を宣言する必要がある
+- Terraform やインフラに不慣れな人のために次を意識する
+    - 変数の数は少ないほど良い
+    - 組織の要件に合わせて、予めハードコーティングしておくと良い
+
+なお、モジュールに変更を加えても、作成済みのノーコードワークスペースにその変更を適用できません。変更済みのモジュールで新しくワークスペースを作り直す必要があります。
+ここは不便なような気がします...
+
+しかし社内のエンジニアがあらかじめモジュールを作成しておき、それを使って社内の誰でもインフラ含め量産することができると考えると、それなりに需要のある機能のように思います。
+
 *本項の執筆者: [@defaultcf](https://twitter.com/defaultcf)*
 
 ## Slack、さまざまなAIをSlackに統合する「Slack GPT」発表 - Publickey
 https://www.publickey1.jp/blog/23/aislackslack_gpt.html
 
-未読スレッドの要約、メールの文面生成などなどができるようになる。
+未読スレッドの要約、メールの文面生成などなどができるようになるとのことです。
+
+- OpenAI のChatGPT や Anthropic の Claude を使ったアプリなど、好みの学習モデルを統合して自動化できます。
+  - 今年後半には Workflow Builder でステップの1つに AI の処理を追加できるようになる
+- AI による会話要約や文章作成機能などが Slack に組み込まれます。
+  - 未読メッセージや下書きを要約してくれたりする機能が予定されているそうです。
+- Salesforce Customer 360 と Data Cloud と連携して、AI を活用した顧客インサイトを見られる Enstein GPT app が登場します。
+  - 自動でチケットを作ってくれたりするそうです。
+
+Anthropic の Claude は ChatGPT と競合の汎用チャット bot です。
+ユースケースに合わせて学習モデルを変更できるのは嬉しいですね。
+
+それに要約機能はとても便利そうですね！今後が待ち遠しいです。
 
 *本項の執筆者: [@defaultcf](https://twitter.com/defaultcf)*
 
@@ -190,7 +232,31 @@ https://www.publickey1.jp/blog/23/aislackslack_gpt.html
 ## Technology Radar | An opinionated guide to technology frontiers | Thoughtworks
 https://www.thoughtworks.com/radar
 
-半年に一度ほど更新される、Thoughtworks 社の Technology Radar の最新版 Vol.28 が公開。
+半年に一度ほど更新される、Thoughtworks 社の Technology Radar の最新版 Vol.28 が公開されました。
+眺めてみると知っているものもあれば知らないものもあり、勉強になります。
+
+以下に私が個人的に気になったものを挙げます。
+
+- Adopt（企業が取り入れるべき技術）
+  - CI/CD の SaaS
+    - 新しいテクノロジーだろうか、とちょっと驚き
+  - Dependency Pruning（刈り込み）
+    - ビルド時間の短縮は勿論のこと、セキュリティ的にも攻撃対象を減らすことは重要であるとのこと、確かに
+- Trial（追いかける価値のある技術）
+  - Helm
+- Access（探求すべき技術）
+  - CI/CD のゼロトラストセキュリティ
+  - ChatGPT
+  - GitHub Copilot
+  - Philips のセルフホストランナー
+    - https://github.com/philips-labs/terraform-aws-github-runner
+    - 弊チームで使ってますね！
+      - https://blog.cybozu.io/entry/2022/12/01/102842
+- Hold（注意を払うべき技術）
+  - WebHook がカジュアルに保管されている件
+    - WebHook URL は機密情報として扱うべし、確かにという感じです
+
+探求ネタに困ったら、ここの技術を追いかけてみると良いかもしれません。
 
 *本項の執筆者: [@defaultcf](https://twitter.com/defaultcf)*
 
