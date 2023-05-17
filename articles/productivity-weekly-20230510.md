@@ -25,7 +25,7 @@ user_defined: {"publish_link": "https://zenn.dev/korosuke613/articles/productivi
 対象のトピックでは、文章の最後に `本項の執筆者: <執筆者名>` を追加しています。
 
 今週の共同著者は次の方です。
-- [@defaultcf](https://twitter.com/defaultcf)
+- [@defaultcf](https://zenn.dev/defaultcf)
 
 :::
 
@@ -34,25 +34,27 @@ user_defined: {"publish_link": "https://zenn.dev/korosuke613/articles/productivi
 ## More secure private attachments | GitHub Changelog
 https://github.blog/changelog/2023-05-09-more-secure-private-attachments/
 
-宮田さんのツイート
-@[tweet](https://twitter.com/miyajan/status/1655914766102298629)
-
-GitHub の Issue や Pull Request などに添付したファイルは、今まで URL さえ知っていれば無期限でアクセスすることができました。
+GitHub の Issue や Pull Request などに添付したファイルは、今まで URL さえ知っていれば無期限でアクセスできました。
 企業などは機微情報を載せないよう気をつけながら運用していたように思います。
 
-それが、このブログが公開された5月9日以降に添付されたファイルへのアクセスには認証が必要になりました。
+それが、このブログが公開された 5 月 9 日以降に添付されたファイルへのアクセスには認証が必要になりました。
 
 具体的には次のような変更があります。
-- ウェブブラウザから Issue や Pull Request を閲覧する際に表示される画像の URL には jwt のパラメータが付与されており、5分で失効して以降は404が返ります。
+- ウェブブラウザから Issue や Pull Request を閲覧する際に表示される画像の URL には jwt のパラメータが付与されており、5 分で失効して以降は 404 が返ります。
   - 次のような形で jwt が入っています
-  - https://private-user-images.githubusercontent.com/xxx.png?jwt=xxx
+    - `https://private-user-images.githubusercontent.com/xxx.png?jwt=xxx`
+  - 有効な jwt 付きの URL は誰でも開けるので注意が必要です
+    - > 試した感じ、添付画像が含まれる private リポジトリのページを開くと、添付画像の URL には jwt パラメータが含まれるようになってるので、これで認証してるようです。
+      > jwt パラメータ付きの URL はログインなしでも開けるので、認証がかかると思って誤って共有しないように注意。
+      https://twitter.com/miyajan/status/1655914766102298629
+
 - プライベートリポジトリに関する電子メールには Issue や Pull Request で添付されたファイルは直接載らないようになり、代わりに URL が載るようになりました。
 
 なお、今回の変更は過去に遡っては適用されないため、注意が必要です。
 
 組織によっては機微情報を含むファイルを載せても良くなるかもしれず、便利になりそうですね。
 
-*本項の執筆者: [@defaultcf](https://twitter.com/defaultcf)*
+*本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)、本項の編集者: [@korosuke613](https://zenn.dev/korosuke613)*
 
 ## GitHub Actions: All Actions will run on Node16 instead of Node12 | GitHub Changelog
 https://github.blog/changelog/2023-05-04-github-actions-all-actions-will-run-on-node16-instead-of-node12/
@@ -191,7 +193,7 @@ https://twitter.com/Shitimi_613/status/1655958448176259072?conversation=none
 ## Terraform Cloud no-code provisioning is now GA with new features
 https://www.hashicorp.com/blog/terraform-cloud-no-code-provisioning-is-now-ga-with-new-features
 
-Terraform Cloud にて、ノーコードで簡単にモジュールをデプロイすることができるようになりました。
+Terraform Cloud にて、ノーコードで簡単にモジュールをデプロイできるようになりました。
 
 Terraform Cloud の Business tier である必要があります。
 
@@ -204,17 +206,17 @@ Terraform Cloud の Business tier である必要があります。
 なお、モジュールに変更を加えても、作成済みのノーコードワークスペースにその変更を適用できません。変更済みのモジュールで新しくワークスペースを作り直す必要があります。
 ここは不便なような気がします...
 
-しかし社内のエンジニアがあらかじめモジュールを作成しておき、それを使って社内の誰でもインフラ含め量産することができると考えると、それなりに需要のある機能のように思います。
+しかし社内のエンジニアがあらかじめモジュールを作成しておき、それを使って社内の誰でもインフラ含め量産できると考えると、それなりに需要のある機能のように思います。
 
-*本項の執筆者: [@defaultcf](https://twitter.com/defaultcf)*
+*本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)*
 
 ## Slack、さまざまなAIをSlackに統合する「Slack GPT」発表 - Publickey
 https://www.publickey1.jp/blog/23/aislackslack_gpt.html
 
 未読スレッドの要約、メールの文面生成などなどができるようになるとのことです。
 
-- OpenAI のChatGPT や Anthropic の Claude を使ったアプリなど、好みの学習モデルを統合して自動化できます。
-  - 今年後半には Workflow Builder でステップの1つに AI の処理を追加できるようになる
+- OpenAI の ChatGPT や Anthropic の Claude を使ったアプリなど、好みの学習モデルを統合して自動化できます。
+  - 今年後半には Workflow Builder でステップの 1 つに AI の処理を追加できるようになる
 - AI による会話要約や文章作成機能などが Slack に組み込まれます。
   - 未読メッセージや下書きを要約してくれたりする機能が予定されているそうです。
 - Salesforce Customer 360 と Data Cloud と連携して、AI を活用した顧客インサイトを見られる Enstein GPT app が登場します。
@@ -225,7 +227,7 @@ Anthropic の Claude は ChatGPT と競合の汎用チャット bot です。
 
 それに要約機能はとても便利そうですね！今後が待ち遠しいです。
 
-*本項の執筆者: [@defaultcf](https://twitter.com/defaultcf)*
+*本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)*
 
 # know-how 🎓
 
@@ -258,9 +260,7 @@ https://www.thoughtworks.com/radar
 
 探求ネタに困ったら、ここの技術を追いかけてみると良いかもしれません。
 
-*本項の執筆者: [@defaultcf](https://twitter.com/defaultcf)*
-
-# tool 🔨
+*本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)*
 
 # read more 🍘
 Productivity Weekly で出たネタを全て紹介したいけど紹介する体力が持たなかったネタを一言程度で書くコーナーです。
@@ -291,10 +291,12 @@ Productivity Weekly で出たネタを全て紹介したいけど紹介する体
 
 [^gw]: ゴールデンウィークの略です。グループウェアではありません。
 
+また、サイボウズエンジニアサマーインターン 2023 において、生産性向上コースのエントリーが始まりました。興味ある方はどしどしご応募ください。
+
+エントリー期間：5 月 15 日(月) 10:00 〜 5 月 29 日(月) 10:00
+
+https://cybozu.co.jp/company/job/recruitment/intern/improvement.html
+
 サイボウズの生産性向上チームでは社内エンジニアの開発生産性を上げるための活動を行なっています。そんな生産性向上チームが気になる方は下のリンクをクリック！
 https://note.com/cybozu_dev/n/n1c1b44bf72f6
 
-<!-- :::message すみません、今週もおまけはお休みです...:::-->
-
-## omake 🃏: 
-今週のおまけです。
