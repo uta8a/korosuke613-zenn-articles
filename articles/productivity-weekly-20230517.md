@@ -34,9 +34,9 @@ user_defined: {"publish_link": "https://zenn.dev/korosuke613/articles/productivi
 ## Private Access to the AWS Management Console is generally available
 https://aws.amazon.com/jp/about-aws/whats-new/2023/05/aws-management-console-private-access/
 
-AWSマネジメントコンソールへのアクセスを制限することができる機能が GA となりました。
-これは組織内のアカウントに限定することができるというものです。
-つまり誤って意図していないAWSアカウントへのサインインを防ぐことができます。
+AWS マネジメントコンソールへのアクセスを制限できる機能が GA となりました。
+これは組織内のアカウントに限定できるというものです。
+つまり誤って意図していない AWS アカウントへのサインインを防ぐことができます。
 
 なお、マネジメントコンソール内の各種アセット（CSS, Stylesheet, JavaScript）へのアクセスはインターネットを経由する必要があり、閉域網からのアクセスを実現するものではありません。
 また現在は東京リージョン（ap-northeast-1）をサポートしていません。
@@ -72,8 +72,8 @@ https://www.hashicorp.com/blog/terraform-cloud-updates-plans-with-an-enhanced-fr
 Terraform Cloud の無料版がより便利になりました。
 具体的には次の変更があります。
 
-- 500リソースまでは無料で扱えるようになりました。
-    - 以前は最大5ユーザーという制限でしたが、それが撤廃されリソースによる制限となりました。
+- 500 リソースまでは無料で扱えるようになりました。
+    - 以前は最大 5 ユーザーという制限でしたが、それが撤廃されリソースによる制限となりました。
     - スモールスタートのチームにとっては有り難い変更のように思います。
 - 無料枠でも使えるようになった機能
     - SSO
@@ -97,10 +97,10 @@ Terraform Cloud の無料版がより便利になりました。
 ## Container Registry deprecation  |  Container Registry documentation  |  Google Cloud
 https://cloud.google.com/container-registry/docs/deprecations/container-registry-deprecation
 
-2023年5月15日から、Container Registry は非推奨となりました。
+2023 年 5 月 15 日から、Container Registry は非推奨となりました。
 今後は Artifact Registry を使用する必要があります。
 
-Container Registry を使用している開発者は、2024年5月15日までに次のいずれかの操作が必要になるそうです。
+Container Registry を使用している開発者は、2024 年 5 月 15 日までに次のいずれかの操作が必要になるそうです。
 
 - Artifact Registry の標準リポジトリに移行する
   - 標準リポジトリを作成して、コンテナイメージをプッシュし直す
@@ -114,11 +114,11 @@ Container Registry を使用している開発者は、2024年5月15日までに
 ## Google Cloud、クラウドで開発環境を提供する「Cloud Workstations」正式リリース。ゼロトラストのBeyondCorpとの統合など新機能 － Publickey
 https://www.publickey1.jp/blog/23/google_cloudcloud_workstationsbeyondcorp.html
 
-GCP のコンテナ上で実行される開発環境で、開発者は CODE-OSS や各種 JetBrains の IDE の中から IDE を選択して開発することができます。
+GCP のコンテナ上で実行される開発環境で、開発者は CODE-OSS や各種 JetBrains の IDE の中から IDE を選択して開発できます。
 
 Cloud shell の上位互換という感じでしょうか。
 
-- 特定の VPC 上に環境を立てることができ、固定IPアドレスを使用できる
+- 特定の VPC 上に環境を立てることができ、固定 IP アドレスを使用できる
 - IAM によるアクセス制御ができる
 - IDE を選択できる
 
