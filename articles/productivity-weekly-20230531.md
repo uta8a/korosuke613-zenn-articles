@@ -33,17 +33,17 @@ user_defined: {"publish_link": "https://zenn.dev/korosuke613/articles/productivi
 
 
 ## Terraform 1.5 で追加予定の `import` ブロック、`-generate-config-out` オプションの話
-https://github.com/hashicorp/terraform/releases/tag/v1.5.0-rc1
+https://github.com/hashicorp/terraform/releases/tag/v1.5.0-rc2
 
 Terraform 1.5（未リリース）で `import` ブロック、`-generate-config-out` オプションが追加予定です。
-上記リンクは Terraform 1.5.0-rc1 のリリースノートになります。
+上記リンクは Terraform 1.5.0-rc2 のリリースノートになります。
 
 `import` ブロックは、`terraform import` を `.tf` ファイル内で宣言して実行できる機能です。
 以前追加された [`moved` ブロック](https://zenn.dev/korosuke613/articles/productivity-weekly-20211215#terraform-1.1-improves-refactoring-and-the-cloud-cli-experience)と似たようなものになります。
 
 `-generate-config-out=<PATH>` は、`terraform plan` 時に、`import` ブロックと併用して使う CLI のオプションになります。これを使うことで、`import` ブロックで宣言したリソースの記述を自動で書き込んでくれます。
 
-さっそく、それぞれを使ってみた記事を出してくれている人がいます。
+さっそく、それぞれを使ってみた記事を出してくれている人がいます。実際に試さなくてもどんなものかわかってとても良いです。
 
 - [Terraform 1.5 で追加される import ブロックの使い方](https://zenn.dev/kou_pg_0131/articles/tf-import-block)
 - [Terraform 1.5 で既存リソースからの HCL 生成ができるようになるので試してみる](https://zenn.dev/kou_pg_0131/articles/tf-generate-config)
@@ -76,7 +76,7 @@ Terraform Provider AWS の 5.x がリリースされました。
 
 - [Terraform AWS Provider Version 5 Upgrade Guide | Guides | hashicorp/aws | Terraform Registry](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/guides/version-5-upgrade)
 
-アップデートは簡単ではないかもしれませんが、アップデートを放置するとどんどんアプデが億劫になるので、なるだけ早めに新バージョンを使うようにすると良いと思います。
+アップデートは簡単ではないかもしれませんが、アップデートを放置するとどんどんアプデが億劫になるので、特に理由もなければ早めに新バージョンに上げましょう。
 
 ## 開発環境を丸ごとクラウドPC化する「Microsoft Dev Box」、7月に正式リリースと発表。Build 2023 － Publickey
 https://www.publickey1.jp/blog/23/pcmicrosoft_dev_box7build_2023.html
@@ -118,10 +118,10 @@ EKS ベストプラクティスは 2020 年 5 月から公開されており、�
 主体的にクラスターアップデートすべしという話や、アップグレード前に検証する話、実際にどうアップグレードするかという話が書かれており、ためになりそうです。
 
 定期的にアップデートしましょう。
-ちなみに EKS の新しいバージョンは、2 〜 4 ヶ月 おきくらいにリリースされています。
+ちなみに EKS の新しいバージョンは、2 〜 4 ヶ月おきくらいにリリースされています。
 https://docs.aws.amazon.com/eks/latest/userguide/kubernetes-versions.html#kubernetes-release-calendar
 
-ところで今回のベストプラクティスは GitHub Pages で公開されコントリビュートも可能ですが、AWS の各種リソースのドキュメントを集約している AWS Document は 現在 AWS が独自にホストしておりコントリビュートもできません。
+ところで今回のベストプラクティスは GitHub Pages で公開されコントリビュートも可能ですが、AWS の各種リソースのドキュメントを集約している AWS Document は現在 AWS が独自にホストしておりコントリビュートもできません。
 https://docs.aws.amazon.com/
 
 実は 2018 年頃、多くのドキュメントが GitHub でコントリビュート可能でした。
@@ -191,7 +191,7 @@ Productivity Weekly で出たネタを全て紹介したいけど紹介する体
       - 軽量ランタイムの Kind を使用するオプションがある
       - など
   - [Aurora MySQL improves performance and failover recovery time when binlog is enabled](https://aws.amazon.com/jp/about-aws/whats-new/2023/05/aurora-mysql-performance-failover-recovery-time-binlog-enabled/)
-    - **（この項目は僕の知識の範疇を超えているため、Weekly 参加者のコメントをほぼそのまま載せています。申し訳ございません。）**
+    - **（この項目は現状の僕の知識の範疇を超えているため、Weekly 参加者のコメントをほぼそのまま載せています。申し訳ございません。）**
     - MySQL 互換の Amazon Aurora において binlog 有効化時のパフォーマンスが向上する enhanced binary log 機能がリリースされました
     - binlog 有効なネイティブ MySQL に対して再起動やフェイルオーバー後のリカバリにかかる時間が最大 99%改善するらしいです
     - ただ Aurora MySQL ってそもそも binlog を使わなかったはずで、これはどういうシチュエーションで有効にするかというと debezium（データベースからの変更イベントを全部取って別フローに流すデータキャプチャ）とかと連携させるときが主にフォーカスされているようです
