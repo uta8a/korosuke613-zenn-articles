@@ -78,14 +78,31 @@ Terraform Provider AWS の 5.x がリリースされました。
 
 アップデートは簡単ではないかもしれませんが、アップデートを放置するとどんどんアプデが億劫になるので、なるだけ早めに新バージョンを使うようにすると良いと思います。
 
-## 開発環境を丸ごとクラウドPC化する「Microsoft Dev Box」、7月に正式リリースと発表。Build 2023 － Publickey https://www.publickey1.jp/blog/23/pcmicrosoft_dev_box7build_2023.html
+## 開発環境を丸ごとクラウドPC化する「Microsoft Dev Box」、7月に正式リリースと発表。Build 2023 － Publickey
+https://www.publickey1.jp/blog/23/pcmicrosoft_dev_box7build_2023.html
 
-クラウド上に開発環境作るやつ流行ってますね。
+クラウド上に開発環境作るやつが流行っていますね。
+
+Azure では今までそのようなクラウド上の開発環境構築が無かったように思います。
+
+今回の Dev Box では、環境を作成すると仮想マシンが作成され、リモートデスクトップで入って作業するという感じのようです。
+あらかじめチーム用のツール、ソースコードなどを設定することで、個々のマシンで準備する必要が無い、というメリットがあります。
+
+Windows の開発環境が欲しいチームには良い選択肢になるかもしれません。
 
 *本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)*
 
-## 業界初*1 生成AIオブザーバビリティアシスタント「New Relic Grok」発表 リミテッドプレビュー申込受付を開始 | New Relic
+## 業界初 生成AIオブザーバビリティアシスタント「New Relic Grok」発表 リミテッドプレビュー申込受付を開始 | New Relic
 https://newrelic.com/jp/press-release/20230523
+
+オブザーバビリティ関連の情報です。
+
+OpenAI の大規模言語モデルと、New Relic の統合テレメトリデータプラットフォームを統合して、計装・トラブルシューティング・レポート作成などを自動で行うそうです。
+
+手動で分析する負荷を減らし、経験の有無に関わらずオブザーバビリティを活用できるようになる...まさに理想な姿のように思います。
+どこまで軽減されるか、正確に出力されるか、期待ですね。
+
+夏にリミテッドプレビューを提供するとのことですので、楽しみに待ちましょう。
 
 *本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)*
 
@@ -94,9 +111,29 @@ https://newrelic.com/jp/press-release/20230523
 ## Amazon EKSベストプラクティスガイドにクラスターアップグレードの章が追加されました | DevelopersIO
 https://dev.classmethod.jp/articles/eks-best-practice-guide-cluster-upgrade/
 
+https://github.com/aws/aws-eks-best-practices/pull/321
+
+EKS ベストプラクティスは 2020 年 5 月から公開されており、参考にされてた方も多いかと思いますが、今までクラスターアップグレードの章はありませんでした。今回それがようやく登場しました。
+
+主体的にクラスターアップデートすべしという話や、アップグレード前に検証する話、実際にどうアップグレードするかという話が書かれており、ためになりそうです。
+
+定期的にアップデートしましょう。
+ちなみに EKS の新しいバージョンは、2 〜 4 ヶ月 おきくらいにリリースされています。
+https://docs.aws.amazon.com/eks/latest/userguide/kubernetes-versions.html#kubernetes-release-calendar
+
+ところで今回のベストプラクティスは GitHub Pages で公開されコントリビュートも可能ですが、AWS の各種リソースのドキュメントを集約している AWS Document は 現在 AWS が独自にホストしておりコントリビュートもできません。
+https://docs.aws.amazon.com/
+
+実は 2018 年頃、多くのドキュメントが GitHub でコントリビュート可能でした。
+https://aws.amazon.com/jp/blogs/news/aws-documentation-is-now-open-source-and-on-github/
+
+しかし 2023 年 5 月に GitHub 上のリポジトリをアーカイブし、こういった取り組みを終了する旨のブログを出しています。2023 年 6 月 5 日以降にアーカイブを開始するようです。
+社内のドキュメントと同期するのが大変だったようですね...
+https://aws.amazon.com/jp/blogs/aws/retiring-the-aws-documentation-on-github/
+
+EKS ベストプラクティスガイドは長く続いてくれると嬉しいですね！
 
 *本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)*
-
 
 ## サバンナ便り〜自動テストに関する連載で得られた知見のまとめ（2023年5月版）〜 / Automated Test Knowledge from Savanna 202305 edition - Speaker Deck
 https://speakerdeck.com/twada/automated-test-knowledge-from-savanna-202305-edition
@@ -112,6 +149,16 @@ t_wada さんによるサバンナからのお便りです。自動テストに�
 
 ## 全AWSエンジニアに捧ぐ、CloudWatch 設計・運用 虎の巻 / CloudWatch design and operation bible
 https://speakerdeck.com/iselegant/cloudwatch-design-and-operation-bible
+
+こちらもオブザーバビリティ関連の情報です。
+
+CloudWatch の重要性から始まり、CloudWatch のサービススイートを使ったオブザーバビリティの実現について詳しく書かれています。
+
+丁度社内勉強会でオブザーバビリティについて学んでいたので、AWS でオブザーバビリティのある構成が分かりやすく書かれているこのスライドは私にとってドンピシャでした。
+
+X-Ray などはまだ理解できていないので、このスライドを参考に探求を進めていこうと思います。
+
+ちゃんと各種スイートを使いこなしていきたいですね。
 
 *本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)*
 
