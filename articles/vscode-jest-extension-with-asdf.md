@@ -10,16 +10,6 @@ published: false
 VSCode の Jest 拡張機能（vscode-jest）がたまに asdf で管理している Node.js を呼び出せない問題に遭遇しました。
 今回は、その原因と対策についてちょっと深掘りしたので、ここに残します。
 
-:::message
-今回は次の環境の場合の話です。
-
-- macOS 13.4 (Apple M1 Pro)
-- VSCode 1.79.0
-- vscode-jest 5.2.3
-- Bash 3.2.57(1)-release
-- Zsh 5.9
-:::
-
 ## TL;DR
 
 - VSCode の Jest 拡張機能は非インタラクティブ(non-interactive)＆非ログイン(non-login)な `/bin/sh` シェルから Node.js を呼び出す
@@ -31,6 +21,16 @@ VSCode の Jest 拡張機能（vscode-jest）がたまに asdf で管理して�
     "args": ["zsh", "--login"]
   },
   ```
+
+:::message
+今回は次の環境の場合の話です。
+
+- macOS 13.4 (Apple M1 Pro)
+- VSCode 1.79.0
+- vscode-jest 5.2.3
+- Bash 3.2.57(1)-release
+- Zsh 5.9
+:::
 
 ## VSCode の Jest 拡張機能 vscode-jest について
 
@@ -238,7 +238,7 @@ vscode-jest には `jest.shell` という設定項目があり、そこで Jest 
 
 それを回避する方法として、上記ページには Jest の実行に使うシェルをカスタマイズできる変更が入りそうとのことも書かれていました。当時は未リリースだったようですが、すでにリリースされてそうだったので、今回は `--login` でログインシェルとして Jest を実行するようにしてみました。
 
-## 実際の設定
+### 実際の設定
 
 ```json:.vscode/settings.json
 "jest.shell": {
