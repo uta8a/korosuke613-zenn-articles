@@ -3,7 +3,7 @@ title: "VSCode の Jest 拡張機能が asdf で管理している Node.js を�
 emoji: "🆚"
 type: "tech"
 topics: ["vscode", "jest", "asdf"]
-published: false
+published: true
 ---
 
 
