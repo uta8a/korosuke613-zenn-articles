@@ -17,6 +17,11 @@
       "matchManagers": ["npm"],
       "groupName": "npm",
       "automerge": true
+    },
+    {
+      "matchManagers": ["asdf"],
+      "groupName": "asdf",
+      "automerge": true
     }
   ]
 }
