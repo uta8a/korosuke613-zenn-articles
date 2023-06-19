@@ -11,16 +11,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+
       - uses: actions/setup-node@v3
         with:
           node-version-file: .tool-versions
-      - uses: actions/cache@v3
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
+          cache: 'npm'
+
+      - name: Install latest corepack
+        run: |
+          npm i -g corepack@latest
+              
       - run: corepack enable npm
+
       - run: npm ci
+
       - name: actionlint
         run: npm run lint:node-actionlint
