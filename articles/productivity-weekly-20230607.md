@@ -34,11 +34,28 @@ user_defined: {"publish_link": "https://zenn.dev/korosuke613/articles/productivi
 ## GitHub Actions - Just-in-time self-hosted runners | GitHub Changelog
 https://github.blog/changelog/2023-06-02-github-actions-just-in-time-self-hosted-runners/
 
-ephemeral との違いがよくわかってないけどなんか来た。
-あーもしかして常駐 VM でジョブ発生時に使い捨てランナー立ててくれるってことなのかな
-それはそれでおもろそう。
+GitHub Actions において、新たなセルフホストランナーを立てる仕組みとして Just-in-time 方式が追加されました。
 
-https://twitter.com/Kesin11/status/1665335604366962688
+使い切りのランナーを立てるという点では ephemeral ランナーと変わりませんが、Just-in-time ランナーは使うまでの手順が異なります。
+
+詳しくは [Kesin11](https://zenn.dev/kesin11/) さんが使い方やメリデメをまとめた記事を挙げているので、公式ドキュメントと合わせてご覧ください。
+大変参考になります。
+
+- [新しいjust-in-time runnerでセルフホストランナーのオートスケールが劇的に楽になりそう](https://zenn.dev/kesin11/articles/20230607_runner_jitconfig)
+
+実際に僕も試しに触ってみました。気になる人は眺めてみてください。
+
+- [GitHub Actions の Self-hosted Runner の Just-in-time を試してみる](https://zenn.dev/korosuke613/scraps/c0b9dc86d54d0b)
+
+これまではランナーのマシン本体でランナー登録（`./config.sh` の実行）を行う必要がありましたが、Just-in-time ランナーではランナー登録を API で行えるようになったため、ランナー登録とランナーの起動を別々のマシンで行えるようになりました。ランナー登録を一元化できるのはいろいろと嬉しいです。
+他にもラベルの指定が柔軟にできるようになる、ランナーの登録解除を自動でしてくれるのも大きいですね。
+
+[最近は Actions Runner Controller による Scale Sets mode も登場](https://zenn.dev/cybozu_ept/articles/productivity-weekly-20230517#github-actions---actions-runner-controller-public-beta-%7C-github-changelog)していますが、こちらは Actions Runner Controller の導入が必須となります。
+それと比べて Just-in-time ランナーは、通常の ephemeral なランナー周りを改善したものになるので、自前でオートスケールする仕組みを用意している人などもこれを導入しやすいです。
+
+個人的には今後は Just-in-time ランナーを使っていく流れになるかなと予想していますが、まだまだ登場して日が浅いので今後どうなるかって感じですね[^recent]。
+
+[^recent]: 正直最近セルフホストランナー周りの新情報が多すぎて追うのが大変ですね...
 
 ## Security enhancements to required approvals on pull requests | GitHub Changelog
 https://github.blog/changelog/2023-06-06-security-enhancements-to-required-approvals-on-pull-requests/
@@ -47,10 +64,10 @@ GitHub において、プルリクエストのブランチ保護や承認に関�
 次の 3 つの仕様変更があります。
 
 - a. ローカルで作成されたマージコミットが、保護されたブランチにプッシュされた場合、その内容がシステムで作成されたマージと異なると、却下される
-- b. ブランチ保護で dismiss stale approvals を有効にしている場合、承認後にマージベースが変更されるたび、承認が却下されるようになった[^try_stale]
+- b. ブランチ保護で dismiss stale approvals を有効にしている場合、承認後にマージベースが変更されるたび、承認が却下されるようになった
 - c. ブランチ保護で required pull request review を有効にしている場合、対象ブランチに対するプルリクエストで承認しておけば、同じターゲットを持つ同じコミットを持ったブランチを手動でマージ＆push 可能でしたが、これができなくなった
 
-#### a. について
+#### 「a. ローカルで作成されたマージコミットが、保護されたブランチにプッシュされた場合、その内容がシステムで作成されたマージと異なると、却下される」について
 
 GitHub では、GitHub 上でプルリクエストをマージせずに、ローカルでマージをして push することでプルリクエストをマージしたことにできました（ブランチ保護をチェックした上で）。
 
@@ -99,11 +116,16 @@ To https://<GHESのホスト>/futa-hirakoba/playground.git
    f0f43b8..4458a7a  main -> main
 ```
 
-![](/images/productivity-weekly-20230607/ghes-pushed-tampered-merge-commit-1.png)
+![](/images/productivity-weekly-20230607/ghes-pushed-tampered-merge-commit-1.png =600x)
+*プルリクエストはマージされたことになる*
 
-![](/images/productivity-weekly-20230607/ghes-pushed-tampered-merge-commit-2.png)
+![](/images/productivity-weekly-20230607/ghes-pushed-tampered-merge-commit-2.png =600x)
+*本来このプルリクエストによる変更は `README.md` だけ*
 
-![](/images/productivity-weekly-20230607/ghes-pushed-tampered-merge-commit-3.png)
+![](/images/productivity-weekly-20230607/ghes-pushed-tampered-merge-commit-3.png =600x)
+*main ブランチのコミットログを見るとマージコミットに `hogehoge` の変更が加わっている。これはプルリクエストにはなかった変更*
+
+GitHub.com で同じことをすると `GH006: Protected branch update failed for refs/heads/branch_protection_check.` エラーで push が拒否される。
 
 ```terminal:マージコミットを改ざんして push on GitHub.com
 ❯ git switch branch_protection_check
@@ -138,6 +160,8 @@ To https://github.com/<owner>/playground.git
 error: failed to push some refs to 'https://github.com/<owner>/playground.git'
 ```
 
+GitHub.com でもマージコミットを改ざんせずに push すると、push は成功し、プルリクエストはマージされたことになる。
+
 ```terminal:マージコミットをそのまま push on GitHub.com
 ❯ git switch branch_protection_check
 Switched to branch 'branch_protection_check'
@@ -163,22 +187,38 @@ To https://github.com/<owner>/playground.git
 GitHub Enterprise Server は GitHub.com の変更が遅れて入るため、古い GitHub.com の挙動と新しい GitHub.com の挙動の比較ができます。もちろん GitHub Enterprise Server と GitHub.com は別の製品であるため、完全な比較とはならないことに注意が必要です。
 :::
 
-いろいろ検証してみたけど承認が却下されるパターンに出会えませんでした。
+#### 「b. ブランチ保護で dismiss stale approvals を有効にしている場合、承認後にマージベースが変更されるたび、承認が却下されるようになった」について
+
+承認後に別のプルリクエストをマージしてマージベースを変更するなどを試したのですが、承認が却下されるパターンに出会えませんでした。
 
 > Merge bases changing under a pull request will preserve approvals in most situations where no new changes are introduced.
 
+とあるので、承認を維持するパターンもあるようです。
+承認が却下された方がいましたら教えてください。
 
 
-いまいちほんとにできてたのかよくわからなかったので GitHub Enterprise Server の方で試したところ、確かにできました。プルリクエストで承認されていて、かつ、同じコミットなら手動でマージできてもよくないかと思ったのですが、何か理由があるかもしれません。
+#### 「c. ブランチ保護で required pull request review を有効にしている場合、対象ブランチに対するプルリクエストで承認しておけば、同じターゲットを持つ同じコミットを持ったブランチを手動でマージ＆push 可能でしたが、これができなくなった」について
 
-![](/images/productivity-weekly-20230607/ghes-required-approve-bypass.png)
+いまいちほんとにできてたのかよくわからなかったので GitHub Enterprise Server の方で試したところ、確かにできました。
 
-![](/images/productivity-weekly-20230607/ghes-required-approve-bypass-add-commit.png)
+:::details 試した時のスクショ
+
+![](/images/productivity-weekly-20230607/ghes-required-approve-bypass.png =700x)
+*同じブランチの同じマージベースから派生したブランチをふたつ作り、それぞれで同じ内容（同じハッシュ）のコミットを作り、プルリクエストを作った。片方のプルリクエストで承認すると、もう片方のプルリクエストでも自動で承認を得たことになった*
+
+![](/images/productivity-weekly-20230607/ghes-required-approve-bypass-add-commit.png =450x)
+*片方のブランチに別の変更を追加したところ、再び承認を求められた*
+
+:::
+
+プルリクエストで承認されていて、かつ、同じコミットなら手動でマージできてもよくないかと思ったのですが、何か理由があるかもしれません。
+
+これら 3 つの変更は細かいかもしれませんが、安全度が増したのは良いですね。
 
 ## View repository pushes on the new activity view | GitHub Changelog
 https://github.blog/changelog/2023-05-31-view-repository-pushes-on-the-new-activity-view/
 
-リポジトリ上でどのようなアクティビティがあったか、簡単に確認できるようになりました。リポジトリへの push もここで確認することができます。
+リポジトリ上でどのようなアクティビティがあったか、簡単に確認できるようになりました。リポジトリへの push もここで確認できます。
 GitHub 上のリポジトリのトップページに、「Activity」というリンクからアクセスできます。
 
 ただ、git clone や Download Zip といったユーザーのイベントはここに記録されないため、なにかインシデントが発生した時の証跡として万能ではなさそうです。少し残念な人もいるかもですが、そういうのは Audit log の役割かと思います[^noise]。
@@ -187,14 +227,14 @@ GitHub 上のリポジトリのトップページに、「Activity」という�
 
 [^noise]: git clone などの Read な操作が Activity に入ると、(github から見ると)データ量の増加、(利用者から見ると)ノイズになりそうってのもある。
 
-*本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)*
+*本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)、本項の編集者: [@korosuke613](https://zenn.dev/korosuke613)*
 
 # know-how 🎓
 
 ## コンテナのセルフホストランナーの中でコンテナを使えるようにするrunner-container-hooks
 https://zenn.dev/kesin11/articles/20230514_container_hooks
 
-今までコンテナ上で動かしているセルフホストランナーでは、GitHub Actions のコンテナ機能を使用することができませんでしたが、新しく登場した Runner Container Hooks を使うことで使えるようになったとのことです。
+今までコンテナ上で動かしているセルフホストランナーでは、GitHub Actions のコンテナ機能を使用できませんでしたが、新しく登場した Runner Container Hooks を使うことで使えるようになったとのことです。
 
 最初に、メジャーな方法であるセルフホストランナーをコンテナ上で動かし、そこからさらにコンテナを使う方法(コンテナの中でコンテナを動かしている)についてを説明されています。
 しかし、従来のこの方法では GitHub Actions におけるコンテナ機能である `jobs.<job_id>.container` や `jobs.<job_id>.services` 、`jobs.<job_id>.steps[*].uses` は使うことができません。
@@ -203,12 +243,12 @@ https://zenn.dev/kesin11/articles/20230514_container_hooks
 
 セルフホストランナーをコンテナで動かしている方にとてもおすすめしたい記事です。
 
-*本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)*
+*本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)、本項の編集者: [@korosuke613](https://zenn.dev/korosuke613)*
 
 ## AWS CLI を使いこなそう ! ~ 2 種類の補完機能 / aws sso / yaml-stream の紹介 - 変化を求めるデベロッパーを応援するウェブマガジン | AWS
 https://aws.amazon.com/jp/builders-flash/202306/handle-aws-cli/?awsf.filter-name=*all
 
-AWS CLI の Tips が3つ紹介されています。
+AWS CLI の Tips が 3 つ紹介されています。
 
 まずは補完機能についてです。シェルの complete 機能を使って、Tab キーを押すとサブコマンドやオプションを補完できます。
 
@@ -236,29 +276,24 @@ AWS CLI の Tips が3つ紹介されています。
 上手く使えないか、探求を進めていきます。
 
 
-*本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)*
-
-# tool 🔨
+*本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)、本項の編集者: [@korosuke613](https://zenn.dev/korosuke613)*
 
 # read more 🍘
 Productivity Weekly で出たネタを全て紹介したいけど紹介する体力が持たなかったネタを一言程度で書くコーナーです。
 
-- **news 📺**
 - **know-how 🎓**
   - [オフライン「リハビリ」勉強会をやってみたらだいぶ良かった！ - BASEプロダクトチームブログ](https://devblog.thebase.in/entry/2023/06/07/110000)
-    - 生産性向上チームもイベントのハイブリッド開催にシフトしていこうとしてますし，ぶっつけ本番よりもこういうリハビリ挟んだ方がいいかも？
+    - BASE さんによる久々のオフライン勉強会に慣れるためのリハビリオフライン勉強会をやってみた記事です
+    - おもしろい取り組みだと思いました。社内から始めるとやりやすいですよね
 - **tool 🔨**
   - [Notion Projects](https://www.notion.so/product/projects)
-    - Notion に Timeline の View がついて、プロジェクト管理ツールとしてより機能が増えた印象
-    - GitHub Project にも date を書ける場所が増えてたし、最近プロジェクト管理ツールがアツい
+    - Notion にプロジェクト管理機能が追加されました
+    - カンバンなどのプロジェクト管理に便利な機能が追加されていて、Notion 使いの人にとってはよさそうですね
 
 # あとがき
-
+今週号でした。ちょっと最近プライベートが忙しくてあんま時間取れてなくて遅くなっちゃいました 🙇
+そういえば ICL っていう目の中にレンズを突っ込んで視力を矯正する手術を受けることにしたんですよ。メガネとはおさらばですわ。
+7/2（日）に手術予定なので、続報をお待ちください。
 
 サイボウズの生産性向上チームでは社内エンジニアの開発生産性を上げるための活動を行なっています。そんな生産性向上チームが気になる方は下のリンクをクリック！
 https://note.com/cybozu_dev/n/n1c1b44bf72f6
-
-<!-- :::message すみません、今週もおまけはお休みです...:::-->
-
-## omake 🃏: 
-今週のおまけです。
