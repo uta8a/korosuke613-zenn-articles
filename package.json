@@ -14,6 +14,7 @@
   },
   "devDependencies": {
     "@proofdict/textlint-rule-proofdict": "3.1.2",
+    "@slidev/cli": "0.42.5",
     "node-actionlint": "1.2.2",
     "renovate": "35.133.1",
     "textlint": "13.3.2",
@@ -21,7 +22,6 @@
     "textlint-rule-preset-ja-spacing": "2.3.0",
     "textlint-rule-preset-ja-technical-writing": "7.0.0",
     "textlint-rule-spellcheck-tech-word": "5.0.0",
-    "zenn-cli": "0.1.144",
-    "@slidev/cli": "0.42.5"
+    "zenn-cli": "0.1.144"
   }
 }
