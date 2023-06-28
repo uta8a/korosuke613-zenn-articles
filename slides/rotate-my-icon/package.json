@@ -8,7 +8,8 @@
     "export:notes": "slidev export-notes",
     "export:slides": "slidev export --dark --with-clicks --per-slide",
     "translation_en": "ts-node ./tools/translation.ts",
-    "export_en": "concurrently 'npm:export:* -- ./slides_en.md'"
+    "export_en": "concurrently 'npm:export:* -- ./slides_en.md'",
+    "format:tools": "rome format --write ./tools"
   },
   "dependencies": {
     "@slidev/cli": "^0.42.5",
@@ -21,6 +22,7 @@
     "concurrently": "^8.2.0",
     "deepl-node": "^1.10.2",
     "playwright-chromium": "^1.35.1",
+    "rome": "12.1.3",
     "ts-node": "^10.9.1"
   }
 }
