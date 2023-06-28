@@ -21,7 +21,7 @@ const baseDir = path.join(__dirname, "..");
 
 (async () => {
 	const translator = newDeepLClient();
-	const srcDir = path.join(baseDir, "pages");
+	const srcDir = path.join(baseDir, "generated");
 	const files = await listFiles(srcDir);
 	for (const fileName of files) {
 		if (fileName !== "implementation.md") {
@@ -65,14 +65,15 @@ const baseDir = path.join(__dirname, "..");
 				}
 
 				console.log(`  origin: ${slideIndex}_${lineIndex} - ${line}`);
-				const result = (
-					(await translator.translateText(
-						targetLine,
-						null,
-						"en-US",
-						{},
-					)) as TextResult
-				).text;
+				// const result = (
+				// 	(await translator.translateText(
+				// 		targetLine,
+				// 		null,
+				// 		"en-US",
+				// 		{},
+				// 	)) as TextResult
+				// ).text;
+				const result = targetLine;
 				console.log(`  translated: ${result}`);
 				translatedContents.push(result);
 			}
@@ -87,14 +88,15 @@ const baseDir = path.join(__dirname, "..");
 						translatedNote.push(line);
 						continue;
 					}
-					const result = (
-						(await translator.translateText(
-							line,
-							null,
-							"en-US",
-							{},
-						)) as TextResult
-					).text;
+					// const result = (
+					// 	(await translator.translateText(
+					// 		line,
+					// 		null,
+					// 		"en-US",
+					// 		{},
+					// 	)) as TextResult
+					// ).text;
+					const result = line;
 					console.log(`  note: ${slideIndex}_${lineIndex} - ${line}`);
 					console.log(`  translated: ${result}`);
 					translatedNote.push(result);
@@ -105,8 +107,38 @@ const baseDir = path.join(__dirname, "..");
 
 		const prettify = slidev.parser.prettify(translatedSlide);
 		const translatedSlideMarkdown = slidev.parser.stringify(prettify);
+		let replacedSlideMarkdown = translatedSlideMarkdown;
+
+		// mermaid の翻訳がおかしくなるため、最後に置き換える
+		const mermaidRegex = /```mermaid\nsequenceDiagram\n([\s\S]*?)```/g;
+		replacedSlideMarkdown = translatedSlideMarkdown.replace(
+			mermaidRegex,
+			`\`\`\`mermaid
+sequenceDiagram
+    actor User
+    Browser->>Browser: page loading
+    Browser->>Browser: register event handler
+    loop
+        User->>Browser: click my icon<br/>(click event)
+        Browser->>My icon: add animation class<br/>(handle click event)
+        My icon->>My icon: Rotate
+        My icon->>Browser: animation end<br />(animationend event)
+        Browser->>My icon: remove animation class<br/>(handle animationend event)
+    end
+\`\`\``,
+		);
+
+		replacedSlideMarkdown = replacedSlideMarkdown
+			.replaceAll("/* あいさつ */", "/* Greetings */")
+			.replaceAll("/* 自己紹介 */", "/* Self-introduction */")
+			.replaceAll("/* SNS リンク */", "/* SNS Links */")
+			.replaceAll("/* 小さいアイコン */", "/* Small icon */")
+			.replaceAll("/* 大きいアイコン */", "/* Big icon */")
+			.replaceAll("例", "ex")
+			.replaceAll("付与", "add")
+			.replaceAll("`SelfIntroduction` に渡す", "pass to `SelfIntroduction`");
 
 		console.log("  Writing");
-		await fs.writeFile(path.join(resultDir, fileName), translatedSlideMarkdown);
+		await fs.writeFile(path.join(resultDir, fileName), replacedSlideMarkdown);
 	}
 })();

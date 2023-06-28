@@ -126,14 +126,14 @@ layout: default
 ```mermaid
 sequenceDiagram
     actor User
-    Browser->Browser: page loading
-    Browser->Browser: register event handler
-    run
-        user->>browser: click my icon<br/>(click event)
-        Browser->My icons: add animation class<br/>(handle click event)
-        My Icon->>My Icon: Rotate
+    Browser->>Browser: page loading
+    Browser->>Browser: register event handler
+    loop
+        User->>Browser: click my icon<br/>(click event)
+        Browser->>My icon: add animation class<br/>(handle click event)
+        My icon->>My icon: Rotate
         My icon->>Browser: animation end<br />(animationend event)
-        Browser->My icon: remove animation class<br/>(handle animationend event)
+        Browser->>My icon: remove animation class<br/>(handle animationend event)
     end
 ```
 
