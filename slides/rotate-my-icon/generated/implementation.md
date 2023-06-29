@@ -134,7 +134,7 @@ sequenceDiagram
         My icon->>My icon: Rotate
         My icon->>Browser: animation end<br />(animationend event)
         Browser->>My icon: remove animation class<br/>(handle animationend event)
-    end
+    end		
 ```
 
 
@@ -383,20 +383,20 @@ layout: default
 <Section>
   <div className="flex flex-col items-center md:flex-row md:justify-between md:gap-x-24">
     <div>
-      <h1 className="hidden text-3xl font-bold md:block"> {/* あいさつ */} </h1>
+      <h1 className="hidden text-3xl font-bold md:block"> {/* Greetings */} </h1>
       <div className="flex flex-row justify-between md:hidden md:gap-x-24">
         {/* For mobile phone display */}
-        <h1 className="text-3xl font-bold"> {/* あいさつ */} </h1>
+        <h1 className="text-3xl font-bold"> {/* Greetings */} </h1>
         <div className="h-20 w-20" id="my-icon-small">
-          <MyIcon /> {/* 小さいアイコン */}
+          <MyIcon /> {/* Small icon */}
         </div>
       </div>
-      <p className="mt-6 text-xl leading-9"> {/* 自己紹介 */} </p>
-      <div className="mt-3 flex flex-wrap gap-1"> {/* SNS リンク */} </div>
+      <p className="mt-6 text-xl leading-9"> {/* Self-introduction */} </p>
+      <div className="mt-3 flex flex-wrap gap-1"> {/* SNS Links */} </div>
     </div>
     <div className="hidden shrink-0 md:block">
       <div className="h-72 w-72" id="my-icon-large">
-        <MyIcon /> {/* 大きいアイコン */}
+        <MyIcon /> {/* Big icon */}
       </div>
     </div>
   </div>
@@ -423,11 +423,11 @@ layout: default
 
 ```tsx
 <div className="h-20 w-20 my-icon">
-  <MyIcon /> {/* 小さいアイコン */}
+  <MyIcon /> {/* Small icon */}
 </div>
 
 <div className="h-72 w-72 my-icon">
-  <MyIcon /> {/* 大きいアイコン */}
+  <MyIcon /> {/* Big icon */}
 </div>
 ```
 
@@ -504,8 +504,8 @@ flowchart
   A --> |Grant random <br> animation class| D[/small icon element/]
   C[small icon `useEffect`] --> |grant a random <br>animation class| B
   C --> |grant a random <br>animation class| D
-  B --- E[/例: 'rotate-animation-z', 'rotate-animation-xy'/]:::noteclass
-  D --- F[/例: 'rotate-animation-x', 'rotate-animation-y'/]:::noteclass
+  B --- E[/ex: 'rotate-animation-z', 'rotate-animation-xy'/]:::noteclass
+  D --- F[/ex: 'rotate-animation-x', 'rotate-animation-y'/]:::noteclass
 ```
 
 <br>
@@ -618,7 +618,7 @@ layout: default
 
    Astro (`index.astro`)
   
-    └── TSX (`SelfIntroduction.tsx`) `client:idle` 付与
+    └── TSX (`SelfIntroduction.tsx`) `client:idle` add
 
             └── TSX (`MyIcon.tsx`)
 Give `client:idle` to `MyIcon` only (current method)
@@ -627,7 +627,7 @@ Give `client:idle` to `MyIcon` only (current method)
   
     ├── TSX (`SelfIntroduction.tsx`)
 
-    └── TSX (`MyIcon.tsx`) `client:idle` 付与。`SelfIntroduction` に渡す
+    └── TSX (`MyIcon.tsx`) `client:idle` add。pass to `SelfIntroduction`
 
 <!--
 And since this `client` directive is an Astro feature, it can only be called from a `*.astro` file.
@@ -875,20 +875,20 @@ const iconPath = /* icon path */;
 <Section>
   <div className="flex flex-col items-center md:flex-row md:justify-between md:gap-x-24">
     <div>
-      <h1 className="hidden text-3xl font-bold md:block"> {/* あいさつ */} </h1>
+      <h1 className="hidden text-3xl font-bold md:block"> {/* Greetings */} </h1>
       <div className="flex flex-row justify-between md:hidden md:gap-x-24">
         {/* For mobile phone display */}
-        <h1 className="text-3xl font-bold"> {/* あいさつ */} </h1>
+        <h1 className="text-3xl font-bold"> {/* Greetings */} </h1>
         <div class="my-icon h-20 w-20" id="my-icon-small">
-          <MyIcon client:idle iconPath={iconPath} iconId="my-icon-small" />  {/* 小さいアイコン */}
+          <MyIcon client:idle iconPath={iconPath} iconId="my-icon-small" />  {/* Small icon */}
         </div>
       </div>
-      <p className="mt-6 text-xl leading-9"> {/* 自己紹介 */} </p>
-      <div className="mt-3 flex flex-wrap gap-1"> {/* SNS リンク */} </div>
+      <p className="mt-6 text-xl leading-9"> {/* Self-introduction */} </p>
+      <div className="mt-3 flex flex-wrap gap-1"> {/* SNS Links */} </div>
     </div>
     <div className="hidden shrink-0 md:block">
       <div class="my-icon h-72 w-72" id="my-icon-large">
-        <MyIcon client:idle iconPath={iconPath} iconId="my-icon-large" /> {/* 大きいアイコン */}
+        <MyIcon client:idle iconPath={iconPath} iconId="my-icon-large" /> {/* Big icon */}
       </div>
     </div>
   </div>
