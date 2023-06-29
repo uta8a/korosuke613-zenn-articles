@@ -41,6 +41,23 @@ layout: center
   It changes with each click.
 </p>
 
+---
+layout: center
+---
+
+<img border="rounded" width="500" src="/axises2.png"/>
+
+<p style="text-align: center;">
+  <a href="https://www.geogebra.org/3d/czwmzrfr" target="_blank" rel="noopener noreferrer">
+    https://www.geogebra.org/3d/czwmzrfr
+  </a>
+</p>
+
+<!--
+This is an image.
+(quickly moving on)
+-->
+
 
 ---
 layout: center
@@ -96,21 +113,4 @@ layout: center
 
 <!--
 Six rotation patterns are available.
--->
-
----
-layout: center
----
-
-<img border="rounded" width="500" src="/axises2.png"/>
-
-<p style="text-align: center;">
-  <a href="https://www.geogebra.org/3d/czwmzrfr" target="_blank" rel="noopener noreferrer">
-    https://www.geogebra.org/3d/czwmzrfr
-  </a>
-</p>
-
-<!--
-This is an image.
-(quickly moving on)
 -->

@@ -44,6 +44,23 @@ layout: center
 layout: center
 ---
 
+<img border="rounded" width="500" src="/axises2.png"/>
+
+<p style="text-align: center;">
+  <a href="https://www.geogebra.org/3d/czwmzrfr" target="_blank" rel="noopener noreferrer">
+    https://www.geogebra.org/3d/czwmzrfr
+  </a>
+</p>
+
+<!--
+これはイメージです。
+（さっさと次に行く）
+-->
+
+---
+layout: center
+---
+
 <!-- grid で 6 等分する -->
 <div class="grid grid-cols-6 gap-4">
   <div class="col-span-2 panel">
@@ -94,21 +111,4 @@ layout: center
 
 <!--
 6 つの回転パターンがあります。
--->
-
----
-layout: center
----
-
-<img border="rounded" width="500" src="/axises2.png"/>
-
-<p style="text-align: center;">
-  <a href="https://www.geogebra.org/3d/czwmzrfr" target="_blank" rel="noopener noreferrer">
-    https://www.geogebra.org/3d/czwmzrfr
-  </a>
-</p>
-
-<!--
-これはイメージです。
-（さっさと次に行く）
 -->
