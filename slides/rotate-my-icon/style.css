@@ -1,0 +1,42 @@
+h1 {
+  font-weight: bold;
+  
+  code {
+    font-weight: bold;
+  }
+}
+
+.footnotes-sep {
+  @apply mt-2 opacity-40;
+}
+
+.footnotes {
+  @apply text-sm opacity-75;
+}
+
+.footnote-backref {
+  display: none;
+}
+
+.slidev-layout p {
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+}
+
+.panel {
+  display: grid;
+  place-items: center;
+}
+
+h1 {
+  background-image: linear-gradient(to bottom right, #7c3aed, #e879f9);
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+
+h1 > code {
+  background: none;
+}
