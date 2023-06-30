@@ -13,7 +13,7 @@ info: |
   CSS, JavaScript, React, Astro, Browser
 drawings:
   persist: false
-transition: slide-left
+transition: none
 title: How to make myself rotate randomly every time I click with Astro (Translated by DeepL)
 ---
 
