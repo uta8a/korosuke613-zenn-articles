@@ -13,7 +13,7 @@ info: |
   CSS, JavaScript, React, Astro, Browser
 drawings:
   persist: false
-transition: slide-left
+transition: none
 title: カチカチするたびランダムに回転する僕の作り方 with Astro
 ---
 

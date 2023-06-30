@@ -181,7 +181,7 @@ export const MyIcon = (props: IMyIconProps) => {
 layout: center
 ---
 
-<img border="rounded" width="250" src="/rotate_z.png"/>
+<img class="rotate-animation-z" src="/rotated_my_icon.png"  width="225" border="rounded"/>
 
 <br />
 
@@ -295,19 +295,19 @@ layout: center
     <p>
       X 軸
     </p>
-    <img src="/rotate_x.png" width="225" border="rounded"/>
+    <img class="rotate-animation-x" src="/rotated_my_icon.png" width="225" border="rounded"/>
   </div>
   <div class="panel">
     <p>
       Y 軸
     </p>
-    <img src="/rotate_y.png" width="225" border="rounded"/>
+    <img class="rotate-animation-y" src="/rotated_my_icon.png"  width="225" border="rounded"/>
   </div>
   <div class="panel">
     <p>
       Z 軸
     </p>
-    <img src="/rotate_z.png" width="225" border="rounded"/>
+    <img class="rotate-animation-z" src="/rotated_my_icon.png"  width="225" border="rounded"/>
   </div>
   <div class="panel col-span-3">
     <p style="text-align: center; font-size: x-large">
@@ -315,19 +315,19 @@ layout: center
     </p>
   </div>
   <div class="panel">
-    <img src="/rotate_xy.png" width="225" border="rounded"/>
+    <img class="rotate-animation-xy" src="/rotated_my_icon.png"  width="225" border="rounded"/>
     <p>
       X 軸 & Y 軸
     </p>
   </div>
   <div class="panel">
-    <img src="/rotate_xz.png" width="225" border="rounded"/>
+    <img class="rotate-animation-xz" src="/rotated_my_icon.png"  width="225" border="rounded"/>
     <p>
       X 軸 & Z 軸
     </p>
   </div>
   <div class="panel">
-    <img src="/rotate_yz.png" width="225" border="rounded"/>
+    <img class="rotate-animation-yz" src="/rotated_my_icon.png"  width="225" border="rounded"/>
     <p>
       Y 軸 & Z 軸
     </p>
@@ -992,7 +992,7 @@ layout: default
 
 <div>
 
-<img src="/rotated_my_icon.png">
+<img class="rotate-animation-xz" src="/rotated_my_icon.png">
 
 </div>
 
