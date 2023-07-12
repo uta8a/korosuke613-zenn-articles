@@ -7,23 +7,10 @@ on:
 
 jobs:
   actionlint:
-    name: actionlint
     runs-on: ubuntu-latest
     steps:
+      - uses: GitHubSecurityLab/actions-permissions/monitor@v1
+
       - uses: actions/checkout@v3
 
-      - uses: actions/setup-node@v3
-        with:
-          node-version-file: .tool-versions
-          cache: 'npm'
-
-      - name: Install latest corepack
-        run: |
-          npm i -g corepack@latest
-              
-      - run: corepack enable npm
-
-      - run: npm ci
-
-      - name: actionlint
-        run: npm run lint:node-actionlint
+      - uses: reviewdog/action-actionlint@v1
