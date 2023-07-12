@@ -10,6 +10,8 @@ jobs:
     name: actionlint
     runs-on: ubuntu-latest
     steps:
+      - uses: GitHubSecurityLab/actions-permissions/monitor@v1
+
       - uses: actions/checkout@v3
 
       - uses: actions/setup-node@v3
