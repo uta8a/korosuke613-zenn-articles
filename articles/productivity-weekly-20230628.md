@@ -78,17 +78,17 @@ https://blog.cloudflare.com/a-step-by-step-guide-to-transferring-domains-to-clou
 ## GitHub Actions: You can now disable repo level self-hosted runners in an Enterprise and Organization | GitHub Changelog
 https://github.blog/changelog/2023-06-13-github-actions-you-can-now-disable-repo-level-self-hosted-runners-in-an-enterprise-and-organization/
 
-リポジトリ単位で登録するセルフホストランナーについて、指定したリポジトリにセルフホストランナーを登録できなくできるようになりました。
-
-Enterprise や Organization 単位でこれを設定することができます。
+GitHub Actions のセルフホストランナーについて、リポジトリ単位で登録するセルフホストランナーを指定リポジトリで無効化できるようになりました。Enterprise や Organization で設定可能です。
 また、既存のランナーは新しくジョブを受け付けなくなります。
 
-エフェメラルでないセルフホストランナーを使用すると、前のジョブの結果にアクセスできてしまう問題などがありますが、今回追加された設定をすることでこのようなトラブルを未然に防ぐことができます。
+例えば ephemeral でないセルフホストランナーを使用すると、前のジョブの結果にアクセスできてしまう問題があり、利用には注意が必要です。ephemeral なランナーを利用するのが好ましいですが、全ての利用者に強制させることは今まで難しかったです。
+
+今回の変更で、組織の管理者（有識者）が提供する安全なランナーを利用者に強制させることで、ガバナンスを強めることができます。
 
 組織によってはリポジトリごとのセルフホストランナーを使わないようにしているところもあるかと思います。
-今回追加されたこの設定を有効化して、より安全にすることができそうです。
+今回追加されたこの設定を有効化して、より安全にできそうです。
 
-*本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)*
+*本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)、本項の編集者: [@korosuke613](https://zenn.dev/korosuke613)*
 
 ## GitHub Actions - Securing OpenID Connect (OIDC) token permissions in reusable workflows | GitHub Changelog
 https://github.blog/changelog/2023-06-15-github-actions-securing-openid-connect-oidc-token-permissions-in-reusable-workflows/
@@ -102,12 +102,12 @@ reusable workflows で OIDC を利用する場合は気をつけましょう。
 ## Organization-level code scanning default setup for CodeQL is now generally available | GitHub Changelog
 https://github.blog/changelog/2023-06-23-organization-level-code-scanning-default-setup-for-codeql-is-now-generally-available/
 
-CodeQL を使った code scaning について、organization レベルで設定できるようになりました。
-公開していて且つ GitHub Advanced Security が有効化されているリポジトリで一括で有効化・無効化ができます。
+GitHub の CodeQL を使った code scaning について、organization レベルで設定できるようになりました。
+public なリポジトリ、または、GitHub Advanced Security が有効化されている private/internal なリポジトリに対して一括での有効化・無効化ができます。
 
 対応言語はまだ少ないですが、今後増えていくとのことですし、見守っていきたいですね。
 
-*本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)*
+*本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)、本項の編集者: [@korosuke613](https://zenn.dev/korosuke613)*
 
 ## GitHub Actions – Update on OIDC integration with AWS | GitHub Changelog
 https://github.blog/changelog/2023-06-27-github-actions-update-on-oidc-integration-with-aws/
@@ -227,8 +227,8 @@ https://www.bleepingcomputer.com/news/security/millions-of-github-repos-likely-v
 
 RepoJacking という攻撃手法が紹介されています。
 
-GitHub でリポジトリ名やユーザー名、org 名を変更したり、リポジトリをユーザーや org 間で移動して、リポジトリの URL を変更した際、移動前の URL にアクセスすると移動先の URL にリダイレクトするようになっています。
-しかし、移動前のリポジトリ名や user, org 名を取得して、移動前の URL でアクセスできる状態を作り出した場合、移動後のリポジトリへのリダイレクトは行われなくなります。
+GitHub では、リポジトリ名やユーザー名、org 名を変更したり、リポジトリオーナーを変更したりすると、リポジトリの URL が変わります。変わった後も以前の URL にアクセスすると変更後の URL にリダイレクトするようになっています。
+しかし、移動前のリポジトリ名や user, org 名は解放されるため、再びそれらの名前を使用することが可能です。もし再びそれらの名前を利用し、変更前の URL でアクセスできる状態になった場合、上で説明した、変更後の URL へのリダイレクトは行われなくなります。
 
 新しくリポジトリを作成した人が悪意のあるコードを push すると、移動前の URL のリポジトリに依存しているプロジェクトなどに悪意のあるコードが混入することになります。
 
@@ -238,7 +238,7 @@ GitHub でリポジトリ名やユーザー名、org 名を変更したり、リ
 
 一度決めたアカウント名は変えないのが一番かもしれません。。。
 
-*本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)*
+*本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)、本項の編集者: [@korosuke613](https://zenn.dev/korosuke613)*
 
 ## TerraformのCDに使用できるツールをまとめてみた | DevelopersIO
 https://dev.classmethod.jp/articles/terraform-deploy-pipeline-tool/
@@ -296,16 +296,16 @@ monitor アクションと advisor アクションの 2 つのアクションが
 ## gitleaks/gitleaks: Protect and discover secrets using Gitleaks 🔑
 https://github.com/gitleaks/gitleaks
 
+gitleaks は git リポジトリ内のパスワード、API key、token のようなハードコードされたクレデンシャルを検出・防止するための SAST ツールです。
+
 gitleaks の最新のリリース（v8.17.0）で OpenAI の API key に対応しました。
 https://github.com/gitleaks/gitleaks/releases/tag/v8.17.0
 
-gitleaks は git リポジトリ内のパスワード、API key、token のようなハードコードされたクレデンシャルを検出・防止するための SAST ツールです。
-
-ちなみに、gitleaks に近いツールでは secretlint がありますが、こちらはまだ OpenAI の API key には対応していないようです。
+ちなみに、gitleaks に近いツールでは [secretlint](https://github.com/secretlint/secretlint) がありますが、こちらはまだ OpenAI の API key には対応していないようです。
 
 昨今、OpenAI の API を使った開発が盛んですので、こういったツールが対応してくれるのは有り難いですね。
 
-*本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)*
+*本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)、本項の編集者: [@korosuke613](https://zenn.dev/korosuke613)*
 
 # read more 🍘
 Productivity Weekly で出たネタを全て紹介したいけど紹介する体力が持たなかったネタを一言程度で書くコーナーです。
