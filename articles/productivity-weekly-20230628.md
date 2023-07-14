@@ -357,12 +357,8 @@ Productivity Weekly で出たネタを全て紹介したいけど紹介する体
 [^larger_2]: [GitHub Actions: larger hosted runners are now automatically created for customers | GitHub Changelog](https://zenn.dev/cybozu_ept/articles/productivity-weekly-20221026?redirected=1#github-actions%3A-larger-hosted-runners-are-now-automatically-created-for-customers-%7C-github-changelog)
 
 # あとがき
-
+めちゃ遅れてすみません。今週号です。最近は 7 月になって今年も残り半分なので、いろんなキックオフやら行事があって大変ですね。
+FF 16 をさっさとクリアしたいのですが、なかなか時間が取れずにゲームは一日一時間状態になっています。
 
 サイボウズの生産性向上チームでは社内エンジニアの開発生産性を上げるための活動を行なっています。そんな生産性向上チームが気になる方は下のリンクをクリック！
 https://note.com/cybozu_dev/n/n1c1b44bf72f6
-
-<!-- :::message すみません、今週もおまけはお休みです...:::-->
-
-## omake 🃏: 
-今週のおまけです。
