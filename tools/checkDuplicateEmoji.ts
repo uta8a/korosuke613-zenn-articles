@@ -1,6 +1,6 @@
 // deno run --allow-read --allow-run=git,grep ./tools/checkDuplicateEmoji.ts
 
-import * as matter from "npm:gray-matter";
+import matter from "npm:gray-matter";
 
 const getGitDiffFiles = async () => {
   const cmd = new Deno.Command("git", {
@@ -54,7 +54,7 @@ if (articles.length === 0) {
 
 // 複数の記事を同時に書かない前提
 const text = await Deno.readTextFile(articles[0]);
-const content = matter.default(text);
+const content = matter(text);
 const emoji = content.data.emoji as string;
 
 if (emoji === "") {
