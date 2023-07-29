@@ -7,6 +7,9 @@ on:
       - .github/workflows/renovate-dry-run.yaml
       - renovate.json5
 
+permissions:
+  contents: read
+      
 jobs:
   renovate-dry-run:
     permissions:
@@ -14,11 +17,9 @@ jobs:
       pull-requests: read  # required by renovate, because renovate to read pull request.
     runs-on: ubuntu-latest
     steps:
-    - uses: GitHubSecurityLab/actions-permissions/monitor@v1
+      - uses: actions/checkout@v3
 
-    - uses: actions/checkout@v3
-
-    - uses: cybozu/renovate-dry-run-action@v1
-      with:
-        config-file: renovate.json5
-        detail-summary: false
+      - uses: cybozu/renovate-dry-run-action@v1
+        with:
+          config-file: renovate.json5
+          detail-summary: false

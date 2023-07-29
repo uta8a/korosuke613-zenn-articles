@@ -5,12 +5,13 @@ on:
     paths:
       - .github/workflows/*
 
+permissions:
+  contents: read
+
 jobs:
   actionlint:
     runs-on: ubuntu-latest
     steps:
-      - uses: GitHubSecurityLab/actions-permissions/monitor@v1
-
       - uses: actions/checkout@v3
 
       - uses: reviewdog/action-actionlint@v1

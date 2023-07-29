@@ -6,14 +6,15 @@ on:
       - .github/workflows/ci-zenn.yaml
       - articles/**.md
 
+permissions:
+  contents: read
+
 jobs:  
   validate-zenn-metadata:
     name: Validate metadata
     runs-on: ubuntu-latest
       
     steps:
-      - uses: GitHubSecurityLab/actions-permissions/monitor@v1
-
       - uses: actions/checkout@v3
         with:
           fetch-depth: 2  # Because if `fetch-depth >= 2` is not set, unchanged files will be updated.
@@ -52,8 +53,6 @@ jobs:
     env:
       ARTICLES_PATH: articles
     steps:
-      - uses: GitHubSecurityLab/actions-permissions/monitor@v1
-
       - uses: actions/checkout@v3
   
       - uses: actions/setup-node@v3
