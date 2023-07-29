@@ -3,7 +3,7 @@ title: "Productivity Weekly (2023-07-19号, 2023-07-05号)"
 emoji: "🦆"
 type: "idea"
 topics: ["ProductivityWeekly", "生産性向上"]
-published: false
+published: true
 publication_name: "cybozu_ept"
 user_defined: {"publish_link": "https://zenn.dev/korosuke613/articles/productivity-weekly-20230705"}
 ---
@@ -223,8 +223,6 @@ Docker Desktop for Mac 代替のツールはいくつかありますが、その
 スパースファイルを考慮していないバックアップシステムがバックアップしようとするとこうなるんだと初めて知りました...皆さんもお気をつけください...
 
 *本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)*
-
-# tool 🔨
 
 # read more 🍘
 Productivity Weekly で出たネタを全て紹介したいけど紹介する体力が持たなかったネタを一言程度で書くコーナーです。
