@@ -1,6 +1,6 @@
 ---
 title: "Productivity Weekly (2023-07-19号, 2023-07-05号)"
-emoji: "🎸"
+emoji: "🦆"
 type: "idea"
 topics: ["ProductivityWeekly", "生産性向上"]
 published: false
@@ -16,6 +16,10 @@ user_defined: {"publish_link": "https://zenn.dev/korosuke613/articles/productivi
 
 2023-01-25 号から、基本的に隔週で連載することとしました。たまに単独でも投稿するかもしれません。
 今週は 2023-07-05, 2023-07-19 合併号です。
+
+:::message
+2023/07/12 号は、Productivity Weekly 自体がお休みだったのでお休みです。
+:::
 
 今回が第 118 回目です。過去の記事は[こちら](https://zenn.dev/topics/productivityweekly?order=latest)。
 
@@ -112,7 +116,7 @@ Dependabot で依存関係のパッケージをグループにして、1 つの�
 生産性向上チームでは、前からグループ機能がありより細かく設定ができる [Renovate](https://github.com/renovatebot/renovate) を使っていて、今回の機能追加で Dependabot に乗り換えることはなさそうです。
 ただ日頃 Dependabot を使っている方にとってはこの機能は便利かと思うので、この機会に使ってみてはいかがでしょうか。
 
-*本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)*
+*本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)、本項の編集者: [@korosuke613](https://zenn.dev/korosuke613)*
 
 ## AWS Lambda now detects and stops recursive loops in Lambda functions
 https://aws.amazon.com/jp/about-aws/whats-new/2023/07/aws-lambda-detects-recursive-loops-lambda-functions/
@@ -147,7 +151,7 @@ Actions Runner Controller は k8s を使ったセルフホストランナーな�
 ちなみに、kesin11 さんが GHES と github.com の Actions 関連の対応表を書いてくださっていて、毎度参考にしています 🙏
 https://zenn.dev/kesin11/articles/gha_releasenote_ghes
 
-*本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)*
+*本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)、本項の編集者: [@korosuke613](https://zenn.dev/korosuke613)*
 
 # know-how 🎓
 
@@ -256,17 +260,24 @@ Productivity Weekly で出たネタを全て紹介したいけど紹介する体
         - など
 - **know-how 🎓**
   - [iOS開発におけるGitHub Actions self-hosted runnerを利用したオンプレ CI/CD のすゝめ | CADC 2023](https://cadc.cyberagent.co.jp/2023/sessions/ios-github-actions-self-hosted-runner/)
-    - サイバーエージェントさんでセルフホストランナーを運用している whywaita さんの新作です
+    - サイバーエージェントさんによる、GitHub Actions セルフホストランナーの macOS ランナー環境を用意したと言う記事です
     - https://github.com/utmapp/UTM で macOS の VM を使うことで、mac でもジョブごとにランナーを使い捨てる運用となっています
-    - ちなみに macOS 上で VM を立てる場合はライセンス条項が色々面倒なので注意です
-    - これを実現したのはすごいと思います
+    - 簡単には実現できないと思います。すごいです
 - **tool 🔨**
   - [Introducing new and updated models to Azure OpenAI Service - Microsoft Community Hub](https://techcommunity.microsoft.com/t5/ai-cognitive-services-blog/introducing-new-and-updated-models-to-azure-openai-service/ba-p/3860351)
-
+    - OpenAI において GPT-3.5 の扱えるトークン数を 4 倍にした gpt-35-turbo-16k モデルが扱えるようになりました
+      - リンクは Azure OpenAI Service の方の告知
+    - 値段は既存の 4K と比べて 1 トークンあたり 2 倍程度となってしまっていますが、扱えるトークン数が増えるのがとにかく嬉しいですね
 
 *本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)*
 
 # あとがき
+
+遅くなってしまいましたが、先週＆今週号でした。
+
+先月に発売した FF 16 をこまめにやっていたのですが、ようやくラスボス倒しました。結局プレイ時間 40 時間くらいとかだったかな。正直とても良かったです。戦闘もストーリーも音楽も。DLC を待ちたいところですね。
+
+また、この前ジブリの新作映画「君たちはどう生きるか」を観てきました。とても面白かったです。広告が「きみいきバード」のポスターだけで内容が事前にはさっぱり分かりませんでしたが、僕は内容を見た上で、内容が隠されてたのは見る上で良かったと思いました。売れてるかは知らん。
 
 サイボウズの生産性向上チームでは社内エンジニアの開発生産性を上げるための活動を行なっています。そんな生産性向上チームが気になる方は下のリンクをクリック！
 https://note.com/cybozu_dev/n/n1c1b44bf72f6
@@ -277,7 +288,7 @@ https://note.com/cybozu_dev/n/n1c1b44bf72f6
 https://github-dockyard.connpass.com/event/289714/
 
 2023/08/05（土）に「GitHub dockyard コミュニティ竣工イベント！」というイベントが開催されます。
-サイボウズの東京オフィスで開催予定です。（オンライン配信も予定されています）
+銀座にある GINZA SCRATCH で開催予定です。（オンライン配信も予定されています）
 
 GitHub の開発者向けコミュニティイベントとのことで、GitHub 製品に精通している方々によるセッションがいくつかあります。
 個人的には GitHub Project をあまり追っかけられていないので、「自称日本一 GitHub Projects を使っているので魅力を伝えたい！」が気になりますね。
