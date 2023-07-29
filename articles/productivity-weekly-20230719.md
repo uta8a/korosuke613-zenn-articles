@@ -224,8 +224,6 @@ Docker Desktop for Mac 代替のツールはいくつかありますが、その
 
 *本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)*
 
-# tool 🔨
-
 # read more 🍘
 Productivity Weekly で出たネタを全て紹介したいけど紹介する体力が持たなかったネタを一言程度で書くコーナーです。
 
