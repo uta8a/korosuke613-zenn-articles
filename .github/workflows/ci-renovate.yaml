@@ -6,13 +6,14 @@ on:
       - .github/workflows/ci-renovate.yaml
       - renovate.json5
 
+permissions:
+  contents: read
+      
 jobs:
   validate-renovate-config:
     name: Validate config
     runs-on: ubuntu-latest
     steps:
-      - uses: GitHubSecurityLab/actions-permissions/monitor@v1
-
       - uses: actions/checkout@v3
 
       - uses: actions/setup-node@v3
