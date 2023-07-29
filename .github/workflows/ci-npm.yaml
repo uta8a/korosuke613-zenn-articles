@@ -2,10 +2,13 @@ name: CI for npm
 
 on: 
   pull_request:
+    paths:
+      - .github/workflows/ci-npm.yaml
+      - package.json
+      - package-lock.json
 
 permissions:
   contents: read
-
 
 jobs:
   check-run-zenn-cli:

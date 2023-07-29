@@ -2,9 +2,6 @@ name: CI for Zenn
 
 on: 
   pull_request:
-    paths: 
-      - .github/workflows/ci-zenn.yaml
-      - articles/**.md
 
 permissions:
   contents: read
