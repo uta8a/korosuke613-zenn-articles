@@ -22,7 +22,7 @@ jobs:
 
       - name: Check format
         run: |
-          deno fmt ./tools
+          deno fmt --check ./tools
       
       - name: Check lint
         run: |
