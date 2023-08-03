@@ -12,9 +12,6 @@ jobs:
   build:
     name: pull request metrics
     runs-on: ubuntu-latest
-    env:
-      GITHUB_OWNER: korosuke613
-      GITHUB_REPO: zenn-articles    
     steps:
       - name: 1 ヶ月前の範囲を取得 # 例: 7 月に実行した場合、2023-06-01..2023-06-30 のようになる
         shell: bash
@@ -41,7 +38,7 @@ jobs:
       - name: Create issue
         uses: peter-evans/create-issue-from-file@433e51abf769039ee20ba1293a088ca19d573b7f # v4.0.1
         with:
-          title: Monthly pull request metrics report
+          title: Monthly pull request metrics report (${{ steps.days.outputs.last_month }})
           token: ${{ secrets.GITHUB_TOKEN }}
+          issue-number: 403 # 最初に作った Issue を更新する。https://github.com/korosuke613/zenn-articles/issues/403
           content-filepath: ./issue_metrics.md
-          assignees: korosuke613
