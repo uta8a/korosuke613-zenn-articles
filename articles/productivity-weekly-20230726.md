@@ -27,7 +27,13 @@ user_defined: {"publish_link": "https://zenn.dev/korosuke613/articles/productivi
 今週の共同著者は次の方です。
 - [@korosuke613](https://zenn.dev/korosuke613)
 - [@defaultcf](https://zenn.dev/defaultcf)
-- [@Kesin11](https://zenn.dev/kesin11)
+- [@Kesin11](https://zenn.dev/kesin11) **← New!**
+
+---
+
+！？
+[@Kesin11](https://zenn.dev/kesin11) さんが共同著者として初登場です！
+よろしくお願いします！
 
 :::
 
