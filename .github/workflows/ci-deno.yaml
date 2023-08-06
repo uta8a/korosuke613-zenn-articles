@@ -5,6 +5,13 @@ on:
     paths:
       - .github/workflows/ci-deno.yaml
       - tools/**/*.ts
+  push:
+    # main ブランチで codecov へカバレッジを送るために push でもトリガーする
+    paths:
+      - .github/workflows/ci-deno.yaml
+      - tools/**/*.ts
+    branches:
+      - main
 
 permissions:
   contents: read
