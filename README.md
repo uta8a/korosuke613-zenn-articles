@@ -35,6 +35,6 @@ npm run start
 ```
 
 ### ツール
-[![codecov](https://codecov.io/gh/korosuke613/zenn-articles/branch/master/graph/badge.svg?token=K61PD2KM9C)](https://codecov.io/gh/korosuke613/zenn-articles)
+[![codecov](https://codecov.io/gh/korosuke613/zenn-articles/branch/main/graph/badge.svg?token=K61PD2KM9C)](https://codecov.io/gh/korosuke613/zenn-articles)
 
 - [./tools](./tools)
