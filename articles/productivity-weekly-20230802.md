@@ -50,17 +50,19 @@ AWS において、パブリック IPv4 アドレスの料金体系が変わり�
 ## actions/runner nodejs plan and next steps · actions/runner · Discussion #2704
 https://github.com/actions/runner/discussions/2704
 
-GitHub Actionsに内蔵されているnodejsのバージョンはずっと16で止まっており、16に関してはそろそろメンテナンス期間も終了してしまうので一部では以前から問題視されていたのですが、この件に関してバージョン18をスキップして20に上げる予定であることがdiscussionにてアナウンスされました。16は今年の後半にDeprecatedに向けたプロセスを開始する予定とのことです。
+GitHub Actions に内蔵されている Node.js のバージョンはずっと 16 で止まっており、16 に関してはそろそろメンテナンス期間も終了してしまうので一部では以前から問題視されていたのですが、この件に関してバージョン 18 をスキップして 20 に上げる予定であることが discussion にてアナウンスされました。16 は今年の後半に Deprecated に向けたプロセスを開始する予定とのことです。
 
-個人的にこの件に関係する可能性があると思ったのは、octokit.jsが最近リリースした[v3.0.0](https://github.com/octokit/octokit.js/releases/tag/v3.0.0)でnodejs 14, 16のサポートを切った件でした。octokitがAPIへの通信を行う際にnode 18から追加されたfetch APIを使うようになったため、node 16までの場合は `node-fetch` のような `fetch API` 互換の実装を外から渡す必要がある（[README参照](https://github.com/octokit/octokit.js#fetch-missing)）ようです。
+個人的にこの件に関係する可能性があると思ったのは、octokit.js が最近リリースした[v3.0.0](https://github.com/octokit/octokit.js/releases/tag/v3.0.0)で Node.js 14, 16 のサポートを切った件でした。octokit が API への通信を行う際に Node.js 18 から追加された fetch API を使うようになったため、Node.js 16 までの場合は `node-fetch` のような `fetch API` 互換の実装を外から渡す必要がある（[README参照](https://github.com/octokit/octokit.js#fetch-missing)）ようです。
 
-[actions/github-script](https://github.com/actions/github-script)やその他の無数に存在するであろうGitHubのAPIを使用するactionsもoctokitを使っていると思われるため、これは近いうちに問題になるかもしれないと考えて深掘り調査をしてみました。
+[actions/github-script](https://github.com/actions/github-script)やその他の無数に存在するであろう GitHub の API を使用する actions も octokit を使っていると思われるため、これは近いうちに問題になるかもしれないと考えて深掘り調査をしてみました。
 
-調査した上での自分なりの結論としては、仮にランナー内臓のnodejsが16のままであったとしてもoctokitを使っているactionsがただちに動かなくなるという心配はなさそうです。ただし、GitHubのAPIを利用するactionsを自作されている方で、`octokit/octokit`をお使いであれば[v3.0.0](https://github.com/octokit/octokit.js/releases/tag/v3.0.0)以上、`@octokit/core`であれば[v5.0.0](https://github.com/octokit/core.js/releases/tag/v5.0.0)に以上に上げるタイミングで念入りに動作確認をしておいた方がよそうです。
+調査した上での自分なりの結論としては、仮にランナー内臓の Node.js が 16 のままであったとしても octokit を使っている actions がただちに動かなくなるという心配はなさそうです。ただし、GitHub の API を利用する actions を自作されている方で、`octokit/octokit` をお使いであれば[v3.0.0](https://github.com/octokit/octokit.js/releases/tag/v3.0.0)以上、`@octokit/core` であれば[v5.0.0](https://github.com/octokit/core.js/releases/tag/v5.0.0)に以上に上げるタイミングで念入りに動作確認をしておいた方が良さそうです。
 
-自分が調査した内容の詳細に関してはこちらのスクラップを参照してください
+自分が調査した内容の詳細に関してはこちらのスクラップを参照してください。
 
 https://zenn.dev/kesin11/scraps/dc5a761fa5992e
+
+*本項の執筆者: [@Kesin11](https://zenn.dev/kesin11)*
 
 ## Shhh… 🤫 @Cloudflare Registrar just quietly rolled out support for the following TLDs:
 https://twitter.com/eastdakota/status/1686513213503127557
