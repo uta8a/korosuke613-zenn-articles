@@ -1,6 +1,6 @@
 ---
 title: "Productivity Weekly (2023-08-02号)"
-emoji: "👿"
+emoji: "🐯"
 type: "idea"
 topics: ["ProductivityWeekly", "生産性向上"]
 published: false
@@ -26,7 +26,6 @@ user_defined: {"publish_link": "https://zenn.dev/korosuke613/articles/productivi
 
 今週の共同著者は次の方です。
 - [@korosuke613](https://zenn.dev/korosuke613)
-- [@defaultcf](https://zenn.dev/defaultcf)
 - [@Kesin11](https://zenn.dev/kesin11)
 
 :::
@@ -93,20 +92,35 @@ Cloudflare ならヨシ！という方はこれで .dev ドメインなどのド
 [^tld]: Top Level Domain の略。ドメインの最後の部分。
 [^dev_dominant]: 要出典。昔は Google Domains でしか買えなかったと思うけど、ググってもそれを示す一次的なソースを見つけられなかった...
 
-# know-how 🎓
-
-## 詳解 : Seekable OCI を使用した AWS Fargate におけるコンテナイメージの遅延ロード | Amazon Web Services ブログ
-https://aws.amazon.com/jp/blogs/news/under-the-hood-lazy-loading-container-images-with-seekable-oci-and-aws-fargate/
-
-記事内にリンクされている前回記事も合わせてみると良い
+## AWS Fargate はシーク可能な OCI を使用してより高速なコンテナ起動を可能に | Amazon Web Services ブログ
 https://aws.amazon.com/jp/blogs/news/aws-fargate-enables-faster-container-startup-using-seekable-oci/
 
-コンテナを run するときに実際に必要となるファイルやバイナリはイメージのごく一部であることが多いので、最初にイメージ全てを pull せずに必要になったタイミングで遅延 pull すればコンテナの立ち上げが早くできるので、そのためのツールを AWS が作成して Fargate も対応させたという話。
+AWS Fargate において、コンテナイメージの遅延読み込み (非同期読み込みとも呼ばれる) 技術である Seekable OCI がサポートされました。うまく活用することでコンテナの起動時間を短縮できます。
 
-すごい簡単に言うと↑の話なのですが、この手の話は以前から eStargz という技術で containerd 界隈で実装されていて、それだと eStargz 用にイメージを再ビルドしなおす必要があったところを、AWS の Seekable OCI ではインデックスを外付けする形で同様のことが可能になった。加えて、それを動かす側として Fargate が対応しましたということっぽい。
+どのように起動時間を短縮できるかですが、コンテナを run するときに実際に必要となるファイルやバイナリはイメージのごく一部であることが多いため、最初にイメージ全てを pull せずに、必要なレイヤーが揃った段階でコンテナを起動し、起動しつつ残りのレイヤーを遅延 pull することで起動時間を短縮できるようです（ここら辺の自分の説明が合っているかは不安）。
 
-そして記事には直接関係ないですが、最近の nerdctl 1.5.0 のリリースノートにも SOCI 対応が書かれていたのでユーザーの手元でも nerdctl run で試せるのかもしれない
-https://github.com/containerd/nerdctl/releases/tag/v1.5.0
+どのレイヤーにどのファイルがあるかや、tar のどこに格納されているか、どのようにアプリケーションが必要とするファイルのみを解凍するかなどのメタデータを用意する必要があります。これらのメタデータは SOCI インデックスマニフェストと呼ばれ、既存イメージに手を加えることなく別途作成できます。
+作成したマニフェストもレジストリに push することで、Fargate で Seekable OCI の恩恵を受けられます。
+
+方法は上記ブログに載っていますが、クラメソさんも記事をあげているため、こちらも参考になります。
+
+- [全 AWS Fargate 利用者必見！ Seekable OCI インデックスによりコンテナの起動が大幅に高速化するようになりました | DevelopersIO](https://dev.classmethod.jp/articles/update-aws-fargate-seekable-oci)
+
+また、AWS のブログにおいて、Seekable OCI がどのような仕組みなのかが説明されています。仕組みをもっと知りたい方はこちらも参考にしてみてください。
+
+- [詳解 : Seekable OCI を使用した AWS Fargate におけるコンテナイメージの遅延ロード | Amazon Web Services ブログ](https://aws.amazon.com/jp/blogs/news/under-the-hood-lazy-loading-container-images-with-seekable-oci-and-aws-fargate/)
+
+場合によっては 50% 近くの高速化も見込めるらしく、Fargate 利用者なら試してみたいですね。
+
+:::message
+
+ちなみに、最近リリースされた [nerdctl 1.5.0 のリリースノート](https://github.com/containerd/nerdctl/releases/tag/v1.5.0)に SOCI 対応が書かれていたので、nerdctl 使いの方は手元で検証できるかもしれません。
+
+> Lazy-pulling now supports SOCI (#2347)
+
+:::
+
+*本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)*
 
 # read more 🍘
 Productivity Weekly で出たネタを全て紹介したいけど紹介する体力が持たなかったネタを一言程度で書くコーナーです。
@@ -120,15 +134,28 @@ Productivity Weekly で出たネタを全て紹介したいけど紹介する体
     - 僕も正直さわりしか知らないので、この手引きを読んでみようと思います（ボリューミーだけど）
 - **tool 🔨**
   - [8ヶ月で リリース速度が約2倍、プルリクエスト件数122%向上した話](https://zenn.dev/offersmgr/articles/cf9e7282d5f2c8)
-    - Offer MGR という Findy Team+とは違うツール
-    - [Offers MGR 14 日間無料で試せる「トライアルプラン」を募集開始 - CNET Japan](https://japan.cnet.com/release/30882464/)
+    - Offer MGR という Four Keys などの開発生産性に関わるメトリクスを取得できるサービスの紹介記事です
+    - Offer MGR を開発している overflow さんはドッグフーディング的に Offer MGR を使っており、開発生産性を可視化、分析し、デプロイ頻度の向上や変更リードタイムの減少を実現できたとのことです
+    - フリートライアルもあるそうなので、気になる方は試してみるといいかもしれません
 
 *本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)*
 
 # あとがき
-
+今週号でした。遅くなってしまいすみません。
+最近ポケモンスリープをやっているのですが、僕のポケモンたちは常に眠そうです。ごめんね。
 
 サイボウズの生産性向上チームでは社内エンジニアの開発生産性を上げるための活動を行なっています。そんな生産性向上チームが気になる方は下のリンクをクリック！
 https://note.com/cybozu_dev/n/n1c1b44bf72f6
 
 <!-- :::message すみません、今週もおまけはお休みです...:::-->
+
+## GitHub Actions Meetup Tokyo #2 - connpass
+https://gaugt.connpass.com/event/292175/
+
+GitHub Actions に関することをワイワイ話す会、GitHub Actions Meetup Tokyo #2 が 2023/09/21 に開催されます。
+場所はサイボウズ株式会社の東京オフィスです。オンライン視聴もあります。
+
+なんか公開されて早いうちにオフライン LT 枠とオンライン視聴枠が埋まってしまいましたが、オフライン一般参加枠は 2023/08/13 19:42 時点でまだ 33/40 となっているため、ギリ空いてます。
+
+なんと 4,5 年ぶりの開催です。楽しみですね。
+気になる方はぜひ参加してみてください！
