@@ -9,6 +9,7 @@
       "opencontainers",
       "ORAS",
       "Rubo",
+      "Seekable",
       "Speee"
     ],
   "deno.enable": true,
