@@ -26,9 +26,14 @@ user_defined: {"publish_link": "https://zenn.dev/korosuke613/articles/productivi
 
 今週の共同著者は次の方です。
 - [@korosuke613](https://zenn.dev/korosuke613)
-- [@defaultcf](https://zenn.dev/defaultcf)
 - [@Kesin11](https://zenn.dev/kesin11)
+- [@r4mimu](https://zenn.dev/r4mimu) **← New!**
 
+---
+
+！？
+[@r4mimu](https://zenn.dev/r4mimu) さんが共同著者として初登場です！
+よろしくお願いします！
 :::
 
 # news 📺
@@ -38,7 +43,7 @@ https://github.blog/changelog/2023-08-02-github-actions-required-workflows-will-
 
 GitHub Actions の Required Workflows が Repository Rules 内の機能に移行します。
 2023/09/20 より Repository Rules から Required Workflows を設定できるようになり、かつ、既存の Required Workflows は自動的に Repository Rules に移行されていきます。2023/10/18 以降は既存の Required Workflow の画面にアクセスできなくなるようです。
-GHES の場合はバージョンによって影響が異なります（対応はそれほどしなくて良さそう）。
+GitHub Enterprise Server の場合はバージョンによって影響が異なります（対応はそれほどしなくて良さそう）。
 
 required workflow は Organization を横断して必須のワークフローを設定できる機能です（private beta）。以前の Weekly でも取り上げているので、そちらも参照ください（[1](https://zenn.dev/cybozu_ept/articles/productivity-weekly-20230111#github-actions-%E2%80%93-support-for-organization-wide-required-workflows-public-beta), [2](https://zenn.dev/cybozu_ept/articles/productivity-weekly-20230315#github-actions---required-workflows-improvements-%7C-github-changelog)）。
 
@@ -48,13 +53,24 @@ required workflow は Organization を横断して必須のワークフローを
 ## Introducing code referencing for GitHub Copilot - The GitHub Blog
 https://github.blog/2023-08-03-introducing-code-referencing-for-github-copilot/
 
-来たわね
+GitHub Copilot において、パブリックなコードに一致するコードの提案を検出して表示する機能が追加されました（private beta）。
 
-> Admission to the private beta for GitHub Copilot code referencing is limited to users with an active Copilot for Individuals subscription. Signing up does not guarantee access.
->
-> As a Copilot for Business user, you are not currently eligible to join the waitlist.
+具体的には、提案の周囲約 150 文字のコードをチェックし、GitHub.com 上の全てのパブリックなコードのインデックスと比較し、マッチしたコードおよびリポジトリ情報（場所やライセンス）をエディタに表示します。その情報を見て、マッチしたコードを含む提案をブロックするか、許可するかを選択できるとのことです。
 
-ちな GitHub Copilot for Business ユーザは waitlist に入ることすらできず
+プライベートベータであるため、利用するには waitlist への登録が必要です。
+
+https://twitter.com/Shitimi_613/status/1688741942484729857?conversation=none
+
+ちなみに GitHub Copilot for Business ユーザは waitlist に入れませんでした。
+
+なお、GitHub Copilot には、提案とその周囲約 150 文字のコードが GitHub.com 上のパブリックコードと一致する場合、その提案をブロックする機能があります。
+
+> GitHub Copilot includes a filter which detects code suggestions matching public code on GitHub. You can choose to enable or disable the filter. When the filter is enabled, GitHub Copilot checks code suggestions with their surrounding code of about 150 characters against public code on GitHub. If there is a match or near match, the suggestion will not be shown to you.
+https://docs.github.com/en/enterprise-cloud@latest/copilot/configuring-github-copilot/configuring-github-copilot-in-your-environment#enabling-or-disabling-duplication-detection-2
+
+有効化している方が多いと個人的に思っているのですが、今回 private beta で入る機能との関係性はどうなるんでしょうね。
+
+今回の機能を使うことで、GitHub.com 上のパブリックなコードと意図せず一致してしまう事態を防げるようになるのは良いですね。早く GA になってほしいです。
 
 *本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)*
 
@@ -62,8 +78,8 @@ https://github.blog/2023-08-03-introducing-code-referencing-for-github-copilot/
 https://github.blog/changelog/2023-08-04-codespaces-gives-you-a-free-upgrade/
 
 2023/08/04 より GitHub Codespaces の CPU とメモリスペックが向上しました。
-具体的には、4コア以上の CPU をもつ Codespaces では RAM が 2倍に、CPU 性能が 30% 向上しており、料金は変わらないとのことです。
-ただし、2コアの Codespaces については現時点ではアップグレードされていないようなので注意です。
+具体的には、4 コア以上の CPU をもつ Codespaces では RAM が 2 倍に、CPU 性能が 30% 向上しており、料金は変わらないとのことです。
+ただし、2 コアの Codespaces については現時点ではアップグレードされていないようなので注意です。
 
 手動で設定等を変更する必要はなく、自動的に適用されているので単純にユーザーにとって嬉しいアップデートです。
 
@@ -73,22 +89,26 @@ https://github.blog/changelog/2023-08-04-codespaces-gives-you-a-free-upgrade/
 ## Codecov is now open source - Codecov
 https://about.codecov.io/blog/codecov-is-now-open-source/
 
-Codecov が Business Source License で公開されてセルフホスト用の docker-compose も公開された。
-docker-compose はセルフホストの商用サービスを辞める代わりのデモ用途っぽい。FAQ を少し見た感じ、高可用性を求める人は自前で docker-compose をベースに自前でカスタムするかクラウドの商用サービスに契約してね、というスタンスっぽい。
+コードカバレッジの計測・可視化サービスを展開している Codecov が Business Source License 1.1 (BUSL) でソフトウェアを公開しました。
 
-> Codecov is now open source - Codecov
+BUSL は、ソースコードは公開するが商用利用に制限のかかるライセンスです。条件は物によって異なるので、詳しくは [Codecov が実際にリポジトリに置いている LICENSE](https://github.com/codecov/self-hosted/blob/56962d4d05ce6b710f83a0d6d47a7ea221c1a64c/LICENSE) を参照してください。（競合サービスに使う場合は制限がかかるっぽい。）
 
-この話、Business Source License なので OSS ではないのですが、どういう条件のライセンスなのか見るのを忘れていました。
-完全な予想ですが、競合他社がこれ使って同じようなサービスを作っちゃダメですよ〜〜〜みたいなことが書かれているのかもしれない？
+BUSL になるプロジェクトは API、ワーカー、フロントエンド、共通ライブラリ、docker-compose のサンプルになります。
 
-## Datadog、低コストで大容量ログを管理できる階層を発表｜Datadog Japan合同会社のプレスリリース
-https://prtimes.jp/main/html/rd/p/000000042.000077474.html
+docker-compose はセルフホストの商用サービスを辞める代わりに提供するもののようです。FAQ によると、高可用性を求める人は自前で docker-compose をベースにカスタムするか、クラウドの商用サービスを契約してね、というスタンスのようです。
 
-index を貼らない代わりに低コストで保存できるタイプのログ階層を提供。
-datadog の DASH2023 で発表されたらしい。
-参考: DASH 2023 で発表された Datadog の新機能！日本語まとめ https://qiita.com/minorun365/items/8c147288154f4b9fdc11
+これまではクローズドソースであったため、BUSL で公開されて困る方はほとんどいないと思います。セルフホストできるのは利用者側からすると嬉しいですね。
+利用する際はライセンスをよく読み問題が発生しないように利用しましょう。
 
-大容量のログを保存したい、かつそんなに検索しないという場合に有効そう。
+:::message
+タイトルおよび本文には Codecov がオープンソースになったとありますが、BUSL 1.1 をオープンソースと呼んだことで色々お叱りを受けたようです。
+
+本文頭にも書かれていますが、それについてのフォローアップ投稿もあるので、そちらも読むと BUSL とオープンソースへの理解が深まるかもしれません。
+
+- [Let's Talk About Open Source | Product Blog • Sentry](https://blog.sentry.io/lets-talk-about-open-source/)
+:::
+
+*本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)*
 
 ## The GitHub Enterprise Server 3.10 Release Candidate is available
 https://github.blog/changelog/2023-08-08-the-github-enterprise-server-3-10-release-candidate-is-available/
@@ -106,20 +126,6 @@ PAT の Fine-grained 機能や PR のマージ制御は Enterprise や Organizat
 その他詳しいリリース内容は [Enterprise Server 3.10 release notes](https://docs.github.com/en/enterprise-server@3.10/admin/release-notes) を参照してください。
 
 *本項の執筆者: [@r4mimu](https://zenn.dev/r4mimu)*
-
-
-## Simplified post-migration identity mapping for Enterprise Managed Users - The GitHub Blog
-https://github.blog/changelog/2023-08-07-simplified-post-migration-identity-mapping-for-enterprise-managed-users/
-
-- GHES から GHEC に移行する時に使えるツール GitHub Enterprise Importer のアップデート
-- 移行後のユーザアクティビティは、git commit 以外の issue や PR の主体はマネキンというプレースホルダーID に紐づけられて表示されるようになる。マネキンを GHEC でのユーザに再度紐付けるには、マネキンの回収という作業が必要。この作業は以前はユーザに invitation リンクを送り、ユーザが許可するという形だった。これが Invitation プロセスを skip できるように簡略化された。これは Importer の CLI のバージョンを v1.0.0 に上げることで使用可能になる。
-
-このニュース自体は大したものではないけど、GitHub Enterprise Importer というのを初めて知ったので話題に上げました。
-
-## Terraform Cloud now supports multiple configurations for dynamic provider credentials
-https://www.hashicorp.com/blog/terraform-cloud-now-supports-multiple-configurations-for-dynamic-provider-credent
-
-Terraform Cloud での OIDC について、1 つのプロバイダにつき複数のアカウントがあっても使えるようになった。
 
 # know-how 🎓
 
@@ -148,22 +154,61 @@ Four Keys のメトリクスの取得について目にする機会は増えま�
 ## Project IDX
 https://idx.dev/
 
-Google 製の Web ベース IDE らしい。
+発表分: [Introducing Project IDX, An Experiment to Improve Full-stack, Multiplatform App Development — Google for Developers Blog - News about Web, Mobile, AI and Cloud](https://developers.googleblog.com/2023/08/introducing-project-idx-experiment-to-improve-full-stack-multiplatform-app-development.html)
+
+Google 製の IDE[^ide]が登場します。プロジェクト名は Project IDX です。
+VSCode の OSS 版である CodeOSS をベースとしており、いくつかの特徴があります。
+
+- ブラウザからすぐに開発できるようにする
+- 組み込み Web プレビュー、組み込み Android エミュレータ、組み込み iOS シミュレータにブラウザからアクセスすることで、プラットフォーム間でのアプリのプレビューを容易にする
+- Google 製 AI である Codey などを使った AI による開発支援機能の統合
+
+気になる方は limited preview の waitlist に登録して続報を待ちましょう。
+
+[^ide]: IDE とは Integrated Development Environment の略で、日本語だと統合開発環境と呼ばれたりします。コードを書くためのエディタや、コードを実行するためのターミナル、コードを管理するための Git クライアントなどの開発に必要なツール群が 1 つにまとまっているツールを指します。
+
+*本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)*
 
 # read more 🍘
 Productivity Weekly で出たネタを全て紹介したいけど紹介する体力が持たなかったネタを一言程度で書くコーナーです。
 
 - **news 📺**
-- **know-how 🎓**
-- **tool 🔨**
+  - [Datadog、低コストで大容量ログを管理できる階層を発表｜Datadog Japan合同会社のプレスリリース](https://prtimes.jp/main/html/rd/p/000000042.000077474.html)
+    - [Store and Analyze High-Volume Logs Efficiently With Flex Logs | Datadog](https://www.datadoghq.com/ja/blog/flex-logging/)
+    - Datadog Logs において、Flex Logs というインデックスを常に作らない代わりに安価なレイヤーが追加されました
+    - 大量に収集し、比較的長時間保持し、場合によっては緊急でクエリを実行する必要があるログ（セキュリティ、トランザクション、ネットワークなど）に使用することが想定されています
+    - まだ制限付きアクセスであり、利用には登録が必要です。気になる方は使ってみてください
+  - [Terraform Cloud now supports multiple configurations for dynamic provider credentials](https://www.hashicorp.com/blog/terraform-cloud-now-supports-multiple-configurations-for-dynamic-provider-credent)
+    - Terraform Cloud の OIDC において、1 つの Terraform Provider につき複数の資格情報を使えるようになりました
+    - Terraform は同じ provider に対してエイリアスを貼ることで、複数の資格情報を使うことができます
+    - しかし、これまで Terraform Cloud の OIDC においては複数エイリアスで異なる資格情報を使えませんでした
+    - 今回のアップデートにより、同じ provider の複数のエイリアスを認証可能になり、また、複数アカウントや複数リージョンでの認証もできるようになりました
+  - [Simplified post-migration identity mapping for Enterprise Managed Users - The GitHub Blog](https://github.blog/changelog/2023-08-07-simplified-post-migration-identity-mapping-for-enterprise-managed-users/)
+    - GitHub Enterprise Server などから GitHub.com にリポジトリや Organization を移行できるツール GitHub Enterprise Importer の v1.0.0 がリリースされました
+    - [Enterprise Managed Users (EMU)](https://zenn.dev/korosuke613/articles/productivity-weekly-20211006#enterprise-managed-users-are-now-generally-available-for-github-enterprise-cloud-%7C-the-github-blog) を利用している場合、移行後のユーザへの紐付けを行うためのマネキンへの EMU の割り当てが簡単にできるようになりました
+    - 以前はユーザが invitation を受け入れる必要がありましたが、EMU に限ってはこれをスキップできます
+
+*本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)*
 
 # あとがき
+8/9 号でした。世の中は花火大会やら台風やらで盛り上がっていますね。
+そんなこんなでもう夏も終わりが近づいてきた感じがします。
+みなさんは夏っぽいことできましたか？
 
+ちなみに今週は新たな共同著者、[@r4mimu](https://zenn.dev/r4mimu) さんが参戦です。
+すばらしいですね 🐈
 
 サイボウズの生産性向上チームでは社内エンジニアの開発生産性を上げるための活動を行なっています。そんな生産性向上チームが気になる方は下のリンクをクリック！
 https://note.com/cybozu_dev/n/n1c1b44bf72f6
 
-<!-- :::message すみません、今週もおまけはお休みです...:::-->
 
-## omake 🃏: 
-今週のおまけです。
+## GitHub Actions Meetup Tokyo #2 - connpass
+https://gaugt.connpass.com/event/292175/
+
+GitHub Actions に関することをワイワイ話す会、GitHub Actions Meetup Tokyo #2 が 2023/09/21 に開催されます。
+場所はサイボウズ株式会社の東京オフィスです。オンライン視聴もあります。
+
+なんか公開されて早いうちに枠が全て埋まってしまったのですが、オンライン視聴枠は 100 -> 200 に増枠したらしいので、まだまだ間に合います（オンライン視聴枠は先着順）。
+
+なんと 4,5 年ぶりの開催です。楽しみですね。
+気になる方はぜひ参加してみてください！
