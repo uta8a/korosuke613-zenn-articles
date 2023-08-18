@@ -65,10 +65,7 @@ jobs:
 
       - run: npm ci
 
-      - name: textlint / github-check
-        uses: tsuyoshicho/action-textlint@v3
+      - uses: tsuyoshicho/action-textlint@v3
         with:
           github_token: ${{ secrets.github_token }}
-          level: warning
-          reporter: github-check
-          textlint_flags: "${{ env.ARTICLES_PATH }}/**/**"
+          textlint_flags: "${{ env.ARTICLES_PATH }}/*"
