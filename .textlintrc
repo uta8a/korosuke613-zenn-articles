@@ -28,6 +28,11 @@
     "ja-technical-writing/max-kanji-continuous-len": false, // 漢字6文字制限の無効化
     "@proofdict/proofdict": { // 表記揺れを検知する
       "dictURL": "https://azu.github.io/proof-dictionary/"
+    },
+    "prh": {
+      "rulePaths": [
+        "./prh.yml"
+      ]
     }
   }
 }
