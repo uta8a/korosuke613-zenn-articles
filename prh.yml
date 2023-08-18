@@ -3,6 +3,7 @@
 # see more samples
 # https://github.com/prh/rules/blob/master/media/techbooster.yml
 rules:
+  - expected: GitHub
   - expected: GitHub Actions
   - expected: Four Keys
   # "+"を含めて正しく認識されるためにクォーテーションが必要
