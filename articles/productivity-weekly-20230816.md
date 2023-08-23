@@ -96,7 +96,40 @@ X-Accepted-Github-Permissions: pull_requests=read; contents=read
 ## HashiCorp adopts Business Source License
 https://www.hashicorp.com/blog/hashicorp-adopts-business-source-license
 
-ハシコの OSS が BSL になった話。
+Terraform や Vault などで知られる HashiCorp が複数の製品を Mozilla Public License v2.0 (MPL 2.0)から Business Source License 1.1 (BUSL 1.1) へ移行することを発表しました。
+
+:::message
+ちょうど[先日 Codecov が BUSL 1.1 でソフトウェアを公開していましたね](https://zenn.dev/cybozu_ept/articles/productivity-weekly-20230809#codecov-is-now-open-source---codecov)。
+:::
+
+対象製品は次になります（[FAQ](https://www.hashicorp.com/license-faq) より）。
+
+- Terraform
+- Packer
+- Vault
+- Boundary
+- Consul
+- Nomad
+- Waypoint
+- Vagrant
+
+HashiCorp 製の API やプロバイダなど他のほぼ全てのライブラリは MPL2.0 のままとのことです。
+
+また、BUSL は今後のリリースから適用されます。（これまでリリースされたバージョンは MPL 2.0 のままです。）
+
+BUSL 1.1 はソースコードを公開するが、商用利用には制限がかかるライセンスです。HashiCorp の場合、競合する製品を提供する場合を除いて非商用・商用問わずコードのコピー、修正、再配布ができるようです。
+
+> End users can continue to copy, modify, and redistribute the code for all non-commercial and commercial use, except where providing a competitive offering to HashiCorp.
+
+とはいえ、結局のところはライセンスの本文が大事なので、HashiCorp 製品の利用者はライセンス内容をよく確認しておきましょう。
+
+HashiCorp 製品に適用される BUSL 1.1 や今回の件に関するよくある質問集も公開されています。
+
+- [HashiCorp Licensing FAQ](https://www.hashicorp.com/license-faq)
+
+この FAQ は定期的にアップデートされるとのことです。
+
+- [HashiCorp updates licensing FAQ based on community questions](https://www.hashicorp.com/blog/hashicorp-updates-licensing-faq-based-on-community-questions)
 
 関連。
 
@@ -178,8 +211,11 @@ tmpfs           5.0M     0  5.0M   0% /run/lock
 /dev/sdb1        14G  4.1G  9.0G  31% /mnt
 tmpfs           694M   12K  694M   1% /run/user/1001
 ```
+<!-- textlint-disable ja-technical-writing/no-doubled-joshi -->
 
-では、 14GB と書かれているのは何なのかというと、[GitHub Hosted ランナーが起動している Azure VM(Standard_DS2_v2)](https://learn.microsoft.com/ja-jp/azure/virtual-machines/dv2-dsv2-series#dsv2-series) の一時ストレージのようです。ファイルシステムや Azure VM について詳しくないのですが、GitHubのドキュメントを読んだだけでは、ストレージとして使えるのは 14GB ということなのかなと思っていたので、この機会に勉強になりました。
+では、 14GB と書かれているのは何なのかというと、[GitHub Hosted ランナーが起動している Azure VM(Standard_DS2_v2)](https://learn.microsoft.com/ja-jp/azure/virtual-machines/dv2-dsv2-series#dsv2-series) の一時ストレージのようです。ファイルシステムや Azure VM について詳しくないのですが、GitHub のドキュメントを読んだだけでは、ストレージとして使えるのは 14GB ということなのかなと思っていたので、この機会に勉強になりました。
+
+<!-- textlint-enable ja-technical-writing/no-doubled-joshi -->
 
 *本項の執筆者: [@r4mimu](https://zenn.dev/r4mimu)*
 
