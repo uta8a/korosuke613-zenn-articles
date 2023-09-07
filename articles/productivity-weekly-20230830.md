@@ -135,7 +135,7 @@ IAM ロールなどセキュリティ関係のリソースと、各種 AWS リ�
 またそれぞれのリソースの分析結果がグラフ上に表示されるようで、とても分かりやすそうに思います。
 
 :::message
-試しにプライベートのアカウントで試そうとしましたが、Amazon GuardDuty の有効化が必須で、かつ GuardDuty を有効化してから48時間経たないと Amazon Detective は使えないとのことでした...
+試しにプライベートのアカウントで試そうとしましたが、Amazon GuardDuty の有効化が必須で、かつ GuardDuty を有効化してから 48 時間経たないと Amazon Detective は使えないとのことでした...
 GuardDuty を有効化したので、数日後に再度 Amazon Detective の有効化を試してみる予定です。
 ![](/images/productivity-weekly-20230830/guardduty_requirement.png)
 :::
