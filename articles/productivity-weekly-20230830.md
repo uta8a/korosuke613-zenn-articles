@@ -43,11 +43,6 @@ https://github.blog/changelog/2023-08-21-repository-actions-runners-list/
 
 *本項の執筆者: [@Kesin11](https://zenn.dev/kesin11)*
 
-## Secret scanning detects secrets in issues for free public repositories - The GitHub Blog
-https://github.blog/changelog/2023-08-16-secret-scanning-detects-secrets-in-issues-for-free-public-repositories/
-
-元々リポジトリの git の歴史内にシークレットが含まれていないかを調べる secret scanning が issue にも適用範囲が広がった。対象は public リポジトリのみ。
-
 ## Announcing Python in Excel
 https://techcommunity.microsoft.com/t5/excel-blog/announcing-python-in-excel-combining-the-power-of-python-and-the/ba-p/3893439
 
@@ -62,12 +57,6 @@ matplotlib や seaborn などのライブラリも利用可能なため、Python
 Excel 上のデータを Python で加工・可視化できるということで、はデータ分析の効率化に役立ちそうな機能です。
 
 *本項の執筆者: [@r4mimu](https://zenn.dev/r4mimu)*
-
-## Terraform ephemeral workspaces public beta now available
-https://www.hashicorp.com/blog/terraform-ephemeral-workspaces-public-beta-now-available
-
-Terraform cloud にて ephemeral workspaces とやらがパブリックベータ。
-TTL を設定して ephemeral な環境を作成できるらしい。
 
 ## Google Cloud のマネージド Terraform、 Infrastructure Manager 登場！
 https://zenn.dev/cloud_ace/articles/introduce-infra-manager
@@ -222,27 +211,27 @@ Fig は macOS 向けのターミナルアプリ上でコマンドを打つ際に
 
 *本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)*
 
-## OpenAI、企業向け「ChatGPT Enterprise」提供開始　高速GPT-4でプライバシーも安全
-
-https://www.itmedia.co.jp/news/articles/2308/29/news095.html
-
-## GPT-3.5 Turbo fine-tuning and API updates
-https://openai.com/blog/gpt-3-5-turbo-fine-tuning-and-api-updates
-
-GPT-3.5 Turbo のファインチューニングが可能になり、ユーザー側でモデルをカスタマイズできるようになったよ。
-GPT-4 のファインチューニングは今秋対応予定とのこと。
-ファインチューニング API に送受信されるデータは OpenAI や他組織のモデルをトレーニングするために使われることはない。
-トレーニングにはお金がかかるし、トレーニング後のモデルの利用による入出力でかかる料金はベースモデルの数倍になるっぽい。
-
-## ［速報］Google Cloudの開発や問題解決をAIが支援してくれる「Duet AI in Google Cloud」がVSCodeなどで利用可能に。Google Cloud Next '23 － Publickey
-https://www.publickey1.jp/blog/23/google_cloudaiduet_ai_in_google_cloudvscodegoogle_cloud_next_23.html
-
 # know-how 🎓
 
 ## AWSコスト削減とリソース管理 | 外道父の匠
 https://blog.father.gedow.net/2023/08/24/aws-cost-saving/
 
-長文記事ですが、昔から AWS のインフラ周りを取り組まれていた方が AWS で節約するためのテクニックを公開してくれているので勉強になりました。
+昔から AWS のインフラ周りを取り組まれていた方が AWS で節約するためのテクニックを公開してくれています。
+
+コスト削減とは何か、何にコストがかかっているかの整理、主要サービスごとのコスト削減テクニック（Load Balancer、EC2 Autoscaling、EC2 EBS、EC2 AMI、NAT Gateway / Public IPv4 有料化対策、S3、RDS / Aurora、CloudWatch Logs）、クラウドの引越しについてなどが書かれています。
+
+ボリュームが多いですが、大変勉強になります。全部読まずともコストを占める割合の大きいサービスの項目だけ見てみてもいいかもしれません。
+
+個人的に古いインスタンスタイプや EBS タイプを使っている方がコストは高めって話は、そう言えばそうだけどそこまで意識できてませんでした。案外古いタイプが残っている・使っている場合は少なくないと思います。見直したいですね。
+
+ちなみに Weekly では、次の文章に感嘆している方がいました。
+
+> 直近四半期で売上 221.40億ドル AWS凄い！って素直に感じてもいいんですけど、今回はそういう場じゃないんで。おまへら、垂れ流しすぎ！そういう方向でいきましょう。多分、全員が頑張ったら、売上３兆円のうち５千億円くらいは削れるっしょマジで。
+
+常にコスト削減（最適化）を意識していきたいですね。
+
+*本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)*
+
 
 ## iOS開発におけるGitHub Actions self-hosted runnerを利用したオンプレ CI/CD のすゝめ | CyberAgent Developers Blog
 https://developers.cyberagent.co.jp/blog/archives/43705/
@@ -258,12 +247,6 @@ https://developers.cyberagent.co.jp/blog/archives/43705/
 
 *本項の執筆者: [@Kesin11](https://zenn.dev/kesin11)*
 
-
-## ZOZO TECH BLOGを支える技術 #2 執筆をサポートするCI/CD - ZOZO TECH BLOG
-https://techblog.zozo.com/entry/techblog-writing-support-by-ci-cd
-
-はてなブログへの投稿に CI/CD を適用し、textlint による文章構成、プレビュー用環境への自動デプロイ、本番公開を自動化している事例。公開自体はhttps://github.com/x-motemen/blogsync という CLI ツール利用している。
-
 ## GitHub Copilot Patterns & Exercises 🤖をリリースしました！🎉
 https://twitter.com/yuhattor/status/1692005132362494191
 
@@ -275,36 +258,108 @@ GitHub のカスタマーサクセスアーキテクトの方が、GitHub Copilo
 
 *本項の執筆者: [@r4mimu](https://zenn.dev/r4mimu)*
 
-## 「Datadog入れてみたらAWSの料金が爆発した話」@ゆるSRE勉強会 #1 - Speaker Deck 
-https://speakerdeck.com/rynsuke/datadogru-retemitaraawsnoliao-jin-gabao-fa-sitahua-at-yurusremian-qiang-hui-number-1
-
-やっぱどこも NAT ゲートウェイに悩まされるのだなぁ、と思った。
-
 # tool 🔨
-
-## dnakov/little-rat: 🐀 Small chrome extension to monitor (and optionally block) other extensions' network calls
-https://github.com/dnakov/little-rat
-
-chrome extension モニタできるのかー、というのが気になっている。
-ソース見てから試してみたい。
 
 ## OrbStack で k8s クラスタを簡単に作れるように
 https://twitter.com/OrbStack/status/1696431454434062745
+
+[ちょくちょく Weekly でも紹介している](https://zenn.dev/cybozu_ept/articles/productivity-weekly-20230614#orbstack) Docker Desktop の代替ツール OrbStack ですが、0.17.0 から k8s クラスタを簡単に作れるようになったようです。
+
+僕も試しに 0.17.0 にバージョンアップして k8s クラスタを作成してみましたが、特にトラブルなく簡単に作成できました。
+GUI 上からは Pod やサービスなど各リソースにアクセスできます（ログを見たりターミナルで接続したり削除したりくらいしかできませんが）。
+
+また、Service を用意せずとも Pod 自体にホストからアクセスできる IP アドレスが自動で割り振られるため、地味に便利です。
+デバッグなどで役立ちそうですね。
+
+```
+❯ kubectl get pods -o wide
+NAME    READY   STATUS    RESTARTS   AGE   IP               NODE       NOMINATED NODE   READINESS GATES
+nginx   1/1     Running   0          16s   192.168.194.12   orbstack   <none>           <none>
+
+❯ curl 192.168.194.12
+<!DOCTYPE html>
+<html>
+<head>
+<title>Welcome to nginx!</title>
+
+...
+```
+
+個人的に Docker Desktop 代替ツールは Rancher Desktop、OrbStack の二大巨塔だと思っています。
+Docker Desktop 自体も含めて、これで 3 つのツール全てで k8s クラスタを作成できるようになりましたね。
+どんどん競い合ってほしいものです。
+
+*本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)*
 
 # read more 🍘
 Productivity Weekly で出たネタを全て紹介したいけど紹介する体力が持たなかったネタを一言程度で書くコーナーです。
 
 - **news 📺**
+  - [Secret scanning detects secrets in issues for free public repositories - The GitHub Blog](https://github.blog/changelog/2023-08-16-secret-scanning-detects-secrets-in-issues-for-free-public-repositories/)
+    - GitHub の Secret scanning において、public リポジトリの issue 内にシークレットが含まれていないかを調べる機能が追加されました
+    - これまではリポジトリの git のコミットが対象でした
+    - 検出された場合はアラートが飛んできます
+  - [Terraform ephemeral workspaces public beta now available](https://www.hashicorp.com/blog/terraform-ephemeral-workspaces-public-beta-now-available)
+    - Terraform cloud において ephemeral workspaces 機能がパブリックベータで使えるようになりました
+    - ephemeral workspaces 機能は、設定した TTL が過ぎると自動で削除される（destroy される）ワークスペースです
+    - 実験用途で環境を作ったり、学習用途で環境を作る場合に消し忘れを防げて良いですね
+  - [OpenAI、企業向け「ChatGPT Enterprise」提供開始　高速GPT-4でプライバシーも安全](https://www.itmedia.co.jp/news/articles/2308/29/news095.html)
+    - OpenAI が ChatGPT の企業向けサービス ChatGPT Enterprise を提供開始したようです
+    - 管理コンソールや SSO のサポート、GPT-4 への無制限アクセスが可能など、企業向けの機能が追加されています
+    - GPT-4 への無制限アクセスは個人の人でも欲しくなりますね
+    - 価格は Contact sales となっていますが、なかなかいい値段になりそうですね
+  - [GPT-3.5 Turbo fine-tuning and API updates](https://openai.com/blog/gpt-3-5-turbo-fine-tuning-and-api-updates)
+    - GPT-3.5 Turbo の fine-tuning が可能になり、ユーザー側でモデルをカスタマイズできるようになりました
+      - ちなみに GPT-4 の fine-tuning は今秋対応予定とのこと
+    - fine-tuning API に送受信されるデータは OpenAI や他組織のモデルをトレーニングするために使われることはないようです
+    - トレーニング自体にお金がかかる上、トレーニング後のモデルの利用による入出力でかかる料金はベースモデルの数倍になります
+    - プロンプトを短縮できるようになるのは良いですね。思ったとおりの結果を出すのは簡単にはいかなさそうですが、夢があります
+  - [［速報］Google Cloudの開発や問題解決をAIが支援してくれる「Duet AI in Google Cloud」がVSCodeなどで利用可能に。Google Cloud Next '23 － Publickey](https://www.publickey1.jp/blog/23/google_cloudaiduet_ai_in_google_cloudvscodegoogle_cloud_next_23.html)
+    - [ユーザーをサポートする AI コラボレーター「Duet AI」を Google Cloud 全体で拡張 | Google Cloud 公式ブログ](https://cloud.google.com/blog/ja/products/ai-machine-learning/duet-ai-in-google-cloud-preview)
+    - Google も AI を使った開発支援ツールを提供するようになりました。その名も Duet AI in Google Cloud です（プレビュー）
+    - Google Cloud の開発に特化したトレーニングを受けた AI とのことで、Google Cloud に関する開発をする際に役立ちそうです
+    - Google Cloud Shell や VSCode、JetBrains IDE などで利用できます
+    - 現在はプレビュー段階のため無料で利用できます（プレビュープログラムへの参加が必要）
+      - [Duet AI  |  Google Cloud](https://cloud.google.com/duet-ai)
 - **know-how 🎓**
+  - [ZOZO TECH BLOGを支える技術 #2 執筆をサポートするCI/CD - ZOZO TECH BLOG](https://techblog.zozo.com/entry/techblog-writing-support-by-ci-cd)
+    - ZOZO さんによる、はてなブログへの投稿に CI/CD を適用し、textlint による文章構成、プレビュー用環境への自動デプロイ、本番公開を自動化している事例です
+    - はてなブログ、僕も昔使っていましたが、API が Atom Publishing Protocol という XML でやり取りするものしかなく、結構めんどかった記憶があります
+      - 昔書いたやつ[はてなブログのAPIを叩いて最新記事一覧を取得する[Javascript] - cangoxina](https://korosuke613.hatenablog.com/entry/2019/06/27/223528)
+      - ZOZO さんは [x-motemen/blogsync](https://github.com/x-motemen/blogsync) という CLI ツールがあり、それを利用してデプロイなどをしているようですね。こんな便利なものあったのか
+    - 僕は Zenn でとても良い執筆体験を得られているため、もはやはてなブログに戻ることはできないです。開発者にとって執筆体験はとても重要です
+    - はてなブログでここまで自動化して執筆・レビュー・公開の体験を高められているのはすごいなと思いました
+  - [「Datadog入れてみたらAWSの料金が爆発した話」@ゆるSRE勉強会 #1 - Speaker Deck](https://speakerdeck.com/rynsuke/datadogru-retemitaraawsnoliao-jin-gabao-fa-sitahua-at-yurusremian-qiang-hui-number-1)
+    - Cloudbase さんによる AWS の料金が爆発した話です
+    - Datadog がタイトルに含まれていますが、Datadog 特有の問題ではなく、Datadog Agent を使うと起こりうる問題だったので、しっかり中身を読みましょう
+    - Weekly ではやっぱりどこも NAT ゲートウェイに悩まされるのだなぁ、という話になりました
 - **tool 🔨**
+  - [dnakov/little-rat: 🐀 Small chrome extension to monitor (and optionally block) other extensions' network calls](https://github.com/dnakov/little-rat)
+    - Chrome 拡張の通信をモニタリングできる Chrome 拡張 dnaov/little-rat です
+    - Chrome 拡張が怪しいことをしていないかをちゃんと確かめるの大変ですよね。求める権限である程度は弾けますが
+    - little-rat を使うことで各拡張がどのような通信をしているかを確認できます。さらに拡張機能ごとに通信をブロックできます
+    - いかんせん little-rat 自体に強い権限が必要となるため、Chrome Web Store にあるものは機能が制限されています
+    - そもそも強い権限を渡さざるを得ないため、Chrome Web Store にあるものを使用するのはあまりおすすめできません。自分でソースコードを確認した上で、Zip からインストールするのを個人的にはお勧めします
+
+*本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)*
 
 # あとがき
+遅くなりましたが今週号と先週号の合併号でした。今週は僕も含めて 4 名の共同執筆者がいます。すごいですね。
 
+僕たち生産性向上チームは今年もインターン受け入れを行なっているため、8/28 〜 9/1 までインターン受け入れでてんやわんやしていました。正直この時期の社員はバチクソ疲れるため、Weekly は合併号になって公開が遅れました。
+ちなみに 9/11 〜 9/15 もインターン受け入れでてんやわんやしているため、次号も合併号になります。
 
 サイボウズの生産性向上チームでは社内エンジニアの開発生産性を上げるための活動を行なっています。そんな生産性向上チームが気になる方は下のリンクをクリック！
 https://note.com/cybozu_dev/n/n1c1b44bf72f6
 
-<!-- :::message すみません、今週もおまけはお休みです...:::-->
+## GitHub Actions Meetup Tokyo #2 - connpass
+https://gaugt.connpass.com/event/292175/
 
-## omake 🃏: 
-今週のおまけです。
+GitHub Actions に関することをワイワイ話す会、GitHub Actions Meetup Tokyo #2 が 2023/09/21 に開催されます。
+場所はサイボウズ株式会社の東京オフィスです。オンライン視聴もあります。
+
+なんか公開されて早いうちにオフライン枠は埋まってしまったのですが、オンライン視聴枠は 300 なので、まだまだ間に合います（オンライン視聴枠は先着順）。
+~~なんかオンライン視聴枠は毎回増えてますね。~~
+
+なんと 4,5 年ぶりの開催です。楽しみですね。
+気になる方はぜひ参加してみてください！
