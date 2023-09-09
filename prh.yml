@@ -33,3 +33,18 @@ rules:
         to: Node.js
       - from: node.js
         to: Node.js
+  - expected: JetBrains
+    patterns:
+      - /Jetbrains/
+      - /jetBrains/
+    excludes:
+      - pattern: /jetbrains/
+    specs:
+      - from: Jetbrains
+        to: JetBrains
+      - from: jetbrains
+        to: jetbrains
+      - from: JetBrains
+        to: JetBrains
+      - from: jetBrains
+        to: JetBrains
