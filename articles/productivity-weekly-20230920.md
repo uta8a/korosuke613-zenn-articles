@@ -5,6 +5,7 @@ type: "idea"
 topics: ["ProductivityWeekly", "生産性向上"]
 published: false
 publication_name: "cybozu_ept"
+published_at: 2023-10-03 10:00
 user_defined: {"publish_link": "https://zenn.dev/korosuke613/articles/productivity-weekly-20230920"}
 ---
 
@@ -26,9 +27,7 @@ user_defined: {"publish_link": "https://zenn.dev/korosuke613/articles/productivi
 
 今週の共同著者は次の方です。
 - [@korosuke613](https://zenn.dev/korosuke613)
-- [@defaultcf](https://zenn.dev/defaultcf)
 - [@Kesin11](https://zenn.dev/kesin11)
-- [@r4mimu](https://zenn.dev/r4mimu)
 
 :::
 
@@ -39,20 +38,49 @@ https://github.blog/2023-09-14-introducing-auto-triage-rules-for-dependabot/
 
 GitHub の Dependabot Alert において、脆弱性アラートの条件をコントロール可能にする機能 alert rules が追加されました（パブリックベータ）。
 
+設定した条件に当てはまるアラートを常に出さないようにする、パッチが出るまで出さないようにすることが可能となっています。
 
+条件に使える属性は、以下のとおりです。
 
-Dependabot の脆弱性アラートを出す条件を独自にコントロール可能にする機能が追加された。記事の例を見ると修正パッチが来るまではアラートとして出さない、みたいなルールが可能っぽい。
+- severity (例: `low`, `critical`)
+- scope (例: `runtime`)
+- package-name (例: `webpack`)
+- cwe (例: `CWE-119`)
+- ecosystem (例: `npm`)
+- manifest (例: `subdir/package-lock.json`)
+
+この機能は全てのパブリックリポジトリ、もしくは、GitHub Advanced Security を契約しているプライベートリポジトリで利用可能です。
+
+適切なルール設定で人間によるトリアージの手間を減らすことが可能です。Dependabot Alert 利用者でトリアージが大変な人は使ってみると良さそうです。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 ## Increased Concurrency Limit for GitHub-Hosted Runners - The GitHub Blog 
 https://github.blog/changelog/2023-09-18-increased-concurrency-limit-for-github-hosted-runners/
 
-4-64vCPU のランナーのジョブ並列数の上限が 250 -> 1000 まで引き上げ可能になった。なぜか 4-64vCPU という表現をされているけど Larger runner のことを指してるはず。
+GitHub Actions の Larger runner (Linux or Windows) において、同時実行可能ジョブ数の上限が 1000 に引き上げられました。
+以前は 250 が上限でした。
+
+設定は Larger runner ごとに行えるようです。
+
+そうとう大規模なリポジトリになってくると、250 でも足りない場合があると思うので、そういう組織にとっては嬉しい変更ですね。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 ## Amazon EC2 now supports Block Public Access for Amazon Machine Images
-https://aws.amazon.com/jp/about-aws/whats-new/2023/09/amazon-ec2-block-public-access-machine-images/
+https://aws.amazon.com/about-aws/whats-new/2023/09/amazon-ec2-block-public-access-machine-images/
 
-リージョン単位ごとに、パブリックな AMI 作成をブロックできる機能が出た。これで事故が防げるぞ。
-利用には有効化が必要。
+AWS の AMI (Amazon Machine Images) において、AMI の公開をリージョン単位でブロックできるようになりました。
+設定することで、AMI を作成する際、意図せずに公開してしまうのを未然に防ぐことが可能です。なお、すでに公開されている AMI については影響はないとのことです。
+
+デフォルトでは無効なので、有効化する必要があります。
+
+![](/images/productivity-weekly-20230927/block_public_ami.png =600x)
+*どこで設定するのか[ドキュメント](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/sharingamis-intro.html#block-public-access-to-amis)を見ないと迷います*
+
+特に AMI を頻繁に公開するアカウントでないのなら、有効化しておくのが良いと思います。嬉しい機能ですね（デフォルトで有効化してほしい）。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 ## New – Amazon EC2 M2 Pro Mac Instances Built on Apple Silicon M2 Pro Mac Mini Computers | AWS News Blog
 https://aws.amazon.com/jp/blogs/aws/new-amazon-ec2-m2-pro-mac-instances-built-on-apple-silicon-m2-pro-mac-mini-computers/
@@ -70,21 +98,10 @@ Amazon EC2 に新たに M2 Pro Mac(`mac2-m2pro.metal`)インスタンスが提�
 
 _本項の執筆者: [@Kesin11](https://zenn.dev/kesin11)_
 
-## Windows Subsystem for Linux（WSL）に新機能。使用メモリや仮想ディスクの自動縮退、LAN経由でWSLへ直接アクセス可能など － Publickey
-https://www.publickey1.jp/blog/23/windows_subsystem_for_linuxwsllanwsl.html
-
-
-## Oracle Releases Java 21 and Extends Support Roadmap
-https://www.oracle.com/apac/news/announcement/ocw-oracle-releases-java-21-2023-09-19/
-
-https://www.publickey1.jp/blog/23/java_21void_mainzgc.html
-https://qiita.com/taichikanaya_1989/items/ec671ebbbb16f2315992
-
-11, 17 と続き java21 が LTS で出た。やはり仮想スレッドの正式リリースが気になるか。
-
 # know-how 🎓
 
-## お財布に優しいCI改善小ネタ集 - メドピア開発者ブログ https://tech.medpeer.co.jp/entry/2023-kakari-ci-performance-tuning
+## お財布に優しいCI改善小ネタ集 - メドピア開発者ブログ 
+https://tech.medpeer.co.jp/entry/2023-kakari-ci-performance-tuning
 
 各種ツールのキャッシュを活用したり、並列度などを調整することでコスト追加なしで CI 時間を半減させたテクニックを紹介されています。特に webpack, RuboCop, ESLint, Jest といった各種ツールのキャッシュを CI 環境で活用することで CI 時間を短縮している点が見どころです。
 
@@ -92,25 +109,28 @@ CI において依存パッケージをキャッシュするのは当たり前�
 
 _本項の執筆者: [@Kesin11](https://zenn.dev/kesin11)_
 
-# tool 🔨
-
 # read more 🍘
 Productivity Weekly で出たネタを全て紹介したいけど紹介する体力が持たなかったネタを一言程度で書くコーナーです。
 
 - **news 📺**
-- **know-how 🎓**
-- **tool 🔨**
+  - [Windows Subsystem for Linux（WSL）に新機能。使用メモリや仮想ディスクの自動縮退、LAN経由でWSLへ直接アクセス可能など － Publickey](https://www.publickey1.jp/blog/23/windows_subsystem_for_linuxwsllanwsl.html)
+    - WSL 2.0 が登場しました
+    - 使用メモリや仮想ディスクをいい感じに Windows へ返却したり、Windows のネットワークインターフェースを使うモードができたりと、色々良くなってそうです
+    - WSL はだいぶ前に 2 となったでしょって思って混乱しました。多分 WSL2 が 2.0 になったってことなんでしょうね
+    - 僕は 10 年前のポンコツ Windows ラップトップしか持ってなくて検証に使うには厳しいのが悲しいです
+  - [Oracle Releases Java 21 and Extends Support Roadmap](https://www.oracle.com/apac/news/announcement/ocw-oracle-releases-java-21-2023-09-19/)
+    - Oracle Java 21 がリリースされました
+    - 仮想スレッド導入が会では盛り上がりましたね
+    - あと `public static void main(String[] args)` の何も見ずに言えるような呪文が必須じゃなくなったりとか
+    - 参考
+      - [「Java 21」正式リリース。仮想スレッドが正式版に、入門者向けに「void main」と簡潔な記述、世代的ZGCなど新機能 － Publickey](https://www.publickey1.jp/blog/23/java_21void_mainzgc.html)
+      - [Java 21の新機能をざっくりまとめてみた - Qiita](https://qiita.com/taichikanaya_1989/items/ec671ebbbb16f2315992)
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 # あとがき
-
+遅くなってしまってすみません、今週号でした。
+[Tweet ボタンを設置](https://korosuke613.dev/posts/20231001_put_tweet_button/)してたら遅くなりました。
 
 サイボウズの生産性向上チームでは社内エンジニアの開発生産性を上げるための活動を行なっています。そんな生産性向上チームが気になる方は下のリンクをクリック！
 https://note.com/cybozu_dev/n/n1c1b44bf72f6
-
-<!-- :::message すみません、今週もおまけはお休みです...:::-->
-
-## omake 🃏: 20代通して学んだ30代のキャリア戦略、向井氏が語る選択肢の増やし方とは？ |CodeZine（コードジン）
-https://codezine.jp/article/detail/18285
-
-今週のおまけです。
-
