@@ -3,9 +3,9 @@ title: "Productivity Weekly (2023-09-20号)"
 emoji: "🐟"
 type: "idea"
 topics: ["ProductivityWeekly", "生産性向上"]
-published: false
+published: true
 publication_name: "cybozu_ept"
-published_at: 2023-10-03 10:00
+published_at: "2023-10-03 10:00"
 user_defined: {"publish_link": "https://zenn.dev/korosuke613/articles/productivity-weekly-20230920"}
 ---
 
