@@ -37,11 +37,41 @@ user_defined: {"publish_link": "https://zenn.dev/korosuke613/articles/productivi
 ## OrbStack 1.0: Fast, light, easy way to run Docker containers and Linux
 https://orbstack.dev/blog/orbstack-1.0
 
-OrbStack 1.0 リリース。とうとう商用利用は有償に。
+[Docker Desktop 代替である OrbStack](https://zenn.dev/cybozu_ept/articles/productivity-weekly-20230830#orbstack-%E3%81%A7-k8s-%E3%82%AF%E3%83%A9%E3%82%B9%E3%82%BF%E3%82%92%E7%B0%A1%E5%8D%98%E3%81%AB%E4%BD%9C%E3%82%8C%E3%82%8B%E3%82%88%E3%81%86%E3%81%AB) のベータ期間が終わり、v1.0 がリリースされました。これまでは商用非商用関わらず無料でしたが、ベータ期間が終わったことでとうとう商用利用が有償となりました。現在商用利用している方は、30 日以内（10/21 くらいまでに？）に有償ライセンスを購入する必要があります。
 
-> The app is free for personal, non-commercial use. A Pro or Enterprise license is required for freelance, business, and other commercial use, but you can start with a 14-day trial.
+> The app is free for personal, non-commercial use. You must purchase a Pro or Enterprise license for freelance, business, and other commercial use within 30 days. Contact us if you have questions.
 
-https://x.com/shitimi_613/status/1704891867593339194
+Plan は Free、Pro、Enterprise の 3 種類があります。
+
+- Free
+  - 価格: $0
+  - 個人で非商用利用のみ
+- Pro
+  - 価格: $8/user/month (yearly) or $10/user/month (monthly)
+  - 商用利用可能
+  - 優先サポート付き
+  - Organization で一括購入可能
+- Enterprise
+  - 価格: お問い合わせ
+  - SAML SSO 利用可能
+
+Individual と Organization の概念があり、Individual（個人）で Pro プランを契約できます。
+もし組織として購入を一括で行いたい場合は Organization を作成し、各アカウントを紐づけて行きましょう。
+
+とうとう OrbStack が商用利用有償化しましたが、個人的には OrbStack はとても軽快で使いやすい Docker Desktop 代替なので、お金を払ってでも使って行きたいですね。
+
+各種リンク:
+- [Pricing · OrbStack](https://orbstack.dev/pricing)
+- [Licensing · OrbStack Docs](https://docs.orbstack.dev/licensing)
+- [平木場が色々調べたやつ](https://x.com/shitimi_613/status/1704891867593339194)
+
+:::message
+ちなみに、[これが発表された段階](https://x.com/OrbStack/status/1704883390569443558)では、Licensing ページもなければ、Beta 期間中に使ってたユーザの契約までの猶予期間も設定されてなく、めちゃくちゃてんやわんやしました。その後 `within 30 days` の文言が追加されたり Licensing ページが追加されたりしましたが、最初から用意していてほしかったです。
+残念ながら Docker Desktop 方式（商用利用ならライセンス買え）スタイルなので、組織としては対応がまあまあめんどいです。
+それでも Docker Business よりよっぽど安いので、個人的には嬉しいですね。
+:::
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 ## partial checkout (--filter) オプション追加 - Release v4.1.0 · actions/checkout
 https://github.com/actions/checkout/releases/tag/v4.1.0
@@ -96,9 +126,19 @@ https://github.blog/2023-09-20-github-copilot-chat-beta-now-available-for-all-in
 ## RenovateでGitHub成果物のチェックサムを更新する - プログラムモグモグ 
 https://itchyny.hatenablog.com/entry/2023/09/22/140000
 
-Renovate の regexManager を活用してシェルスクリプトや Dockerfile 中で curl でダウンロードしてくるツールのバージョンの更新に加えてチェックサムの値も自動で更新する方法が紹介されてます。
+Renovate の regexManager を活用してシェルスクリプトや Dockerfile 中で curl でダウンロードしてくるツールのバージョン更新＆チェックサムの値更新をする方法を紹介した記事です。
 
+例えばシェルスクリプトで特定の成果物をダウンロードするコードがある場合、同スクリプト内にチェックサムを埋め込んでおき、`sha256sum -c` などでダウンロードした成果物が改ざんされていないか確認できます。
+特定のプログラムのバージョンを Renovate で自動更新する際、通常はバージョンのみを更新してチェックサムは更新してくれません。
 
+この記事では、バージョンとチェックサムの両方を更新する方法が紹介されています。
+
+さらに、Renovate がどのようにしてチェックサムを用意しているのかの解説も書かれています。
+
+チェックサムを使って成果物の改ざんを検証するのは大事ですが、Renovate などの依存関係更新ツールとは相性が悪いと思っていました。
+Renovate でチェックサムごと更新できるのは知りませんでした。勉強になります。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 # tool 🔨
 
