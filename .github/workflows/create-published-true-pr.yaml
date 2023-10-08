@@ -12,7 +12,7 @@ permissions:
 jobs:
   create-pr:
     runs-on: ubuntu-latest
-    if: ${{ github.event.pull_request.merged == true }}
+    if: github.event.pull_request.merged == true
     steps:
       - uses: actions/checkout@v4
         with:
@@ -20,3 +20,5 @@ jobs:
       - uses: korosuke613/zenn-metadata-updater-action@v2
         with:
           published: true
+          validate: true
+          auto-generate-published-at: next_business_day_10
