@@ -229,4 +229,7 @@ https://github.com/korosuke613/zenn-metadata-updater-action/blob/df3a64bae17aab2
 
 ただ、あまりちゃんとテストできてないので、この記事を公開するときにまたバージョンが更新されているかもしれません。
 
+![](/images/productivity-weekly-20230927/auto_generate_published_at.png =700x)
+*（追記） [ちゃんと動いてそう](https://github.com/korosuke613/zenn-articles/pull/463/files)*
+
 _本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
