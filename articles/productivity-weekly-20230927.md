@@ -26,7 +26,6 @@ user_defined: {"publish_link": "https://zenn.dev/korosuke613/articles/productivi
 
 今週の共同著者は次の方です。
 - [@korosuke613](https://zenn.dev/korosuke613)
-- [@defaultcf](https://zenn.dev/defaultcf)
 - [@Kesin11](https://zenn.dev/kesin11)
 - [@r4mimu](https://zenn.dev/r4mimu)
 
@@ -101,7 +100,7 @@ _本項の執筆者: [@Kesin11](https://zenn.dev/kesin11)_
 https://github.blog/changelog/2023-09-21-github-actions-force-cancel-workflows/
 
 GitHub Actions のワークフローを force-cancel するための API が追加されました。REST API ドキュメントは[こちら](https://docs.github.com/ja/rest/actions/workflow-runs?apiVersion=2022-11-28#force-cancel-a-workflow-run)です。
-これまでワークフローをキャンセルしても応答がないことがありました。
+これまでワークフローをキャンセルしても応答しないことがありました。
 その際、force-cancel API を使用することでワークフローを強制的にキャンセルし、他のワークフローの実行がブロックされる問題を回避できるようになりました。
 
 > Customers should still only use force-cancel if the workflow fails to respond to POST /repos/{owner}/{repo}/actions/runs/{run_id}/cancel.
@@ -166,22 +165,68 @@ _本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 ## 組織でのはてなブログ運営をGitHub上で行うためのテンプレートリポジトリ「HatenaBlog Workflows Boilerplate」を公開しました - はてなブログ開発ブログ 
 https://staff.hatenablog.com/entry/2023/09/21/182000
 
-GitHub 上ではてなブログの下書きやレビューをするために必要な GitHub Actions などの一式が揃っているようです。
+はてなさんが GitHub ではてなブログの運営をできるようにするテンプレートリポジトリを公開しました（ベータ）。
 
-# read more 🍘
-Productivity Weekly で出たネタを全て紹介したいけど紹介する体力が持たなかったネタを一言程度で書くコーナーです。
+テンプレートを利用することで、下書きの作成、更新、内容のレビューや公開を GitHub 上で行うことができるとのことです。GitHub Actions 上で [x-motemen/blogsync](https://github.com/x-motemen/blogsync)[^blogsync] を使い、各種 API を叩いています。ワークフローは [hatena/hatenablog-workflows](https://github.com/hatena/hatenablog-workflows) で公開されているものを利用するようになっています。
 
-- **news 📺**
-- **know-how 🎓**
-- **tool 🔨**
+はてなブログはいろいろなテック企業が技術ブログとして使っているのをよく見ます[^insideout]。はてなブログには下書きを限定リンクで共有できるので社内でレビューしてもらうこともできますが、GitHub で管理できるようにはなっていないので、このテンプレートを使うことでより組織でのブログ運営がしやすくなりそうですね。
+
+どうやら、initialize ワークフローを実行することで、既存記事をリポジトリに取り込むことができるようなので、導入は割と簡単そうです。
+
+まだまだベータ版らしく、画像の自動アップロード＆はてな記法への差し替えなどはこれから対応予定とのことです。
+今後に期待ですね。
+
+:::message
+僕も HatenaBlog Workflows Boilerplate を使って自分の[はてなブログの管理をしようとした](https://github.com/korosuke613/hatena-articles)のですが、おそらく blogsync の問題で最初の記事を取得できませんでした。
+エラーメッセージ見て変更の差分も見たのですが、いまいち原因がわからなかったので、とりあえず Issue だけ作りました。普通に前のバージョンでは問題なく動いたのでタイミングが悪かったですね 😇
+
+- [`blogsync pull` で `[400 Bad Request]: "<p class=\"error-box\"></p>\n"` エラーが発生します · Issue #84 · x-motemen/blogsync](https://github.com/x-motemen/blogsync/issues/84)
+:::
+
+:::message
+余談ですが、僕ははてなブログの自分の新着記事を定期的に取得したくてはてなブログ API を使っています。
+
+- [はてなブログのAPIを叩いて最新記事一覧を取得する[Javascript] - cangoxina](https://korosuke613.hatenablog.com/entry/2019/06/27/223528)
+
+ソースコードもあるよ。
+https://github.com/korosuke613/homepage-2nd/blob/7542ca588900e1c0028053debd6c2e2664db06d9/tools/generateHatenaBlogJson.ts
+:::
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
+
+[^blogsync]: 3rd party ツールを使うんだなーと思いましたが、開発者ははてなさんの CTO の方でした。
+[^insideout]: 弊社もやってるよ。[Cybozu Inside Out | サイボウズエンジニアのブログ](https://blog.cybozu.io/)
 
 # あとがき
+遅くなってしまいすみません。今週号です。
 
+実は 10/12（木）から、生産性向上チームを一瞬(2-3 ヶ月)はなれて他のチームへ体験に行くので、Weekly の投稿が遅くなったり別の人がするようになったりするかもしれません。どうなるかわからん。
+
+今週は omake (まじめな) があるので、この下の方も読んでね。
 
 サイボウズの生産性向上チームでは社内エンジニアの開発生産性を上げるための活動を行なっています。そんな生産性向上チームが気になる方は下のリンクをクリック！
 https://note.com/cybozu_dev/n/n1c1b44bf72f6
 
 <!-- :::message すみません、今週もおまけはお休みです...:::-->
 
-## omake 🃏: 
+## omake 🃏: korosuke613/zenn-metadata-updator-action アクションに予約投稿計算機能を追加したよ
 今週のおまけです。
+
+実は今回の記事から、平日の日が昇ってる時間に記事を公開するようになりました。
+
+ただ、Zenn CLI の予約投稿機能で `published_at` を手動で設定するのがダルかったので、毎回次のビジネスアワーを自動で入力するようにしました。
+
+元々 `published` を自動化するために [korosuke613/zenn-metadata-updator-action](https://github.com/korosuke613/zenn-metadata-updater-action) というのを作っているのですが、[v2.1.0](https://github.com/korosuke613/zenn-metadata-updater-action/releases/tag/v2.1.0) から `published_at` を自動で計算してプルリクを作る機能を追加しました（とは言えバグりまくってたのでその後 v2.1.2 まで上がった）。
+
+https://github.com/korosuke613/zenn-metadata-updater-action/blob/df3a64bae17aab23167e892359d030799ad30599/action.yml#L38-L40
+
+`auto-generate-published-at` に `next_business_day_<HH>` または `next_day_<HH>` を入力することで、次のビジネスデイ、または次の日の `<HH>` 時に記事を公開するプルリクを作成できます。
+利用には `published: true` との併用が必要です。
+
+実装が気になる人はここらへんを見てください。
+
+https://github.com/korosuke613/zenn-metadata-updater-action/blob/df3a64bae17aab23167e892359d030799ad30599/src/functions.ts#L190-L243
+
+ただ、あまりちゃんとテストできてないので、この記事を公開するときにまたバージョンが更新されているかもしれません。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
