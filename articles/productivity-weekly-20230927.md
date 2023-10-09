@@ -232,4 +232,9 @@ https://github.com/korosuke613/zenn-metadata-updater-action/blob/df3a64bae17aab2
 ![](/images/productivity-weekly-20230927/auto_generate_published_at.png =700x)
 *（追記） [ちゃんと動いてそう](https://github.com/korosuke613/zenn-articles/pull/463/files)*
 
+（さらに追記）
+嘘つきました。`publishedAt` ではなく `published_at` でした。
+全然完成してなかった。
+今直してます（[直しました](https://github.com/korosuke613/zenn-metadata-updater-action/pull/281)）。
+
 _本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
