@@ -210,6 +210,13 @@ https://note.com/cybozu_dev/n/n1c1b44bf72f6
 
 <!-- :::message すみません、今週もおまけはお休みです...:::-->
 
+## Engineering Productivity Meetup #1 in Tokyo - connpass
+https://cybozu.connpass.com/event/298452/
+
+サイボウズの東京オフィスで開発者の日々の生産性を高めるための知見や技術を語り合うイベントを開催されます（宣伝）。
+発表・質問・交代含む 10 分程度の LT 形式です。簡単な自動化でもなんかすごい改革でも、「開発生産性の向上」に関する内容であればなんでもいいので、みなさんどしどし参加してください。
+
+
 ## omake 🃏: korosuke613/zenn-metadata-updator-action アクションに予約投稿計算機能を追加したよ
 今週のおまけです。
 
