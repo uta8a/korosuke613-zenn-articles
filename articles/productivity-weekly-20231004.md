@@ -130,16 +130,11 @@ _本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 https://github.blog/changelog/2023-09-26-npm-provenance-general-availability/
 
-npm provenance が GA になり、GitHub Actions 以外の CI サービスとして GItLab CI/CD も対応した。
-GitHub Actions から npm に publish している人は npm publish --provenance していきましょう。
+[半年前に public beta として登場した](https://zenn.dev/cybozu_ept/articles/productivity-weekly-20230426?redirected=1#npm-provenance-public-beta-%7C-github-changelog) `npm provenance` が GA になりました。また、登場当初は GitHub Actions のみ対応されていましたが、他の CI サービスとして GitLab CI/CD でも対応されました。
 
-## Block npm package publishes when names and versions don’t match between manifest and tarball package.json - The GitHub Blog
+GitHub Actions、GitLab CI/CD から npm に publish している人は npm publish --provenance していきましょう。
 
-https://github.blog/changelog/2023-09-27-block-npm-package-publishes-when-names-and-versions-dont-match-between-manifest-and-tarball-package-json/
-
-npm パッケージを npm へ publish する際に、tarball 内の package.json にある名前やバージョンがマニフェストと一致しなかったら publish がブロックされるようになったっぽい。
-
-npm pkg fix で publish 前に確認できるっぽい。
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 ## 「サーバーレス VPC アクセス コネクタ」 から 「ダイレクト VPC」へ置き換えてみました
 
