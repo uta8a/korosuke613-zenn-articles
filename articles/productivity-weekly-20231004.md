@@ -86,8 +86,36 @@ https://github.com/mend/renovate-ce-ee/blob/6.0.0/examples/docker-compose-github
 ## Release v1.3.0 · actions/create-github-app-token
 https://github.com/actions/create-github-app-token/releases/tag/v1.3.0
 
-actions/create-github-app-token v1.3.0 で対象 owner 変えられるようになりました。
+先日、GitHub 公式で GitHub Apps のトークンを払い出すアクション actions/create-github-app-token が公開された件を[紹介しました](https://zenn.dev/cybozu_ept/articles/productivity-weekly-20230913?redirected=1#actions%2Fcreate-github-app-token%3A-github-action-for-creating-a-github-app-installation-access-token)。その際、アクションを実行しているリポジトリのオーナーに関する権限しか取得できない話をしました。
 
+> ただ、v1.2.1 時点だと、[アクションを実行しているリポジトリのオーナーに関する権限しか取れない](https://github.com/actions/create-github-app-token/issues/4)ようです。トークンを取得したいオーナーが異なる場合は、機能追加されるまで 3rd party アクションを利用するのが良さそうです。
+
+しかし、v1.3.0 で対象 owner を変更できるようになりました。また、対象リポジトリも指定することで、権限に制限をかけられるようになりました。
+新たに追加された inputs は `owner` と `repositories` です。
+
+- `owner`
+  - App のインストール先の owner を指定する
+  - 空の場合は、現在のリポジトリの owner が指定される
+- `repositories`: Optional: Comma-separated list of repositories to grant access to. If empty, defaults to all repositories. If owner is set and repositories is empty, access will be scoped to all repositories in the provided repository owner's installation. If owner and repositories are empty, access will be scoped to only the current repository.
+  - App にアクセス権限を与えるリポジトリを指定する
+  - `owner` が指定されており、`repositories` が空の場合は、`owner` の全てのインストールされたリポジトリが対象になる
+  - `owner` と `repositories` が空の場合は、現在のリポジトリのみが対象になる
+
+詳しくは [v1.3.0 の README.md](https://github.com/actions/create-github-app-token/tree/v1.3.0?tab=readme-ov-file#inputs) を参照ください。
+
+他の owner のトークンが払い出せるようになったりリポジトリの制限ができるようになったりと、かなり便利になりましたね。
+ちなみに、本項目執筆時点では v1.4.0 と v1.5.0 がすでにリリースされています。
+
+- [v1.4.0](https://github.com/actions/create-github-app-token/releases/tag/v1.4.0)
+  - `inputs.skip_token_revoke` でジョブ終了時にトークンを revoke するかの制御ができるようになりました
+- [v1.5.0](https://github.com/actions/create-github-app-token/releases/tag/v1.5.0)
+  - `inputs` の各パラメータ名で `-` 区切りが推奨になりました（例: `skip-token-revoke`）
+  - `_` 区切りも引き続き使えますが、非推奨のメッセージが出るようです
+  - 気づいたら `-` 区切りにするのが良さそうです
+
+皆さんもどんどん公式アクションに置き換えていきましょう。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 ## npm provenance general availability - The GitHub Blog
 https://github.blog/changelog/2023-09-26-npm-provenance-general-availability/
@@ -146,6 +174,12 @@ Productivity Weekly で出たネタを全て紹介したいけど紹介する体
 
 サイボウズの生産性向上チームでは社内エンジニアの開発生産性を上げるための活動を行なっています。そんな生産性向上チームが気になる方は下のリンクをクリック！
 https://note.com/cybozu_dev/n/n1c1b44bf72f6
+
+## Engineering Productivity Meetup #1 in Tokyo - connpass
+https://cybozu.connpass.com/event/298452/
+
+サイボウズの東京オフィスで開発者の日々の生産性を高めるための知見や技術を語り合うイベントを開催されます（宣伝）。
+発表・質問・交代含む 10 分程度の LT 形式です。簡単な自動化でもなんかすごい改革でも、「開発生産性の向上」に関する内容であればなんでもいいので、みなさんどしどし参加してください。
 
 <!-- :::message すみません、今週もおまけはお休みです...:::-->
 
