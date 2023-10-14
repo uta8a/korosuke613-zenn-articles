@@ -215,13 +215,6 @@ _本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 https://zenn.dev/shunsuke_suzuki/books/aqua-handbook
 
-# tool 🔨
-
-## OpenAI 創業者も認めたタスク管理ツール「Linear」が評価額 4 億ドルに | Forbes JAPAN 公式サイト（フォーブス ジャパン）
-
-https://forbesjapan.com/articles/detail/66394
-
-Linear がイケイケですね。
 
 # read more 🍘
 
@@ -230,6 +223,9 @@ Productivity Weekly で出たネタを全て紹介したいけど紹介する体
 - **news 📺**
 - **know-how 🎓**
 - **tool 🔨**
+  - [OpenAI 創業者も認めたタスク管理ツール「Linear」が評価額 4 億ドルに | Forbes JAPAN 公式サイト（フォーブス ジャパン）](https://forbesjapan.com/articles/detail/66394)
+    - プロジェクト管理ツール Linear が評価額 4 億ドルになったそうです
+    - 僕も Linear 使ってますが、コマンドパレットが優秀だったり自動化しやすかったりめちゃおすすめです
 
 # あとがき
 
