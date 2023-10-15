@@ -88,7 +88,7 @@ Renovate CE は Renovate On-Premises の後継であり、リリースバージ�
 
 New features として、administration API が使えるようになったこと、Renovate CE ではイメージ名が変更され、デフォルトで slim バージョンになっており、`-full` サフィックス付きのイメージ名を指定するとサードパーティツールがプリインストールされたイメージを利用できることとあります。(プリインストールされるツールは[こちら]。(https://github.com/mend/renovate-ce-ee/releases/tag/6.0.0))
 
-Renovate On-Premises から Renovate CE への移行は[マイグレーションドキュメント](https://github.com/mend/renovate-ce-ee/blob/6.0.0/docs/migrating-to-renovate-ce.md)が用意されています。完全後方互換性を謳っていますが注意点として、新規追加やリネームされた環境変数があるので、それらの再設定を行う必要があります。
+Renovate On-Premises から Renovate CE への移行は[マイグレーションドキュメント](https://github.com/mend/renovate-ce-ee/blob/6.0.0/docs/migrating-to-renovate-ce.md)が用意されています。完全後方互換性を謳っていますが注意点として、新規追加やリネームされた環境変数があるので、それらの再設定をする必要があります。
 
 開発者の方が Issue や PR で即レスしてくれるので、Renovate に関する質問や要望がある方はぜひ GitHub で Issue を立ててみてください。
 
@@ -146,10 +146,10 @@ https://aws.amazon.com/jp/blogs/aws/amazon-bedrock-is-now-generally-available-bu
 生成 AI アプリケーションを構築するためのフルマネージドサービス Amazon Bedrock が GA になり、東京リージョンで利用可能になりました。
 Bedrock は AI21 Labs、Anthropic、Cohere、Stability AI、Amazon から提供される高性能な基盤モデルを API から利用できるサービスです。
 
-主な特徴は以下の通りです。
+主な特徴は以下のとおりです。
 - 任意の基盤モデルを独自のデータでカスタマイズしたり、ビジネスタスクを実行するエージェントを作成できる
 - サーバレスなので、インフラストラクチャの管理やスケーリングを意識する必要がない
-- Amazon CloudWatch と AWS CloudTrail と連携しているため、モニタリングとガバナンスのニーズをサポート
+- Amazon CloudWatch や AWS CloudTrail と連携しているため、モニタリングとガバナンスのニーズをサポート
 
 モデルごとに料金計算方法が異なっており、例えばテキスト生成モデルは処理された入力トークンと生成された出力トークンごとに、画像生成モデルは生成された画像ごとに課金されるそうです。
 
@@ -220,11 +220,10 @@ _本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 https://zenn.dev/shunsuke_suzuki/books/aqua-handbook
 
 CLI Version Manager ツールの aqua の作者の方が aqua の入門本を公開されました。
-チュートリアルで基本的な使い方を解説から、Tips や Renovate の設定まで実践的な内容まで書かれており、これから使いたい人にも既に使っている人にも参考になるかと思います。
+チュートリアルとして基本的な使い方を解説から、Tips や Renovate の設定といった実践的な内容まで書かれており、これから使いたい人にも既に使っている人にも参考になるかと思います。
+本の後半では、Registry の作り方や Standard Registry へのコントリビューション方法が解説されており、流石作者の方といった感じです。
 
-似たような CLI Version Manager ツールとして asdf などが有名ですが、asdf や他のツールと比較した際に、aqua ができること・できないことが述べられており、選定の参考にもなります。
-自分はこの本を読むまで、aqua は asdf の代替を目指しており、かつ CI での利用が容易であることを理想としているのかと思っていましたが、実際はそうではないことを知りました。
-後半では、Registry の作り方や Standard Registry へのコントリビューション方法が解説されており、流石作者の方といった感じです。
+似たような CLI Version Manager ツールとして asdf などが有名ですが、asdf や他のツールと比較した際に、aqua ができること・できないことも述べられており、選定の参考にもなります。
 
 aqua を始めたいけれど、英語ドキュメントを読むのがつらい方は、この本から始めるのが安心でオススメかと思います。
 
