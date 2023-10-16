@@ -29,7 +29,6 @@ user_defined:
 今週の共同著者は次の方です。
 
 - [@korosuke613](https://zenn.dev/korosuke613)
-- [@defaultcf](https://zenn.dev/defaultcf)
 - [@Kesin11](https://zenn.dev/kesin11)
 - [@r4mimu](https://zenn.dev/r4mimu)
 
@@ -50,7 +49,7 @@ GitHub Actions でやっと Apple Silicon（M1）のランナーが利用可能�
 ちなみに細かい注意点として新しい Larger runner が Apple Silicon アーキテクチャであることに由来してコミュニティ製の action が動く保証はなかったり、ネストされた仮想化は不可能といった制限があるようです。
 https://docs.github.com/en/actions/using-github-hosted-runners/about-larger-runners/about-larger-runners#limitations-for-macos-larger-runners
 
-弊チームの [@miyajan](https://zenn.dev/miyajan) が Arm アーキテクチャの docker が使えることを期待して試したのですが、残念ながら使えなかったことを[discussion にて報告](https://github.com/orgs/community/discussions/69211#discussioncomment-7197681)したところ返信の中で仮想化の制約について言及されていました。
+弊チームの [@miyajan](https://zenn.dev/miyajan) が Arm アーキテクチャの docker が使えることを期待して試したのですが、残念ながら使えなかったことを [discussion にて報告](https://github.com/orgs/community/discussions/69211#discussioncomment-7197681)したところ返信の中で仮想化の制約について言及されていました。
 
 _本項の執筆者: [@Kesin11](https://zenn.dev/kesin11)_
 
@@ -86,7 +85,7 @@ https://github.com/mend/renovate-ce-ee/releases/tag/6.0.0
 Renovate Community Edition(CE)、Renovate Enterprise Edition(EE) が新たにリリースされました。
 Renovate CE は Renovate On-Premises の後継であり、リリースバージョンも継続され、無償のままです。Renovate EE は水平スケーラビリティ、エンタープライズサポート、Mend 社の Smart Merge Control 機能が利用可能な新しい有償製品です。
 
-New features として、administration API が使えるようになったこと、Renovate CE ではイメージ名が変更され、デフォルトで slim バージョンになっており、`-full` サフィックス付きのイメージ名を指定するとサードパーティツールがプリインストールされたイメージを利用できることとあります。(プリインストールされるツールは[こちら]。(https://github.com/mend/renovate-ce-ee/releases/tag/6.0.0))
+New features として、administration API が使えるようになったこと、Renovate CE ではイメージ名が変更され、デフォルトで slim バージョンになっており、`-full` サフィックス付きのイメージ名を指定するとサードパーティツールがプリインストールされたイメージを利用できることとあります。(プリインストールされるツールは[こちら](https://github.com/mend/renovate-ce-ee/releases/tag/6.0.0))
 
 Renovate On-Premises から Renovate CE への移行は[マイグレーションドキュメント](https://github.com/mend/renovate-ce-ee/blob/6.0.0/docs/migrating-to-renovate-ce.md)が用意されています。完全後方互換性を謳っていますが注意点として、新規追加やリネームされた環境変数があるので、それらの再設定をする必要があります。
 
@@ -233,17 +232,24 @@ aqua を始めたいけれど、英語ドキュメントを読むのがつらい
 
 Productivity Weekly で出たネタを全て紹介したいけど紹介する体力が持たなかったネタを一言程度で書くコーナーです。
 
-- **news 📺**
-- **know-how 🎓**
 - **tool 🔨**
   - [OpenAI 創業者も認めたタスク管理ツール「Linear」が評価額 4 億ドルに | Forbes JAPAN 公式サイト（フォーブス ジャパン）](https://forbesjapan.com/articles/detail/66394)
     - プロジェクト管理ツール Linear が評価額 4 億ドルになったそうです
     - 僕も Linear 使ってますが、コマンドパレットが優秀だったり自動化しやすかったりめちゃおすすめです
 
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
+
 # あとがき
+
+<!-- textlint-disable ja-technical-writing/no-double-negative-ja -->
+
+今週号でした。実は 10/12（木）から kintone 開発チームへ体験入部に行ってます。[前々からプロダクト開発は経験しておきたかった](https://korosuke613.hatenablog.com/entry/2023/01/03/hofu-2023)のですが、生産性向上チームのメンバも増えて余裕がだいぶ出てきたので「行くか、体験入部」となりました。
+全く時間がないわけではないので Weekly は（今の所）引き続き書いていますが、やはり歴史の長いプロダクトであるため、コードベースもチームの規模もめちゃデカく、生産性向上チームの比ではないです。知っておかなければいけないことが多すぎてパンクしそうですね😇 なるほどこれが中途の気分かとなっていますが、色々持ち帰れたらと思います。
 
 サイボウズの生産性向上チームでは社内エンジニアの開発生産性を上げるための活動を行なっています。そんな生産性向上チームが気になる方は下のリンクをクリック！
 https://note.com/cybozu_dev/n/n1c1b44bf72f6
+
+<!-- textlint-enable ja-technical-writing/no-double-negative-ja -->
 
 ## Engineering Productivity Meetup #1 in Tokyo - connpass
 
@@ -252,8 +258,3 @@ https://cybozu.connpass.com/event/298452/
 サイボウズの東京オフィスで開発者の日々の生産性を高めるための知見や技術を語り合うイベントを開催されます（宣伝）。
 発表・質問・交代含む 10 分程度の LT 形式です。簡単な自動化でもなんかすごい改革でも、「開発生産性の向上」に関する内容であればなんでもいいので、みなさんどしどし参加してください。
 
-<!-- :::message すみません、今週もおまけはお休みです...:::-->
-
-## omake 🃏:
-
-今週のおまけです。
