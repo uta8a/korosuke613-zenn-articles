@@ -83,13 +83,16 @@ _本項の執筆者: [@Kesin11](https://zenn.dev/kesin11)_
 
 https://github.com/mend/renovate-ce-ee/releases/tag/6.0.0
 
-Renovate CE/EE 登場。
+Renovate Community Edition(CE)、Renovate Enterprise Edition(EE) が新たにリリースされました。
+Renovate CE は Renovate On-Premises の後継であり、リリースバージョンも継続され、無償のままです。Renovate EE は水平スケーラビリティ、エンタープライズサポート、Mend 社の Smart Merge Control 機能が利用可能な新しい有償製品です。
 
-マイグレーション
-https://github.com/mend/renovate-ce-ee/blob/6.0.0/docs/migrating-to-renovate-ce.md
+New features として、administration API が使えるようになったこと、Renovate CE ではイメージ名が変更され、デフォルトで slim バージョンになっており、`-full` サフィックス付きのイメージ名を指定するとサードパーティツールがプリインストールされたイメージを利用できることとあります。(プリインストールされるツールは[こちら]。(https://github.com/mend/renovate-ce-ee/releases/tag/6.0.0))
 
-compose.yaml
-https://github.com/mend/renovate-ce-ee/blob/6.0.0/examples/docker-compose-github.yml
+Renovate On-Premises から Renovate CE への移行は[マイグレーションドキュメント](https://github.com/mend/renovate-ce-ee/blob/6.0.0/docs/migrating-to-renovate-ce.md)が用意されています。完全後方互換性を謳っていますが注意点として、新規追加やリネームされた環境変数があるので、それらの再設定をする必要があります。
+
+開発者の方が Issue や PR で即レスしてくれるので、Renovate に関する質問や要望がある方はぜひ GitHub で Issue を立ててみてください。
+
+*本項の執筆者: [@r4mimu](https://zenn.dev/r4mimu)*
 
 ## Release v1.3.0 · actions/create-github-app-token
 
@@ -136,22 +139,23 @@ GitHub Actions、GitLab CI/CD から npm に publish している人は npm publ
 
 _本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
-## 「サーバーレス VPC アクセス コネクタ」 から 「ダイレクト VPC」へ置き換えてみました
-
-https://zenn.dev/rescuenow/articles/c694cbacd34039
-
-前もウィで話題になってた GCP の Direct VPC がプレビューになったらしい．
-サーバーレス VPC アクセス コネクタからの移行の記事も出てた．
-はよ GA になってほしいね．
-
 ## Amazon Bedrock Is Now Generally Available – Build and Scale Generative AI Applications with Foundation Models | AWS News Blog
 
 https://aws.amazon.com/jp/blogs/aws/amazon-bedrock-is-now-generally-available-build-and-scale-generative-ai-applications-with-foundation-models/
-AWS での生成系 AI のリソースが出た話。
 
-Workers AI: serverless GPU-powered inference on Cloudflare’s global network
-https://blog.cloudflare.com/workers-ai/
-Cloudflare もエッジで AI 走らせるやつが来ましたね。
+生成 AI アプリケーションを構築するためのフルマネージドサービス Amazon Bedrock が GA になり、東京リージョンで利用可能になりました。
+Bedrock は AI21 Labs、Anthropic、Cohere、Stability AI、Amazon から提供される高性能な基盤モデルを API から利用できるサービスです。
+
+主な特徴は以下のとおりです。
+- 任意の基盤モデルを独自のデータでカスタマイズしたり、ビジネスタスクを実行するエージェントを作成できる
+- サーバレスなので、インフラストラクチャの管理やスケーリングを意識する必要がない
+- Amazon CloudWatch や AWS CloudTrail と連携しているため、モニタリングとガバナンスのニーズをサポート
+
+モデルごとに料金計算方法が異なっており、例えばテキスト生成モデルは処理された入力トークンと生成された出力トークンごとに、画像生成モデルは生成された画像ごとに課金されるそうです。
+
+AWS News Blog では Python (Boto3) でのアプリケーション開発例が紹介されており、実際に手を動かして学ぶことができるので気になる人はチェックしてみてください。
+
+*本項の執筆者: [@r4mimu](https://zenn.dev/r4mimu)*
 
 # know-how 🎓
 
@@ -215,6 +219,15 @@ _本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 https://zenn.dev/shunsuke_suzuki/books/aqua-handbook
 
+CLI Version Manager ツールの aqua の作者の方が aqua の入門本を公開されました。
+チュートリアルとして基本的な使い方を解説から、Tips や Renovate の設定といった実践的な内容まで書かれており、これから使いたい人にも既に使っている人にも参考になるかと思います。
+本の後半では、Registry の作り方や Standard Registry へのコントリビューション方法が解説されており、流石作者の方といった感じです。
+
+似たような CLI Version Manager ツールとして asdf などが有名ですが、asdf や他のツールと比較した際に、aqua ができること・できないことも述べられており、選定の参考にもなります。
+
+aqua を始めたいけれど、英語ドキュメントを読むのがつらい方は、この本から始めるのが安心でオススメかと思います。
+
+*本項の執筆者: [@r4mimu](https://zenn.dev/r4mimu)*
 
 # read more 🍘
 
