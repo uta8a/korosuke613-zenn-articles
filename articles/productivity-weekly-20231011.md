@@ -64,10 +64,25 @@ https://www.hashicorp.com/blog/terraform-1-6-adds-a-test-framework-for-enhanced-
 ## 🤖Ask AIがCircleCI Discuss(http://discuss.circleci.com )に登場！
 https://twitter.com/CircleCIJapan/status/1709362246852517907
 
-試してみた例 https://x.com/Kesin11/status/1709582126205849946
+CircleCI Discuss で AI に質問できる機能が追加されました。百聞は一見にしかずなので AI がどれぐらいのレベルの回答をしてくれるのか早速試してみました。
 
-circleci.yml の分割と checkout の高速化という CircleCI の中でも高度な使い方を質問してみたところ、3rd 製の orbs も紹介しつつ自分的には正しい答えが返ってきたのでなかなかすごい。
-ある程度の信ぴょう性はあると考えてもいいかもしれない。
+> Config.ymlを分割したい
+
+https://twitter.com/Kesin11/status/1709582126205849946
+
+[Dynamic Configuration](https://circleci.com/docs/ja/dynamic-config/) を利用すれば分割できるのは正しいですね。その先が驚きで、さらに発展形として [bufferings/split-config](https://circleci.com/developer/orbs/orb/bufferings/split-config)というサードパーティの Orb を利用することも提案してくれました。Dynamic Configuration は公式ドキュメントが存在しますが、サードパーティの Orb はさすがにドキュメントには存在しないはずなので AI はドキュメント以外も情報源にしていそうですね。
+
+> リポジトリが巨大なのでcheckoutに数十分もかかります。なんとか高速化する方法はないでしょうか？
+
+https://twitter.com/Kesin11/status/1709584713722310844
+
+次の質問はちょっといじわるな内容で、CircleCI では自分の知る限り `checkout` では `git clone --depth=1` などのオプションを追加できないので標準機能では対応できないはずなのです。これに対する回答は `checkout` を使う代わりに `git clone --depth` を使うか、[issmirnov/fast-checkout](https://circleci.com/developer/ja/orbs/orb/issmirnov/fast-checkout) というサードパーティの Orb を提案してくれました。こちらの Orb は自分も初めて知ったのですが、中身を見ると Git の Partial Clone と Sparse Checkout を実行していたので AI の回答文は正しいと思います。
+
+個人的には今回試した質問に対する AI の回答は技術的にも文章も妥当な回答だと思いました。もちろん AI の回答が 100%正しいとは限らないのですが、ググって発見した情報も 100%正しいとは限らないので、今後は AI と検索の両方で見つけた情報から総合的に判断していく時代になるかもしれないと感じました。
+
+反響がさみしいと早々に引っ込んでしまうかもしれないらしいので、皆さんもぜひ AI に質問してみましょう！
+
+_本項の執筆者: [@Kesin11](https://zenn.dev/kesin11)_
 
 
 ## AWS、マネジメントコンソールへのrootでのサインインに多要素認証を必須に。2024年半ばから － Publickey
