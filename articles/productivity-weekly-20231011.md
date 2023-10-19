@@ -68,13 +68,13 @@ CircleCI Discuss で AI に質問できる機能が追加されました。百�
 
 > Config.ymlを分割したい
 
-https://twitter.com/Kesin11/status/1709582126205849946
+https://twitter.com/Kesin11/status/1709582126205849946?conversation=none
 
 [Dynamic Configuration](https://circleci.com/docs/ja/dynamic-config/) を利用すれば分割できるのは正しいですね。その先が驚きで、さらに発展形として [bufferings/split-config](https://circleci.com/developer/orbs/orb/bufferings/split-config)というサードパーティの Orb を利用することも提案してくれました。Dynamic Configuration は公式ドキュメントが存在しますが、サードパーティの Orb はさすがにドキュメントには存在しないはずなので AI はドキュメント以外も情報源にしていそうですね。
 
 > リポジトリが巨大なのでcheckoutに数十分もかかります。なんとか高速化する方法はないでしょうか？
 
-https://twitter.com/Kesin11/status/1709584713722310844
+https://twitter.com/Kesin11/status/1709584713722310844?conversation=none
 
 次の質問はちょっといじわるな内容で、CircleCI では自分の知る限り `checkout` では `git clone --depth=1` などのオプションを追加できないので標準機能では対応できないはずなのです。これに対する回答は `checkout` を使う代わりに `git clone --depth` を使うか、[issmirnov/fast-checkout](https://circleci.com/developer/ja/orbs/orb/issmirnov/fast-checkout) というサードパーティの Orb を提案してくれました。こちらの Orb は自分も初めて知ったのですが、中身を見ると Git の Partial Clone と Sparse Checkout を実行していたので AI の回答文は正しいと思います。
 
