@@ -96,11 +96,15 @@ https://int128.hatenablog.com/entry/2023/10/07/214726
 ## Actions Runner Controller Deep Dive！- コード解説 後編 - - APC 技術ブログ 
 https://techblog.ap-com.co.jp/entry/2023/09/29/182024
 
-actions/actions-runner-controller の最新機能である scale set のコード解説。いよいよ本丸とも言える github へのロングポーリングとランナーのオートスケール機能の解説。
+[actions/actions-runner-controller](https://github.com/actions/actions-runner-controller) の最新機能である Scale Set のコード解説。いよいよ本丸とも言える GitHub へのロングポーリングとランナーのオートスケール機能の解説編です。
 
-前半・後半と合わせるとかなりの長編記事ですが、これを見ると ARC の k8s 上のコンポーネントがどの機能に対応していて、どういう仕組みでランナーがスケールアウト、スケールインしているかが分かります。
+前半・後半と合わせるとかなりの長編記事ですが、ARC の k8s 上のコンポーネントがどの機能に対応していて、どういう仕組みでランナーがスケールアウト、スケールインしているかが解説されています。生産性向上チームでは k8s を使わない [philips-labs/terraform-aws-github-runner](https://github.com/philips-labs/terraform-aws-github-runner) を利用しているので ARC のコードはあまり読んだことがなかったのですが、行っていることはやはり何となく似ているという印象を受けました。
 
-（ここから個人の感想。めちゃ長い記事なのですが、体感で長い理由の 7 割ぐらいが k8s のコンポーネントが親子構造で複雑であることと、Go のコードがエラーハンドリングなどによって長いのが理由。GitHub の API を叩く部分は別として、ランナーのスケールイン・スケールアウト処理は philips-labs とやってることに大差はないと思ったし Lambda の TypeScript の方が圧倒的に読みやすかった）
+Scale Set の機能に関しては API ドキュメントがまだ公開されていないので詳しくは分からないことが多く、早く公開してほしいなと思っています。
+
+次回は ARC のメトリクス監視についての解説が予告されているので楽しみにしましょう。
+
+_本項の執筆者: [@Kesin11](https://zenn.dev/kesin11)_
 
 ## 仕様が読めるようになるOAuth2.0、OpenID Connect 入門 - Speaker Deck
 https://speakerdeck.com/authyasan/shi-yang-gadu-meruyouninaruoauth2-dot-0-openid-connect-ru-men
