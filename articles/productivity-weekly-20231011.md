@@ -46,6 +46,16 @@ EKS 1.23 (2023/10 サポート終了) から適用され、オプトインでは
 ## Actions - Secure deployment rollouts to protected environments based on select tag patterns - The GitHub Blog 
 https://github.blog/changelog/2023-10-06-actions-secure-deployment-rollouts-to-protected-environments-based-on-select-tag-patterns/
 
+GitHub Actions の Environments の設定でデプロイ可能なブランチを制限することは以前から可能だったようですが、今回からタグでも同様の制限が可能になりました。
+
+デプロイのルールとして先にタグを打ってからデプロイするようなフローを強制したい場合などに使えそうです。個人的にはさらにデプロイに必要なトークンなどを Environments に紐づいた Secret と保存しておくことで、GitHub Actions からデプロイするフローにさらに強制力を持たせることが可能になると思いました。
+
+実際にデプロイ可能なタグを制限したときの挙動を実験してみたので、興味がある方はこちらのスクラップも見てみてください。
+
+https://zenn.dev/kesin11/scraps/046fdf7f9eba65
+
+_本項の執筆者: [@Kesin11](https://zenn.dev/kesin11)_
+
 
 
 ## Terraform 1.6 adds a test framework for enhanced code validation
