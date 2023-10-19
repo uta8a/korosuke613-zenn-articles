@@ -64,10 +64,25 @@ https://www.hashicorp.com/blog/terraform-1-6-adds-a-test-framework-for-enhanced-
 ## 🤖Ask AIがCircleCI Discuss(http://discuss.circleci.com )に登場！
 https://twitter.com/CircleCIJapan/status/1709362246852517907
 
-試してみた例 https://x.com/Kesin11/status/1709582126205849946
+CircleCI Discuss で AI に質問できる機能が追加されました。百聞は一見にしかずなので AI がどれぐらいのレベルの回答をしてくれるのか早速試してみました。
 
-circleci.yml の分割と checkout の高速化という CircleCI の中でも高度な使い方を質問してみたところ、3rd 製の orbs も紹介しつつ自分的には正しい答えが返ってきたのでなかなかすごい。
-ある程度の信ぴょう性はあると考えてもいいかもしれない。
+> Config.ymlを分割したい
+
+https://twitter.com/Kesin11/status/1709582126205849946?conversation=none
+
+[Dynamic Configuration](https://circleci.com/docs/ja/dynamic-config/) を利用すれば分割できるのは正しいですね。その先が驚きで、さらに発展形として [bufferings/split-config](https://circleci.com/developer/orbs/orb/bufferings/split-config)というサードパーティの Orb を利用することも提案してくれました。Dynamic Configuration は公式ドキュメントが存在しますが、サードパーティの Orb はさすがにドキュメントには存在しないはずなので AI はドキュメント以外も情報源にしていそうですね。
+
+> リポジトリが巨大なのでcheckoutに数十分もかかります。なんとか高速化する方法はないでしょうか？
+
+https://twitter.com/Kesin11/status/1709584713722310844?conversation=none
+
+次の質問はちょっといじわるな内容で、CircleCI では自分の知る限り `checkout` では `git clone --depth=1` などのオプションを追加できないので標準機能では対応できないはずなのです。これに対する回答は `checkout` を使う代わりに `git clone --depth` を使うか、[issmirnov/fast-checkout](https://circleci.com/developer/ja/orbs/orb/issmirnov/fast-checkout) というサードパーティの Orb を提案してくれました。こちらの Orb は自分も初めて知ったのですが、中身を見ると Git の Partial Clone と Sparse Checkout を実行していたので AI の回答文は正しいと思います。
+
+個人的には今回試した質問に対する AI の回答は技術的にも文章も妥当な回答だと思いました。もちろん AI の回答が 100%正しいとは限らないのですが、ググって発見した情報も 100%正しいとは限らないので、今後は AI と検索の両方で見つけた情報から総合的に判断していく時代になるかもしれないと感じました。
+
+反響がさみしいと早々に引っ込んでしまうかもしれないらしいので、皆さんもぜひ AI に質問してみましょう！
+
+_本項の執筆者: [@Kesin11](https://zenn.dev/kesin11)_
 
 
 ## AWS、マネジメントコンソールへのrootでのサインインに多要素認証を必須に。2024年半ばから － Publickey
@@ -81,11 +96,15 @@ https://int128.hatenablog.com/entry/2023/10/07/214726
 ## Actions Runner Controller Deep Dive！- コード解説 後編 - - APC 技術ブログ 
 https://techblog.ap-com.co.jp/entry/2023/09/29/182024
 
-actions/actions-runner-controller の最新機能である scale set のコード解説。いよいよ本丸とも言える github へのロングポーリングとランナーのオートスケール機能の解説。
+[actions/actions-runner-controller](https://github.com/actions/actions-runner-controller) の最新機能である Scale Set のコード解説。いよいよ本丸とも言える GitHub へのロングポーリングとランナーのオートスケール機能の解説編です。
 
-前半・後半と合わせるとかなりの長編記事ですが、これを見ると ARC の k8s 上のコンポーネントがどの機能に対応していて、どういう仕組みでランナーがスケールアウト、スケールインしているかが分かります。
+前半・後半と合わせるとかなりの長編記事ですが、ARC の k8s 上のコンポーネントがどの機能に対応していて、どういう仕組みでランナーがスケールアウト、スケールインしているかが解説されています。生産性向上チームでは k8s を使わない [philips-labs/terraform-aws-github-runner](https://github.com/philips-labs/terraform-aws-github-runner) を利用しているので ARC のコードはあまり読んだことがなかったのですが、行っていることはやはり何となく似ているという印象を受けました。
 
-（ここから個人の感想。めちゃ長い記事なのですが、体感で長い理由の 7 割ぐらいが k8s のコンポーネントが親子構造で複雑であることと、Go のコードがエラーハンドリングなどによって長いのが理由。GitHub の API を叩く部分は別として、ランナーのスケールイン・スケールアウト処理は philips-labs とやってることに大差はないと思ったし Lambda の TypeScript の方が圧倒的に読みやすかった）
+Scale Set の機能に関しては API ドキュメントがまだ公開されていないので詳しくは分からないことが多く、早く公開してほしいなと思っています。
+
+次回は ARC のメトリクス監視についての解説が予告されているので楽しみにしましょう。
+
+_本項の執筆者: [@Kesin11](https://zenn.dev/kesin11)_
 
 ## 仕様が読めるようになるOAuth2.0、OpenID Connect 入門 - Speaker Deck
 https://speakerdeck.com/authyasan/shi-yang-gadu-meruyouninaruoauth2-dot-0-openid-connect-ru-men
