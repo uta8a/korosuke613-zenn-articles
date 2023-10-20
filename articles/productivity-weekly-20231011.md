@@ -76,7 +76,7 @@ https://www.hashicorp.com/blog/terraform-1-6-adds-a-test-framework-for-enhanced-
 細かなアップデートはいくつかありますが、印象的なのは `terraform test` コマンドでしょうか。(ドキュメントは[こちら](https://developer.hashicorp.com/terraform/language/tests?ajs_aid=474da431-0ceb-4f54-b577-b98049a8b39e&product_intent=terraform))
 
 
-`terraform test` では HCL 構文で書かれたテストコードを実行することができます。
+`terraform test` では HCL 構文で書かれたテストコードを実行できます。
 デフォルトではルートディレクトリと `tests` ディレクトリの下のうち、拡張子が `.tftest.hcl` であるテストコードを実行します。
 
 テストコードは `run` ブロックで定義しアサーションが評価されます。
@@ -157,7 +157,7 @@ Failure! 0 passed, 1 failed.
 `command = apply` とすると、実際にリソースを作成してテストを評価し、テスト終了後は自動的にリソースは削除されます。
 そのため、`terraform apply` してみて初めて気がつく、構文や設定系のミスがテストで検出できるかもしれません。
 
-`run` ブロックでは `variables` や `module`, `providers` などのブロックを定義することができ、リソースファイルに定義したものをオーバーライドできるので、テストの拡張性も高そうです。
+`run` ブロックでは `variables` や `module`, `providers` などのブロックを定義でき、リソースファイルに定義したものをオーバーライドできるので、テストの拡張性も高そうです。
 
 [公式チュートリアル](https://developer.hashicorp.com/terraform/tutorials/configuration-language/test?ajs_aid=474da431-0ceb-4f54-b577-b98049a8b39e&product_intent=terraform)では `http` データソースを使って、 Web サイトがデプロイされて正常に稼働しているかを `terraform test` で検証するという高度なテストを紹介しています。そちらも参考にしてみてください。
 
