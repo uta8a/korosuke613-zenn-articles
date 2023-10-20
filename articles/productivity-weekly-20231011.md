@@ -37,11 +37,22 @@ user_defined: {"publish_link": "https://zenn.dev/korosuke613/articles/productivi
 ## Amazon EKS extended support for Kubernetes versions available in preview | Containers
 https://aws.amazon.com/jp/blogs/containers/amazon-eks-extended-support-for-kubernetes-versions-available-in-preview/
 
-EKS の Kubernetes バージョン延長サポートオプションがプレビュー。
+Amazon Elastic Kubernetes Service (EKS) の Kubernetes バージョン延長サポートオプションがプレビューで利用可能になりました。
+サポート延長は 12 か月までとのことです。
+これにより、特定の Kubernetes バージョンが標準サポートと延長サポート機能を合わせて最大 26 か月間利用できるようになります。
 
-サポート延長は 12 ヶ月まで。
-EKS 1.23 (2023/10 サポート終了) から適用され、オプトインではなく自動で適用される。
-一応 EKS 1.23 の 12 ヶ月サポート延長は無料らしいけど、以降は勝手に 1 時間あたりで課金されるので要注意では？
+EKS 1.23 (2023/10 サポート終了) から自動で適用され、オプトインなど追加のアクションや設定は不要です。
+プレビュー期間は延長サポートに対して追加料金はかからず、正式利用可能予定の 2024 年初旬からはクラスターごとに追加料金が発生するそうです。
+
+>  Clusters running version 1.23 will automatically upgrade to version 1.24 in October 2024 when the extended support period for version 1.23 ends.
+
+とあることから、サポート終了後は自動的に次のバージョンにアップグレードされることが分かります。
+
+Kubernetes バージョン更新追従は大変なので、このような延長サポート機能はありがたいですね。
+ただ、延長サポート機能は自動的に適用されるため、意図しないバージョン延長サポートによって追加料金が発生してしまう可能性には注意です。
+
+_本項の執筆者: [@r4mimu](https://zenn.dev/r4mimu)_
+
 
 ## Actions - Secure deployment rollouts to protected environments based on select tag patterns - The GitHub Blog 
 https://github.blog/changelog/2023-10-06-actions-secure-deployment-rollouts-to-protected-environments-based-on-select-tag-patterns/
@@ -60,6 +71,100 @@ _本項の執筆者: [@Kesin11](https://zenn.dev/kesin11)_
 
 ## Terraform 1.6 adds a test framework for enhanced code validation
 https://www.hashicorp.com/blog/terraform-1-6-adds-a-test-framework-for-enhanced-code-validation
+
+2023 年 10 月 4 日に Terraform 1.6 がリリースされました。
+細かなアップデートはいくつかありますが、印象的なのは `terraform test` コマンドでしょうか。(ドキュメントは[こちら](https://developer.hashicorp.com/terraform/language/tests?ajs_aid=474da431-0ceb-4f54-b577-b98049a8b39e&product_intent=terraform))
+
+
+`terraform test` では HCL 構文で書かれたテストコードを実行できます。
+デフォルトではルートディレクトリと `tests` ディレクトリの下のうち、拡張子が `.tftest.hcl` であるテストコードを実行します。
+
+テストコードは `run` ブロックで定義しアサーションが評価されます。
+
+例えば、以下のような Google Compute Instance を作成するコードがあったとします。
+
+```hcl:main.tf
+resource "google_compute_instance" "tf_test" {
+  name         = "tf-test-instance"
+  machine_type = "n2-standard-2"
+  zone         = "asia-northeast1-a"
+
+  boot_disk {
+    initialize_params {
+      image = "debian-cloud/debian-11"
+    }
+  }
+
+  network_interface {
+    network = "default"
+    access_config {
+    }
+  }
+
+  metadata = {
+    foo = "bar"
+  }
+}
+```
+
+この `tf_test` インスタンスのインスタンス名をテストするには以下のようなテストコードを書きます。
+
+```hcl:main.tftest.hcl
+run "check_instance_name" {
+  command = plan
+  assert {
+    condition     = google_compute_instance.tf_test.name == "tf-test-instance"
+    error_message = "Instance name is not tf-test-instance"
+  }
+}
+```
+
+実際に実行すると以下のようになります。
+
+```console
+❯ tf test
+main.tftest.hcl... in progress
+  run "check_instance_name"... pass
+main.tftest.hcl... tearing down
+main.tftest.hcl... pass
+
+Success! 1 passed, 0 failed.
+```
+
+試しにインスタンス名を `tf-test-instance` から `tf-test-instance1` に変更してみると以下のようにテストが失敗します。
+
+```console
+ ❯ tf test
+main.tftest.hcl... in progress
+  run "check_instance_name"... fail
+╷
+│ Error: Test assertion failed
+│ 
+│   on main.tftest.hcl line 4, in run "check_instance_name":
+│    4:     condition     = google_compute_instance.tf_test.name == "tf-test-instance1"
+│     ├────────────────
+│     │ google_compute_instance.tf_test.name is "tf-test-instance"
+│ 
+│ Instance name is not tf-test-instance
+╵
+main.tftest.hcl... tearing down
+main.tftest.hcl... fail
+
+Failure! 0 passed, 1 failed.
+```
+
+上記の例では `command = plan` としたので plan 結果からテストを検証しています。
+`command = apply` とすると、実際にリソースを作成してテストを評価し、テスト終了後は自動的にリソースは削除されます。
+そのため、`terraform apply` してみて初めて気がつく、構文や設定系のミスがテストで検出できるかもしれません。
+
+`run` ブロックでは `variables` や `module`, `providers` などのブロックを定義でき、リソースファイルに定義したものをオーバーライドできるので、テストの拡張性も高そうです。
+
+[公式チュートリアル](https://developer.hashicorp.com/terraform/tutorials/configuration-language/test?ajs_aid=474da431-0ceb-4f54-b577-b98049a8b39e&product_intent=terraform)では `http` データソースを使って、 Web サイトがデプロイされて正常に稼働しているかを `terraform test` で検証するという高度なテストを紹介しています。そちらも参考にしてみてください。
+
+バージョン 1.5 の import 機能に続き、標準で便利な機能がされ嬉しいですね。
+
+_本項の執筆者: [@r4mimu](https://zenn.dev/r4mimu)_
+
 
 ## 🤖Ask AIがCircleCI Discuss(http://discuss.circleci.com )に登場！
 https://twitter.com/CircleCIJapan/status/1709362246852517907
@@ -109,11 +214,6 @@ _本項の執筆者: [@Kesin11](https://zenn.dev/kesin11)_
 ## 仕様が読めるようになるOAuth2.0、OpenID Connect 入門 - Speaker Deck
 https://speakerdeck.com/authyasan/shi-yang-gadu-meruyouninaruoauth2-dot-0-openid-connect-ru-men
 
-## 2023 State of DevOps Report  |  Google Cloud
-https://cloud.google.com/devops/state-of-devops?hl=en
-
-State of DevOps Report の 2023 年版が公開。（日本語ページだと 2022 年の日本語版のレポートに飛ばされるので注意）
-まだちゃんと読めてない。
 
 ## Hyperdrive：データベースをあたかもグローバルであるかのように感じさせる
 https://blog.cloudflare.com/ja-jp/hyperdrive-making-regional-databases-feel-distributed-ja-jp/
