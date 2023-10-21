@@ -1,5 +1,5 @@
 ---
-title: "Productivity Weekly (2023-10-11号)"
+title: "State of DevOps 2023レポートが公開！日本語版はまだ：Productivity Weekly (2023-10-11号)"
 emoji: "🍵"
 type: "idea"
 topics: ["ProductivityWeekly", "生産性向上"]
@@ -26,7 +26,6 @@ user_defined: {"publish_link": "https://zenn.dev/korosuke613/articles/productivi
 
 今週の共同著者は次の方です。
 - [@korosuke613](https://zenn.dev/korosuke613)
-- [@defaultcf](https://zenn.dev/defaultcf)
 - [@Kesin11](https://zenn.dev/kesin11)
 - [@r4mimu](https://zenn.dev/r4mimu)
 
@@ -254,14 +253,17 @@ https://twitter.com/Kesin11/status/1709584713722310844?conversation=none
 
 _本項の執筆者: [@Kesin11](https://zenn.dev/kesin11)_
 
-
-## AWS、マネジメントコンソールへのrootでのサインインに多要素認証を必須に。2024年半ばから － Publickey
-https://www.publickey1.jp/blog/23/awsroot2024.html
-
 # know-how 🎓
 
 ## GitHub Actions のコスト戦略 - GeekFactory
 https://int128.hatenablog.com/entry/2023/10/07/214726
+
+GitHub Actions は public リポジトリで通常の GitHub-hosted runner（いわゆる larger runner じゃないランナー）を使う上では無料です。しかし、private リポジトリやいわゆる larger runner は従量課金となっています（無料枠もあったりするが）。Self-hosted runner は従量課金の対象外となりますが、runner を動かすコストは結局発生します。
+OSS 等で使うならともかく、業務で GitHub Actions を使う上で無視できないのがコストです。コストを最大限抑えたら開発体験が悪くなります。かといってコストを最大限許容すると開発体験は上がるかもしれませんが余剰リソースが発生してもったいないです。コストと開発体験をいい感じの塩梅にするのは簡単ではありません。
+
+この記事では、GitHub Actions のコスト構造、Actions に限らない CI ジョブの特徴、Kubernetes で Self-hosted runner を動かした場合のコスト戦略（コスト計測、最適化）について解説されています。Amazon EKS 上で動かす場合を題材としていますが、他の手法でも十分参考になる内容だと思いました。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 ## Actions Runner Controller Deep Dive！- コード解説 後編 - - APC 技術ブログ 
 https://techblog.ap-com.co.jp/entry/2023/09/29/182024
@@ -276,27 +278,28 @@ Scale Set の機能に関しては API ドキュメントがまだ公開され�
 
 _本項の執筆者: [@Kesin11](https://zenn.dev/kesin11)_
 
-## 仕様が読めるようになるOAuth2.0、OpenID Connect 入門 - Speaker Deck
-https://speakerdeck.com/authyasan/shi-yang-gadu-meruyouninaruoauth2-dot-0-openid-connect-ru-men
-
-
-## Hyperdrive：データベースをあたかもグローバルであるかのように感じさせる
-https://blog.cloudflare.com/ja-jp/hyperdrive-making-regional-databases-feel-distributed-ja-jp/
-
-既存のデータベースとの接続に Hyperdrive を経由させることで、接続プール維持 + 読み取りクエリキャッシュによる待ち時間短縮が図れるという話。
-エッジコンピューティングとかでありがたい。
-
-# tool 🔨
-
 # read more 🍘
 Productivity Weekly で出たネタを全て紹介したいけど紹介する体力が持たなかったネタを一言程度で書くコーナーです。
 
+<!-- textlint-disable ja-technical-writing/no-mix-dearu-desumasu -->
+
 - **news 📺**
+  - [Secure by Design: AWS to enhance MFA requirements in 2024 | AWS Security Blog](https://aws.amazon.com/jp/blogs/security/security-by-design-aws-to-enhance-mfa-requirements-in-2024/)
+    - AWS Organizations の管理アカウントのルートユーザでコンソールにサインインする場合、2024 年半ば以降から MFA の使用を義務付けることを AWS が発表しました
+    - 多くの AWS Organizations の管理アカウントのルートユーザは MFA を有効にしていると思います（主観）が、有効にしていない場合はこれを機に有効にしておきましょう
 - **know-how 🎓**
-- **tool 🔨**
+  - [仕様が読めるようになるOAuth2.0、OpenID Connect 入門 - Speaker Deck](https://speakerdeck.com/authyasan/shi-yang-gadu-meruyouninaruoauth2-dot-0-openid-connect-ru-men)
+    - OAuth2.0、OpenID Connect の入門スライドです
+    - OAuth とは何か、OIDC とは何かなどを図解を交えてわかりやすく解説されています
+
+<!-- textlint-enable ja-technical-writing/no-mix-dearu-desumasu -->
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 # あとがき
+今週号でした。最近は僕が kintone 開発チームにチーム体験に行ってたり、給与評価のために今年やったことを書かなきゃいけなかったりと、なかなか時間が取れません。
 
+そういや今週号から試験的にタイトルにでかめトピックのワードを入れるようになりました。Zenn はタイトルに 70 字制限があるので、まあまあ大変ですが 😇
 
 サイボウズの生産性向上チームでは社内エンジニアの開発生産性を上げるための活動を行なっています。そんな生産性向上チームが気になる方は下のリンクをクリック！
 https://note.com/cybozu_dev/n/n1c1b44bf72f6
@@ -310,5 +313,3 @@ https://cybozu.connpass.com/event/298452/
 発表・質問・交代含む 10 分程度の LT 形式です。簡単な自動化でもなんかすごい改革でも、「開発生産性の向上」に関する内容であればなんでもいいので、みなさんどしどし参加してください。
 
 
-## omake 🃏: 
-今週のおまけです。
