@@ -1,5 +1,5 @@
 ---
-title: "Productivity Weekly (2023-10-18号)"
+title: "ハッシュ値を利用したCIの高速化など：Productivity Weekly (2023-10-18号)"
 emoji: "😪"
 type: "idea"
 topics: ["ProductivityWeekly", "生産性向上"]
@@ -26,7 +26,6 @@ user_defined: {"publish_link": "https://zenn.dev/korosuke613/articles/productivi
 
 今週の共同著者は次の方です。
 - [@korosuke613](https://zenn.dev/korosuke613)
-- [@defaultcf](https://zenn.dev/defaultcf)
 - [@Kesin11](https://zenn.dev/kesin11)
 - [@r4mimu](https://zenn.dev/r4mimu)
 
@@ -37,17 +36,38 @@ user_defined: {"publish_link": "https://zenn.dev/korosuke613/articles/productivi
 ## GitHub Repository Custom Properties Beta - The GitHub Blog 
 https://github.blog/changelog/2023-10-12-github-repository-custom-properties-beta/
 
-Organization の Admin はリポジトリに追加する新しいメタデータを管理できるようになった。Repositoru Rules との連携について触れられているので、Custom properties + Repository rules + Required workflow の組み合わせを想定してるのかな。
+GitHub において、Organization の Admin はリポジトリにカスタムプロパティを追加できるようになりました。
+Repository Rules や Required workflow と組み合わせて特定のプロパティをつけたリポジトリのみを対象にルール設定することがやりやすくなりそうです。
+
+現状は動的に Repository Rules を適用するくらいしか使い道がありませんが、今後は GitHub 上での検索などでも使えるようになる予定とのことです。
+あらゆる場面で活躍できそうですね。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 ## Requiring workflows with Repository Rules is generally available - The GitHub Blog 
 https://github.blog/changelog/2023-10-11-requiring-workflows-with-repository-rules-is-generally-available/
 
-Reusable workflow に pass していることを必須にする機能が Repository rules へ移り GA に。GitHub Enterprise Cloud であれば Organization 全体で設定することが可能。
+GitHub において、Repository Rules 上での required workflows が GA になりました。
+
+required workflows に関しては [GitHub Actions – Support for organization-wide required workflows public beta](https://zenn.dev/cybozu_ept/articles/productivity-weekly-20230111#github-actions-%E2%80%93-support-for-organization-wide-required-workflows-public-beta)、[GitHub Actions - Required workflows improvements | GitHub Changelog](https://zenn.dev/cybozu_ept/articles/productivity-weekly-20230315#github-actions---required-workflows-improvements-%7C-github-changelog) の紹介記事を参考ください。
+
+Repository Rules へ移動した件は [GitHub Actions: Required Workflows will move to Repository Rules - The GitHub Blog](https://zenn.dev/cybozu_ept/articles/productivity-weekly-20230809#github-actions%3A-required-workflows-will-move-to-repository-rules---the-github-blog) を参考ください。
+
+GA になったことで仕様が安定して使いやすくなったと思います。ライセンスチェックなどの必ず動かしたいワークフローがある場合や、リポジトリの write 権限を持つ人に触られたくないワークフローを強制したい場合などに使っていけると思います。
+先ほど出てきた Custom Properties と組み合わせると柔軟にルールを強制出来るので、うまい具合に使っていきましょう。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 ## Repository Rules - Public Beta - History, Import, Export - The GitHub Blog 
 https://github.blog/changelog/2023-10-12-repository-rules-public-beta-history-import-export/
 
-Repository rules を JSON で import/export 可能になり、修正履歴の diff も見られるようになった。GitHub が ruleset-recipes というリポジトリでサンプルを公開してくれているように、ruleset 自体を共有したりバージョン管理できそう。
+GitHub において、Repository Rules を JSON で import/export できるようになりました。また、変更履歴が見られるようになりました。JSON の diff も出せます（それぞれ public beta）。
+
+import/export により、ルールセットを共有・再利用しやすくなりました。また、変更履歴がわかるようになりガバナンス的にも使いやすくなりました。
+
+ちなみに、GitHub が [github/ruleset-recipes](https://github.com/github/ruleset-recipes) というルールセットのサンプル集を公開しています。Repository Rules どういうふうに使えばいいかわからんという人は参考にしましょう。そのままインポートもできるよ！
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 ## CloudWatch launches out-of-the-box alarm recommendations for AWS services 
 https://aws.amazon.com/jp/about-aws/whats-new/2023/10/cloudwatch-out-of-the-box-alarm-recommendations-aws-services/
@@ -137,9 +157,9 @@ https://www.publickey1.jp/blog/23/docker40docker_builddockercon_23.html
 
 DockerCon 23 のキーノートで Docker Build が 40 倍（！）高速化されるという発表がありました。
 
-どのようにして 40 倍も高速化される予定なのか興味があったので[DockerConのサイト](https://www.dockercon.com/)で登録してキーノートのオンデマンド配信も見てみましたが、Publickey さんの記事のスクショ以上に詳しい情報はありませんでした。具体的な話は続報待ちです。
+どのようにして 40 倍も高速化される予定なのか興味があったので [DockerCon のサイト](https://www.dockercon.com/)で登録してキーノートのオンデマンド配信も見てみましたが、Publickey さんの記事のスクショ以上に詳しい情報はありませんでした。具体的な話は続報待ちです。
 
-自分の推測としては、クラウド上でビルドを実行することでキャッシュがチーム間で共有されることと、クラウド上に x86 と Arm のマシンが両方とも使えるので自分のマシンとは異なるアーキテクチャのイメージをビルドするのに QEMU によるエミュレーションが不要になることで高速化が見込めるのかなと予想しています `docker buidx build` の裏で動いている buildkit には既にリモートマシンでビルドさせる機能は存在するので、そのためのリモートマシンを Docker 社が公式に提供してくれるようになるのかもしれませんね。
+自分の推測としては、クラウド上でビルドを実行することでキャッシュがチーム間で共有されることと、クラウド上に x86 と Arm のマシンが両方とも使えるので自分のマシンとは異なるアーキテクチャのイメージをビルドするのに QEMU によるエミュレーションが不要になることで高速化が見込めるのかなと予想しています。`docker buidx build` の裏で動いている buildkit には既にリモートマシンでビルドさせる機能は存在するので、そのためのリモートマシンを Docker 社が公式に提供してくれるようになるのかもしれませんね。
 
 もし自分の予想通りだとすれば https://depot.dev/ が既に似たようなサービスを提供しているようです。 `docker build` の高速化に興味がある方は試してみるといいかもしれません。
 
@@ -152,7 +172,7 @@ https://blog.cybozu.io/entry/2023/10/17/134138
 
 ファイルのハッシュ値と依存関係のリストを管理するツールを利用し、結果が変わらないジョブを自動的にスキップさせて不要な CI 実行時間を削減する取り組みの紹介記事です。
 
-[Bazel](https://bazel.build/), [Gradle](https://gradle.org/), [Turborepo](https://turbo.build/) などのビルドツールには元々このような機能が存在しているため正しく設定すればビルドやテストはスキップ（厳密にはキャッシュから前回の結果を取り出すことで完了させる）できるのですが、この記事のアプローチはビルドツールとは別にソースコードハッシュ値計算ツールの[sver](https://github.com/mitoma/sver)を用いて同様の仕組みを外付けで用意することによって実現したようです。
+[Bazel](https://bazel.build/), [Gradle](https://gradle.org/), [Turborepo](https://turbo.build/) などのビルドツールには元々このような機能が存在しているため正しく設定すればビルドやテストはスキップ（厳密にはキャッシュから前回の結果を取り出すことで完了させる）できるのですが、この記事のアプローチはビルドツールとは別にソースコードハッシュ値計算ツールの [sver](https://github.com/mitoma/sver) を用いて同様の仕組みを外付けで用意することによって実現したようです。
 
 仕組みの構築は少し大変な印象でしたが、上手く使えれば CI の実行時間をかなり削減できそうですね。
 
@@ -201,30 +221,26 @@ _本項の執筆者: [@Kesin11](https://zenn.dev/kesin11)_
 ## 開発生産性、上から見るか 下から見るか / development productivity and cognitive science - Speaker Deck
 https://speakerdeck.com/sugamasao/development-productivity-and-cognitive-science
 
-プロダクト規模と開発チームが肥大化（複雑化）するにつれて増大する認知負荷に対してどうアプローチしましょうかというお話．
-認知負荷を分類し，それらを減らすためにどのようにアプローチしたかを説明してくれてます．
-プログラマー脳っぽい話だなと思ったらまさに紹介されていた．
+SmartHR さんによる、プロダクト規模と開発チームが肥大化（複雑化）するにつれて増大する認知負荷に対してどうアプローチするかというお話です。
 
-あと最後の方で，Four Keys が課題外在性負荷の指標として役立つのではみたいなことも言ってました．
-課題外在性負荷はソフトウェアで解決する問題領域と本質的には関係ない部分で発生する認知負荷のことです．
-言われてみればそうなのかもという感じ．
+認知負荷の説明・分類を前半で行い、後半では、それらを減らすためにどのようにアプローチしたかを説明してくれてます。ボトムアップ、トップダウンそれぞれのアプローチ例が示されています。
 
-# tool 🔨
+Four Keys が課題外在性負荷の指標として役立つのでは？という話もあり、Weekly では言われてみればそうかもという意見が出ていました。Findy Team+ のようなツールで定量的にデータを取ることで課題が見えてくるというのは、定量的にデータを取ることはやはり重要かという気分になりました。
 
-# read more 🍘
-Productivity Weekly で出たネタを全て紹介したいけど紹介する体力が持たなかったネタを一言程度で書くコーナーです。
+個人的には特に認知不可とは何かを認知科学の観点から説明してくれているのが勉強になってよかったです。僕もよく認知負荷が...高い！ということを口ずさんだりしますが、実際ちゃんと知ってた訳ではないので、覚えておきたくなりました。
+ていうか紹介されているプログラマー脳読みたくなってきました。
 
-- **news 📺**
-- **know-how 🎓**
-- **tool 🔨**
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 # あとがき
-
+今週号でした。最近寒くなったと思ったらなんか日差しは強くて暑かったりしますね（？）
+そろそろ今年も終わりそうで戦々恐々としています。
 
 サイボウズの生産性向上チームでは社内エンジニアの開発生産性を上げるための活動を行なっています。そんな生産性向上チームが気になる方は下のリンクをクリック！
 https://note.com/cybozu_dev/n/n1c1b44bf72f6
 
-<!-- :::message すみません、今週もおまけはお休みです...:::-->
+## State of DevOps Report 2023 のまとめ
+そういえば、前回の Weekly で State of DevOps Report 2023 を紹介してくれた [@r4mimu](https://zenn.dev/r4mimu) さんが、レポートのまとめを別途記事に書いてくれました。Weekly の内容よりもさらに深掘りされているので、興味持った方は読んでみてください。
+~~早く日本語版出てほしいはある~~
 
-## omake 🃏: 
-今週のおまけです。
+https://zenn.dev/cybozu_ept/articles/c0ad1f13cb8d72
