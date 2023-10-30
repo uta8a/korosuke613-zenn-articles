@@ -99,6 +99,17 @@ State of DevOps Report は Google の DevOps Research and Assessment（DORA）�
 
 _本項の執筆者: [@r4mimu](https://zenn.dev/r4mimu)_
 
+:::message
+
+#### 2023/10/30 追記 by [@korosuke613](https://zenn.dev/korosuke613)
+今回 State of DevOps Report 2023 を紹介してくれた [@r4mimu](https://zenn.dev/r4mimu) さんが、後日、レポートのまとめを記事に書いてくれました。
+さらに深掘りされているので、興味持った方は読んでみてください。
+~~早く日本語版出てほしいはある~~
+
+- [State of DevOps Report 2023 のまとめ](https://zenn.dev/cybozu_ept/articles/c0ad1f13cb8d72)
+
+:::
+
 ## Amazon EKS extended support for Kubernetes versions available in preview | Containers
 https://aws.amazon.com/jp/blogs/containers/amazon-eks-extended-support-for-kubernetes-versions-available-in-preview/
 
