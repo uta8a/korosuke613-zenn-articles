@@ -68,7 +68,7 @@ jobs:
         run: |
           echo ${{ env.CHANGED_FILES }}
 
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         if: steps.changed-files-yaml.outputs.md_any_changed == 'true'
         with:
           node-version-file: .tool-versions
