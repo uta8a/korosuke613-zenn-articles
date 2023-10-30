@@ -38,3 +38,10 @@ npm run start
 [![codecov](https://codecov.io/gh/korosuke613/zenn-articles/branch/main/graph/badge.svg?token=K61PD2KM9C)](https://codecov.io/gh/korosuke613/zenn-articles)
 
 - [./tools](./tools)
+
+## Contributing
+
+1. fork してください
+2. 記事を編集したときは `npx textlint <マークダウンへのパス>` を実行してください。落ちたら修正してください
+   - 例: `npx textlint ./articles/productivity-weekly-20231018.md`
+3. プルリクエストを送ってください
