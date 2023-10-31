@@ -49,12 +49,43 @@ https://aws.amazon.com/jp/blogs/aws/rotate-your-ssl-tls-certificates-now-amazon-
 ## pull_request_target で GitHub Actions の改竄を防ぐ 
 https://zenn.dev/shunsuke_suzuki/articles/secure-github-actions-by-pull-request-target
 
+`pull_request_target` イベントを用いて、仮に workflow ファイルへの悪意ある変更を含むプルリクエストが送られたとしても、CI を安全に実行したいという記事。
+
+プライベートリポジトリで複数人で開発している状況で、仮に bot、もしくは開発メンバーのアカウントが侵害されてしまった状況といったかなり高度なセキュリティを想定しているように感じられます。記事にもあるように、試しに検証した後に、Terraform のモノレポで terraform plan/apply をしているような強い権限を扱うリポジトリに対して検討すると良いでしょう。`pull_request` から `pull_request_target` に変更する流れに関しても実例を交えて丁寧に解説されています。
+
+記事を書かれた Shunsuke Suzuki さんの [GitHub Actions の Workflow の改変を防ぐ](https://zenn.dev/shunsuke_suzuki/articles/gha-trigger-action) の記事も併せて読むと、便利な GitHub Actions を使いたい気持ちと、Terraform のモノレポのような強い権限を渡す CI をどうセキュアに実行するかという 2 点の両立は工夫しないと結構難しいのだろうと感じます。
+
+_本項の執筆者: [@uta8a](https://zenn.dev/uta8a)_
+
 ## Goの自動テスト高速化のための調査と改善手法 - Cluster Tech Blog
 https://tech-blog.cluster.mu/entry/2023/10/19
+
+CircleCI 上で回る Go の自動テストが 10 分ほどかかっていたのを 5 分ほどに改善する過程が書かれています。
+
+CircleCI の TIMING タブを活用して実行時間の割合の大部分を占める `make test` ステップから順に対処していき、結果としてどのステップがどの程度短縮されたか書かれています。計測、改善の効果の評価、改善を加えるかどうか決定、という一連の流れが参考になります。
+
+具体的には、以下のように Go のテストコードに直接手を加えず CI レベルでの改善を入れる方針でした。
+
+- `go generate` の生成物のコミットを行って CI の `go generate` を行う過程を省略する。
+- [gotesplit](https://songmu.jp/riji/entry/2020-10-23-gotesplit.html) を用いて CircleCI レベルでの並列化を入れる。
+
+_本項の執筆者: [@uta8a](https://zenn.dev/uta8a)_
 
 ## AWSでの法令に則ったログ設計及び実装/分析 - Adwaysエンジニアブログ 
 https://blog.engineer.adways.net/entry/2023/10/20/140000
 
+IPA がまとめている関連する法令・ガイドラインを参考に、監査ログとアクセスログの保持期間を決め、AWS 上でログの保存と分析ができるように実装する流れが書かれています。
+
+記事では以下のログを S3 に保管します。
+
+- AWS で取得できるログ(CloudTrail、VPC フローログ、ALB・NLB のアクセスログ)
+- OS のログ( `/var/log/messages`, `/var/log/secure` )
+- アプリケーションのログ(監査ログ、アクセスログ)
+
+さらに、OS やアプリケーションのログを fluentbit を用いて S3 に転送する方法と、AWS で取得できるログを S3 へ保管するための設定について説明されています。
+どういったログを残せばいいか、ログの保持期間をどう決めたらいいか悩むことがあれば参考にしていきましょう。
+
+_本項の執筆者: [@uta8a](https://zenn.dev/uta8a)_
 
 ## 【書き起こし】社内用GitHub Actionsのセキュリティガイドラインを作成した話 – Toshiki Kawamura【Merpay & Mercoin Tech Fest 2023】 | メルカリエンジニアリング 
 https://engineering.mercari.com/blog/entry/20231023-mmtf2023-day2-11/
