@@ -37,6 +37,12 @@ user_defined: {"publish_link": "https://zenn.dev/korosuke613/articles/productivi
 ## Actions - Prevent self-reviews for secure deployments across Actions environments - The GitHub Blog 
 https://github.blog/changelog/2023-10-16-actions-prevent-self-reviews-for-secure-deployments-across-actions-environments/
 
+GitHub Actions は[environmentへのデプロイに対してレビューを必要とする設定](https://docs.github.com/en/actions/deployment/targeting-different-environments/using-environments-for-deployment#required-reviewers)が以前から可能でした。レビュワーには個人やチームを設定可能で、実はジョブをトリガーした本人がレビュワーに含まれていた場合はセルフレビューでデプロイの実行が可能だったのですが、今回それを禁止するオプションが追加されました。
+
+デプロイ実行時に必ず本人とは別人による確認が必要と考える場合には、今回追加された `Prevent self-review` のオプションを追加すると良いでしょう。
+
+_本項の執筆者: [@Kesin11](https://zenn.dev/kesin11)_
+
 ## Rate limits for /rate_limit REST API endpoint - The GitHub Blog 
 https://github.blog/changelog/2023-10-18-rate-limits-for-rate_limit-rest-api-endpoint/
 
@@ -93,8 +99,26 @@ https://engineering.mercari.com/blog/entry/20231023-mmtf2023-day2-11/
 ## Hatamoto 〜モバイルアプリに関する情報を一元管理するためのWebアプリケーション〜 - クックパッド開発者ブログ 
 https://techlife.cookpad.com/entry/hatamoto
 
+iOS の開発時に必要な各種証明書の有効期限の管理と、アプリで使われているライブラリのバージョンを Web アプリケーションで一元管理するというノウハウの紹介記事です。
+
+開発規模が小さいうちは証明書の期限管理はチームのカレンダーに登録するだけで十分だと思いますが、万が一見逃してしまった場合の影響範囲は大きいため、大きい組織ではこのように一元管理して運用をなるべく自動化するメリットがあるのだろうと思います。
+
+記事中で紹介されている Hatamoto という Web アプリケーションは公開されていないようですが、内部の仕組みは紹介されているので興味を持った方は似たようなツールを自前で作成するのも良いかもしれません。
+
+_本項の執筆者: [@Kesin11](https://zenn.dev/kesin11)_
+
 ## OpenTelemetryのここ4年の流れ / OpenTelemetry in last 4+ years - Speaker Deck 
 https://speakerdeck.com/ymotongpoo/opentelemetry-in-last-4-plus-years
+
+10/19 に開催された OpenTelemetry Meetup 2023-10 で発表された内容のスライドです。
+
+https://opentelemetry.connpass.com/event/296353/
+
+OpenTelemetry は、分散トレーシング、メトリクス、ログ、プロファイルの計装とログの標準仕様および実装を提供するプロジェクトです。複数の領域を扱うプロジェクトであることから成り立ちが少々複雑なのですが、この発表では、OpenTelemetry の歴史と現在の状況、そして今後の展望について解説されているのでこの発表を見ることで大まかな状況を把握できると思います。
+
+自分自身、OpenTelemetry を過去に調査した際に Jaeger, OpenTracing, OpenCensus などの様々な OSS やプロジェクト名が登場してきたので、どれがどのように関係していて今現在でも有効な話なのかどうかを整理するのに苦労した経験があります。これから OpenTelemetry について調べる予定がある方はまずこの発表で歴史と全体像を把握しておくと混乱せずに済むのでオススメです。
+
+_本項の執筆者: [@Kesin11](https://zenn.dev/kesin11)_
 
 ## 【コードリーディング】Terraform が Core と Provider との間で RPC 通信するところを覗いてみた👀 - サーバーワークスエンジニアブログ
 https://blog.serverworks.co.jp/2023/10/20/153424
