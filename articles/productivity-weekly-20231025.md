@@ -37,7 +37,7 @@ user_defined: {"publish_link": "https://zenn.dev/korosuke613/articles/productivi
 ## Actions - Prevent self-reviews for secure deployments across Actions environments - The GitHub Blog 
 https://github.blog/changelog/2023-10-16-actions-prevent-self-reviews-for-secure-deployments-across-actions-environments/
 
-GitHub Actions は[environmentへのデプロイに対してレビューを必要とする設定](https://docs.github.com/en/actions/deployment/targeting-different-environments/using-environments-for-deployment#required-reviewers)が以前から可能でした。レビュワーには個人やチームを設定可能で、実はジョブをトリガーした本人がレビュワーに含まれていた場合はセルフレビューでデプロイの実行が可能だったのですが、今回それを禁止するオプションが追加されました。
+GitHub Actions は[environmentへのデプロイに対してレビューを必要とする設定](https://docs.github.com/en/actions/deployment/targeting-different-environments/using-environments-for-deployment#required-reviewers)が以前から可能でした。レビュワーには個人やチームを設定可能で、実はジョブをトリガーした本人がレビュワーに含まれていた場合はセルフレビューで通すことも可能だったのですが、今回それを禁止するオプションが追加されました。
 
 デプロイ実行時に必ず本人とは別人による確認が必要と考える場合には、今回追加された `Prevent self-review` のオプションを追加すると良いでしょう。
 
@@ -101,7 +101,7 @@ https://techlife.cookpad.com/entry/hatamoto
 
 iOS の開発時に必要な各種証明書の有効期限の管理と、アプリで使われているライブラリのバージョンを Web アプリケーションで一元管理するというノウハウの紹介記事です。
 
-開発規模が小さいうちは証明書の期限管理はチームのカレンダーに登録するだけで十分だと思いますが、万が一見逃してしまった場合の影響範囲は大きいため、大きい組織ではこのように一元管理して運用をなるべく自動化するメリットがあるのだろうと思います。
+開発規模が小さいうちは証明書の期限管理はチームのカレンダーに登録するだけで十分だと思いますが、万が一見逃してしまった場合の影響範囲は大きいため、開発規模が大きい組織ではこのように一元管理して運用をなるべく自動化するメリットがあるのだろうと思います。
 
 記事中で紹介されている Hatamoto という Web アプリケーションは公開されていないようですが、内部の仕組みは紹介されているので興味を持った方は似たようなツールを自前で作成するのも良いかもしれません。
 
