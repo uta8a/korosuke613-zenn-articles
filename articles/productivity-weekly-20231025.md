@@ -47,6 +47,23 @@ _本項の執筆者: [@Kesin11](https://zenn.dev/kesin11)_
 ## Rate limits for /rate_limit REST API endpoint - The GitHub Blog 
 https://github.blog/changelog/2023-10-18-rate-limits-for-rate_limit-rest-api-endpoint/
 
+GitHub において、API のレートリミットを確認するための `GET /rate_limit` エンドポイントがレートリミットの対象になりました。これまでは `GET /rate_limit` はレートリミットの対象外でした。
+
+GitHub のレートリミットにはプライマリとセカンダリの二種類があります。今回 `GET /rate_limit` がレートリミットの対象となるのはセカンダリレートリミットになります。プライマリレートリミットの制限は引き続きありません。
+
+:::message
+
+[プライマリレートリミット](https://docs.github.com/en/rest/overview/resources-in-the-rest-api?apiVersion=2022-11-28#rate-limits)はざっくり言うと長い期間内での制限となります。例えば個人アカウントの単純なアクセストークンによるリクエストは 1 時間あたり 5000 に制限されています。（エンドポイントによっては異なる値が設定されていたりしますが、今回は割愛します。そこについて詳しく知りたい方は [`GET /rate_limit` のドキュメント](https://docs.github.com/en/rest/rate-limit/rate-limit?apiVersion=2022-11-28#get-rate-limit-status-for-the-authenticated-user)を読むのが良いです。）
+
+[セカンダリレートリミット](https://docs.github.com/en/rest/overview/resources-in-the-rest-api?apiVersion=2022-11-28#secondary-rate-limits)はざっくり言うと短い期間内での制限となります。短い期間内で大量にリクエストを送るようなことをすると制限にかかります。明確にどれくらい送れば制限にかかるかの数字は定義されていません。どのようにすれば回避できるかは [Best practices for using the REST API](https://docs.github.com/en/rest/guides/best-practices-for-using-the-rest-api?apiVersion=2022-11-28#dealing-with-secondary-rate-limits) に載っています。各リクエストの間は少なくとも 1 秒開けてね、など。
+:::
+
+この変更の目的は悪用されるパターンを防ぐためとのことです。`GET /rate_limit` をめちゃくちゃ呼び出して GitHub API に負荷をかけるようなことをされたんですかね？（想像）
+
+今回の変更で `GET /rate_limit` はセカンダリレートリミットの制限がかかるようになりましたが、常識的な使い方をしている人々には影響しないと思います。不安な方は [Best practices for using the REST API](https://docs.github.com/en/rest/guides/best-practices-for-using-the-rest-api?apiVersion=2022-11-28#dealing-with-secondary-rate-limits) に則れているか確認しましょう。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
+
 ## Rotate Your SSL/TLS Certificates Now – Amazon RDS and Amazon Aurora Expire in 2024 | AWS News Blog
 https://aws.amazon.com/jp/blogs/aws/rotate-your-ssl-tls-certificates-now-amazon-rds-and-amazon-aurora-expire-in-2024/
 
