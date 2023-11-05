@@ -1,6 +1,6 @@
 ---
-title: "Productivity Weekly (2023-10-25号)"
-emoji: "🚕"
+title: "pull_request_targetでのActions改ざん防止など:Productivity Weekly (2023-10-25号)"
+emoji: "🐅"
 type: "idea"
 topics: ["ProductivityWeekly", "生産性向上"]
 published: false
@@ -26,10 +26,15 @@ user_defined: {"publish_link": "https://zenn.dev/korosuke613/articles/productivi
 
 今週の共同著者は次の方です。
 - [@korosuke613](https://zenn.dev/korosuke613)
-- [@defaultcf](https://zenn.dev/defaultcf)
 - [@Kesin11](https://zenn.dev/kesin11)
 - [@r4mimu](https://zenn.dev/r4mimu)
-- [@uta8a](https://zenn.dev/uta8a)
+- [@uta8a](https://zenn.dev/uta8a) **← New!**
+
+---
+
+！？
+[@uta8a](https://zenn.dev/uta8a) さんが共同著者として初登場です！
+よろしくお願いします！
 
 :::
 
@@ -38,7 +43,7 @@ user_defined: {"publish_link": "https://zenn.dev/korosuke613/articles/productivi
 ## Actions - Prevent self-reviews for secure deployments across Actions environments - The GitHub Blog 
 https://github.blog/changelog/2023-10-16-actions-prevent-self-reviews-for-secure-deployments-across-actions-environments/
 
-GitHub Actions は[environmentへのデプロイに対してレビューを必要とする設定](https://docs.github.com/en/actions/deployment/targeting-different-environments/using-environments-for-deployment#required-reviewers)が以前から可能でした。レビュワーには個人やチームを設定可能で、実はジョブをトリガーした本人がレビュワーに含まれていた場合はセルフレビューで通すことも可能だったのですが、今回それを禁止するオプションが追加されました。
+GitHub Actions は [environment へのデプロイに対してレビューを必要とする設定](https://docs.github.com/en/actions/deployment/targeting-different-environments/using-environments-for-deployment#required-reviewers)が以前から可能でした。レビュワーには個人やチームを設定可能で、実はジョブをトリガーした本人がレビュワーに含まれていた場合はセルフレビューで通すことも可能だったのですが、今回それを禁止するオプションが追加されました。
 
 デプロイ実行時に必ず本人とは別人による確認が必要と考える場合には、今回追加された `Prevent self-review` のオプションを追加すると良いでしょう。
 
@@ -167,28 +172,22 @@ _本項の執筆者: [@Kesin11](https://zenn.dev/kesin11)_
 ## 【コードリーディング】Terraform が Core と Provider との間で RPC 通信するところを覗いてみた👀 - サーバーワークスエンジニアブログ
 https://blog.serverworks.co.jp/2023/10/20/153424
 
+サーバーワークスさんによる Terraform のコードリーディング記事です。コア部分とプロバイダ部分が行なっている gRPC による通信について、ソースコードを読んだまとめが書かれています。
 
-# tool 🔨
+どのようにサーバが構成されているか、どう起動されるか、どういう経路でメソッドが呼び出されるかなどがコードと共に説明されています。
 
-## より高速なRubyのWebAssembly実装「Ruvy」、Shopifyがオープンソースで公開。Ruby仮想マシンとRubyアプリを組み合わせてビルド － Publickey 
-https://www.publickey1.jp/blog/23/rubywebassemblyruvyshopifyrubyruby.html
+僕はカスタムプロバイダを作ったことがなかったのですが、プロバイダ部分が gRPC のサーバ、コア部分が gRPC のクライアントという構成だったのですね。
+こういうふうにプロバイダがどのように動くかをなんとなく知ることでカスタムプロバイダを作る心理的ハードルが下がって良いですね。
+Terraform の中を知りたい方やカスタムプロバイダを作りたい方に参考になると思います。
 
-
-
-# read more 🍘
-Productivity Weekly で出たネタを全て紹介したいけど紹介する体力が持たなかったネタを一言程度で書くコーナーです。
-
-- **news 📺**
-- **know-how 🎓**
-- **tool 🔨**
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 # あとがき
+今週号から [@uta8a](https://zenn.dev/uta8a) さんが共同著者として参加してくれました！嬉しいですね。
+しかし、今年はめちゃ日本シリーズ見てたんですけど、阪神もオリックスも熱い戦いを繰り広げてくれてめちゃ面白かったですね。
+タイガースは日本一おめでとうございます 🎉
 
+ホークスは来年がんばろう！
 
 サイボウズの生産性向上チームでは社内エンジニアの開発生産性を上げるための活動を行なっています。そんな生産性向上チームが気になる方は下のリンクをクリック！
 https://note.com/cybozu_dev/n/n1c1b44bf72f6
-
-<!-- :::message すみません、今週もおまけはお休みです...:::-->
-
-## omake 🃏: 
-今週のおまけです。
