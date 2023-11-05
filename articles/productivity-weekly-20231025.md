@@ -67,6 +67,15 @@ _本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 ## Rotate Your SSL/TLS Certificates Now – Amazon RDS and Amazon Aurora Expire in 2024 | AWS News Blog
 https://aws.amazon.com/jp/blogs/aws/rotate-your-ssl-tls-certificates-now-amazon-rds-and-amazon-aurora-expire-in-2024/
 
+Amazon RDS の SSL/TLS 証明書更新に関する通知です。
+
+DB インスタンス用 SSL/TLS 証明書（rds-ca-2019）は、2020 年の証明書更新後、2024 年に失効されます。
+これは、Amazon RDS for MySQL, MariaDB, SQL Server, Oracle, PostgreSQL, および Amazon Aurora のデータベースインスタンスに SSL または TLS で証明書検証を用いて接続するユーザーに影響します。
+そこで、2022 年 12 月にリリースされた、40 年間有効（rds-ca-rsa2048-g1）と 100 年間有効（rds-ca-rsa4096-g1, rds-ca-ec384-g1）の証明書に更新することを推奨しています。
+
+具体的な失効期限はリージョンごとに異なるので確認しておきましょう。
+
+_本項の執筆者: [@r4mimu](https://zenn.dev/r4mimu)_
 
 # know-how 🎓
 
@@ -113,6 +122,23 @@ _本項の執筆者: [@uta8a](https://zenn.dev/uta8a)_
 
 ## 【書き起こし】社内用GitHub Actionsのセキュリティガイドラインを作成した話 – Toshiki Kawamura【Merpay & Mercoin Tech Fest 2023】 | メルカリエンジニアリング 
 https://engineering.mercari.com/blog/entry/20231023-mmtf2023-day2-11/
+
+メルペイ・メルコインさんのカンファレンスを書き起こしたものがブログ記事として公開されていました。
+
+発表内容はおそらくメルカリさんのブログ [社内用GitHub Actionsのセキュリティガイドラインを公開します](https://engineering.mercari.com/blog/entry/20230609-github-actions-guideline/) に基づいたものだと思います。
+こちらのブログ記事については、[Productivity Weekly (2023-06-14号)](https://zenn.dev/korosuke613/articles/productivity-weekly-20230614) で紹介しています。
+
+ブログ記事との違いとして、ガイドラインの活用状況やガイドライン策定の裏話が共有されていました。
+個人的に印象に残ったのは、ガイドライン策定における「気をつけた点」です。
+
+- 小さく始める、無理をしない
+- 絶対完成させるという強い意志を持つ
+- 適切な量のフィードバックをもらえるように意識する
+- 正式版を公開してから育てていく
+
+という 4 点が紹介されていました。これらのポイントはガイドライン策定に限らず社内ツールや社内ルールを作る際などにも参考になる大事な考えかと思いました。
+
+_本項の執筆者: [@r4mimu](https://zenn.dev/r4mimu)_
 
 ## Hatamoto 〜モバイルアプリに関する情報を一元管理するためのWebアプリケーション〜 - クックパッド開発者ブログ 
 https://techlife.cookpad.com/entry/hatamoto
