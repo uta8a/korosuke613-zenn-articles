@@ -45,7 +45,38 @@ https://github.blog/changelog/2023-10-31-run-your-ml-workloads-on-github-actions
 ## Serverless Framework V4: A New Model
 https://www.serverless.com/blog/serverless-framework-v4-a-new-model
 
-今後リリースされる sls v4 の紹介記事。年間収益が 200 万ドルを超える組織で利用する場合は有料化する予定とのこと。まじか...
+今後リリースされる Serverless Framework v4 の紹介記事です。Serverless Framework v4 で予定していることが載っています。
+
+- 破壊的変更無し
+- FaaS とサーバーレスコンテナを簡単に切り替えられる
+- 新たに Serverless Framework を拡張するエクステンションが登場
+- 重要なエクステンションのコントリビューターには報酬が支払われる
+- 年間収益が 200 万ドルを超える組織で利用する場合は有料になる
+- 新しいパートナープログラムの提供
+
+色々気になるトピックはありますが、特に利用者に影響があるのは年間収益が 200 万ドルを超える組織で利用する場合は有料となる点です。
+（「FaaS とサーバーレスコンテナを簡単に切り替えられる」の部分は詳細が気になるところですが、まだ詳細は発表されていません。エクステンションは雑に言うとコンテナ化されたプラグインっぽい）
+
+> **New Fee Structure**: For organizations with annual revenue exceeding $2M, we're introducing some fees that apply to V.4 and beyond. We're a small team. We need to fuel further innovation, and this is a step in that direction. This also helps kick-start a new ecosystem.
+
+今後の価格変更については詳細に色々載っています（ただし具体的な計算方法はまだ）。
+
+- v3 は無料のまま
+- v3 は 2024 年まで保守が継続される
+- インスタンスとエクステンションの数に応じて段階的に料金が設定される
+  - インスタンスはデプロイされた Serverless Framework を指す（AWS アカウント ID、service、stage、region のセット）
+    - 当月内で 5 日以上デプロイされた状態にある場合のみ適用
+  - エクステンションは v4 からの新しい概念
+- 最低の月額料金は $49 から
+- ボリュームライセンスが提供される
+
+まだ実際に v4 がリリースされたわけではないので、記事に載っている内容は変更される可能性があります。
+また、具体的な課金の計算方法が不明瞭であるなど、今後新たな情報が出ることが予想されます。
+料金計算が面倒になるなら人為的コストを減らすために他のツールに移行するや、v3 を独自に保守するという選択肢もあるかもしれませんね。
+
+身構えつつ v4 のリリースをお祝いしたいです。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 ## Requiring workflows with rulesets now supports the pull_request_target trigger - The GitHub Blog
 https://github.blog/changelog/2023-10-26-requiring-workflows-with-rulesets-now-supports-the-pull_request_target-trigger/
