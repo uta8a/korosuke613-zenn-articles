@@ -81,8 +81,47 @@ _本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 ## Dependabot user-defined rules for security updates and alerts; enforcement of auto-triage rules and presets for organizations (public beta) - The GitHub Blog
 https://github.blog/changelog/2023-10-26-dependabot-user-defined-rules-for-security-updates-and-alerts-enforcement-of-auto-triage-rules-and-presets-for-organizations-public-beta/
 
+Dependabot の Auto-triage rule により、頻繁にアラート通知が鳴ったりプルリクエストが作成されたりといったことがないようにできます。
+開発環境のみの依存関係でかつ悪用のリスクが低い場合はアラートが鳴らしたくない、プルリクを作成してほしくないケースがあるかと思いますが、それを実現できます。
+
+2023 年 9 月頃からはリポジトリごとにカスタムルールが作成できるようになっていたようで、アラート通知やプルリクエスト作成の条件を設定できるようになっています。
+
+今回のアップデートでは、organization 単位でルールを設定し organization 下のリポジトリでルールを強制することが可能になりました。
+
+organization 下のルールは次のように有効無効の設定ができます。
+- Enable: リポジトリではデフォルトで有効になるがリポジトリごとに無効にもできる
+- Enforced: デフォルトで有効になり無効にできない
+- Disabled: ルールは無効でリポジトリの設定画面に表示されない
+
+またカスタムルールにより、脆弱性の脅威レベルや開発環境のみの依存関係を含めるのかなどを設定できます。
+
+本機能は全パブリックリポジトリで使用できます。プライベートリポジトリで使用するには GitHub Advanced Security を有効化する必要があります。
+
+脆弱性の影響があるアラートだけにしたい場合、そのようにルールを作成して organization 一括で設定できるのは嬉しいですね。
+
+_本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)_
+
 ## Introducing HAR Sanitizer: secure HAR sharing
 https://blog.cloudflare.com/introducing-har-sanitizer-secure-har-sharing/
+
+2023 年 10 月に Cloudflare は Okta から流出したセッショントークンによって攻撃を受けました。（この攻撃自体は直ちに検出、処理され影響を受けなかったそうです、凄い）
+攻撃者は Okta にアップロードされた HAR ファイルからセッショントークンを抜き出し、使用したそうです。
+
+HAR ファイルは HTTP Archive の略で、ウェブブラウザが行ったリクエストとレスポンスを記録した JSON ファイルです。
+標準化されており、ユーザーは簡単に HAR を作成してサポートに送ることで、サポートはトラブルシューティングに役立てることができます。
+ただし、HAR には往々にしてセッションの情報が含まれており、これが漏洩すると攻撃者はこのセッションを使用して攻撃を進めることができてしまいます。
+
+そこで Cloudflare はフォローアップとして、HAR ファイルからセッション情報を除外するサニタイザを開発し、オープンソースで公開しました。
+サニタイズはクライアントでのみ行われるため、Cloudflare がセッショントークンを取得することは無いとのことです。
+
+https://har-sanitizer.pages.dev/
+
+今後サニタイズできるセッショントークンのタイプを増やしていくとのことです。
+
+攻撃を即検出、処理してるのも凄いですし、より攻撃の機会を減らすために HAR ファイルのサニタイザを作って、さらにオープンソースで公開してくれるのが痺れます。
+いずれはウェブブラウザの方にサニタイズの設定が入ってほしい気がしますが、それまではこのサニタイザを使わせてもらいましょう。
+
+_本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)_
 
 ## Announcing remote cache support in Amazon ECR for BuildKit clients | Containers
 https://aws.amazon.com/jp/blogs/containers/announcing-remote-cache-support-in-amazon-ecr-for-buildkit-clients/
