@@ -255,8 +255,44 @@ _本項の執筆者: [@uta8a](https://zenn.dev/uta8a)_
 ## Four Keysと開発生産性について取り組んできたこと - Chatwork Creator's Note
 https://creators-note.chatwork.com/entry/four_keys_and_dev_productivity
 
+Chatwork さんのフロントエンドチームで開発生産性を測るために、Four Keys を計測した話です。
+
+まずは自分たちで PR 集計のツールを運用し、メトリクスの可視化を行ったそうです。
+自前運用は素早く始められたので、全体傾向の把握には適していたそうですが、メンテナンスや機能改善などの面で運用コストが高くなってしまったそうです。
+
+そこで Findy Team+ を導入することで、上述の運用コストを解決したそうです。
+
+注意点として、集計の定義に合わせて運用フローを変える必要があるという点が挙げられています。
+メトリクス集計のために運用フローを変えること自体にも工数が取られますし、変更によっては開発者の負担が増えてしまう可能性もあり本末転倒となってしまう述べられており、とても共感できました。
+
+また、可視化された結果から何を読み取ればいいかわからないという問題があったそうです。
+数値を追い求めるのではなく、大切なのは数値を用いて、ブランチ戦略やリリースフローの改善に取り組むことだと述べられています。
+
+ここ数年で開発生産性といえば Four Keys 指標というのが定着してきている印象があります。
+最近では、実際に Four Keys の計測をどのように実施するか、 Four Keys をどうやって改善していくかついての話題が増えてきており、フェーズが進んでいるなと感じます。
+
+全体として共感できる内容が多く、Four Keys 活用の際に参考にしたい内容でした。
+
+_本項の執筆者: [@r4mimu](https://zenn.dev/r4mimu)_
+
 ## [プレビュー]Google CloudリソースをTerraformにエクスポートしてみた。(+Cloud ConsoleからリソースのHCLを確認する小ネタ) | DevelopersIO
 https://dev.classmethod.jp/articles/202310_googlecloud_exporthcl/
+
+Google Cloud 上に存在する既存のリソースを Terraform (.tf ファイル) にエクスポートする機能の紹介記事です。
+公式ドキュメントは[こちら](https://cloud.google.com/docs/terraform/resource-management/export?hl=ja)です。
+
+`gcloud beta resource-config bulk-export --resource-format=terraform` コマンドを使うことで、既存のリソースを Terraform で管理できるようになります。
+
+リソースフォーマットは Kubernetes Resource Model YAML (krm) と Terraform HCL (terraform) 2 種類から選べるそうです。
+
+デフォルトでは存在するすべてのリソースがエクスポートされますが、`--resource-types` フラグを用いると特定のリソースのみを出力するようにフィルタリングもできます。
+例えば、`--resource-types=ComputeFirewall,ComputeInstance` というようにカンマ区切りで指定すると、`ComputeFirewall` と `ComputeInstance` のみが出力されます。
+ただ、現時点では beta 機能ということもあり、すべてのリソースタイプがサポートされているわけではないようです。
+対応しているリソースタイプは `gcloud beta resource-config list-resource-types` で確認できます。
+
+Terraform v1.5 で追加された `import` ブロックに併せ、Terraform の始めやすさが増していますね。
+
+_本項の執筆者: [@r4mimu](https://zenn.dev/r4mimu)_
 
 # read more 🍘
 Productivity Weekly で出たネタを全て紹介したいけど紹介する体力が持たなかったネタを一言程度で書くコーナーです。
