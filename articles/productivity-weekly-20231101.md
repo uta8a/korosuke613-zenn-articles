@@ -226,7 +226,7 @@ sys	0m0.092s
 
 :::
 
-最後のログでは省略してしまいましたが、全レイヤーが CACHED とログに表示されていたので手元では一切ビルド処理が走っていないことが確認できます。time の結果も 1 秒もかかっておらず、体感でもほぼ一瞬でした。たしかにレイヤーキャッシュを ECR に読み書きすることが可能になったようです！
+最後のログでは省略してしまいましたが、全レイヤーが CACHED とログに表示されていたので手元では一切ビルド処理が走っていないことが確認できます。time の結果も数秒となっており、体感でもほぼ一瞬でした。たしかにレイヤーキャッシュを ECR に読み書きすることが可能になったようです！
 
 このようにキャッシュを活用するとビルド時間を大幅に削減できる場合もあるためぜひ活用していきたいですね。ちなみに buildkit のレイヤーキャッシュはまだ experimental ではありますが [S3](https://github.com/moby/buildkit?tab=readme-ov-file#s3-cache-experimental) や [GitHub Actions のキャッシュ](https://github.com/moby/buildkit?tab=readme-ov-file#github-actions-cache-experimental) などにも保存可能なので、キャッシュ先として必ずしも ECR のようなコンテナレジストリが必要というわけではありません。
 
