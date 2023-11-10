@@ -95,6 +95,21 @@ https://aws.amazon.com/jp/blogs/containers/announcing-remote-cache-support-in-am
 ## RailsアプリのCI高速化
 https://r7kamura.com/articles/2023-10-31-rails-ci
 
+Rails アプリの CI にかかる時間を 8 分から 3 分半に短縮するまでに行った改善が書かれています。
+
+以下のように地道な改善がなされています。
+
+- Larger runner の利用
+- テストを並列に実行するために [`parallel_tests`](https://github.com/grosser/parallel_tests) を利用
+- [`r7kamura/split-tests-by-timings`](https://github.com/r7kamura/split-tests-by-timings) を用いたテスト配分の調整
+- GitHub Container Registry を利用してカスタムの Docker イメージを持ってくることで依存関係のインストールを skip する
+- gem group を整理して、ジョブで必要な gem のみインストールする
+
+「テストを並列に行う」「依存関係は事前にまとめておく」「そのジョブで必要な依存のみを入れる」など、Rails 以外の場面でも大切な CI 高速化 Tips が書かれています。
+Rails アプリ開発者の方も、そうでない方もぜひ参考にしてみてはいかがでしょうか。
+
+_本項の執筆者: [@uta8a](https://zenn.dev/uta8a)_
+
 ## Four Keysと開発生産性について取り組んできたこと - Chatwork Creator's Note
 https://creators-note.chatwork.com/entry/four_keys_and_dev_productivity
 
