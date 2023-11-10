@@ -78,9 +78,6 @@ https://www.serverless.com/blog/serverless-framework-v4-a-new-model
 
 _本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
-## Requiring workflows with rulesets now supports the pull_request_target trigger - The GitHub Blog
-https://github.blog/changelog/2023-10-26-requiring-workflows-with-rulesets-now-supports-the-pull_request_target-trigger/
-
 ## Dependabot user-defined rules for security updates and alerts; enforcement of auto-triage rules and presets for organizations (public beta) - The GitHub Blog
 https://github.blog/changelog/2023-10-26-dependabot-user-defined-rules-for-security-updates-and-alerts-enforcement-of-auto-triage-rules-and-presets-for-organizations-public-beta/
 
