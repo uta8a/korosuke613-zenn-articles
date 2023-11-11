@@ -54,7 +54,7 @@ jobs:
         with:
           fetch-depth: 2  # Because if `fetch-depth >= 2` is not set, unchanged files will be updated.
   
-      - uses: tj-actions/changed-files@v39 # v39.2.4
+      - uses: tj-actions/changed-files@fea790cb660e33aef4bdf07304e28fedd77dfa13 # v39.2.4
         id: changed-files-yaml
         with:
           files_yaml: |
@@ -86,7 +86,7 @@ jobs:
         run: npm ci
 
       - if: steps.changed-files-yaml.outputs.md_any_changed == 'true'
-        uses: tsuyoshicho/action-textlint@v3
+        uses: tsuyoshicho/action-textlint@d35da75bb8f79e4a33b13d18e397083cb6146ecc # v3.9.0
         with:
           github_token: ${{ secrets.github_token }}
           textlint_flags: ${{ steps.changed-files-yaml.outputs.md_all_changed_files }}
