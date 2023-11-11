@@ -1,5 +1,5 @@
 ---
-title: "＜ここにタイトルを入力＞：Productivity Weekly (2023-11-01号)"
+title: "ActionsでArm、GPUランナーが使えるようになるよ：Productivity Weekly (2023-11-01号)"
 emoji: "🎴"
 type: "idea"
 topics: ["ProductivityWeekly", "生産性向上"]
@@ -35,12 +35,38 @@ user_defined: {"publish_link": "https://zenn.dev/korosuke613/articles/productivi
 
 # news 📺
 
-## Accelerate your CI/CD with Arm-based hosted runners in GitHub Actions - The GitHub Blog
-https://github.blog/changelog/2023-10-30-accelerate-your-ci-cd-with-arm-based-hosted-runners-in-github-actions/
-
 ## Run your ML workloads on GitHub Actions with GPU runners - The GitHub Blog
 https://github.blog/changelog/2023-10-31-run-your-ml-workloads-on-github-actions-with-gpu-runners/
 
+GitHub Actions において、GPU を搭載した GitHub-hosted runner が使えるようになります（プライベートベータで 2023 年 11 月開始予定）。これによって、機械学習モデルのビルドやテストなど、GPU を必要とする処理を GitHub Actions で行いやすくなります。
+
+まだプライベートベータの受け付け段階であり、かつ、GitHub Teams、Enterprise Cloud プランを契約している必要があります。料金体系は明かされていません。
+
+プライベートベータの開始は 2023 年 11 月が予定されています。使いたい方は早めに waitlist に登録しましょう。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
+
+## Accelerate your CI/CD with Arm-based hosted runners in GitHub Actions - The GitHub Blog
+https://github.blog/changelog/2023-10-30-accelerate-your-ci-cd-with-arm-based-hosted-runners-in-github-actions/
+
+GitHub Actions において、いよいよ Arm を搭載した GitHub-hosted runner が使えるようになります（プライベートベータで 2024 年 1 月開始予定）。なお、プロセッサは Arm ベースの Ampere Altra が搭載されるとのことです。
+
+Apple Silicon 搭載 Mac が登場してから Arm ベースのマシンで開発することが増えたと思いますが、実際にソフトウェアを動作させる環境や CI 環境は x86 ベースのマシンである場合が多く、開発環境と動作環境のねじれによる壁に当たる方は決して少なくなかったのではないでしょうか？
+
+例えば Amazon EC2 の Arm 搭載インスタンスである Graviton は同性能の x86 搭載マシンと比べて最大 20 % 安くなるとされています[^aws_graviton]。
+そういった理由から、動作環境を Arm マシンにしたいが、開発環境との間にある CI/CD 環境が x86 であるために Arm 利用に踏みきれないというパターンもあったと思います。
+
+これから CI/CD 環境での Arm が増えていくことで、上記の課題が解消されていくと思います。
+もしこれまでセルフホストランナーで Arm 環境を整えていた組織も乗り換えできるかもしれませんね。
+
+先に紹介した GPU ランナーと同じく、まだプライベートベータの受け付け段階です。GitHub Teams、Enterprise Cloud プランを契約している必要があります。料金体系は明かされていません。
+
+プライベートベータの開始は 2024 年 1 月が予定されています。まだまだ先になりますが、とても楽しみですね。waitlist 登録は始まっているため、使いたい方は早めに waitlist に登録しましょう。
+
+[^aws_graviton]: > AWS Graviton ベースのインスタンスのコストは、同等の x86 ベースの Amazon EC2 インスタンスよりも最大 20% 安くなります。
+https://aws.amazon.com/jp/ec2/graviton/
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 ## Serverless Framework V4: A New Model
 https://www.serverless.com/blog/serverless-framework-v4-a-new-model
