@@ -359,17 +359,15 @@ Terraform v1.5 で追加された `import` ブロックに併せ、Terraform の
 
 _本項の執筆者: [@r4mimu](https://zenn.dev/r4mimu)_
 
-# read more 🍘
-Productivity Weekly で出たネタを全て紹介したいけど紹介する体力が持たなかったネタを一言程度で書くコーナーです。
-
-- **news 📺**
-- **know-how 🎓**
-- **tool 🔨**
+<!-- textlint-disable ja-technical-writing/ja-no-successive-word -->
 
 # あとがき
-
+今週号もネタが盛りだくさんでしたね。なんと今回は過去最多の 5 人が共同執筆してくれました（平木場含む）。
+なんかだんだん Productivity Weekly を僕のアカウントで投稿し続けていいのかという気分になってきましたね。たはは 😇
 
 サイボウズの生産性向上チームでは社内エンジニアの開発生産性を上げるための活動を行なっています。そんな生産性向上チームが気になる方は下のリンクをクリック！
 https://note.com/cybozu_dev/n/n1c1b44bf72f6
+
+<!-- textlint-enable ja-technical-writing/ja-no-successive-word -->
 
 <!-- :::message すみません、今週もおまけはお休みです...:::-->
