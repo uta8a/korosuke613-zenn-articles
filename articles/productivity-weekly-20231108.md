@@ -50,8 +50,37 @@ https://aws.amazon.com/jp/about-aws/whats-new/2023/11/aws-fargate-amazon-ecs-tas
 ## Docker Desktop、Appleシリコン上でx86-64バイナリをほぼネイティブな速度で実行可能にする「Rosetta for Linux」が正式版に
 https://www.publickey1.jp/blog/23/docker_desktopapplex86-64rosetta_for_linux.html
 
+Docker Desktop 4.25 がリリースされました。
+
+Rosetta for Linux を使用するオプションが GA となりました。なお、デフォルトでは Docker Desktop でのこのオプションはオフになっており、手動で有効化する必要があります。
+このオプションを有効化することで、Apple シリコンを使ったマシンでの x86_64 用イメージの実行が高速化され、ネイティブに近い速度での動作が期待できます。
+あるイメージが x86_64 用のビルドしか提供していない場合に、このオプションが大いに役立ちそうですね。
+
+他の変更点は以下のとおりです。
+
+- Docker Scout を使用したイメージ解析の有効/無効を設定画面から切り替えられるようになりました
+    - Jamf などのデバイス管理ツールで admin-setting.json を管理することで、会社のポリシーなどに合わせてデバイスの設定を強制できます
+      - 詳しくは下記ドキュメントに書かれています↓
+      - Configure Settings Management | Docker Docs https://docs.docker.com/desktop/hardened-desktop/settings-management/configure/
+- Windows 版での変更点
+    - インストール時に WSL を自動アップデートできるようになりました。
+    - Docker Desktop をインストール可能な Windows の最低バージョンが 19044 に上がり、それ以下のバージョンを使用している場合はインストール時にエラーが発生します。
+
+Rosetta for Linux オプションの GA は嬉しいですね。まだ有効化していない方は是非。
+
+_本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)_
+
 ## AWS が iOS 向けの AWS コンソールモバイルアプリケーションでサインインエクスペリエンスを強化したことを発表
 https://aws.amazon.com/jp/about-aws/whats-new/2023/10/aws-console-mobile-app-ios-enhanced-sign-in/
+
+iOS 向けの AWS コンソールモバイルアプリで、セキュリティキーや PassKey などの多要素認証を使用できるようになりました。
+今まで iOS アプリでの多要素認証は OTP しか対応しておらず歯がゆい思いをしていましたが、これで気兼ねなく PassKey を使用できます。
+
+また認証情報を保存し、次回からのログインでは Face ID や PIN でロックを解除できます。
+
+外出先からサクッと確認するのにより便利になりました。嬉しいですね。
+
+_本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)_
 
 # know-how 🎓
 
