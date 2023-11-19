@@ -58,11 +58,59 @@ https://aws.amazon.com/jp/about-aws/whats-new/2023/10/aws-console-mobile-app-ios
 ## O'Reilly Japan - 詳解 Terraform 第3版
 https://www.oreilly.co.jp/books/9784814400522/
 
-## Developer Productivity Engineering at Netflix - The New Stack
-https://thenewstack.io/developer-productivity-engineering-at-netflix/
 
 ## リアーキテクトと開発生産性について - Speaker Deck
 https://speakerdeck.com/yosuke_furukawa/riakitekutotokai-fa-sheng-chan-xing-nituite
+
+2023 年 10 月 31 日(火)にサイボウズのフロントエンドエンジニア主催で「BAR フロントえんどう」という勉強会が開催されました。
+その中で、Japan Node.js Association の方が「リアーキテクトと開発生産性について」というタイトルで発表されていました。
+
+まず、よくある開発生産性における誤解として、開発生産性とは単一のメトリクスだけでは測れないもので、複数の要素を組み合わせて測る必要があるということを述べています。
+
+では、具体的に複数の指標とは何かというと、ここでは以下の 5 つのカテゴリからなる SPACE フレームワークを挙げています。
+
+- Satisfaction and well being
+- Performance
+- Activity
+- Communication and collaboration
+- Efficiency and flow
+
+SPACE フレームワークについては[こちら](https://www.swarmia.com/blog/space-framework/?utm_term=space%20productivity&utm_campaign=SRH-SPACE-ANZ-EN&utm_source=adwords&utm_medium=ppc&hsa_acc=6644081770&hsa_cam=19643105953&hsa_grp=145044306959&hsa_ad=646939742387&hsa_src=g&hsa_tgt=kwd-1949610128781&hsa_kw=space%20productivity&hsa_mt=e&hsa_net=adwords&hsa_ver=3&gad_source=1&gclid=EAIaIQobChMIwZHH1q_NggMVLV0PAh0A0Qv6EAAYASAAEgI7M_D_BwE)を参照してください。
+
+開発生産性指標を SPACE フレームワークと定義した際に、リアーキテクトがどのように開発生産性に貢献できるかと、一方でリアーキテクトによるコストがどのように発生すかを述べています。
+そして、実際にフロントエンドにおいてリアーキテクトを行う方法を 3 つ解説しています。
+
+全体として、開発生産性とリアーキテクトどちらについても具体例を挙げて説明しているので、わかりやすいスライドでした。
+
+BAR フロントえんどうのその他の発表については[こちら](https://blog.cybozu.io/entry/2023/11/10/131530)をご覧ください。
+
+_本項の執筆者: [@r4mimu](https://zenn.dev/r4mimu)_
+
+## Developer Productivity Engineering at Netflix - The New Stack
+https://thenewstack.io/developer-productivity-engineering-at-netflix/
+
+Netfilx における開発生産性エンジニアリングについての記事です。特にプラットフォームチームについて紹介されています。
+
+Netfilx の製品管理および内部顧客サポートを含むプラットフォームチームは約 150 人で、2,500 人以上のエンジニア組織と 500 人のデータチームを支援し、
+開発者体験（Developer Experience）に焦点を当てており、ビルド、テスト、CI などの開発プロセス全体を管理しているそうです。
+
+プラットフォームチームは開発者の生産性を測定する際に SPACE フレームワークを活用し、定量的な指標だけでなく、定性的な指標も活用しているらしく、
+定性的な指標を計測するために、四半期に一度程度で社内の開発者に対してアンケートを実施しているそうです。
+
+例えば、社内のツールやプラットフォームチームが提供するプラットフォームについて、以下のような具体的な質問をしているとあります。
+
+- ツールを楽しいと感じるか
+- ツールのおかげで仕事がどれだけ効果的だと感じるか
+- どれくらい頻繁にデプロイし、デプロイしているものに自信を持てるか
+- アプリケーションの起動時間はどれくらいか
+- ビルド時間はどれくらいか
+- テストスイートの実行にどのくらいかかるか
+
+誰がフィードバックを提供しているのかを知ることが重要と考えているため、これらのアンケートは匿名でなく、意図的に情報を公開、共有されているそうです。
+
+心理的安全性を高め、エンジニア同士の情報共有やフィードバックを適切に行うことで、開発者体験がより良い組織にしていくというのは、Netfilx 規模の企業でも重要視されていることが分かる記事でした。
+
+_本項の執筆者: [@r4mimu](https://zenn.dev/r4mimu)_
 
 # tool 🔨
 
