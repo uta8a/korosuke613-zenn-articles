@@ -55,10 +55,6 @@ https://aws.amazon.com/jp/about-aws/whats-new/2023/10/aws-console-mobile-app-ios
 
 # know-how 🎓
 
-## O'Reilly Japan - 詳解 Terraform 第3版
-https://www.oreilly.co.jp/books/9784814400522/
-
-
 ## リアーキテクトと開発生産性について - Speaker Deck
 https://speakerdeck.com/yosuke_furukawa/riakitekutotokai-fa-sheng-chan-xing-nituite
 
@@ -75,9 +71,9 @@ https://speakerdeck.com/yosuke_furukawa/riakitekutotokai-fa-sheng-chan-xing-nitu
 - Communication and collaboration
 - Efficiency and flow
 
-SPACE フレームワークについては[こちら](https://www.swarmia.com/blog/space-framework/?utm_term=space%20productivity&utm_campaign=SRH-SPACE-ANZ-EN&utm_source=adwords&utm_medium=ppc&hsa_acc=6644081770&hsa_cam=19643105953&hsa_grp=145044306959&hsa_ad=646939742387&hsa_src=g&hsa_tgt=kwd-1949610128781&hsa_kw=space%20productivity&hsa_mt=e&hsa_net=adwords&hsa_ver=3&gad_source=1&gclid=EAIaIQobChMIwZHH1q_NggMVLV0PAh0A0Qv6EAAYASAAEgI7M_D_BwE)を参照してください。
+SPACE フレームワークについては[こちら](https://www.swarmia.com/blog/space-framework)を参照してください。
 
-開発生産性指標を SPACE フレームワークと定義した際に、リアーキテクトがどのように開発生産性に貢献できるかと、一方でリアーキテクトによるコストがどのように発生すかを述べています。
+開発生産性指標を SPACE フレームワークと定義した際に、リアーキテクトがどのように開発生産性に貢献できるかと、一方でリアーキテクトによるコストがどのように発生するかを述べています。
 そして、実際にフロントエンドにおいてリアーキテクトを行う方法を 3 つ解説しています。
 
 全体として、開発生産性とリアーキテクトどちらについても具体例を挙げて説明しているので、わかりやすいスライドでした。
@@ -111,6 +107,33 @@ Netfilx の製品管理および内部顧客サポートを含むプラットフ
 心理的安全性を高め、エンジニア同士の情報共有やフィードバックを適切に行うことで、開発者体験がより良い組織にしていくというのは、Netfilx 規模の企業でも重要視されていることが分かる記事でした。
 
 _本項の執筆者: [@r4mimu](https://zenn.dev/r4mimu)_
+
+## O'Reilly Japan - 詳解 Terraform 第3版
+https://www.oreilly.co.jp/books/9784814400522/
+
+オライリー・ジャパンから「詳解 Terraform 第 3 版」が出版されました。
+これまでもオライリーの Terraform 本は出版されてきましたが、日本語訳された Terraform 本は初めてとなります。
+
+なぜ Terraform を使うのかといった触りから、シークレットをどう管理するかやどのようにモジュールをテスト[^test]するかなど、Terraform を効果的に使うためのテクニックが詰まっています。
+
+注意すべきは原書が 2022 年 9 月に出版されていることです。この一年ちょいで 1.4〜1.6 がリリースされており、import ブロックや `terraform test` などの新たな機能が追加されているので、最新の情報と照らし合わせつつ読みたいですね。
+
+[^test]: v1.6 で experimental ですが `terraform test` が追加されているので、もしかしたら当時と状況は変わっている可能性があります。
+
+また、既に本を読まれて感想を書いている方もいます。
+
+- [Terraform の基本的な仕組みから実践まで深く学べる一冊「詳解 Terraform 第3版」を読んだ - kakakakakku blog](https://kakakakakku.hatenablog.com/entry/2023/11/20/094234)
+
+読者層についてや、特によかった章のピックアップなどが書かれており、どんな内容なのか参考になります。買う前に一度読んでみるのをお勧めします。
+
+個人的には 5 章の count や for などの構文の解説[^for]と 9 章の Terraform コードのテストについてが気になっています。
+もう買ったんですけどまだちゃんと読めてません 😭
+
+満を辞して発売されたオライリーの Terraform 本、気になってる人は調べてみてください。
+
+[^for]: 僕はあんま使ったことないからです。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 # tool 🔨
 
