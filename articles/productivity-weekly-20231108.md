@@ -55,18 +55,18 @@ Azure に詳しい方はおそらくドキュメントを見て頂く方がよ�
 https://docs.github.com/en/enterprise-cloud@latest/admin/configuration/configuring-private-networking-for-hosted-compute-products/about-using-github-hosted-runners-in-your-azure-virtual-network
 
 
-Larger runner と呼ばれる強いスペックのランナーは[以前からIPレンジを固定できる機能](https://docs.github.com/en/actions/using-github-hosted-runners/about-larger-runners/about-larger-runners#additional-features-for-larger-runners)が提供されていましたが、Azure を利用している場合にはより密にプライベートなネットワークに統合できるようになったのだと思います。Azure のみとなっていることが残念ではありますが、エンタープライズ用途向きの機能が増えてきているのは嬉しいですね。
+Larger runner と呼ばれる強いスペックのランナーは[以前から IP レンジを固定できる機能](https://docs.github.com/en/actions/using-github-hosted-runners/about-larger-runners/about-larger-runners#additional-features-for-larger-runners)が提供されていましたが、Azure を利用している場合にはより密にプライベートなネットワークに統合できるようになったのだと思います。Azure のみとなっていることが残念ではありますが、エンタープライズ用途向きの機能が増えてきているのは嬉しいですね。
 
 _本項の執筆者: [@Kesin11](https://zenn.dev/kesin11)_
 
 ## AWS Fargate now enables Amazon ECS tasks to selectively leverage SOCI
 https://aws.amazon.com/jp/about-aws/whats-new/2023/11/aws-fargate-amazon-ecs-tasks-selectively-leverage-soci/
 
-[Productivity Weekly 2023-08-20号で紹介した](https://zenn.dev/cybozu_ept/articles/productivity-weekly-20230802)SOCI インデックスによるコンテナイメージの遅延読み込みが ECS で使いやすくなる機能追加がありました。
+[Productivity Weekly 2023-08-20号で紹介した](https://zenn.dev/cybozu_ept/articles/productivity-weekly-20230802) SOCI インデックスによるコンテナイメージの遅延読み込みが ECS で使いやすくなる機能追加がありました。
 
 どう便利になるのかについて、有識者の X のポストが大変参考になりましたのでこちらを引用します。
 
-https://twitter.com/toricls/status/1721877821872873533?s=20
+https://twitter.com/toricls/status/1721877821872873533
 
 
 _本項の執筆者: [@Kesin11](https://zenn.dev/kesin11)_
@@ -169,15 +169,23 @@ https://www.oreilly.co.jp/books/9784814400522/
 
 なぜ Terraform を使うのかといった触りから、シークレットをどう管理するかやどのようにモジュールをテスト[^test]するかなど、Terraform を効果的に使うためのテクニックが詰まっています。
 
-注意すべきは原書が 2022 年 9 月に出版されていることです。この一年ちょいで 1.4〜1.6 がリリースされており、import ブロックや `terraform test` などの新たな機能が追加されているので、最新の情報と照らし合わせつつ読みたいですね。
-
-[^test]: v1.6 で experimental ですが `terraform test` が追加されているので、もしかしたら当時と状況は変わっている可能性があります。
-
 また、既に本を読まれて感想を書いている方もいます。
 
 - [Terraform の基本的な仕組みから実践まで深く学べる一冊「詳解 Terraform 第3版」を読んだ - kakakakakku blog](https://kakakakakku.hatenablog.com/entry/2023/11/20/094234)
 
 読者層についてや、特によかった章のピックアップなどが書かれており、どんな内容なのか参考になります。買う前に一度読んでみるのをお勧めします。
+
+~~注意すべきは原書が 2022 年 9 月に出版されていることです。この一年ちょいで 1.4〜1.6 がリリースされており、import ブロックや `terraform test` などの新たな機能が追加されているので、最新の情報と照らし合わせつつ読みたいですね。~~
+
+上を書いた次の日に翻訳した方がブログを出しました。
+
+- [『詳解 Terraform 第3版』を翻訳しました | b.l0g.jp](https://b.l0g.jp/books/2023/11/21/terraform-up-and-running-ja/)
+
+> 帯などにはTerraform 1.0対応とありますが、より詳しく言うと原著はTerraform 1.2までの変更が含まれており、かつ日本語版ではTerraform 1.5までの変更（原稿を仕上げたのが1.6発表の直前でした）に関しても訳注としてできるだけ情報を追加しています。
+
+どうやら、1.5 までの変更は訳注として追加されているようです。ありがたいですね。
+
+[^test]: v1.6 で experimental ですが `terraform test` が追加されているので、もしかしたら当時と状況は変わっている可能性があります。
 
 個人的には 5 章の count や for などの構文の解説[^for]と 9 章の Terraform コードのテストについてが気になっています。
 もう買ったんですけどまだちゃんと読めてません 😭
