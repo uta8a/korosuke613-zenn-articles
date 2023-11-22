@@ -62,6 +62,12 @@ _本項の執筆者: [@Kesin11](https://zenn.dev/kesin11)_
 ## AWS Fargate now enables Amazon ECS tasks to selectively leverage SOCI
 https://aws.amazon.com/jp/about-aws/whats-new/2023/11/aws-fargate-amazon-ecs-tasks-selectively-leverage-soci/
 
+[Productivity Weekly 2023-08-20号で紹介した](https://zenn.dev/cybozu_ept/articles/productivity-weekly-20230802)SOCI インデックスによるコンテナイメージの遅延読み込みが ECS で使いやすくなる機能追加がありました。
+
+どう便利になるのかについて、有識者の X のポストが大変参考になりましたのでこちらを引用します。
+
+https://twitter.com/toricls/status/1721877821872873533?s=20
+
 
 _本項の執筆者: [@Kesin11](https://zenn.dev/kesin11)_
 
