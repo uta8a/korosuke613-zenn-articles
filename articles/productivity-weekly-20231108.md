@@ -1,5 +1,5 @@
 ---
-title: "Productivity Weekly (2023-11-08号)"
+title: "開発生産性の話が2本、SPACEフレームワーク気になる：Productivity Weekly (2023-11-08号)"
 emoji: "🤡"
 type: "idea"
 topics: ["ProductivityWeekly", "生産性向上"]
@@ -29,7 +29,6 @@ user_defined: {"publish_link": "https://zenn.dev/korosuke613/articles/productivi
 - [@defaultcf](https://zenn.dev/defaultcf)
 - [@Kesin11](https://zenn.dev/kesin11)
 - [@r4mimu](https://zenn.dev/r4mimu)
-- [@uta8a](https://zenn.dev/uta8a)
 
 :::
 
@@ -38,8 +37,15 @@ user_defined: {"publish_link": "https://zenn.dev/korosuke613/articles/productivi
 ## GitHub Actions - Enforcing workflow scope when creating a release - The GitHub Blog
 https://github.blog/changelog/2023-11-02-github-actions-enforcing-workflow-scope-when-creating-a-release/
 
-## Secret scanning expands detection to include non-provider patterns (beta) - The GitHub Blog
-https://github.blog/changelog/2023-11-06-secret-scanning-expands-detection-to-include-non-provider-patterns-beta/
+GitHub において、REST API を利用してリリースを作成する際に、特定のケースで `workflow` スコープや `workflows:write` 権限が必要になりました。
+
+特定のケースとは、Actions のワークフローファイルを変更するコミット SHA が含まれ、かつ、その SHA に ref (ブランチやタグ) がついていないリリースを作成する場合です。
+
+おそらくセキュリティ向上が変更の理由かと思われます。
+
+多くのケースでは影響はないと思いますが、頭の片隅に入れておきたいですね。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 ## Azure private networking for GitHub-hosted runners - Public Beta - The GitHub Blog
 https://github.blog/changelog/2023-11-01-github-hosted-runners-private-networking-with-azure-virtual-networks-public-beta/
@@ -58,6 +64,17 @@ https://docs.github.com/en/enterprise-cloud@latest/admin/configuration/configuri
 Larger runner と呼ばれる強いスペックのランナーは[以前から IP レンジを固定できる機能](https://docs.github.com/en/actions/using-github-hosted-runners/about-larger-runners/about-larger-runners#additional-features-for-larger-runners)が提供されていましたが、Azure を利用している場合にはより密にプライベートなネットワークに統合できるようになったのだと思います。Azure のみとなっていることが残念ではありますが、エンタープライズ用途向きの機能が増えてきているのは嬉しいですね。
 
 _本項の執筆者: [@Kesin11](https://zenn.dev/kesin11)_
+
+## Secret scanning expands detection to include non-provider patterns (beta) - The GitHub Blog
+https://github.blog/changelog/2023-11-06-secret-scanning-expands-detection-to-include-non-provider-patterns-beta/
+
+GitHub Secret scanning において、非プロバイダーのパターンを検出する機能が追加されました（beta）。例えば、HTTP の Basic 認証、ベアラー認証ヘッダや DB への接続文字列、RSA 暗号鍵などです。
+
+現在は GitHub Advanced Security ライセンスを持つ Enterprise でのみ利用可能です。有効にするにはオプトインする必要があります。
+
+GitHub Advanced Security を利用している方は有効にしてみましょう。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 ## AWS Fargate now enables Amazon ECS tasks to selectively leverage SOCI
 https://aws.amazon.com/jp/about-aws/whats-new/2023/11/aws-fargate-amazon-ecs-tasks-selectively-leverage-soci/
@@ -196,25 +213,19 @@ https://www.oreilly.co.jp/books/9784814400522/
 
 _本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
-# tool 🔨
-
-## Microsoft、各種シェルに600を超えるコマンド補完を掲げる「inshellisense」
-https://news.mynavi.jp/techplus/article/20231107-inshellisense/
-
 # read more 🍘
 Productivity Weekly で出たネタを全て紹介したいけど紹介する体力が持たなかったネタを一言程度で書くコーナーです。
 
-- **news 📺**
-- **know-how 🎓**
 - **tool 🔨**
+  - [microsoft/inshellisense: IDE style command line auto complete](https://github.com/microsoft/inshellisense)
+    - Microsoft がターミナルでのコマンド入力を IDE のように補完するツール inshellisense を公開しました
+    - 補完のためのデータは [Fig](https://fig.io/) でも使われている OSS、withfig/autocomplete を利用しているようです
+    - 実際に使ってみましたが、独自のプロンプトに入らないといけないため、僕にはあまり合いませんでした（それなら Fig でいいかなって感じ）
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 # あとがき
-
+最近忙しくて大変遅くなりましたが今週号でした。いよいよ年末ですね。僕は何も準備していません。
 
 サイボウズの生産性向上チームでは社内エンジニアの開発生産性を上げるための活動を行なっています。そんな生産性向上チームが気になる方は下のリンクをクリック！
 https://note.com/cybozu_dev/n/n1c1b44bf72f6
-
-<!-- :::message すみません、今週もおまけはお休みです...:::-->
-
-## omake 🃏: 
-今週のおまけです。
