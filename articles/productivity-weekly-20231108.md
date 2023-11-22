@@ -44,8 +44,32 @@ https://github.blog/changelog/2023-11-06-secret-scanning-expands-detection-to-in
 ## Azure private networking for GitHub-hosted runners - Public Beta - The GitHub Blog
 https://github.blog/changelog/2023-11-01-github-hosted-runners-private-networking-with-azure-virtual-networks-public-beta/
 
+GitHub がホスティングするランナーを Azure Virtual Networks（VNET）と接続させる機能がβ版でリリースされました。
+
+Azure を利用した経験は無いのですが、VNET は AWS における VPC 相当の機能だと思いました。
+
+ランナーを VNET に接続させることで Azure のサービスにアクセス可能にしたり、VNET 経由でオンプレミスにホスティングした artifactory のようなサービスにアクセス可能とすることを想定しているようです。また、セキュリティのために Network Security Group（NSG）を利用してランナーのネットワークを制御できることもメリットのようです。
+
+Azure に詳しい方はおそらくドキュメントを見て頂く方がより詳しく理解できるかと思います。こちらのドキュメントに GitHub がホスティングするランナーがどのようにして VNET に接続されるかを表した図もあります。
+
+https://docs.github.com/en/enterprise-cloud@latest/admin/configuration/configuring-private-networking-for-hosted-compute-products/about-using-github-hosted-runners-in-your-azure-virtual-network
+
+
+Larger runner と呼ばれる強いスペックのランナーは[以前からIPレンジを固定できる機能](https://docs.github.com/en/actions/using-github-hosted-runners/about-larger-runners/about-larger-runners#additional-features-for-larger-runners)が提供されていましたが、Azure を利用している場合にはより密にプライベートなネットワークに統合できるようになったのだと思います。Azure のみとなっていることが残念ではありますが、エンタープライズ用途向きの機能が増えてきているのは嬉しいですね。
+
+_本項の執筆者: [@Kesin11](https://zenn.dev/kesin11)_
+
 ## AWS Fargate now enables Amazon ECS tasks to selectively leverage SOCI
 https://aws.amazon.com/jp/about-aws/whats-new/2023/11/aws-fargate-amazon-ecs-tasks-selectively-leverage-soci/
+
+[Productivity Weekly 2023-08-20号で紹介した](https://zenn.dev/cybozu_ept/articles/productivity-weekly-20230802)SOCI インデックスによるコンテナイメージの遅延読み込みが ECS で使いやすくなる機能追加がありました。
+
+どう便利になるのかについて、有識者の X のポストが大変参考になりましたのでこちらを引用します。
+
+https://twitter.com/toricls/status/1721877821872873533?s=20
+
+
+_本項の執筆者: [@Kesin11](https://zenn.dev/kesin11)_
 
 ## Docker Desktop、Appleシリコン上でx86-64バイナリをほぼネイティブな速度で実行可能にする「Rosetta for Linux」が正式版に
 https://www.publickey1.jp/blog/23/docker_desktopapplex86-64rosetta_for_linux.html
