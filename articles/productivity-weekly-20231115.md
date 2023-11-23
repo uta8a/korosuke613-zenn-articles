@@ -1,5 +1,5 @@
 ---
-title: "Productivity Weekly (2023-11-15号)"
+title: "GitHub Universe 2023 開催！：Productivity Weekly (2023-11-15号)"
 emoji: "🧑‍🎨"
 type: "idea"
 topics: ["ProductivityWeekly", "生産性向上"]
@@ -38,8 +38,66 @@ user_defined: {"publish_link": "https://zenn.dev/korosuke613/articles/productivi
 ## Universe 2023: CopilotがGitHubをAIを駆使した開発者プラットフォームへと変貌させる - GitHubブログ
 https://github.blog/jp/2023-11-09-universe-2023-copilot-transforms-github-into-the-ai-powered-developer-platform/
 
+毎年恒例 GitHub Universe 2023 が先日開かれました。GitHub Copilot に関する新発表が多くありました。
+上記記事は GitHub Japan による Universe 2023 の日本語まとめ記事です。
+主に次のようなことが書かれていました。
+
+- **GitHub Copilot Chat が 2023 年 12 月に GA 予定**
+  - GA に伴い、次の機能改善がされる
+    - GPT-4 モデルの利用
+    - JetBrains IDE 対応
+- **GitHub Copilot Chat が GitHub.com と GitHub Mobile で使えるように (要 waiting list 登録)**
+  - GitHub.com 上のリポジトリやドキュメントについて Copilot Chat に手軽に質問できるようになる
+  - おそらく waitlist は `Join the GitHub Copilot code referencing waitlist` になる
+    - 残念ながら Copilot Business ユーザは対象外
+    - > As a Copilot Business user, you are not currently eligible to join the waitlist.
+- **GitHub Copilot Enterprise が登場（要 waiting list 登録）**
+  - 内部コードベース全体を把握したり PR のレビューやサマリー作成ができるように
+  - 価格は驚異の $39/user/month（！）
+  - 2024 年 2 月に GA 予定
+- **GitHub Copilot をサードパーティツールやサービスと統合する GitHub Copilot パートナープログラム登場**
+  - 早くも HashiCorp や Datadog などの 25 社以上を最初のパートナーとしてスタート予定とのこと
+- **GitHub Advanced Security で AI を活用（要 waiting list 登録）**
+  - Code scanning の自動修正や AI によるスキャンなど
+- **GitHub Copilot Workspace 登場（2024 年提供予定）**
+  - Issue を元にコードを書いてくれる夢のような機能
+  - まずは実装方針を示し、承認したら PR を作成するっぽい
+  - しかもビルド、実行、テストも自動で行ってくれるとか（？）
+
+だいぶ夢のある発表でしたね。特に GitHub Copilot Workspace はワクワクが止まりません。
+GitHub Copilot Enterprise は流石に高すぎないか？とちょっと思いましたが使ってみたいですね。Business と併用して一部のユーザにのみ適用できたら安く抑えられそうですが...
+
+今回の発表ではこういう未来が待っているという内容が多く、今すぐ使えるものは少なかったです。
+早く使えるようになりたいですね。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
+
 ## GitHub Copilot in the CLI now in public beta - The GitHub Blog
 https://github.blog/changelog/2023-11-08-github-copilot-in-the-cli-now-in-public-beta/
+
+[これまで private beta だった GitHub Copilot CLI](https://zenn.dev/cybozu_ept/articles/productivity-weekly-20221207?redirected=1#github-next-%7C-github-copilot-cli) が public beta になりました。正式名称は GitHub Copilot in the CLI となるようです。
+
+public beta にあたり、これまで npm でインストールする必要があったものが GitHub CLI 拡張機能として提供されるようになりました。
+private beta とは違い、GitHub.com の設定から `GitHub Copilot in the CLI` の利用を有効化する必要があります。もし Copilot Business ユーザであるなら、管理者による操作が必要です。
+
+private beta 時代から触っていますが、たまにシェル芸をしたいときに役立ちます。気になる方は使ってみましょう。
+
+:::message
+なお、private beta 時代の Copilot CLI は 2023/11/23 時点でまだ利用可能ですが、12/15 でテクニカルプレビューを終了する旨のメールが届きました。
+
+> We want to let you know that on December 15th, we will conclude the following GitHub Next technical previews:
+>
+> - GitHub Copilot Labs
+> - Copilot in the CLI
+> - Copilot for Docs
+> - Copilot for Pull Requests
+> - GitHub Blocks
+
+Docs、Pull Requests なども終了するようですね（結局 waiting list のまま使えなかった）。
+「テクニカルプレビュー終了＝利用できなくなる」かはわかりませんが、覚悟の準備をしておきましょう。
+:::
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 ## Code security insights on the organization-level Security tab (Beta) - The GitHub Blog
 https://github.blog/changelog/2023-11-08-code-security-insights-on-the-organization-level-security-tab-beta/
@@ -82,6 +140,8 @@ https://mattias.engineer/posts/terraform-testing-and-validation/
 
 ## 内部実装から理解するRenovateの処理の流れ - orangain flavor
 https://orangain.hatenablog.com/entry/renovate-execution-steps
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 # tool 🔨
 
