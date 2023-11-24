@@ -102,6 +102,16 @@ _本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 ## Code security insights on the organization-level Security tab (Beta) - The GitHub Blog
 https://github.blog/changelog/2023-11-08-code-security-insights-on-the-organization-level-security-tab-beta/
 
+Organization 全体でのセキュリティアラートの状況を確認できるダッシュボードが Enterprise ユーザーに提供されるようになりました（β）。Enterprise のユーザーであれば Organization のページの Security タブから確認できます[^security_dashboard]。
+
+[^security_dashboard]: 詳しい場所は[ドキュメント参照](https://docs.github.com/en/enterprise-cloud@latest/code-security/security-overview/viewing-security-insights-for-your-organization)
+
+ダッシュボードでは Organization 全体のリポジトリの脆弱性アラートの数とその深刻度の内訳の推移のグラフや、どのリポジトリにどれだけの脆弱性が残っているかの一覧などを確認できます。日々Dependabot の脆弱性アラートに即座に対応することで 0 件を維持するのが理想ではありますが、それなりの数が溜まってしまった場合にどのリポジトリから対応していくかの優先度決めや、対応完了の推移を確認するのに便利そうだと思いました。
+
+GitHub がこういったダッシュボードを提供してくれるのは珍しい印象ですが、自分たちでデータを収集して可視化の基盤を作成しなくても済むのでありがたいですね。
+
+_本項の執筆者: [@Kesin11](https://zenn.dev/kesin11)_
+
 ## New – Multi-account search in AWS Resource Explorer | AWS News Blog
 https://aws.amazon.com/jp/blogs/aws/new-multi-account-search-in-aws-resource-explorer/
 
@@ -122,11 +132,45 @@ https://github.com/github/roadmap/issues/833
 ## Talk about CI and testing of the STORES - Speaker Deck
 https://speakerdeck.com/hogelog/talk-about-ci-and-testing-of-the-stores
 
+Rails の CI でのテストの改善、特に不安定なテストへの対策や高速化の工夫についての紹介がされています。
+
+主に以下の内容が紹介されていました。
+
+- E2E テストに不安定なテスト対策のためのオプション
+- 不安定なテストの集計と可視化
+- CI ジョブの並列化 + rspec 自体の並列化によるテスト分割
+- プロファイルによる遅いテストの分析、CircleCI Insights の活用
+
+最近、CI でのテスト実行を工夫することで高速化したりコストを最適化する記事をよく見かけるようになってきた気がします。言語やフレームワークによって細かい方法は異なりますが、分割並列実行や必要なテストだけをリトライさせるなどの戦略は共通しているように思うので、違う環境の場合であっても参考にしていきたいですね。
+
+_本項の執筆者: [@Kesin11](https://zenn.dev/kesin11)_
+
 ## t_wadaさんと「単体テストの使い方/考え方」の疑問点についてディスカッションしました - DeNA Testing Blog
 https://swet.dena.com/entry/2023/11/13/170000
 
+DeNA の SWET チームが [t_wada](https://twitter.com/t_wada) さんをお招きして[「単体テストの使い方/考え方」](https://book.mynavi.jp/ec/products/detail/id=134252)の書籍の内容をテーマにディスカッションした内容を公開されました（なんと羨ましい・・・）。
+
+記事中の議論の内容はどれも自動テストの高いレベルの知識、書籍の深いコンテキストに基づくものだったので書籍すでに読んでいる人向けの内容でした。
+（自分は書籍を購入済みであるものの、数ヶ月前にやっと 5 章を読み終えたところな上に大半を忘れてしまっていることも相まって、記事の内容も半分ぐらいしか理解できませんでした・・・）
+
+「単体テストの考え方/使い方」の書籍自体のレベルも高い印象ですが、自動テストに関して深く考えている人達の考えを理解するという意味で書籍も記事もオススメです。
+
+_本項の執筆者: [@Kesin11](https://zenn.dev/kesin11)_
+
 ## GitHub Actionsにおける一部環境変数の特殊な可視性について
 https://zenn.dev/okazu_dm/articles/583d6821677f64
+
+GitHub Actions の `run` ステップでは GitHub Actions の内部に関する一部の環境変数が公開されていないため、例えば `docker buildx build --cache-to=type=gha,mode=max --cache-from=type=gha` といった本来は GitHub Actions のキャッシュに保存する挙動が正しく動作しないことを解説してる記事です。
+
+実はこの現象自体については解説されていないものの docker の公式ドキュメントでも一応触れられており、今回の記事中でも紹介されている [crazy-max/ghaction-github-runtime](https://github.com/crazy-max/ghaction-github-runtime) を利用することでこの問題を解決可能であることが書かれています。
+
+https://docs.docker.com/build/cache/backends/gha/#authentication
+
+今回の記事ではこの問題が発生するそもそも理由と、 `crazy-max/ghaction-github-runtime` を利用するとなぜそれが解決されるのかについて詳しく解説されています。GitHub Actions の深淵に興味がある方はぜひ読んでみてください。
+
+ちなみに、この問題は `run` のステップの中で自分で `docker buildx build --cache-to=type=gha,mode=max --cache-from=type=gha` のようなコマンドを実行した場合のみ発生する問題です。 `docker buildx build` を簡単に実行できるようにした [docker/build-push-action](https://github.com/docker/build-push-action) を利用している場合にはこの問題は発生しません。このようなコマンドをラップした Action を利用したいかどうかは好みの問題ですが、GitHub Actions と密に関連した機能の場合はこういった問題が発生することもあることを覚えておくと良いかもしれません。
+
+_本項の執筆者: [@Kesin11](https://zenn.dev/kesin11)_
 
 <!-- textlint-disable prh -->
 
