@@ -102,6 +102,16 @@ _本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 ## Code security insights on the organization-level Security tab (Beta) - The GitHub Blog
 https://github.blog/changelog/2023-11-08-code-security-insights-on-the-organization-level-security-tab-beta/
 
+Organization 全体でのセキュリティアラートの状況を確認できるダッシュボードが Enterprise ユーザーに提供されるようになりました（β）。Enterprise のユーザーであれば Organization のページの Security タブから確認できます[^security_dashboard]。
+
+[^security_dashboard]: 詳しい場所は[ドキュメント参照](https://docs.github.com/en/enterprise-cloud@latest/code-security/security-overview/viewing-security-insights-for-your-organization)
+
+ダッシュボードでは Organization 全体のリポジトリの脆弱性アラートの数とその深刻度の内訳の推移のグラフや、どのリポジトリにどれだけの脆弱性が残っているかの一覧などを確認できます。日々Dependabot の脆弱性アラートに即座に対応することで 0 件を維持するのが理想ではありますが、それなりの数が溜まってしまった場合にどのリポジトリから対応していくかの優先度決めや、対応完了の推移を確認するのに便利そうだと思いました。
+
+GitHub がこういったダッシュボードを提供してくれるのは珍しい印象ですが、自分たちでデータを収集して可視化の基盤を作成しなくても済むのでありがたいですね。
+
+_本項の執筆者: [@Kesin11](https://zenn.dev/kesin11)_
+
 ## New – Multi-account search in AWS Resource Explorer | AWS News Blog
 https://aws.amazon.com/jp/blogs/aws/new-multi-account-search-in-aws-resource-explorer/
 
@@ -121,6 +131,19 @@ https://github.com/github/roadmap/issues/833
 
 ## Talk about CI and testing of the STORES - Speaker Deck
 https://speakerdeck.com/hogelog/talk-about-ci-and-testing-of-the-stores
+
+Rails の CI でのテストの改善、特に不安定なテストへの対策や高速化の工夫についての紹介がされています。
+
+主に以下の内容が紹介されていました。
+
+- E2E テストに不安定なテスト対策のためのオプション
+- 不安定なテストの集計と可視化
+- CI ジョブの並列化 + rspec 自体の並列化によるテスト分割
+- プロファイルによる遅いテストの分析、CircleCI Insights の活用
+
+最近、CI でのテスト実行を工夫することで高速化したりコストを最適化する記事をよく見かけるようになってきた気がします。言語やフレームワークによって細かい方法は異なりますが、分割並列実行や必要なテストだけをリトライさせるなどの戦略は共通しているように思うので、違う環境の場合であっても参考にしていきたいですね。
+
+_本項の執筆者: [@Kesin11](https://zenn.dev/kesin11)_
 
 ## t_wadaさんと「単体テストの使い方/考え方」の疑問点についてディスカッションしました - DeNA Testing Blog
 https://swet.dena.com/entry/2023/11/13/170000
