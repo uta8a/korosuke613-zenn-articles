@@ -124,8 +124,23 @@ https://aws.amazon.com/jp/about-aws/whats-new/2023/11/amazon-codecatalyst-suppor
 ## Deploying sidecar containers to your Cloud Run service is now at general availability (GA). Console UI and CLI are also now available for this feature.
 https://cloud.google.com/run/docs/release-notes#November_13_2023
 
+Google Cloud Run のサイドカーコンテナのサポートが GA になりました。公式ドキュメントは[こちら](https://cloud.google.com/run/docs/deploying?hl=ja#sidecars)。
+サイドカーコンテナ機能を用いた Cloud Run では HTTPS リクエストを処理する Ingress コンテナと 1 つ以上のサイドカーコンテナが存在します。サイドカーコンテナは外部からの HTTP リクエストを受信できませんが、localhost ポートを使用して Ingress コンテナと通信できます。これにより、アプリケーション用のコンテナとは別に、アプリケーションのモニタリング、ロギング、トレース用のコンテナを配置したり、プロキシコンテナを配置してアプリケーションのトラフィックを制御したりできます。
+
+サイドカーコンテナ機能を用いることで Cloud Run 上でより柔軟で複雑なアプリケーションを実現できるようになるかと思います。
+
+_本項の執筆者: [@r4mimu](https://zenn.dev/r4mimu)_
+
 ## Actions Usage Metrics · Issue #833 · github/roadmap
 https://github.com/github/roadmap/issues/833
+
+`github-product-roadmap` において  `Actions Usage Metrics` が 2024 Q1 のプロジェクトとしてオープンされています。
+
+Actions におけるワークフローの頻度、期間、および総消費量に関する詳細な情報が提供されるようになるとのことです。これにより、ワークフローの非効率箇所やボトルネック、コストの高いワークフローを特定できるようになりそうです。
+
+ワークフローファイル、リポジトリ、ランナーOS、ランナータイプごとに、詳細を確認できるそうなので、様々な切り口からの最適化に役立ちそうですね。続報を待ちましょう。
+
+_本項の執筆者: [@r4mimu](https://zenn.dev/r4mimu)_
 
 # know-how 🎓
 
@@ -177,10 +192,84 @@ _本項の執筆者: [@Kesin11](https://zenn.dev/kesin11)_
 ## Github Actions Security Best Practices - Salesforce Engineering Blog
 https://engineering.salesforce.com/github-actions-security-best-practices-b8f9df5c75f5/
 
+
+_本項の執筆者: [@r4mimu](https://zenn.dev/r4mimu)_
+
+セールスフォース社のエンジニアリングブログにて、GitHub Actions のセキュリティに関するベストプラクティスが紹介されています。
+
+まず、GitHub Actions において、以下の懸念を挙げています。
+
+- サードパーティのアクション：使用されるサードパーティのアクションによっては、悪意のあるコードが実行される可能性がある
+- シークレットおよびその他の機密情報：アクションはシークレットへのアクセスが必要になる場合があり、これらは安全に保存し、安全に参照する必要がある
+- ワークフロー実行の副産物：ワークフロー実行の副産物（アーティファクト、キャッシュ）へのアクセスは監査されるべき
+- フォークされたリポジトリ：フォークされたリポジトリを通じたログやシークレットへのアクセスは検討されるべき
+- 悪意のある Docker image：アクションは悪意のある Docker image 上で構築される可能性がある
+- サービスコンテナ：デフォルトの認証情報の使用とサービスコンテナ（redis、postgres）へのアクセスは監査されるべき
+- ランナーからの脱出：ランナー上の悪意のあるコードは、潜在的なコンテナのブレイクアウトにつながる可能性がある
+- ワークフローコマンド：ワークフローで使用されるコマンドは、期待される通りに機能しない可能性がある
+- セルフホストランナーの不適切な設定：アクションを通じてランナー（リモートコード実行、特権昇格）への攻撃は、組織の環境内での横方向の移動につながる可能性がある
+- アクション内のサードパーティ製品の脆弱性：アクションに使用されるパッケージには、複数のオープンソースの脆弱性が存在する可能性がある
+
+これらの懸念に対して、ベストプラクティスを公開しています。ここではその一部を紹介します。
+
+### サードパーティアクションの利用
+
+以下の基準でアクションを利用することを検討する。
+
+- https://github.com/actions にある GitHub 公式アクションを利用するべき
+- GitHub に verify されているアクションを利用するべき
+- 信頼できるベンダーや組織が提供するべき
+
+それでもサードパーティのアクションを利用するならば、使用前にセキュリティ評価やコードレビューを実施すること。
+
+### セキュアなワークフローの記述
+
+- ワークフローファイルでアクションを呼び出す際は、安定したバージョンタグまたはコミットハッシュで指定し、`@master` タグは使わない
+  - Good: `actions/checkout@v2`, `actions/download-artifact@1de1dea89c32dcb1f37183c96fe85cfe067b682a`
+  - Bad: `actions/checkout@master`
+- Docker コンテナでジョブを実行する際には、公式または Docker 認定のイメージのみを使用する
+- Docker image を pull する際には、バージョンタグ（できればメジャーバージョン）を使用する
+  - 例： `node:10`
+  - `node:latest` よりもバージョンタグが推奨される
+- ワークフローログで機密値がプレーンテキストとして表示されないようにするために `add::mask` コマンドを使用しない
+  - 環境変数と一緒に使用すると、プレーンテキストの値がログに実行環境の一部として表示される
+    - 訳注：[こちらの記事](https://zenn.dev/hankei6km/articles/add-mask-command-in-github-actions#%E3%82%A2%E3%83%B3%E3%83%81%E3%83%91%E3%82%BF%E3%83%BC%E3%83%B3%EF%BC%9F)が参考になります
+- `GITHUB_` という接頭辞がつく GitHub のデフォルト変数を上書きしない
+- キャッシュパス内のファイルにアクセストークンなどの機密値を保存しない
+  - キャッシュに `<home>/.docker/config.json` ファイルを含めない。このファイルには暗号化されていない `Docker` の資格情報が含まれる可能性がある
+- キャッシュを識別するユニークなキーを作成するために、コンテキストデータを使用する
+  - しかし、`github.token` や `github.actor` などの機密値をキー生成に使用しない
+  - 代わりに、`runner.os` などのシステム関連情報と組み合わせて、`requirements.txt` や `package-lock.json` などのファイルのハッシュを使用する
+- 機密情報を含む可能性があるため、github context データをログにダンプしない
+- リポジトリへのアクセス権を持つ人なら誰でも利用できるため、アーティファクトに機密情報を保存しない
+- アーティファクトは 90 日後に自動的に削除されるため、その時間を超えて必要な場合は、安全に S3 バケットにアップロードする
+- [ジョブ実行の制限](https://docs.github.com/en/actions/reference/usage-limits-billing-and-administration#usage-limits)に注意
+- 外部のコラボレーターを追加する際には注意が必要
+  - 読み取り権限を持つユーザーは、ワークフローの失敗に関するログを表示し、ワークフローの履歴を表示し、ログを検索してダウンロードすることができる
+  - リポジトリへの書き込みアクセス権を持つ外部のコラボレーターは、`GITHUB_TOKEN` に関連する権限を変更できる
+    - これにより権限が拡大し、他の攻撃の可能性が生じる
+  - 外部のコラボレーターを追加する必要がある場合は、最小限の権限の原則に従い、最小限の開示のために読み取り権限のみを割り当てる
+
+この他にも GitHub Secrets の安全な使用方法や、Organization やリポジトリレベルの便利な設定などが紹介されています。
+GitHub Actions を利用する方は一度目を通しておくべき内容だと思います。
+
+_本項の執筆者: [@r4mimu](https://zenn.dev/r4mimu)_
+
 <!-- textlint-enable prh -->
 
 ## A Comprehensive Guide to Testing in Terraform: Keep your tests, validations, checks, and policies in order :: mattias.engineer a blog about cloud architecture and development
 https://mattias.engineer/posts/terraform-testing-and-validation/
+
+Terraform v1.5 で導入された `check` ブロックや v1.6 で導入された `terraform test` を交えた Terraform のテストと検証に関する記事です。
+
+`check`, `validation` ブロックや  `test` コマンドで、サードパーティのツールを使用せず、HCL で完結したテストと検証を実現できるようになりました。
+この記事では、これらの機能を使ったテストと検証の実装方法や、それぞれの違いについて解説しています。
+
+サンプルコードとパラメータの説明が充実しているので、最近の Terraform のテストと検証について追えていない方におすすめです。
+
+自分は `precondition`, `postcondition` ブロックについて知らなかったので、これらのブロックを使ったテストの実装方法が参考になりました。
+
+_本項の執筆者: [@r4mimu](https://zenn.dev/r4mimu)_
 
 ## 内部実装から理解するRenovateの処理の流れ - orangain flavor
 https://orangain.hatenablog.com/entry/renovate-execution-steps
