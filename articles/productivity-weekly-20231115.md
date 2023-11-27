@@ -114,11 +114,69 @@ _本項の執筆者: [@Kesin11](https://zenn.dev/kesin11)_
 ## New – Multi-account search in AWS Resource Explorer | AWS News Blog
 https://aws.amazon.com/jp/blogs/aws/new-multi-account-search-in-aws-resource-explorer/
 
+AWS Resource Explorer はリージョンを横断してリソースを探索できるツールで、「このリソース使ってたっけ」を探すのに重宝していました。
+今回のアップデートでは、組織全体または特定の OU 内の AWS アカウントを横断してリソースを探索できるようになりました。
+
+次の流れで有効化できます。
+
+- AWS Account Management で「信頼されたアクセス」を有効化
+- System Manager を使って組織の Resource Explorer を設定
+  - 組織全体または特定の OU 内の AWS アカウント全てで Resource Explorer を有効化する必要があり、全て手動でやるのは面倒なので System Manager の Quick Setup や CloudFormation などを使ったものが推奨されている
+- マルチアカウントビューを作成
+  - ビュー作成時に「組織全体のリソースの可視化」を選択し、Root か特定の OU を選択することで、ビューで見たいアカウントの範囲を選択できる
+
+これで選択した範囲内でのアカウントを横断したリソースの探索が可能になります。
+古いリソースを使っているアカウントを特定して改善を促したりするのが非常に簡単になります。
+
+_本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)_
+
 ## AWS CodeBuild の実行環境に AWS Lambda が選択出来るようになりました | DevelopersIO
 https://dev.classmethod.jp/articles/codebuild-lambda-compute/
 
+AWS CodeBuild は EC2 で動いてきましたが、今回のアップデートでは実行環境として AWS Lambda が選択できるようになっています。
+記事では EC2 と AWS Lambda での実行速度の比較や、Lambda を選択した際の技術的な制限についてまとめられています。
+
+自分も試しに AWS コンソールから CodeBuild のプロジェクトを作成しようとしてみました。
+実行環境に AWS Lambda を選択すると、次の注意書きが表示されます。
+
+> Lambda コンピューティングは高速化のために最適化されており、ビルドの起動時間を最小限に抑えていますが、次のユースケースは Lambda ではサポートされていません。
+> - バッチビルド
+> - ビルド間のキャッシュ
+> - タイムアウトによるランタイムの分単位の制限
+> - ルートユーザーの許可を必要とするツール
+
+それぞれについては次の理由でできないものと思われます。
+- バッチビルド
+  - 時間がかかるため
+  - EC2 を選択した場合はバッチの設定ができるが Lambda では設定できないため
+- ビルド間のキャッシュ
+  - [AWS CodeBuild でのキャッシュのビルド - AWS CodeBuild](https://docs.aws.amazon.com/ja_jp/codebuild/latest/userguide/build-caching.html) で特権モードが必要とあり、Lambda には特権付与モードが無いため
+- タイムアウトによるランタイムの分単位の制限
+  - EC2 を選択した場合はランタイムの実行時間を指定できるが、Lambda では指定できないため
+- ルートユーザーの許可を必要とするツール
+  - Lambda には特権付与モードが無いため
+
+起動時間が早くなるのは嬉しいですね！ユースケースや技術的な制約を考えて、問題が無ければ Lambda を選択すると良さそうです。
+
+_本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)_
+
 ## Amazon CodeCatalyst now supports Terraform
 https://aws.amazon.com/jp/about-aws/whats-new/2023/11/amazon-codecatalyst-supports-terraform/
+
+Amazon CodeCatalyst のワークフローで Terraform を使用できるようになりました。
+CodeCatalyst のワークフロー編集画面にて、アクションを追加する際に「terraform」と検索すると、今回追加された「Terraform Community Edition」が現れるようになります。
+（CodeCatalyst に入らないと、このアクションの詳細を確認できないようです）
+
+![](/images/productivity-weekly-20231115/codecatalyst_terraform_action.png)
+
+詳しい設定方法はこのアクションのドキュメントに書かれています。事前の準備は以下のとおりです。
+- Terraform apply を実行するのに必要な権限を付与した IAM ロールを作成し、CodeCatalyst が Assume Role できるようにしておく
+- S3 バケットと DynamoDB テーブルを作成する
+
+あとはワークフローで IAM, S3 バケット、DynamoDB の名前を設定すると、Terraform apply が実行できるようです。
+このアクションが追加されたことで簡単に Terraform を実行できるようになって嬉しいですね。
+
+_本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)_
 
 ## Deploying sidecar containers to your Cloud Run service is now at general availability (GA). Console UI and CLI are also now available for this feature.
 https://cloud.google.com/run/docs/release-notes#November_13_2023
