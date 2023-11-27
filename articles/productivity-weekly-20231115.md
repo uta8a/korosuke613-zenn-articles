@@ -185,6 +185,22 @@ https://mattias.engineer/posts/terraform-testing-and-validation/
 ## 内部実装から理解するRenovateの処理の流れ - orangain flavor
 https://orangain.hatenablog.com/entry/renovate-execution-steps
 
+依存関係更新プルリクエストを作ってくれる Renovate が内部的にどういう流れで動いているかを解説した記事です。
+著者が Renovate のドキュメントや実行時ログ、ソースコードを元に、分析した内容が書かれています。
+
+記事では Renovate の処理を大きく 3 つのフェーズに分類し、コア部分となるリポジトリごとの処理フェーズではさらに大まかな処理ごとに内容を説明してくれています。
+該当するソースコードのリンクも合わせて記述されており、もっと深掘りしたい場合はリンクを辿っていけて良いです。
+
+Renovate の内部処理を知ることで、設定した config で想定通りに動かなかった場合や、Renovate を利用したツールを作る際などに役立ちます。ログを読む能力も付くと僕は考えています。
+
+簡潔にまとめられており、とても読みやすくわかりやすい記事でした。Renovate の動作に興味がある方や、Renovate がうまく動かなくて困った方は読んでみるのをオススメします。
+
+:::message
+ちなみに、記事の公開は 2023/08/03 で最近の記事ではないのですが、エゴサしてたら僕の記事（[Renovate config の変更が想定通りか確認する 〜真の dry-run を求めて〜](https://zenn.dev/cybozu_ept/articles/compare-renovate-dry-run)）が参考にされていたため見つけることができました。
+
+自分の書いた記事が役に立ってくれて嬉しいですね。
+:::
+
 _本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 # tool 🔨
