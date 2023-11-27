@@ -1,5 +1,5 @@
 ---
-title: "GitHub Universe 2023 開催！：Productivity Weekly (2023-11-15号)"
+title: "GitHub Universe '23、Actionsベストプラクティスも：Productivity Weekly(2023-11-15号)"
 emoji: "🧑‍🎨"
 type: "idea"
 topics: ["ProductivityWeekly", "生産性向上"]
@@ -29,7 +29,6 @@ user_defined: {"publish_link": "https://zenn.dev/korosuke613/articles/productivi
 - [@defaultcf](https://zenn.dev/defaultcf)
 - [@Kesin11](https://zenn.dev/kesin11)
 - [@r4mimu](https://zenn.dev/r4mimu)
-- [@uta8a](https://zenn.dev/uta8a)
 
 :::
 
@@ -220,6 +219,8 @@ https://engineering.salesforce.com/github-actions-security-best-practices-b8f9df
 
 ### セキュアなワークフローの記述
 
+<!-- textlint-disable ja-technical-writing/ja-no-redundant-expression -->
+
 - ワークフローファイルでアクションを呼び出す際は、安定したバージョンタグまたはコミットハッシュで指定し、`@master` タグは使わない
   - Good: `actions/checkout@v2`, `actions/download-artifact@1de1dea89c32dcb1f37183c96fe85cfe067b682a`
   - Bad: `actions/checkout@master`
@@ -250,6 +251,8 @@ https://engineering.salesforce.com/github-actions-security-best-practices-b8f9df
 GitHub Actions を利用する方は一度目を通しておくべき内容だと思います。
 
 _本項の執筆者: [@r4mimu](https://zenn.dev/r4mimu)_
+
+<!-- textlint-enable ja-technical-writing/ja-no-redundant-expression -->
 
 <!-- textlint-enable prh -->
 
@@ -288,20 +291,24 @@ Renovate の内部処理を知ることで、設定した config で想定通り
 
 _本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
-# tool 🔨
-
-## Introducing GPTs
-https://openai.com/blog/introducing-gpts
-
 # read more 🍘
 Productivity Weekly で出たネタを全て紹介したいけど紹介する体力が持たなかったネタを一言程度で書くコーナーです。
 
-- **news 📺**
-- **know-how 🎓**
 - **tool 🔨**
+  - [Introducing GPTs](https://openai.com/blog/introducing-gpts)
+    - ChatGPT において、ユーザがカスタマイズした ChatGPT を公開できるようになりました。その名も GPTs です
+    - いろんな GPTs が公開されていて面白そうですね。でも現状 ChatGPT Plus ユーザじゃないと使えません
+    - 個人的には論文の要約してくれる奴が気になってます。絶対便利じゃん -> [「Paper Interpreter」を使って論文を読もう！｜Daichi Konno / 紺野 大地](https://note.com/daichi_konno/n/nb1f1ac368a30)
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 # あとがき
+遅くなりましたが今週号でした。タイトルの 70 字制限が厳しいです。詰め込みたくなる。
 
+そういえば、GitHub Actions のアドベントカレンダーが始まりますよ。僕は 12/1 に記事出します。
+めちゃ参加者少ないので参加してください。
+
+https://qiita.com/advent-calendar/2023/github-actions
 
 サイボウズの生産性向上チームでは社内エンジニアの開発生産性を上げるための活動を行なっています。そんな生産性向上チームが気になる方は下のリンクをクリック！
 https://note.com/cybozu_dev/n/n1c1b44bf72f6
