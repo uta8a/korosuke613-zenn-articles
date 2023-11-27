@@ -134,7 +134,7 @@ _本項の執筆者: [@r4mimu](https://zenn.dev/r4mimu)_
 ## Actions Usage Metrics · Issue #833 · github/roadmap
 https://github.com/github/roadmap/issues/833
 
-`github-product-roadmap` において  `Actions Usage Metrics` が 2024 Q1 のプロジェクトとしてオープンされています。
+GitHub Roadmap において  `Actions Usage Metrics` が 2024 Q1 のプロジェクトとしてオープンされています。
 
 Actions におけるワークフローの頻度、期間、および総消費量に関する詳細な情報が提供されるようになるとのことです。これにより、ワークフローの非効率箇所やボトルネック、コストの高いワークフローを特定できるようになりそうです。
 
@@ -192,9 +192,6 @@ _本項の執筆者: [@Kesin11](https://zenn.dev/kesin11)_
 ## Github Actions Security Best Practices - Salesforce Engineering Blog
 https://engineering.salesforce.com/github-actions-security-best-practices-b8f9df5c75f5/
 
-
-_本項の執筆者: [@r4mimu](https://zenn.dev/r4mimu)_
-
 セールスフォース社のエンジニアリングブログにて、GitHub Actions のセキュリティに関するベストプラクティスが紹介されています。
 
 まず、GitHub Actions において、以下の懸念を挙げています。
@@ -205,7 +202,6 @@ _本項の執筆者: [@r4mimu](https://zenn.dev/r4mimu)_
 - フォークされたリポジトリ：フォークされたリポジトリを通じたログやシークレットへのアクセスは検討されるべき
 - 悪意のある Docker image：アクションは悪意のある Docker image 上で構築される可能性がある
 - サービスコンテナ：デフォルトの認証情報の使用とサービスコンテナ（redis、postgres）へのアクセスは監査されるべき
-- ランナーからの脱出：ランナー上の悪意のあるコードは、潜在的なコンテナのブレイクアウトにつながる可能性がある
 - ワークフローコマンド：ワークフローで使用されるコマンドは、期待される通りに機能しない可能性がある
 - セルフホストランナーの不適切な設定：アクションを通じてランナー（リモートコード実行、特権昇格）への攻撃は、組織の環境内での横方向の移動につながる可能性がある
 - アクション内のサードパーティ製品の脆弱性：アクションに使用されるパッケージには、複数のオープンソースの脆弱性が存在する可能性がある
