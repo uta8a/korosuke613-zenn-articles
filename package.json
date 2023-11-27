@@ -4,7 +4,7 @@
   "keywords": [],
   "author": "Futa Hirakoba <korosuke613613@gmail.com> (https://korosuke613.github.io/)",
   "scripts": {
-    "start": "zenn preview",
+    "start": "zenn preview --port 8808",
     "lint:renovate-config-validator": "renovate-config-validator"
   },
   "packageManager": "npm@10.2.3",
