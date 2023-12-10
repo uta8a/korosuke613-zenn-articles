@@ -36,7 +36,9 @@ GitHub Actions 内で完結して VRT を行うため、比較的軽量に導入
 - トピックブランチの CI において、GitHub Actions のキャッシュに保存されたスクリーンショットを復元し、ローカル環境のスクリーンショットと比較する
 - キャッシュが存在しなかった場合の回避策は考える必要がある
 
-# 背景: VRT 導入したい
+# 背景
+
+## VRT 導入したい
 
 僕は自分のホームページ(https://korosuke613.dev)を GitHub Actions でビルドし、GitHub Pages にデプロイしています。この度、依存関係更新などに伴う見た目上のデグレーションを防ぐために、Visual Regression Testing (VRT) を導入したいと思いました。
 
@@ -67,15 +69,16 @@ CI としてチェックすることでマージ前に見た目の変化があ�
 
 Renovate などで依存関係更新を自動化したい場合、見た目の確認を人間が行うとマージまで自動化するのが難しいです。VRT による機械化された見た目の確認を取り入れることで、安心してマージまで自動化できるようになります。
 
-# 背景: VRT 導入の課題 〜テストオラクルたるスクリーンショットをどこに保管する？〜
+## VRT 導入の課題 〜テストオラクルたるスクリーンショットをどこに保管する？〜
 
 VRT を導入する上で、テストオラクルたるスクリーンショットをどこにどう保管するか考えなければいけません。既知の選択肢はいくつかありますが、メリデメがそれぞれあるため、ユースケースによってどれを選択するか変わってきます。
 
 そもそもテストオラクルたるスクリーンショットと勝手に言ってますが、これはテストの正解となるスクリーンショットのことです。トピックブランチにおいて何を持ってデグレが発生してないかを判断するために、正解となるスクリーンショットが必要になります。
 
 VRT は流行っているのか、昨今様々な記事が出ています。スクリーンショットの保管場所についてもいくつか方法があったので適当に分類しました。
+（縦に長くなってしまったので折り畳んでいます。）
 
-## 保存先: Amazon S3 や Google Cloud Storage などのクラウドストレージ
+:::details 保存先: Amazon S3 や Google Cloud Storage などのクラウドストレージ
 
 安定した外部クラウドストレージに保存する方法です。[reg-viz/reg-suit](https://github.com/reg-viz/reg-suit) などの著名ツールで簡単にスクリーンショットをクラウドストレージに保存できます。
 
@@ -89,7 +92,9 @@ VRT は流行っているのか、昨今様々な記事が出ています。ス�
 - クラウドサービス上での設定が必要
 - ライフサイクルを適切に管理しないとクラウド破産する
 
-## 保存先: git に含める
+:::
+
+:::details 保存先: git に含める
 
 スクリーンショットを `git commit` して git に含めるという方法です。
 
@@ -104,7 +109,9 @@ VRT は流行っているのか、昨今様々な記事が出ています。ス�
 
 [^git_size]: 別リポジトリに push するとかならアリかもしれないけど、ワークフローや権限周りはそれなりに複雑になる。
 
-## 保存先: GitHub Actions の Artifacts
+:::
+
+:::details 保存先: GitHub Actions の Artifacts
 
 GitHub Actions の Artifacts に保存する方法です。個人的に一番理想に近いです。
 
@@ -120,7 +127,9 @@ GitHub Actions の Artifacts に保存する方法です。個人的に一番理
 
 [^private]: 実はプライベートリポジトリの場合は最大 400 日まで行ける。https://docs.github.com/en/actions/learn-github-actions/usage-limits-billing-and-administration#artifact-and-log-retention-policy
 
-## 保存先: そもそも保存しない
+:::
+
+:::details 保存先: そもそも保存しない
 テストごとにデプロイ先のページのスクリーンショットを取得し、テストオラクルとして扱う方法です。
 
 参考: [Playwright & Vite ではじめる脱レガシー向け軽量 Visual Regression Test - Cybozu Inside Out | サイボウズエンジニアのブログ](https://blog.cybozu.io/entry/2022/03/18/100000)
@@ -132,8 +141,9 @@ GitHub Actions の Artifacts に保存する方法です。個人的に一番理
 - テストごとにデプロイ先のページのスクリーンショットを取得する必要があり、テストの実行時間が長くなる
 - 二重にスクリーンショットを撮るため、テストコードの不安定性が高い場合、テストが失敗しやすくなる
 
+:::
 
-# 理想
+## 理想
 
 僕の要望は次のとおりです。
 
@@ -149,7 +159,28 @@ GitHub Actions の Artifacts に保存する方法です。個人的に一番理
 
 というわけで思いついたのが GitHub Actions のキャッシュにテストオラクルたるスクリーンショットを保存するという方法です。GitHub Actions の Artifacts に保存する方法をキャッシュに置き換える感じになりますが、Artifacts に保存する方法と比べてもう少しシンプルなワークフローにできます。
 
-## 保存先: GitHub Actions の Cache
+```mermaid
+---
+title: VRT のおおまかな流れ 改訂版
+---
+
+
+flowchart LR
+    %% classDef skipped fill:#FFF,stroke-dasharray:3,stroke:#000;
+    %% style HH fill:#FFF,stroke-dasharray:3,stroke:#000;
+    style G fill:#ff0000,color:#fff,stroke:#fff;
+
+    B[(ビルド済み成果物)] ---|read| D[成果物をローカルで動かす]
+    D --> E[スクリーンショット撮影]
+    D ---|write（厳密にはwriteじゃない）| J
+    E ---|read| J[(localhost など)]
+    E --> F{あらかじめ用意した\nテストオラクルたる\nスクリーンショットと比較}
+    G[(GitHub Actions Cache)] ---|read| F
+    F -->|ピクセル差異が許容範囲内| H[テスト成功]
+    F -->|ピクセル差異が許容範囲外| I[テスト失敗]
+```
+
+### 保存先: GitHub Actions の Cache
 
 GitHub Actions のキャッシュに保存する方法です。
 
@@ -164,7 +195,7 @@ GitHub Actions のキャッシュに保存する方法です。
 - キャッシュのキーをどのように設定するかは考える必要がある
   - **対策**：成果物のハッシュ値をキーにする
 
-## テストオラクルたるスクリーンショットを保存する
+# テストオラクルたるスクリーンショットを保存する
 
 僕のホームページは main ブランチにマージされた後、成果物に変更があればデプロイ処理が走るようになっています。
 デプロイ処理の後に実際のページを対象にスクリーンショットを保存するようにします。もちろん保存先は GitHub Actions のキャッシュです。
@@ -175,7 +206,7 @@ title: テストオラクルたるスクリーンショットを保存するま�
 ---
 
 
-flowchart LR
+flowchart
     %% classDef skipped fill:#FFF,stroke-dasharray:3,stroke:#000;
     %% style HH fill:#FFF,stroke-dasharray:3,stroke:#000;
 
@@ -196,7 +227,7 @@ https://github.com/korosuke613/homepage-2nd/blob/dcf81729456fc1f0a33c520fdfe9e53
 *デプロイワークフローから呼び出されるスクリーンショット撮影＆保存ワークフロー*
 https://github.com/korosuke613/homepage-2nd/blob/dcf81729456fc1f0a33c520fdfe9e53bf5ec7d2c/.github/workflows/vrt-init.yaml
 
-### Playwright でスクリーンショットを撮り、キャッシュに保存する
+## Playwright でスクリーンショットを撮る
 :::message
 細かい実装の部分になるので、興味がない方は飛ばしてください。
 :::
@@ -231,6 +262,8 @@ const config: PlaywrightTestConfig = {
 
 上記のようにパスを定義し、`page.screenshot()` をすることで、最終的には `src/tests/vrt/snapshots/<ページ名>.png` という風にスクリーンショットが保存されるようにしています。
 
+## キャッシュに保存する
+
 そして、GitHub Actions において、actions/cache の `path` に `src/tests/vrt/snapshots` を指定することで、スクリーンショットを GitHub Actions のキャッシュへ保存できます。
 
 ```yaml:.github/workflows/vrt-init.yaml
@@ -252,7 +285,7 @@ const config: PlaywrightTestConfig = {
 
 もし、成果物のハッシュ値を計算せずにキーを決定したい場合は、例えばコミットハッシュ値である [`${{ github.sha }}`](https://docs.github.com/en/actions/learn-github-actions/contexts#github-context) をキーにすることでも代用できます。
 
-## トピックブランチで VRT を実行する
+# トピックブランチで VRT を実行する
 
 トピックブランチで VRT を実行するワークフローを作成します。このワークフローでは、トピックブランチの成果物ページのスクリーンショットを撮影し、キャッシュから取得したテストオラクルたるスクリーンショットと比較します。
 
@@ -288,7 +321,7 @@ GitHub Actions のキャッシュは参照されなくなってから 7 日経�
 *トピックブランチで VRT を行うワークフロー*
 https://github.com/korosuke613/homepage-2nd/blob/dcf81729456fc1f0a33c520fdfe9e53bf5ec7d2c/.github/workflows/vrt-regression.yaml
 
-### テストオラクルたるスクリーンショットを復元する
+## テストオラクルたるスクリーンショットを復元する
 
 actions/cache を使ってキャッシュからテストオラクルたるスクリーンショットを復元します。
 
@@ -317,7 +350,7 @@ actions/cache を使ってキャッシュからテストオラクルたるスク
 
 [^restore-keys]: 設定することで、キャッシュのキーがヒットしなかった場合に `vrt-` から始まるキャッシュであればなんでも復元できる。
 
-### Playwright で VRT を行う
+## Playwright で VRT を行う
 :::message
 細かい実装の部分になるので、興味がない方は飛ばしてください。
 :::
@@ -349,7 +382,7 @@ const config: PlaywrightTestConfig = {
 
 この設定により、`matchSnapshot()` において、`src/tests/vrt/snapshots/<ページ名>.png` というパスのスクリーンショットを探すようになるため、キャッシュから復元したスクリーンショットをテストオラクルとして扱うことができます。
 
-### もし VRT が失敗した場合
+## もし VRT が失敗した場合
 Playwright で VRT が失敗した場合、スクリーンショットの差分がディスクに保存されます。Playwright の場合は `test-results` ディレクトリに保存されるため、VRT 失敗時は `test-results` ディレクトリを Artifacts へアップロードします。
 
 
@@ -399,6 +432,8 @@ VRT 自体も見た目のデグレを検知できるのでめちゃくちゃ頼�
 今回はシンプルにするために GitHub Actions のキャッシュを利用しましたが、将来的に差分を PR ごとに確認できるようにするなど、高機能なことをしたくなったら reg-suit などのツールを使うことになっていくと思います。その場合はツールに任せて Amazon S3 などに保存するようにした方がおそらくシンプルになると思います。僕の場合は現時点でそこまで高機能なツールを使う必要性がなかったです。
 
 シンプルに〜と何度も書いてますが、Playwright でスクリーンショットを保存・復元する部分に関してはパスを揃える必要があるなどちょっと面倒な処理が入っちゃいましたね。Playwright でスクリーンショットを保存・復元する部分ももう少しシンプルにしていきたいです。
+
+**みなさんも VRT を導入して良きフロントエンドライフを送りましょう！！**
 
 :::message alert
 （冒頭にも書きましたが...）
