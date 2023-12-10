@@ -191,10 +191,10 @@ flowchart LR
 ```
 
 *デプロイワークフロー*
-https://github.com/korosuke613/homepage-2nd/blob/9e5a7cd2647692074b699dc447645385422b891b/.github/workflows/pages.yml
+https://github.com/korosuke613/homepage-2nd/blob/dcf81729456fc1f0a33c520fdfe9e53bf5ec7d2c/.github/workflows/pages.yml
 
 *デプロイワークフローから呼び出されるスクリーンショット撮影＆保存ワークフロー*
-https://github.com/korosuke613/homepage-2nd/blob/9e5a7cd2647692074b699dc447645385422b891b/.github/workflows/vrt-init.yaml
+https://github.com/korosuke613/homepage-2nd/blob/dcf81729456fc1f0a33c520fdfe9e53bf5ec7d2c/.github/workflows/vrt-init.yaml
 
 ### Playwright でスクリーンショットを撮り、キャッシュに保存する
 :::message
@@ -212,11 +212,11 @@ await page.screenshot({
   path: path.join(testInfo.project.snapshotDir, "snapshots", fileName),
 });
 ```
-*[src/tests/vrt/utils.ts の init()](https://github.com/korosuke613/homepage-2nd/blob/9e5a7cd2647692074b699dc447645385422b891b/src/tests/vrt/utils.ts#L31-L54) より抜粋。*
+*[src/tests/vrt/utils.ts の init()](https://github.com/korosuke613/homepage-2nd/blob/dcf81729456fc1f0a33c520fdfe9e53bf5ec7d2c/src/tests/vrt/utils.ts#L31-L54) より抜粋。*
 
-`testInfo.project.snapshotDir` は Playwright の設定で指定している `testDir` を指します[^testDir]。
+`testInfo.project.snapshotDir` は Playwright の設定で指定している `testDir` を指します[^snapshotDir]。
 
-[^testDir]: The base directory, relative to the config file, for snapshot files created with `toMatchSnapshot`. Defaults to `testProject.testDir`. The directory for each test can be accessed by `testInfo.snapshotDir` and `testInfo.snapshotPath`. This path will serve as the base directory for each test file snapshot directory. Setting `snapshotDir` to `'snapshots'`, the `testInfo.snapshotDir` would resolve to `snapshots/a.spec.js-snapshots`. https://github.com/microsoft/playwright/blob/9e5a7cd2647692074b699dc447645385422b891b/packages/playwright/types/test.d.ts#L231-L243 より
+[^snapshotDir]: The base directory, relative to the config file, for snapshot files created with `toMatchSnapshot`. Defaults to `testProject.testDir`. The directory for each test can be accessed by `testInfo.snapshotDir` and `testInfo.snapshotPath`. This path will serve as the base directory for each test file snapshot directory. Setting `snapshotDir` to `'snapshots'`, the `testInfo.snapshotDir` would resolve to `snapshots/a.spec.js-snapshots`. https://github.com/microsoft/playwright/blob/dd9028cfe24a45de47ab1dfd5aa212537c2629e7/packages/playwright/types/test.d.ts#L231-L243 より
 
 
 ```ts:playwright-vrt.config.ts
@@ -226,7 +226,7 @@ const config: PlaywrightTestConfig = {
 ...
 ```
 
-*[playwright-vrt.config.ts](https://github.com/korosuke613/homepage-2nd/blob/9e5a7cd2647692074b699dc447645385422b891b/playwright-vrt.config.ts) より抜粋。*
+*[playwright-vrt.config.ts](https://github.com/korosuke613/homepage-2nd/blob/dcf81729456fc1f0a33c520fdfe9e53bf5ec7d2c/playwright-vrt.config.ts) より抜粋。*
 
 
 上記のようにパスを定義し、`page.screenshot()` をすることで、最終的には `src/tests/vrt/snapshots/<ページ名>.png` という風にスクリーンショットが保存されるようにしています。
@@ -242,7 +242,7 @@ const config: PlaywrightTestConfig = {
     key: vrt-${{ inputs.sha || vars.RECENT_ARTIFACTS_SHA256 }}
 ```
 
-[.github/workflows/vrt-init.yaml](https://github.com/korosuke613/homepage-2nd/blob/9e5a7cd2647692074b699dc447645385422b891b/.github/workflows/vrt-init.yaml) より抜粋。
+[.github/workflows/vrt-init.yaml](https://github.com/korosuke613/homepage-2nd/blob/dcf81729456fc1f0a33c520fdfe9e53bf5ec7d2c/.github/workflows/vrt-init.yaml) より抜粋。
 
 成果物のハッシュ値が変わるごとにデプロイが行われるようにしているため、キャッシュのキーには成果物のハッシュ値を加えています。
 
@@ -286,7 +286,7 @@ GitHub Actions のキャッシュは参照されなくなってから 7 日経�
 
 
 *トピックブランチで VRT を行うワークフロー*
-https://github.com/korosuke613/homepage-2nd/blob/9e5a7cd2647692074b699dc447645385422b891b/.github/workflows/vrt-regression.yaml
+https://github.com/korosuke613/homepage-2nd/blob/dcf81729456fc1f0a33c520fdfe9e53bf5ec7d2c/.github/workflows/vrt-regression.yaml
 
 ### テストオラクルたるスクリーンショットを復元する
 
@@ -309,7 +309,7 @@ actions/cache を使ってキャッシュからテストオラクルたるスク
       echo "### ✅ Snapshot exists" >> $GITHUB_STEP_SUMMARY
     fi
 ```
-*[.github/workflows/vrt-regression.yaml](https://github.com/korosuke613/homepage-2nd/blob/9e5a7cd2647692074b699dc447645385422b891b/.github/workflows/vrt-regression.yaml#L81-L100) より抜粋。*
+*[.github/workflows/vrt-regression.yaml](https://github.com/korosuke613/homepage-2nd/blob/dcf81729456fc1f0a33c520fdfe9e53bf5ec7d2c/.github/workflows/vrt-regression.yaml#L81-L99) より抜粋。*
 
 `Cache VRT snapshots` ステップでキャッシュからスクリーンショットを復元します。キャッシュのキーは `vrt-<最新のデプロイされている成果物のハッシュ値>` としています。あえて `restore-keys: vrt-` は設定していません[^restore-keys]。最新のデプロイされている成果物をテストオラクルとするためです。
 
@@ -330,9 +330,11 @@ expect(await page.screenshot({ fullPage: true })).toMatchSnapshot(fileName, {
   ...option?.matchSnapshot,
 });
 ```
-*[src/tests/vrt/utils.ts の compare()](https://github.com/korosuke613/homepage-2nd/blob/9e5a7cd2647692074b699dc447645385422b891b/src/tests/vrt/utils.ts#L56-L84) より抜粋。*
+*[src/tests/vrt/utils.ts の compare()](https://github.com/korosuke613/homepage-2nd/blob/dcf81729456fc1f0a33c520fdfe9e53bf5ec7d2c/src/tests/vrt/utils.ts#L56-L84) より抜粋。*
 
 VRT を行うには `page.screenshot().matchSnapshot()` を実行しますが、デフォルトでは `{snapshotDir}/{testFileDir}/{testFileName}-snapshots/{arg}{-projectName}{-snapshotSuffix}{ext}` のパスのスクリーンショットの有無を確認します。
+
+各パラメータの意味は https://github.com/microsoft/playwright/blob/dd9028cfe24a45de47ab1dfd5aa212537c2629e7/packages/playwright/types/test.d.ts#L1157-L1253 を参照ください。
 
 例えば、筆者の環境で `matchSnapshot()` すると、 `src/tests/vrt/regression.spec.ts-snapshots/<ページ名>-chromium-darwin.png` というパスでスクリーンショットが無ければいけません。スクリーンショットは `src/tests/vrt/snapshots/<ページ名>.png` として保存されているため、このままではエラーで落ちます。そのため、`matchSnapshot()` 際はスクリーンショット保存先のパスを教えてあげる必要があります。
 
@@ -341,11 +343,36 @@ VRT を行うには `page.screenshot().matchSnapshot()` を実行しますが、
 ```ts:playwright-vrt.config.ts
 const config: PlaywrightTestConfig = {
 ...
-  snapshotPathTemplate: "{testFileDir}/snapshots/{arg}{ext}",
+  snapshotPathTemplate: "{snapshotDir}/{testFileDir}/snapshots/{arg}{ext}",
 ...
 ```
 
 この設定により、`matchSnapshot()` において、`src/tests/vrt/snapshots/<ページ名>.png` というパスのスクリーンショットを探すようになるため、キャッシュから復元したスクリーンショットをテストオラクルとして扱うことができます。
+
+### もし VRT が失敗した場合
+Playwright で VRT が失敗した場合、スクリーンショットの差分がディスクに保存されます。Playwright の場合は `test-results` ディレクトリに保存されるため、VRT 失敗時は `test-results` ディレクトリを Artifacts へアップロードします。
+
+
+```yaml:.github/workflows/vrt-regression.yaml
+- name: Upload failed screenshots
+  if: failure()
+  uses: actions/upload-artifact@v3
+  with:
+    name: vrt-failed-screenshots-${{ github.sha }}
+    path: test-results
+```
+
+![](/images/practice-vrt-using-github-actions-cache/vrt-failed-artifact-result.png =600x)
+*ワークフロー画面にアーティファクトとして保存される*
+
+ワークフロー画面からダウンロードすることで、どのような差分があったかを確認できます。
+（正直ちょっと面倒ではあります。）
+
+![](/images/practice-vrt-using-github-actions-cache/vrt-failed-artifact-structure.png =600x)
+*test-results ディレクトリの構造例*
+
+![](/images/practice-vrt-using-github-actions-cache/vrt-failed-blogs.png =600x)
+*左から、テストオラクルたるスクリーンショット、ローカル環境でのスクリーンショット、それらの差分*
 
 # キャッシュのサイズや保存・復元に時間など
 現時点だと 9 ページのスクリーンショットをキャッシュするようにしています。
