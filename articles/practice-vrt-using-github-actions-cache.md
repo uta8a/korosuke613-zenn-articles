@@ -6,7 +6,7 @@ topics: ["GitHubActions", "vrt", "playwright"]
 published: true
 publication_name: "cybozu_ept"
 user_defined: {"publish_link": "https://zenn.dev/cybozu-ept/articles/practice-vrt-using-github-actions-cache"}
-published_at: "2023-12-12 07:00"
+published_at: "2023-12-12 12:00"
 ---
 
 GitHub Actions のキャッシュを使った Visual Regression Testing (VRT) をやっていく方法を記します。案外簡単にできる割にあまり説明している記事がなかったので、今回書きました。
