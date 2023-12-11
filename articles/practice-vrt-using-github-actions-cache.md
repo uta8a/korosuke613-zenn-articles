@@ -14,6 +14,7 @@ GitHub Actions 内で完結して VRT を行うため、比較的軽量に導入
 
 :::message
 この記事は **[Cybozu Frontend Advent Calendar 2023](https://adventar.org/calendars/9255)** の 12 日目の記事です🎄
+みなさん興味深いフロントエンド関連の記事をいろいろ書かれていて面白いのでぜひ読んでください。
 明日は [kofuk](https://www.kofuk.org/) さんの予定です。楽しみ！🎅
 :::
 
@@ -230,6 +231,8 @@ https://github.com/korosuke613/homepage-2nd/blob/dcf81729456fc1f0a33c520fdfe9e53
 ## Playwright でスクリーンショットを撮る
 :::message
 細かい実装の部分になるので、興味がない方は飛ばしてください。
+
+なお、本記事で使っている Playwright のバージョンは 1.40.1 です。
 :::
 
 僕は VRT に [Playwright](https://playwright.dev/) を利用しています。
