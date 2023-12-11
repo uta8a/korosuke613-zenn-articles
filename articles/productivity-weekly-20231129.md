@@ -65,7 +65,7 @@ https://aws.amazon.com/jp/about-aws/whats-new/2023/11/aws-lambda-support-node-js
 - Amazon Linux 2023 がベースイメージになった
 - 追加のルート証明書のロードを自動で行わなくなった[^load_ca]
   - 平木場）よくわかってないけど、コールドスタートが速くなった...ってコト！？
-- オープンソースの AWS Lambda NodeJS Runtime Interface Client (RIC) を利用するようになった
+- オープンソースの AWS Lambda Node.js Runtime Interface Client (RIC) を利用するようになった
   - 平木場）Lambda Container で Node.js を使う際に Node.js 20 ランタイムと同じ RIC が使えるようになったってことっぽい
 - Node.js のヒープメモリサイズを `NODE_OPTIONS` 環境変数で設定可能に
 
@@ -88,25 +88,86 @@ _本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 ## Custom Organization Roles are now GA - The GitHub Blog
 https://github.blog/changelog/2023-11-16-custom-organization-roles-are-now-ga/
 
+GitHub の Organization において、管理者は権限をカスタムしたロールを作成・付与できるようになりました。
+
+以前から存在する [custom repository roles](https://zenn.dev/korosuke613/articles/productivity-weekly-20211108#enterprise-organizations-can-now-create-custom-repository-roles-%7C-github-changelog) に近い機能かと思われます。
+custom repository roles と異なり、custom organization roles は Organization のスコープとなります。
+
+現時点では 10 個の権限を付与可能です（[参考](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/about-custom-organization-roles#permissions-for-custom-roles)）。
+
+- custom organization roles の管理
+- custom organization roles の閲覧
+- custom repository roles の管理
+- custom repository roles の閲覧
+- Organization の Webhook 管理
+- Organization の OAuth アプリケーションポリシー管理
+- custom properties for repository 管理
+- custom properties for repository の値の編集
+- repository rulesets の管理
+- Organization の audit log の閲覧
+
+repository rulesets は管理してほしい...でも、管理者権限は付与したくない...といった場合にきめ細かい権限を与えられて便利ですね。
+
+:::message
+
+なお、タイトルには **GA** という文字が入っていますが、僕の知る限り、外向けにベータ版の存在は確認できていません。
+
+[ドキュメント](https://github.com/github/docs/blob/521f4af42cd4e6721320237bae43628ce8c0ac71/content/organizations/managing-peoples-access-to-your-organization-with-roles/about-custom-organization-roles.md)もコミット履歴を見る限り最近できたばかりだったので、単純に新機能だと思います。
+
+![](/images/productivity-weekly-20231129/ga_janaiyo.png =600x)
+*コミット 1 個だけ*
+
+:::
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
+
 # know-how 🎓
 
 ## Security best practices for authors of GitHub Actions - The GitHub Blog
 https://github.blog/2023-11-16-security-best-practices-for-authors-of-github-actions/
 
-# tool 🔨
+GitHub 公式ブログによる、GitHub Actions のアクション作成者向けのセキュリティベストプラクティス紹介記事です。
 
-## ysk8hori/delta-typescript-graph-action: This GitHub Action uses Mermaid to visualize in a diagram the files that were changed in a Pull Request and their related dependency files.
-https://github.com/ysk8hori/delta-typescript-graph-action
+アクション作成者向けの記事となっていますが、あまり GitHub Actions に特化した内容とはなっておらず、OSS ライブラリ作成者にはある程度当てはめられそうな内容となっています。
+
+主に以下のプラクティスについて説明されています。詳しくは記事を読んでください。
+
+- ソースリポジトリを保護する
+  - Dependabot を有効化する[^dependabot]
+  - code scanning を有効化する
+  - Dependabot のクリティカルアラートを解決する
+  - セキュリティポリシーを作成する
+- 他要素認証（MFA）を有効化する
+- verified creator バッジを取得する[^verified-creator]
+
+verified creator はともかく、他は今すぐできるプラクティスですね。どんなものか知らない人は確かめてみましょう。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
+
+[^dependabot]: 脆弱性検知はともかく、依存関係更新については Renovate も便利で良いです。
+[^verified-creator]: これに関しては企業レベルの話になりそうですね。
 
 # read more 🍘
 Productivity Weekly で出たネタを全て紹介したいけど紹介する体力が持たなかったネタを一言程度で書くコーナーです。
 
-- **news 📺**
-- **know-how 🎓**
 - **tool 🔨**
+  - [ysk8hori/delta-typescript-graph-action: This GitHub Action uses Mermaid to visualize in a diagram the files that were changed in a Pull Request and their related dependency files.](https://github.com/ysk8hori/delta-typescript-graph-action)
+    - TypeScript の依存関係を可視化する GitHub Actions のアクションです
+      - 単純なコマンドラインツールも別途あります [ysk8hori/typescript-graph](https://github.com/ysk8hori/typescript-graph)
+    - Mermaid diagram を使って、pull request に変更されたファイルと依存関係をハイライトしてくれるようです
+    - レビューしやすそうで気になりますね
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 # あとがき
 
+今週号でした。本来は 2023/11/22 号のネタが少なかったので、2023/11/29 号の合併号の予定でしたが、2023/11/29 号は生産性向上チームの都合でスキップとなったので、ちょっとネタ少なめでしたが今回は 2023/11/22 号のみでお届けしました。
+また、僕が忙しくて遅くなってしまいました。すみません。
+
+~~遅くなった理由はアドベントカレンダー書いてたからです。~~
+みなさん読んでください。
+
+https://zenn.dev/cybozu_ept/articles/skip-deploy-by-artifact-sha-for-github-actions
 
 サイボウズの生産性向上チームでは社内エンジニアの開発生産性を上げるための活動を行なっています。そんな生産性向上チームが気になる方は下のリンクをクリック！
 https://note.com/cybozu_dev/n/n1c1b44bf72f6
