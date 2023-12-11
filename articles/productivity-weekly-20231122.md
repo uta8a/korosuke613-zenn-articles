@@ -1,11 +1,11 @@
 ---
-title: "Productivity Weekly (2023-11-29号, 2023-11-22号)"
+title: "ECRのプルスルーキャッシュ強化。LambdaがNode.js v20対応｜Productivity Weekly(2023-11-22号)"
 emoji: "🥘"
 type: "idea"
 topics: ["ProductivityWeekly", "生産性向上"]
 published: false
 publication_name: "cybozu_ept"
-user_defined: {"publish_link": "https://zenn.dev/korosuke613/articles/productivity-weekly-20231129"}
+user_defined: {"publish_link": "https://zenn.dev/korosuke613/articles/productivity-weekly-20231122"}
 ---
 
 こんにちは。サイボウズ株式会社 [生産性向上チーム](https://note.com/cybozu_dev/n/n1c1b44bf72f6)の平木場です。
@@ -15,7 +15,7 @@ user_defined: {"publish_link": "https://zenn.dev/korosuke613/articles/productivi
 
 
 2023-01-25 号から、基本的に隔週で連載することとしました。たまに単独でも投稿するかもしれません。
-今週は 2023-11-29, 2023-11-22 合併号です。
+今週は 2023-11-22 号です。
 
 今回が第 134 回目です。過去の記事は[こちら](https://zenn.dev/topics/productivityweekly?order=latest)。
 
