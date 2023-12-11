@@ -3,9 +3,10 @@ title: "ECRのプルスルーキャッシュ強化。LambdaがNode.js v20対応�
 emoji: "🥘"
 type: "idea"
 topics: ["ProductivityWeekly", "生産性向上"]
-published: false
+published: true
 publication_name: "cybozu_ept"
 user_defined: {"publish_link": "https://zenn.dev/korosuke613/articles/productivity-weekly-20231122"}
+published_at: "2023-12-12 10:00"
 ---
 
 こんにちは。サイボウズ株式会社 [生産性向上チーム](https://note.com/cybozu_dev/n/n1c1b44bf72f6)の平木場です。
