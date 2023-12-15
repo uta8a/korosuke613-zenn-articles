@@ -21,13 +21,17 @@ GitHub Actions 内で完結して VRT を行うため、比較的軽量に導入
 [^frontend]: 周りの人の記事がガチすぎて震えています。
 
 :::message alert
-なんと、12/02 付けで @tacrew さんが投稿された記事とネタ被りしてしまいました 😭
+なんと、12/02 付けで @tacrew さんが投稿された記事とネタ被りしてしまいました笑
 記事をほぼ書いた後に気づいたのですが、ある程度書いていたためこのまま投稿します。
-内容は結構近いです。ぜひご参考ください。
+内容は近いですが、req-suit や Storybook を使ってる点は本記事と全く異なる部分になります。
+ぜひご参考ください！
 
 - [GitHubだけでVRTする仕組みを作ってみた #GitHub - Qiita](https://qiita.com/tacrew/items/f816c3690c0b5bc7bcb5)
 :::
 
+:::details 更新履歴（2023/12/15 更新）
+- ⭐️ 2023/12/15 いただいたコメントの内容を反映しました（[PR](https://github.com/korosuke613/zenn-articles/pull/537/files)）
+:::
 
 # TL;DR
 - **対象**
@@ -128,6 +132,9 @@ GitHub Actions の Artifacts に保存する方法です。個人的に一番理
 **Cons 👎**
 - ワークフローが異なる場合に @actions/artifact が使えないため、どうしても複雑な処理を自前で行う必要がある
 - アーティファクトの保持期間は最大 90 日[^private]しかないため、アーティファクトが存在しなかった場合を想定する必要がある
+- アーティファクトは owner が持つ[共有ストレージ](https://docs.github.com/en/billing/managing-billing-for-github-actions/about-billing-for-github-actions#included-storage-and-minutes)（Free の場合 500MB）を利用してしまうため、他のリポジトリに影響を与える可能性がある（2023/12/15 追記 🆕[^storage]）
+
+[^storage]: *[@yorifuji さんより教えていただきました](https://zenn.dev/link/comments/529a752f5d98dd)。ありがとうございました！*
 
 [^private]: 実はプライベートリポジトリの場合は最大 400 日まで行ける。https://docs.github.com/en/actions/learn-github-actions/usage-limits-billing-and-administration#artifact-and-log-retention-policy
 
@@ -289,6 +296,16 @@ const config: PlaywrightTestConfig = {
 
 成果物のハッシュ値を計算する方法については、先日投稿した [成果物のハッシュ値を保存・比較して余計なデプロイを行わないようにする for GitHub Actions](https://zenn.dev/cybozu_ept/articles/skip-deploy-by-artifact-sha-for-github-actions) を参照ください。
 
+:::message
+2023/12/15 追記 🆕
+
+GitHub Actions には、組み込み関数として [`hashFiles()`](https://docs.github.com/en/actions/learn-github-actions/expressions#hashfiles) というものがあります。
+上の方法よりも簡単に成果物のハッシュ値を計算できるので、こちらを使うのが良いと思います。
+
+*[@yorifuji さんより教えていただきました](https://zenn.dev/link/comments/529a752f5d98dd)。ありがとうございました！*
+:::
+
+
 もし、成果物のハッシュ値を計算せずにキーを決定したい場合は、例えばコミットハッシュ値である [`${{ github.sha }}`](https://docs.github.com/en/actions/learn-github-actions/contexts#github-context) をキーにすることでも代用できます。
 
 # トピックブランチで VRT を実行する
@@ -448,9 +465,10 @@ VRT 自体も見た目のデグレを検知できるのでめちゃくちゃ頼�
 :::message alert
 （冒頭にも書きましたが...）
 
-なんと、12/02 付けで @tacrew さんが投稿された記事とネタ被りしてしまいました 😭
+なんと、12/02 付けで @tacrew さんが投稿された記事とネタ被りしてしまいました笑
 記事をほぼ書いた後に気づいたのですが、ある程度書いていたためこのまま投稿します。
-内容は結構近いです。ぜひご参考ください。
+内容は近いですが、req-suit や Storybook を使ってる点は本記事と全く異なる部分になります。
+ぜひご参考ください！
 
 - [GitHubだけでVRTする仕組みを作ってみた #GitHub - Qiita](https://qiita.com/tacrew/items/f816c3690c0b5bc7bcb5)
 :::
