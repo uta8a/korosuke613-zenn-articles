@@ -1,5 +1,5 @@
 ---
-title: "＜ここにタイトルを入力＞｜Productivity Weekly (2023-12-06号)"
+title: "Deno cronやOpenTofu、CI高速化など｜Productivity Weekly (2023-12-06号)"
 emoji: "🐻"
 type: "idea"
 topics: ["ProductivityWeekly", "生産性向上"]
@@ -7,6 +7,17 @@ published: false
 publication_name: "cybozu_ept"
 user_defined: {"publish_link": "https://zenn.dev/korosuke613/articles/productivity-weekly-20231206"}
 ---
+
+:::message
+
+<!-- textlint-disable @proofdict/proofdict -->
+
+大変遅くなってしまいすみません。12 月はとにかく忙しかったです（あとネタ多すぎ）。
+年内はあと 2023-12-13 号を予定しています。~~2023-12-20 号はなんとも言えない。~~
+
+<!-- textlint-enable -->
+
+:::
 
 こんにちは。サイボウズ株式会社 [生産性向上チーム](https://note.com/cybozu_dev/n/n1c1b44bf72f6)の平木場です。
 
@@ -26,20 +37,11 @@ user_defined: {"publish_link": "https://zenn.dev/korosuke613/articles/productivi
 
 今週の共同著者は次の方です。
 - [@korosuke613](https://zenn.dev/korosuke613)
-- [@defaultcf](https://zenn.dev/defaultcf)
 - [@Kesin11](https://zenn.dev/kesin11)
-- [@r4mimu](https://zenn.dev/r4mimu)
-- [@uta8a](https://zenn.dev/uta8a)
 
 :::
 
 # news 📺
-
-## Introducing Amazon Q, a new generative AI-powered assistant (preview) | AWS News Blog
-https://aws.amazon.com/jp/blogs/aws/introducing-amazon-q-a-new-generative-ai-powered-assistant-preview/
-
-## AWS Lambda がログを送信する CloudWatch ロググループをカスタマイズ可能になり、複数の Lambda 関数のログを集約できるようになりました | DevelopersIO 
-https://dev.classmethod.jp/articles/aggregate-multiple-function-logs-aws-lambda/
 
 ## GitHub Copilot – November 30th Update - The GitHub Blog
 https://github.blog/changelog/2023-11-30-github-copilot-november-30th-update/
@@ -76,12 +78,6 @@ Amazon CloudWatch Logs に異常検出機能が追加されました。この記
 
 _本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
-## Trigger pipelines from anywhere: inbound webhooks now in preview - Announcements - CircleCI Discuss
-https://discuss.circleci.com/t/trigger-pipelines-from-anywhere-inbound-webhooks-now-in-preview/49864
-
-## IAM Access Analyzer updates: Find unused access, check policies before deployment | AWS News Blog
-https://aws.amazon.com/jp/blogs/aws/iam-access-analyzer-updates-find-unused-access-check-policies-before-deployment/
-
 ## Announcing Deno Cron 
 https://deno.com/blog/cron
 
@@ -111,11 +107,18 @@ _本項の執筆者: [@Kesin11](https://zenn.dev/kesin11)_
 ## CIを高速化する技術⚡️ - 10X Product Blog
 https://product.10x.co.jp/entry/2023/12/01/113134
 
-## ついに最強のCI/CDが完成した 〜巨大リポジトリで各チームが独立して・安全に・高速にリリースする〜 - ZOZO TECH BLOG
-https://techblog.zozo.com/entry/the-best-cicd
+10X さんによる、CI を高速化するためのテクニックや事例、取り組み紹介記事です。
 
-## Starting Detection Engineering in Ubie
-https://zenn.dev/mizutani/articles/start-de-ubie
+キャッシュの利用やマシンスペックの最適化などの基本的なことはもちろん、テスト分割やジョブの依存関係・実行順序の見直しなどちょっとテクニカルなことも書かれています。高速化を実践してみて、改善前と改善後でどうテスト実行時間が変わったかなどの事例も載っています。
+
+最後には著者が高速化を実現するために日々取り組んでいることが載っており、新たな高速化アイデアを作り出すのに参考になりそうです。
+個人的には `「CI 遅い…待てない…」と日々思い続ける` が「わかる...」という気持ちになりました。だんだん慣れちゃうんですよねほんと。
+
+各テクニックでは、CircleCI、GitHub Actions の両方でどうすればいいかのヒントも示してくれているため、とりあえずやってみるの精神で試し始められると思います。
+
+できうる限りで CI を高速化していきたいですね。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 ## Terraform職人のためのOpenTofu入門 #Terraform - Qiita
 https://qiita.com/minamijoyo/items/16d1b5b15a60d17e350a
@@ -135,9 +138,6 @@ OpenTofu に興味が湧いてきた方はぜひこの記事をお読みくだ�
 _本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 [^opentofu]: OpenTofu 自体は[これまでもちょいちょい紹介してきました](https://zenn.dev/cybozu_ept/articles/productivity-weekly-20230913?redirected=1#the-opentf-fork-is-now-available!)ね。
-
-## Amazon Linux 2023を触ってみて質問がありそうなことをまとめてみました。 | ソフトウェア開発のギークフィード
-https://www.geekfeed.co.jp/geekblog/amazonlinux2023-al2023/
 
 ## GitHub Actions workflowが完了したらデスクトップ通知を出す - valid,invalid
 https://ohbarye.hatenablog.jp/entry/2021/05/01/desktop-notification-on-ci-finish
@@ -212,26 +212,68 @@ https://blog.uta8a.net/post/2023-12-06-reading-myshoes-serverless-aws
 
 _本項の執筆者: [@Kesin11](https://zenn.dev/kesin11)_
 
-## 特に個人開発者向け！CodeRabbit(自動レビューツール)を使えばコードの健康まで得られることに気づいた話 
-https://zenn.dev/binnmti/articles/7e3690ebe80951
-
-## CI/CD Litmus Test: CI/CD レベルを測定しよう！ - kakakakakku blog
-https://kakakakakku.hatenablog.com/entry/2023/11/28/181118
-
 # read more 🍘
 Productivity Weekly で出たネタを全て紹介したいけど紹介する体力が持たなかったネタを一言程度で書くコーナーです。
 
 - **news 📺**
+  - [Introducing Amazon Q, a new generative AI-powered assistant (preview) | AWS News Blog](https://aws.amazon.com/jp/blogs/aws/introducing-amazon-q-a-new-generative-ai-powered-assistant-preview/)
+    - AWS が AI アシスタント AmazonQ を発表しました（プレビュー）
+    - 主にチャットベースのコミュニケーションをサポートしていそうです
+    - Jira や GitHub などの外部サービスをデータソースとすることでチャットのカスタマイズも可能です
+    - 外部データソースを簡単に繋げられそうなのは便利ですね。正式リリースが楽しみです
+  - [AWS Lambda がログを送信する CloudWatch ロググループをカスタマイズ可能になり、複数の Lambda 関数のログを集約できるようになりました | DevelopersIO](https://dev.classmethod.jp/articles/aggregate-multiple-function-logs-aws-lambda/)
+    - Amazon CloudWatch Logs において、Lambda のログを送信するロググループをカスタマイズできるようになりました
+    - クラメソさんの記事ではロググループを集約する方法が紹介されていますね
+    - 似たような Lambda 関数が多くある場合に便利そうです
+  - [Trigger pipelines from anywhere: inbound webhooks now in preview - Announcements - CircleCI Discuss](https://discuss.circleci.com/t/trigger-pipelines-from-anywhere-inbound-webhooks-now-in-preview/49864)
+    - CircleCI のパイプラインを Webhook でトリガーできるようになりました
+    - これにより任意のタイミングでパイプラインを実行できるようになります
+    - これまでも API でパイプラインを実行できましたが、Webhook を使うことでより簡単にパイプラインを実行できるようになります
+      - また、Webhook Trigger の場合はコンフィグファイルのパスを指定できるようです
+    - 例えば GitHub App でコメント時に CircleCI に Webhook を送ってコメントに返信するといったことも簡単にできるようになりそうですね
+  - [IAM Access Analyzer updates: Find unused access, check policies before deployment | AWS News Blog](https://aws.amazon.com/jp/blogs/aws/iam-access-analyzer-updates-find-unused-access-check-policies-before-deployment/)
+    - AWS の IAM Access Analyzer において、未使用のアクセス権限を検出できるようになりました（Unused Access Analyzer）
+    - 元々の IAM Access Analyzer は S3 バケットや IAM ロールなどのリソースに対して、外部アクセス可能なものを検出する機能でした（無料）
+    - 今回追加された Unused Access Analyzer は、IAM ポリシーやロール、ユーザのリソースに対して長らく未使用となっているもの検出する機能です（有料）
+    - Organization 横断で各アカウントの未使用リソースを横断して調べることもできます
+    - 定期的にチェックして余計な権限を削除していきたいですね
 - **know-how 🎓**
+  - [ついに最強のCI/CDが完成した 〜巨大リポジトリで各チームが独立して・安全に・高速にリリースする〜 - ZOZO TECH BLOG](https://techblog.zozo.com/entry/the-best-cicd)
+    - ZOZO さんによる、巨大モノレポで複数チームが独立してリリースしていくためにどうしたかを紹介した記事です
+    - これまでの背景や課題、刷新内容、刷新してどうなったかなどが書かれています
+    - 巨大なモノレポでリリースを複数行うとなるとそうなるよなという困り事が詰まっていてどこも苦労してそうと思いました
+  - [Amazon Linux 2023を触ってみて質問がありそうなことをまとめてみました。 | ソフトウェア開発のギークフィード](https://www.geekfeed.co.jp/geekblog/amazonlinux2023-al2023/)
+    - GEEKFEED さんによる、今年正式リリースされた Amazon Linux 2023 に関するよくある質問まとめです
+      - 公開日はちょっと古い（9 ヶ月前）ので、最新の情報かどうかは確認しましょう
+    - これまでの最新版であった Amazon Linux 2 からの移行に関することや、2 との違いなどがいろいろ書かれており参考になります
+    - 個人的には「`/var/log` 配下にログがない」みたいな情報は何も知らないと戸惑うのでありがたいです
+      - とはいえ基本 Ubuntu しか触らないから Amazon Linux は本当に触る機会がない
+  - [Starting Detection Engineering in Ubie](https://zenn.dev/mizutani/articles/start-de-ubie)
+    - Ubie さんによる、セキュリティ監視の課題と取り組みを紹介した記事です
+    - 著者が大事だと思う Detection Engineering の要素、内製予定のセキュリティ監視基盤について、セキュリティ監視基盤の課題などが書かれています
+    - ログの集約、分析、検索、アラートポリシーの管理やアラート自動対応などが全て詰まった汎用的な基盤を独自に作る取り組みは面白いと思いました。実際セキュリティ基盤はバラバラに存在しがちなので、一元化したりニーズに合わせるにはこういう取り組みが必要なのかなと思いました
 - **tool 🔨**
+  - [特に個人開発者向け！CodeRabbit(自動レビューツール)を使えばコードの健康まで得られることに気づいた話](https://zenn.dev/binnmti/articles/7e3690ebe80951)
+    - AI を使ったコードレビューツール CodeRabbit を紹介した記事です
+    - PR のサマリーやファイルごとの変更の概要、懸念点に対するコメントなどを自動でしてくれるようです
+    - 僕もプライベートで遊んでみたのですが、単純なミスはもちろんのことロジックの不備などパッと見わからないようなものも指摘してくれて、孤独な個人開発者には嬉しいのかなと思いました
+  - [CI/CD Litmus Test: CI/CD レベルを測定しよう！ - kakakakakku blog](https://kakakakakku.hatenablog.com/entry/2023/11/28/181118)
+    - AWS が公開している CI/CD のスコアやレベルを測定できるサイト CI/CD Litmus Test[^litmus]の紹介記事です
+    - リポジトリを走査するような大掛かりなものではなく、複数の設問に Yes/No で答えていくだけのシンプルなものになっています
+    - 試験後に著者が紹介している AWS の CI/CD に関するプラクティスのドキュメントを読みつつ自分らの CI/CD の改善点を洗い出していけそうですね
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
+
+[^litmus]: Litmus Test はみんな大好きリトマス試験のことを表していそうですね。酸性・アルカリ性を測定する紙を使った試験で、中学校の理科かなんかでやった記憶。
 
 # あとがき
+<!-- textlint-disable @proofdict/proofdict -->
 
+大変遅くなってしまいすみません。12 月はとにかく忙しかったです（あとネタ多すぎ）。
+年内はあと 2023-12-13 号を予定しています。~~2023-12-20 号はなんとも言えない。~~
+
+<!-- textlint-enable -->
 
 サイボウズの生産性向上チームでは社内エンジニアの開発生産性を上げるための活動を行なっています。そんな生産性向上チームが気になる方は下のリンクをクリック！
 https://note.com/cybozu_dev/n/n1c1b44bf72f6
 
-<!-- :::message すみません、今週もおまけはお休みです...:::-->
-
-## omake 🃏: 
-今週のおまけです。
