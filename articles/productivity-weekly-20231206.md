@@ -142,6 +142,30 @@ https://www.geekfeed.co.jp/geekblog/amazonlinux2023-al2023/
 ## GitHub Actions workflowが完了したらデスクトップ通知を出す - valid,invalid
 https://ohbarye.hatenablog.jp/entry/2021/05/01/desktop-notification-on-ci-finish
 
+macOS において、GitHub Actions のワークフローが完了したらデスクトップ通知を出す方法を紹介する記事です。
+
+macOS では AppleScript という言語を使うことにより、デスクトップ通知を出したりウィンドウを動かしたりといった操作ができます。
+この記事では、AppleScript をターミナルから実行する組み込みコマンド osascript と GitHub CLI を組み合わせて、GitHub Actions のワークフローが完了したらデスクトップ通知を出す方法が紹介されています。
+サンプルコードが書かれているため、すぐに試すことができます。
+
+僕も使ってみたのですが、デスクトップ通知は気づかないことがあるので、アラートを出すようにしてみました。
+
+```sh
+alias ghn='gh run watch -i10 && osascript -e "display alert \"GitHub Actions workflow is done\" buttons {\"OK\"}"'
+```
+
+AppleScript では `display alert` でアラートを出せます[^apple_script_ref]。
+
+![](/images/productivity-weekly-20231206/display_alert.png =400x)
+*OK ボタンだけある*
+
+例えば Flaky で時間のかかるようなテストを実行しなきゃいけない時などに、作業中にすぐにワークフローの実行完了を知ることができて（場合によっては re-run もできる）便利です。
+割と簡単にできるので、似たようなことを考えている人はぜひ試してみてください。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
+
+[^apple_script_ref]: 参考にしたサイト: [AppleScriptの概要と主要コマンド(随時更新) - Kekeの日記](https://bobchan1915.hatenablog.com/entry/apple-script-abstract)
+
 ## そのテスト、最後まで実行されていますか？　jestとnpm-run-allの恐るべき罠
 https://zenn.dev/babel/articles/jest-npm-run-all-for-babel
 
