@@ -3,7 +3,7 @@ title: "Deno cronやOpenTofu、CI高速化など｜Productivity Weekly (2023-12-
 emoji: "🐻"
 type: "idea"
 topics: ["ProductivityWeekly", "生産性向上"]
-published: false
+published: true
 publication_name: "cybozu_ept"
 user_defined: {"publish_link": "https://zenn.dev/korosuke613/articles/productivity-weekly-20231206"}
 ---
