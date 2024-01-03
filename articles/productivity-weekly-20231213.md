@@ -1,5 +1,5 @@
 ---
-title: "＜ここにタイトルを入力＞：Productivity Weekly (2023-12-13号)"
+title: "GitHubの新しいリポジトリ一覧、Testcontainers紹介など：Productivity Weekly (2023-12-13号)"
 emoji: "🐁"
 type: "idea"
 topics: ["ProductivityWeekly", "生産性向上"]
@@ -28,8 +28,6 @@ user_defined: {"publish_link": "https://zenn.dev/korosuke613/articles/productivi
 - [@korosuke613](https://zenn.dev/korosuke613)
 - [@defaultcf](https://zenn.dev/defaultcf)
 - [@Kesin11](https://zenn.dev/kesin11)
-- [@r4mimu](https://zenn.dev/r4mimu)
-- [@uta8a](https://zenn.dev/uta8a)
 
 :::
 
@@ -37,6 +35,18 @@ user_defined: {"publish_link": "https://zenn.dev/korosuke613/articles/productivi
 
 ## New Organization Repositories List Feature Preview - The GitHub Blog
 https://github.blog/changelog/2023-12-06-new-organization-repositories-list-feature-preview/
+
+GitHub Organization において、新たなリポジトリ一覧を表示する機能がプレビューとしてリリースされました。
+
+新たなリポジトリ一覧ページでは、フィルタリング機能が強化されていたり、使い勝手が良くなったりしています。
+
+フィルタリング機能では、10 月にリリースされた [repository custom properties](https://zenn.dev/cybozu_ept/articles/productivity-weekly-20231018?redirected=1#github-repository-custom-properties-beta---the-github-blog) の値やリポジトリのストレージ使用量などでフィルタリングができるようになっており、従来のリポジトリ一覧と比べてリポジトリの絞り込みがしやすくなっています。
+
+特に custom properties の可能性が広がったのが良いですね。これからはリポジトリの管理にも custom properties を活用していけそうです。
+
+個人レベルでも custom properties、new repositories list が使えるようになってほしいです 😇
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 ## CSSで句読点括弧のカーニングができるようになるぞ！ 日本語が読みやすくなる最近サポートされた・近日サポートされるCSSの機能のまとめ | コリス
 https://coliss.com/articles/build-websites/operation/css/css-4-features-for-i18n.html
@@ -125,19 +135,17 @@ Organizations を閉じて、新しい Organizations のメンバーに入れる
 
 _本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)_
 
-# read more 🍘
-Productivity Weekly で出たネタを全て紹介したいけど紹介する体力が持たなかったネタを一言程度で書くコーナーです。
-
-- **news 📺**
-- **know-how 🎓**
-
 # あとがき
 
+<!-- textlint-disable ja-technical-writing/ja-no-mixed-period -->
+
+明けましておめでとうございます。本年もよろしくお願いします🎍
+すみません今回も大変遅くなってしまいました。年末年始はバルダーズゲート 3 をひたすらやってました。
 
 サイボウズの生産性向上チームでは社内エンジニアの開発生産性を上げるための活動を行なっています。そんな生産性向上チームが気になる方は下のリンクをクリック！
 https://note.com/cybozu_dev/n/n1c1b44bf72f6
 
+<!-- textlint-enable ja-technical-writing/ja-no-mixed-period -->
+
 <!-- :::message すみません、今週もおまけはお休みです...:::-->
 
-## omake 🃏: 
-今週のおまけです。
