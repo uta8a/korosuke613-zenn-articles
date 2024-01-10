@@ -38,6 +38,19 @@ user_defined: {"publish_link": "https://zenn.dev/korosuke613/articles/productivi
 ## GitHub Actions - Artifacts v4 is now Generally Available - The GitHub Blog
 https://github.blog/changelog/2023-12-14-github-actions-artifacts-v4-is-now-generally-available/
 
+[actions/upload-artifact](https://github.com/actions/upload-artifact)と[actions/download-artifact](https://github.com/actions/download-artifact)の v4 がリリースされました。
+
+v4 の目玉としてはパフォーマンスが大幅に改善されたようです。GitHub Actions でジョブ間のファイルの受け渡しやビルドした成果物の保存などのために upload-artifact を使用した際に意外と時間がかかるケースを何度も見たことがあるので、個人的には待望の改善です。
+
+一方で、BREAKING CHANGES がいくつかあります。まず v3 と v4 の間に互換性がなくなっており、具体的には v3 の upload-artifact でアップロードした場合に v4 の download-artifact でダウンロードできません。Renovate などで自動アップデートさせている場合は download-artifact と upload-artifact を個別にアップデートしようとすると CI が通らない可能性があるので注意が必要です。
+また、upload-artifact ではアーティファクトを同名でアップロードすることが許されなくなりました。特に matrix を利用している場合は起こりがちのため、回避策も記事中のリンクで紹介されています。
+
+ちなみに、自分は両方のパターンを踏み抜きました。皆さんはお気をつけください。
+
+これ以外にもいくつか新機能があります。より詳しい詳細は[v4のREADME](https://github.com/actions/upload-artifact/tree/v4.0.0?tab=readme-ov-file#v4---whats-new)に記載されているので、気になる方はこちらもチェックしましょう。
+
+_本項の執筆者: [@Kesin11](https://zenn.dev/kesin11)_
+
 ## GitHub Next • Technical Preview Sunsets
 https://gist.github.com/idan/325676d192b32f169b032fde2d866c2c
 
@@ -72,6 +85,14 @@ https://github.blog/changelog/2023-12-19-code-scanning-default-setup-is-now-avai
 
 ## Docker社がTestcontainersの開発元AtomicJar社の買収を発表。Dockerでの統合テスト環境を強化 － Publickey
 https://www.publickey1.jp/blog/23/dockertestcontainersatomicjardocker.html
+
+前回の[Productivity Weekly](https://zenn.dev/cybozu_ept/articles/productivity-weekly-20231213)でも取り上げた Testcontainers の開発元が Docker 社に買収されました。こちらの Docker 社のブログでも年の記事で早速 TestContainers が取り上げられており、今後に期待できそうです。
+
+https://www.docker.com/ja-jp/blog/8-top-docker-tips-tricks-for-2024/
+
+最近の Docker 社は Docker Desktop の改善だけではなく、ローカル環境で Docker を用いた開発体験を向上させるための取り組みを積極的に行っているように感じますね。
+
+_本項の執筆者: [@Kesin11](https://zenn.dev/kesin11)_
 
 ## HashiCorp Vaultもフォークへ、「OpenBao」がLinux Foundation傘下で進行中
 https://www.publickey1.jp/blog/23/hashicorp_vaultopenbaolinux_foundation.html
