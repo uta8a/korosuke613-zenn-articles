@@ -35,11 +35,33 @@ user_defined: {"publish_link": "https://zenn.dev/korosuke613/articles/productivi
 
 # news 📺
 
+## GitHub Actions - Artifacts v4 is now Generally Available - The GitHub Blog
+https://github.blog/changelog/2023-12-14-github-actions-artifacts-v4-is-now-generally-available/
+
 ## GitHub Next • Technical Preview Sunsets
 https://gist.github.com/idan/325676d192b32f169b032fde2d866c2c
 
-## GitHub Actions - Artifacts v4 is now Generally Available - The GitHub Blog
-https://github.blog/changelog/2023-12-14-github-actions-artifacts-v4-is-now-generally-available/
+GitHub Next[^gh_next]が提供するいくつかのテクニカルプレビューが 2023/12/15 で終了しました。この連絡はプレビュー利用者に対してメールで送られてきました。上記リンクはそのメールの内容を GitHub Next の中の人が Gist に残したものですね。
+
+実際に終了した機能は以下です。
+
+- [Copilot for PRs](https://githubnext.com/projects/copilot-for-pull-requests)
+- [Copilot for Docs](https://githubnext.com/projects/copilot-for-docs)
+- [Copilot Labs](https://githubnext.com/projects/copilot-labs)
+- [Blocks](https://blocks.githubnext.com/)
+
+Copilot for PRs は GitHub Copilot によるプルリクエストのレビューやテスト生成、PR 自体を作る機能で、Docs の方は React などの技術ドキュメントを学習した GitHub Copilot とチャットできる機能でした。
+これらは [GitHub Universe 2023 で発表された](https://zenn.dev/cybozu_ept/articles/productivity-weekly-20231115?redirected=1#universe-2023%3A-copilot%E3%81%8Cgithub%E3%82%92ai%E3%82%92%E9%A7%86%E4%BD%BF%E3%81%97%E3%81%9F%E9%96%8B%E7%99%BA%E8%80%85%E3%83%97%E3%83%A9%E3%83%83%E3%83%88%E3%83%95%E3%82%A9%E3%83%BC%E3%83%A0%E3%81%B8%E3%81%A8%E5%A4%89%E8%B2%8C%E3%81%95%E3%81%9B%E3%82%8B---github%E3%83%96%E3%83%AD%E3%82%B0) GitHub Copilot Enterprise や GitHub Copilot Workspace の機能として生まれ変わったように思います。
+
+Copilot Labs は VSCode 向けの拡張機能で、GitHub Copilot にテストを書かせたりコードを説明させたりといった応用的な機能でした。これらは GitHub Copilot Chat の GA でその役目を終えたように思います。
+
+Blocks に関しては残念ながら代替機能がリリースされるわけではないようです。ただ、今後 GitHub.com を拡張する上でこの実験記録は参考にしていくようです。
+
+テクニカルプレビュー自体は終了しましたが、Blocks 以外は今後も使っていくことが可能です。今後もどんどん実験的機能を出していってほしいですね。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
+
+[^gh_next]: GitHub Next は次世代のソフトウェア開発を担う実験的機能を開発・提供するための GitHub の組織です。
 
 ## コストで差をつけろ！！re:Invent 2023 で発表された AWS Cost Optimization Hub を紹介！ |
 DevelopersIO 
