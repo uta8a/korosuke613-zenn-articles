@@ -62,11 +62,49 @@ https://mixi-developers.mixi.co.jp/github-actions-large-runner-and-bazel-remote-
 ## CircleCI関連の月額コストを1日で10%削減する - freee Developers Hub
 https://developers.freee.co.jp/entry/2023/12/18/110000
 
+Freee さんの CircleCI のコスト削減事例です。お手軽にコスト削減ができる施策を紹介しています。
+
+1 つ目はストレージの保存期間を短くすることです。
+キャッシュ、ワークスペース、アーティファクトの保存期間を短くすることで、ストレージの使用量を減らしています。
+
+2 つ目は、ECR のリージョンを変更することです。
+CircleCI は AWS の [us-east-1 で動いている](https://support.circleci.com/hc/en-us/articles/18232867121819-Best-Practices-for-Minimizing-AWS-Data-Transfer-Costs-with-CircleCI-and-ECR)ため、ECR のリージョンを us-east-1 にすることで、データ転送料を削減しています。
+また、これによりイメージ取得時間も短縮されて、一石二鳥な施策です。
+
+感想として、ストレージ保存期間を変更することは、コストや容量が気になって初めて意識する事が多いですが、要件に応じてあらかじめ保存期間を短くしてしまうのはいい手だなと思いました。
+また、CircleCI 公式で AWS のデータ転送におけるベストプラクティスが公開されていることを知り、勉強になりました。
+
+_本項の執筆者: [@r4mimu](https://zenn.dev/r4mimu)_
+
 ## 【OpenTelemetry】CLIでトレースが送れるotel-cliが便利そうだったので触ってみる
 https://ryuichi1208.hateblo.jp/entry/2023/12/17/005818
 
+スクリプトから OpenTelemetry トレースを送信するツール otel-cli の紹介記事です。
+
+otel-cli のドキュメントでは OpenTelemerty Collector や各種 OTEL 対応しているサービスのトレーシングの動作確認の用例と、
+さらに面白い使い方として CI パイプラインに組み込む例が示されていました。
+[Instrumenting CI Pipelines using otel-cli](https://pokgak.xyz/articles/instrument-your-ci/)
+CI パイプラインのボトルネックを探すことにも使えそうですね。
+
+_本項の執筆者: [@r4mimu](https://zenn.dev/r4mimu)_
+
+
 ## Terraform v1.7.0で久々にアップデートのあったグラフ機能でイイ感じにTerraformを可視化したい人生だった - APC 技術ブログ
 https://techblog.ap-com.co.jp/entry/2023/12/14/140255
+
+Terraform v1.7.0 でリソースの依存関係をグラフで可視化するコマンド `terraform graph` に更新があったことを機に、Terraform リソースの可視化方法について考えられた記事です。
+
+v1.7.0 以前と以降で `terraform graph` の出力結果を確認していますが、正直なところ相変わらずで見やすくなっているとは言い難く、結論としては、v1.7.0 の `terraform graph` は今後に期待という感じでした。
+
+そこで、[Pluralith](https://www.pluralith.com/) という可視化サービスが紹介されています。
+Pluralith はローカルでの実行は無料で、CI 上での実行は plan 回数に応じた料金設定となっています。(API Key を払い出して CI 上でセットアップスクリプトを書けば無料で使えてしまいそうなのですが、どうなのでしょうか)
+出力される画像は、リソースグループや仮想ネットワークなどが階層構造で表示されていたり、リソースが新規作成か削除かが色分けされていて見やすいです。
+また、コストの概算も表示されるのが既存の可視化ツールよりも嬉しいですね。
+
+Terraform 可視化ツールは他にもいくつかあるみたいなので、興味がある方は調べてみるといいかもしれません。参考：https://gkzz.dev/posts/alternative-terraform-graph/
+
+_本項の執筆者: [@r4mimu](https://zenn.dev/r4mimu)_
+
 
 ## パスキーの基本とそれにまつわる誤解を解きほぐす
 https://blog.agektmr.com/2023/12/passkey-mythbusting.html
