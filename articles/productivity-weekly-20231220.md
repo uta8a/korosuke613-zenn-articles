@@ -76,6 +76,18 @@ https://www.publickey1.jp/blog/23/dockertestcontainersatomicjardocker.html
 ## HashiCorp Vaultもフォークへ、「OpenBao」がLinux Foundation傘下で進行中
 https://www.publickey1.jp/blog/23/hashicorp_vaultopenbaolinux_foundation.html
 
+[HashiCorp の OSS 製品が Business Source License になった](https://zenn.dev/cybozu_ept/articles/productivity-weekly-20230816#hashicorp-adopts-business-source-license)こと、[Terraform の fork であり MPL-2.0 を維持する OpenTofu が爆誕した](https://zenn.dev/cybozu_ept/articles/productivity-weekly-20230913#the-opentf-fork-is-now-available!)ことはまだ記憶に新しいと思います。
+
+HashiCorp の Business Source License 製品は Terraform の他に Nomad や Vault がありますが、Terraform に続き Vault も新たに fork された新プロジェクト OpenBao が誕生していることが明らかになりました。
+
+まだ OpenTofu ほどプロジェクトは進んでいないようですが、今後に期待ですね。
+
+> ロゴもすでに公開されており、下記のおまんじゅうがそれです（JavaScriptランタイムのBunのロゴにそっくりな気がします...）。
+
+そっくり過ぎて笑いました。Bun と混同するからやめてほしい。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
+
 # know-how 🎓
 
 ## Large Runner + リモートキャッシュで爆速 Bazel のフルテスト | by 松原信忠 | Dec, 2023 | MIXI DEVELOPERS
