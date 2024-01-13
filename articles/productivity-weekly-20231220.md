@@ -1,6 +1,6 @@
 ---
-title: "ここにタイトルを入力|Productivity Weekly (2023-12-20号)"
-emoji: "🦶"
+title: "actions/artifacts@v4アツい、CIの話題多め、おまけあり｜Productivity Weekly(2023-12-20号)"
+emoji: "🏖️"
 type: "idea"
 topics: ["ProductivityWeekly", "生産性向上"]
 published: false
@@ -27,11 +27,14 @@ user_defined: {"publish_link": "https://zenn.dev/korosuke613/articles/productivi
 今週の共同著者は次の方です。
 - [@korosuke613](https://zenn.dev/korosuke613)
 <!-- - [@defaultcf](https://zenn.dev/defaultcf) -->
-<!-- - [@Kesin11](https://zenn.dev/kesin11) -->
-<!-- - [@r4mimu](https://zenn.dev/r4mimu) -->
+- [@Kesin11](https://zenn.dev/kesin11)
+- [@r4mimu](https://zenn.dev/r4mimu)
 <!-- - [@uta8a](https://zenn.dev/uta8a) -->
 
 :::
+
+![](/images/productivity-weekly-20231220/seisan_syain_tyamoji_no_grasan.png =300x)
+*[生産性向上チームのマスコットキャラクター、セイサンシャインくん爆誕](#omake-%F0%9F%83%8F%3A-%E7%94%9F%E7%94%A3%E6%80%A7%E5%90%91%E4%B8%8A%E3%83%81%E3%83%BC%E3%83%A0%E3%81%AE%E3%83%9E%E3%82%B9%E3%82%B3%E3%83%83%E3%83%88%E3%82%AD%E3%83%A3%E3%83%A9%E3%82%AF%E3%82%BF%E3%83%BC%E3%80%81%E3%82%BB%E3%82%A4%E3%82%B5%E3%83%B3%E3%82%B7%E3%83%A3%E3%82%A4%E3%83%B3%E3%81%8F%E3%82%93%E7%88%86%E8%AA%95)*
 
 # news 📺
 
@@ -76,12 +79,38 @@ _本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 [^gh_next]: GitHub Next は次世代のソフトウェア開発を担う実験的機能を開発・提供するための GitHub の組織です。
 
-## コストで差をつけろ！！re:Invent 2023 で発表された AWS Cost Optimization Hub を紹介！ |
-DevelopersIO 
-https://dev.classmethod.jp/articles/introduction-to-aws-cost-optimization-hub/
+## 新しいコスト最適化ハブは、推奨アクションを一元化してコストを節約します | Amazon Web Services ブログ
+https://aws.amazon.com/jp/blogs/news/new-cost-optimization-hub-to-find-all-recommended-actions-in-one-place-for-saving-you-money/
+
+AWS re:Invent 2023 において、AWS のコスト最適化を支援する Cost Optimization Hub が発表されました。
+
+Cost Optimization Hub では、使用されていないリソースを検出したり、コスト最適化につながる購入オプションを推奨してくれたりします。
+例えば EC2 の場合、適切なインスタンスサイズを提案したり、Savings Plans を提案したりしてくれるようです。
+
+どういうリソースに対応してるかや具体的にどういう情報を提供してくれるかはクラメソさんが記事にして出してくれています。
+
+- [コストで差をつけろ！！re:Invent 2023 で発表された AWS Cost Optimization Hub を紹介！ | DevelopersIO](https://dev.classmethod.jp/articles/introduction-to-aws-cost-optimization-hub/)
+
+コスト最適化のベストプラクティスは知っていても該当リソースを 1 つ 1 つ洗い出すのは大変ですよね。Cost Optimization Hub を使って効果的にコスト最適化を進めていきましょう。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 ## Code scanning default setup is now available for self-hosted runners on GitHub.com - The GitHub Blog
 https://github.blog/changelog/2023-12-19-code-scanning-default-setup-is-now-available-for-self-hosted-runners-on-github-com/
+
+GitHub の Code scanning のデフォルト設定を Self-hosted runner でも利用できるようになりました。GitHub.com ではすでに利用可能で、GitHub Enterprise Server では v3.9 から利用可能です。
+
+[Code scanning](https://docs.github.com/en/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning) はソースコードに含まれてしまった脆弱性などを検知してくれる仕組みで、内部的には GitHub 製の CodeQL というツールが使われています。
+
+昔は CodeQL を実行する GitHub Actions のワークフローを用意する必要がありましたが、[2023/01 頃からデフォルト設定であればワークフローを用意する必要がなくなりました](https://zenn.dev/cybozu_ept/articles/productivity-weekly-20230111?redirected=1#code-scanning-can-be-set-up-more-easily-without-committing-a-workflow-file-to-the-repository-%7C-github-changelog)。（ただし、ワークフローが必要なくなっただけで CodeQL の実行には GitHub Actions が利用されます。）
+
+今回の変更は、そのデフォルト設定を動かすランナーに Self-hosted runner が使えるようになったというものです。また、Larger runner でも実行できるようになりました。
+
+デフォルト設定の Code scanning を実行するためには `code-scanning` ラベルを付与します。細かい制約等は記事をご覧ください。
+
+巨大なリポジトリでは強いランナーを使いたくなるので、Larger runner で動かせるようになったのは嬉しいですね。また、セルフホストランナーしか使えない GHES でも使えるようになったのはありがたいです。（まあワークフローを用意すればいい話ではありますが）
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 ## Docker社がTestcontainersの開発元AtomicJar社の買収を発表。Dockerでの統合テスト環境を強化 － Publickey
 https://www.publickey1.jp/blog/23/dockertestcontainersatomicjardocker.html
@@ -113,6 +142,18 @@ _本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 ## Large Runner + リモートキャッシュで爆速 Bazel のフルテスト | by 松原信忠 | Dec, 2023 | MIXI DEVELOPERS
 https://mixi-developers.mixi.co.jp/github-actions-large-runner-and-bazel-remote-cache-94e0d52e664a
+MIXI さんによる Bazel を使ったテストの実行時間を Bazel のリモートキャッシュ機能と GitHub Actions の Larger Runner を使って爆速化したという話です。
+
+デフォルトのランナー（2 コア）では 20 分弱かかっていたテストが Larger Runner（32 コア）だと 2 分程度で済むようになったのは劇的ですごいですね。Bazel の並列実行性能もすごそうですね（Bazel 使ったことない民）。
+（リモートキャッシュはそこまで短縮化に効いてなさそうで意外でした。）
+
+2 コアの Linux が $0.008/min で 32 コアの Linux が $0.128/min なので、$0.008 * 20 = $0.16 と $0.128 * 2 = $0.256 の差があることになります。
+料金的には上がっていますが、エンジニアの人件費を 18 分短縮できたと考えるとコスパの良い投資になるのではないでしょうか。
+
+Larger Runner は無料枠に入らない上にデフォルトのランナーと比べて料金はもちろん高くなるため、手を出していないところも多いのではないでしょうか？今回のように大幅な時間短縮が見込める場合は案外 Larger Runner を使った方が安上がりになることもあります。
+皆さんも Larger Runner 利用を検討してみましょう。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 ## CircleCI関連の月額コストを1日で10%削減する - freee Developers Hub
 https://developers.freee.co.jp/entry/2023/12/18/110000
@@ -160,35 +201,61 @@ Terraform 可視化ツールは他にもいくつかあるみたいなので、�
 
 _本項の執筆者: [@r4mimu](https://zenn.dev/r4mimu)_
 
-
-## パスキーの基本とそれにまつわる誤解を解きほぐす
-https://blog.agektmr.com/2023/12/passkey-mythbusting.html
-
-# tool 🔨
-
-## AlexSim93/pull-request-analytics-action: Generates detailed PR analytics reports within GitHub, focusing on review efficiency and team performance.
-https://github.com/AlexSim93/pull-request-analytics-action
-
-## Wave Terminal
-https://www.waveterm.dev/
-
-## 【Rust製構成管理ツール】JetPorch とは【次世代Ansible？】 #Rust - Qiita
-https://qiita.com/pollenjp/items/aa54c7b236e40faae776
-
 # read more 🍘
 Productivity Weekly で出たネタを全て紹介したいけど紹介する体力が持たなかったネタを一言程度で書くコーナーです。
 
-- **news 📺**
 - **know-how 🎓**
+  - [パスキーの基本とそれにまつわる誤解を解きほぐす](https://blog.agektmr.com/2023/12/passkey-mythbusting.html)
+    - Passkey の基本的な知識とよくある誤解を解説してくれている記事です
+    - 僕も正直雰囲気で Passkey 使っているので勉強になりました。Passkey よくわからんって人に教えてあげると良いですね
 - **tool 🔨**
+  - [Wave Terminal](https://www.waveterm.dev/)
+    - 新しいターミナルエミュレータ Wave Terminal が開発されています
+    - インラインで Markdown や画像をレンダリングできたり、VS Code と同じエディタでインライン編集できたり、セッションと履歴を保存してたりと面白そうです
+    - いかんせんまだ Bash でしか使えないようなので、Zsh 使いの僕は待ちですね
+  - [【Rust製構成管理ツール】JetPorch とは【次世代Ansible？】 #Rust - Qiita](https://qiita.com/pollenjp/items/aa54c7b236e40faae776)
+    - JetPorch という Ansible っぽい構成管理ツールが開発中とのことです
+    - 気になりますが、現在公式サイトが閉鎖されているようで、詳細がわかりません...今後に期待ですね
+  - [AlexSim93/pull-request-analytics-action: Generates detailed PR analytics reports within GitHub, focusing on review efficiency and team performance.](https://github.com/AlexSim93/pull-request-analytics-action)
+    - プルリクエストを解析して PR がマージされるまでにどれだけかかってるかや誰がどれだけ PR を作っているかなどさまざまな情報を出してくれます
+    - 雑に試してみました。結構細かく分析してくれるみたいですが、どううまく使うかという感じですね
+      - ほとんどデフォルト設定: https://github.com/korosuke613/zenn-articles/issues/551
+      - 3 ヶ月分の PR を見る設定: https://github.com/korosuke613/zenn-articles/issues/552
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
+
+# omake 🃏: 生産性向上チームのマスコットキャラクター、セイサンシャインくん爆誕
+![](/images/productivity-weekly-20231220/seisan_syain_aoji_gurasan.png =300x)
+*グラサン掛けてるバージョン（作者とは別の社員が描いた）*
+
+今週のおまけです。
+僕が所属する生産性向上チームのマスコットキャラクター、セイサンシャインくんが爆誕しました。
+
+作者は [@takamin55](https://zenn.dev/takamin55) です。冒頭と本節のビーチでくつろいでいるセイサンシャインくんに関しては、社内の別の方が描いてくれました。
+
+![](/images/productivity-weekly-20231220/seisan_syain.jpg =300x)
+*オリジナル体。「生産性が向上した結果くつろげる時間を手に入れたセイサンシャイン君（生産社員）」と書かれている*
+
+
+どうやって決まったかというと、社内で生産性向上チームメンバ + 有志がそれぞれ考えたマスコットキャラクターを出し合い、社内投票によって決まりました。僕もレッサーパンダにスパナ🔧のマゲを加えたキャラクターを出したのですが、残念ながらダメでしたね。個性的なキャラクターがたくさん出てきてよかったです。
+
+セイサンシャインくんはたぶん生産性向上チームを「生産性上げる社員」と捉えて、太陽（shine）と掛けた結果生まれたキャラクターなのでしょう。原案には「生産性が向上した結果くつろげる時間を手に入れたセイサンシャイン君（生産社員）」と書かれており、その表情はまるで慈愛に満ちた仏像。
+
+実は生産性向上チームのスローガンは「ビーチへ行く余裕をあなたに...」なんですよね。人間には余裕と休息が必要なのです。生産性向上チームの働きによって社内エンジニアがビーチへ行く余裕を手に入れられるよう精進しています。
+セイサンシャインくんはまさにビーチへ行ってそうですね（別社員が描いた絵もビーチに行ってる）。我々にふさわしいキャラクターなのではないでしょうか。
+
+原案は鉛筆で適当に描いた感がいい味出しています。必要なのはツールではないことを教えてくれていますね。
+
+今後生産性向上チーム主催のイベントとかにちょくちょく出てくるかもしれません。皆さん暖かい目で見守ってあげてください。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 # あとがき
-
+2023/12/20 号でした。遅くなってしまいすみません。ようやく僕の 2023 年が終わります。
+年末年始は[バルダーズゲート 3](https://www.spike-chunsoft.co.jp/baldursgate3/) ばっかりやってました。マジで時間泥棒。
 
 サイボウズの生産性向上チームでは社内エンジニアの開発生産性を上げるための活動を行なっています。そんな生産性向上チームが気になる方は下のリンクをクリック！
-https://note.com/cybozu_dev/n/n1c1b44bf72f6
+https://speakerdeck.com/cybozuinsideout/engineering-productivity-team-recruitment-information
 
 <!-- :::message すみません、今週もおまけはお休みです...:::-->
 
-## omake 🃏: 
-今週のおまけです。
