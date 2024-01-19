@@ -55,10 +55,27 @@ https://zenn.dev/lef237/articles/8e4eb3112928d6
 ## JavaScriptの組み込みAPIのIntlが凄いので紹介してみた。
 https://zenn.dev/ame_x/articles/e314ce3a84ad1f
 
-# tool 🔨
-
 ## GitHub Actionsのサードパーティーマネージドランナーの紹介 - いけだや技術ノート
 https://ikesyo.hatenablog.com/entry/github-actions-managed-runners
+
+GitHub Actions でジョブを実行するためのランナーは、GitHub が管理してくれるものとユーザーが自身で管理するセルフホストランナーの 2 種類が存在するのですが、第 3 の選択肢として GitHub 以外がホスティングしているセルフホストランナーを紹介している記事です。
+
+紹介されているほとんどのサービスでは GitHub がホスティングしているランナーより価格と性能に優れていることをアピールしており、X86 に加えて ARM のランナーを提供しているサービスもあるようです[^arm_runner]。また、サービスによってはキャッシュの高速化に力を入れていたり、SSH デバッグ可能だったりと単に GitHub のランナーよりコスパに優れているだけではないことも紹介されています。
+
+[^arm_runner]: 記事中でも紹介されていますが、[GitHubもARMのランナーを提供する予定を公開しています](https://github.blog/changelog/2023-10-30-accelerate-your-ci-cd-with-arm-based-hosted-runners-in-github-actions/)（現在は private beta）
+
+
+個人的に一番興味深かったのは最後に紹介されている Cirrus Runners でした。近年の CI サービスではビルドに使用した時間に応じた従量課金が一般的となるなか、Apple Silicon の mac が$150/month の固定料金で利用できるというのはかなりの格安だと思います。
+
+実は自分は Cirrus という会社自体は以前から知っており[Cirrus CI](https://cirrus-ci.org/)という GitHub Actions とは異なる独自の CI サービスの運用元で、そこで利用されている基盤技術である macOS の VM を動かす[tart](https://github.com/cirruslabs/tart/)をかつては OSS[^tart_license]として公開していた企業として覚えていました。その Cirrus が GitHub Actions 用のランナーも提供しているので、記事中で ikesyo さんが述べられているように他サービスよりも技術的な優位性がありそうだと自分も思いました。
+
+[^tart_license]: 以前は AGPL-3.0 として公開されていましたが、[2023/03/01のpull-req](https://github.com/cirruslabs/tart/pull/415)以降は Fair Source ライセンスに変更されています。
+
+GitHub も M1 のランナーを既に public beta で提供し始めておりサイボウズでも既にいくつかのチームが利用し始めていますが、やはりお値段はそこそこするという印象です。今後 CI の費用が問題となってきた場合に自前でセルフホストランナーを運用する以外の選択肢として今回紹介されているサービスは覚えておきたいと思いました。
+
+_本項の執筆者: [@Kesin11](https://zenn.dev/kesin11)_
+
+# tool 🔨
 
 ## mise (旧 rtx) で脱 node-build (asdf)
 https://zenn.dev/teppeis/articles/2024-01-introduce-mise
