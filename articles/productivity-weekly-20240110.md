@@ -41,13 +41,48 @@ https://github.blog/2023-12-29-github-copilot-chat-now-generally-available-for-o
 ## GitHub Certifications are generally available - The GitHub Blog
 https://github.blog/2024-01-08-github-certifications-are-generally-available/
 
+GitHub が認定資格を提供するようになったようです。現時点では次の 4 つの資格が提供されています。
+
+- GitHub Foundations Certification
+- GitHub Foundations Certification
+- GitHub Advanced Security Certification
+- GitHub Administration Certification
+
+[学習ガイド](https://github.com/LadyKerr/github-certification-guide)や[トレーニング](https://learn.microsoft.com/ja-jp/collections/n5p4a5z7keznp5?WT.mc_id=%3Fwt.mc_id%3Dstudentamb_260352)が提供されています。
+
+試しに GitHub Actions のトレーニングを眺めてみたところ、基本的なワークフローの書き方から始まり、カスタムアクションの作り方、アプリケーションの Azure へのデプロイ、Self Hosted Runner の設定など、かなり実践的な内容が含まれていました。
+
+試験を受けないとしても、トレーニングを受けるだけでも知識が身につきそうです。公式トレーニングがあるとキャッチアップやオンボーディングに役立ちそうでいいですね。
+
+_本項の執筆者: [@r4mimu](https://zenn.dev/r4mimu)_
+
 # know-how 🎓
 
 ## メルコインにおけるGitHub Actions活用術 | メルカリエンジニアリング
 https://engineering.mercari.com/blog/entry/20231223-mercoin-github-actions/
 
+メルコインさんの GitHub Actions で利用している Action やリリースフローに関する自動化の紹介記事です。
+
+Auto Correct というワークフローを用意して format、lint、コード生成を CI で実行しているとのことです。
+GitHub App のトークンを用いたコミット署名や、`concurrency` を利用して無駄な CI の実行を防いでいたりと、作り込まれているなと感じました。
+この記事で、Action のバージョンをハッシュで固定化する [pinact](https://github.com/suzuki-shunsuke/pinact) という Action を知りましたが、地味に便利な Action ですね。
+様々な CLI ツールを aqua でインストールしているので、lazy install が効いていそうで、aqua の良さが活きていそうです。
+
+GitHub Actions での自動化を検討している方は参考になると思います。
+
+_本項の執筆者: [@r4mimu](https://zenn.dev/r4mimu)_
+
 ## CircleCI の費用が突如 1.5 倍になった話 | Wantedly Engineer Blog
 https://www.wantedly.com/companies/wantedly/post_articles/879561
+
+CircleCI の費用が増加した原因調査とその対応について書かれた記事です。
+
+原因としては、Renovate の rebase だったそうです。これに対して、開発生産性は落とさずに費用を抑える際の考えが述べられていました。
+CI ワークフローをチューニングすることでもさらに費用を抑えられるかもしれないが、費用対効果を考えるとそこまでの労力をかけるのは難しいということで、ある程度の費用は受け入れるという判断もされていて、なるほどなと思いました。
+
+CircleCI API からユーザーの pipeline の実行履歴を集計して分析されている点や、時には費用をかけても開発生産性を上げることも大事だという点が印象的でした。
+
+_本項の執筆者: [@r4mimu](https://zenn.dev/r4mimu)_
 
 ## DenoとFreshでペアプロ・モブプロ用タイマー『timer.team』を開発して得た知見⏰
 https://zenn.dev/lef237/articles/8e4eb3112928d6
