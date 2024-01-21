@@ -43,10 +43,10 @@ https://github.blog/2024-01-08-github-certifications-are-generally-available/
 
 GitHub が認定資格を提供するようになったようです。現時点では次の 4 つの資格が提供されています。
 
-- GitHub Foundations Certification
-- GitHub Foundations Certification
-- GitHub Advanced Security Certification
-- GitHub Administration Certification
+- GitHub Foundations Certification[^gh_foundations]
+- GitHub Actions Certification[^gh_actions]
+- GitHub Advanced Security Certification[^gh_security]
+- GitHub Administration Certification[^gh_admin]
 
 [学習ガイド](https://github.com/LadyKerr/github-certification-guide)や[トレーニング](https://learn.microsoft.com/ja-jp/collections/n5p4a5z7keznp5?WT.mc_id=%3Fwt.mc_id%3Dstudentamb_260352)が提供されています。
 
@@ -55,6 +55,11 @@ GitHub が認定資格を提供するようになったようです。現時点�
 試験を受けないとしても、トレーニングを受けるだけでも知識が身につきそうです。公式トレーニングがあるとキャッチアップやオンボーディングに役立ちそうでいいですね。
 
 _本項の執筆者: [@r4mimu](https://zenn.dev/r4mimu)_
+
+[^gh_foundations]: 平木場注: GitHub、git 全般の基礎知識
+[^gh_actions]: 平木場注: GitHub Actions の基礎知識
+[^gh_security]: 平木場注: GitHub Advanced Security の基礎知識
+[^gh_admin]: 平木場注: GitHub の管理者としての基礎知識
 
 # know-how 🎓
 
