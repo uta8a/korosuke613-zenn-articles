@@ -27,7 +27,20 @@
       "max-ten": {
         "max": 10
       },
-      "no-doubled-joshi": false
+      "no-doubled-joshi": false,
+      "ja-no-redundant-expression": {
+        "dictOptions": {
+          "dict5": {
+            "allows": [
+              "/^開発を行う/",
+              // デフォルトの許可リストは上書きされるので、維持したい場合は追加する
+              "/^処理を行[ぁ-ん]/",
+              "/^[ァ-ヶ]+を.?行[ぁ-ん]/",
+              "/^[a-zA-Z]+を.?行[ぁ-ん]/"
+            ]
+          }
+        }
+      }
     },
     "preset-ja-spacing": {
       "ja-space-between-half-and-full-width": {
