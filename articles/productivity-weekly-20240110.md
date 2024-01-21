@@ -1,5 +1,5 @@
 ---
-title: "<ここにタイトルを入力>|Productivity Weekly (2024-01-10号)"
+title: "GitHub CertificationやらCIやらasdf互換ツールやら｜Productivity Weekly(2024-01-10号)"
 emoji: "🚅"
 type: "idea"
 topics: ["ProductivityWeekly", "生産性向上"]
@@ -27,9 +27,9 @@ user_defined: {"publish_link": "https://zenn.dev/korosuke613/articles/productivi
 今週の共同著者は次の方です。
 - [@korosuke613](https://zenn.dev/korosuke613)
 <!-- - [@defaultcf](https://zenn.dev/defaultcf) -->
-<!-- - [@Kesin11](https://zenn.dev/kesin11) -->
-<!-- - [@r4mimu](https://zenn.dev/r4mimu) -->
-<!-- - [@uta8a](https://zenn.dev/uta8a) -->
+- [@Kesin11](https://zenn.dev/kesin11)
+- [@r4mimu](https://zenn.dev/r4mimu)
+- [@uta8a](https://zenn.dev/uta8a)
 
 :::
 
@@ -37,6 +37,22 @@ user_defined: {"publish_link": "https://zenn.dev/korosuke613/articles/productivi
 
 ## GitHub Copilot Chat now generally available for organizations and individuals - The GitHub Blog
 https://github.blog/2023-12-29-github-copilot-chat-now-generally-available-for-organizations-and-individuals/
+
+2023 年の年末にいよいよ GitHub Copilot Chat が GA（一般公開）されました。これにより、すべての GitHub Copilot 利用者は Chat 機能を利用できるようになりました（有効化が必要）。
+
+GitHub Copilot 自体はコード補完をする機能であり、コードの記述中に次の単語などを提案してくれるものとなっています。Copilot Chat は対話型の機能であり、開発に関する質問をしたり、開いているコードの解説をしてもらうことができます。また、質問に答えるだけでなく、コード生成もできるため、Copilot Chat にユニットテストを記述してもらうことすら可能です。
+
+僕はベータ時代に少し触っていたことがあるのですが、手軽にコードに関して質問できるのはやはり便利でしたね。ユニットテストを書かせる機能はよく使っていました。昔は英語で回答されることがしばしばあって「日本語で回答してください」とさらに質問することが多々ありましたが、現在は VSCode の表示言語がデフォルトになったみたいでだいぶ使いやすくなってそうです。
+
+> **Chat using configured display language**
+> By default, Copilot Chat now initially responds using your configured display language in VS Code. You can override this automatic behavior by configuring `github.copilot.chat.localeOverride`.
+https://code.visualstudio.com/updates/v1_84#_chat-using-configured-display-language
+
+GitHub Copilot for Business として使っている方はもしかしたら管理者によって Copilot Chat が一律無効化されているかもしれませんね。もしベータという理由で無効化されているのであれば管理者に問い合わせてみてもいいかもしれません。
+
+GitHub Copilot 利用者の皆さんぜひ一度使ってみてください。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 ## GitHub Certifications are generally available - The GitHub Blog
 https://github.blog/2024-01-08-github-certifications-are-generally-available/
@@ -89,11 +105,21 @@ CircleCI API からユーザーの pipeline の実行履歴を集計して分析
 
 _本項の執筆者: [@r4mimu](https://zenn.dev/r4mimu)_
 
-## DenoとFreshでペアプロ・モブプロ用タイマー『timer.team』を開発して得た知見⏰
-https://zenn.dev/lef237/articles/8e4eb3112928d6
-
 ## JavaScriptの組み込みAPIのIntlが凄いので紹介してみた。
 https://zenn.dev/ame_x/articles/e314ce3a84ad1f
+
+JavaScript の組み込み API である Intl について紹介している記事です。Intl は i18n[^i18n]に関する便利 API 群です。
+
+この記事では、Intl オブジェクトの持つ 9 つの機能（コンストラクタ）と 2 つのサブ的な機能（メソッド）を機能ごとになぜ嬉しいか＆使用例を紹介してくれています。
+
+Intl は機能が多く存在は知っていてもよくわかっていない人は決して少なくないと思います（僕もそうでした）。僕もこの記事の例を実際に手元で色々動かしてみて[^playground]便利だなと思った口です。なんとなくでしか知っていなかったのでとても良かったです。
+
+この記事を読んで大まかに Intl の機能を知ることで、今後の開発に役立てていきたいですね。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
+
+[^playground]: [try: Intl by korosuke613 · Pull Request #52 · korosuke613/playground](https://github.com/korosuke613/playground/pull/52)
+[^i18n]: Internationalization の略。今の時代国際化対応は無視できないぜ！ [Internationalization (i18n) （国際化対応） - MDN Web Docs 用語集: ウェブ関連用語の定義 | MDN](https://developer.mozilla.org/ja/docs/Glossary/Internationalization)
 
 ## GitHub Actionsのサードパーティーマネージドランナーの紹介 - いけだや技術ノート
 https://ikesyo.hatenablog.com/entry/github-actions-managed-runners
@@ -107,7 +133,7 @@ GitHub Actions でジョブを実行するためのランナーは、GitHub が�
 
 個人的に一番興味深かったのは最後に紹介されている Cirrus Runners でした。近年の CI サービスではビルドに使用した時間に応じた従量課金が一般的となるなか、Apple Silicon の mac が$150/month の固定料金で利用できるというのはかなりの格安だと思います。
 
-実は自分は Cirrus という会社自体は以前から知っており[Cirrus CI](https://cirrus-ci.org/)という GitHub Actions とは異なる独自の CI サービスの運用元で、そこで利用されている基盤技術である macOS の VM を動かす[tart](https://github.com/cirruslabs/tart/)をかつては OSS[^tart_license]として公開していた企業として覚えていました。その Cirrus が GitHub Actions 用のランナーも提供しているので、記事中で ikesyo さんが述べられているように他サービスよりも技術的な優位性がありそうだと自分も思いました。
+実は自分は Cirrus という会社自体は以前から知っており [Cirrus CI](https://cirrus-ci.org/) という GitHub Actions とは異なる独自の CI サービスの運用元で、そこで利用されている基盤技術である macOS の VM を動かす [tart](https://github.com/cirruslabs/tart/) をかつては OSS[^tart_license]として公開していた企業として覚えていました。その Cirrus が GitHub Actions 用のランナーも提供しているので、記事中で ikesyo さんが述べられているように他サービスよりも技術的な優位性がありそうだと自分も思いました。
 
 [^tart_license]: 以前は AGPL-3.0 として公開されていましたが、[2023/03/01のpull-req](https://github.com/cirruslabs/tart/pull/415)以降は Fair Source ライセンスに変更されています。
 
@@ -205,17 +231,13 @@ _本項の執筆者: [@uta8a](https://zenn.dev/uta8a)_
 # read more 🍘
 Productivity Weekly で出たネタを全て紹介したいけど紹介する体力が持たなかったネタを一言程度で書くコーナーです。
 
-- **news 📺**
 - **know-how 🎓**
-- **tool 🔨**
+  - [DenoとFreshでペアプロ・モブプロ用タイマー『timer.team』を開発して得た知見⏰](https://zenn.dev/lef237/articles/8e4eb3112928d6)
+    - Deno や Deno 組み込みの KVS こと Deno KV、Deno 公式のフルスタックフレームワーク Fresh、Deno 公式のサーバレスプラットフォーム Deno Deploy などをフル活用して作られたモブプロタイマーアプリ timer.team の紹介記事です
+    - timer.team の技術スタックをふんだんに説明してくれており、Deno を使った開発を行う上で大変参考になる記事だと思いました
 
 # あとがき
-
+新年あけましておめでとう号でした。今週もネタが盛りだくさんでしたね。
 
 サイボウズの生産性向上チームでは社内エンジニアの開発生産性を上げるための活動を行なっています。そんな生産性向上チームが気になる方は下のリンクをクリック！
-https://note.com/cybozu_dev/n/n1c1b44bf72f6
-
-<!-- :::message すみません、今週もおまけはお休みです...:::-->
-
-## omake 🃏: 
-今週のおまけです。
+https://speakerdeck.com/cybozuinsideout/engineering-productivity-team-recruitment-information
