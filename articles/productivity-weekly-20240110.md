@@ -3,9 +3,10 @@ title: "GitHub CertificationやらCIやらasdf互換ツールやら｜Productivi
 emoji: "🚅"
 type: "idea"
 topics: ["ProductivityWeekly", "生産性向上"]
-published: false
+published: true
 publication_name: "cybozu_ept"
 user_defined: {"publish_link": "https://zenn.dev/korosuke613/articles/productivity-weekly-20240110"}
+published_at: "2024-01-22 10:00"
 ---
 
 こんにちは。サイボウズ株式会社 [生産性向上チーム](https://note.com/cybozu_dev/n/n1c1b44bf72f6)の平木場です。
