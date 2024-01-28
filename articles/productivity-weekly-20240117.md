@@ -76,6 +76,14 @@ https://iselegant.hatenablog.com/entry/google-cloud-load-balancer
 ## テストプロセスが自走するチーム体制をめざして QA が取り組んでいること - Techtouch Developers Blog
 https://techtouch.hatenablog.jp/entry/qa_test_it_yourself
 
+Four Keys の Elite チーム[^elite]に向かうためには...？という目線で、チーム体制が刻々と変化するという固有の事情も踏まえて、E2E テスト改善をしていくために QA チームがチームトポロジーの用語で言うイネーブリングチームとして機能するようになるための取り組みが語られています。
+
+Four Keys の文脈では CI/CD 高速化等のビルドパイプラインの改善の話が出てくることが多いので、品質保証観点からの記事は珍しいと感じました。組織の話、テストマネジメントツールの導入など取り組みの全体像が見えて面白かったです。
+
+_本項の執筆者: [@uta8a](https://zenn.dev/uta8a)_
+
+[^elite]: 平木場注: DORA のレポートによると Four Keys ではチームのパフォーマンスによって Elite、High、Medium、Low の 4 つのグループに分類できる。もっともパフォーマンスの高いチーム群が Elite とされる。2023 年の State of DevOps Report においては、変更のリードタイムが 1 日以内、デプロイの頻度がオンデマンド（毎日複数回）、変更のエラー率が 5% 以下、デプロイ失敗の復旧までの時間が 1 時間以内のチームが Elite とされている。https://cloud.google.com/blog/ja/products/devops-sre/announcing-the-2023-state-of-devops-report
+
 ## 実録レガシーコード改善 / Working with Legacy Code: the True Record - Speaker Deck
 https://speakerdeck.com/twada/working-with-legacy-code-the-true-record
 
@@ -95,10 +103,24 @@ _本項の執筆者: [@Kesin11](https://zenn.dev/kesin11)_
 ## 雰囲気でbuildx/BuildKitを使っていたので調べました
 https://zenn.dev/fraim/articles/98ad17f9ed140e
 
+buildx, BuildKit, build driver, ... といった Docker のビルドプラグイン周りの用語を整理してくださっている記事。docker は普段 build, run といったコマンドを叩くだけなので裏側まで意識したことがあまりなく、この記事で違いを理解できました。
+
+個人的には BuildKit に多くの Key feature があるというのを知らなくて探究してみたいと思いました。Extendable frontend formats の項目で、LLB のフロントエンドに Nix が使えたりするというのは初耳でした。また、Build cache import/export の項目にある cache exporter の gha(GitHub Actions)や S3 はよく聞くので活用してコンテナのビルド時間を短縮していきたいですね！
+
+_本項の執筆者: [@uta8a](https://zenn.dev/uta8a)_
+
 # tool 🔨
 
 ## eBPFを使った自動テストツール「Keploy」がすごい
 https://zenn.dev/jambowrd/articles/3ee00f61c0b827
+
+eBPF という、カーネルに手を加えることなくカーネルランドで安全に処理を実行できる仮想マシンを用いたアイデアは近年いくつか登場しています。主に Observability や Security 用途が有名ですが、この記事では eBPF を用いた自動テストツール Keploy の紹介がされています。
+
+元記事を書かれた方が [epli2/keploy-minimal-example: A sample project for Keploy](https://github.com/epli2/keploy-minimal-example) というミニマルな構成のサンプルを用意してくださっていたので、私も Ubuntu マシン上でなぞってみました。
+
+実際に Keploy を立ち上げて curl でエンドポイントを叩くだけで録画されたかのようにリクエストが YAML に記録されて、それを元にテストを行うことができます。動作確認用の curl 集のようなものがある場合は、Keploy を使えばコードを書くことなくテストケース化できるので、テストを追加する際のハードルが低くなって良いと感じました。
+
+_本項の執筆者: [@uta8a](https://zenn.dev/uta8a)_
 
 # read more 🍘
 Productivity Weekly で出たネタを全て紹介したいけど紹介する体力が持たなかったネタを一言程度で書くコーナーです。
