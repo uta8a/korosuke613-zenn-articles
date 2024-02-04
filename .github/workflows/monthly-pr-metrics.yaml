@@ -28,7 +28,7 @@ jobs:
           echo "last_month=$first_day..$last_day" >> "$GITHUB_OUTPUT"
 
       - name: Run issue-metrics tool
-        uses: github/issue-metrics@d80e1c02363198e359a2bb769cdd838a30a6532d # v2.14.1
+        uses: github/issue-metrics@e53d73ed4f09c640c595f4d27aab1961c583393a # v2.14.3
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           # ワークフロー実行リポジトリで
