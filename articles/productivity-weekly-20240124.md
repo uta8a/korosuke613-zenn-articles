@@ -33,7 +33,7 @@ user_defined: {"publish_link": "https://zenn.dev/cybozu_ept/articles/productivit
 今週の共同著者は次の方です。
 - [@korosuke613](https://zenn.dev/korosuke613)
 <!-- - [@defaultcf](https://zenn.dev/defaultcf) -->
-<!-- - [@Kesin11](https://zenn.dev/kesin11) -->
+- [@Kesin11](https://zenn.dev/kesin11)
 - [@r4mimu](https://zenn.dev/r4mimu)
 <!-- - [@uta8a](https://zenn.dev/uta8a) -->
 
@@ -116,10 +116,49 @@ _本項の執筆者: [@r4mimu](https://zenn.dev/r4mimu)_
 ## 1分で出来る Android Lint と GitHub code scanning の連動
 https://zenn.dev/yumemi_inc/articles/8d1603b5a8ea26
 
+Android Lint の結果を GitHub Code Scanning にアップロードすることで本来は脆弱性管理用の GitHub のページ上で Lint の結果を確認できるようにする方法の紹介記事です。
+
+こちらの記事の内容のより詳しい内容は先日行われた [Android Test Night #9](https://testnight.connpass.com/event/305270/) で発表されたようで、そのスライドも公開されていました。
+
+https://speakerdeck.com/hkusu/android-nojing-de-jie-xi-niokeru-sarif-huairunohuo-yong
+
+SARIF というフォーマット自体はセキュリティ関連のスキャンツールで有名な Trivy で知っていたのですが、Android Lint などの各種 Lint ツールが最近では SARIF に対応しているということは知りませんでした。GitHub Code Scanning の UI 上で未対応の Lint 結果などを管理できるのは便利そうですが、Private リポジトリだと GitHub Advanced Security の有料プランが必要なのが惜しいですね。
+
+一方で標準フォーマットが定まれば GitHub 以外のサービスやツールも今後対応してくれる可能性が高いはずなので、SARIF というフォーマットには今後も注目しておきたいなと思います。
+
+
+
+_本項の執筆者: [@Kesin11](https://zenn.dev/kesin11)_
+
 # tool 🔨
 
-## superwhisperでの音声入力を試す | Web Scratch
+## superwhisperでの音声入力を試す | Web Scratch  
 https://efcl.info/2024/01/17/superwhisper/
+
+<!-- textlint-disable -->
+最近、Mac OSアプリの一つの紹介記事で、Whisperという音声認識のモデルを利用しているアプリを紹介しました。自分も、MacBook Pro M2 Proで使ってみましたが、話し終わった後に数秒で文字予告書が完了するので待ち時間のストレスはなく認識制度もそこそこ高い印象です。
+
+そのような内容を書き起こすたので、文書の書き起こしとしては認識制度が低いから使いにくいというキャズムはもう超えたのかなと感じました。
+
+こちらの記事では紹介されていなかったのですが、superwhisperには音声認識に加えて、LALAMによる正規を行ってくれる機能も内蔵されており、音声認識モデルのサイズ+LALAMのプロンプとの組み合わせで認識モデルをカスタムすることも可能です。
+おそらく認識後の書き起こしをそのままLLMに渡して整形してもらう構造になってそうなので、フロンフトを工夫することで話した内容を自動的に予約してもらったり、過剰書に書き直してもらうってことも可能そうです。ただ現状ではLLMの挙動は、挙動は怪しいというか、結果が安定していない気がします。ご視聴ありがとうございました
+
+個人的には単なる音声認識以上の機能を持っていてなかなか面白いし未来を感じるのでいろいろ試して使いこなしてみたいと思います
+<!-- textlint-enable -->
+
+----
+
+実は↑は原稿を読み上げて superwhisper で書き起こしてもらったものです。使用した音声認識と LLM のモデルは無料で利用できる範囲の性能のものを使っています。音声認識と LLM の結果がまだ不安定なので 3 つに分割して読み上げてそれぞれ何度かリテイクしたもののうち良かったものをコピペしています。以下がその原稿です。
+
+> 最近話題のWhisperという音声認識のモデルを利用しているmacOSのアプリの紹介記事です。
+>
+> 自分もMacBookPro M2 Proで使ってみましたが、話し終わったあとに数秒で文字起こしが完了するので待ち時間のストレスはなく、認識精度もそこそこ高い印象です。むしろ、考えながら話しているとあーとかえーなどを言い淀んでしまったり、冗長な表現で話してしまうのですが当然そういった内容も書き起こされるので、文章の書き起こしとしては認識精度が低いから使いにくいというキャズムはもう超えていたのだなと感じました。
+>
+> こちらの記事では紹介されていなかったのですが、superwhisperには音声認識に加えてLLMによる整形を行ってくれる機能も内蔵されており、音声認識モデルのサイズ + LLMのプロンプトの組み合わせで認識モデルをカスタムすることも可能です。おそらく認識後の書き起こしをそのままLLMに渡して整形してもらう構造になってそうなので、プロンプトを工夫することで話した内容を自動的に要約してもらったり箇条書きに書き直してもらうということも可能そうです。ただ、現状ではLLMの挙動は怪しいというか、結果が安定していない気がします。
+>
+> 個人的には単なる音声認識以上の機能を持っていてなかなか面白いし未来を感じるので、色々試して使いこなしてみたいと思います。
+
+_本項の執筆者: [@Kesin11](https://zenn.dev/kesin11)_
 
 ## Findy Tools
 https://findy-tools.io/
