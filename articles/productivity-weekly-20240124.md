@@ -34,7 +34,7 @@ user_defined: {"publish_link": "https://zenn.dev/cybozu_ept/articles/productivit
 - [@korosuke613](https://zenn.dev/korosuke613)
 <!-- - [@defaultcf](https://zenn.dev/defaultcf) -->
 <!-- - [@Kesin11](https://zenn.dev/kesin11) -->
-<!-- - [@r4mimu](https://zenn.dev/r4mimu) -->
+- [@r4mimu](https://zenn.dev/r4mimu)
 <!-- - [@uta8a](https://zenn.dev/uta8a) -->
 
 :::
@@ -60,7 +60,7 @@ v1.6 でのテストでは plan または apply を使用して、実際のプ�
 しかし、`resource`, `data source`, `module`, `provider` のモックが利用できるようになり、認証することなくテストを実行できるようになります。
 また、実際に API を叩かないので、プロビジョニングに時間がかかるリソース (データベースインスタンスなど) をモックすれば、テスト・スイートを実行するのに必要な時間を削減できる利点があります。
 
-[公式ドキュメント](https://developer.hashicorp.com/terraform/tutorials/configuration-language/test?ajs_aid=474da431-0ceb-4f54-b577-b98049a8b39e&product_intent=terraform#mock-tests)にも mock のチュートリアルが追加されていたので、興味がある方はそちらも参照してみてください。
+[公式ドキュメント](https://developer.hashicorp.com/terraform/tutorials/configuration-language/test#mock-tests)にも mock のチュートリアルが追加されていたので、興味がある方はそちらも参照してみてください。
 
 個人的にテストのモックが目玉だと感じましたが、config-driven remove や import block 内で `for_each` が使えるようになったり地味に嬉しい変更もあります。
 
@@ -94,7 +94,7 @@ Terraform で Cloud Run アプリケーションをどのように管理する�
 
 殆ど全てのインフラが自動デプロイされており、快適な職場だと感じました。
 また、ローカル開発環境も整備しているそうで、 Google が公式で提供する Cloud Pub/Sub エミュレーターはもちろんのこと、Cloud Storage, Cloud Tasks などのエミュレーターも使っているとのこと。サードパーティ製ですが、Cloud Storage のエミュレーターがあるのは知りませんでした。
-余談ですが、Coogle Cloud にも Localstack のようなまとまったエミュレーターがあると嬉しい...
+余談ですが、Google Cloud にも Localstack のようなまとまったエミュレーターがあると嬉しい...
 
 _本項の執筆者: [@r4mimu](https://zenn.dev/r4mimu)_
 
