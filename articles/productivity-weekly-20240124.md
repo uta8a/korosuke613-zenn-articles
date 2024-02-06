@@ -32,7 +32,7 @@ user_defined: {"publish_link": "https://zenn.dev/cybozu_ept/articles/productivit
 
 今週の共同著者は次の方です。
 - [@korosuke613](https://zenn.dev/korosuke613)
-<!-- - [@defaultcf](https://zenn.dev/defaultcf) -->
+- [@defaultcf](https://zenn.dev/defaultcf)
 - [@Kesin11](https://zenn.dev/kesin11)
 - [@r4mimu](https://zenn.dev/r4mimu)
 <!-- - [@uta8a](https://zenn.dev/uta8a) -->
@@ -87,13 +87,13 @@ https://aws.amazon.com/jp/blogs/containers/amazon-ecs-enables-easier-ec2-capacit
 Amazon ECS on EC2 で、EC2 インスタンスの draining をマネージドにやってくれる機能が追加されました。
 
 今まで ECS で使用している EC2 インスタンスが何らかの理由で終了した際に、ECS のタスクが要求数を満たさず、可用性が犠牲になるということがありました。
-それを避けるために、ECS 利用者はこのようなブログ記事を参考に、自分たちで EC2 インスタンスの draining を実装したりして可用性を確保していました。
+それを避けるために、ECS 利用者は次のようなブログ記事を参考に、自分たちで EC2 インスタンスの draining を実装したりして可用性を確保していました。
 https://aws.amazon.com/jp/blogs/compute/how-to-automate-container-instance-draining-in-amazon-ecs/
 
 今回、ECS 側に EC2 インスタンスをマネージドドレインする機能が追加されたことで、ユーザーが独自に実装することなくタスク数が前もって確保されるようになりました。
 次のような流れで、可用性を保ちながら EC2 インスタンスを終了させることができるようになるようです。
 
-1. なんらかの理由で AutoScaling が EC2 インスタンスが終了しようとすると、ECS がインスタンスをドレインモードに設定し、一時的にインスタンスの終了を遅らせます
+1. なんらかの理由で AutoScaling が EC2 インスタンスを終了しようとすると、ECS がインスタンスをドレインモードに設定し、一時的にインスタンスの終了を遅らせます
 2. ドレインモードにある EC2 インスタンスで新たにタスクが立ち上がることはなくなり、新しいタスクは EC2 インスタンスのキャパシティに空きがあればそこに増やし、無ければキャパシティプロバイダが EC2 インスタンスを増やせるようイベントを発火します
 3. その後、ドレインモードになっている EC2 インスタンスを終了させるようです
 
@@ -101,9 +101,6 @@ https://aws.amazon.com/jp/blogs/compute/how-to-automate-container-instance-drain
 @[tweet](https://twitter.com/defaultcf/status/1747544937179353439)
 
 _本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)_
-
-## GitHub Actions - Repository Actions Runners List is now generally available - The GitHub Blog
-https://github.blog/changelog/2024-01-17-github-actions-repository-actions-runners-list-is-now-generally-available/
 
 # know-how 🎓
 
@@ -191,15 +188,14 @@ https://efcl.info/2024/01/17/superwhisper/
 
 _本項の執筆者: [@Kesin11](https://zenn.dev/kesin11)_
 
-## Findy Tools
-https://findy-tools.io/
-
 # read more 🍘
 Productivity Weekly で出たネタを全て紹介したいけど紹介する体力が持たなかったネタを一言程度で書くコーナーです。
 
 - **news 📺**
+  - [GitHub Actions - Repository Actions Runners List is now generally available - The GitHub Blog](https://github.blog/changelog/2024-01-17-github-actions-repository-actions-runners-list-is-now-generally-available/)
 - **know-how 🎓**
 - **tool 🔨**
+  - [Findy Tools](https://findy-tools.io/)
 
 # あとがき
 
@@ -207,7 +203,3 @@ Productivity Weekly で出たネタを全て紹介したいけど紹介する体
 サイボウズの生産性向上チームでは社内エンジニアの開発生産性を上げるための活動を行なっています。そんな生産性向上チームが気になる方は下のリンクをクリック！
 https://speakerdeck.com/cybozuinsideout/engineering-productivity-team-recruitment-information
 
-<!-- :::message すみません、今週もおまけはお休みです...:::-->
-
-## omake 🃏: 
-今週のおまけです。
