@@ -1,11 +1,18 @@
 ---
-title: "＜ここにタイトルを入力＞｜Productivity Weekly (2024-01-24号)"
+title: "公開repoでのActionsスペック増強、tfのテストにモックが追加など｜Productivity Weekly(2024-01-24号)"
 emoji: "🎾"
 type: "idea"
 topics: ["ProductivityWeekly", "生産性向上"]
 published: false
 publication_name: "cybozu_ept"
-user_defined: {"publish_link": "https://zenn.dev/cybozu_ept/articles/productivity-weekly-20240124"}
+user_defined: 
+  publish_link: "https://zenn.dev/cybozu_ept/articles/productivity-weekly-20240124"
+  note: |
+    _本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
+    _本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)_
+    _本項の執筆者: [@Kesin11](https://zenn.dev/kesin11)_
+    _本項の執筆者: [@r4mimu](https://zenn.dev/r4mimu)_
+    _本項の執筆者: [@uta8a](https://zenn.dev/uta8a)_
 ---
 
 こんにちは。サイボウズ株式会社 [生産性向上チーム](https://note.com/cybozu_dev/n/n1c1b44bf72f6)の平木場です。
@@ -23,12 +30,6 @@ user_defined: {"publish_link": "https://zenn.dev/cybozu_ept/articles/productivit
 2023-05-10 号から、実験的に生産性向上チームの他メンバーにいくつかのトピックを紹介していただくことにしています。
 
 対象のトピックでは、文章の最後に `本項の執筆者: <執筆者名>` を追加しています。
-
-<!-- _本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_ -->
-<!-- _本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)_ -->
-<!-- _本項の執筆者: [@Kesin11](https://zenn.dev/kesin11)_ -->
-<!-- _本項の執筆者: [@r4mimu](https://zenn.dev/r4mimu)_ -->
-<!-- _本項の執筆者: [@uta8a](https://zenn.dev/uta8a)_ -->
 
 今週の共同著者は次の方です。
 - [@korosuke613](https://zenn.dev/korosuke613)
@@ -60,8 +61,38 @@ _本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)_
 ## Copilot Content Exclusions Feature Update - The GitHub Blog
 https://github.blog/changelog/2024-01-18-copilot-content-exclusions-feature-update/
 
+GitHub Copilot のコンテンツ除外機能が復活しました。
+
+content exclusions は元々去年末に public beta としてリリースされた機能です。ユーザが指定した任意のファイルやディレクトリを GitHub Copilot から除外することを可能とする機能でした（business 向け）。しかし、その後のリリースで重大なバグが見つかりロールバックされていました。
+
+時系列:
+- 2023/11/08 content exclusions 機能が public beta に: [Copilot Content Exclusion is now available in Public Beta - The GitHub Blog](https://github.blog/changelog/2023-11-08-copilot-content-exclusion-is-now-available-in-public-beta/)
+- 2023/11/20 content exclusions 機能をロールバック: [Copilot content exclusions - Temporary rollback and upcoming fix - The GitHub Blog](https://github.blog/changelog/2023-11-20-copilot-content-exclusions-temporary-rollback-and-upcoming-fix/)
+- 2024/01/18 content exclusions 機能が復活:（本記事）
+
+今回、重大なバグが解消され、再リリースされたため、再び GitHub Copilot for Business ユーザは content exclusions 機能を利用できるようになりました。
+また、元々のバグ修正だけでなく、パフォーマンス最適化や他の IDE でも利用可能になりました。
+
+シークレットを扱う `.env` などの copilot に触って欲しくないファイルにおいては copilot を慎重に扱う必要があったため、今回の変更で機械的に除外できるようになったのは嬉しいですね。まだベータ版ではありますが、活用していきましょう。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
+
 ## Release v4.0.0 · actions/cache
 https://github.com/actions/cache/releases/tag/v4.0.0
+
+GitHub Actions の公式アクションである actions/cache のメジャーアップデートである v4.0.0 がリリースされました。
+
+メジャーアップデートされた理由は Node.js 20 (`node20`)が利用されるようになったからかと思われます。これで公式の主要アクションのほとんどが Node.js 20 に対応したのではないでしょうか？（actions/cache は遅かった方に思える）
+
+また、今回新機能として `save-always` フラグが追加されました。これはキャッシュの保存を常に行うようにするフラグです。通常、ジョブが失敗した場合キャッシュは保存されません。
+
+例えばトピックブランチのジョブにおいて、`npm ci` は成功してその後のテスト等で失敗した場合、失敗したのはテストであるため npm のキャッシュは保存したいというケースがあります。そう言った場合にこのフラグがあると嬉しいですね。
+
+Node.js 16 はすでに公式のサポートが終了しているため、早めに Node.js 20 に移行することをお勧めします[^node18]。基本的にバージョンアップして損はないと思うので、皆さん上げましょう。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
+
+[^node18]: GitHub Actions の JavaScript アクションでは Node.js 18 を指定できないため、`node16` の次は `node20` になります。
 
 ## Terraform 1.7 adds test mocking and config-driven remove
 https://www.hashicorp.com/blog/terraform-1-7-adds-test-mocking-and-config-driven-remove
@@ -106,6 +137,16 @@ _本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)_
 
 ## リリース頻度を毎週から毎日にしてみた - NTT Communications Engineers' Blog
 https://engineers.ntt.com/entry/2024/01/19/094639
+
+NTT Communications さんによるリリース頻度を毎週から毎日にした方法とふりかえりについての記事です。
+
+NTT Communications さんが開発する NeWork というサービスでは、元々毎週の決まった日にリリースを行なっていた（緊急対応除く）ようですが、フィードバックに即応してもすぐにリリースできなかったり、リリース直前に駆け込みマージがあってばたついたり、スケジュールを合わせる必要があったり、リリースが手動でミスする可能性があったりと、さまざまな課題があったそうです。
+
+それらの課題を解決するために自動リリースの仕組みが導入され、本記事で説明されています。自動リリースは GitHub Actions で行われており、ワークフローをコードごと公開してくれています。さらに、ワークフローの説明が詳細に書かれているため、大変ありがたいです。
+
+リリース頻度を毎日に、かつ、自動で行うようになってどうなったかも書かれており、同じような困り事を抱えているチームには特に参考になる記事だと思います。リリースフロー、よくしていきたいですね。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 ## TerraformとCloud RunとCloud Load BalancingでCI/CDを突き詰めた
 https://devblog.pirika.org/entry/2023/07/26/113000
@@ -193,12 +234,12 @@ Productivity Weekly で出たネタを全て紹介したいけど紹介する体
 
 - **news 📺**
   - [GitHub Actions - Repository Actions Runners List is now generally available - The GitHub Blog](https://github.blog/changelog/2024-01-17-github-actions-repository-actions-runners-list-is-now-generally-available/)
-- **know-how 🎓**
-- **tool 🔨**
-  - [Findy Tools](https://findy-tools.io/)
+    - GitHub Actions の Repository Actions Runners List が GA になりました
+    - `repo:write` 権限を持つユーザなら誰でもリポジトリで利用可能なランナーを確認できる機能です
+    - これでどのランナーが利用可能かの確認が容易になります
 
 # あとがき
-
+いやー大変遅くなってしまって申し訳ないです。今週号でした。毎回ですがタイトルが悩ましいです。
 
 サイボウズの生産性向上チームでは社内エンジニアの開発生産性を上げるための活動を行なっています。そんな生産性向上チームが気になる方は下のリンクをクリック！
 https://speakerdeck.com/cybozuinsideout/engineering-productivity-team-recruitment-information
