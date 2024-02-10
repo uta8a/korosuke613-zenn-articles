@@ -33,7 +33,7 @@ user_defined: {"publish_link": "https://zenn.dev/cybozu_ept/articles/productivit
 今週の共同著者は次の方です。
 - [@korosuke613](https://zenn.dev/korosuke613)
 <!-- - [@defaultcf](https://zenn.dev/defaultcf) -->
-<!-- - [@Kesin11](https://zenn.dev/kesin11) -->
+- [@Kesin11](https://zenn.dev/kesin11)
 <!-- - [@r4mimu](https://zenn.dev/r4mimu) -->
 <!-- - [@uta8a](https://zenn.dev/uta8a) -->
 
@@ -49,7 +49,7 @@ https://github.blog/changelog/2024-01-30-github-actions-macos-14-sonoma-is-now-a
 
 
 GitHub Actions の M1 macOS 14 (Sonoma) ランナーが追加されて、macos-14 は public リポジトリで無料に使えるようになった話。
-他にもいろいろ話が混ざっててややこしいけど、変更点をまとめると以下のような感じ？
+他にもいろいろ話が混ざっててややこしいけど、変更点をまとめると次のような感じ？
 
 - macos-11: deprecated で 2024/6 終了予定
 - macos-13, macos-13-large: Intel CPU（今回特に変更なし）
@@ -63,6 +63,145 @@ GitHub Actions の M1 macOS 14 (Sonoma) ランナーが追加されて、macos-1
 
 ## Dockerのビルドが最大40倍高速になる「Docker Build Cloud」提供開始。Appleシリコン/AWS Graviton用のビルドにも対応
 https://www.publickey1.jp/blog/24/docker40docker_build_cloudappleaws_graviton.html
+
+昨年に告知されていた Docker Build Cloud が提供開始されました。Buildkit のビルダーを Docker 社がマネージドサービスとして提供する形で、個人的には予想通りでした。
+
+`docker buildx build` が裏で利用している Buildkit は一般的には Docker Desktop に付属されているものが利用されていますが、ネットワーク経由でリモート上に構築されている Buildkit に接続することも以前から可能でした。ローカルでビルドするとレイヤーキャッシュによって 2 回目以降のビルドは高速になることは誰でも体験済みだと思いますが、リモート上にある Buildkit をチームで共有して利用するとそのレイヤーキャッシュを全員で共有する形になります。そのため、多くの場面でキャッシュが効くことでビルドが高速化される可能性があります。
+
+個人的にはその他にも `RUN --mount=type=cache` 機能でさらにキャッシュを利用して高速化できたり、リモートなので逆にビルドしたイメージを手元に `--load` で持ってくるのは時間がかかるだろうと予想していたのですが、その辺りも含めて実際に試された結果をまとめてくれている記事がありました。ローカルのマシンに加えて CircleCI からこの Docker Build Cloud を利用された結果も紹介されているので、使用感について興味がある方はぜひ読んでみてください。
+
+https://shepherdmaster.hateblo.jp/entry/2024/02/04/104330
+
+:::details 自分でも実際に Docker Cloud Build を試してみた記録
+両方の記事でも紹介されているように、無料の Personal プランでも 50 分/月までは Docker Build Cloud も無料[^need_credit_card]で利用可能です。
+
+[^need_credit_card]: ただし、クレジットカードの登録は必要です。
+
+https://www.docker.com/products/build-cloud/ の右上の"Get Started"ボタンか、あるいは次の URL から直接ビルダーの管理ページに飛べるはずです。
+
+`https://build.docker.com/accounts/${DOCKERHUBのアカウント名}/builders`
+
+ビルダーの管理画面までたどり着ければ次のようなセットアップコマンドが表示されるので、それを順番に実行していきます。
+
+```bash
+docker login
+
+# リモートのビルダーを作成
+docker buildx create --driver cloud ${DOCKERHUBのアカウント名}/cloud
+
+# 単発でリモートのビルダーを使用する場合
+docker buildx build --builder ${作成したビルダーの名前} --tag myorg/some-tag .
+
+# `docker buildx build` で利用するビルダーのデフォルトを切り替える場合
+docker buildx use ${作成したビルダーの名前} --global
+```
+
+実際に [actions/runner](https://github.com/actions/runner) のリポジトリで GitHub Actions のセルフホストランナー用のイメージをビルドしてみます。
+
+```bash
+$ time docker buildx build --builder MY_CLOUD_BUILDER \
+  --no-cache \
+  -f images/Dockerfile \
+  --platform=amd64 \
+  --build-arg "RUNNER_VERSION=2.313.0" .
+real    0m29.880s
+user    0m0.280s
+sys     0m0.144s
+```
+
+この Dockerfile は Arm 版のビルドにも対応しているので `--platform=arm64` オプションも試してみます。自分のマシンは x86 の WSL2 上で動かしている ubuntu のため、通常であれば Arm のビルドは QEMU のエミュレーションでかなり遅くなるはずですが、Docker Build Cloud ではどうでしょうか。
+
+```bash
+$ time docker buildx build --builder MY_CLOUD_BUILDER \
+  --no-cache \
+  -f images/Dockerfile \
+  --platform=arm64 \
+  --build-arg "RUNNER_VERSION=2.313.0" .
+real    0m32.735s
+user    0m0.211s
+sys     0m0.246s
+```
+
+いいですね！Docker Build Cloud が Arm ネイティブのリモートビルダーも用意してくれているため、x86 版のイメージをビルドするのとほぼ変わらない速度でビルドが完了しました。
+
+
+#### 動作確認環境:
+
+`Windows版 Docker Desktop 4.27.1`
+
+```bash
+$ docker buildx version
+github.com/docker/buildx v0.12.1-desktop.4 6996841df2f61988c2794d84d33205368f96c317
+
+$ docker version
+Client:
+ Cloud integration: v1.0.35+desktop.10
+ Version:           25.0.2
+ API version:       1.44
+ Go version:        go1.21.6
+ Git commit:        29cf629
+ Built:             Thu Feb  1 00:22:06 2024
+ OS/Arch:           linux/amd64
+ Context:           default
+
+Server: Docker Desktop
+ Engine:
+  Version:          25.0
+  API version:      1.44 (minimum version 1.24)
+  Go version:       go1.21.6
+  Git commit:       fce6e0ca9bc000888de3daa157af14fa41fcd0ff
+  Built:            Thu Feb  1 00:14:41 2024
+  OS/Arch:          linux/amd64
+  Experimental:     true
+ containerd:
+  Version:          1.6.28
+  GitCommit:        ae07eda36dd25f8a1b98dfbf587313b99c0190bb
+ runc:
+  Version:          1.1.12
+  GitCommit:        v1.1.12-0-g51d5e94
+ docker-init:
+  Version:          0.19.0
+  GitCommit:        de40ad0
+```
+
+:::
+
+
+注意というか自分でもまだ分かっていないのですが、手元の macOS で動かしている Rancher Desktop (v1.12.3) では `docker buildx create --driver` の時点でエラーになってしまい利用できませんでした。
+
+```bash
+$ docker buildx create --driver cloud ${DOCKERHUBのアカウント名}/cloud
+ERROR: failed to find driver "cloud"
+```
+
+一方でビルダーの管理画面には GitHub Actions で利用する場合の YAML の例も表示されており、それは次のようになっています。
+
+```yaml
+jobs:
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+        with:
+          version: "lab:latest"
+          driver: cloud
+          endpoint: "${DOCKERHUBのアカウント名}/cloud"
+```
+
+GitHub Actions では通常の `ubuntu-latest` のマシンを利用していることから、Docker Desktop の限定機能ではないことが想像できます。 `version: "lab:latest"` という指定があるので、最新かあるいは特別なバージョンの Buildx が必要なのかもしれません。
+
+ということで、現時点では自分のローカルマシンから利用する場合には Docker Desktop が必要かもしれませんね。興味がある方はぜひ試してみてください。
+
+
+_本項の執筆者: [@Kesin11](https://zenn.dev/kesin11)_
 
 ## Dependabot Version Updates Support devcontainers - The GitHub Blog
 https://github.blog/changelog/2024-01-24-dependabot-version-updates-support-devcontainers/
