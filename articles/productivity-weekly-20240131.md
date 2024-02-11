@@ -34,7 +34,7 @@ user_defined: {"publish_link": "https://zenn.dev/cybozu_ept/articles/productivit
 - [@korosuke613](https://zenn.dev/korosuke613)
 <!-- - [@defaultcf](https://zenn.dev/defaultcf) -->
 - [@Kesin11](https://zenn.dev/kesin11)
-<!-- - [@r4mimu](https://zenn.dev/r4mimu) -->
+- [@r4mimu](https://zenn.dev/r4mimu)
 <!-- - [@uta8a](https://zenn.dev/uta8a) -->
 
 :::
@@ -220,11 +220,47 @@ https://github.blog/changelog/2024-01-30-code-faster-and-better-with-github-copi
 ## 品質の可視化への取り組み：バグ管理の事例紹介 | メルカリエンジニアリング
 https://engineering.mercari.com/blog/entry/20240122-7865286e4d/
 
+メルカリさんの品質向上のための取り組みについての記事です。バグ管理についての事例紹介がされています。
+
+バグのチケットを健全に管理するために、次のような目標を設定したそうです。
+
+1. バグ管理環境を JIRA へ統一
+2. バグの発生状況や修正の優先順位が判断できること
+3. バグが長期間放置されないこと
+
+バグ管理を JIRA に統一し、GAS と Jira Cloud for Sheets というスプレッドシートのアドオンを使って Looker Studio で可視化することで、バグの追跡と分析がスムーズになったそうです。
+
+こちらの事例はバグ管理の話でしたが、スプレッドシート + Jira Cloud for Sheets + Looker studio はタスクチケットの管理やプロジェクトの進捗管理などにも応用できそうだと思いました。
+
+_本項の執筆者: [@r4mimu](https://zenn.dev/r4mimu)_
+
+
 ## Go 1.22リリース連載始まります & ループの変化とTinyGo 0.31
 https://future-architect.github.io/articles/20240129a/
 
+Go 1.22 がリリースされましたね！今回のリリースもフューチャーさんが連載をしてくれています。毎度助かっております。
+
+Go 1.22 で話題になっているのは、ループ変数の扱いの変化でしょうか。
+ループ変数が内部のクロージャなどから参照されたりした場合は、ループの中で変数を定義して代入するのを自動で行ってくれるようになりました。
+これにより、並列でテストを行う際のイディオムである `tt := tt` などの記述が不要になります。
+また、`range` に `int` を渡せるようになりました。これにより、単に n 回繰り返すだけのループを書く際に、 `for i := 0; i < n; i++` と書く必要がなくなり、 `for i := range n ` と書くだけで済むようになります。これは地味に嬉しいです。
+
+連載の中で個人的に面白かったのは、[vet, log/slog, testing/slogtest についての記事](https://future-architect.github.io/articles/20240205a/)です。
+`vet` のアップデートに基づいて、Go のハマりどころになり得るコードを解説してくれています。正直、ほとんど知らなかったので、勉強になりました。
+
+_本項の執筆者: [@r4mimu](https://zenn.dev/r4mimu)_
+
 ## Googleの新スパムメール対策への対応状況の調査と今後の対応方針について / 開発者向けブログ・イベント | GMO Developers 
 https://developers.gmo.jp/42677/
+
+Google が 2024 年 2 月 1 日から導入した新しいスパムメール対策による影響について調査した結果をまとめた記事です。
+
+メール送信者のガイドラインに基づいて、GMO さんのサービスにおいて調査しています。調査にあたってはどのように調査したかのコマンドが添えられていたり、判断基準が示されているため参考になります。
+
+自分は業務内でメール送信を扱うことがなかったので、ワンクリックでのメール配信登録の解除はガイドラインに記載されていることをこちらの記事で知りました。
+いちユーザーとしてはこの配信登録解除の仕組みはありがたいです。
+
+_本項の執筆者: [@r4mimu](https://zenn.dev/r4mimu)_
 
 
 # tool 🔨
