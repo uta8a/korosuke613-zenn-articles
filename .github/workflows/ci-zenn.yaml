@@ -54,7 +54,7 @@ jobs:
         with:
           fetch-depth: 2  # Because if `fetch-depth >= 2` is not set, unchanged files will be updated.
   
-      - uses: tj-actions/changed-files@da093c1609db0edd0a037ce9664e135f74bf30d9 # v40.2.0
+      - uses: tj-actions/changed-files@56284d80811fb5963a972b438f2870f175e5b7c8 # v40.2.3
         id: changed-files-yaml
         with:
           files_yaml: |
