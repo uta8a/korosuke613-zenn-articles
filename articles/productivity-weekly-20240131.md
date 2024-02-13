@@ -1,5 +1,5 @@
 ---
-title: "＜ここにタイトルを入力＞｜Productivity Weekly (2024-01-31号)"
+title: "ActionsでM1 Macが無料で使えるように。DockerやGoの話も｜Productivity Weekly(2024-01-31号)"
 emoji: "🌭"
 type: "idea"
 topics: ["ProductivityWeekly", "生産性向上"]
@@ -24,12 +24,6 @@ user_defined: {"publish_link": "https://zenn.dev/cybozu_ept/articles/productivit
 
 対象のトピックでは、文章の最後に `本項の執筆者: <執筆者名>` を追加しています。
 
-<!-- _本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_ -->
-<!-- _本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)_ -->
-<!-- _本項の執筆者: [@Kesin11](https://zenn.dev/kesin11)_ -->
-<!-- _本項の執筆者: [@r4mimu](https://zenn.dev/r4mimu)_ -->
-<!-- _本項の執筆者: [@uta8a](https://zenn.dev/uta8a)_ -->
-
 今週の共同著者は次の方です。
 - [@korosuke613](https://zenn.dev/korosuke613)
 <!-- - [@defaultcf](https://zenn.dev/defaultcf) -->
@@ -41,25 +35,36 @@ user_defined: {"publish_link": "https://zenn.dev/cybozu_ept/articles/productivit
 
 # news 📺
 
-## GitHub Actions: Introducing the new M1 macOS runner available to open source! - The GitHub Blog
-https://github.blog/changelog/2024-01-30-github-actions-introducing-the-new-m1-macos-runner-available-to-open-source/
+## GitHub Actions で M1 macOS ランナーが public リポジトリで無料に使えるようになりました
 
-GitHub Actions: macOS 14 (Sonoma) is now available - The GitHub Blog
-https://github.blog/changelog/2024-01-30-github-actions-macos-14-sonoma-is-now-available/
+- [GitHub Actions: Introducing the new M1 macOS runner available to open source! - The GitHub Blog](https://github.blog/changelog/2024-01-30-github-actions-introducing-the-new-m1-macos-runner-available-to-open-source/)
+- [GitHub Actions: macOS 14 (Sonoma) is now available - The GitHub Blog](https://github.blog/changelog/2024-01-30-github-actions-macos-14-sonoma-is-now-available/)
 
+[去年 10 月に GitHub Actions において M1 macOS ランナーが public beta として利用可能となりましたが](https://zenn.dev/cybozu_ept/articles/productivity-weekly-20231004#github-actions%3A-apple-silicon-(m1)-macos-runners-are-now-available-in-public-beta!---the-github-blog)、larger runners としての提供であったため、無料での利用はできませんでした。
 
-GitHub Actions の M1 macOS 14 (Sonoma) ランナーが追加されて、macos-14 は public リポジトリで無料に使えるようになった話。
-他にもいろいろ話が混ざっててややこしいけど、変更点をまとめると次のような感じ？
+しかし、今回新たに macOS 14 (Sonoma) のランナー（`macos-14`）が追加されたことにより、public リポジトリにおいては無料枠内で M1 Mac ランナーを利用できるようになりました！
+今回新たに追加されたランナーは `macos-14`、`macos-14-large`、`macos-14-xlarge` の 3 つであり、無料枠内で利用できる `macos-14` ランナーのスペックは 3 vCPU、7GB RAM、14GB ストレージとなっています。
 
-- macos-11: deprecated で 2024/6 終了予定
-- macos-13, macos-13-large: Intel CPU（今回特に変更なし）
-- macos-13-xlarge: M1 CPU、beta が外れて GA に
-- macos-14: 今回追加、M1 CPU、public リポジトリ無料、beta
-- macos-14-large, macos-14-xlarge: 今回追加、M1 CPU、有料のみ、beta
-- macos-latest, macos-latest-large: 今は macOS 12 系を指すけど、2024/4-6 に macOS 14 系を指すように変更予定
-- macos-latest-xlarge: 今は macOS 13 を指すけど、↑と同じ認識でよい？
+また、新たなランナー追加に伴い、`macos-11` は直ちに deprecated かつ 2024/6 に廃止予定となり、latest 系イメージは 2024/4-6 に macOS 14 系を指すように変更される予定となります。
 
-なお、billing API はまだ対応してない雰囲気
+ここら辺のラベルはとてもややこしいです。同じ生産性向上チームの [@miyajan](https://zenn.dev/miyajan) さんが各ラベルの状況をまとめてくれたので、以下に引用します。
+
+- `macos-11`: deprecated。2024/6 終了予定
+- `macos-13`, `macos-13-large`: Intel Mac（今回特に変更なし）
+- `macos-13-xlarge`: M1 Mac。beta が外れて GA に
+- `macos-14`: 今回追加。M1 Mac。public リポジトリ無料、beta
+- `macos-14-large`, `macos-14-xlarge`: 今回追加。M1 Mac。有料のみ、beta
+- `macos-latest`, `macos-latest-large`: 今は macOS 12 系を指すが、2024/4-6 に macOS 14 系を指すように変更予定
+- `macos-latest-xlarge`: 今は macOS 13 を指すが、2024/4-6 に macOS 14 系を指すように変更予定（たぶん）
+
+とうとう M1 Mac ランナーが無料で利用できるようになりましたね！これで OSS の開発者も M1 Mac でのビルドが手軽にできるようになります。
+もはや Intel Mac は手に入れるのが難しいので、開発環境と CI 環境のアーキテクチャの違いに悩まされることも減ってきそうです。
+
+:::message
+なお、public beta の頃の M1 Mac ランナーは、REST API の `/enterprises/{enterprise}/settings/billing/actions` に利用量が[含まれない雰囲気だった](https://github.com/orgs/community/discussions/69211#discussioncomment-7237362)のですが、今回 `macos-13-xlarge` が GA になったことで含まれるようになったんですかね？誰か知ってたら教えてください。
+:::
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 ## Dockerのビルドが最大40倍高速になる「Docker Build Cloud」提供開始。Appleシリコン/AWS Graviton用のビルドにも対応
 https://www.publickey1.jp/blog/24/docker40docker_build_cloudappleaws_graviton.html
