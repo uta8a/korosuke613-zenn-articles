@@ -33,6 +33,10 @@ user_defined: {"publish_link": "https://zenn.dev/cybozu_ept/articles/productivit
 
 :::
 
+:::message
+来週号（2024-02-07 号）は、他の社内イベントで Productivity Weekly が開催されなかったためお休みです。
+:::
+
 # news 📺
 
 ## GitHub Actions で M1 macOS ランナーが public リポジトリで無料に使えるようになりました
@@ -211,8 +215,37 @@ _本項の執筆者: [@Kesin11](https://zenn.dev/kesin11)_
 ## Dependabot Version Updates Support devcontainers - The GitHub Blog
 https://github.blog/changelog/2024-01-24-dependabot-version-updates-support-devcontainers/
 
+Dependabot の依存関係更新機能が devcontainer の Features に対応しました。
+
+devcontainer（Development Containers）は開発環境をコンテナ化するための仕様であり、devcontainer.json で Dockerfile の指定や IDE などの設定を行なっておくことで、VS Code や GitHub Codespaces ですぐに構築済みの開発環境で作業できるというものです（雑な説明）。
+そして、devcontainer には Features というプラグイン的な機能があります。これは、Dockerfile に全て書くことなく簡単に devcontainer に任意の機能を追加できるものとなっています。Features の設定は devcontainer.json に記述します。
+
+今回の変更は、その Features のバージョンを Dependabot で更新できるようになったというものになります。
+利用するには dependabot.yml での設定が必要です。
+
+Dependabot と devcontainer を使っている人は利用してみましょう。
+
+:::message
+ちなみに Renovate の方では [Issue](https://github.com/renovatebot/renovate/issues/12116) は上がっていますがまだ devcontainer は対応されていません。
+とはいえ regex manager を使えばバージョン更新は可能です。
+:::
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
+
 ## [Product Update] Speeding up code checkout - Build Environment - CircleCI Discuss
 https://discuss.circleci.com/t/product-update-speeding-up-code-checkout/50317/3
+
+CircleCI がリポジトリのクローン時(`checkout` コマンド)の高速化を図り、blobless clone を行うテストを行ない始めました。
+
+[blobless clone](https://github.blog/2020-12-21-get-up-to-speed-with-partial-clone-and-shallow-clone/) は Git における commit オブジェクト、tree オブジェクト、blob オブジェクトの内、blob オブジェクトのみを取得しないようにすることで、履歴は取得しつつも実体は取得せずに高速にクローンできるというものになります。（もしブランチ切り替え等で blob オブジェクトが必要になった際は都度ダウンロードします。）
+
+クローン時にのオプションである `--filter=blob:none` を使うことで実現できます。しかし、CircleCI の組み込みクローンコマンドである `checkout` にはこのオプションがないため、`checkout` で同じことを実現できませんでした。
+今回 CircleCI は blobless clone を `checkout` コマンドで行うテストを始めており、クローン時の高速化を目指しているようです。
+
+なお、このテスト（≒早期アクセス）に参加するためには CircleCI の従業員にメールで連絡する必要があります。
+試したい方は連絡してみましょう。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 ## Do you know if all your repositories have up-to-date dependencies? - The GitHub Blog
 https://github.blog/2024-01-25-do-you-know-if-all-your-repositories-have-up-to-date-dependencies/
@@ -278,6 +311,10 @@ Productivity Weekly で出たネタを全て紹介したいけど紹介する体
 - **tool 🔨**
 
 # あとがき
+
+:::message
+来週号（2024-02-07 号）は、他の社内イベントで Productivity Weekly が開催されなかったためお休みです。
+:::
 
 
 サイボウズの生産性向上チームでは社内エンジニアの開発生産性を上げるための活動を行なっています。そんな生産性向上チームが気になる方は下のリンクをクリック！
