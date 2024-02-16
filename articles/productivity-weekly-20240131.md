@@ -247,12 +247,6 @@ CircleCI がリポジトリのクローン時(`checkout` コマンド)の高速�
 
 _本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
-## Do you know if all your repositories have up-to-date dependencies? - The GitHub Blog
-https://github.blog/2024-01-25-do-you-know-if-all-your-repositories-have-up-to-date-dependencies/
-
-## Code faster and better with GitHub Copilot’s new features in Visual Studio - The GitHub Blog
-https://github.blog/changelog/2024-01-30-code-faster-and-better-with-github-copilots-new-features-in-visual-studio/
-
 # know-how 🎓
 
 ## 品質の可視化への取り組み：バグ管理の事例紹介 | メルカリエンジニアリング
@@ -300,17 +294,22 @@ Google が 2024 年 2 月 1 日から導入した新しいスパムメール対�
 
 _本項の執筆者: [@r4mimu](https://zenn.dev/r4mimu)_
 
-
-# tool 🔨
-
 # read more 🍘
 Productivity Weekly で出たネタを全て紹介したいけど紹介する体力が持たなかったネタを一言程度で書くコーナーです。
 
 - **news 📺**
-- **know-how 🎓**
+  - [Code faster and better with GitHub Copilot’s new features in Visual Studio - The GitHub Blog](https://github.blog/changelog/2024-01-30-code-faster-and-better-with-github-copilots-new-features-in-visual-studio/)
+    - Visual Studio の GitHub Copilot Chat において、スラッシュコマンドとコンテキスト変数が使えるようになりました
+    - スラッシュコマンドは、`/doc` でドキュメント生成をさせたり、`/tests` でユニットテストを作成させたりといった、スラッシュから始まるコマンド群のことです。Copilot に指示が出せます
+    - コンテキスト変数は、`#file:'Main.cs'` といった形式で、特定のファイルに対する質問ができるコマンドです 
 - **tool 🔨**
+  - [Do you know if all your repositories have up-to-date dependencies? - The GitHub Blog](https://github.blog/2024-01-25-do-you-know-if-all-your-repositories-have-up-to-date-dependencies/)
+    - GitHub が Dependabot 利用者向けにリポジトリで Dependabot を有効にしているかどうかを横断的にチェック/有効化する GitHub Actions アクション github/evergreen をリリースしています
+    - Dependabot のバージョン更新が設定されているかどうかのチェックと自動有効化ができるようです
 
 # あとがき
+
+遅くなってしまいすみません。今週号でした。public リポジトリで M1 Mac ランナー無料で使えるの激アツですね。とはいえ僕は個人で macOS じゃないとテストできないような何かを作っているわけではないのですが...
 
 :::message
 来週号（2024-02-07 号）は、他の社内イベントで Productivity Weekly が開催されなかったためお休みです。
@@ -319,8 +318,3 @@ Productivity Weekly で出たネタを全て紹介したいけど紹介する体
 
 サイボウズの生産性向上チームでは社内エンジニアの開発生産性を上げるための活動を行なっています。そんな生産性向上チームが気になる方は下のリンクをクリック！
 https://speakerdeck.com/cybozuinsideout/engineering-productivity-team-recruitment-information
-
-<!-- :::message すみません、今週もおまけはお休みです...:::-->
-
-## omake 🃏: 
-今週のおまけです。
