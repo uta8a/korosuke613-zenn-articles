@@ -1,16 +1,18 @@
 ---
 {{ if .Env.PW_PREV_DAY -}}
-title: "＜ここにタイトルを入力＞｜Productivity Weekly ({{ .Env.PW_YEAR }}-{{ .Env.PW_MONTH }}-{{ .Env.PW_DAY }}号, {{ .Env.PW_PREV_YEAR }}-{{ .Env.PW_PREV_MONTH }}-{{ .Env.PW_PREV_DAY }}号)"
+title: ＜ここにタイトルを入力＞｜Productivity Weekly ({{ .Env.PW_YEAR }}-{{ .Env.PW_MONTH }}-{{ .Env.PW_DAY }}号, {{ .Env.PW_PREV_YEAR }}-{{ .Env.PW_PREV_MONTH }}-{{ .Env.PW_PREV_DAY }}号)
 {{- else -}}
-title: "＜ここにタイトルを入力＞｜Productivity Weekly ({{ .Env.PW_YEAR }}-{{ .Env.PW_MONTH }}-{{ .Env.PW_DAY }}号)"
+title: ＜ここにタイトルを入力＞｜Productivity Weekly ({{ .Env.PW_YEAR }}-{{ .Env.PW_MONTH }}-{{ .Env.PW_DAY }}号)
 {{- end }}
-emoji: ""
-type: "idea"
-topics: ["ProductivityWeekly", "生産性向上"]
+emoji: 
+type: idea
+topics:
+  - ProductivityWeekly
+  - 生産性向上
 published: false
-publication_name: "cybozu_ept"
+publication_name: cybozu_ept
 user_defined: 
-  publish_link: "https://zenn.dev/cybozu_ept/articles/productivity-weekly-{{ .Env.PW_YEAR }}{{ .Env.PW_MONTH }}{{ .Env.PW_DAY }}"
+  publish_link: https://zenn.dev/cybozu_ept/articles/productivity-weekly-{{ .Env.PW_YEAR }}{{ .Env.PW_MONTH }}{{ .Env.PW_DAY }}
   note: |
     _本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
     _本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)_
