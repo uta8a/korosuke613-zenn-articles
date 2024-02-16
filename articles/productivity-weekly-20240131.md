@@ -1,11 +1,15 @@
 ---
-title: "ActionsでM1 Macが無料で使えるように。DockerやGoの話も｜Productivity Weekly(2024-01-31号)"
-emoji: "🌭"
-type: "idea"
-topics: ["ProductivityWeekly", "生産性向上"]
-published: false
-publication_name: "cybozu_ept"
-user_defined: {"publish_link": "https://zenn.dev/cybozu_ept/articles/productivity-weekly-20240131"}
+title: ActionsでM1 Macが無料で使えるように。DockerやGoの話も｜Productivity Weekly(2024-01-31号)
+emoji: 🌭
+type: idea
+topics:
+  - ProductivityWeekly
+  - 生産性向上
+published: true
+publication_name: cybozu_ept
+user_defined:
+  publish_link: https://zenn.dev/cybozu_ept/articles/productivity-weekly-20240131
+published_at: 2024-02-19 10:00
 ---
 
 こんにちは。サイボウズ株式会社 [生産性向上チーム](https://note.com/cybozu_dev/n/n1c1b44bf72f6)の平木場です。
