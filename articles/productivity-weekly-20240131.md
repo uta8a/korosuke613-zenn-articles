@@ -61,7 +61,8 @@ published_at: 2024-02-19 10:00
 - `macos-13`, `macos-13-large`: Intel Mac（今回特に変更なし）
 - `macos-13-xlarge`: M1 Mac。beta が外れて GA に
 - `macos-14`: 今回追加。M1 Mac。public リポジトリ無料、beta
-- `macos-14-large`, `macos-14-xlarge`: 今回追加。M1 Mac。有料のみ、beta
+- `macos-14-large`: 今回追加。[**Intel Mac**](https://x.com/miyajan/status/1757291617483157509?s=20)。有料のみ、beta
+- `macos-14-xlarge`: 今回追加。M1 Mac。有料のみ、beta
 - `macos-latest`, `macos-latest-large`: 今は macOS 12 系を指すが、2024/4-6 に macOS 14 系を指すように変更予定
 - `macos-latest-xlarge`: 今は macOS 13 を指すが、2024/4-6 に macOS 14 系を指すように変更予定（たぶん）
 
