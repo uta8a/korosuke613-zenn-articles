@@ -1,12 +1,14 @@
 ---
-title: "＜ここにタイトルを入力＞｜Productivity Weekly (2024-02-14号)"
-emoji: "😍"
-type: "idea"
-topics: ["ProductivityWeekly", "生産性向上"]
+title: ＜ここにタイトルを入力＞｜Productivity Weekly (2024-02-14号)
+emoji: 😍
+type: idea
+topics: 
+  - ProductivityWeekly
+  - 生産性向上
 published: false
-publication_name: "cybozu_ept"
+publication_name: cybozu_ept
 user_defined: 
-  publish_link: "https://zenn.dev/cybozu_ept/articles/productivity-weekly-20240214"
+  publish_link: https://zenn.dev/cybozu_ept/articles/productivity-weekly-20240214
   note: |
     _本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
     _本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)_
@@ -33,9 +35,9 @@ user_defined:
 
 今週の共同著者は次の方です。
 - [@korosuke613](https://zenn.dev/korosuke613)
-<!-- - [@defaultcf](https://zenn.dev/defaultcf) -->
+- [@defaultcf](https://zenn.dev/defaultcf)
 <!-- - [@Kesin11](https://zenn.dev/kesin11) -->
-<!-- - [@r4mimu](https://zenn.dev/r4mimu) -->
+- [@r4mimu](https://zenn.dev/r4mimu)
 <!-- - [@uta8a](https://zenn.dev/uta8a) -->
 
 :::
@@ -57,6 +59,84 @@ _本項の執筆者: [@r4mimu](https://zenn.dev/r4mimu)_
 ## Copilot in GitHub Support is now available! - The GitHub Blog
 https://github.blog/2024-02-09-copilot-in-github-support-is-now-available/
 
+GitHub Support において、GitHub 公式ドキュメントを学習した GitHub Copilot とやりとりできるようになりました(GA)。
+
+これまでは GitHub Support で問い合わせをする際、回答は人間（GitHub のサポートチーム）が行なっていましたが、今後は先に Copilot in Support に聞くことができます。回答者が人間の場合はどうしてもやり取りに時間がかかってしまいますが、Copilot in Support であれば即座に回答が得られるのが嬉しいですね。
+もちろん相手は生成 AI なので、必ずしも正しい答えが得られるとは限らないことに注意です。
+
+Copilot in Support にサポートを求める場合は、チケット作成画面で「Chat with Copilot in GitHub Support」を選びましょう（デフォルト選択）。Copilot in Support からの回答に対してその場でさらに質問できます。
+最終的に問題が解決したら良いですが、解決しなかった場合はそのままサポートチケットを発行できます。
+
+さっそく試してみました。
+以前、GitHub Actions の Variables を GitHub Actions 上で更新する際に、権限がよくわからず四苦八苦したので、それについて聞いてみることにしました。
+
+**質問1**
+> GitHub Actions の variables を `${{ secrets.GITHUB_TOKEN }}` の権限を使って更新することはできますか？
+
+**回答1**
+> GitHub Actions の variables を更新するためには、REST API を使用する必要があります。しかし、GITHUB_TOKEN を使用して variables を更新することはできません。これは、`GITHUB_TOKEN` が限定的な権限しか持っていないためです。
+>
+> variables を更新するためには、`admin:org` スコープを持つアクセストークンが必要です。このトークンは、GitHub Apps または個人のアクセストークンを介して取得できます。
+>
+> 以下に、REST API を使用して organization variable を更新する例を示します：
+> ＜省略＞
+
+正しいですね！`GITHUB_TOKEN` では variables は更新できません。
+しかし、僕は実は repository variables の更新をしたかったので、そのままさらに質問しました。
+
+**質問2**
+> repository variables の場合はどうですか？
+
+**回答2**
+> リポジトリの variables を更新する場合も、`GITHUB_TOKEN` ではなく、`repo` スコープを持つアクセストークンが必要です。これは、`GITHUB_TOKEN` が限定的な権限しか持っていないためです。
+>
+> 以下に、REST API を使用してリポジトリのvariableを更新する例を示します：
+> ＜省略＞
+
+やはり正しい回答ですね！リポジトリの場合はスコープが変わるのです。
+しかし出てくる回答は API トークンの利用を前提としています。時代は GitHub Apps です（諸説あり）。GitHub Apps の場合はどうすればいいのかさらに聞きました。
+
+**質問3**
+> アクセストークンではなく、GitHub Appsを利用する場合はどうなりますか？
+
+**回答3**
+> GitHub Apps を使用してリポジトリの variables を更新する場合、その App は `actions_variables:write` のリポジトリ権限を持っている必要があります。
+>
+> 以下に、REST APIを使用してリポジトリのvariableを更新する例を示します：
+> ＜省略＞
+
+すばらしいです！GitHub Apps の場合は `actions_variables:write` の権限が必要なのはその通りです。
+
+実際のやり取りは次の折り込みをご覧ください。
+
+:::details Copilot in Support とのやり取りスクショ
+![](/images/productivity-weekly-20240214/request.png)
+*最初の質問画面*
+
+![](/images/productivity-weekly-20240214/chat.png)
+*回答1, 回答2*
+
+![](/images/productivity-weekly-20240214/chat2.png)
+*回答3*
+:::
+
+GitHub Actions の権限周りはなかなか調べるのが面倒なので、Copilot in Support で気軽に素早く答えがわかるのは嬉しいですね。
+
+ただ、触ってみていくつか気になった点があったので、次に挙げておきます。
+
+- ページを移動すると内容が見られなくなってしまう
+  - Submit a Ticket をクリックするまでチケットは発行されないため
+    - チケット一覧にも残らない
+  - 良い回答が得られたらスクショ等で保存しておこう
+- チャット中は変換確定時のエンターキー押下でチャットが送信されてしまう
+  - 日本語でチャットする際は質問内容を別途書いてから貼り付けるなどをした方が良さそう
+- 「My problem is solved!」をクリックすると紙吹雪が舞うよ。解決したら押していこう
+
+特にページを移動すると内容が見られなくなってしまうのは落とし穴感が強いです。使う際は覚えておきましょう。
+
+Copilot in Support、なかなか便利な機能です。人に質問するよりハードルは低いし、日本語で質問できるのでどんどん使っていきたいですね。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 ## Dockerの設定を大きく省力化する「Docker Init」コマンドが正式リリース。DockerfileやCompose設定ファイルなど自動生成 － Publickey
 https://www.publickey1.jp/blog/24/dockerdocker_initdockerfilecompose.html
@@ -134,12 +214,6 @@ https://mtx2s.hatenablog.com/entry/2024/02/12/210309
 Four Keys のような指標の計測に基づいて何かをする際は、メトリクスを良くすることを目的としてしまうミスが起こりがちです。定期的にこの記事を読み返して、改善の目的を見失わないようにしたいですね。
 
 _本項の執筆者: [@r4mimu](https://zenn.dev/r4mimu)_
-
-# read more 🍘
-Productivity Weekly で出たネタを全て紹介したいけど紹介する体力が持たなかったネタを一言程度で書くコーナーです。
-
-- **news 📺**
-- **know-how 🎓**
 
 # あとがき
 
