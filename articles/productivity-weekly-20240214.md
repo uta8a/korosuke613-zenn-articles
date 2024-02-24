@@ -1,5 +1,5 @@
 ---
-title: ＜ここにタイトルを入力＞｜Productivity Weekly (2024-02-14号)
+title: 旧artifact actions廃止告知、マージキューやデプロイ頻度の話等｜Productivity Weekly(2024-02-14)
 emoji: 😍
 type: idea
 topics: 
@@ -168,6 +168,16 @@ _本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)_
 ## GitHubのMerge Queueとは何か？それと、認識しておきたいこと - Mitsuyuki.Shiiba
 https://bufferings.hatenablog.com/entry/2024/02/10/173552
 
+GitHub の Merge Queue とは何かという記事です。
+
+どういう状況でなぜ Merge Queue が嬉しいのかを順序立てて丁寧に説明してくれています。また、Merge Queue を使う上で気にしておくべきこと、気をつけておくべきことも書かれており、Merge Queue 戦略を考える上で参考になります。
+
+個人的には `github.ref`、`github.sha`、`github.base_ref`、`github.head_ref` がそれぞれのトリガーでどう変わるかをなんとなくでしかわかってなかったため、整理してくれていて勉強になりました。
+
+Merge Queue は非常に強力な機能ですが、上手く使うのがなかなか難しいものでもあるため、いろんな記事や事例を参考にしつつ戦略を考えたいですね。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
+
 ## Testing HashiCorp Terraform
 https://www.hashicorp.com/blog/testing-hashicorp-terraform
 
@@ -216,7 +226,7 @@ Four Keys のような指標の計測に基づいて何かをする際は、メ�
 _本項の執筆者: [@r4mimu](https://zenn.dev/r4mimu)_
 
 # あとがき
-
+はい。ハッピーバレンタイン号でした。僕はなんとか今年チョコをいただくことができました（本命ではない）。ハッピーですね。
 
 サイボウズの生産性向上チームでは社内エンジニアの開発生産性を上げるための活動を行なっています。そんな生産性向上チームが気になる方は下のリンクをクリック！
 https://speakerdeck.com/cybozuinsideout/engineering-productivity-team-recruitment-information
