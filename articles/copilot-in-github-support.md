@@ -23,7 +23,7 @@ https://github.blog/2024-02-09-copilot-in-github-support-is-now-available/
 
 *（意訳） Copilot in GitHub Support は、GitHub の公式ドキュメントに基づいてトレーニングされており、GitHub 関連の幅広いトピックについて信頼できるアドバイスを応答性の高い会話体験として提供します。*
 
-とのことです。ざっくり言うと GitHub の公式ドキュメントを学習した ChatGPT なり GitHub Copilot Chat のようなものが、サポートサイトで使えるようになったということですね。
+とのことです。ざっくり言うと **GitHub の公式ドキュメントを学習した ChatGPT なり GitHub Copilot Chat のようなものが、サポートサイトで使えるようになった**ということですね。
 
 # 何が嬉しいか
 
@@ -39,15 +39,19 @@ https://github.blog/2024-02-09-copilot-in-github-support-is-now-available/
 - サポートチームとのやり取りを待つ必要がなくなる
 - 上記により調査に必要な時間が大幅に短縮される
 
-GitHub 公式ドキュメントは膨大で、目的の事柄を探すのが正直大変です。
+**GitHub 公式ドキュメントは膨大で、目的の事柄を探すのが正直大変です。**
 
-また、自分で調べてわからなかったらサポートに問い合わせれば良いのですが、これまでは GitHub のサポートチームが全てを回答していたため、どうしてもやり取りに時間がかかってしまっていました。さらにサポートとのやり取りは基本的[^plan]に英語でなければならないため、英語が苦手な方はハードルが高いということもあります。
+また、自分で調べてわからなかったらサポートに問い合わせれば良いのですが、**これまでは GitHub のサポートチームが全てを回答していたため、どうしてもやり取りに時間がかかってしまっていました**。さらに**サポートとのやり取りは基本的[^plan]に英語**でなければならないため、英語が苦手な方はハードルが高いということもあります。
 
 もちろん相手は生成 AI なので、**必ずしも正しい答えが得られるとは限らないことに注意**です。
 
 [^plan]: プラン次第では日本語でのサポート対応をしてもらえるよ。
 
-# 使い方
+# 機能紹介
+:::message
+使い方は[公式ブログ記事](https://github.blog/2024-02-09-copilot-in-github-support-is-now-available/)と[公式ドキュメント](https://docs.github.com/en/support/learning-about-github-support/about-copilot-in-github-support)を参照ください。
+ここではざっくりとした機能を紹介します。
+:::
 
 Copilot in GitHub Support にサポートを求める場合は、チケット作成画面で「Chat with Copilot in GitHub Support」を選びましょう（デフォルト選択）。Copilot in GitHub Support からの回答に対してその場でさらに質問できます。
 
