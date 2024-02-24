@@ -1,11 +1,11 @@
 ---
-title: "Copilot in GitHub SupportがGA！GitHubの仕様に関するわからないことをすばやく解決できやすくなったよ"
-emoji: "🙋"
-type: "idea"
+title: Copilot in GitHub SupportがGA！GitHubの仕様に関するわからないことをすばやく解決できやすくなったよ
+emoji: 🙋
+type: idea
 topics:
   - github
   - githubcopilot
-published: false
+published: true
 ---
 
 2024 年 2 月 9 日、GitHub Support において、GitHub 公式ドキュメントを学習した GitHub Copilot とやりとりできるようになりました[^beta]。
