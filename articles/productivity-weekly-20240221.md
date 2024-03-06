@@ -1,5 +1,5 @@
 ---
-title: ＜ここにタイトルを入力＞｜Productivity Weekly (2024-02-21号)
+title: compose watchがフロントエンド開発に便利そう、他に改善話など｜Productivity Weekly(2024-02-21号)
 emoji: 🛞
 type: idea
 topics:
@@ -168,12 +168,13 @@ Productivity Weekly で出たネタを全て紹介したいけど紹介する体
 
 
 # あとがき
+今週号でした。春一番が吹き荒れてますね。吹き飛ばされそうです。
 
+宣伝です。4/9（火）に大阪で Engineering Productivity Meetup #2 を開催します。
+開発生産性を向上させる知見や技術をネタに開発者と交流する会です。
+なんと LT 枠が埋まっていません（血涙）。応募待ってます。
+
+https://cybozu.connpass.com/event/311067/
 
 サイボウズの生産性向上チームでは社内エンジニアの開発生産性を上げるための活動を行なっています。そんな生産性向上チームが気になる方は下のリンクをクリック！
 https://speakerdeck.com/cybozuinsideout/engineering-productivity-team-recruitment-information
-
-<!-- :::message すみません、今週もおまけはお休みです...:::-->
-
-## omake 🃏: 
-今週のおまけです。
