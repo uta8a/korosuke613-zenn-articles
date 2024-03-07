@@ -1,12 +1,12 @@
 // deno run --allow-read --allow-run=git,grep ./tools/checkDuplicateEmoji.ts
 import matter from "npm:gray-matter";
-import { getGitDiffWeeklyFiles, grepEmoji } from "./libs/lib.ts";
+import { getGitDiffWeeklyFiles, grepWeeklyEmoji } from "./libs/lib.ts";
 
 const main = async () => {
   const articles = await getGitDiffWeeklyFiles();
 
   if (articles.length === 0) {
-    console.log(`Skip, there are no target files.`);
+    console.log("Skip, there are no target files.");
     Deno.exit(0);
   }
 
@@ -16,16 +16,16 @@ const main = async () => {
   const emoji = content.data.emoji as string;
 
   if (emoji === "") {
-    throw new Error(`Emoji is empty.`);
+    throw new Error("Emoji is empty.");
   }
 
-  const emojiFiles = await grepEmoji(emoji);
+  const emojiFiles = await grepWeeklyEmoji(emoji);
 
   if (emojiFiles.length > 1) {
-    throw new Error(`Find duplicate emoji files, \n${emojiFiles}`);
+    throw new Error("Find duplicate emoji files, \n${emojiFiles}");
   }
 
-  console.log(`Ok, duplicate emoji files is nothing.`);
+  console.log("Ok, duplicate emoji files is nothing.");
 };
 
 // import された際は main() を実行しない

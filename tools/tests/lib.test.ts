@@ -1,5 +1,6 @@
 import { assertEquals } from "https://deno.land/std/testing/asserts.ts";
-import { getGitDiffWeeklyFiles, grepEmoji } from "../libs/lib.ts";
+import { getGitDiffWeeklyFiles } from "../libs/lib.ts";
+import { grepWeeklyEmoji } from "../libs/lib.ts";
 
 Deno.test("getGitDiffWeeklyFiles should return an array of weekly files", async () => {
   // deno-lint-ignore require-await
@@ -15,20 +16,22 @@ Deno.test("getGitDiffWeeklyFiles should return an array of weekly files", async 
   assertEquals(actual, expected);
 });
 
-Deno.test("grepEmoji should return an array of files containing the given emoji", async () => {
+Deno.test("grepWeeklyEmoji should return an array of productivity weekly files containing the given emoji", async () => {
   // deno-lint-ignore require-await
   const grepExecutor = async (emoji: string) => {
     if (emoji === "🚀") {
-      return "articles/file1.md\narticles/file2.md\n";
-    } else if (emoji === "🌟") {
-      return "articles/file3.md\n";
-    } else {
-      throw new Error(`Unexpected emoji: ${emoji}`);
+      return "articles/productivity-weekly-20230202.md\narticles/file2.md\n";
     }
+    if (emoji === "🌟") {
+      return "articles/productivity-weekly-20230402.md\narticles/file3.md\n";
+    }
+    throw new Error(`Unexpected emoji: ${emoji}`);
   };
 
-  const expected = ["articles/file1.md", "articles/file2.md"];
-  const actual = await grepEmoji("🚀", grepExecutor);
+  const expected = [
+    "articles/productivity-weekly-20230202.md",
+  ];
+  const actual = await grepWeeklyEmoji("🚀", grepExecutor);
 
   assertEquals(actual, expected);
 });
