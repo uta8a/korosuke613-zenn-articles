@@ -45,11 +45,22 @@ const _grepExecutor = async (emoji: string) => {
   return new TextDecoder().decode(stdout);
 };
 
-export const grepEmoji = async (
+const grepEmoji = async (
   emoji: string,
   grepExecutor: (emoji: string) => Promise<string> = _grepExecutor,
 ) => {
   const output = await grepExecutor(emoji);
   const files = output.split("\n").filter((f) => f !== "");
   return files;
+};
+
+export const grepWeeklyEmoji = async (
+  emoji: string,
+  grepExecutor?: (emoji: string) => Promise<string>,
+) => {
+  const emojiFiles = await grepEmoji(emoji, grepExecutor);
+  const weeklyFiles = emojiFiles.filter((f) =>
+    f.includes("productivity-weekly-")
+  );
+  return weeklyFiles;
 };
