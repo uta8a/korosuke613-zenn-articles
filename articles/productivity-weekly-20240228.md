@@ -36,7 +36,7 @@ user_defined:
 今週の共同著者は次の方です。
 - [@korosuke613](https://zenn.dev/korosuke613)
 <!-- - [@defaultcf](https://zenn.dev/defaultcf) -->
-<!-- - [@Kesin11](https://zenn.dev/kesin11) -->
+- [@Kesin11](https://zenn.dev/kesin11)
 <!-- - [@r4mimu](https://zenn.dev/r4mimu) -->
 <!-- - [@uta8a](https://zenn.dev/uta8a) -->
 
@@ -53,8 +53,31 @@ https://github.blog/changelog/2024-02-22-new-limits-on-scoped-token-creation-for
 ## Repository Rules - configure merge queue rule - public beta - The GitHub Blog
 https://github.blog/changelog/2024-02-27-repository-rules-configure-merge-queue-rule-public-beta/
 
+Merge Queue のための設定が Branch Protection に代わる新しい Repository Rules でも可能になったようです。
+
+Merge Queue 自体については過去に Productivity Weekly でも何度か解説記事を紹介しています[^weekly-20230726][^weekly-20240214]が、この機能を有効をにするためには Branch Protection の設定で Merge Queue を有効にする必要がありました。一方、最近では Branch Protection よりも柔軟に設定できる上位互換の[Repository Rules](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/managing-rulesets-for-a-repository)（あるいは rulesets とも呼ばれることがある）も提供されており、ブランチへの force push の禁止や直接 push を禁止して pull-request を必須にするなどの設定は既に可能だったのですが、Merge Queue の設定は今まで Branch Protection でしか行えませんでした。
+
+[^weekly-20230726]: https://zenn.dev/cybozu_ept/articles/productivity-weekly-20230726
+[^weekly-20240214]: https://zenn.dev/cybozu_ept/articles/productivity-weekly-20240214
+
+今回の機能追加により、Merge Queue を利用する場合でも Repository Rules だけで完結することが可能になったのでまた１つ Branch Protection を利用し続ける理由がなくなったと言えそうです。
+
+_本項の執筆者: [@Kesin11](https://zenn.dev/kesin11)_
+
 ## Deno 1.41: smaller deno compile binaries
 https://deno.com/blog/v1.41
+
+Deno v1.41 がリリースされました。今回の目玉はタイトルにもあるように `deno compile` で生成されるバイナリのサイズが小さくなったことで、記事中では今まで"Hello world"のシンプルなプログラムでも ARM の macOS 用バイナリで 116Mb だったものが、**58Mb** にまで縮小されたようです。
+
+早速、拙作の Deno 製の CLI ツールを Deno v1.41 で `deno compile` し直してみたところ、ARM の macOS 用のバイナリで 101Mb -> **69Mb**、x86_64 の Linux 用のバイナリで 119Mb -> **80Mb** とおおよそ 30 - 40Mb 程度のサイズ削減が見られました！  
+
+https://github.com/Kesin11/gh-workflow-ls/releases/tag/v1.0.1
+
+Go や Rust などで作成されたバイナリと比較するとまだまだ大きいですが、100Mb 以下で提供できると心理的なハードルが一段階低くなった気がします。個人的には TypeScript でシングルバイナリのツールを開発したい場合に Deno はかなり有力な選択肢になってきました。
+
+また、記事中ではバイナリサイズをさらに減らすプランとして、必要な機能だけに絞った Deno をカスタムビルドするという方法も見当しているとのことなので今後さらに期待できそうです。
+
+_本項の執筆者: [@Kesin11](https://zenn.dev/kesin11)_
 
 ## Highlights from Git 2.44 - The GitHub Blog
 https://github.blog/2024-02-23-highlights-from-git-2-44/
