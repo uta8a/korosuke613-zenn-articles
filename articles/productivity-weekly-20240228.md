@@ -44,8 +44,32 @@ user_defined:
 
 # news 📺
 
-## Catch-up! GitHub Copilot Enterpriseの祝GA🎉（GitHub Changelogのクイック和訳）
-https://zenn.dev/dzeyelid/articles/ffb49a893d6544
+## GitHub Copilot Enterprise is now generally available - The GitHub Blog
+https://github.blog/2024-02-27-github-copilot-enterprise-is-now-generally-available/
+
+[去年の GitHub Universe で発表された](https://zenn.dev/cybozu_ept/articles/productivity-weekly-20231115?redirected=1#universe-2023%3A-copilot%E3%81%8Cgithub%E3%82%92ai%E3%82%92%E9%A7%86%E4%BD%BF%E3%81%97%E3%81%9F%E9%96%8B%E7%99%BA%E8%80%85%E3%83%97%E3%83%A9%E3%83%83%E3%83%88%E3%83%95%E3%82%A9%E3%83%BC%E3%83%A0%E3%81%B8%E3%81%A8%E5%A4%89%E8%B2%8C%E3%81%95%E3%81%9B%E3%82%8B---github%E3%83%96%E3%83%AD%E3%82%B0)、GitHub Copilot Enterprise が早くも GA になりました。
+
+GitHub Copilot Enterprise は GitHub Copilot for Business の上位プランに当たります。
+コア機能としては、次の 3 つが掲げられています。
+
+- 組織のコードベースを理解
+- GitHub.com 上で Copilot とチャットできる
+  - Bing 検索とつながっており、インターネット上の最新の情報を元に回答してもらえる
+- Copilot にプルリクエストを要約させられる
+
+また、[Pricing](https://github.com/features/copilot#pricing) のページには各プランとの比較がもう少し詳細に載っています。
+
+![](/images/productivity-weekly-20240228/copilot_pricing_20240307.png)
+*https://github.com/features/copilot#pricing*
+
+ブログ記事には載っていませんが、他にも Fine-tuned なモデルを利用する機能も今後登場予定です。ただし、as add-on と書かれているので、別途料金がかかることになりそうです。
+
+また、自動で issue からプルリクエストを作ってくれる [Copilot Workspace](https://githubnext.com/projects/copilot-workspace/) も今後 Copilot Enterprise プランで使えるようになる可能性があります。
+
+気になる料金ですが、ユーザあたり月 $39 とまあまあ高額です。小規模な組織では導入が簡単かもしれませんが、大規模な組織では導入ハードルが高そうですね。
+ただ、その料金に見合う価値はありそうだと考えています。個人的には組織のコードベースを理解してチャットができる部分にとても魅力を感じています。今後 fine-tuned モデルが使えるようになったり、Copilot Workspace が使えるようになったりすると、さらに導入したくなりそうです。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 ## New limits on scoped token creation for GitHub Apps - The GitHub Blog
 https://github.blog/changelog/2024-02-22-new-limits-on-scoped-token-creation-for-github-apps/
