@@ -1,5 +1,5 @@
 ---
-title: ＜ここにタイトルを入力＞｜Productivity Weekly(2024-02-28)
+title: GitHub Copilot Enterprise GA 🎉 など｜Productivity Weekly(2024-02-28)
 emoji: 📸
 type: idea
 topics:
@@ -71,9 +71,6 @@ GitHub Copilot Enterprise は GitHub Copilot for Business の上位プランに�
 
 _本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
-## New limits on scoped token creation for GitHub Apps - The GitHub Blog
-https://github.blog/changelog/2024-02-22-new-limits-on-scoped-token-creation-for-github-apps/
-
 ## Repository Rules - configure merge queue rule - public beta - The GitHub Blog
 https://github.blog/changelog/2024-02-27-repository-rules-configure-merge-queue-rule-public-beta/
 
@@ -103,17 +100,21 @@ Go や Rust などで作成されたバイナリと比較するとまだまだ�
 
 _本項の執筆者: [@Kesin11](https://zenn.dev/kesin11)_
 
-## Highlights from Git 2.44 - The GitHub Blog
-https://github.blog/2024-02-23-highlights-from-git-2-44/
-
 ## AWS Systems Manager Parameter Store now supports cross-account sharing
 https://aws.amazon.com/jp/about-aws/whats-new/2024/02/aws-systems-manager-parameter-store-cross-account-sharing/
 
+AWS Systems Manager（いわゆる AWS SSM）の Parameter Store において、パラメータを他の AWS アカウントと共有できるようになりました。
+
+これにより複数アカウントをまたぐパラメータを一元管理しやすくなります。AWS Resource Access Manager(AWS RAM)を使って他のリソースと同じように共有できるようです。
+
+なお、すでにクラスメソッドさんが検証記事を出してくれています（いつもありがとうございます）。
+興味ある方はぜひ次の記事もご参照ください。
+
+- [SSMパラメータストアがRAMを使用してクロスアカウントで共有できるようになっていたので試してみる | DevelopersIO](https://dev.classmethod.jp/articles/cross-account-sharing-of-ssm-parameter-store-in-ram/)
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 # know-how 🎓
-
-## GitHub OAuthアプリを使ったスパム攻撃を停止させる
-https://zenn.dev/azu/articles/3a312d432ebc98
 
 ## ENOG81: AWSのIPv6とPublic IPv4のおはなし - Speaker Deck
 https://speakerdeck.com/yukihirokikuchi/enog81-aws-ipv6-public-ipv4
@@ -126,21 +127,40 @@ AWS 側は IPv6 の対応がかなり進んでいるようであるという印�
 
 _本項の執筆者: [@Kesin11](https://zenn.dev/kesin11)_
 
+## GitHub OAuthアプリを使ったスパム攻撃を停止させる
+https://zenn.dev/azu/articles/3a312d432ebc98
 
-## Go1.22 リリース連載 HTTPルーティングの強化
-https://future-architect.github.io/articles/20240202a
+GitHub OAuth アプリを悪用したスパム攻撃事例が確認されています。この記事では、そのような攻撃をやめさせるための方法を実例を基に紹介しています。
 
-# tool 🔨
+記事では、スパム攻撃の概要、スパムをやめさせる方法（関係各所に通報）などが載っています。
+
+こういったスパムメールやフィッシングサイトは見かけたとしても基本的に無視してきましたが、ドメインやホスティングサービスの管理元に通報することで、そのスパムに関しては断ち切ることもできるということは考えたこともありませんでした。実際の例で説明してくれているので、自分も今後は見かけたら各所へ通報してみようと思いました。
+紹介されていた phish.report というサービスを使うことで通報先を簡単に知れるのも面白かったです。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 # read more 🍘
 Productivity Weekly で出たネタを全て紹介したいけど紹介する体力が持たなかったネタを一言程度で書くコーナーです。
 
 - **news 📺**
-- **know-how 🎓**
-- **tool 🔨**
+  - [Highlights from Git 2.44 - The GitHub Blog](https://github.blog/2024-02-23-highlights-from-git-2-44/)
+    - Git 2.44 がリリースされました
+    - プッシュやプルする際のパフォーマンス向上や `git replay` コマンドが追加されました
+    - `git replay` は `git rebase` 代替で、パフォーマンスが高いだけでなく、他にも色々な利点があるようです
+      - さっそく触ってみた方が記事を出してくれています
+        - [git-replay を最低限の使い方で触ってみた - Mitsuyuki.Shiiba](https://bufferings.hatenablog.com/entry/2024/02/24/161729)
+      - 個人的には rebase に慣れきってるのもあって replay を使うのはもっと広く使われてからかなという感じです
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 # あとがき
+今週号でした。GitHub Copilot Enterprise が GA になるの、思ったより早かったなという感じです。つかいてぇ〜けどたけ〜〜！
 
+**宣伝です。4/9（火）に大阪で Engineering Productivity Meetup #2 を開催します。**
+開発生産性を向上させる知見や技術をネタに開発者と交流する会です。
+みなさん参加待ってます。
+
+https://cybozu.connpass.com/event/311067/
 
 サイボウズの生産性向上チームでは社内エンジニアの開発生産性を上げるための活動を行なっています。そんな生産性向上チームが気になる方は下のリンクをクリック！
 https://speakerdeck.com/cybozuinsideout/engineering-productivity-team-recruitment-information
