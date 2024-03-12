@@ -94,6 +94,15 @@ https://zenn.dev/azu/articles/3a312d432ebc98
 ## ENOG81: AWSのIPv6とPublic IPv4のおはなし - Speaker Deck
 https://speakerdeck.com/yukihirokikuchi/enog81-aws-ipv6-public-ipv4
 
+AWS の IPv6 対応と、IPv6 を活用した VPC ネットワーク構成の構築例を紹介されているスライドです。
+
+個人的に、最近の業務で運用している AWS のインフラ上での NAT GW の利用料金が問題になり始めているため、Egress-only Internet Gateway（IPv6 のみ）を利用するネットワーク構成にすることで Private subnet からのインターネットに出ていく通信が NAT GW を通る必要がなくなるというのは料金面で魅力的に思いました。
+
+AWS 側は IPv6 の対応がかなり進んでいるようであるという印象を受けましたが、自分たち側に IPv6 のノウハウが無いので既に運用しているインフラをすぐに IPv6 に移行するのは正直ちょっと難しそうです。ただ、スライドでも紹介されているようにパブリック IPv4 アドレスの値上げは既に始まっているので、さすがにそろそろ新規に VPC を構築する場合には最初から IPv6 も併用した構成を考えていきたいと思いました。
+
+_本項の執筆者: [@Kesin11](https://zenn.dev/kesin11)_
+
+
 ## Go1.22 リリース連載 HTTPルーティングの強化
 https://future-architect.github.io/articles/20240202a
 
