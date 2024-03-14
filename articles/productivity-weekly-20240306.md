@@ -36,7 +36,7 @@ user_defined:
 今週の共同著者は次の方です。
 - [@korosuke613](https://zenn.dev/korosuke613)
 <!-- - [@defaultcf](https://zenn.dev/defaultcf) -->
-<!-- - [@Kesin11](https://zenn.dev/kesin11) -->
+- [@Kesin11](https://zenn.dev/kesin11)
 <!-- - [@r4mimu](https://zenn.dev/r4mimu) -->
 <!-- - [@uta8a](https://zenn.dev/uta8a) -->
 
@@ -64,14 +64,41 @@ https://developers.cyberagent.co.jp/blog/archives/46542/
 ## AWSが教えてくれないコスト削減の小話いろいろ | 外道父の匠
 https://blog.father.gedow.net/2024/03/01/cost-saving-short-story/
 
+同ブログで昨年に公開された [AWSコスト削減とリソース管理](https://blog.father.gedow.net/2023/08/24/aws-cost-saving/) という記事の続編のようです。
+
+前回に紹介しきれなかった細かいコスト削減施策が紹介されていて、目次から見える凝ったタイトルの時点でもう面白いのですが、そこよりも冒頭で説明されているコスト削減へのマインドの話が個人的には印象的でした。
+
+> 片っ端から存在するアカウントの状況を見ていくと、そう珍しくもなく『何やこの残骸は！』なリソースに出会うことがあります。
+> そういう時は『なっちょらん！ムキーッ！』って気持ちも多少は湧いてくるわけですが、そこをグッと抑えて『お宝発見！コスト削減王に！おれはなるっ！！』って勢いで突き進むとよいでしょう。
+
+発見した無駄遣いリソースも実際に削除する前には関係者に削除して問題ないか確認する必要がありますが、心の持ち方次第でコミュニケーションの柔らかさは変わってくると思います。お宝発見！という気持ちで取り組んでいきたいですね。
+
+_本項の執筆者: [@Kesin11](https://zenn.dev/kesin11)_
+
 ## 【DeNATechCon2024】CI/CD の課題解消！ GitHub Actions への移行で可能になったこと | ドクセル
 https://www.docswell.com/s/DeNA_Tech/Z8GPLQ-2024-02-29-092047
+
+DeNA TechCon 2024 での [CI/CD の課題解消！ GitHub Actions への移行で可能になったこと](https://techcon2024.dena.dev/session/session17/) というセッションのスライドで、当日の発表の動画も公開されています。
+
+CI/CD に Jenkins と CircleCI を利用していたチームが今まで抱えていた課題と、GitHub Actions に移行したことでどのように解消されたのかについて紹介されていました。カンファレンスで発表されていた当日の Ask the Speaker の内容の書き起こしが付録の FAQ としてスライド末尾に追加されているのですが、個人的にはこちらの内容が面白かったです。
+
+Jenkins プラグインのアップデートに比べて GitHub Actions だと本当に簡単なのかや、CircleCI からの移行が本当に簡単だったのかなど突っ込んだ質問に対しての回答が書かれているのでぜひ見てみてください。
+
+_本項の執筆者: [@Kesin11](https://zenn.dev/kesin11)_
 
 ## RailsのCIのテスト実行時間を 10分から5分に高速化した話 - Findy Tech Blog
 https://tech.findy.co.jp/entry/2024/03/04/100000
 
 ## gitでstashが面倒なあなたにautostash
 https://zenn.dev/moozaru/articles/5e158b28785f71
+
+git で rebase する際に編集中のファイルがあると自動で stash してくれる便利オプションの紹介です。
+
+git の設定は膨大[^git-config]なので、昔から存在するコマンドや最近追加されたコマンドを問わずこういった便利な設定を紹介してくれる記事が定期的に流れてくるのはありがたいですね。
+
+[^git-config]: 全ての config を見てみたい方は `man git-config` を実行すると全てを見ることができます。
+
+_本項の執筆者: [@Kesin11](https://zenn.dev/kesin11)_
 
 ## #2 GitHub Copilot Enterprise&GitHub Actionsナレッジ
 https://github-dockyard.connpass.com/event/311444/
