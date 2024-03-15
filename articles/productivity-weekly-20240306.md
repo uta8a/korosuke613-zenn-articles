@@ -56,6 +56,19 @@ https://github.blog/changelog/2024-02-28-enterprise-readmes/
 ## 2025年2月28日に東京リージョンのアベイラビリティゾーン「apne1-az3」が廃止されます | DevelopersIO
 https://dev.classmethod.jp/articles/20250228-tokyo-region-apne1-az3-decommissioned/
 
+AWS の東京リージョンの AZ のうち、apne1-az3 が廃止されるそうです。
+AWS の東京リージョンの AZ と言えば、リージョンコードの ap-northeast-1a, ap-northeast-1c, ap-northeast-1d が馴染み深いですが、実態としては apne1-az1, apne1-az2, apne1-az4 という ID の AZ がそれぞれにランダムで割り当たっています。
+AWS アカウントごとにこの割り当ては異なるため、ap-northeast-1a と言ってもアカウントによってはそれが apne1-az1 だったり、apne1-az2 だったりするわけです。
+
+ログインしている AWS アカウントでのこの割り当て一覧は、EC2 や Resource Access Manager のダッシュボードで確認できます。
+
+![プライベートで使用している AWS アカウントの AZ の割り当て](/images/productivity-weekly-20240306/az_zone_code_and_id_20240306.png)
+
+今回、ゾーン ID が apne1-az3 のものが廃止されるということですが、確認したところ 2016 年から運用している私個人の AWS アカウントでも apne1-az3 は割り当てに出てこず、廃止の通知も飛んできませんでした（なんだかちょっと悔しい）。
+もっと前に作ったアカウントのユーザーだと apne1-az3 が有効なユーザーがいるかもしれません。対象のアカウントをお持ちの方は、記事中の手順に従って apne1-az3 から他のゾーンにリソースを移動させましょう。
+
+_本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)_
+
 # know-how 🎓
 
 ## 先日リリースされたGitHub Copilot Enterprise の最速レビュー！〜進化したGitHub Copilotを使ってみた〜 | CyberAgent Developers Blog
