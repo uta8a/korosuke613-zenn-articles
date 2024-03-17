@@ -37,7 +37,7 @@ user_defined:
 - [@korosuke613](https://zenn.dev/korosuke613)
 <!-- - [@defaultcf](https://zenn.dev/defaultcf) -->
 - [@Kesin11](https://zenn.dev/kesin11)
-<!-- - [@r4mimu](https://zenn.dev/r4mimu) -->
+- [@r4mimu](https://zenn.dev/r4mimu)
 <!-- - [@uta8a](https://zenn.dev/uta8a) -->
 
 :::
@@ -47,11 +47,26 @@ user_defined:
 ## VSCodeで日本語の音声入力が可能に、Copilotがコードに合った変数名を提案など新機能。2024年2月のアップデート － Publickey
 https://www.publickey1.jp/blog/24/vscodecopilot20242.html
 
+VSCode の 2024 年 2 月のアップデートについての記事です。
+
+目玉機能は、日本語の音声入力が可能になったことでしょうか。 VS Code Speech という拡張機能をインストールすることで音声入力ができ、`voice: Speech Language` という設定で入力言語を変更できるようです。
+試しに使ってみましたが、音声入力の精度は悪くなく、日本語の入力も問題なくできました。
+
+その他、細かい機能追加が行われています。
+気付いたら Sticky Scroll できるようになっていましたが、アップデートによりデフォルトで有効になっていたようです。
+
+_本項の執筆者: [@r4mimu](https://zenn.dev/r4mimu)_
+
 ## Push protection is enabled for free users on GitHub - The GitHub Blog
 https://github.blog/changelog/2024-02-29-push-protection-is-enabled-for-free-users-on-github/
 
 ## Enterprise READMEs - The GitHub Blog
 https://github.blog/changelog/2024-02-28-enterprise-readmes/
+
+Organization の README と同じように、Enterprise にも README が追加されたようです。GitHub.com では既に使うことができ、 GitHub Enterprise Server では v3.13 から使えるようになる予定です。
+[ドキュメント](https://docs.github.com/en/enterprise-cloud@latest/admin/managing-your-enterprise-account/creating-a-readme-for-an-enterprise)によると、メンバーが Enterprise 内の Organization について学んだり、重要なリソースへのリンクを共有したり、Enterprise の設定やポリシーに関する情報を伝えることなどを用途例としてあげています。
+
+_本項の執筆者: [@r4mimu](https://zenn.dev/r4mimu)_
 
 ## 2025年2月28日に東京リージョンのアベイラビリティゾーン「apne1-az3」が廃止されます | DevelopersIO
 https://dev.classmethod.jp/articles/20250228-tokyo-region-apne1-az3-decommissioned/
@@ -101,6 +116,19 @@ _本項の執筆者: [@Kesin11](https://zenn.dev/kesin11)_
 
 ## RailsのCIのテスト実行時間を 10分から5分に高速化した話 - Findy Tech Blog
 https://tech.findy.co.jp/entry/2024/03/04/100000
+
+GitHub Actions 上で実行しているテストの実行時間を短縮するために行ったことを紹介しています。
+
+具体的な施策として、テスト実行の並列数を上げ、テストの実行時間を短縮したそうです。
+並列数を上げるとその分、利用するランナーの台数が増えるのでコストがかかるのではないかという懸念があります。
+しかし、GitHub Actions のランナー利用料金は OS の種別、マシンスペック、利用時間で決まるため、同一の OS、スペックであれば並列数を上げてジョブを早く終わらせれば大幅なコスト増加はないとのことです。
+
+また、テストファイルのサイズが大きいほどテスト実行時間が長くなるという仮定をして、ファイルサイズによってテストを分割し、テストの実行時間を均すことで、テスト全体の実行時間を短縮したそうです。
+ファイルサイズによるテスト分割は簡単に実装できていいなと思いました。
+CircleCI には[実行時間に基づいたテスト分割機能](https://circleci.com/docs/use-the-circleci-cli-to-split-tests/#split-by-timing-data)がありましたが、GitHub Actions にも欲しいですね。
+調べるといくつか 3rd Party アクションは見つけられましたが、公式で提供されると嬉しいです。
+
+_本項の執筆者: [@r4mimu](https://zenn.dev/r4mimu)_
 
 ## gitでstashが面倒なあなたにautostash
 https://zenn.dev/moozaru/articles/5e158b28785f71
