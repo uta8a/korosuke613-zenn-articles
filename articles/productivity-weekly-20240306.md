@@ -1,5 +1,5 @@
 ---
-title: ＜ここにタイトルを入力＞｜Productivity Weekly(2024-03-06)
+title: CI/CDノウハウやAWSコスト削減など｜Productivity Weekly(2024-03-06)
 emoji: 🍚
 type: idea
 topics:
@@ -35,7 +35,7 @@ user_defined:
 
 今週の共同著者は次の方です。
 - [@korosuke613](https://zenn.dev/korosuke613)
-<!-- - [@defaultcf](https://zenn.dev/defaultcf) -->
+- [@defaultcf](https://zenn.dev/defaultcf)
 - [@Kesin11](https://zenn.dev/kesin11)
 - [@r4mimu](https://zenn.dev/r4mimu)
 <!-- - [@uta8a](https://zenn.dev/uta8a) -->
@@ -56,9 +56,6 @@ VSCode の 2024 年 2 月のアップデートについての記事です。
 気付いたら Sticky Scroll できるようになっていましたが、アップデートによりデフォルトで有効になっていたようです。
 
 _本項の執筆者: [@r4mimu](https://zenn.dev/r4mimu)_
-
-## Push protection is enabled for free users on GitHub - The GitHub Blog
-https://github.blog/changelog/2024-02-29-push-protection-is-enabled-for-free-users-on-github/
 
 ## Enterprise READMEs - The GitHub Blog
 https://github.blog/changelog/2024-02-28-enterprise-readmes/
@@ -88,6 +85,14 @@ _本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)_
 
 ## 先日リリースされたGitHub Copilot Enterprise の最速レビュー！〜進化したGitHub Copilotを使ってみた〜 | CyberAgent Developers Blog
 https://developers.cyberagent.co.jp/blog/archives/46542/
+
+サイバーエージェントさんによる、GitHub Copilot Enterprise のレビュー記事です。[先日 GA となった](https://zenn.dev/cybozu_ept/articles/productivity-weekly-20240228#github-copilot-enterprise-is-now-generally-available---the-github-blog) GitHub Copilot Enterprise ですが、早くも事例を出していただきありがたいですね。
+
+記事では、Copilot Enterprise の各機能についての説明と、実際の使用例が載っています。機能としてあるのはなんとなくわかっていても、実際の画面と実例を知れるのが嬉しいですね。
+
+個人的には、特に Copilot Knowledge base をどういう風に使えるのかが気になってました。任意のリポジトリを読み込ませて質問や相談ができるのはやっぱり便利そうですね。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 ## AWSが教えてくれないコスト削減の小話いろいろ | 外道父の匠
 https://blog.father.gedow.net/2024/03/01/cost-saving-short-story/
@@ -144,14 +149,45 @@ _本項の執筆者: [@Kesin11](https://zenn.dev/kesin11)_
 ## #2 GitHub Copilot Enterprise&GitHub Actionsナレッジ
 https://github-dockyard.connpass.com/event/311444/
 
+GitHub のユーザコミュニティイベント、GitHub dockyard の第 2 回目が開催されます。
+今回のテーマは GitHub Copilot Enterprise と GitHub Actions についてらしいです。
+
+- 日時: 2024/03/23(土) 14:00 ～ 17:00
+- 場所: オンライン or メルカリさんのオフィス
+- セッション
+  - GitHub Copilot Enterprise で開発を次のレベルへ
+  - PAT を使わずに GitHub App を使って GitHub Actions で Private Repo を参照する話
+  - Actions Runner Controller Deep Dive
+
+個人的に一番気になっているのが、Productivity Weekly でもたびたび登場している [Actions Runner Controller Deep Dive](https://zenn.dev/cybozu_ept/articles/productivity-weekly-20230913#actions-runner-controller-deep-dive%EF%BC%81---apc-%E6%8A%80%E8%A1%93%E3%83%96%E3%83%AD%E3%82%B0) の方の発表です。
+ARC のコードリーディングをしてさらに解説記事まで出してくれている方の発表なので、新しい ARC に興味がある僕としてはぜひお話を聞いてみたいです。
+
+楽しみですね。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 # read more 🍘
 Productivity Weekly で出たネタを全て紹介したいけど紹介する体力が持たなかったネタを一言程度で書くコーナーです。
 
 - **news 📺**
-- **know-how 🎓**
+  - [Push protection is enabled for free users on GitHub - The GitHub Blog](https://github.blog/changelog/2024-02-29-push-protection-is-enabled-for-free-users-on-github/)
+    - [去年、GitHub のパブリックリポジトリにおいて　push protection による保護を有効化できるようになりました](https://zenn.dev/cybozu_ept/articles/productivity-weekly-20230816#enhanced-push-protection-features-for-developers-and-organizations---the-github-blog)。
+    - 今後はデフォルトで有効化されるようになります
+    - オプトアウトも可能ですが、無効化する理由もそうないと思うので、恩恵に預かりましょう
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 # あとがき
+今週号でした。だんだんあったかくなってきましたね。春の訪れ。
+
+**宣伝です。4/9（火）に大阪で Engineering Productivity Meetup #2 を開催します。**
+開発生産性を向上させる知見や技術をネタに開発者と交流する会です。
+みなさん参加待ってます。
+
+https://cybozu.connpass.com/event/311067/
+
+サイボウズの生産性向上チームでは社内エンジニアの開発生産性を上げるための活動を行なっています。そんな生産性向上チームが気になる方は下のリンクをクリック！
+https://speakerdeck.com/cybozuinsideout/engineering-productivity-team-recruitment-information
 
 
 サイボウズの生産性向上チームでは社内エンジニアの開発生産性を上げるための活動を行なっています。そんな生産性向上チームが気になる方は下のリンクをクリック！
