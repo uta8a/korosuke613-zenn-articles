@@ -35,7 +35,7 @@ user_defined:
 
 今週の共同著者は次の方です。
 - [@korosuke613](https://zenn.dev/korosuke613)
-<!-- - [@defaultcf](https://zenn.dev/defaultcf) -->
+- [@defaultcf](https://zenn.dev/defaultcf)
 - [@Kesin11](https://zenn.dev/kesin11)
 <!-- - [@r4mimu](https://zenn.dev/r4mimu) -->
 <!-- - [@uta8a](https://zenn.dev/uta8a) -->
@@ -85,8 +85,36 @@ https://goccy54.hatenablog.com/entry/2024/03/11/022640
 ## How we sped up AWS CloudFormation deployments with optimistic stabilization
 https://aws.amazon.com/jp/blogs/devops/how-we-sped-up-aws-cloudformation-deployments-with-optimistic-stabilization/
 
+CloudFormation でのデプロイを高速化する方法について書かれています。
+
+CloudFormation は、他の IaC と同じようにリソース間の依存関係のグラフを内部的に持ってデプロイを行います。
+またリソースがデプロイされる時間は「エンジン時間」「リソース作成時間」「リソース安定化時間」の 3 つに分類でき、うち「リソース安定化時間」が他のリソースの作成に影響を与えることが書かれています。
+CloudFormation や他の IaC はリソースを作成・変更した後、継続的に describe を叩いてリソースが完全に作成・変更されるのを待ちます。
+
+しかし、完全に作成されるのを待つのは時に無駄であるということで、今回楽観的な安定化戦略が登場しました。
+リソースを作成したら、その安定化を待たずにそのリソースに依存したリソースの作成が開始されます。
+もし安定化を待たずに依存先のリソースを作成して失敗した場合は、依存元のリソースの安定化を待ってから再度作成を試みるようです。
+これにより最大 40 %のデプロイ高速化が実現できるそうです。
+
+なお、これは暗黙的な依存関係のみで発生し、例えば `! Ref <リソース名>` のように、組み込み関数で別リソースを参照している場合に、記述しているリソース間で機能するそうです。
+明示的な依存関係、つまり `DependsOn` で関係性を記述している場合は、従来のようにリソース安定化時間を待ってから依存先のリソースを作成します。
+
+なお、生産性向上チームでは IaC には Terraform をメインに使用しています。
+今回のような楽観的な安定化戦略は Terraform および terraform-provider-aws には導入されていないと思われるため、実はあまりチームには縁の無い話でした。
+今後 Terraform に導入されると嬉しいですね。
+（もし現時点で Terraform でも楽観的な安定化戦略が可能という情報があったら教えてください）
+
+_本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)_
+
 ## Free data transfer out to internet when moving out of AWS | AWS News Blog
 https://aws.amazon.com/jp/blogs/aws/free-data-transfer-out-to-internet-when-moving-out-of-aws/
+
+AWS から他のクラウドやオンプレミスに移行する際のデータの転送量が 100 GB を超えても無料になりました。
+これまでも月に 100 GB までは AWS からインターネットへの転送料は無料ですが、他のクラウドやオンプレミスに移行する場合に限り AWS にその旨リクエストすることで 100 GB を超えた分の転送料も無料にしてくれるそうです。
+
+いろんな選択肢を提供してくれるのはありがたいことですね。
+
+_本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)_
 
 ## Sponsor your dependencies for recurring sponsorships in one checkout - The GitHub Blog
 https://github.blog/changelog/2024-03-06-sponsor-your-dependencies-for-recurring-sponsorships-in-one-checkout/
