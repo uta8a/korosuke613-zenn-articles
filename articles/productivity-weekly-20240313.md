@@ -36,7 +36,7 @@ user_defined:
 今週の共同著者は次の方です。
 - [@korosuke613](https://zenn.dev/korosuke613)
 <!-- - [@defaultcf](https://zenn.dev/defaultcf) -->
-<!-- - [@Kesin11](https://zenn.dev/kesin11) -->
+- [@Kesin11](https://zenn.dev/kesin11)
 <!-- - [@r4mimu](https://zenn.dev/r4mimu) -->
 <!-- - [@uta8a](https://zenn.dev/uta8a) -->
 
@@ -47,11 +47,34 @@ user_defined:
 ## The GitHub Enterprise Server 3.12 is generally available - The GitHub Blog
 https://github.blog/changelog/2024-03-05-the-github-enterprise-server-3-12-is-generally-available/
 
+GitHub Enterprise Server（GHES）3.12 が GA になりました。大きな機能は記事中で紹介されているものになるのですが、個人的に注目している機能を 3 つほどピックアップしてみます。
+
+- [マージキュー機能が追加](https://github.blog/2023-07-12-github-merge-queue-is-generally-available/)
+- [Dependabotの脆弱性アラートの自動トリアージ機能が追加](https://github.blog/2023-09-14-introducing-auto-triage-rules-for-dependabot/)
+- [Markdownの新しいハイライト構文が追加](https://github.blog/changelog/2023-12-14-new-markdown-extension-alerts-provide-distinctive-styling-for-significant-content/)（公式には Alerts と呼ばれている
+
+中でもマージキューの機能追加が要注目です。これは github.com を利用していてもプランによっては利用できない機能なので、GHES ならおそらくどのリポジトリであっても利用できるのは嬉しいですね。マージキューについては実際に利用された方の記事を Productivity Weekly でも何度か紹介したこと[^20240214][^20230222]がありますが、クセは強いものの使いこなせると特に大規模な開発チームでの運用において非常に便利な機能なようです。GHES で大規模な開発をされているチームは検討してみると良いかもしれません。
+
+[^20240214]: [旧artifact actions廃止告知、マージキューやデプロイ頻度の話等｜Productivity Weekly(2024-02-14)](https://zenn.dev/cybozu_ept/articles/productivity-weekly-20240214)
+[^20230222]: [Productivity Weekly (2023-02-22号)](https://zenn.dev/cybozu_ept/articles/productivity-weekly-20230222)
+
+_本項の執筆者: [@Kesin11](https://zenn.dev/kesin11)_
+
 ## Actions Fine Grained Permissions - The GitHub Blog
 https://github.blog/changelog/2024-03-06-actions-fine-grained-permissions/
 
 ## GitHub Actions; All Actions will run on Node20 instead of Node16 by default - The GitHub Blog
 https://github.blog/changelog/2024-03-07-github-actions-all-actions-will-run-on-node20-instead-of-node16-by-default/
+
+GitHub Actions で JavaScript の actions を動かすための Node.js のバージョンについては既に EOL の Node.js v16 から v20 に移行するようにアナウンスされていた件の続報です。既に v16 を利用している Action を呼び出した場合は warning のメッセージが表示されていますが、いよいよ 2024/05/13 から v20 が強制的に利用されることが予告されました。
+
+この挙動は `FORCE_JAVASCRIPT_ACTIONS_TO_NODE20` の環境変数をセットすることで前もってオプトインできるようです。逆に `ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION` をセットすることで v20 が強制される挙動をオプトアウトすることも可能とのことですが、それが可能なのもランナーに内蔵されている Node.js v16 が削除されるまでの間だけとのことなので無期限にオプトアウト可能ではないようです。
+
+GitHub Actions を実行した結果画面で Node.js v16 を利用している warning が表示されている場合は、該当の action を Node.js v20 対応のバージョンまでアップデートするか、最悪別の action に乗り換えることをそろそろ検討する時期だと思います。
+
+ちなみに GHES に関しては最新の v3.12 のリリースノートでもこの件に関して言及されていなかったため、現時点では移行スケジュールは不明なままです。v3.13 のリリースノートを待ちましょう。
+
+_本項の執筆者: [@Kesin11](https://zenn.dev/kesin11)_
 
 ## GitHub Copilot Chat General Availability in JetBrains IDE - The GitHub Blog
 https://github.blog/changelog/2024-03-07-github-copilot-chat-general-availability-in-jetbrains-ide/
@@ -76,6 +99,14 @@ https://t-wada.hatenablog.jp/entry/canon-tdd-by-kent-beck
 
 ## UnityのアプリビルドをGitHub Actionsに移行した話【CAGC2024】 - Speaker Deck
 https://speakerdeck.com/cyberagentdevelopers/unitynoapuribirudowogithub-actionsniyi-xing-sitahua-cagc2024
+
+Unity のモバイルゲーム開発におけるビルド基盤を Jenkins から GitHub Actions に移行した事例の紹介です。
+
+Jenkins からの移行において GitHub Actions の `workflow_dispatch`（手動トリガー）のパラメータ数の上限が 10 という制約が問題になってしまったところを、パラメータを JSON 化した上で GitHub から実行する代わりに Slack App でリッチなフォームを提供して解決したという内容でした。
+
+実は自分も過去に Unity 開発のビルド基盤運用に関わった経験があるのですが、ゲーム開発の現場ではエンジニア以外の職種の方々も大勢開発に関わるため必ずしも全員が Jenkins や GitHub の使い方に習熟しているというわけではないことがあります。そのため、チャット bot など簡単に使える UI を提供してほしいという要望を頂く機会が多かったのですが、当時の自分はここまでリッチな機能を提供できませんでした。今回の事例はこういった要望に対する 1 つの完成形を見た気がして感慨深かったです。
+
+_本項の執筆者: [@Kesin11](https://zenn.dev/kesin11)_
 
 ## Configuration Options - Renovate Docs | Renovate Docs
 https://docs.renovatebot.com/configuration-options/#configmigration
