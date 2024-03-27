@@ -51,7 +51,7 @@ GitHub Enterprise Server（GHES）3.12 が GA になりました。大きな機�
 
 - [マージキュー機能が追加](https://github.blog/2023-07-12-github-merge-queue-is-generally-available/)
 - [Dependabotの脆弱性アラートの自動トリアージ機能が追加](https://github.blog/2023-09-14-introducing-auto-triage-rules-for-dependabot/)
-- [Markdownの新しいハイライト構文が追加](https://github.blog/changelog/2023-12-14-new-markdown-extension-alerts-provide-distinctive-styling-for-significant-content/)（公式には Alerts と呼ばれている
+- [Markdownの新しいハイライト構文が追加](https://github.blog/changelog/2023-12-14-new-markdown-extension-alerts-provide-distinctive-styling-for-significant-content/)（公式には Alerts と呼ばれている）
 
 中でもマージキューの機能追加が要注目です。これは github.com を利用していてもプランによっては利用できない機能なので、GHES ならおそらくどのリポジトリであっても利用できるのは嬉しいですね。マージキューについては実際に利用された方の記事を Productivity Weekly でも何度か紹介したこと[^20240214][^20230222]がありますが、クセは強いものの使いこなせると特に大規模な開発チームでの運用において非常に便利な機能なようです。GHES で大規模な開発をされているチームは検討してみると良いかもしれません。
 
@@ -62,6 +62,22 @@ _本項の執筆者: [@Kesin11](https://zenn.dev/kesin11)_
 
 ## Actions Fine Grained Permissions - The GitHub Blog
 https://github.blog/changelog/2024-03-06-actions-fine-grained-permissions/
+
+GitHub の Custom Organization Roles において、GitHub Actions の細かい権限設定が可能になりました。[Custom Organization Roles](https://zenn.dev/cybozu_ept/articles/productivity-weekly-20231122#custom-organization-roles-are-now-ga---the-github-blog) は、Organization に対する権限を付与可能なロールで、例えばあるユーザに webhook 管理の権限だけ与えるなどが可能です。Enterprise の顧客のみが利用できます。
+
+今回新たに追加された権限は次の通りです。（[ドキュメント参照](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/about-custom-organization-roles)）
+
+|Permission|Description|
+|---|---|
+|Manage organization Actions policies|Actions 全般の設定の管理権限（Self-hosted runner の設定を除く）|
+|Manage organization runners and runner groups|ランナーとランナーグループの作成・管理権限、Self-hosted runner 作成可能リポジトリの管理権限|
+|Manage organization Actions secrets|Org レベルの Actions secrets の作成と管理権限|
+|Manage organization Actions variables|Org レベルの Actions variables の作成と管理権限|
+
+これで、Organization 管理者は全ての権限を付与することなく、個人やチームに Org レベルの Actions の管理権限のみを与えることができるようになりました。
+権限は細かく絞っていきたいですね。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 ## GitHub Actions; All Actions will run on Node20 instead of Node16 by default - The GitHub Blog
 https://github.blog/changelog/2024-03-07-github-actions-all-actions-will-run-on-node20-instead-of-node16-by-default/
@@ -78,6 +94,19 @@ _本項の執筆者: [@Kesin11](https://zenn.dev/kesin11)_
 
 ## GitHub Copilot Chat General Availability in JetBrains IDE - The GitHub Blog
 https://github.blog/changelog/2024-03-07-github-copilot-chat-general-availability-in-jetbrains-ide/
+
+JetBrains IDE 上の GitHub Copilot Chat が GA されました。
+
+Copilot Individual ユーザはすぐに使えますが、Copilot Business、Enterprise ユーザは、管理者が Chat 機能を有効化する必要があります。VSCode で Chat 機能が有効化されていればそのまま JetBrains IDE でも使えるはずです。
+そもそも Chat 機能が有効化されていなさそうであれば、管理者にお願いしましょう。
+
+なお、Copilot Chat の機能としては VSCode と比べて遅れて機能がやってきがちです。例えば、[`@workspace`](https://code.visualstudio.com/docs/copilot/copilot-chat#_chat-participants) や、[`#file`](https://code.visualstudio.com/docs/copilot/copilot-chat#_use-chat-variables) は使えなさそうでした（プラグインバージョン: 1.5.0.5148）[^somosomo]。
+
+JetBrains IDE では使えないと思っていた方は、ぜひ試してみてください。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
+
+[^somosomo]: そもそも JetBrains IDE の Copilot Chat で使える機能はどこに羅列されてるのかわかってない。
 
 ## BigQuery Emulator をアップデートしました - Route54
 https://goccy54.hatenablog.com/entry/2024/03/11/022640
