@@ -1,5 +1,5 @@
 ---
-title: ＜ここにタイトルを入力＞｜Productivity Weekly(2024-03-13)
+title: GHES 3.12でマージキューが使えるようになる話など｜Productivity Weekly(2024-03-13)
 emoji: 🧅
 type: idea
 topics:
@@ -40,6 +40,10 @@ user_defined:
 <!-- - [@r4mimu](https://zenn.dev/r4mimu) -->
 <!-- - [@uta8a](https://zenn.dev/uta8a) -->
 
+:::
+
+:::message
+来週号（3/20）は祝日だったのでお休みです。
 :::
 
 # news 📺
@@ -108,9 +112,6 @@ _本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 [^somosomo]: そもそも JetBrains IDE の Copilot Chat で使える機能はどこに羅列されてるのかわかってない。
 
-## BigQuery Emulator をアップデートしました - Route54
-https://goccy54.hatenablog.com/entry/2024/03/11/022640
-
 ## How we sped up AWS CloudFormation deployments with optimistic stabilization
 https://aws.amazon.com/jp/blogs/devops/how-we-sped-up-aws-cloudformation-deployments-with-optimistic-stabilization/
 
@@ -145,14 +146,27 @@ AWS から他のクラウドやオンプレミスに移行する際のデータ�
 
 _本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)_
 
-## Sponsor your dependencies for recurring sponsorships in one checkout - The GitHub Blog
-https://github.blog/changelog/2024-03-06-sponsor-your-dependencies-for-recurring-sponsorships-in-one-checkout/
-
-
 # know-how 🎓
 
 ## 【翻訳】テスト駆動開発の定義 - t-wadaのブログ
 https://t-wada.hatenablog.jp/entry/canon-tdd-by-kent-beck
+
+t-wada さんによる、テスト駆動開発（TDD）の定義についての翻訳記事です。
+テスト駆動開発を考案した Kent Beck さんが TDD の定義を改めて明文化した文章を、t-wada さんが翻訳＆考察しています。
+
+TDD は知識として知っていたり、[例の本](https://www.ohmsha.co.jp/book/9784274217883/)を読んでみたりしたことがある人は決して少なくないのではないでしょうか？僕もその 1 人で、大学の頃に本を読んだり先輩から教えてもらったりした者です。
+
+しかし、Kent Beck さんによると、TDD の定義は世の中で合意が得られていないと実感しているようで、世の中の TDD に対する理解を深めるためにさらに明確に TDD を定義したそうです。
+記事の半分は TDD の再定義に関する t-wada さんによる翻訳です。
+後半は、t-wada さんによる日本ではどう TDD が理解されているのかについてを深ぼった考察が書かれています。たしかにな〜と思う部分が多かったです。
+
+正直なところ、僕の TDD に対する理解はだいぶ怪しいものでした。テストリストを用意する部分を完全に忘れていたり、リファクタリングをしても設計が改善されているかは怪しかったりと...
+
+また、t-wada さんが以前 Software Design で書いた TDD に関する記事の公開についても書かれています。合わせて読むことで、自動テストやテストファースト、TDD に対する理解を深めることができると思います。
+
+ちゃんと TDD を理解した上で TDD の実践や議論に触れていきたいですね。気になる人は読みましょう。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 ## UnityのアプリビルドをGitHub Actionsに移行した話【CAGC2024】 - Speaker Deck
 https://speakerdeck.com/cyberagentdevelopers/unitynoapuribirudowogithub-actionsniyi-xing-sitahua-cagc2024
@@ -165,23 +179,53 @@ Jenkins からの移行において GitHub Actions の `workflow_dispatch`（手
 
 _本項の執筆者: [@Kesin11](https://zenn.dev/kesin11)_
 
-## Configuration Options - Renovate Docs | Renovate Docs
+## configMigration - Configuration Options - Renovate Docs | Renovate Docs
 https://docs.renovatebot.com/configuration-options/#configmigration
 
-実例。regexManger -> customManagers に書き換えてくれている
+Renovate の設定である `configMigration` の紹介です(experimental)。
+Renovate には設定ファイルのマイグレーションを自動で行う機能があります。`configMigration` を `true` にすることで有効化できます。
+
+Renovate は更新頻度の高いソフトウェアであり、設定ファイルに記述する設定項目が増えたり減ったりすることは珍しくありません。
+たとえば以前は `baseBranch` という設定項目がありましたが、現在は配列で指定できる `baseBranches` に変更されました（ドキュメントからも記載がなくなっています）。ただ、Renovate は後方互換性に強いため、`baseBranch` を指定した設定ファイルが使えなくなるというわけではありません。そのため、設定項目を新しいものに置き換えるというのはなかなかやらないでしょう。変わったことすら気づいてないことは多いです。
+
+しかし、`configMigration` を有効にすると、Renovate が設定ファイルのマイグレーションを行うプルリクエストを作ってくれます。たとえば、次のように、項目名＆スキーマを正しく変更してくれます。
+
+```diff json:ドキュメントより
+{
+- "baseBranch": "main"
++ "baseBranches": ["main"]
+}
+```
+
+実例として、@Kesin11 さんの OSS を見るとどんなものかなんとなくわかります。次の例では、regexMangers -> customManagers に書き換えてくれています。
 https://github.com/Kesin11/actions-timeline/commit/23224a70c8d83226bdc14cfdd84fe296ba044268
 
-# tool 🔨
+個人的に、`regexManagers` が廃止されて `configManagers` に変わっているのにとても驚きました。全く知りませんでした。
 
-# read more 🍘
-Productivity Weekly で出たネタを全て紹介したいけど紹介する体力が持たなかったネタを一言程度で書くコーナーです。
+ただ、問題として、もし renovate.json5 のような、json5 形式で書かれた設定ファイルを使っている場合、`configMigration` でコメントが消えてしまいます。これに関しては、[Renovate の issue に挙がっている](https://github.com/renovatebot/renovate/issues/16359#issuecomment-1988069214)ため、もしかしたら今後改善されるかもしれません。
 
-- **news 📺**
-- **know-how 🎓**
-- **tool 🔨**
+なおマイグレーション一覧は次のコードから確認できます。めちゃくちゃ数があります。
+
+https://github.com/renovatebot/renovate/blob/e4020c118eb934941b19a1fd0029159995a33def/lib/config/migrations/migrations-service.ts#L104-L159
+
+個人的にとても面白い機能だと思いました。Renovate を使っている方はぜひ有効にしてみてください。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 # あとがき
+遅くなってしまいましたが、今週の Productivity Weekly でした。
+ちょっと前に社内の製品開発チームを 5 ヶ月くらい体験しており、最近生産性向上チームに戻ったのですが、最近その内容の発表会があったため、なかなか Weekly の時間が取れませんでした。
+チーム体験よかったです。
 
+:::message
+来週号（3/20）は祝日だったのでお休みです。
+:::
+
+**宣伝です。4/9（火）に大阪で Engineering Productivity Meetup #2 を開催します。**
+開発生産性を向上させる知見や技術をネタに開発者と交流する会です。
+みなさん参加待ってます。
+
+https://cybozu.connpass.com/event/311067/
 
 サイボウズの生産性向上チームでは社内エンジニアの開発生産性を上げるための活動を行なっています。そんな生産性向上チームが気になる方は下のリンクをクリック！
 https://speakerdeck.com/cybozuinsideout/engineering-productivity-team-recruitment-information
