@@ -35,7 +35,7 @@ user_defined:
 
 今週の共同著者は次の方です。
 - [@korosuke613](https://zenn.dev/korosuke613)
-<!-- - [@defaultcf](https://zenn.dev/defaultcf) -->
+- [@defaultcf](https://zenn.dev/defaultcf)
 - [@Kesin11](https://zenn.dev/kesin11)
 - [@r4mimu](https://zenn.dev/r4mimu)
 <!-- - [@uta8a](https://zenn.dev/uta8a) -->
@@ -50,6 +50,25 @@ https://github.blog/changelog/2024-03-21-github-copilot-general-availability-in-
 ## AWS announces a 7-day window to return Savings Plans
 https://aws.amazon.com/jp/about-aws/whats-new/2024/03/aws-7-day-window-return-savings-plans/
 
+AWS の Saving Plans について、購入 7 日以内であれば返品できるようになりました。
+
+丁度プライベートのプロジェクトで長期間動かし続けるコンピューティングワークフローがあるので、Saving Plan を買ってみて返品の流れだけ見てみようと思います。
+
+![Saving Plan 購入の際のカート](/images/productivity-weekly-20240327/saving_plan_cart_20240327.png)
+
+詳細画面で購入した Saving Plan を確認できます。
+
+![購入した Saving Plan の詳細画面](/images/productivity-weekly-20240327/saving_plan_describe_20240327.png)
+
+この画面の中に「Return Saving Plan」があり、これを押すと返品を進められます。
+
+![Saving Plan の返品画面](/images/productivity-weekly-20240327/return_saving_plan_20240327.png)
+
+以前は Saving Plans の購入は取り消すことができず、非常に慎重に購入をする必要がありました。
+しかしこれからはちょっとだけ肩の力を抜いて購入できそうです。
+
+_本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)_
+
 ## Enablement trends for security products (public beta) - The GitHub Blog
 https://github.blog/changelog/2024-03-19-enablement-trends-for-security-products-public-beta/
 
@@ -61,6 +80,17 @@ https://fig.io/blog/post/fig-is-sunsetting
 
 ## EC2 Mac Dedicated Hosts now provide visibility into supported macOS versions
 https://aws.amazon.com/jp/about-aws/whats-new/2024/03/ec2-mac-dedicated-hosts-visibility-supported-macos-versions/
+
+macOS 専有ホストは長期間運用しているとファームウェアが古くなり、新しい macOS のバージョンを利用できないことがあります。
+今回、そのホストがサポートしている最新の macOS のバージョンが分かるようになりました。嬉しい変更ですね。
+
+macOS 専有ホストの詳細画面の「Latest supported macOS versions」で確認できます。
+
+![macOS 専有ホストの詳細画面](/images/productivity-weekly-20240327/dedicated_mac_host_20240327.png)
+
+なおサポートしている macOS のバージョンが古い場合は、インスタンスを停止または終了することで自動的にファームウェアが更新されるそうです。
+
+_本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)_
 
 # know-how 🎓
 
@@ -160,6 +190,23 @@ _本項の執筆者: [@Kesin11](https://zenn.dev/kesin11)_
 
 ## JSON をプレビューしながら jq のフィルタを書くことができる「jnv」を試してみる
 https://zenn.dev/kou_pg_0131/articles/jnv-introduction
+
+jq はもはや JSON をクエリできるデファクトスタンダードで、GitHub Actions のランナーイメージにデフォルトでインストールされていることから世界的に多くの方が使用していると言えると思っています。
+https://github.com/actions/runner-images/blob/df41637c07f1752efadfa844f2951744affb3e32/images/ubuntu/Ubuntu2204-Readme.md?plain=1#L85
+
+ただ jq のフィルタの構文は少々独特で、試しに書いて出力してを繰り返し、理想のフィルタを作ることがほとんどです。
+このサイクルを素早くできるツールが、この jnv だと思います。試しに使ってみました。
+
+```bash
+curl https://dummyjson.com/users | jnv
+```
+
+するとインタラクティブな UI が開き、フィルタを変更するたびにその結果を確認できます。
+タブキーでの補完機能もあるようですが、`.users[].f` まで打ってからタブキーを押しても `.users[].firstName` を補完まではしてくれませんでした。配列内の子までは対応していないようです。
+
+フィルタを書く際に非常に重宝するので、今後も使っていきたいと思います。
+
+_本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)_
 
 ## suzuki-shunsuke/pinact: Pin GitHub Actions versions
 https://github.com/suzuki-shunsuke/pinact
