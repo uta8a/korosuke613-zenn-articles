@@ -1,6 +1,6 @@
 ---
-title: ＜ここにタイトルを入力＞｜Productivity Weekly(2024-03-27)
-emoji: 🍄
+title: AWSのSavings Planが期間限定で返金できるようになど｜Productivity Weekly(2024-03-27)
+emoji: 🇰🇷
 type: idea
 topics:
   - ProductivityWeekly
@@ -44,9 +44,6 @@ user_defined:
 
 # news 📺
 
-## GitHub Copilot General Availability in the CLI - The GitHub Blog
-https://github.blog/changelog/2024-03-21-github-copilot-general-availability-in-the-cli/
-
 ## AWS announces a 7-day window to return Savings Plans
 https://aws.amazon.com/jp/about-aws/whats-new/2024/03/aws-7-day-window-return-savings-plans/
 
@@ -69,14 +66,21 @@ AWS の Saving Plans について、購入 7 日以内であれば返品でき�
 
 _本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)_
 
-## Enablement trends for security products (public beta) - The GitHub Blog
-https://github.blog/changelog/2024-03-19-enablement-trends-for-security-products-public-beta/
 
-## Security overview dashboard: Alert age trends, custom repository and severity filters, and date pickers - The GitHub Blog
-https://github.blog/changelog/2024-03-20-security-overview-dashboard-alert-age-trends-custom-repository-and-severity-filters-and-date-pickers/
+## GitHub Copilot General Availability in the CLI - The GitHub Blog
+https://github.blog/changelog/2024-03-21-github-copilot-general-availability-in-the-cli/
 
-## Fig is sunsetting, migrate to Amazon CodeWhisperer | Fig
-https://fig.io/blog/post/fig-is-sunsetting
+GitHub Copilot in the CLI が GA になりました。Copilot in the CLI は、コマンドラインツールであり、Shell コマンドの提案や説明を Copilot にしてもらえる機能です。
+
+GitHub CLI Extension での提供となります。初めて使う場合はインストールが必要です。なお、GitHub Copilot for Business、Enterprise ユーザの場合は、組織管理者が CLI 機能を有効化する必要があります。
+
+僕はプライベートベータの頃[^sunset_copilot_npm]に使っていましたが、ちょっとコマンドについて気になった時にターミナルですぐに質問できて便利でした。提案されたコマンドの説明もしてくれるのは嬉しいですね。ただ、コマンドの内容はあくまで参考程度にして、自分で理解してから使うべきです。
+
+気になる人は使ってみてください。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
+
+[^sunset_copilot_npm]: ちなみに、プライベートベータの頃は github-copilot-cli という npm パッケージでした。パブリックベータになるに当たって npm パッケージ版は使えなくなりました。
 
 ## EC2 Mac Dedicated Hosts now provide visibility into supported macOS versions
 https://aws.amazon.com/jp/about-aws/whats-new/2024/03/ec2-mac-dedicated-hosts-visibility-supported-macos-versions/
@@ -92,10 +96,33 @@ macOS 専有ホストの詳細画面の「Latest supported macOS versions」で�
 
 _本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)_
 
-# know-how 🎓
+## Fig is sunsetting, migrate to Amazon CodeWhisperer | Fig
+https://fig.io/blog/post/fig-is-sunsetting
 
-## PATを使わずにGitHub Appを使ってGitHub ActionsでPrivate Repoを参照する話 - Google スライド
-https://docs.google.com/presentation/d/10-HgSST2xR5H3xCwGLKCk_PBwq4zHcxD2393ifwOsiM/edit#slide=id.p
+[去年 8 月に AWS に買収された Fig](https://zenn.dev/cybozu_ept/articles/productivity-weekly-20230830?redirected=1#fig-has-joined-aws!) ですが、Fig 自体はクローズされて Amazon CodeWhisperer for command line に移行することが発表されていました。
+
+Amazon CodeWhisperer for command line はすでにリリースされており、Fig 上で移行の画面が出るようになっています。Fig 自体は 9/1 サービス終了予定です。
+
+Fig にはコマンドラインの補完だけでなく、スニペットやドットファイルの共有機能などがありましたが、これらは CodeWhisperer for command line には引き継がれず、コア機能であるコマンドライン補完、自然言語から bash コマンドを提案する AI 機能のみが引き継がれるようです。
+
+CodeWhisperer for command line は CodeWhisperer 利用のために必要な AWS Builder ID による認証が必要です。AWS アカウントとは別なので気軽に ID は作れますが、個人的には正直めんどうです。
+
+なお、Fig はコード補完のデータを OSS としていました([withfig/autocomplete](https://github.com/withfig/autocomplete))[^contribution]が、今後もこのリポジトリの内容が参照されるかは正直よく分かってません。ただ、まだリポジトリが動いていることと、AWS のドキュメントに以下が書いていることから、希望はありそうです。
+
+> To edit an existing spec or contribute your own, see https://fig.io/docs.
+https://docs.aws.amazon.com/codewhisperer/latest/userguide/command-line-contribute.html
+
+（AWS のドキュメント用意しろよとは思うけど。）
+
+いやー買収されたことで安定した開発が望めるかなと思ってたのですが、Fig の名前が無くなるのはちょっと寂しいですね。Fig は収益化のためのクラウドサービスやスニペット機能など多機能を持っていましたが、個人的には使う必要性を感じていなかったので、機能が削減されたことに違和感はありませんでした。
+
+とりあえず CodeWhisperer for command line は使っていきますが、まだまだ今後の展開が気になりますね。嫌な人はギリギリまでアップグレードしないようにしましょう。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
+
+[^contribution]: ちなみに僕もコントリビューションしたことがあります。https://github.com/withfig/autocomplete/pulls?q=is%3Apr+author%3Akorosuke613+is%3Aclosed
+
+# know-how 🎓
 
 ## リリース戦略を支えるCI/CDパイプライン | ドクセル
 https://www.docswell.com/s/katzumi/58G8J9-empowering-release-strategies-cicd-pipelines
@@ -112,6 +139,14 @@ _本項の執筆者: [@Kesin11](https://zenn.dev/kesin11)_
 
 ## CI の DX とセキュリティ - Google スライド
 https://docs.google.com/presentation/d/1rN4kTtvErrheZ3SXNr49XUHbiGIoorpfiLGXjLt5vsc
+
+CI の Developer eXperience (DX) とセキュリティについての発表です。aqua や tfcmt などの開発者である suzuki-shunsuke さんによる発表です。
+
+GitHub Actions を使う上での DX の tips やセキュリティベストプラクティスが多数書かれており参考になります。比重としてはセキュリティベストプラクティスが多いです。
+
+個人的には「古い revision の workflow run のリトライを防ぐ」は考えたことがなかったのでなるほどと思いました。また、これらのプラクティスをチェックできるツール suzuki-shunsuke/ghalint も出しているようなので、すぐにチェックできていいですね。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 ## 業務で使えるかもしれない…！？GitHub Actions の Tips 集 / CI/CD Test Night #7 - Speaker Deck
 https://speakerdeck.com/ponkio_o/cd-test-night-number-7
@@ -175,6 +210,17 @@ https://note.com/hamchance/n/n3e31fc8e4679?sub_rt=share_pw
 
 _本項の執筆者: [@r4mimu](https://zenn.dev/r4mimu)_
 
+## PATを使わずにGitHub Appを使ってGitHub ActionsでPrivate Repoを参照する話 - Google スライド
+https://docs.google.com/presentation/d/10-HgSST2xR5H3xCwGLKCk_PBwq4zHcxD2393ifwOsiM/edit#slide=id.p
+
+GitHub Actions において、Personal Access Token (PAT) を使わずに GitHub Apps を使って Private Repository にアクセスする方法を紹介しているスライドです。
+
+なぜ PAT を使いたくないのかや、PAT・GitHub Apps の説明、実現方法などが載っています。GitHub Apps を作ったことのない人向けにもとても丁寧に方法が紹介されていて良いです。
+
+PAT を多く使っている人はこれを機に脱 PAT して GitHub Apps を使ってみてください。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
+
 # tool 🔨
 
 ## GitHub ActionsでファイルをS3にキャッシュするアクションを作りました - プログラムモグモグ
@@ -208,18 +254,21 @@ curl https://dummyjson.com/users | jnv
 
 _本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)_
 
-## suzuki-shunsuke/pinact: Pin GitHub Actions versions
-https://github.com/suzuki-shunsuke/pinact
-
 # read more 🍘
 Productivity Weekly で出たネタを全て紹介したいけど紹介する体力が持たなかったネタを一言程度で書くコーナーです。
 
 - **news 📺**
-- **know-how 🎓**
-- **tool 🔨**
+  - [Enablement trends for security products (public beta) - The GitHub Blog](https://github.blog/changelog/2024-03-19-enablement-trends-for-security-products-public-beta/)
+    - GitHub において、Dependabot alerts や Code scanning などの GitHub のセキュリティ機能がどれだけ有効化されているかを傾向として見られる機能が追加されました(パブリックベータ・GHEC のみ)
+  - [Security overview dashboard: Alert age trends, custom repository and severity filters, and date pickers - The GitHub Blog](https://github.blog/changelog/2024-03-20-security-overview-dashboard-alert-age-trends-custom-repository-and-severity-filters-and-date-pickers/)
+    - GitHub Organizations のセキュリティ Overview にいくつかの新機能が入りました(パブリックベータ・GHEC のみ)
+      - セキュリティアラートの経過時間の傾向がわかるように
+      - custom repository property や重要度でフィルタリングできるように
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 # あとがき
-
+最近韓国に行ったんすけど、めちゃ楽しかったです。外国行ったらご飯が舌に合わないことは珍しくないのですが、韓国料理はどれも美味しくてとても良かったです。また行きたいねぇ。
 
 サイボウズの生産性向上チームでは社内エンジニアの開発生産性を上げるための活動を行なっています。そんな生産性向上チームが気になる方は下のリンクをクリック！
 https://speakerdeck.com/cybozuinsideout/engineering-productivity-team-recruitment-information
