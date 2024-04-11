@@ -37,7 +37,7 @@ user_defined:
 - [@korosuke613](https://zenn.dev/korosuke613)
 <!-- - [@defaultcf](https://zenn.dev/defaultcf) -->
 <!-- - [@Kesin11](https://zenn.dev/kesin11) -->
-<!-- - [@r4mimu](https://zenn.dev/r4mimu) -->
+- [@r4mimu](https://zenn.dev/r4mimu)
 <!-- - [@uta8a](https://zenn.dev/uta8a) -->
 
 :::
@@ -69,14 +69,40 @@ https://github.blog/jp/2024-03-28-found-means-fixed-introducing-code-scanning-au
 ## Style Guide - Configuration Language | Terraform | HashiCorp Developer
 https://developer.hashicorp.com/terraform/language/style
 
-Terraform 公式がスタイルガイドを出したので読んで要約した
+Terraform がスタイルガイドを公開しました。スタイルガイドは 2 つのセクションに分かれています。
+
+最初のセクションでは、書式やリソースの構成などコードのスタイルに関する推奨事項が扱われています。
+例えば、リソースの命名規則、定義の順序、コメントの書き方などが解説されています。
+
+2 つ目のセクションでは、ライフサイクル管理、バージョン管理、機密データ管理など、運用とワークフローに関する推奨事項が扱われています。
+例えば、プロバイダ・モジュールのバージョンを固定することやシークレットの管理方法などが解説されています。
+v1.6 から導入された `terraform test` における Unit Test にも触れられています。
+
+全体として、違和感がある内容は無く、リソース定義の順序や `description` と `validation` はちゃんと書かねば…という気持ちになりました。
+
+これまで、有力な Terraform のスタイルガイドは [Google Cloud が公開しているもの](https://cloud.google.com/docs/terraform/best-practices-for-terraform?hl=ja)しかありませんでした。
+公式でスタイルガイドが公開されたことでクラウドベンダーに依らないスタイルが統一されそうでいいですね。
+
+次の記事では日本語で要約を書いてくださっているので、英語がつらい場合はこちらを見るとよさそうです。
 https://qiita.com/ogatango/items/9cd57fe8c48b1c03b2bd
+
+_本項の執筆者: [@r4mimu](https://zenn.dev/r4mimu)_
 
 ## GitHub Copilot Enterprise - March 2024 update - The GitHub Blog
 https://github.blog/changelog/2024-03-29-github-copilot-enterprise-march-2024-update/
 
 ## デジタル社会推進標準ガイドラインに CI／CDパイプラインにおけるセキュリティの留意点に関する技術レポートが追加されました
 https://www.digital.go.jp/resources/standard_guidelines
+
+デジタル庁から [CI/CD パイプラインにおけるセキュリティの留意点に関する技術レポート](https://www.digital.go.jp/assets/contents/node/basic_page/field_ref_resources/e2a06143-ed29-4f1d-9c31-0f06fca67afc/33f31336/20240329_resources_standard_guidelines_guideline_01.pdf)が公開されています。
+
+近年のアジャイル的な開発手法の普及により、迅速な変更要求に応えて効率的に変更差分をリリースできる体制が求められ、それに伴い CI/CD パイプラインの重要性が高まっています。
+CI/CD パイプラインは高い権限を持つため、セキュリティの観点からも注意が必要です。そこで、本レポートではローカル作業フェーズ、ビルドフェーズ、デリバリフェーズの 3 つのフェーズに分けて、それぞれのフェーズでのセキュリティの留意点を解説しています。
+
+最小権限の原則やトークンの管理とローテーションなど基本的なセキュリティ対策から、OpenID Connect を用いるべきといった具体的なアドバイスまで幅広くカバーしています。
+CI/CD パイプラインを構築する人は必読の内容です。
+
+_本項の執筆者: [@r4mimu](https://zenn.dev/r4mimu)_
 
 ## Linux Foundation Launches Open Source Valkey Community
 https://www.linuxfoundation.org/press/linux-foundation-launches-open-source-valkey-community
@@ -85,6 +111,14 @@ https://www.linuxfoundation.org/press/linux-foundation-launches-open-source-valk
 
 ## The Wrong Way to Use DORA Metrics - The New Stack
 https://thenewstack.io/the-wrong-way-to-use-dora-metrics/
+
+近年、組織の開発生産性指標としてよく使われる DORA Metrics(Four Keys) が定着してきました。
+Four Keys に基づいて組織の課題を把握したり、改善活動を行うことがあると思います。
+その際に気をつけるべき誤用やメトリクスハック・キャンベルの法則などについて、具体例を交えて解説されており、分かりやすかったです。
+
+パフォーマンスが良い組織は Four Keys 指標が高くても、逆に Four Keys 指標が高いからといってパフォーマンスが良いわけでは無かったり、Four Keys 指標が悪くてもビジネス的価値を生み出している場合もあるということには注意しておきたいですね。
+
+_本項の執筆者: [@r4mimu](https://zenn.dev/r4mimu)_
 
 ## 一日30回リリースを可能にするpixiv開発 - Speaker Deck
 https://speakerdeck.com/picopico/ri-30hui-ririsuwoke-neng-nisurupixivkai-fa
