@@ -35,7 +35,7 @@ user_defined:
 
 今週の共同著者は次の方です。
 - [@korosuke613](https://zenn.dev/korosuke613)
-<!-- - [@defaultcf](https://zenn.dev/defaultcf) -->
+- [@defaultcf](https://zenn.dev/defaultcf)
 <!-- - [@Kesin11](https://zenn.dev/kesin11) -->
 <!-- - [@r4mimu](https://zenn.dev/r4mimu) -->
 <!-- - [@uta8a](https://zenn.dev/uta8a) -->
@@ -81,6 +81,20 @@ https://www.digital.go.jp/resources/standard_guidelines
 ## Linux Foundation Launches Open Source Valkey Community
 https://www.linuxfoundation.org/press/linux-foundation-launches-open-source-valkey-community
 
+背景として、NoSQL として広く知られ使われている Redis は、現在 Redis Ltd によってホストされ、マネタイズされています。
+Redis Ltd の 3 月のこのブログ記事によって、Redis のライセンスが BSD License 2.0 から RSALv2（Redis Source Available License）と SSPLv1（Server Side Public License）のデュアルライセンスに変更されることが発表され、大きな話題を呼んだことは記憶に新しいですね。
+https://redis.io/blog/redis-adopts-dual-source-available-licensing/
+
+Redis を使った商用サービスを提供している大手クラウドベンダーらは Redis Ltd と別途契約を結ぶ必要があるとのことです。
+Microsoft は先のブログ記事中で Redis Ltd と協力していく旨コメントしていますが、AWS や GCP は特にコメントが無く、今後どのように Redis を使っているサービスが提供されるのか注目されていました。
+
+今回 Linux Foundation が Redis のライセンス変更前である 7.2.4 の時点からフォークし、Valkey の名でオープンソースとして開発を継続し提供していくことを発表しました。
+発表の記事中で AWS や GCP（の中にいる元 Redis コントリビューター）などがコメントを寄せており、これらクラウドベンダーが提供する Redis を使っているサービスが今後 Valkey に置き換わっていくことが想定されます。
+
+あの Linux Foundation がフォークするとのことで、今後も安定して続いていきそうな安心感がありますね。
+
+_本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)_
+
 # know-how 🎓
 
 ## The Wrong Way to Use DORA Metrics - The New Stack
@@ -94,6 +108,15 @@ https://tech.findy.co.jp/entry/2024/04/01/080000
 
 ## Fargate Spotを本番運用するための監視の実践 - KAYAC engineers' blog
 https://techblog.kayac.com/monitor-fargate-spot-prod
+
+Farget Spot は Amazon ECS で選べるプロバイダの 1 つで、Fargate とは違って予備のコンピュートキャパシティで動作し、安く使用できますが AWS の都合でタスクの中断が発生し得ます。
+
+この記事では、いかにして Spot のタスクの使用率や中断率をモニタリングできるようにしたかが詳しく書かれています。
+個人的には、ECS タスクの停止理由を CloudWatch Logs に保存し、そこから Fargate Spot の中断を検出するのが面白いと思いました。
+
+個人のプライベートプロジェクトで運用している ECS でも、この記事を参考にさらなる監視を導入してみます。
+
+_本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)_
 
 # tool 🔨
 
