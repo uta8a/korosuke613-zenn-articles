@@ -1,5 +1,5 @@
 ---
-title: ＜ここにタイトルを入力＞｜Productivity Weekly(2024-04-03)
+title: GitHub-hosted runner強化イベント複数｜Productivity Weekly(2024-04-03)
 emoji: 🎲
 type: idea
 topics:
@@ -42,10 +42,12 @@ user_defined:
 
 :::
 
-# news 📺
+:::message
+来週号（4/10）は Productivity Weekly がお休みだったので記事もお休みです。
+:::
 
-## Actions Usage Metrics public beta - The GitHub Blog
-https://github.blog/changelog/2024-03-28-actions-usage-metrics-public-beta/
+
+# news 📺
 
 ## Bringing enterprise-level security and even more power to GitHub-hosted runners
 https://github.blog/2024-04-02-bringing-enterprise-level-security-and-even-more-power-to-github-hosted-runners/
@@ -87,14 +89,34 @@ GPU 付きのランナーは[今までprivate beta](https://github.blog/changelo
 
 _本項の執筆者: [@Kesin11](https://zenn.dev/kesin11)_
 
-## Dependabot grouped security updates generally available - The GitHub Blog
-https://github.blog/changelog/2024-03-28-dependabot-grouped-security-updates-generally-available/
+## Actions Usage Metrics public beta - The GitHub Blog
+https://github.blog/changelog/2024-03-28-actions-usage-metrics-public-beta/
+
+GitHub Actions において、ワークフローやジョブが Organization 内のどこでどれだけ実行されているかを知れるダッシュボード Actions Usage Metrics が public beta としてリリースされました。GitHub Enterprise Cloud 利用者のみが利用可能です。
+
+ワークフローやジョブ、リポジトリや OS ごとにメトリクスを出すことが可能で、課金対象時間（total minutes）や実行回数などのメトリクスが確認できます。
+この機能を使うことで、Organization 内でのワークフローの利用状況を把握し、リソースの最適化などに役立てることができます。
+
+閲覧するためには Organization の Owner 権限、または Custom organization roles の `View organization Actions usage metrics` 権限が必要になります。Owner 以外も見られるのは嬉しいですね（メンバーならみんな見られてほしい気もするけど）。
+
+僕もさっそく自身が管理する Org で試してみましたが、意外なワークフローが total minutes 上位に来ていていい発見が得られました。全体の実行時間を削減してコスト節約したい場合に、メスを入れるワークフローやジョブの優先度をつけやすくていいですね。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 ## Code security configurations let organizations easily roll out GitHub security products at scale - The GitHub Blog
 https://github.blog/changelog/2024-04-02-code-security-configurations-let-organizations-easily-roll-out-github-security-products-at-scale/
 
-## 脆弱性の検出から修正提案まで：GitHub CopilotとCodeQLを利用したCode Scanningの自動修正機能 - GitHubブログ
-https://github.blog/jp/2024-03-28-found-means-fixed-introducing-code-scanning-autofix-powered-by-github-copilot-and-codeql/
+GitHub において、セキュリティに関するデフォルトの設定プリセットを作成、リポジトリの可視性ごとに適用できる機能がリリースされました（public beta）。
+
+設定できる項目は、Dependabot Security updates や Secret scanning、Code scanning などのセキュリティ機能です。適用対象は、「全てのリポジトリ」、「Public のみ」、「Private または Internal のみ」を選ぶことができます。なので、例えば Internal リポジトリは Secret scanning を有効にしないけど、Public リポジトリは有効にする、といった設定が可能です。
+プリセット設定画面では、どの機能が GitHub Advanced Security を必要とするかもわかるようになっているので、誤って GHAS のライセンスを消費してしまう恐れも減ります。
+また、プリセット一覧画面ではどのリポジトリにどのプリセットが当たっているかや、リポジトリごとに必要な GHAS ライセンス数が確認できます。
+
+あくまでデフォルト設定なので、リポジトリごとに設定を変更したり、適用プリセットを変更したりすることも可能です。
+
+リポジトリの可視性でデフォルトプリセットを変えられるのが特に嬉しいですね。これを機にセキュリティ設定を見直していきましょう。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 ## Style Guide - Configuration Language | Terraform | HashiCorp Developer
 https://developer.hashicorp.com/terraform/language/style
@@ -117,9 +139,6 @@ v1.6 から導入された `terraform test` における Unit Test にも触れ�
 https://qiita.com/ogatango/items/9cd57fe8c48b1c03b2bd
 
 _本項の執筆者: [@r4mimu](https://zenn.dev/r4mimu)_
-
-## GitHub Copilot Enterprise - March 2024 update - The GitHub Blog
-https://github.blog/changelog/2024-03-29-github-copilot-enterprise-march-2024-update/
 
 ## デジタル社会推進標準ガイドラインに CI／CDパイプラインにおけるセキュリティの留意点に関する技術レポートが追加されました
 https://www.digital.go.jp/resources/standard_guidelines
@@ -167,6 +186,16 @@ _本項の執筆者: [@r4mimu](https://zenn.dev/r4mimu)_
 ## 一日30回リリースを可能にするpixiv開発 - Speaker Deck
 https://speakerdeck.com/picopico/ri-30hui-ririsuwoke-neng-nisurupixivkai-fa
 
+pixiv さんによる、一日 30 回リリースを可能にする開発手法についてのスライドです。
+
+pixiv というサービスは長い歴史がある、かつ、大規模なプロダクトらしく、タイトルにある一日 30 回もリリースしているというのはとても驚きます。
+スライドでは、一日 30 回リリースを実現するために必要な考え方や取り決め、そしてさまざまな自動化やデプロイの容易性（切り戻し含めた）を高めるテクニックなどが書かれています。
+
+スライドを読むと、pixiv ほどのプロダクトが高頻度でリリースできていることの現実味を感じられます。リリース頻度を上げることを課題に感じている方には参考になる内容かと思います。
+文量はそこまで多くなく、大切なポイントが簡潔にまとまっていて読みやすいので、気になる方はぜひ読んでみてください。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
+
 ## どのようにして Findy Team+フロントエンドチームは高速な開発をしているか 〜開発フロー編〜 - Findy Tech Blog
 https://tech.findy.co.jp/entry/2024/04/01/080000
 
@@ -179,7 +208,7 @@ _本項の執筆者: [@Kesin11](https://zenn.dev/kesin11)_
 ## Fargate Spotを本番運用するための監視の実践 - KAYAC engineers' blog
 https://techblog.kayac.com/monitor-fargate-spot-prod
 
-Farget Spot は Amazon ECS で選べるプロバイダの 1 つで、Fargate とは違って予備のコンピュートキャパシティで動作し、安く使用できますが AWS の都合でタスクの中断が発生し得ます。
+Fargate Spot は Amazon ECS で選べるプロバイダの 1 つで、Fargate とは違って予備のコンピュートキャパシティで動作し、安く使用できますが AWS の都合でタスクの中断が発生し得ます。
 
 この記事では、いかにして Spot のタスクの使用率や中断率をモニタリングできるようにしたかが詳しく書かれています。
 個人的には、ECS タスクの停止理由を CloudWatch Logs に保存し、そこから Fargate Spot の中断を検出するのが面白いと思いました。
@@ -188,17 +217,35 @@ Farget Spot は Amazon ECS で選べるプロバイダの 1 つで、Fargate と
 
 _本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)_
 
-# tool 🔨
-
 # read more 🍘
 Productivity Weekly で出たネタを全て紹介したいけど紹介する体力が持たなかったネタを一言程度で書くコーナーです。
 
 - **news 📺**
-- **know-how 🎓**
-- **tool 🔨**
+  - [Dependabot grouped security updates generally available - The GitHub Blog](https://github.blog/changelog/2024-03-28-dependabot-grouped-security-updates-generally-available/)
+    - 去年の 7 月に Dependabot が[セキュリティアップデートをグループ化する機能](https://zenn.dev/cybozu_ept/articles/productivity-weekly-20230719?redirected=1#grouped-version-updates-for-dependabot-public-beta-%7C-github-changelog)を public beta としてリリースしていましたが、とうとう GA になりました
+    - 細かく制御もできるので、Dependabot 使いの皆さんはぜひ確認してみてください
+  - [GitHub Copilot Enterprise - March 2024 update - The GitHub Blog](https://github.blog/changelog/2024-03-29-github-copilot-enterprise-march-2024-update/)
+    - GitHub Copilot Enterprise 3 月の更新内容です。細かい改善が多いです
+      - モデル変更によるコンテンツ検索の強化
+      - プログラミング言語の認識
+      - プルリクエストで diff のファイルや行を絞り込んで質問可能に
+      - メッセージ生成中に次の質問作成が可能に
+      - キーボードの上下矢印で過去のメッセージを表示可能に
+      - 日本語や中国語で変換時のエンターキー押下でメッセージが送られないように
+    - 開発リソースを enterprise に集中してる感ありますね
+  - [脆弱性の検出から修正提案まで：GitHub CopilotとCodeQLを利用したCode Scanningの自動修正機能 - GitHubブログ](https://github.blog/jp/2024-03-28-found-means-fixed-introducing-code-scanning-autofix-powered-by-github-copilot-and-codeql/)
+    - GitHub Advanced Security 利用者向けに Code Scanning の自動修正機能がパブリックベータとしてリリースされました
+    - 脆弱性のあるコードを GitHub Copilot と CodeQL を使って修正提案してくれる機能です
+      - 以前も修正を提案してくれる機能はあったと思うのですが、Copilot も協力してくれるのが変更点でしょうか
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 # あとがき
+遅くなりましたが今週号でした。最近締め切りのあるタスクが多くて頭を悩ませています。こういう時に限って関係ないことやりたくなるよね。
 
+:::message
+来週号（4/10）は Productivity Weekly がお休みだったので記事もお休みです。
+:::
 
 サイボウズの生産性向上チームでは社内エンジニアの開発生産性を上げるための活動を行なっています。そんな生産性向上チームが気になる方は下のリンクをクリック！
 https://speakerdeck.com/cybozuinsideout/engineering-productivity-team-recruitment-information
