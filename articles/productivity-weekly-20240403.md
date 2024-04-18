@@ -36,7 +36,7 @@ user_defined:
 今週の共同著者は次の方です。
 - [@korosuke613](https://zenn.dev/korosuke613)
 - [@defaultcf](https://zenn.dev/defaultcf)
-<!-- - [@Kesin11](https://zenn.dev/kesin11) -->
+- [@Kesin11](https://zenn.dev/kesin11)
 <!-- - [@r4mimu](https://zenn.dev/r4mimu) -->
 <!-- - [@uta8a](https://zenn.dev/uta8a) -->
 
@@ -47,15 +47,45 @@ user_defined:
 ## Actions Usage Metrics public beta - The GitHub Blog
 https://github.blog/changelog/2024-03-28-actions-usage-metrics-public-beta/
 
-## macOS 14 (Sonoma) is generally available - The GitHub Blog
-https://github.blog/changelog/2024-04-01-macos-14-sonoma-is-generally-available-and-the-latest-macos-runner-image/
+## Bringing enterprise-level security and even more power to GitHub-hosted runners
+https://github.blog/2024-04-02-bringing-enterprise-level-security-and-even-more-power-to-github-hosted-runners/
 
-## GitHub Actions: Hardware accelerated Android virtualization now available - The GitHub Blog
-https://github.blog/changelog/2024-04-02-github-actions-hardware-accelerated-android-virtualization-now-available/
+GitHub-hosted なランナーに関して一気に複数のアップデートが行われたようで、それぞれの新機能に関する紹介記事です。changelog の方でも同じ内容がよりコンパクトにまとまっている記事が上がっています。
 
-## What's new for GitHub Actions hosted runners - The GitHub Blog
 https://github.blog/changelog/2024-04-02-whats-new-for-github-actions-hosted-runners/
 
+### 1. Azure private network との統合が GA
+
+GitHub-hosted なランナーが Azure private network と接続できるようになる機能が去年の後半から Public Beta として提供されていましたが、今回 GA となりました。
+この機能に関してはエーピーコミュニケーションズさんの記事が詳しいです。
+
+https://techblog.ap-com.co.jp/entry/2023/12/08/120000
+
+Public Beta からの差分として、今までの GitHub Enterprise Cloud プランに加え、GitHub Team プランでも利用が可能になったことと、利用可能な Azure のリージョンが追加されたようです。
+
+### 2. macOS 14 のランナーが GA、 `macos-latest` ラベルのランナーは macOS 14 ランナー（M1）に切り替わる予定
+今まで `macos-latest` は macOS 12（Intel）でしたが、GA に伴って今後は macOS 14（M1）に切り替わっていくようです。また、macOS の Larger runner である `macos-latest-xlarge` や `macos-latest-large` にも同様の変更が行われるとのことです。
+
+https://github.blog/changelog/2024-04-01-macos-14-sonoma-is-generally-available-and-the-latest-macos-runner-image/
+
+これらの記事では紹介されていないですが、標準ランナーと Larger runner のページもこのタイミングで更新されており、それによると `macos-latest` または `macos-14` は public リポジトリでも利用可能なようです。つまり、OSS 向けにもついに M1 の macOS ランナーが利用可能になったということですね！
+
+macOS のランナーに関しては現状だと Large は Intel、XLarge は M1 であったりと大変ややこしいので、ランナーの種類とスペック一覧のページを確認することをおすすめします。
+
+https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners/about-github-hosted-runners#standard-github-hosted-runners-for-public-repositories
+
+https://docs.github.com/en/actions/using-github-hosted-runners/about-larger-runners/about-larger-runners#about-macos-larger-runners
+
+### 3. Larger runner のスペックに 2vCPU Linux と 4vCPU Windows が追加
+Larger runner という名前に反して標準ランナーの v4 CPU より小さい Linux ランナーが追加されました。用途としては先ほど紹介した Azure private network との統合や[Android向けのハードウェア仮想化機能](https://github.blog/changelog/2024-04-02-github-actions-hardware-accelerated-android-virtualization-now-available/)など Larger runner にしか提供されていない機能を利用しつつも、スペック自体は v2 CPU で十分なユースケースを想定しているのだと思われます。
+
+### 4. GPU 付きの Linux と Windows ランナーの提供が public beta で開始
+GPU 付きのランナーは[今までprivate beta](https://github.blog/changelog/2023-10-31-run-your-ml-workloads-on-github-actions-with-gpu-runners/)でしたが、public beta として利用可能になったようです。
+
+
+アップデートは以上です。GitHub-hosted なランナーも様々な種類が増えてきており、用途に応じた OS やスペックを選択可能になってきましたね。macOS ランナーのラベルは非常にややこしいのが残念ですが、Intel から M1 のマシンに切り替わる移行期が終われば使いやすいラベルになることを期待しています。
+
+_本項の執筆者: [@Kesin11](https://zenn.dev/kesin11)_
 
 ## Dependabot grouped security updates generally available - The GitHub Blog
 https://github.blog/changelog/2024-03-28-dependabot-grouped-security-updates-generally-available/
@@ -105,6 +135,12 @@ https://speakerdeck.com/picopico/ri-30hui-ririsuwoke-neng-nisurupixivkai-fa
 
 ## どのようにして Findy Team+フロントエンドチームは高速な開発をしているか 〜開発フロー編〜 - Findy Tech Blog
 https://tech.findy.co.jp/entry/2024/04/01/080000
+
+開発生産性の可視化・分析をサポートする Findy Team+の開発チームにおける CI 高速化、レビューへの反応速度、プルリクエストの分類、デプロイ前の確認項目のテンプレート化など、開発フローを改善した事例が紹介されています。
+
+個人的には、クラウド上のキャッシュを利用して依存関係から不要なテストをスキップさせる[Nx](https://nx.dev/)というビルドシステムを活用とした結果として、CI の待ちの時間を最小化してすぐにレビュー依頼を出せるように **プルリクエストをなるべく小さくする** という力学が働くようになったという点が面白かったです。
+
+_本項の執筆者: [@Kesin11](https://zenn.dev/kesin11)_
 
 ## Fargate Spotを本番運用するための監視の実践 - KAYAC engineers' blog
 https://techblog.kayac.com/monitor-fargate-spot-prod
