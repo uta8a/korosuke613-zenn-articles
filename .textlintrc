@@ -30,6 +30,11 @@
       "no-doubled-joshi": false,
       "ja-no-redundant-expression": {
         "dictOptions": {
+          "dict1": {
+            "allows": [
+              "/^することも可能/" // オプショナル感を強めるために「すること*も*可能」とする場合は許可する
+            ]
+          },
           "dict5": {
             "allows": [
               "/^開発を行う/",
