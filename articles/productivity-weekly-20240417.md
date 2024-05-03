@@ -36,7 +36,7 @@ user_defined:
 今週の共同著者は次の方です。
 - [@korosuke613](https://zenn.dev/korosuke613)
 <!-- - [@defaultcf](https://zenn.dev/defaultcf) -->
-<!-- - [@Kesin11](https://zenn.dev/kesin11) -->
+- [@Kesin11](https://zenn.dev/kesin11)
 - [@r4mimu](https://zenn.dev/r4mimu)
 <!-- - [@uta8a](https://zenn.dev/uta8a) -->
 
@@ -46,6 +46,19 @@ user_defined:
 
 ## Deprecation notice: v3 of the artifact actions - The GitHub Blog
 https://github.blog/changelog/2024-04-16-deprecation-notice-v3-of-the-artifact-actions/
+
+[actions/upload-artifact](https://github.com/actions/upload-artifact), [actions/download-artifact](https://github.com/actions/download-artifact)は v4 からパフォーマンスが大幅に向上した一方で、以前の v3 は 2024/11/30 から利用できなくなることが予告されました。
+
+ちなみにさらに古い v1, v2 は以前から予告されているように 2024/6/30 から利用できなくなるようなので、まだ利用されている場合は早めに v4 にアップデートした方が良いでしょう。
+
+GitHub 上でのコード検索も正規表現が利用可能なので、例えばこのようなクエリで upload, download の v1,v2,v3 を利用しているコードをまとめて検索可能です。ぜひ活用してみてください。
+`org:{YOUR_ORG} /actions\/(upload|download)-artifact@v(1|2|3)/`
+[`actions` のOrganizationに対して検索してみた例](https://github.com/search?q=org%3Aactions+%2Factions%5C%2F%28upload%7Cdownload%29-artifact%40v%281%7C2%7C3%29%2F&type=code)
+
+
+また、今回の予告は GitHub Enterprise Server（GHES）には適用されないとのことです。一方で、GHES の現在の最新バージョンである v3.12 においても未だに v4 が利用できないため、このままだと actions/upload-artifact, actions/download-artifact を利用している場合に github.com と GHES で同一コードが使えない事態になりそうです。2024/11/30 までに GHES 側がどう対応されるのか気になっています。
+
+_本項の執筆者: [@Kesin11](https://zenn.dev/kesin11)_
 
 ## Terraform 1.8 improves extensibility with provider-defined functions
 https://www.hashicorp.com/blog/terraform-1-8-improves-extensibility-with-provider-defined-functions
