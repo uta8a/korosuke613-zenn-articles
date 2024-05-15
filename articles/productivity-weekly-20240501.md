@@ -83,26 +83,11 @@ https://github.blog/changelog/2024-04-30-github-actions-ui-improvements/
 ## GitHub Actions - Deployment views across environments (GA) - The GitHub Blog
 https://github.blog/changelog/2024-04-25-github-actions-deployment-views-across-environments-ga/
 
-## Repository Updates April 30th, 2024 - The GitHub Blog
-https://github.blog/changelog/2024-04-30-repository-updates-april-30th-2024/
-
-## Dependabot Updates on Actions for GitHub Enterprise Cloud and Free, Pro, and Teams Users - The GitHub Blog
-https://github.blog/changelog/2024-04-22-dependabot-updates-on-actions-for-github-enterprise-cloud-and-free-pro-and-teams-users/
-
-## Enterprise enablement trends for security products (public beta) - The GitHub Blog
-https://github.blog/changelog/2024-04-25-enterprise-enablement-trends-for-security-products-public-beta/
-
-## GitHub Issues & Projects – Auto-close issue project workflow - The GitHub Blog
-https://github.blog/changelog/2024-04-25-github-issues-projects-auto-close-issue-project-workflow/
-
 ## AWS CloudFormationの変更セットの差分がプロパティレベルで確認できるようになりました | DevelopersIO
 https://dev.classmethod.jp/articles/cloudformation-change-set-support-property-level-diff/
 
 ## Amazon Q Developer, now generally available, includes previews of new capabilities to reimagine developer experience | AWS News Blog
 https://aws.amazon.com/jp/blogs/aws/amazon-q-developer-now-generally-available-includes-new-capabilities-to-reimagine-developer-experience/
-
-## AWS supports dynamically removing and adding auto assigned public IPv4 address
-https://aws.amazon.com/jp/about-aws/whats-new/2024/04/removing-adding-auto-assigned-public-ipv4-address/
 
 ## 4/8リリースのDocker Desktop v4.29.0で、WindowsおよびMac向けDocker DesktopでもHost networkが試験的にサポートされるようになっていました。
 https://docs.docker.com/desktop/release-notes/#4290
@@ -142,6 +127,21 @@ https://qiita.com/YUM_3/items/7d656e175302ee0a1142
 Productivity Weekly で出たネタを全て紹介したいけど紹介する体力が持たなかったネタを一言程度で書くコーナーです。
 
 - **news 📺**
+  - [Repository Updates April 30th, 2024 - The GitHub Blog](https://github.blog/changelog/2024-04-30-repository-updates-april-30th-2024/)
+    - GitHub のリポジトリに関するいくつかのアップデートがありました
+    - 1 つ目が repository rules のバイパス対象に deploy keys が追加されたことです
+      - 個人的には `GITHUB_TOKEN` でのアクセス制御ができるようになると嬉しいです
+    - 2 つ目が 5000 以上のブランチを持つリポジトリの場合、GitHub Actions の push イベントが起こらなくなったことです
+      - おそらくほとんど影響を受ける人はいないでしょう
+  - [Enterprise enablement trends for security products (public beta) - The GitHub Blog](https://github.blog/changelog/2024-04-25-enterprise-enablement-trends-for-security-products-public-beta/)
+    - GitHub において、Enterprise レベルで GitHub のセキュリティ機能が有効化されているかを確認する機能が追加されました（public beta）
+    - これまでも Organization レベルでの確認はできましたが、今回 Enterprise レベルで Organization を横断して確認できるようになりました
+  - [GitHub Issues & Projects – Auto-close issue project workflow - The GitHub Blog](https://github.blog/changelog/2024-04-25-github-issues-projects-auto-close-issue-project-workflow/)
+    - GitHub Projects において、Projects 上で Issue を「Done」のステータスに持っていった場合に、自動で Issue がクローズされるようになりました
+      - 逆（Issue をクローズした際に Projects 上で Done になる）はこれまでもできたようです
+  - [AWS supports dynamically removing and adding auto assigned public IPv4 address](https://aws.amazon.com/jp/about-aws/whats-new/2024/04/removing-adding-auto-assigned-public-ipv4-address/)
+    - AWS において、EC2 インスタンスへのパブリック IPv4 アドレスの追加・削除を EC2 インスタンスの再起動なしで行えるようになりました
+      - 個人的にはそもそも EC2 インスタンスへのパブリック IP 割り当てはよっぽどのことがないと行わないので、割とどうでもいいです
 - **know-how 🎓**
 - **tool 🔨**
 
