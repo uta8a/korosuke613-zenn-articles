@@ -44,8 +44,29 @@ user_defined:
 
 # news 📺
 
-## AWS CodeBuildのGitHub Actions runnerサポートでLambdaが実行できるようになったので検証しました | CyberAgent Developers Blog
-https://developers.cyberagent.co.jp/blog/archives/47677/
+## AWS CodeBuild がマネージド型の GitHub Action ランナーのサポートを開始
+https://aws.amazon.com/jp/about-aws/whats-new/2024/04/aws-codebuild-managed-github-action-runners/
+
+AWS CodeBuild がマネージドな GitHub Actions のセルフホストランナーを提供するようになりました。
+
+GitHub Actions のジョブ要求時に GitHub から Webhook を受け取り、エフェメラルなランナーを起動する仕組みとなります。AWS CodeBuild で動くため、他の AWS リソースの連携がしやすい他、様々なスペックのインスタンスを利用できたり、AWS の料金体系に従って課金されるなどのメリットがあります。
+
+すでに様々な先駆者様が検証してくれています。
+
+- [AWS CodeBuildのGitHub Actions runnerサポートでLambdaが実行できるようになったので検証しました | CyberAgent Developers Blog](https://developers.cyberagent.co.jp/blog/archives/47677/)
+- [GitHub ActionsのセルフホステッドランナーとしてAWS CodeBuildを使う | 豆蔵デベロッパーサイト](https://developer.mamezou-tech.com/blogs/2024/04/29/githubactions-codebuild-runner/)
+
+自分も個人の AWS アカウントで試してみました。
+
+- [Self-hosted GitHub Actions runners in AWS CodeBuild を試す](https://zenn.dev/korosuke613/scraps/6f307e8e565cec)
+
+個人的には複数リポジトリをまたいでセルフホストランナーをオーケストレーションできる既存ツール、[actions/actions-runner-controller](https://github.com/actions/actions-runner-controller) や [philips-labs/terraform-aws-github-runner](https://github.com/philips-labs/terraform-aws-github-runner) の代替にできそうかどうかが気になっていました。
+
+結論としては、1 リポジトリごとに CodeBuild プロジェクトを作成する必要があったり、GitHub への認証方法に OAuth Apps か Personal Access Token しか使えなかったりと、まだまだ単一プロジェクト内でしか利用シーンは見出せないかなという印象でした。
+
+今後に期待したいです。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 ## GitHub Copilot Workspace：GitHub Copilotネイティブの開発環境へようこそ - GitHubブログ
 https://github.blog/jp/2024-04-30-github-copilot-workspace/
