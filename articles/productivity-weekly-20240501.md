@@ -37,7 +37,7 @@ user_defined:
 - [@korosuke613](https://zenn.dev/korosuke613)
 <!-- - [@defaultcf](https://zenn.dev/defaultcf) -->
 <!-- - [@Kesin11](https://zenn.dev/kesin11) -->
-<!-- - [@r4mimu](https://zenn.dev/r4mimu) -->
+- [@r4mimu](https://zenn.dev/r4mimu)
 <!-- - [@uta8a](https://zenn.dev/uta8a) -->
 
 :::
@@ -71,14 +71,55 @@ _本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 ## GitHub Copilot Workspace：GitHub Copilotネイティブの開発環境へようこそ - GitHubブログ
 https://github.blog/jp/2024-04-30-github-copilot-workspace/
 
+GitHub Copilot Workspace がテクニカルプレビューとなりました。GitHub Copilot Workspace は GitHub の Web UI にある Issue で実装したい機能の要件を自然言語で記述すると、その要件に基づいたコードを生成し、提案してくれる機能です。
+詳しくは、GitHub のブログを参照していただくと、スクリーンショット付きで紹介されているのでイメージが持ちやすいかと思います。提案されたコードは Web UI 上から Pull Request の作成まで行ったり、Codespace を利用して動作確認も行えるようです。
+[GitHub Galaxy Tokyo 2024](https://github.registration.goldcast.io/events/34954e71-1f5f-4f11-800b-0e329c97007d) にてデモを見たところ、自然言語は日本語入力でも対応しているようでした。しかし、レスポンスは英語だったので、今後の日本語対応に期待したいです。また、GitHub の人いわく、ドキュメントの生成と修正にも対応しているそうです。
+
+現時点ではテクニカルプレビューのため、試したい方は Waiting List に登録する必要があります。自分も Waiting List に登録していますが、本記事執筆時点(2024/05/15)では、まだメールは来ていないので気長に待ちたいと思います。
+
+要件定義をしたらコード生成されるのはすごいですね。Copilot Workspace と Codespace を使えば、1 行もコードを書かず、開発マシンも用意せずにアプリケーションを作成できる時代が来るかもしれないですね。
+
+_本項の執筆者: [@r4mimu](https://zenn.dev/r4mimu)_
+
 ## Push rules public beta - The GitHub Blog
 https://github.blog/changelog/2024-04-18-push-rules-public-beta/
+
+Push rules という Rulesets が Public Beta としてリリースされました。特定の拡張子が付くファイルやパスに対して、プッシュを禁止させます。
+例えば `*.env` を Push rules に設定して、秘密情報が含まれるファイルをリポジトリにプッシュすることを防いだり、`.github/workflows/*` パスを Push rules に設定して、デプロイメントワークフローを保護することが出来ます。
+
+セキュリティやガバナンスの整備に役立つ機能だと思います。
+
+_本項の執筆者: [@r4mimu](https://zenn.dev/r4mimu)_
 
 ## GitHub Copilot Metrics API now available in public beta - The GitHub Blog
 https://github.blog/changelog/2024-04-23-github-copilot-metrics-api-now-available-in-public-beta/
 
+GitHub Copilot の Metrics が確認できる API が Public Beta としてリリースされました。
+API では、Enterprise 内の Copilot にアクセスできるユーザーを対象として、日毎に、Copilot と Copilot Chat についておおよそ次の項目を確認できます。
+
+- アクティブユーザー数
+- コード提案がされた回数と行数
+- コード提案が採用された回数と行数
+- 上記のデータを IDE や言語ごとに分類したもの
+
+完全なレスポンスについては API ドキュメントの[スキーマ](https://docs.github.com/en/rest/copilot/copilot-usage?apiVersion=2022-11-28#get-a-summary-of-copilot-usage-for-enterprise-members)を確認してください。
+
+さらに、集計したデータを可視化するツールが OSS として公開されています。API と組み合わせて使うことで、Copilot の利用状況を可視化できるようです。開発生産性や Copilot の投資対効果を評価する際に役立つかもしれません。
+
+_本項の執筆者: [@r4mimu](https://zenn.dev/r4mimu)_
+
 ## GitHub Actions: UI Improvements - The GitHub Blog
 https://github.blog/changelog/2024-04-30-github-actions-ui-improvements/
+
+GitHub Actions の UI アップデートです。
+ワークフローの一覧タブにおいて、最大 5 つのワークフローをピン留め出来るようになりました。また、ワークフローを Disable にすると一覧の一番下に表示されるようになりました。
+これにより、例えば、手動実行するワークフローや頻繁に結果を確認したいワークフローをピン留めし、使われなくなったり、テスト用に作成したワークフローは Disable にすることで、一覧を整理しやすくなりました。
+
+また、ジョブのログ表示のストリーミングが改善されたそうです。
+
+個人的に地味に嬉しいアップデートです。
+
+_本項の執筆者: [@r4mimu](https://zenn.dev/r4mimu)_
 
 ## GitHub Actions - Deployment views across environments (GA) - The GitHub Blog
 https://github.blog/changelog/2024-04-25-github-actions-deployment-views-across-environments-ga/
