@@ -132,31 +132,45 @@ Deployment の機能自体は GitHub Actions のワークフローyaml で `envi
 
 _本項の執筆者: [@Kesin11](https://zenn.dev/kesin11)_
 
-## AWS CloudFormationの変更セットの差分がプロパティレベルで確認できるようになりました | DevelopersIO
-https://dev.classmethod.jp/articles/cloudformation-change-set-support-property-level-diff/
+## AWS CloudFormation の ChangeSets でデプロイメントの変更の可視性が向上
+https://aws.amazon.com/jp/about-aws/whats-new/2024/04/aws-cloudformation-changesets-enhanced-change-visibility-deployments/
+
+AWS CloudFormation の変更セット（ChangeSets）上で、リソースのプロパティの変更を確認できるようになりました。これまでは、どのリソースが変更されるかのみ確認可能でした。これにより、意図せぬ変更がないかを確認しやすくなります。
+
+すぐにクラメソさんが検証し、記事を出してくれています。
+
+- [AWS CloudFormationの変更セットの差分がプロパティレベルで確認できるようになりました | DevelopersIO](https://dev.classmethod.jp/articles/cloudformation-change-set-support-property-level-diff/)
+
+実際に試した例が載っており、どのような変更でどのような表示がされるかがスクリーンショット付きで紹介されています。参考になります。
+
+似たようなツールである Terraform では当たり前のように変更の詳細を確認できていたので、CloudFormation でも似たような機能が追加されたのは嬉しいですね。活用していきたいです。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 ## Amazon Q Developer, now generally available, includes previews of new capabilities to reimagine developer experience | AWS News Blog
 https://aws.amazon.com/jp/blogs/aws/amazon-q-developer-now-generally-available-includes-new-capabilities-to-reimagine-developer-experience/
 
-## 4/8リリースのDocker Desktop v4.29.0で、WindowsおよびMac向けDocker DesktopでもHost networkが試験的にサポートされるようになっていました。
-https://docs.docker.com/desktop/release-notes/#4290
+AWS において、Amazon Q Developer が GA となりました。Amazon Q 自体は AWS の生成 AI アシスタントの総称のようで、Amazon Q Developer はその中の AWS 開発者向けの機能を提供するサービスです。
 
-https://docs.docker.com/network/drivers/host/#docker-desktop
+- [AI コーディングアシスタント - Amazon Q Developer - AWS](https://aws.amazon.com/jp/q/developer/)
 
-Host networking is also supported on Docker Desktop version 4.29 and later for Mac, Windows, and Linux as a beta feature.
+Amazon Q Developer では、チャットによる AWS のサポートを受けたり、コードの提案や生成をしたりでき、GitHub Copilot の AWS 版という感じです。
+さらに今回、次の追加機能がプレビューとして提供されることが発表されました。
 
-TCP および UDP のみ対応。
+- チャット機能において、AWS アカウントの実際のリソースを知るようになった
+  - 使用例）全ての AWS リソース一覧を表示、特定のリソースへの変更を提案
+- チャット機能において、AWS アカウントでかかっているコストを知るようになった
+  - 使用例）第一四半期にかかったコストを表示、最もコストの高いサービス一覧を表示
+
+AWS アカウントの状況を知っているのはとても嬉しいですね。
+サービスの料金体系や機能がややこしくて腰が重い感じはありますが、詳しく調べてみたくなりました。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 ## HashiCorp joins IBM to accelerate multi-cloud automation
 https://www.hashicorp.com/blog/hashicorp-joins-ibm
 
-## Node.js、ロケットに乗った亀「Rocket Turtle」が正式マスコットに － Publickey
-https://www.publickey1.jp/blog/24/nodejsrocket_turtle.html
-
 # know-how 🎓
-
-## How an empty S3 bucket can make your AWS bill explode | by Maciej Pocwierz | Apr, 2024 | Medium
-https://medium.com/@maciej.pocwierz/how-an-empty-s3-bucket-can-make-your-aws-bill-explode-934a383cb8b1
 
 ## AWS知見共有会でTerraformのCI/CDパイプラインのセキュリティ等について発表してきました + GitHub新機能Push rulesについて
 https://tech.layerx.co.jp/entry/scalable-and-secure-infrastructure-as-code-pipeline-for-a-compound-startup
@@ -166,11 +180,6 @@ https://engineers.ntt.com/entry/2024/04/17/084103
 
 ## 日本CTO協会、「Developer eXperience Day 2024」の登壇者・第1弾を発表
 https://codezine.jp/article/detail/19401
-
-# tool 🔨
-
-## 知的・技術的進歩のスピードを限界まで加速するノートアプリ『Heptabase』 #新人プログラマ応援 - Qiita
-https://qiita.com/YUM_3/items/7d656e175302ee0a1142
 
 # read more 🍘
 Productivity Weekly で出たネタを全て紹介したいけど紹介する体力が持たなかったネタを一言程度で書くコーナーです。
@@ -188,11 +197,20 @@ Productivity Weekly で出たネタを全て紹介したいけど紹介する体
   - [GitHub Issues & Projects – Auto-close issue project workflow - The GitHub Blog](https://github.blog/changelog/2024-04-25-github-issues-projects-auto-close-issue-project-workflow/)
     - GitHub Projects において、Projects 上で Issue を「Done」のステータスに持っていった場合に、自動で Issue がクローズされるようになりました
       - 逆（Issue をクローズした際に Projects 上で Done になる）はこれまでもできたようです
+  - [4/8リリースのDocker Desktop v4.29.0で、WindowsおよびMac向けDocker DesktopでもHost networkが試験的にサポートされるようになっていました](https://docs.docker.com/desktop/release-notes/#4290)
+    - https://docs.docker.com/network/drivers/host/#docker-desktop
+    - コンテナをホストマシンのネットワークに配置することで、コンテナからホストマシンのネットワークにアクセスできるようになります
+    - TCP および UDP のみ対応しており、IPv6 はサポートされていません。まだベータ版の機能です
+    - Docker Desktop の機能であるため、Docker Desktop がインストールされている環境でのみ利用可能です
   - [AWS supports dynamically removing and adding auto assigned public IPv4 address](https://aws.amazon.com/jp/about-aws/whats-new/2024/04/removing-adding-auto-assigned-public-ipv4-address/)
     - AWS において、EC2 インスタンスへのパブリック IPv4 アドレスの追加・削除を EC2 インスタンスの再起動なしで行えるようになりました
       - 個人的にはそもそも EC2 インスタンスへのパブリック IP 割り当てはよっぽどのことがないと行わないので、割とどうでもいいです
-- **know-how 🎓**
-- **tool 🔨**
+  - [Node.js、ロケットに乗った亀「Rocket Turtle」が正式マスコットに － Publickey](https://www.publickey1.jp/blog/24/nodejsrocket_turtle.html)
+    - Node.js のマスコットキャラクターが「Rocket Turtle」に決定しました
+    - 非公式なカメのキャラクターが元々いたみたいですが、デザインが変わって正式マスコットになったようです
+    - 議論の issue を見ると、いろんなデザインのロケットとカメが提案されていますが、急に最終的なデザインが出てきてそのまま issue が閉じられていてちょっと面白かったです
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 # あとがき
 
