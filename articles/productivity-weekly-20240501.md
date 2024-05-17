@@ -36,7 +36,7 @@ user_defined:
 今週の共同著者は次の方です。
 - [@korosuke613](https://zenn.dev/korosuke613)
 <!-- - [@defaultcf](https://zenn.dev/defaultcf) -->
-<!-- - [@Kesin11](https://zenn.dev/kesin11) -->
+- [@Kesin11](https://zenn.dev/kesin11)
 - [@r4mimu](https://zenn.dev/r4mimu)
 <!-- - [@uta8a](https://zenn.dev/uta8a) -->
 
@@ -123,6 +123,14 @@ _本項の執筆者: [@r4mimu](https://zenn.dev/r4mimu)_
 
 ## GitHub Actions - Deployment views across environments (GA) - The GitHub Blog
 https://github.blog/changelog/2024-04-25-github-actions-deployment-views-across-environments-ga/
+
+Deployment の新しい一覧ページが GA になりました。
+
+Deployment の機能自体は GitHub Actions のワークフローyaml で `environment` を指定したジョブを実行するか、Deployment API を使うことでデプロイ情報を記録可能でした。Deployment の機能自体はかなり昔から存在していたので、記録したデプロイ情報を GitHub 上で確認できる UI も長らく最低限の表示だけだったのですが、それが今回パワーアップして表示がリッチになったのに加えてフィルター機能なども追加されました。
+
+生産性向上チームでもクラウド上にデプロイが必要なツールの一部でデプロイの記録に利用しており、どの環境にどのコミットを最後にデプロイしたかを GitHub 上で確認できるのでとても便利です。デプロイが必要なタイプのサービスを管理しているリポジトリでぜひ使ってみてください。
+
+_本項の執筆者: [@Kesin11](https://zenn.dev/kesin11)_
 
 ## AWS CloudFormationの変更セットの差分がプロパティレベルで確認できるようになりました | DevelopersIO
 https://dev.classmethod.jp/articles/cloudformation-change-set-support-property-level-diff/
