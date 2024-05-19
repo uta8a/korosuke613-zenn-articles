@@ -1,5 +1,5 @@
 ---
-title: ＜ここにタイトルを入力＞｜Productivity Weekly(2024-05-01,2024-04-24)
+title: CodeBuildでマネージドなActionsのランナーを使えるように｜Productivity Weekly(2024-05-01)
 emoji: 👶
 type: idea
 topics:
@@ -167,24 +167,58 @@ AWS アカウントの状況を知っているのはとても嬉しいですね�
 
 _本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
-## HashiCorp joins IBM to accelerate multi-cloud automation
-https://www.hashicorp.com/blog/hashicorp-joins-ibm
-
 # know-how 🎓
+
+## LLM校正CIを自社のブログに導入してみた - NTT Communications Engineers' Blog
+https://engineers.ntt.com/entry/2024/04/17/084103
+NTT Communications さんによる LLM を使った校正 CI を自社ブログ用に導入した話です。
+
+自社ブログのデータ管理やレビューに GitHub を使っているおり、今回校正を強化するために LLM を使った校正の CI を構築・導入したとのことです。
+
+記事では、背景、LLM 校正 CI の詳細、プロンプトの試行錯誤などが書かれています。ノイズを減らすための工夫も入ったプロンプトを紹介してくれているため、マネしやすいです。reviewdog を利用されており、Pull Request に対してコメントをつける形で校正しているようです。
+
+生産性向上チームで書いている本記事（Productivity Weekly）もレビューは行っていますが、人の手を使っています。僕も LLM を使った校正 CI を導入してみたいと思いました。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 ## AWS知見共有会でTerraformのCI/CDパイプラインのセキュリティ等について発表してきました + GitHub新機能Push rulesについて
 https://tech.layerx.co.jp/entry/scalable-and-secure-infrastructure-as-code-pipeline-for-a-compound-startup
 
-## LLM校正CIを自社のブログに導入してみた - NTT Communications Engineers' Blog
-https://engineers.ntt.com/entry/2024/04/17/084103
+LayerX さんによる、Terraform の CI/CD パイプライン話＆GitHub の push rules についての記事です。
 
-## 日本CTO協会、「Developer eXperience Day 2024」の登壇者・第1弾を発表
-https://codezine.jp/article/detail/19401
+Terraform の CI/CD に関する話はスライドおよび動画が公開されています。
+
+認証には OIDC を使うや、`on: pull_request` で terraform plan しないようにするや、外部ツールの利用に関する tips などが書かれています。
+
+記事自体には push rules に関することも書かれており、ユースケースや、`on: pull_request` の代わりに `on: pull_request_target` を使うことでレビュー済みのワークフローを実行させるようにする方法との関係などが書かれています。
+
+個人的には、ワークフローの変更に関する push を admin のみに制限するというアイデアが良いなと思いました。admin 以外からのコントリビューションは難しくなりますが、リスクの高い処理をするワークフローを扱う際に有効だと思います。
+
+セキュアなワークフローを作る上で参考にしたいです。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
+
+## Developer eXperience Day 2024
+https://cto-a.org/dxd2024
+
+日本 CTO 協会が主催する Developer eXperience Day 2024 が 7/16-7/17 に開催されます。
+
+オフライン開催（浅草橋）とオンライン開催の両方があり、どちらも無料のようです。まだタイムテーブルは出ていませんが、登壇者はすでに複数人発表されており、いろいろな会社の CTO や CEO が登壇されるようです。
+
+t-wada さんも登壇されるらしく、話を聞いてみたいので参加しようかなって考えています。
+
+タイムテーブルの発表が楽しみです。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 # read more 🍘
 Productivity Weekly で出たネタを全て紹介したいけど紹介する体力が持たなかったネタを一言程度で書くコーナーです。
 
 - **news 📺**
+  - [HashiCorp joins IBM to accelerate multi-cloud automation](https://www.hashicorp.com/blog/hashicorp-joins-ibm)
+    - Terraform でおなじみの HashiCorp 社が IBM に買収されました
+    - これにより HashiCorp 製品のライセンスがまた変更されたりするのでしょうか
+    - 今後の動向が気になります
   - [Repository Updates April 30th, 2024 - The GitHub Blog](https://github.blog/changelog/2024-04-30-repository-updates-april-30th-2024/)
     - GitHub のリポジトリに関するいくつかのアップデートがありました
     - 1 つ目が repository rules のバイパス対象に deploy keys が追加されたことです
@@ -213,7 +247,12 @@ Productivity Weekly で出たネタを全て紹介したいけど紹介する体
 _本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 # あとがき
+イヤー大変遅くなってしまい申し訳ありません。最近文章を書く仕事があって忙しかったのと、GW で体調を崩してしまって 1 週間ほど死んでました。
 
+そういえば、生産性向上チームでは夏の学生インターンを募集しています。なんと[ 5/17 より二次募集を開始](https://x.com/cybozu_recruit/status/1791349532854546744)しています。
+興味ある方はぜひエントリーしてみてください。
+
+https://cybozu.co.jp/company/job/recruitment/intern/improvement.html
 
 サイボウズの生産性向上チームでは社内エンジニアの開発生産性を上げるための活動を行なっています。そんな生産性向上チームが気になる方は下のリンクをクリック！
 https://speakerdeck.com/cybozuinsideout/engineering-productivity-team-recruitment-information
