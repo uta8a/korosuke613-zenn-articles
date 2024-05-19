@@ -1,13 +1,13 @@
 ---
-title: ＜ここにタイトルを入力＞｜Productivity Weekly(2024-04-17)
+title: artifact系アクションがdeprecateに。他TF1.8など｜Productivity Weekly(2024-04-17)
 emoji: 📓
 type: idea
 topics:
   - ProductivityWeekly
   - 生産性向上
-published: false
+published: true
 publication_name: cybozu_ept
-user_defined: 
+user_defined:
   publish_link: https://zenn.dev/cybozu_ept/articles/productivity-weekly-20240417
   note: |
     _本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
@@ -15,6 +15,7 @@ user_defined:
     _本項の執筆者: [@Kesin11](https://zenn.dev/kesin11)_
     _本項の執筆者: [@r4mimu](https://zenn.dev/r4mimu)_
     _本項の執筆者: [@uta8a](https://zenn.dev/uta8a)_
+published_at: 2024-05-07 10:00
 ---
 
 こんにちは。サイボウズ株式会社 [生産性向上チーム](https://note.com/cybozu_dev/n/n1c1b44bf72f6)の平木場です。
@@ -36,7 +37,7 @@ user_defined:
 今週の共同著者は次の方です。
 - [@korosuke613](https://zenn.dev/korosuke613)
 <!-- - [@defaultcf](https://zenn.dev/defaultcf) -->
-<!-- - [@Kesin11](https://zenn.dev/kesin11) -->
+- [@Kesin11](https://zenn.dev/kesin11)
 - [@r4mimu](https://zenn.dev/r4mimu)
 <!-- - [@uta8a](https://zenn.dev/uta8a) -->
 
@@ -46,6 +47,19 @@ user_defined:
 
 ## Deprecation notice: v3 of the artifact actions - The GitHub Blog
 https://github.blog/changelog/2024-04-16-deprecation-notice-v3-of-the-artifact-actions/
+
+[actions/upload-artifact](https://github.com/actions/upload-artifact), [actions/download-artifact](https://github.com/actions/download-artifact)は v4 からパフォーマンスが大幅に向上した一方で、以前の v3 は 2024/11/30 から利用できなくなることが予告されました。
+
+ちなみにさらに古い v1, v2 は以前から予告されているように 2024/6/30 から利用できなくなるようなので、まだ利用されている場合は早めに v4 にアップデートした方が良いでしょう。
+
+GitHub 上でのコード検索も正規表現が利用可能なので、例えばこのようなクエリで upload, download の v1,v2,v3 を利用しているコードをまとめて検索可能です。ぜひ活用してみてください。
+`org:{YOUR_ORG} /actions\/(upload|download)-artifact@v(1|2|3)/`
+[`actions` のOrganizationに対して検索してみた例](https://github.com/search?q=org%3Aactions+%2Factions%5C%2F%28upload%7Cdownload%29-artifact%40v%281%7C2%7C3%29%2F&type=code)
+
+
+また、今回の予告は GitHub Enterprise Server（GHES）には適用されないとのことです。一方で、GHES の現在の最新バージョンである v3.12 においても未だに v4 が利用できないため、このままだと actions/upload-artifact, actions/download-artifact を利用している場合に github.com と GHES で同一コードが使えない事態になりそうです。2024/11/30 までに GHES 側がどう対応されるのか気になっています。
+
+_本項の執筆者: [@Kesin11](https://zenn.dev/kesin11)_
 
 ## Terraform 1.8 improves extensibility with provider-defined functions
 https://www.hashicorp.com/blog/terraform-1-8-improves-extensibility-with-provider-defined-functions
@@ -62,9 +76,6 @@ Change log は[こちら](https://github.com/hashicorp/terraform/releases/tag/v1
 
 _本項の執筆者: [@r4mimu](https://zenn.dev/r4mimu)_
 
-## HashiCorp、TerraformをフォークしたOpenTofuに対しコードの不正コピーを警告。OpenTofuは完全否定 － Publickey
-https://www.publickey1.jp/blog/24/hashicorpterraformopentofuopentofu.html
-
 ## Google Cloud Next '24セッションレポート - G-gen Tech Blog
 
 https://blog.g-gen.co.jp/archive/category/Google%20Cloud%20Next%20%2724
@@ -79,18 +90,6 @@ Google Cloud Next '24 が開催され、そのセッションレポートを G-g
 一方で、Direct VPC Egress が GA になり、Cloud NAT 対応したことなど、AI 以外の着実な嬉しいアップデートも公開されています。
 
 _本項の執筆者: [@r4mimu](https://zenn.dev/r4mimu)_
-
-## ［速報］Google、同社初の独自Armプロセッサ「Google Axion」発表。x86ベースの仮想マシンより50％高速と。Google Cloud Next '24 － Publickey
-https://www.publickey1.jp/blog/24/googlearmgoogle_axionx8650google_cloud_next_24.html
-
-## Biome v1.7 | Biome
-https://biomejs.dev/blog/biome-v1-7/
-
-## GitHub Enterprise Importer's new git source migrator improves reliability of large repo migrations - The GitHub Blog
-https://github.blog/changelog/2024-04-16-github-enterprise-importers-new-git-source-migrator-improves-reliability-of-large-repo-migrations/
-
-## Amazon CloudWatch Internet Weather Map – View and analyze internet health | AWS News Blog
-https://aws.amazon.com/jp/blogs/aws/amazon-cloudwatch-internet-weather-map-view-and-analyze-internet-health/
 
 # know-how 🎓
 
@@ -129,17 +128,22 @@ Renovate 公式で提供されている `best-practices` preset からセキュ�
 
 _本項の執筆者: [@r4mimu](https://zenn.dev/r4mimu)_
 
-## AWS活用の自由度を上げる「Lambda」を「Rust」で活用　メモリの使用量を抑えつつ、プログラムの作成も簡単に - ログミーTech
-https://logmi.jp/tech/articles/330395
-
-## 単体テストを書かない技術 #phpcon_odawara - Speaker Deck
-https://speakerdeck.com/o0h/how-not-to-write-unit-tests
-
 ## Technology Radar v30 が出たよ
 https://www.thoughtworks.com/radar
 
-Technology Radar の説明は t-wada さんの説明がわかりやすいので引用
+PDF へのリンク: https://www.thoughtworks.com/content/dam/thoughtworks/documents/radar/2024/04/tr_technology_radar_vol_30_en.pdf
+
+毎度おなじみ、Thoughtworks 社の Technology Radar、最新の Vol.30 が公開されました。[前回は 2023/10 頃に出ていましたね](https://zenn.dev/cybozu_ept/articles/productivity-weekly-20231004#technology-radar-vol.29-%E3%81%8C%E5%85%AC%E9%96%8B)。
+
+Technology Radar の説明は t-wada さんの説明がわかりやすいです。
+
 https://twitter.com/t_wada/status/1775733175299588148
+
+レポートの全部に目を通せてはいませんが、個人的には RAG が Adopt になったり、広範な統合テスト(Broad integration tests)が Hold で登場したり、Renovate がようやく Trial で登場したりといったトピックが気になりました。
+
+気になるトピックに目を通してみましょう。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 ## なぜ我々は GitHub Copilot Enterprise の導入を見送ったのか - 一休.com Developers Blog
 https://user-first.ikyu.co.jp/entry/2024/04/15/150249
@@ -185,17 +189,32 @@ https://moneyforward-dev.jp/entry/2024/04/17/130000
 
 _本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
-# tool 🔨
-
 # read more 🍘
 Productivity Weekly で出たネタを全て紹介したいけど紹介する体力が持たなかったネタを一言程度で書くコーナーです。
 
 - **news 📺**
+  - [GitHub Enterprise Importer's new git source migrator improves reliability of large repo migrations - The GitHub Blog](https://github.blog/changelog/2024-04-16-github-enterprise-importers-new-git-source-migrator-improves-reliability-of-large-repo-migrations/)
+    - GitHub Enterprise Importer が更新され、大規模なリポジトリの移行の信頼性が向上したようです
+    - また、新しい IP レンジが追加されたようです
+  - [Biome v1.7 | Biome](https://biomejs.dev/blog/biome-v1-7/)
+    - Biome 1.7 に、ESLint、Prettier からのマイグレーション機能が入りました
+    - なるべくルールをそのまま持ってきたい方は試してみましょう
+  - [Amazon CloudWatch Internet Weather Map – View and analyze internet health | AWS News Blog](https://aws.amazon.com/jp/blogs/aws/amazon-cloudwatch-internet-weather-map-view-and-analyze-internet-health/)
+    - Amazon CloudWatch Internet Weather Map が登場しました
+    - 世界中のインターネットのパフォーマンスや歌詞性を可視化できるマップです
+    - 障害調査に役立ちそうですね
 - **know-how 🎓**
-- **tool 🔨**
+  - [AWS活用の自由度を上げる「Lambda」を「Rust」で活用　メモリの使用量を抑えつつ、プログラムの作成も簡単に - ログミーTech](https://logmi.jp/tech/articles/330395)
+    - AWS Lambda 上で Rust を活用し、メモリ使用量削減と高速な実行を実現している事例の記事です
+    - 上記のメリットに加え、AWS SDK for Rust が GA になったことで SDK も充実しているようです
 
 # あとがき
+いやー大変遅れてしまって申し訳ないです。GW もあってちょっと最近忙しくて 😇
 
+そういえば、生産性向上チームでは夏の学生インターンを募集しています。エントリー期間は 4 月 22 日(月)10:00 〜 5 月 7 日(火)10:00 です（これ、午前なのか午後なのか？）。
+興味ある方はぜひエントリーしてみてください。
+
+https://cybozu.co.jp/company/job/recruitment/intern/improvement.html
 
 サイボウズの生産性向上チームでは社内エンジニアの開発生産性を上げるための活動を行なっています。そんな生産性向上チームが気になる方は下のリンクをクリック！
 https://speakerdeck.com/cybozuinsideout/engineering-productivity-team-recruitment-information
