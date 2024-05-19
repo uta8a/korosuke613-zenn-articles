@@ -7,7 +7,7 @@
     "start": "zenn preview --port 8808",
     "lint:renovate-config-validator": "renovate-config-validator"
   },
-  "packageManager": "npm@10.6.0",
+  "packageManager": "npm@10.7.0",
   "engines": {
     "node": "20.x"
   },
