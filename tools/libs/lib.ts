@@ -1,3 +1,5 @@
+import matter from "npm:gray-matter";
+
 const _gitExecutor = async () => {
   const cmd = new Deno.Command("git", {
     args: ["diff", "--name-only", "main"],
@@ -63,4 +65,14 @@ export const grepWeeklyEmoji = async (
     f.includes("productivity-weekly-")
   );
   return weeklyFiles;
+};
+
+export const extractContents = (markdown: string) => {
+  const content = matter(markdown).content;
+
+  // 空行のみを削除
+  const lines = content.split("\n").filter((line) => line !== "");
+  const contentWithoutSpaceLines = `${lines.join("\n")}\n`;
+
+  return contentWithoutSpaceLines;
 };
