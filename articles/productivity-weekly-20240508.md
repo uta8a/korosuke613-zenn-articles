@@ -99,7 +99,7 @@ https://zenn.dev/hd_nvim/articles/dc2f174d890cb8
 ## Cloud Storageバケット名を知っていれば、EDoS攻撃を仕掛けられるのか？
 https://blog.g-gen.co.jp/entry/cloud-storage-edos-risks
 
-2024 年 4 月当時、Amazon S3 では API リクエストに対して課金が発生していました。そのため、ステータスコードが `403 AccessDenied` を返すようなリクエストにも課金が発生してしまうため、EDoS 攻撃を受けるリスクがあるということが話題になっていました([参考](https://medium.com/@maciej.pocwierz/how-an-empty-s3-bucket-can-make-your-aws-bill-explode-934a383cb8b1))。
+2024 年 4 月当時、Amazon S3 では API リクエストに対して課金が発生していました。そのため、ステータスコードが `403 AccessDenied` を返すようなリクエストにも課金が発生してしまうので、EDoS 攻撃を受けるリスクがあるということが話題になっていました([参考](https://medium.com/@maciej.pocwierz/how-an-empty-s3-bucket-can-make-your-aws-bill-explode-934a383cb8b1))。
 
 この記事では、Cloud Storage においても同様のリスクがあるかどうかを検証しています。
 結論としては、Cloud Storage では 307、4xx、5xx レスポンスを返す場合は課金が発生しないため、S3 に比べると EDoS 攻撃を受けるリスクは低いとのことです。
