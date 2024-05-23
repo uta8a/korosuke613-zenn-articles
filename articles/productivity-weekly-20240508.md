@@ -47,6 +47,32 @@ user_defined:
 ## Introducing Artifact Attestations–now in public beta - The GitHub Blog
 https://github.blog/2024-05-02-introducing-artifact-attestations-now-in-public-beta/
 
+GitHub Actions において、ソフトウェア成果物が特定のワークフローで作られたことを証明するための機能である Artifact Attestations がパブリックベータとしてリリースされました（public beta）。
+
+Artifact Attestations は、GitHub Actions 上でソフトウェア成果物に署名し、利用時にその署名を検証することで、その成果物が特定のワークフローで作られたことを証明できます。これにより、サプライチェーン攻撃にさらされるリスクを減らせます。署名と検証には、OSS である Sigstore が利用されています。
+
+去年公開された、[npm registry に provenance の情報を追加する機能](https://zenn.dev/cybozu_ept/articles/productivity-weekly-20230426#npm-provenance-public-beta-%7C-github-changelog)に似ていますね。
+
+専用のカスタムアクションが用意されており、簡単に署名できます。生成された証明書は自動で保存され GitHub 上で参照可能であるため、保存場所を考える必要はありません。
+検証は、GitHub CLI を使って簡単に検証できます。また、証明書をあらかじめダウンロードしておくことで、オフラインでの検証も可能です。
+
+:::message
+パブリックリポジトリの場合は Sigstore Public Good インスタンスに署名した情報が保存されるとのことです。プライベートリポジトリの場合はプライベートなデータベースに保存されるとのことです。
+
+ただ、ブログ記事では「private repositories on GitHub Enterprise plans」と書かれているなか、ドキュメントでは「Private repositories」と書かれており、整合性が取れてないように思えます。利用前にしっかり確認することをおすすめします。
+:::
+
+なお、コンテナイメージにも対応しており、SBOM との関連付けができるカスタムアクションも用意されています。
+
+さっそく試してみました。どんなコードでどんな感じになるか、気になる人は見てみてください。
+
+- [try: artifact attestations by korosuke613 · Pull Request #57 · korosuke613/playground](https://github.com/korosuke613/playground/pull/57)
+
+これまでも独自の方法で署名し、利用時に検証することでリスクは軽減できましたが、それを GitHub の機能として手軽に利用できるようになったのが特に嬉しいポイントかと思います。
+成果物の署名と検証のハードルが下がり、今後、個人か組織かに関わらず、ソフトウェア成果物を署名・検証するケースが増えていくかもしれません。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
+
 ## OpenTofu 1.7.0 is out with State Encryption, Dynamic Provider-Defined Functions, and more | OpenTofu
 https://opentofu.org/blog/opentofu-1-7-0/
 
