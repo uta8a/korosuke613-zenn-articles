@@ -76,6 +76,33 @@ _本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 ## OpenTofu 1.7.0 is out with State Encryption, Dynamic Provider-Defined Functions, and more | OpenTofu
 https://opentofu.org/blog/opentofu-1-7-0/
 
+OpenTofu v1.7.0 がリリースされました。OpenTofu は OSS の頃の Terraform からフォークされた Terraform 代替ツールになります。
+
+v1.6.0 までは Terraform との互換性が重視されていましたが、v1.7 では OpenTofu 独自の機能が追加されています。
+
+- state ファイルの E2E 暗号化
+  - **Terraform には無い機能**
+- プロバイダ定義関数の追加
+  - [Terraform v1.8 で同様の機能が追加済み](https://www.hashicorp.com/blog/terraform-1-8-improves-extensibility-with-provider-defined-functions#provider-defined-functions)
+  - ただし、利用できるプロバイダには差異がありそう
+- `removed` ブロックの追加
+  - [Terraform v1.7 で同様の機能が追加済み](https://www.hashicorp.com/blog/terraform-1-7-adds-test-mocking-and-config-driven-remove#config-driven-remove)
+- `import` ブロックがループ可能に
+  - [Terraform v1.7 で同様の機能が追加済み](https://www.hashicorp.com/blog/terraform-1-7-adds-test-mocking-and-config-driven-remove#import-block-for-_each)
+
+state ファイルの E2E 暗号化機能はそもそも Terraform には無いですし、プロバイダ定義関数については Terraform v1.8 で追加された機能であり、同じバージョンだから同じコードが動くわけではないことに注意が必要です。
+（早くもどっちでどの機能が使えるのかわからなくなってきた）
+
+OpenTofu と Terraform の競争がこれから激しくなっていきそうです。まだまだ Terraform が主流ですが、今後 OpenTofu に便利機能が追加されていくと、いつか逆転するかもしれませんね。
+また、次の意見のように、競争が活発になることで両者の開発が加速することによるユーザーへのメリットもあると思います。
+
+> OpenTofuは明確にコミュニティからリクエストが多い機能を優先的に実装する方針を打ち出してるので、結果的に競合であるTerraformにもその圧力がかかって開発が加速するという構図になっており、よいことじゃないかなと思うなど
+https://twitter.com/minamijoyo/status/1793079469605109850
+
+今後も両者の動向に注目したいです。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
+
 ## Dependabot pull requests jobs are now available to run on self hosted GitHub Actions runners - The GitHub Blog
 https://github.blog/changelog/2024-05-02-dependabot-pull-requests-jobs-are-now-available-to-run-on-self-hosted-actions-runners/
 
