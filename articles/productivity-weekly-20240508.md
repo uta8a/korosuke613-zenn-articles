@@ -109,6 +109,24 @@ https://github.blog/changelog/2024-05-02-dependabot-pull-requests-jobs-are-now-a
 ## GitHub Copilot Chat in GitHub Mobile is now generally available - The GitHub Blog
 https://github.blog/2024-05-07-github-copilot-chat-in-github-mobile/
 
+GitHub Copilot Chat が GitHub のモバイルアプリこと GitHub Mobile 上で使えるようになりました。
+
+Individual ライセンスのユーザは、デフォルトで設定が有効化されているので、GitHub Mobile 上ですぐに使えます。
+Business、Enterprise ライセンスのユーザは、Enterprise 上での有効化や、ライセンスを割り当てている Organization 上での有効化が必要になるので、別途管理者に連絡しましょう。
+
+次のツイートのように試してみたのですが、Copilot Chat がすでに知っているリポジトリについてはリポジトリに関する質問が可能です。有名どころのリポジトリは知っていそうでした。僕のリポジトリは知ってませんでした。
+リポジトリに限らない一般的な技術の質問はやりやすそうです。
+
+https://x.com/Shitimi_613/status/1793884909561688147
+
+また、画像は貼ってないのですが、GitHub のドキュメントに関する質問には古い回答が返ってきたため、GitHub に関する質問は、サポートページでできる Copilot で聞くのがいいかもしれません。
+
+- [Copilot in GitHub SupportがGA！GitHubの仕様に関するわからないことをすばやく解決できやすくなったよ](https://zenn.dev/korosuke613/articles/copilot-in-github-support)
+
+Copilot Chat をスマホで使いたいぞ！という方は触ってみましょう。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
+
 ## Actions: New region support for Azure private networking - The GitHub Blog
 https://github.blog/changelog/2024-05-07-actions-new-region-support-for-azure-private-networking/
 
