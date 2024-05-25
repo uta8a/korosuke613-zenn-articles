@@ -1,5 +1,5 @@
 import { assertEquals } from "https://deno.land/std/testing/asserts.ts";
-import { getGitDiffWeeklyFiles } from "../libs/lib.ts";
+import { extractContents, getGitDiffWeeklyFiles } from "../libs/lib.ts";
 import { grepWeeklyEmoji } from "../libs/lib.ts";
 
 Deno.test("getGitDiffWeeklyFiles should return an array of weekly files", async () => {
@@ -32,6 +32,28 @@ Deno.test("grepWeeklyEmoji should return an array of productivity weekly files c
     "articles/productivity-weekly-20230202.md",
   ];
   const actual = await grepWeeklyEmoji("🚀", grepExecutor);
+
+  assertEquals(actual, expected);
+});
+
+Deno.test("extractContent", () => {
+  const markdown = `---
+title: "Productivity Weekly 20230726"
+date: "2023-07-26"
+---
+
+# 今週のタスク
+
+- [ ] タスク1
+- [ ] タスク2
+- [ ] タスク3
+`;
+  const expected = `# 今週のタスク
+- [ ] タスク1
+- [ ] タスク2
+- [ ] タスク3
+`;
+  const actual = extractContents(markdown);
 
   assertEquals(actual, expected);
 });

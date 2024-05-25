@@ -1,6 +1,6 @@
 name: CI for Deno
 
-on: 
+on:
   pull_request:
     paths:
       - .github/workflows/ci-deno.yaml
@@ -29,8 +29,8 @@ jobs:
 
       - name: Check format
         run: |
-          deno fmt --check ./tools
-      
+          deno fmt --ext=ts --check ./tools
+
       - name: Check lint
         run: |
           deno lint ./tools
@@ -47,9 +47,9 @@ jobs:
 
       - name: Test
         run: |
-          deno test --allow-run=git,grep --coverage=cov_profile tools/
+          deno test --allow-env=LOG_LEVEL --allow-read=tools --coverage=cov_profile tools/
           deno coverage cov_profile --lcov --output=cov_profile.lcov
-      
+
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@5ecb98a3c6b747ed38dc09f787459979aebb39be # v4.3.1
         with:

@@ -5,3 +5,7 @@ node_modules
 cov_profile.lcov
 cov_profile/
 bun.lockb
+rdjson.json
+
+tools/dist/*
+!tools/dist/.gitkeep

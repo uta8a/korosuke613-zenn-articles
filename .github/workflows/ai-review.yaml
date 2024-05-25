@@ -1,0 +1,19 @@
+name: AI Review on PR diff
+
+on:
+  # コメントでトリガーする
+  issue_comment:
+    types: [created]
+
+jobs:
+  review:
+    if: github.event.issue.pull_request && github.event.comment.body == '/ai-review' && (github.event.comment.user.id == github.event.issue.user.id || github.event.comment.user.id == github.repository_owner)
+    permissions:
+      contents: read
+      pull-requests: write
+    uses: ./.github/workflows/reusable-ai-review.yaml
+    secrets: inherit
+    with:
+      pr_number: ${{ github.event.issue.number }}
+      user_id: ${{ github.event.comment.user.id }}
+      environment: 'ai-review'
