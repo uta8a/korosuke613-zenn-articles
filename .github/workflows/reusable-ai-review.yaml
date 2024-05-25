@@ -1,0 +1,100 @@
+name: AI Review on PR diff
+
+on:
+  workflow_call:
+    inputs:
+      pr_number:
+        required: true
+        type: string
+      user_id:
+        required: true
+        type: string
+      environment:
+        required: true
+        type: string
+
+jobs:
+  review:
+    permissions:
+      contents: read
+      pull-requests: write
+    environment: ${{ inputs.environment }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          filter: blob:none
+
+      - name: Setup branches
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_JSON: ${{ runner.temp }}/pr.json
+        id: setup_branches
+        run: |
+          gh pr view ${{ inputs.pr_number }} --json baseRefName,headRefName > ${{ env.PR_JSON }}
+          cat ${{ env.PR_JSON }}
+          BASE_REF_NAME="$(jq -r .baseRefName <${{ env.PR_JSON }})"
+          HEAD_REF_NAME="$(jq -r .headRefName <${{ env.PR_JSON }})"
+          set -x
+          git fetch origin "$BASE_REF_NAME:$BASE_REF_NAME"
+          git branch
+          set +x
+          echo "base_ref_name=${BASE_REF_NAME}" >> "$GITHUB_OUTPUT"
+          echo "head_ref_name=${HEAD_REF_NAME}" >> "$GITHUB_OUTPUT"
+
+      - uses: denoland/setup-deno@v1
+        with:
+          deno-version: v1.x
+
+      - name: Review PR diff with AI
+        env:
+          LOG_LEVEL: debug
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: |
+          git diff ${{ steps.setup_branches.outputs.base_ref_name }}...${{ steps.setup_branches.outputs.head_ref_name }} --name-only
+          deno run \
+            --allow-env \
+            --allow-run=git \
+            --allow-write=./tools/dist \
+            --allow-read=./articles \
+            --allow-net=api.openai.com \
+            ./tools/reviewDiffWithAi.ts \
+            ${{ steps.setup_branches.outputs.base_ref_name }} \
+            ${{ steps.setup_branches.outputs.head_ref_name }}
+
+      - name: Summarize AI Review log
+        run: |
+          {
+            echo "# AI Review log"
+            echo '```log'
+            cat ./tools/dist/ai-review.log
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - uses: reviewdog/action-setup@v1
+
+      - name: Comment on PR with ReviewDog
+        env:
+          REVIEWDOG_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CI_REPO_OWNER: ${{ github.repository_owner }}
+          CI_REPO_NAME: ${{ github.event.repository.name }}
+          CI_PULL_REQUEST: ${{ inputs.pr_number }}
+          CI_COMMIT: ${{ github.sha }}
+        run: |
+          GITHUB_ACTIONS='' reviewdog -f=rdjson -reporter=github-pr-review -name=kiba-ai <./tools/dist/rdjson.json
+
+      - name: Comment finish message on PR
+        env:
+          COMMENT_FILE: ${{ runner.temp }}/ai-review-finished.md
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          {
+            echo "@${{ inputs.user_id }} AI Review finished. Please check the review comments."
+            echo "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+            echo '```json'
+            cat ./tools/dist/ai-usage.json
+            echo
+            echo '```'
+          } >> "$COMMENT_FILE"
+          gh pr comment ${{ inputs.pr_number }} --body-file "$COMMENT_FILE"
