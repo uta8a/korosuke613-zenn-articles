@@ -37,7 +37,7 @@ jobs:
           BASE_REF_NAME="$(jq -r .baseRefName <${{ env.PR_JSON }})"
           HEAD_REF_NAME="$(jq -r .headRefName <${{ env.PR_JSON }})"
           set -x
-          git fetch origin "$BASE_REF_NAME:$BASE_REF_NAME"
+          git fetch --update-head-ok origin "$BASE_REF_NAME:$BASE_REF_NAME"
           git branch
           set +x
           echo "base_ref_name=${BASE_REF_NAME}" >> "$GITHUB_OUTPUT"
