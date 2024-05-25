@@ -187,7 +187,7 @@ Productivity Weekly で出たネタを全て紹介したいけど紹介する体
 - **news 📺**
 - **know-how 🎓**
   - [ast-grepでReact 19に移行する](https://zenn.dev/hd_nvim/articles/dc2f174d890cb8)
-    - ast-grep を使って、複雑な置換を行い、React 19 への移行を行なう例を紹介する話です
+    - ast-grep を使って、複雑な置換を行い、React 19 への移行を行う例を紹介する話です
     - ast-grep を使うと何ができるのか参考になります
   - [Linux Foundation、継続的デリバリーコミュニティに関するアニュアルレポートの日本語版を公開](https://codezine.jp/article/detail/19462)
     - PDF: https://cd.foundation/wp-content/uploads/sites/78/2024/04/Annual_Report_2023_CDFoundation_JP.pdf
