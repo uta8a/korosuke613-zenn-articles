@@ -15,5 +15,5 @@ jobs:
     secrets: inherit
     with:
       pr_number: ${{ github.event.issue.number }}
-      user_id: ${{ github.event.comment.user.id }}
+      user_id: ${{ github.event.comment.user.login }}
       environment: 'ai-review'
