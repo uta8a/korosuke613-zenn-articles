@@ -30,6 +30,9 @@ const main = async () => {
     Deno.args[0],
     Deno.args[1],
   );
+  if (diffMarkdownFilePath === undefined) {
+    throw new Error("No diff found");
+  }
   const diffMarkdown = await git.getDiff(
     diffMarkdownFilePath,
     Deno.args[0],

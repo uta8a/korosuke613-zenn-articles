@@ -84,15 +84,16 @@ export class Git {
       baseRef: string,
       targetRef: string,
     ) => Promise<string> = this.diffNameOnlyExecutor,
-  ) {
+  ): Promise<string | undefined> {
     const output = await diffNameOnlyExecutor(baseRef, targetRef);
     const gitDiffFiles = output.split("\n").filter((f) => f !== "");
 
     // Weekly の変更は複数個無いという前提
-    const diffWeekly =
+    const diffWeekly: string | undefined =
       gitDiffFiles.filter((a) =>
         a.endsWith(".md") && a.includes("productivity-weekly")
       )[0];
+
     return diffWeekly;
   }
 }
