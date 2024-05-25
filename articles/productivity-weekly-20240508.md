@@ -164,9 +164,6 @@ v3 から v4 へのアップデートにおける Breaking Change には記載�
 
 _本項の執筆者: [@r4mimu](https://zenn.dev/r4mimu)_
 
-## ast-grepでReact 19に移行する
-https://zenn.dev/hd_nvim/articles/dc2f174d890cb8
-
 ## Cloud Storageバケット名を知っていれば、EDoS攻撃を仕掛けられるのか？
 https://blog.g-gen.co.jp/entry/cloud-storage-edos-risks
 
@@ -182,21 +179,25 @@ https://blog.g-gen.co.jp/entry/cloud-storage-edos-risks
 
 _本項の執筆者: [@r4mimu](https://zenn.dev/r4mimu)_
 
-## Linux Foundation、継続的デリバリーコミュニティに関するアニュアルレポートの日本語版を公開
-https://codezine.jp/article/detail/19462
-https://cd.foundation/wp-content/uploads/sites/78/2024/04/Annual_Report_2023_CDFoundation_JP.pdf
-
-# tool 🔨
-
-## Octo STS 入門
-https://zenn.dev/shunsuke_suzuki/books/octo-sts-introduction
-
 # read more 🍘
 Productivity Weekly で出たネタを全て紹介したいけど紹介する体力が持たなかったネタを一言程度で書くコーナーです。
 
+<!-- textlint-disable ja-technical-writing/ja-no-redundant-expression -->
+
 - **news 📺**
 - **know-how 🎓**
+  - [ast-grepでReact 19に移行する](https://zenn.dev/hd_nvim/articles/dc2f174d890cb8)
+    - ast-grep を使って、複雑な置換を行い、React 19 への移行を行なう例を紹介する話です
+    - ast-grep を使うと何ができるのか参考になります
+  - [Linux Foundation、継続的デリバリーコミュニティに関するアニュアルレポートの日本語版を公開](https://codezine.jp/article/detail/19462)
+    - PDF: https://cd.foundation/wp-content/uploads/sites/78/2024/04/Annual_Report_2023_CDFoundation_JP.pdf
+    - Linux Foundation が継続的デリバリーに関するコミュニティの活動をまとめた 2023 年レポートの日本語版を公開しました
+    - 現在活動中の 8 つの CDF（Continuous Delivery Foundation）オープンソースプロジェクトの 2023 年のハイライトがまとめられており、それらのプロジェクトにどのような変更があったのかわかりやすくて良いです
+    - 他にも、ファウンデーションの新たなメンバーやコミュニティのハイライト、イベント情報、出版物などが紹介されています
 - **tool 🔨**
+  - [Octo STS 入門](https://zenn.dev/shunsuke_suzuki/books/octo-sts-introduction)
+
+<!-- textlint-enable ja-technical-writing/ja-no-redundant-expression -->
 
 # あとがき
 
