@@ -36,7 +36,7 @@ user_defined:
 今週の共同著者は次の方です。
 - [@korosuke613](https://zenn.dev/korosuke613)
 <!-- - [@defaultcf](https://zenn.dev/defaultcf) -->
-<!-- - [@Kesin11](https://zenn.dev/kesin11) -->
+- [@Kesin11](https://zenn.dev/kesin11)
 - [@r4mimu](https://zenn.dev/r4mimu)
 <!-- - [@uta8a](https://zenn.dev/uta8a) -->
 
@@ -105,6 +105,18 @@ _本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 ## Dependabot pull requests jobs are now available to run on self hosted GitHub Actions runners - The GitHub Blog
 https://github.blog/changelog/2024-05-02-dependabot-pull-requests-jobs-are-now-available-to-run-on-self-hosted-actions-runners/
+
+Productivity Weekly で取り上げ忘れてしまっていましたが、4/22 からオプトイン可能となった Dependabot を GitHub Actions で動かせるようになる機能に関連したアップデートです。
+先にこのアップデートについて軽く紹介をしておくと、今までは Dependabot の実行は GitHub Actions とは独立した機能でしたが、将来的には内部的な実行基盤を GitHub Actions に統合する予定のようです。Dependabot による GitHub Actions の実行については課金対象外であると明記されており、基本的にユーザーへの影響はなさそうです。
+https://github.blog/changelog/2024-04-22-dependabot-updates-on-actions-for-github-enterprise-cloud-and-free-pro-and-teams-users/
+
+Dependabot にはもともとプライベートレジストリに対してアクセス可能にするために[認証情報を与える設定](https://docs.github.com/en/code-security/dependabot/working-with-dependabot/guidance-for-the-configuration-of-private-registries-for-dependabot)がありましたが、レジストリ自体がプライベートなネットワーク上に隔離されている場合は不可能でした。今回のアップデートでセルフホストランナーでも Dependabot を動かすことが可能になることで、セルフホストランナーのネットワーク構成次第でこのようなケースも対応可能となります。
+
+Dependabot が利用するセルフホストランナーには `dependabot` のラベルを付与する必要があるのに加えて、Docker がインストールされている必要があるなどいくつかの細かい要件があります。ここには書ききれないので詳しくは[ドキュメント](https://docs.github.com/en/code-security/dependabot/working-with-dependabot/managing-dependabot-on-self-hosted-runners)を参照してください。
+
+ちなみに生産性向上チームでは以前から Dependabot よりも多機能でカスタマイズ性が高い [Renovate](https://docs.renovatebot.com/) を利用しているので、今回の機能追加は特に影響なさそうでした。Dependabot の代わりに Renovate もおすすめです。
+
+_本項の執筆者: [@Kesin11](https://zenn.dev/kesin11)_
 
 ## GitHub Copilot Chat in GitHub Mobile is now generally available - The GitHub Blog
 https://github.blog/2024-05-07-github-copilot-chat-in-github-mobile/
