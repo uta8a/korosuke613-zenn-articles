@@ -1,5 +1,5 @@
 ---
-title: ＜ここにタイトルを入力＞｜Productivity Weekly(2024-05-08)
+title: Artifact AttestationsやEDoS攻撃に関する話など｜Productivity Weekly(2024-05-08)
 emoji: 🌱
 type: idea
 topics:
@@ -139,6 +139,21 @@ _本項の執筆者: [@r4mimu](https://zenn.dev/r4mimu)_
 
 # know-how 🎓
 
+## Cloud Storageバケット名を知っていれば、EDoS攻撃を仕掛けられるのか？
+https://blog.g-gen.co.jp/entry/cloud-storage-edos-risks
+
+2024 年 4 月当時、Amazon S3 では API リクエストに対して課金が発生していました。そのため、ステータスコードが `403 AccessDenied` を返すようなリクエストにも課金が発生してしまうので、EDoS 攻撃を受けるリスクがあるということが話題になっていました([参考](https://medium.com/@maciej.pocwierz/how-an-empty-s3-bucket-can-make-your-aws-bill-explode-934a383cb8b1))。
+
+この記事では、Cloud Storage においても同様のリスクがあるかどうかを検証しています。
+結論としては、Cloud Storage では 307、4xx、5xx レスポンスを返す場合は課金が発生しないため、S3 に比べると EDoS 攻撃を受けるリスクは低いとのことです。
+ただし、静的ホスティングを行っており、404 レスポンスで表示させるコンテンツを設定している場合は課金が発生するそうです。また、データアクセス監査ログを有効化していると、ログの肥大化によるコストがかかることもあるので注意が必要とありました。
+
+リスクや注意事項をまとめてくれていて、参考になりました。
+
+なお、2024 年 5 月 13 日に[アップデート](https://aws.amazon.com/jp/about-aws/whats-new/2024/05/amazon-s3-no-charge-http-error-codes/)があり、S3 で `403 AccessDenied` でも課金が発生しないようになりました。
+
+_本項の執筆者: [@r4mimu](https://zenn.dev/r4mimu)_
+
 ## 002号（2024/05/01） - SRE Magazine
 https://sre-magazine.net/magazines/2/
 
@@ -164,27 +179,11 @@ v3 から v4 へのアップデートにおける Breaking Change には記載�
 
 _本項の執筆者: [@r4mimu](https://zenn.dev/r4mimu)_
 
-## Cloud Storageバケット名を知っていれば、EDoS攻撃を仕掛けられるのか？
-https://blog.g-gen.co.jp/entry/cloud-storage-edos-risks
-
-2024 年 4 月当時、Amazon S3 では API リクエストに対して課金が発生していました。そのため、ステータスコードが `403 AccessDenied` を返すようなリクエストにも課金が発生してしまうので、EDoS 攻撃を受けるリスクがあるということが話題になっていました([参考](https://medium.com/@maciej.pocwierz/how-an-empty-s3-bucket-can-make-your-aws-bill-explode-934a383cb8b1))。
-
-この記事では、Cloud Storage においても同様のリスクがあるかどうかを検証しています。
-結論としては、Cloud Storage では 307、4xx、5xx レスポンスを返す場合は課金が発生しないため、S3 に比べると EDoS 攻撃を受けるリスクは低いとのことです。
-ただし、静的ホスティングを行っており、404 レスポンスで表示させるコンテンツを設定している場合は課金が発生するそうです。また、データアクセス監査ログを有効化していると、ログの肥大化によるコストがかかることもあるので注意が必要とありました。
-
-リスクや注意事項をまとめてくれていて、参考になりました。
-
-なお、2024 年 5 月 13 日に[アップデート](https://aws.amazon.com/jp/about-aws/whats-new/2024/05/amazon-s3-no-charge-http-error-codes/)があり、S3 で `403 AccessDenied` でも課金が発生しないようになりました。
-
-_本項の執筆者: [@r4mimu](https://zenn.dev/r4mimu)_
-
 # read more 🍘
 Productivity Weekly で出たネタを全て紹介したいけど紹介する体力が持たなかったネタを一言程度で書くコーナーです。
 
 <!-- textlint-disable ja-technical-writing/ja-no-redundant-expression -->
 
-- **news 📺**
 - **know-how 🎓**
   - [ast-grepでReact 19に移行する](https://zenn.dev/hd_nvim/articles/dc2f174d890cb8)
     - ast-grep を使って、複雑な置換を行い、React 19 への移行を行う例を紹介する話です
@@ -196,11 +195,22 @@ Productivity Weekly で出たネタを全て紹介したいけど紹介する体
     - 他にも、ファウンデーションの新たなメンバーやコミュニティのハイライト、イベント情報、出版物などが紹介されています
 - **tool 🔨**
   - [Octo STS 入門](https://zenn.dev/shunsuke_suzuki/books/octo-sts-introduction)
+    - Octo STS という GitHub のアクセストークンをよりセキュアに扱うためのツールの紹介本です
+    - Octo STS の説明、使い方、なぜ必要なのか、使う上での課題、コードリーディング内容などが載っています
+    - セルフホストもできそうなので気になりますが、まだ開発途上らしいので、今後も注力していきたいです
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 <!-- textlint-enable ja-technical-writing/ja-no-redundant-expression -->
 
 # あとがき
+暑くなってきましたね。今週号でした。
+実は今週号から一部 GPT-4o による自動レビューを導入しています（[例](https://github.com/korosuke613/zenn-articles/pull/686#discussion_r1614776389)）。面白いです。
 
+そういえば、生産性向上チームでは夏の学生インターンを募集しています。なんと[ 5/17 より二次募集を開始](https://x.com/cybozu_recruit/status/1791349532854546744)しています。
+興味ある方はぜひエントリーしてみてください。
+
+https://cybozu.co.jp/company/job/recruitment/intern/improvement.html
 
 サイボウズの生産性向上チームでは社内エンジニアの開発生産性を上げるための活動を行なっています。そんな生産性向上チームが気になる方は下のリンクをクリック！
 https://speakerdeck.com/cybozuinsideout/engineering-productivity-team-recruitment-information
