@@ -30,21 +30,20 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR_JSON: ${{ runner.temp }}/pr.json
+          HEAD_BRANCH: ai-review-head
         id: setup_branches
         run: |
           gh pr view ${{ inputs.pr_number }} --json baseRefName,headRefName > ${{ env.PR_JSON }}
           cat ${{ env.PR_JSON }}
           BASE_REF_NAME="$(jq -r .baseRefName <${{ env.PR_JSON }})"
-          HEAD_REF_NAME="$(jq -r .headRefName <${{ env.PR_JSON }})"
           set -x
           git fetch --update-head-ok origin "$BASE_REF_NAME:$BASE_REF_NAME"
-          git fetch --update-head-ok origin "$HEAD_REF_NAME:$HEAD_REF_NAME"
+          gh pr checkout --branch ${{ env.HEAD_BRANCH }} ${{ inputs.pr_number }}
           git branch
-          git switch "$HEAD_REF_NAME"
           echo "latest_git_sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
           set +x
           echo "base_ref_name=${BASE_REF_NAME}" >> "$GITHUB_OUTPUT"
-          echo "head_ref_name=${HEAD_REF_NAME}" >> "$GITHUB_OUTPUT"
+          echo "head_ref_name=${{ env.HEAD_BRANCH }}" >> "$GITHUB_OUTPUT"
 
       - uses: denoland/setup-deno@v1
         with:
@@ -67,6 +66,7 @@ jobs:
             ${{ steps.setup_branches.outputs.head_ref_name }}
 
       - name: Summarize AI Review log
+        if: always()
         run: |
           {
             echo "# AI Review log"
