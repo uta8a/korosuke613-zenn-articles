@@ -89,7 +89,7 @@ GitHub Actions 上での Docker ビルドの高速化テクニックとして有
 
 [^mount-type-cache]: https://docs.docker.com/build/guide/mounts/
 
-というのが Docker ビルド内における `go build` のキャッシュ問題なのですが、この記事では `reproducible-containers/buildkit-cache-dance` という action を利用することでこの問題を解決して Docker ビルドにおける `go build` のビルド時間を大幅に短縮できることを紹介しています。
+というのが Docker ビルド内における `go build` のキャッシュ問題なのですが、この記事では `reproducible-containers/buildkit-cache-dance` という action を利用することでこの問題を解決し、Docker ビルドにおける `go build` のビルド時間を大幅に短縮できることを紹介しています。
 
 https://github.com/reproducible-containers/buildkit-cache-dance
 
@@ -106,9 +106,9 @@ ESLint 以外の各種 TypeScript 向け Lint ツールが型情報を扱えな�
 
 TypeScript の Lint ツールとして有名なのは間違いなく ESLint ですが、最近では ESLint よりも高速であることを売りにする [Oxc](https://github.com/oxc-project/oxc) や [Biome](https://github.com/biomejs/biome) といった Rust 製の Lint ツールが登場しています。Lint に時間がかかってしまうと地味に開発速度が低下するため、ESLint から別の高速な Lint ツールに乗り換えるという選択肢は十分に考えられます。ですが、新しいツールは登場したばかりでいずれもこなれていないことに加えて、TypeScript の型情報を扱うことができないため型情報を利用した Lint ルールを作成することが難しいという問題があります。
 
-この問題についてのこれまでの取り組みや、今後の見通しについてこのスライドで解説されています。すぐに解決する問題ではさそうですが、TypeScript 5.5 に予定されている `--isolatedDeclarations` は少し期待ですね。
+すぐに解決する問題ではなさそうですが、TypeScript 5.5 に予定されている `--isolatedDeclarations` は少し期待ですね。
 
-生産性向上チームでは ESLint v9 へのアップデートに苦労しており、いっそ ESLint の代わりに Biome への乗り換えを試し始めているところでした。 `no-floating-primises` のような便利だが型情報を必要とするルールについて Biome では諦めざるを得ないと思っていたところなので非常にタイムリーな話題でした。
+生産性向上チームでは ESLint v9 へのアップデートに苦労しており、いっそ ESLint の代わりに Biome への乗り換えを試し始めているところでした。 `no-floating-promises` のような便利だが型情報を必要とするルールについて Biome では諦めざるを得ないと思っていたところなので非常にタイムリーな話題でした。
 
 
 
