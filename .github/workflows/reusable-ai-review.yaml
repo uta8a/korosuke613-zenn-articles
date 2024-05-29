@@ -67,6 +67,7 @@ jobs:
             ${{ steps.setup_branches.outputs.head_ref_name }}
 
       - name: Summarize AI Review log
+        if: always()
         run: |
           {
             echo "# AI Review log"
