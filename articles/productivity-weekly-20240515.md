@@ -36,7 +36,7 @@ user_defined:
 今週の共同著者は次の方です。
 - [@korosuke613](https://zenn.dev/korosuke613)
 <!-- - [@defaultcf](https://zenn.dev/defaultcf) -->
-<!-- - [@Kesin11](https://zenn.dev/kesin11) -->
+- [@Kesin11](https://zenn.dev/kesin11)
 <!-- - [@r4mimu](https://zenn.dev/r4mimu) -->
 <!-- - [@uta8a](https://zenn.dev/uta8a) -->
 
@@ -77,8 +77,42 @@ https://github.blog/changelog/2024-05-13-dependabot-core-is-now-open-source-with
 ## GitHub Actions 上での Go の Docker ビルドを高速化する
 https://zenn.dev/takamin55/articles/8c68349a069b4c
 
+生産性向上チームの [@takamin55](https://zenn.dev/takamin55) さんが書かれた記事で、GitHub Actions 上での Docker ビルドでも Go のキャッシュを効かせてビルド時間を短縮する方法を紹介しています。
+
+GitHub Actions 上での Docker ビルドの高速化テクニックとして有名なのは Docker 公式が提供している [docker/build-push-action](https://github.com/docker/build-push-action) の `cache-from: type=gha` と `cache-to: type=gha,mode=max` オプションを利用する方法でしょう[^docker-layer-cache-gha]。これはビルド時のレイヤーキャッシュを GitHub Actions のキャッシュに保存することで次回以降のビルド時間を短縮しています。
+
+ですがこの方法では Dockerfile 中の `RUN go build` のステップのレイヤーキャッシュが利用できなかった場合は結局 `go build` に時間がかかってしまいます。本来 Go はビルドキャッシュをローカルに残すので次回以降の `go build` は高速になるはずですが、Docker のビルドでは次回ビルド時に前回のキャッシュを利用できないためです。これは GitHub Action 上でもローカルマシンでも同様です。
+
+[^docker-layer-cache-gha]: https://docs.docker.com/build/ci/github-actions/cache/#github-cache
+
+最近の Docker はこの問題を解決するために `RUN --mount=type=cache` オプションを提供しています[^mount-type-cache]。このオプションを利用すると Docker のビルド時にキャッシュをローカルに保存することが可能になるため、 `go build` のようなキャッシュを利用できるコマンドに対して効果があります。ただ、残念ながら GitHub Actions はローカルマシンと異なりビルドのたびに毎回新しいマシンが割り当てられるため `RUN --mount=type=cache` のキャッシュが残っておらず、実質的に利用できないのです。
+
+[^mount-type-cache]: https://docs.docker.com/build/guide/mounts/
+
+というのが Docker ビルド内における `go build` のキャッシュ問題なのですが、この記事では `reproducible-containers/buildkit-cache-dance` という action を利用することでこの問題を解決し、Docker ビルドにおける `go build` のビルド時間を大幅に短縮できることを紹介しています。
+
+https://github.com/reproducible-containers/buildkit-cache-dance
+
+どのような仕組みでこの問題を解決しているのかについて図付きで分かりやすく解説してくれています。`buildkit-cache-dance` の README にはどのように実現しているのか具体的な方法は書かれていないため、図で紹介されていることで挙動を理解しやすかったです。
+
+ちなみに [buildkit-cache-dance](https://github.com/reproducible-containers/buildkit-cache-dance) の README ではサンプルとして Go のビルドキャッシュ以外に apt-get のキャッシュにも有効であると紹介されています。Go に限らず GitHub Actions での Docker ビルド時間短縮に興味がある方は buildkit-cache-dance を試してみると良いかもしれません。
+
+_本項の執筆者: [@Kesin11](https://zenn.dev/kesin11)_
+
 ## Exploring Type-Informed Lint Rules in Rust based TypeScript Linters - Speaker Deck
 https://speakerdeck.com/unvalley/exploring-type-informed-lint-rules-in-rust-based-linters
+
+ESLint 以外の各種 TypeScript 向け Lint ツールが型情報を扱えない問題について今後どう解決される可能性があるのかを紹介しているスライドです。
+
+TypeScript の Lint ツールとして有名なのは間違いなく ESLint ですが、最近では ESLint よりも高速であることを売りにする [Oxc](https://github.com/oxc-project/oxc) や [Biome](https://github.com/biomejs/biome) といった Rust 製の Lint ツールが登場しています。Lint に時間がかかってしまうと地味に開発速度が低下するため、ESLint から別の高速な Lint ツールに乗り換えるという選択肢は十分に考えられます。ですが、新しいツールは登場したばかりでいずれもこなれていないことに加えて、TypeScript の型情報を扱うことができないため型情報を利用した Lint ルールを作成することが難しいという問題があります。
+
+すぐに解決する問題ではなさそうですが、TypeScript 5.5 に予定されている `--isolatedDeclarations` は少し期待ですね。
+
+生産性向上チームでは ESLint v9 へのアップデートに苦労しており、いっそ ESLint の代わりに Biome への乗り換えを試し始めているところでした。 `no-floating-promises` のような便利だが型情報を必要とするルールについて Biome では諦めざるを得ないと思っていたところなので非常にタイムリーな話題でした。
+
+
+
+_本項の執筆者: [@Kesin11](https://zenn.dev/kesin11)_
 
 ## gh copilotにgit diffの入力を渡して、git stashの説明文を作ってもらう - hitode909の日記
 https://blog.sushi.money/entry/2024/05/15/090000
