@@ -36,7 +36,7 @@ user_defined:
 今週の共同著者は次の方です。
 - [@korosuke613](https://zenn.dev/korosuke613)
 <!-- - [@defaultcf](https://zenn.dev/defaultcf) -->
-<!-- - [@Kesin11](https://zenn.dev/kesin11) -->
+- [@Kesin11](https://zenn.dev/kesin11)
 <!-- - [@r4mimu](https://zenn.dev/r4mimu) -->
 <!-- - [@uta8a](https://zenn.dev/uta8a) -->
 
@@ -46,6 +46,22 @@ user_defined:
 
 ## Updated dates for Actions runner using Node20 instead of Node16 by default - The GitHub Blog
 https://github.blog/changelog/2024-05-17-updated-dates-for-actions-runner-using-node20-instead-of-node16-by-default/
+
+GitHub Actions で JavaScript の action を動かすための Node.js のバージョンが v16 から v20 に変更される予定についての続報です。
+この変更内容については 2024-03-13 の Productivity Weekly で詳しく解説していますので、合わせてご覧ください。
+
+https://zenn.dev/cybozu_ept/articles/productivity-weekly-20240313#github-actions%3B-all-actions-will-run-on-node20-instead-of-node16-by-default---the-github-blog
+
+3 月のアナウンスでは 5/13[^node20_enforce_schedule]から v20 が強制的に利用される予定でしたが、その日程が 6/30 に延期となったようです。
+
+また前回のアナウンスからの差分として、ランナーに内蔵されている Node.js v16 が 10 月に削除されることが告知されています。よって、オプトアウト用の `ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true` を設定して v16 を使い続けていたとしても、10 月以降はそれも不可能になるようです。
+
+もしまだ v20 に対応していない action を利用されている場合は、最新バージョンで v20 に対応しているかを確認するなどして、そろそろ v16 へ依存しないようにしておきましょう。
+
+[^node20_enforce_schedule]: 過去のアナウンスの[原文](https://github.blog/changelog/2024-03-07-github-actions-all-actions-will-run-on-node20-instead-of-node16-by-default/)を見直したら 5/13 ではなくて 2024 年の春と書かれていました。もしかしていつの間にか原文の方が書き換えられた・・・？
+
+
+_本項の執筆者: [@Kesin11](https://zenn.dev/kesin11)_
 
 ## Actions: Upcoming changes to GitHub-hosted macOS runners - The GitHub Blog
 https://github.blog/changelog/2024-05-20-actions-upcoming-changes-to-github-hosted-macos-runners/
