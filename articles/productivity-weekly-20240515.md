@@ -68,9 +68,18 @@ https://github.com/googleapis/release-please-action/issues/980
 
 [^spec]: ここら辺詳しい仕様はよくわかってません。
 
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
+
 ## GitHub-hosted runners: Public Beta of Ubuntu 24.04 is now available - The GitHub Blog
 https://github.blog/changelog/2024-05-14-github-hosted-runners-public-beta-of-ubuntu-24-04-is-now-available/
 
+GitHub Actions において、Ubuntu 24.04 ランナーが利用可能になりました（public beta）。
+`ubuntu-24.04` ラベルで利用できます。`ubuntu-latest` はまだ 22.04 です。
+
+`ubuntu-24.04` ラベルのランナーにインストールされているソフトウェア一覧は、[actions/runner-images](https://github.com/actions/runner-images/blob/9d5d1be4828f3f7e54796a46d60afd0a2f9e05b0/images/ubuntu/Ubuntu2404-Readme.md) リポジトリで確認できます。
+もし先に `ubuntu-24.04` で動くかどうか確認したいワークフローがある方は試しに使ってみましょう。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 ## クラウドでもsuが出来る! GCPにPAM(特権管理)がついに登場
 https://zenn.dev/koduki/articles/47e433c12c5fad
