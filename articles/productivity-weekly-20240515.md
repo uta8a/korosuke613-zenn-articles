@@ -63,8 +63,8 @@ https://github.com/googleapis/release-please-action/issues/980
 結局、google-github-actions/release-please-action にコピーが作成＆アーカイブされ、現在は参照できます。
 ただし、**google-github-actions/release-please-action は今後メンテされないため、利用者は googleapis/release-please-action へ移行する必要があります。**
 
-こんなことが起こるとは思ってませんでした。Google の方も想定してなかったのかもしれませんね。
-とりあえず利用者はさっさと移行しましょう。
+こんなことが起こるとは思っていませんでした。Google の方も想定していなかったのかもしれませんね。
+とりあえず利用者は早急に移行しましょう。
 
 [^spec]: ここら辺詳しい仕様はよくわかってません。
 
@@ -147,7 +147,7 @@ Productivity Weekly で出たネタを全て紹介したいけど紹介する体
   - [Hello GPT-4o | OpenAI](https://openai.com/index/hello-gpt-4o/)
     - OpenAI で GPT-4o が利用できるようになりました
     - GPT-4 より高速で、かつ、音声や動画などの複数の種類や形式のデータに対応しているとか
-    - ChatGPT の無料版でもリミット来るまでは利用出来るのですが、確かに応答がめちゃくちゃ速くなっていました
+    - ChatGPT の無料版でもリミットが来るまでは利用できるのですが、確かに応答が非常に速くなっていました
     - また、API 使用料金もその他のモデルより安く、GPT-4、GPT-4 Turbo と比べて半分以下の価格で利用できます
     - 実は本記事でもレビューに GPT-4o を使ってみるようにしました
       - [さっそく誤字を発見してくれています](https://github.com/korosuke613/zenn-articles/pull/694#discussion_r1618305678)
