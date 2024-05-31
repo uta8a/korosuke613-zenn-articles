@@ -84,14 +84,8 @@ _本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 ## クラウドでもsuが出来る! GCPにPAM(特権管理)がついに登場
 https://zenn.dev/koduki/articles/47e433c12c5fad
 
-## Hello GPT-4o | OpenAI
-https://openai.com/index/hello-gpt-4o/
-
 ## 1Password SDKs Are Now Available in Beta | 1Password 
 https://blog.1password.com/sdk-beta/
-
-## dependabot-core is now open source with an MIT license - The GitHub Blog
-https://github.blog/changelog/2024-05-13-dependabot-core-is-now-open-source-with-an-mit-license/
 
 # know-how 🎓
 
@@ -131,8 +125,6 @@ TypeScript の Lint ツールとして有名なのは間違いなく ESLint で�
 
 生産性向上チームでは ESLint v9 へのアップデートに苦労しており、いっそ ESLint の代わりに Biome への乗り換えを試し始めているところでした。 `no-floating-promises` のような便利だが型情報を必要とするルールについて Biome では諦めざるを得ないと思っていたところなので非常にタイムリーな話題でした。
 
-
-
 _本項の執筆者: [@Kesin11](https://zenn.dev/kesin11)_
 
 ## gh copilotにgit diffの入力を渡して、git stashの説明文を作ってもらう - hitode909の日記
@@ -149,9 +141,24 @@ https://www.publickey1.jp/blog/24/googlegeminiwebideproject_idx.html
 # read more 🍘
 Productivity Weekly で出たネタを全て紹介したいけど紹介する体力が持たなかったネタを一言程度で書くコーナーです。
 
+<!-- textlint-disable @proofdict/proofdict -->
+
 - **news 📺**
+  - [Hello GPT-4o | OpenAI](https://openai.com/index/hello-gpt-4o/)
+    - OpenAI で GPT-4o が利用できるようになりました
+    - GPT-4 より高速で、かつ、音声や動画などの複数の種類や形式のデータに対応しているとか
+    - ChatGPT の無料版でもリミット来るまでは利用出来るのですが、確かに応答がめちゃくちゃ速くなっていました
+    - また、API 使用料金もその他のモデルより安く、GPT-4、GPT-4 Turbo と比べて半分以下の価格で利用できます
+    - 実は本記事でもレビューに GPT-4o を使ってみるようにしました
+      - [さっそく誤字を発見してくれています](https://github.com/korosuke613/zenn-articles/pull/694#discussion_r1618305678)
+      - いつかその内容で記事を書いてみたいですね
+  - [dependabot-core is now open source with an MIT license - The GitHub Blog](https://github.blog/changelog/2024-05-13-dependabot-core-is-now-open-source-with-an-mit-license/)
+    - Dependabot のコア機能が MIT ライセンスでオープンソース化されました
+    - コミュニティが Dependabot に貢献しやすくなったほか、Dependabot のコア機能を使った新しいツールを作成・利用することも可能になりました
 - **know-how 🎓**
 - **tool 🔨**
+
+<!-- textlint-enable @proofdict/proofdict -->
 
 # あとがき
 
