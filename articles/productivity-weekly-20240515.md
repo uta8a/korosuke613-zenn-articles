@@ -145,6 +145,20 @@ https://blog.sushi.money/entry/2024/05/15/090000
 ## zenncast - 技術トレンドをAIがラジオに変換
 https://zenncast-web.vercel.app/
 
+Zenn のトレンド記事を AI を使ってまとめ、ラジオとして配信するサービス zenncast が公開されました。なんと毎日更新です。
+毎朝 10 分程度で、Zenn のトレンドに上がった記事を 5 つピックアップし、本当のラジオのように紹介してくれます。通勤・通学中に聞くのに良さそうですね。
+
+僕もちょくちょく聴いてるのですが、まるで本当のラジオのようでとてもびっくりしました。お便りも読んでくれます。
+Web 上だけでなく、Spotify や Apple Podcasts でも配信されているため聴くためのハードルは低いです。
+
+なお、作者による技術構成の解説記事も公開されています。ChatGPT のような AI を使って何かをする際の参考になると思います。
+
+- [AIラジオ『zenncast』の技術構成（プロンプトつき）](https://zenn.dev/himara2/articles/db054d81b05d19)
+
+とても面白い試みだと思いました。サービスの内容自体も勉強になるので、気になる人は聴いてみてください。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
+
 ## ［速報］Google、Geminiベースの新WebIDE「Project IDX」をオープンベータで公開
 https://www.publickey1.jp/blog/24/googlegeminiwebideproject_idx.html
 
