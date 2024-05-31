@@ -56,6 +56,18 @@ https://dev.classmethod.jp/articles/amazon-s3-no-charge-http-error-codes/
 ## Was this repository recently moved? · Issue #980 · googleapis/release-please-action
 https://github.com/googleapis/release-please-action/issues/980
 
+5 月前半の短期間において、OSS のリリースをいい感じで自動化する GitHub Actions のカスタムアクション google-github-actions/release-please-action が利用できなくなっていました。現在は利用できますが、利用者は対応が必要です。
+
+リポジトリが google-github-actions オーナーから googleapis オーナーへ移動したことにより、google-github-actions/release-please-action が not found 扱いになったことが原因です。GitHub のリポジトリが移動した場合、古いリポジトリを参照するとリダイレクトしてくれるようになっていますが、GitHub Actions においてはそうならないようです[^spec]。
+
+結局、google-github-actions/release-please-action にコピーが作成＆アーカイブされ、現在は参照できます。
+ただし、**google-github-actions/release-please-action は今後メンテされないため、利用者は googleapis/release-please-action へ移行する必要があります。**
+
+こんなことが起こるとは思ってませんでした。Google の方も想定してなかったのかもしれませんね。
+とりあえず利用者はさっさと移行しましょう。
+
+[^spec]: ここら辺詳しい仕様はよくわかってません。
+
 ## GitHub-hosted runners: Public Beta of Ubuntu 24.04 is now available - The GitHub Blog
 https://github.blog/changelog/2024-05-14-github-hosted-runners-public-beta-of-ubuntu-24-04-is-now-available/
 
