@@ -84,6 +84,16 @@ _本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 ## クラウドでもsuが出来る! GCPにPAM(特権管理)がついに登場
 https://zenn.dev/koduki/articles/47e433c12c5fad
 
+Google Cloud において、ジャストインタイムの特権アクセス機能 Privileged Access Manager (PAM) がプレビューで使えるようになりました。
+
+PAM を使うことで、Google Cloud 上での作業において、一時的に特権の必要な操作ができるようになります。
+特権を得たいときは利用申請を行い、あらかじめ設定された承認者が承認することで、特権を得られます。承認者を設定しないことも可能で、その場合は利用申請して即利用できるようです。
+
+この記事では、そんな PAM の概要やなぜ嬉しいか、実際に使ってみたログなどが紹介されており、どんな機能なのかわかりやすいです。
+個人的にも普段は弱い権限で作業し、必要に応じて都度強い権限を使うようにしたいので、この機能はとても嬉しいですね。AWS にも同等の機能が来てほしいです。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
+
 ## 1Password SDKs Are Now Available in Beta | 1Password 
 https://blog.1password.com/sdk-beta/
 
