@@ -1,5 +1,5 @@
 ---
-title: ＜ここにタイトルを入力＞｜Productivity Weekly(2024-05-15)
+title: release-please-actionのオーナー変更の話など｜Productivity Weekly(2024-05-15)
 emoji: 🪜
 type: idea
 topics:
@@ -44,17 +44,6 @@ user_defined:
 
 # news 📺
 
-## Amazon S3 will no longer charge for several HTTP error codes
-https://aws.amazon.com/jp/about-aws/whats-new/2024/05/amazon-s3-no-charge-http-error-codes/
-
-前回の 5 月 8 号の [Cloud Storageバケット名を知っていれば、EDoS攻撃を仕掛けられるのか？](https://zenn.dev/cybozu_ept/articles/productivity-weekly-20240508#cloud-storage%E3%83%90%E3%82%B1%E3%83%83%E3%83%88%E5%90%8D%E3%82%92%E7%9F%A5%E3%81%A3%E3%81%A6%E3%81%84%E3%82%8C%E3%81%B0%E3%80%81edos%E6%94%BB%E6%92%83%E3%82%92%E4%BB%95%E6%8E%9B%E3%81%91%E3%82%89%E3%82%8C%E3%82%8B%E3%81%AE%E3%81%8B%EF%BC%9F) の最後で少しご紹介しましたように、S3 の 403 エラーレスポンスを返す一部リクエストに関しては、リクエスト料金や帯域幅料金が発生しなくなりました。
-ただしこれは「バケット所有者」または「バケット所有者の AWS Organizations」以外からのリクエストに限られます。
-バケット所有者の場合は引き続き課金が発生しますのでご注意ください。
-
-他に課金されないエラーレスポンスは次のドキュメントに記載がありますので、気になる方は見てみてください。
-https://docs.aws.amazon.com/AmazonS3/latest/userguide/ErrorCodeBilling.html
-
-_本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)_
 
 ## Was this repository recently moved? · Issue #980 · googleapis/release-please-action
 https://github.com/googleapis/release-please-action/issues/980
@@ -72,6 +61,18 @@ https://github.com/googleapis/release-please-action/issues/980
 [^spec]: ここら辺詳しい仕様はよくわかってません。
 
 _本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
+
+## Amazon S3 will no longer charge for several HTTP error codes
+https://aws.amazon.com/jp/about-aws/whats-new/2024/05/amazon-s3-no-charge-http-error-codes/
+
+前回の 5 月 8 号の [Cloud Storageバケット名を知っていれば、EDoS攻撃を仕掛けられるのか？](https://zenn.dev/cybozu_ept/articles/productivity-weekly-20240508#cloud-storage%E3%83%90%E3%82%B1%E3%83%83%E3%83%88%E5%90%8D%E3%82%92%E7%9F%A5%E3%81%A3%E3%81%A6%E3%81%84%E3%82%8C%E3%81%B0%E3%80%81edos%E6%94%BB%E6%92%83%E3%82%92%E4%BB%95%E6%8E%9B%E3%81%91%E3%82%89%E3%82%8C%E3%82%8B%E3%81%AE%E3%81%8B%EF%BC%9F) の最後で少しご紹介しましたように、S3 の 403 エラーレスポンスを返す一部リクエストに関しては、リクエスト料金や帯域幅料金が発生しなくなりました。
+ただしこれは「バケット所有者」または「バケット所有者の AWS Organizations」以外からのリクエストに限られます。
+バケット所有者の場合は引き続き課金が発生しますのでご注意ください。
+
+他に課金されないエラーレスポンスは次のドキュメントに記載がありますので、気になる方は見てみてください。
+https://docs.aws.amazon.com/AmazonS3/latest/userguide/ErrorCodeBilling.html
+
+_本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)_
 
 ## GitHub-hosted runners: Public Beta of Ubuntu 24.04 is now available - The GitHub Blog
 https://github.blog/changelog/2024-05-14-github-hosted-runners-public-beta-of-ubuntu-24-04-is-now-available/
@@ -247,8 +248,10 @@ Productivity Weekly で出たネタを全て紹介したいけど紹介する体
 
 <!-- textlint-enable @proofdict/proofdict -->
 
-# あとがき
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
+# あとがき
+遅くなってしまいすみません。日光にキャンプに行っていました。
 
 サイボウズの生産性向上チームでは社内エンジニアの開発生産性を上げるための活動を行なっています。そんな生産性向上チームが気になる方は下のリンクをクリック！
 https://speakerdeck.com/cybozuinsideout/engineering-productivity-team-recruitment-information
