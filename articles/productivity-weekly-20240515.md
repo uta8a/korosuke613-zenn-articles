@@ -5,9 +5,9 @@ type: idea
 topics:
   - ProductivityWeekly
   - 生産性向上
-published: false
+published: true
 publication_name: cybozu_ept
-user_defined: 
+user_defined:
   publish_link: https://zenn.dev/cybozu_ept/articles/productivity-weekly-20240515
   note: |
     _本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
