@@ -159,9 +159,6 @@ Web 上だけでなく、Spotify や Apple Podcasts でも配信されている�
 
 _本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
-## ［速報］Google、Geminiベースの新WebIDE「Project IDX」をオープンベータで公開
-https://www.publickey1.jp/blog/24/googlegeminiwebideproject_idx.html
-
 # read more 🍘
 Productivity Weekly で出たネタを全て紹介したいけど紹介する体力が持たなかったネタを一言程度で書くコーナーです。
 
@@ -179,8 +176,11 @@ Productivity Weekly で出たネタを全て紹介したいけど紹介する体
   - [dependabot-core is now open source with an MIT license - The GitHub Blog](https://github.blog/changelog/2024-05-13-dependabot-core-is-now-open-source-with-an-mit-license/)
     - Dependabot のコア機能が MIT ライセンスでオープンソース化されました
     - コミュニティが Dependabot に貢献しやすくなったほか、Dependabot のコア機能を使った新しいツールを作成・利用することも可能になりました
-- **know-how 🎓**
 - **tool 🔨**
+  - [［速報］Google、Geminiベースの新WebIDE「Project IDX」をオープンベータで公開](https://www.publickey1.jp/blog/24/googlegeminiwebideproject_idx.html)
+    - Google が新しい WebIDE「Project IDX」をオープンベータで公開しました
+    - VSCode の OSS 版をベースにされており、ローカルマシンではなく Google Cloud 上のインスタンスで動作し、ブラウザから利用できるようになっています
+    - Android や iOS のための Web プレビュー機能や AI アシスタントの Gemini が統合されていたりと、気になる機能が搭載されています
 
 <!-- textlint-enable @proofdict/proofdict -->
 
