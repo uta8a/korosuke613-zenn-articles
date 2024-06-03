@@ -35,7 +35,7 @@ user_defined:
 
 今週の共同著者は次の方です。
 - [@korosuke613](https://zenn.dev/korosuke613)
-<!-- - [@defaultcf](https://zenn.dev/defaultcf) -->
+- [@defaultcf](https://zenn.dev/defaultcf)
 - [@Kesin11](https://zenn.dev/kesin11)
 <!-- - [@r4mimu](https://zenn.dev/r4mimu) -->
 <!-- - [@uta8a](https://zenn.dev/uta8a) -->
@@ -47,11 +47,14 @@ user_defined:
 ## Amazon S3 will no longer charge for several HTTP error codes
 https://aws.amazon.com/jp/about-aws/whats-new/2024/05/amazon-s3-no-charge-http-error-codes/
 
-課金対象にならないレスポンス
-https://docs.aws.amazon.com/ja_jp/AmazonS3/latest/userguide/ErrorCodeBilling.html
+前回の 5 月 8 号の [Cloud Storageバケット名を知っていれば、EDoS攻撃を仕掛けられるのか？](https://zenn.dev/cybozu_ept/articles/productivity-weekly-20240508#cloud-storage%E3%83%90%E3%82%B1%E3%83%83%E3%83%88%E5%90%8D%E3%82%92%E7%9F%A5%E3%81%A3%E3%81%A6%E3%81%84%E3%82%8C%E3%81%B0%E3%80%81edos%E6%94%BB%E6%92%83%E3%82%92%E4%BB%95%E6%8E%9B%E3%81%91%E3%82%89%E3%82%8C%E3%82%8B%E3%81%AE%E3%81%8B%EF%BC%9F) の最後で少しご紹介しましたように、S3 の 403 エラーレスポンスを返す一部リクエストに関しては、リクエスト料金や帯域幅料金が発生しなくなりました。
+ただしこれは「バケット所有者」または「バケット所有者の AWS Organizations」以外からのリクエストに限られます。
+バケット所有者の場合は引き続き課金が発生しますのでご注意ください。
 
-クラメソさん解説
-https://dev.classmethod.jp/articles/amazon-s3-no-charge-http-error-codes/
+他に課金されないエラーレスポンスは次のドキュメントに記載がありますので、気になる方は見てみてください。
+https://docs.aws.amazon.com/AmazonS3/latest/userguide/ErrorCodeBilling.html
+
+_本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)_
 
 ## Was this repository recently moved? · Issue #980 · googleapis/release-please-action
 https://github.com/googleapis/release-please-action/issues/980
@@ -68,6 +71,19 @@ https://openai.com/index/hello-gpt-4o/
 
 ## 1Password SDKs Are Now Available in Beta | 1Password 
 https://blog.1password.com/sdk-beta/
+
+1Password の SDK が Beta で登場しました。
+1Password には REST API が提供されていません。それを実現しようとしてしまうと、1Password のサーバー側でユーザーデータを複合できるようにしなければならないからです。ユーザーデータを複合する鍵はユーザーだけが持つモデルになっているため、今後も REST API は提供されないでしょう。
+
+今までプログラマブルに 1Password に保存されたユーザーデータを扱う方法は CLI がありましたが、今回 SDK が公開されたことで任意のアプリケーションに容易に組み込むことが可能になりました。
+現在は Go, JavaScript, Python 用に SDK が提供されています。
+https://github.com/1Password/onepassword-sdk-go
+https://github.com/1Password/onepassword-sdk-js
+https://github.com/1Password/onepassword-sdk-python
+
+チームで共有しているパスワードのローテーションの自動化などに使えそうです。
+
+_本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)_
 
 ## dependabot-core is now open source with an MIT license - The GitHub Blog
 https://github.blog/changelog/2024-05-13-dependabot-core-is-now-open-source-with-an-mit-license/
@@ -116,6 +132,53 @@ _本項の執筆者: [@Kesin11](https://zenn.dev/kesin11)_
 
 ## gh copilotにgit diffの入力を渡して、git stashの説明文を作ってもらう - hitode909の日記
 https://blog.sushi.money/entry/2024/05/15/090000
+
+git commit や stash のメッセージを作るのは時に億劫です。
+この記事では GitHub Copilot を使って、stash のメッセージを git diff の実行結果から自動生成することを試みています。
+
+`gh copilot suggest` の引数に `git diff` の実行結果を展開しつつ、内容を要約するように指示することで、要約文付きの `git stash save` コマンドを生成しています。
+私も試してみました。記事でも書かれているように、コマンドを実行すると色々とインタラクティブに入力が求められるため、ちょっと億劫です。
+
+```bash
+$ gh copilot suggest "I want to stash changes. Please read current change and suggest the message with changed file and changed motivation: $(git diff)"
+
+Welcome to GitHub Copilot in the CLI!
+version 1.0.3 (2024-05-08)
+
+I'm powered by AI, so surprises and mistakes are possible. Make sure to verify any generated code or suggestions, and share feedback so that we can learn and improve. For more information, see https://gh.io/gh-copilot-transparency
+
+? What kind of command can I help you with?
+> git command
+
+Suggestion:
+
+  git stash save "Stash changes: src/index.ts - changed motivation"
+```
+
+何か手はないか調べてみると、`gh copilot suggest` の -t オプションを使用することで、最初にインタラクティブに訊かれる「What kind of command can I help you with?」を訊かれなくできることが分かりました。
+
+また GitHub の公式ドキュメント中に「Copilot in the CLI 向けのエイリアスの設定」という項目を見つけました。
+https://docs.github.com/ja/copilot/github-copilot-in-the-cli/using-github-copilot-in-the-cli#copilot-in-the-cli-%E5%90%91%E3%81%91%E3%81%AE%E3%82%A8%E3%82%A4%E3%83%AA%E3%82%A2%E3%82%B9%E3%81%AE%E8%A8%AD%E5%AE%9A
+
+このエイリアスを使えるようセットアップすると、`gh copilot suggest` の代わりに `ghcs` を使えるようになります。
+
+```bash
+ghcs -t git "I want to stash changes using git stash command. Please read below change and suggest the message with changed file and changed motivation: $(git diff)"
+
+Welcome to GitHub Copilot in the CLI!
+version 1.0.3 (2024-05-08)
+
+I'm powered by AI, so surprises and mistakes are possible. Make sure to verify any generated code or suggestions, and share feedback so that we can learn and improve. For more information, see https://gh.io/gh-copilot-transparency
+
+Suggestion:
+
+  git stash save "Stash changes: src/index.ts - changed motivation"
+```
+
+タイプ数を少なくできましたね。
+またプロンプトは工夫が必要そうです。色々工夫して、生産性を上げたいですね。
+
+_本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)_
 
 # tool 🔨
 
