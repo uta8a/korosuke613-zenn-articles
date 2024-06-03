@@ -66,6 +66,27 @@ _本項の執筆者: [@Kesin11](https://zenn.dev/kesin11)_
 ## Actions: Upcoming changes to GitHub-hosted macOS runners - The GitHub Blog
 https://github.blog/changelog/2024-05-20-actions-upcoming-changes-to-github-hosted-macos-runners/
 
+GitHub Actions において、macOS ランナーの最近・今後の変更が発表されました。これまで発表されてた内容と被る部分が多いですが、今後の変更がまとまってます。
+
+- 全ての `macos-latest` が macOS 14 を使うようになった
+- macOS 11 の削除が 6/28 に決定
+  - ユーザに削除を意識させるために、6/17, 19, 24, 26 の特定の時間（EST）に macOS 11 ランナーが使えなくなる
+  - 以前から 2024/06 末までに削除することは告知されていた
+- macOS ランナーの IP レンジを確認できるようになった
+  - [GET /meta](https://docs.github.com/en/rest/meta/meta?apiVersion=2022-11-28#get-github-meta-information) の API レスポンスに含まれる、`actions_macos` を参照することで取得できる
+    - ```json:gh api /meta
+        "actions_macos": [
+          "13.105.117.0/31",
+          "13.105.117.10/31",
+          "13.105.117.100/31",
+          "13.105.117.102/31",
+      ```
+  - IP アドレスは不変ではないことに注意
+
+特に macOS 11 ランナーを利用している人は早く移行するようにしましょう。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
+
 ## Introducing GitHub Copilot Extensions: Unlocking unlimited possibilities with our ecosystem of partners - The GitHub Blog
 https://github.blog/2024-05-21-introducing-github-copilot-extensions/
 
