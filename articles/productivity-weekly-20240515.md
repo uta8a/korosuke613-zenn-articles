@@ -59,15 +59,43 @@ _本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)_
 ## Was this repository recently moved? · Issue #980 · googleapis/release-please-action
 https://github.com/googleapis/release-please-action/issues/980
 
+5 月前半の短期間において、OSS のリリースをいい感じで自動化する GitHub Actions のカスタムアクション google-github-actions/release-please-action が利用できなくなっていました。現在は利用できますが、利用者は対応が必要です。
+
+リポジトリが google-github-actions オーナーから googleapis オーナーへ移動したことにより、google-github-actions/release-please-action が not found 扱いになったことが原因です。GitHub のリポジトリが移動した場合、古いリポジトリを参照するとリダイレクトしてくれるようになっていますが、GitHub Actions においてはそうならないようです[^spec]。
+
+結局、google-github-actions/release-please-action にコピーが作成＆アーカイブされ、現在は参照できます。
+ただし、**google-github-actions/release-please-action は今後メンテされないため、利用者は googleapis/release-please-action へ移行する必要があります。**
+
+こんなことが起こるとは思っていませんでした。Google の方も想定していなかったのかもしれませんね。
+とりあえず利用者は早急に移行しましょう。
+
+[^spec]: ここら辺詳しい仕様はよくわかってません。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
+
 ## GitHub-hosted runners: Public Beta of Ubuntu 24.04 is now available - The GitHub Blog
 https://github.blog/changelog/2024-05-14-github-hosted-runners-public-beta-of-ubuntu-24-04-is-now-available/
 
+GitHub Actions において、Ubuntu 24.04 ランナーが利用可能になりました（public beta）。
+`ubuntu-24.04` ラベルで利用できます。`ubuntu-latest` はまだ 22.04 です。
+
+`ubuntu-24.04` ラベルのランナーにインストールされているソフトウェア一覧は、[actions/runner-images](https://github.com/actions/runner-images/blob/9d5d1be4828f3f7e54796a46d60afd0a2f9e05b0/images/ubuntu/Ubuntu2404-Readme.md) リポジトリで確認できます。
+もし先に `ubuntu-24.04` で動くかどうか確認したいワークフローがある方は試しに使ってみましょう。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 ## クラウドでもsuが出来る! GCPにPAM(特権管理)がついに登場
 https://zenn.dev/koduki/articles/47e433c12c5fad
 
-## Hello GPT-4o | OpenAI
-https://openai.com/index/hello-gpt-4o/
+Google Cloud において、ジャストインタイムの特権アクセス機能 Privileged Access Manager (PAM) がプレビューで使えるようになりました。
+
+PAM を使うことで、Google Cloud 上での作業において、一時的に特権の必要な操作ができるようになります。
+特権を得たいときは利用申請を行い、あらかじめ設定された承認者が承認することで、特権を得られます。承認者を設定しないことも可能で、その場合は利用申請して即利用できるようです。
+
+この記事では、そんな PAM の概要やなぜ嬉しいか、実際に使ってみたログなどが紹介されており、どんな機能なのかわかりやすいです。
+個人的にも普段は弱い権限で作業し、必要に応じて都度強い権限を使うようにしたいので、この機能はとても嬉しいですね。AWS にも同等の機能が来てほしいです。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 ## 1Password SDKs Are Now Available in Beta | 1Password 
 https://blog.1password.com/sdk-beta/
@@ -84,9 +112,6 @@ https://github.com/1Password/onepassword-sdk-python
 チームで共有しているパスワードのローテーションの自動化などに使えそうです。
 
 _本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)_
-
-## dependabot-core is now open source with an MIT license - The GitHub Blog
-https://github.blog/changelog/2024-05-13-dependabot-core-is-now-open-source-with-an-mit-license/
 
 # know-how 🎓
 
@@ -125,8 +150,6 @@ TypeScript の Lint ツールとして有名なのは間違いなく ESLint で�
 すぐに解決する問題ではなさそうですが、TypeScript 5.5 に予定されている `--isolatedDeclarations` は少し期待ですね。
 
 生産性向上チームでは ESLint v9 へのアップデートに苦労しており、いっそ ESLint の代わりに Biome への乗り換えを試し始めているところでした。 `no-floating-promises` のような便利だが型情報を必要とするルールについて Biome では諦めざるを得ないと思っていたところなので非常にタイムリーな話題でした。
-
-
 
 _本項の執筆者: [@Kesin11](https://zenn.dev/kesin11)_
 
@@ -185,15 +208,44 @@ _本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)_
 ## zenncast - 技術トレンドをAIがラジオに変換
 https://zenncast-web.vercel.app/
 
-## ［速報］Google、Geminiベースの新WebIDE「Project IDX」をオープンベータで公開
-https://www.publickey1.jp/blog/24/googlegeminiwebideproject_idx.html
+Zenn のトレンド記事を AI を使ってまとめ、ラジオとして配信するサービス zenncast が公開されました。なんと毎日更新です。
+毎朝 10 分程度で、Zenn のトレンドに上がった記事を 5 つピックアップし、本当のラジオのように紹介してくれます。通勤・通学中に聞くのに良さそうですね。
+
+僕もちょくちょく聴いてるのですが、まるで本当のラジオのようでとてもびっくりしました。お便りも読んでくれます。
+Web 上だけでなく、Spotify や Apple Podcasts でも配信されているため聴くためのハードルは低いです。
+
+なお、作者による技術構成の解説記事も公開されています。ChatGPT のような AI を使って何かをする際の参考になると思います。
+
+- [AIラジオ『zenncast』の技術構成（プロンプトつき）](https://zenn.dev/himara2/articles/db054d81b05d19)
+
+とても面白い試みだと思いました。サービスの内容自体も勉強になるので、気になる人は聴いてみてください。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 # read more 🍘
 Productivity Weekly で出たネタを全て紹介したいけど紹介する体力が持たなかったネタを一言程度で書くコーナーです。
 
+<!-- textlint-disable @proofdict/proofdict -->
+
 - **news 📺**
-- **know-how 🎓**
+  - [Hello GPT-4o | OpenAI](https://openai.com/index/hello-gpt-4o/)
+    - OpenAI で GPT-4o が利用できるようになりました
+    - GPT-4 より高速で、かつ、音声や動画などの複数の種類や形式のデータに対応しているとか
+    - ChatGPT の無料版でもリミットが来るまでは利用できるのですが、確かに応答が非常に速くなっていました
+    - また、API 使用料金もその他のモデルより安く、GPT-4、GPT-4 Turbo と比べて半分以下の価格で利用できます
+    - 実は本記事でもレビューに GPT-4o を使ってみるようにしました
+      - [さっそく誤字を発見してくれています](https://github.com/korosuke613/zenn-articles/pull/694#discussion_r1618305678)
+      - いつかその内容で記事を書いてみたいですね
+  - [dependabot-core is now open source with an MIT license - The GitHub Blog](https://github.blog/changelog/2024-05-13-dependabot-core-is-now-open-source-with-an-mit-license/)
+    - Dependabot のコア機能が MIT ライセンスでオープンソース化されました
+    - コミュニティが Dependabot に貢献しやすくなったほか、Dependabot のコア機能を使った新しいツールを作成・利用することも可能になりました
 - **tool 🔨**
+  - [［速報］Google、Geminiベースの新WebIDE「Project IDX」をオープンベータで公開](https://www.publickey1.jp/blog/24/googlegeminiwebideproject_idx.html)
+    - Google が新しい WebIDE「Project IDX」をオープンベータで公開しました
+    - VSCode の OSS 版をベースにされており、ローカルマシンではなく Google Cloud 上のインスタンスで動作し、ブラウザから利用できるようになっています
+    - Android や iOS のための Web プレビュー機能や AI アシスタントの Gemini が統合されていたりと、気になる機能が搭載されています
+
+<!-- textlint-enable @proofdict/proofdict -->
 
 # あとがき
 
