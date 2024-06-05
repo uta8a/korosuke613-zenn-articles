@@ -66,7 +66,7 @@ _本項の執筆者: [@Kesin11](https://zenn.dev/kesin11)_
 ## Actions: Upcoming changes to GitHub-hosted macOS runners - The GitHub Blog
 https://github.blog/changelog/2024-05-20-actions-upcoming-changes-to-github-hosted-macos-runners/
 
-GitHub Actions において、macOS ランナーの最近・今後の変更が発表されました。これまで発表されてた内容と被る部分が多いですが、今後の変更がまとまってます。
+GitHub Actions において、macOS ランナーの最近・今後の変更が発表されました。これまで発表されていた内容と被る部分が多いですが、今後の変更がまとまっています。
 
 - 全ての `macos-latest` が macOS 14 を使うようになった
 - macOS 11 の削除が 6/28 に決定
@@ -94,7 +94,7 @@ GitHub Copilot に Extensions 機能が追加されました（リミテッド�
 
 Copilot Extensions は、Copilot に特定のサービスやツールを統合するための機能です。例えば、[Docker extension](https://www.docker.com/blog/preview-docker-extension-for-github-copilot/) の場合、Docker に関する質問への回答の精度が上がるだけでなく、リポジトリの内容から Dockerfile を生成させてそのままプルリクエストを作成させるや、Docker Scout を使って脆弱性の検出をさせることもできるようです。
 
-他にも、Microsoft 365 や Sentry、DataStax などのサービスが拡張機能の提供に名乗りを上げています。
+他には、Microsoft 365 や Sentry、DataStax などのサービスが拡張機能の提供に名乗りを上げています。
 現段階で利用できる Copilot Extensions は次の通りです。
 
 ![](/images/productivity-weekly-20240522/github_copilot_extensions.png)
