@@ -129,6 +129,8 @@ JavaScript/TypeScript で GitHub Actions を開発する際のノウハウを紹
 
 特に面白かったのは Action の利用者に Branch でのバージョン指定をできなくしている点です。Action 利用のベストプラクティスを Action の公開側が提供するのは親切でとても良いですね。
 
+_本項の執筆者: [@r4mimu](https://zenn.dev/r4mimu)_
+
 ## GitHub Actionsの痒いところを埋めるサードパーティーランナー - Speaker Deck
 https://speakerdeck.com/dora1998/github-actionsnoyang-itokorowomai-merusadopateiranna
 
@@ -136,6 +138,8 @@ GitHub Actions を実行するランナーには GitHub が提供する公式ラ
 料金面やマシンスペック、CPU アーキテクチャに関しては GitHub 公式ランナーよりも優位性がありますが Cache や Artifact が遅いことやセキュリティ上の懸念にも触れられています。
 
 個人的には [Namespace](https://namespace.so/docs/actions/nscloud-setup) のランナーは CPU やメモリ使用率が見られるダッシュボードがあるのが面白いと思いました。GitHub 公式も提供して欲しいですね。
+
+_本項の執筆者: [@r4mimu](https://zenn.dev/r4mimu)_
 
 ## E2Eテストワークフローを高速化・安定化させる取り組み | ドクセル
 https://www.docswell.com/s/r4mimu/ZXYR73-2024-05-16-184345
@@ -161,7 +165,7 @@ Productivity Weekly で出たネタを全て紹介したいけど紹介する体
 _本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 # あとがき
-
+今週号でした。GitHub の話題が多いですね（いつものこと）。今 2 週間遅れを繰り返してて良くないので遅れを取り戻したいです。
 
 サイボウズの生産性向上チームでは社内エンジニアの開発生産性を上げるための活動を行なっています。そんな生産性向上チームが気になる方は下のリンクをクリック！
 https://speakerdeck.com/cybozuinsideout/engineering-productivity-team-recruitment-information
