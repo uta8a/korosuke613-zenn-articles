@@ -1,5 +1,5 @@
 ---
-title: ＜ここにタイトルを入力＞｜Productivity Weekly(2024-05-22)
+title: ActionsのデフォルトNode.jsメジャーバージョン変更が延期など｜Productivity Weekly(2024-05-22)
 emoji: 🥠
 type: idea
 topics:
@@ -120,9 +120,6 @@ _本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 # know-how 🎓
 
-## AIラジオ『zenncast』の技術構成（プロンプトつき）
-https://zenn.dev/himara2/articles/db054d81b05d19
-
 ## TypeScript Custom GitHub Action Development Tips - Speaker Deck
 https://speakerdeck.com/peaceiris/typescript-custom-github-action-development-tips
 
@@ -135,13 +132,16 @@ https://www.docswell.com/s/r4mimu/ZXYR73-2024-05-16-184345
 # read more 🍘
 Productivity Weekly で出たネタを全て紹介したいけど紹介する体力が持たなかったネタを一言程度で書くコーナーです。
 
-- **news 📺**
-  - [New agent capabilities in Microsoft Copilot unlock business value | Microsoft 365 Blog](https://www.microsoft.com/en-us/microsoft-365/blog/2024/05/21/new-agent-capabilities-in-microsoft-copilot-unlock-business-value/)
-- **know-how 🎓**
 - **tool 🔨**
   - [@power-assert/node: power-assert custom hook for Node Test Runner](https://github.com/twada/power-assert-monorepo/tree/main/packages/node)
     - > Node.jsが自前でテスティングフレームワークやassert関数、ESM読み込み時のカスタムフックなどを備える時代になったので、--importするだけで動くpower-assertを作りました
     https://x.com/t_wada/status/1792394995498205185
+    - t-wada さんが、Node.js の assert 関数を拡張する power-assert というツールを公開してました
+    - power-assert は assert 関数の引数に渡された値や式の評価を細かく可視化してくれるツールです
+    - インストールして使うだけでなく、Node.js 実行時に `--import @power-assert/node` とすることで、assert 関数を power-assert に置き換えられるようです。便利
+    - assert 関数を使う際は覚えておきたいですね
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 # あとがき
 
