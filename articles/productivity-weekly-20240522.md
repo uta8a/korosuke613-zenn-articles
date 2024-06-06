@@ -37,7 +37,7 @@ user_defined:
 - [@korosuke613](https://zenn.dev/korosuke613)
 <!-- - [@defaultcf](https://zenn.dev/defaultcf) -->
 - [@Kesin11](https://zenn.dev/kesin11)
-<!-- - [@r4mimu](https://zenn.dev/r4mimu) -->
+- [@r4mimu](https://zenn.dev/r4mimu)
 <!-- - [@uta8a](https://zenn.dev/uta8a) -->
 
 :::
@@ -120,14 +120,31 @@ _本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 # know-how 🎓
 
+2024/05/16 に開催された [GitHub Actions Meetup Tokyo #3](https://gaugt.connpass.com/event/317178/) での LT 資料が公開されています。
+
 ## TypeScript Custom GitHub Action Development Tips - Speaker Deck
 https://speakerdeck.com/peaceiris/typescript-custom-github-action-development-tips
+
+JavaScript/TypeScript で GitHub Actions を開発する際のノウハウを紹介しています。テストの書き方、便利ライブラリ、リリース戦略などが紹介されています。
+
+特に面白かったのは Action の利用者に Branch でのバージョン指定をできなくしている点です。Action 利用のベストプラクティスを Action の公開側が提供するのは親切でとても良いですね。
 
 ## GitHub Actionsの痒いところを埋めるサードパーティーランナー - Speaker Deck
 https://speakerdeck.com/dora1998/github-actionsnoyang-itokorowomai-merusadopateiranna
 
+GitHub Actions を実行するランナーには GitHub が提供する公式ランナー以外に、自前でランナーを用意する [Self-hosted runner](https://docs.github.com/en/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners) があります。この Self-hosted runner の仕組みを利用して、ランナーを提供するプロバイダーがいくつかあり、それらのサービスのランナーを紹介しています。CPU アーキテクチャ、マシンスペック、料金体系、起動時間などについて比較してくださっており、導入時の参考になります。
+料金面やマシンスペック、CPU アーキテクチャに関しては GitHub 公式ランナーよりも優位性がありますが Cache や Artifact が遅いことやセキュリティ上の懸念にも触れられています。
+
+個人的には [Namespace](https://namespace.so/docs/actions/nscloud-setup) のランナーは CPU やメモリ使用率が見られるダッシュボードがあるのが面白いと思いました。GitHub 公式も提供して欲しいですね。
+
 ## E2Eテストワークフローを高速化・安定化させる取り組み | ドクセル
 https://www.docswell.com/s/r4mimu/ZXYR73-2024-05-16-184345
+
+GitHub Actions の Self-hosted runner 上で実行している E2E テストの高速化・安定化についての取り組みについて [@r4mimu](https://zenn.dev/r4mimu) が発表しました。
+ワークフローのボトルネックを計測し、それに対して実行時間と失敗率の 2 つの観点から改善をした取り組みを紹介しています。
+具体的には、テストに用いる Docker image のキャッシュ、パッケージのキャッシュ、ワークフローの自動リトライ、テストケースの再実行戦略の導入などを紹介していますので、よかったらご覧ください。
+
+_本項の執筆者: [@r4mimu](https://zenn.dev/r4mimu)_
 
 # read more 🍘
 Productivity Weekly で出たネタを全て紹介したいけど紹介する体力が持たなかったネタを一言程度で書くコーナーです。
