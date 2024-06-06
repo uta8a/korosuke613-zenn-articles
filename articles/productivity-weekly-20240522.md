@@ -1,5 +1,5 @@
 ---
-title: ＜ここにタイトルを入力＞｜Productivity Weekly(2024-05-22)
+title: ActionsのデフォルトNode.jsメジャーバージョン変更が延期など｜Productivity Weekly(2024-05-22)
 emoji: 🥠
 type: idea
 topics:
@@ -66,19 +66,59 @@ _本項の執筆者: [@Kesin11](https://zenn.dev/kesin11)_
 ## Actions: Upcoming changes to GitHub-hosted macOS runners - The GitHub Blog
 https://github.blog/changelog/2024-05-20-actions-upcoming-changes-to-github-hosted-macos-runners/
 
+GitHub Actions において、macOS ランナーの最近・今後の変更が発表されました。これまで発表されていた内容と被る部分が多いですが、今後の変更がまとまっています。
+
+- 全ての `macos-latest` が macOS 14 を使うようになった
+- macOS 11 の削除が 6/28 に決定
+  - ユーザに削除を意識させるために、6/17, 19, 24, 26 の特定の時間（EST）に macOS 11 ランナーが使えなくなる
+  - 以前から 2024/06 末までに削除することは告知されていた
+- macOS ランナーの IP レンジを確認できるようになった
+  - [GET /meta](https://docs.github.com/en/rest/meta/meta?apiVersion=2022-11-28#get-github-meta-information) の API レスポンスに含まれる、`actions_macos` を参照することで取得できる
+    - ```json:gh api /meta
+        "actions_macos": [
+          "13.105.117.0/31",
+          "13.105.117.10/31",
+          "13.105.117.100/31",
+          "13.105.117.102/31",
+      ```
+  - IP アドレスは不変ではないことに注意
+
+特に macOS 11 ランナーを利用している人は早く移行するようにしましょう。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
+
 ## Introducing GitHub Copilot Extensions: Unlocking unlimited possibilities with our ecosystem of partners - The GitHub Blog
 https://github.blog/2024-05-21-introducing-github-copilot-extensions/
 
-## Preview the Docker Extension for GitHub Copilot | Docker
-https://www.docker.com/blog/preview-docker-extension-for-github-copilot/
+GitHub Copilot に Extensions 機能が追加されました（リミテッドパブリックベータ）。
 
-## New agent capabilities in Microsoft Copilot unlock business value | Microsoft 365 Blog
-https://www.microsoft.com/en-us/microsoft-365/blog/2024/05/21/new-agent-capabilities-in-microsoft-copilot-unlock-business-value/
+Copilot Extensions は、Copilot に特定のサービスやツールを統合するための機能です。例えば、[Docker extension](https://www.docker.com/blog/preview-docker-extension-for-github-copilot/) の場合、Docker に関する質問への回答の精度が上がるだけでなく、リポジトリの内容から Dockerfile を生成させてそのままプルリクエストを作成させるや、Docker Scout を使って脆弱性の検出をさせることもできるようです。
+
+他には、Microsoft 365 や Sentry、DataStax などのサービスが拡張機能の提供に名乗りを上げています。
+現段階で利用できる Copilot Extensions は次の通りです。
+
+![](/images/productivity-weekly-20240522/github_copilot_extensions.png)
+*https://github.com/marketplace?type=apps&copilot_app=true*
+
+しかし、この機能はまだリミテッドパブリックベータであり、だんだんと使えるユーザが増えてくるようです[^private_beta]。
+なお、Copilot Business、Copilot Enterprise を利用している場合、Organization レベルで Copilot Extensions をインストールする必要があるようです。
+
+> Anyone can install a Copilot Extension on their personal account. However, if they get access to Copilot through a Copilot Business or Copilot Enterprise subscription, they will only be able to use the extension if it is installed at the organization level.
+https://docs.github.com/ja/copilot/github-copilot-chat/github-copilot-extensions/installing-github-copilot-extensions-for-your-organization#about-installing-github-copilot-extensions-for-your-organization
+
+また関連する情報として、今回の Copilot Extensions は[自前で実装することも可能なようです](https://code.visualstudio.com/api/extension-guides/chat)。こちらに関しては、試してみた方が記事を書いており、どんなものなのかわかりやすいです。
+
+- [GitHub Copilotをカスタムできる? VS CodeのChat extensionsとは](https://zenn.dev/yuma_prog/articles/vscode-chat-extension)
+
+GitHub Copilot を 3rd party が拡張できるようになることで、より多くのユースケースに対応できるようになりますね。僕も触ってみたいものです。
+
+Copilot Extensions について詳しく知りたい方は[ドキュメント](https://docs.github.com/ja/copilot/github-copilot-chat/github-copilot-extensions/about-github-copilot-extensions)も参照ください。
+
+[^private_beta]: それはもう private beta と読んでもいいんじゃないのと思った。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 # know-how 🎓
-
-## AIラジオ『zenncast』の技術構成（プロンプトつき）
-https://zenn.dev/himara2/articles/db054d81b05d19
 
 ## TypeScript Custom GitHub Action Development Tips - Speaker Deck
 https://speakerdeck.com/peaceiris/typescript-custom-github-action-development-tips
@@ -89,20 +129,19 @@ https://speakerdeck.com/dora1998/github-actionsnoyang-itokorowomai-merusadopatei
 ## E2Eテストワークフローを高速化・安定化させる取り組み | ドクセル
 https://www.docswell.com/s/r4mimu/ZXYR73-2024-05-16-184345
 
-# tool 🔨
-
-## @power-assert/node: power-assert custom hook for Node Test Runner
-https://github.com/twada/power-assert-monorepo/tree/main/packages/node
-
-> Node.jsが自前でテスティングフレームワークやassert関数、ESM読み込み時のカスタムフックなどを備える時代になったので、--importするだけで動くpower-assertを作りました
-https://x.com/t_wada/status/1792394995498205185
-
 # read more 🍘
 Productivity Weekly で出たネタを全て紹介したいけど紹介する体力が持たなかったネタを一言程度で書くコーナーです。
 
-- **news 📺**
-- **know-how 🎓**
 - **tool 🔨**
+  - [@power-assert/node: power-assert custom hook for Node Test Runner](https://github.com/twada/power-assert-monorepo/tree/main/packages/node)
+    - > Node.jsが自前でテスティングフレームワークやassert関数、ESM読み込み時のカスタムフックなどを備える時代になったので、--importするだけで動くpower-assertを作りました
+    https://x.com/t_wada/status/1792394995498205185
+    - t-wada さんが、Node.js の assert 関数を拡張する power-assert というツールを公開してました
+    - power-assert は assert 関数の引数に渡された値や式の評価を細かく可視化してくれるツールです
+    - インストールして使うだけでなく、Node.js 実行時に `--import @power-assert/node` とすることで、assert 関数を power-assert に置き換えられるようです。便利
+    - assert 関数を使う際は覚えておきたいですね
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 # あとがき
 
