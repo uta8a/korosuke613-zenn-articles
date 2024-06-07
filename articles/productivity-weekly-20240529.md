@@ -56,7 +56,7 @@ https://aws.amazon.com/jp/about-aws/whats-new/2024/05/application-load-balancer-
 ## Truly fast container filesystems on macOS
 https://orbstack.dev/blog/fast-filesystem
 
-OrbStack v1.6 のアップデートでファイルシステムが新しくなり、パフォーマンスを 2~5 倍に向上させ、macOS ネイティブの 75~95% のパフォーマンスを実現したそうです。アップデート前に念の Issue を確認するのが良いかもしれません。
+OrbStack v1.6 のアップデートでファイルシステムが新しくなり、パフォーマンスを 2~5 倍に向上させ、macOS ネイティブの 75~95% のパフォーマンスを実現したそうです。アップデート前に念のため Issue を確認するのが良いかもしれません。
 公式ブログにネイティブとのベンチマーク結果の比較がありますので、気になる方はご覧ください。
 
 OrbStack は速さという観点では圧倒的ですね。
