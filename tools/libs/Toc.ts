@@ -1,4 +1,4 @@
-import { Token, Tokens } from "npm:marked";
+import { Token, Tokens } from "../deps.ts";
 import { Category, isCategory } from "./Category.ts";
 
 export type Toc = {

@@ -1,6 +1,6 @@
 // deno run --allow-env --allow-write=./rdjson.json --allow-read=./articles --allow-net=api.openai.com ./tools/reviewWithAi.ts ./articles/productivity-weekly-20230726.md
 
-import OpenAI from "https://deno.land/x/openai@v4.47.1/mod.ts";
+import { OpenAI } from "./deps.ts";
 import { AiReviewer } from "./libs/AiReviewer.ts";
 import { extractContents } from "./libs/lib.ts";
 

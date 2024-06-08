@@ -1,5 +1,5 @@
 import { isCategory } from "../libs/Category.ts";
-import { assertEquals } from "https://deno.land/std/testing/asserts.ts";
+import { assertEquals } from "../deps_dev.ts";
 
 Deno.test("isCategory", async (t) => {
   await t.step("should return true when the string includes a category", () => {
