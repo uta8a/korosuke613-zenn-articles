@@ -37,10 +37,20 @@ jobs:
           cat ${{ env.PR_JSON }}
           BASE_REF_NAME="$(jq -r .baseRefName <${{ env.PR_JSON }})"
           set -x
+
+          # 常に main ブランチの tools を利用するために一時的に tools をコピー
+          mkdir -p ${{ runner.temp }}/ai-review
+          \cp -r ./tools ./deno.lock ${{ runner.temp }}/ai-review
+
+          # PR のブランチに切り替える
           git fetch --update-head-ok origin "$BASE_REF_NAME:$BASE_REF_NAME"
           gh pr checkout --branch ${{ env.HEAD_BRANCH }} ${{ inputs.pr_number }}
           git branch
           echo "latest_git_sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
+          # PR のブランチに tools をコピー
+          \cp -r ${{ runner.temp }}/ai-review .
+
           set +x
           echo "base_ref_name=${BASE_REF_NAME}" >> "$GITHUB_OUTPUT"
           echo "head_ref_name=${{ env.HEAD_BRANCH }}" >> "$GITHUB_OUTPUT"
