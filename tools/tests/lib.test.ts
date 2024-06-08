@@ -1,4 +1,4 @@
-import { assertEquals } from "https://deno.land/std/testing/asserts.ts";
+import { assertEquals } from "../deps_dev.ts";
 import { extractContents, getGitDiffWeeklyFiles } from "../libs/lib.ts";
 import { grepWeeklyEmoji } from "../libs/lib.ts";
 
