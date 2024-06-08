@@ -1,0 +1,43 @@
+name: Setup Deno
+description: Set up Deno environment
+
+inputs:
+  deno-version:
+    description: "The version of Deno to install"
+    required: false
+    default: "v1.x"
+  lock-write:
+    description: "The path to the lock file to write"
+    required: false
+    default: "./tools/deps_dev.ts"
+  no-deps:
+    description: "Whether to skip installing dependencies"
+    required: false
+    default: "false"
+
+runs:
+  using: "composite"
+  steps:
+    - name: Setup DENO_DIR
+      if: inputs.no-deps == 'false'
+      shell: bash
+      run: |
+        mkdir -p ${{ runner.temp }}/deno-cache
+        echo "DENO_DIR=${{ runner.temp }}/deno-cache" >> $GITHUB_ENV
+
+    - uses: denoland/setup-deno@v1 # v1.1.3
+      with:
+        deno-version: ${{ inputs.deno-version }}
+
+    - name: Cache Deno dependencies
+      if: inputs.no-deps == 'false'
+      uses: actions/cache@v4
+      with:
+        path: ${{ env.DENO_DIR }}
+        key: deno-${{ hashFiles('./deno.lock') }}
+
+    - name: Cache Deno mods
+      if: inputs.no-deps == 'false'
+      shell: bash
+      run: |
+        deno cache --reload --lock=./deno.lock --lock-write ${{ inputs.lock-write }}
