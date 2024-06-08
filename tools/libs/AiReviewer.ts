@@ -1,11 +1,11 @@
-import type OpenAI from "https://deno.land/x/openai@v4.47.1/mod.ts";
-import type {
+import { DiagnosticResult } from "./ReviewDogJsonLine.ts";
+import {
   ChatCompletionCreateParamsNonStreaming,
   CompletionUsage,
-} from "https://deno.land/x/openai@v4.47.1/resources/mod.ts";
-import { DiagnosticResult } from "./ReviewDogJsonLine.ts";
-import * as log from "https://deno.land/std@0.224.0/log/mod.ts";
-import { LogRecord } from "https://deno.land/std@0.224.0/log/mod.ts";
+  log,
+  LogRecord,
+  OpenAI,
+} from "../deps.ts";
 
 export type ReviewResult = {
   review: {

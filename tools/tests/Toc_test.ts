@@ -1,7 +1,7 @@
 // BEGIN: 9f5d5d7d6d4d
-import { assertEquals } from "https://deno.land/std/testing/asserts.ts";
+import { assertEquals } from "../deps_dev.ts";
 import { TocBuilder } from "../libs/Toc.ts";
-import { Token } from "npm:marked";
+import { Token } from "../deps.ts";
 
 Deno.test("TocBuilder", async (t) => {
   await t.step("registerHeadings should register headings", () => {

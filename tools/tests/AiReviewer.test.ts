@@ -1,9 +1,6 @@
-import {
-  assertEquals,
-  assertRejects,
-} from "https://deno.land/std@0.167.0/testing/asserts.ts";
+import { OpenAI } from "../deps.ts";
+import { assertEquals, assertRejects } from "../deps_dev.ts";
 import { AiReviewer, type ReviewResult } from "../libs/AiReviewer.ts";
-import type OpenAI from "https://deno.land/x/openai@v4.47.1/mod.ts";
 import { DiagnosticResult } from "../libs/ReviewDogJsonLine.ts";
 
 Deno.test("AiReviewer should throw an error if there is no response from OpenAI", () => {
