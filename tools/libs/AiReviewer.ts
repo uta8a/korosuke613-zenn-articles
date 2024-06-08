@@ -275,15 +275,19 @@ export class AiReviewer {
     for (const comment of reviewResult.review) {
       const errorLine = comment.error_line;
       const revisedLine = comment.revised_line;
-      const line = markdown.split("\n").findIndex((l) =>
-        l.includes(errorLine)
-      ) + 1; // 1行目から始まるため +1
+      const lines = markdown.split("\n");
+      const line = lines.findIndex((l) => l.includes(errorLine)) + 1; // 1行目から始まるため +1
       if (line === 0) {
         if (this.options.logging) {
-          log.warn(`error line not found: ${errorLine}`);
+          log.warn(`line not found: ${errorLine}`);
         }
         continue;
       }
+
+      const replacedLine = lines[line - 1].replace(
+        errorLine,
+        revisedLine,
+      );
 
       const range = {
         start: { line },
@@ -299,7 +303,7 @@ export class AiReviewer {
         suggestions: [
           {
             range,
-            text: revisedLine,
+            text: replacedLine,
           },
         ],
       });
