@@ -49,7 +49,8 @@ jobs:
           echo "latest_git_sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
 
           # PR のブランチに tools をコピー
-          \cp -rf ${{ runner.temp }}/ai-review .
+          \cp -f ${{ runner.temp }}/ai-review/deno.lock .
+          \cp -rf ${{ runner.temp }}/ai-review/tools .
           ls deno.lock tools
 
           set +x
