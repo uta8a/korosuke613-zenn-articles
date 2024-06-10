@@ -157,5 +157,21 @@
     "https://deno.land/x/openai@v4.47.1/streaming.ts": "04f85a25d5143758473521223e58003a59cc617fa57755e5a62ba96741cb50ef",
     "https://deno.land/x/openai@v4.47.1/uploads.ts": "33857c766326193dd038ca77382f3b361ef92038a938de312f3f95aa77531a46",
     "https://deno.land/x/openai@v4.47.1/version.ts": "a0fe547151f0a3c5e18b3a2389741f8858e12350bf06b43eac30dc20c4bc71f2"
+  },
+  "workspace": {
+    "packageJson": {
+      "dependencies": [
+        "npm:@proofdict/textlint-rule-proofdict@3.1.2",
+        "npm:prh@5.4.4",
+        "npm:renovate@37.377.6",
+        "npm:textlint-filter-rule-comments@1.2.2",
+        "npm:textlint-rule-preset-ja-spacing@2.4.3",
+        "npm:textlint-rule-preset-ja-technical-writing@10.0.1",
+        "npm:textlint-rule-prh@5.3.0",
+        "npm:textlint-rule-spellcheck-tech-word@5.0.0",
+        "npm:textlint@14.0.4",
+        "npm:zenn-cli@0.1.153"
+      ]
+    }
   }
 }

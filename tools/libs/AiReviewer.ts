@@ -42,6 +42,7 @@ export class AiReviewer {
 - セルフホストランナーは修正しない
 - 箇条書きの場合、文の終わりに句読点は不要
 - 文体の統一は指摘しないで良い
+- 読点の修正はしない
 
 出力は、5個以下とし、より優先的に修正すべきものを出力してください。
 また、markdown形式ではなく、以下のようなJSON形式で出力してください。reason には修正の理由を記述してください。
@@ -247,6 +248,16 @@ export class AiReviewer {
       }
       throw e;
     }
+
+    // 対象文（error_line）と修正文（revised_line）が同じ場合は修正が行われていないため、除外する
+    result.review = result.review.filter((comment) => {
+      if (comment.error_line !== comment.revised_line) return true;
+      if (this.options.logging) {
+        log.warn(
+          `Removed unchanged comment: ${comment.error_line} -> ${comment.revised_line}`,
+        );
+      }
+    });
 
     AiReviewer.validateReviewResult(result);
 
