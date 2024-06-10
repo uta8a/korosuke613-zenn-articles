@@ -87,6 +87,45 @@ Deno.test("AiReviewer should validate and return the review result", async () =>
   assertEquals(result, expected);
 });
 
+Deno.test("AiReviewer should exclude same suggest", async () => {
+  const openaiMock = {
+    chat: {
+      completions: {
+        create: () => {
+          return {
+            choices: [
+              {
+                message: {
+                  content: JSON.stringify({
+                    review: [
+                      {
+                        error_line: "Original line 2",
+                        revised_line: "Original line 2",
+                        reason: "Reason 2",
+                      },
+                    ],
+                  }),
+                },
+              },
+            ],
+          };
+        },
+      },
+    },
+  };
+
+  const aiReviewer = new AiReviewer(openaiMock as unknown as OpenAI, {
+    logging: false,
+  });
+  const markdown = "Sample markdown";
+  const expected: ReviewResult = {
+    review: [],
+  };
+  const result = await aiReviewer.review(markdown);
+
+  assertEquals(result, expected);
+});
+
 Deno.test("AiReviewer should replace error lines in the markdown", () => {
   const markdown = `
     Line 1
