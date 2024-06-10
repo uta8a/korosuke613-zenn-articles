@@ -47,7 +47,16 @@ user_defined:
 ## Sunset Notice - Projects (classic) - The GitHub Blog
 https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/
 
-## Runner now supports spot instances
+旧 GitHub Projects こと、Projects (classic) の終了が発表されました。
+
+GitHub.com においては、2024/08/23 に終了予定で、まだ移行されていない Projects (classic) は自動で新しい Projects に移行されるとのことです。なお、すでに新しい Projects へのマイグレーションはワンクリックでできます。
+
+GitHub Enterprise Server (GHES) においては、バージョン 3.14 より新しい Projects へのマイグレーションがワンクリックで可能になります。そして、バージョン 3.15 で Projects (classic) が削除される予定です。GitHub.com の場合と違い、Projects の自動移行については言及されていないため、安全を取ってバージョン 3.14 で手動マイグレーションを行うのが良いと思います。
+
+特に GHES 利用者は GHES のバージョンに関わるため移行タイミングが難しいと思います。システム管理者と連携して移行計画を立てましょう。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
+
 https://circleci.com/changelog/runner-3-0-22-release/
 
 ## Application Load Balancer がインターネットクライアント向けに IPv6 のみでのサポートを開始
