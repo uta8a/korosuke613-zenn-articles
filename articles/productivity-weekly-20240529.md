@@ -57,7 +57,21 @@ GitHub Enterprise Server (GHES) においては、バージョン 3.14 より新
 
 _本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
+## Runner now supports spot instances - CircleCI Changelog
 https://circleci.com/changelog/runner-3-0-22-release/
+
+CircleCI のコンテナ上で動くセルフホストランナーにおいて、Pod の予期せぬ終了時にタスクを自動的に再実行できるようになりました。
+
+例えば Amazon EC2 のスポットインスタンスは安い代わりに AWS によって終了させられるリスクがあります。そういったスポットインスタンス上でコンテナのセルフホストランナーを実行している際、これまでは、スポットインスタンスが終了したらタスクを手動で再実行する必要がありました。今回追加された機能を有効化することで、タスクの再実行が自動でできます。
+
+リソースクラスごとに `enableUnsafeRetries: true` を設定することで有効化できます。
+ちなみに、この機能は unsafe retries と呼ばれています。unsafe という名前がついている通り、リトライは安全とは限りません。もしタスクが副作用を持つ場合、リトライすることで問題が発生する可能性があります。リトライ対象のタスクはユーザーで吟味する必要があります。
+
+詳しくは[ドキュメント](https://circleci.com/docs/container-runner/#unsafe-retries)を参照ください。
+
+良い機能ですね。タスクのインフラ起因でタスクが失敗し、手動で再実行しなければならないのは面倒です。CircleCI 側で自動で再実行してくれるのはありがたいですね。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 ## Application Load Balancer がインターネットクライアント向けに IPv6 のみでのサポートを開始
 https://aws.amazon.com/jp/about-aws/whats-new/2024/05/application-load-balancer-ipv6-internet-clients/
