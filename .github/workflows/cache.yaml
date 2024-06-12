@@ -1,0 +1,25 @@
+name: Cache
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  cache:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Cache Npm deps
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: .tool-versions
+          cache: 'npm'
+
+      - name: Install Npm deps
+        run: npm ci
+
+      # Deno は ci-deno を main ブランチで実行しているため、ここでのキャッシュは不要
+      # - name: Install and Cache Deno deps
+      #   uses: ./.github/actions/setup-deno

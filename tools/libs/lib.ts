@@ -1,4 +1,4 @@
-import matter from "npm:gray-matter";
+import { matter } from "../deps.ts";
 
 const _gitExecutor = async () => {
   const cmd = new Deno.Command("git", {

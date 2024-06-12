@@ -1,6 +1,6 @@
-import { assertEquals } from "https://deno.land/std/testing/asserts.ts";
+import { assertEquals } from "../deps_dev.ts";
 import { Git } from "../libs/Git.ts";
-import { join } from "https://deno.land/std/path/mod.ts";
+import { join } from "../deps.ts";
 
 const __dirname = new URL(".", import.meta.url).pathname;
 

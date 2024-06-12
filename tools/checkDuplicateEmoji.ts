@@ -1,5 +1,5 @@
 // deno run --allow-read --allow-run=git,grep ./tools/checkDuplicateEmoji.ts
-import matter from "npm:gray-matter";
+import { matter } from "./deps.ts";
 import { getGitDiffWeeklyFiles, grepWeeklyEmoji } from "./libs/lib.ts";
 
 const main = async () => {

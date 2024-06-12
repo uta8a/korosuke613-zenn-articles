@@ -102,7 +102,9 @@ _本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 https://blog.1password.com/sdk-beta/
 
 1Password の SDK が Beta で登場しました。
-1Password には REST API が提供されていません。それを実現しようとしてしまうと、1Password のサーバー側でユーザーデータを複合できるようにしなければならないからです。ユーザーデータを複合する鍵はユーザーだけが持つモデルになっているため、今後も REST API は提供されないでしょう。
+1Password には REST API が提供されていません。それを実現しようとしてしまうと、1Password のサーバー側でユーザーデータを復号できるようにしなければならないからです。ユーザーデータを復号する鍵はユーザーだけが持つモデルになっているため、今後も REST API は提供されないでしょう[^connect_server]。
+
+[^connect_server]: 後から調べてみると、Connect Server という仕組みを使えば REST API を使用できたようです。今回の SDK の登場により、Connect Server 無しに SDK 経由でのアプリケーション実装が可能になりそうです。 https://developer.1password.com/docs/connect/
 
 今までプログラマブルに 1Password に保存されたユーザーデータを扱う方法は CLI がありましたが、今回 SDK が公開されたことで任意のアプリケーションに容易に組み込むことが可能になりました。
 現在は Go, JavaScript, Python 用に SDK が提供されています。
@@ -199,8 +201,10 @@ Suggestion:
   git stash save "Stash changes: src/index.ts - changed motivation"
 ```
 
-タイプ数を少なくできましたね。
-またプロンプトは工夫が必要そうです。色々工夫して、生産性を上げたいですね。
+さらにシェルの方で今回のコードを `stash` というエイリアスにして作っておけば、stash と打つだけで差分からメッセージ付きの stash を作るコマンドを出してくれるようにできそうです。
+
+ただ提案されたコマンドを見るとコード変更の動機が上手く書かれておらず、プロンプトに工夫が必要そうです。
+色々工夫して、生産性を上げたいですね。
 
 _本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)_
 
