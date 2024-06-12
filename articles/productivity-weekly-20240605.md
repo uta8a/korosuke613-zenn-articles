@@ -1,6 +1,6 @@
 ---
 title: ＜ここにタイトルを入力＞｜Productivity Weekly(2024-06-05)
-emoji: 
+emoji: 🕌
 type: idea
 topics:
   - ProductivityWeekly
