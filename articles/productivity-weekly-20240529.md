@@ -47,8 +47,31 @@ user_defined:
 ## Sunset Notice - Projects (classic) - The GitHub Blog
 https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/
 
-## Runner now supports spot instances
+旧 GitHub Projects こと、Projects (classic) の終了が発表されました。
+
+GitHub.com においては、2024/08/23 に終了予定で、まだ移行されていない Projects (classic) は自動で新しい Projects に移行されるとのことです。なお、すでに新しい Projects へのマイグレーションはワンクリックでできます。
+
+GitHub Enterprise Server (GHES) においては、バージョン 3.14 より新しい Projects へのマイグレーションがワンクリックで可能になります。そして、バージョン 3.15 で Projects (classic) が削除される予定です。GitHub.com の場合と違い、Projects の自動移行については言及されていないため、安全を取ってバージョン 3.14 で手動マイグレーションを行うのが良いと思います。
+
+特に GHES 利用者は GHES のバージョンに関わるため移行タイミングが難しいと思います。システム管理者と連携して移行計画を立てましょう。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
+
+## Runner now supports spot instances - CircleCI Changelog
 https://circleci.com/changelog/runner-3-0-22-release/
+
+CircleCI のコンテナ上で動くセルフホストランナーにおいて、Pod の予期せぬ終了時にタスクを自動的に再実行できるようになりました。
+
+例えば Amazon EC2 のスポットインスタンスは安い代わりに AWS によって終了させられるリスクがあります。そういったスポットインスタンス上でコンテナのセルフホストランナーを実行している際、これまでは、スポットインスタンスが終了したらタスクを手動で再実行する必要がありました。今回追加された機能を有効化することで、タスクの再実行が自動で行えます。
+
+リソースクラスごとに `enableUnsafeRetries: true` を設定することで有効化できます。
+ちなみに、この機能は unsafe retries と呼ばれています。unsafe という名前がついている通り、リトライは安全とは限りません。もしタスクが副作用を持つ場合、リトライすることで問題が発生する可能性があります。リトライ対象のタスクはユーザーで吟味する必要があります。
+
+詳しくは[ドキュメント](https://circleci.com/docs/container-runner/#unsafe-retries)を参照ください。
+
+良い機能ですね。タスクのインフラ起因でタスクが失敗し、手動で再実行しなければならないのは面倒です。CircleCI 側で自動で再実行してくれるのはありがたいですね。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 ## Application Load Balancer がインターネットクライアント向けに IPv6 のみでのサポートを開始
 https://aws.amazon.com/jp/about-aws/whats-new/2024/05/application-load-balancer-ipv6-internet-clients/
@@ -95,6 +118,17 @@ _本項の執筆者: [@r4mimu](https://zenn.dev/r4mimu)_
 ## esbuild 最適化芸人 - Speaker Deck
 https://speakerdeck.com/exoego/esbuild-zui-shi-hua-yun-ren
 
+esbuild によるバンドルを AWS Lambda の Node.js 向けに最適化する方法についてのスライドです。
+
+筆者はコールドスタートを早くするために esbuild の 5 つの設定を適用し、99 パーセンタイルでデフォルトの状態と比べて起動時間を 806ms 短縮しています。また、バンドルサイズは 14.5 MB から 3.0MB まで削減しています。
+それぞれの設定の適用を段階的に計測しており、どの設定がどれだけ効果的なのかがわかりやすいです。
+
+また、変更によるバンドルサイズの変化を簡単に確認できるように、exoego/esbuild-bundle-analyzer という GitHub Action を作ったとのことです。
+
+バンドルサイズがコールドスタート時間に及ぼす影響って結構大きいんだな〜と感じました。esbuild の設定は全然いじったことがないので、デフォルト設定を変更するとこんなに変わるのかと驚きました。バンドルサイズを小さくしたい場合にとても参考になりそうです。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
+
 ## Making EC2 boot time 8x faster
 https://depot.dev/blog/faster-ec2-boot-time
 
@@ -113,23 +147,56 @@ EC2 のシャットダウン中は EC2 自体の料金は発生しないため�
 
 _本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)_
 
-## AWA AndroidチームのCI/CD | CyberAgent Developers Blog
-https://developers.cyberagent.co.jp/blog/archives/48038/
-
 # tool 🔨
 
 ## awslim - Goで実装された高速なAWS CLIの代替品を作った - 酒日記 はてな支店
 https://sfujiwara.hatenablog.com/entry/2024/05/27/091630
 
-## ニューラルかな漢字変換エンジン「Zenzai」をazooKey on macOSに搭載します
-https://zenn.dev/azookey/articles/ea15bacf81521e
+Go で実装された AWS CLI の代替品 awslim の開発者による紹介記事です。
+
+[AWS CLI](https://github.com/aws/aws-cli) は Python 製の AWS 公式コマンドラインツールですが、動作が遅いです[^slow]。そのため、速く動作する代替品として awslim を開発されたようです。開発者は AWS Lambda のデプロイを簡単に行うツール fujiwara/lambroll を開発している fujiwara さんです。
+
+awslim は Go 製のシングルバイナリです。動作速度が速く、また、必要な機能のみをビルドしてバイナリサイズをコントロールできるようになっているそうです。
+速度比較の表もあり、AWS CLI と比べて圧倒的に高速であることが示されています。
+
+面白いと思ったのが awslim の作り方です。AWS の API は数多くあり、それらのインターフェースを作るのは大変です。そこで、aws-sdk-go-v2 の Client にあるメソッド一覧を Go の reflect で取得し、コードを自動生成しているとのことです。勉強になります。
+全てのサービス・機能には対応していないようですが、多くの場合で利用できそうです。
+
+さすがにそのままだとバイナリサイズがとんでもない（約 500MB）ので、必要なサービスだけ使えるようにビルドして利用するのが推奨されています。そのために簡単にビルドできる仕組みも提供されています。CI/CD 用途で使うのにもやさしいです。
+
+アプローチが面白く、劇遅の AWS CLI の代わりに使いたくなりました。
+
+> 「AWS CLIをGoで実装してシングルバイナリにしてほしい」
+> Go と AWS を使ったことがある人であれば、全員が100回ぐらい考えたことがあるんじゃないかと思います。
+
+めちゃわかります。AWS CLI 触るたびに思ってた。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
+
+[^slow]: 実際に使うと体感できますが、基本もっさりしてます。
 
 # read more 🍘
 Productivity Weekly で出たネタを全て紹介したいけど紹介する体力が持たなかったネタを一言程度で書くコーナーです。
 
-- **news 📺**
+<!-- textlint-disable ja-technical-writing/no-mix-dearu-desumasu -->
+
 - **know-how 🎓**
+  - [AWA AndroidチームのCI/CD | CyberAgent Developers Blog](https://developers.cyberagent.co.jp/blog/archives/48038/)
+    - サイバーエージェントの AWS Android チームさんによる Android 開発における CI/CD の取り組みについての記事です
+    - コードベースが大きくなるにつれ、CI（ktLint、Android Lint、ユニットテスト）が長くかかるようになったため、変更のあったモジュール、および変更のあったモジュールに依存しているモジュールを自動で抽出し、Lint 対象のモジュールを限定するようにしたとのことです
+      - この話が特に面白かったですね
+      - 関係する部分だけ対象にするやり方の事例、もっと出てほしいです
+    - 他にも共通の CD のためのワークフローの話があるなど、大規模開発の CI/CD ノウハウが詰まっている記事です
 - **tool 🔨**
+  - [ニューラルかな漢字変換エンジン「Zenzai」をazooKey on macOSに搭載します](https://zenn.dev/azookey/articles/ea15bacf81521e)
+    - macOS 向けのローカルで動作するニューラルかな漢字変換エンジン Zenzai を搭載した日本語 IME、azooKey on macOS の紹介記事です
+    - 日本語 IME の補完に GPT-2 を使っており、ローカルで推論させるというアイデアが面白かったです
+    - 記事ではどのようにエンジンを構築しているかや IME とどう統合するかが詳しく書かれています
+    - 試しに使ってみたのですが、macOS 標準 IME と比べて頭の良い変換をしてくれるパターンはちょくちょくあって面白かったです
+    - まだまだ開発中のようなので、今後の進化が楽しみです
+<!-- textlint-enable ja-technical-writing/no-mix-dearu-desumasu -->
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 # あとがき
 
