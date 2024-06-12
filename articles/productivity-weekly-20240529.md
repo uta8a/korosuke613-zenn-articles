@@ -1,5 +1,5 @@
 ---
-title: ＜ここにタイトルを入力＞｜Productivity Weekly(2024-05-29)
+title: 旧GitHub Projects終了のお知らせ。ほか最適化の話色々｜Productivity Weekly(2024-05-29)
 emoji: 👷‍♂️
 type: idea
 topics:
@@ -199,7 +199,7 @@ Productivity Weekly で出たネタを全て紹介したいけど紹介する体
 _本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 # あとがき
-
+今週号でした。最近は新入社員の方が研修の一環で生産性向上チームにチーム体験に来てくれています。新しい方がいると新鮮な意見を聞けて楽しいですね。既存社員にも嬉しい良い取り組みです。
 
 サイボウズの生産性向上チームでは社内エンジニアの開発生産性を上げるための活動を行なっています。そんな生産性向上チームが気になる方は下のリンクをクリック！
 https://speakerdeck.com/cybozuinsideout/engineering-productivity-team-recruitment-information
