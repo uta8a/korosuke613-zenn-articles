@@ -124,15 +124,35 @@ https://developers.cyberagent.co.jp/blog/archives/48038/
 ## awslim - Goで実装された高速なAWS CLIの代替品を作った - 酒日記 はてな支店
 https://sfujiwara.hatenablog.com/entry/2024/05/27/091630
 
-## ニューラルかな漢字変換エンジン「Zenzai」をazooKey on macOSに搭載します
-https://zenn.dev/azookey/articles/ea15bacf81521e
+Go で実装された AWS CLI の代替品 awslim の開発者による紹介記事です。
+
+[AWS CLI](https://github.com/aws/aws-cli) は Python 製の AWS 公式コマンドラインツールですが、動作が遅いです[^slow]。そのため、速く動作する代替品として awslim を開発されたようです。開発者は AWS Lambda のデプロイを簡単に行うツール fujiwara/lambroll を開発している fujiwara さんです。
+
+awslim は Go 製のシングルバイナリです。動作速度が速く、また、必要な機能のみをビルドしてバイナリサイズをコントロールできるようになっているそうです。
+速度比較の表もあり、AWS CLI と比べて圧倒的に高速であることが示されています。
+
+面白いと思ったのが awslim の作り方です。AWS の API は数多くあり、それらのインターフェースを作るのは大変です。そこで、aws-sdk-go-v2 の Client にあるメソッド一覧を Go の reflect で取得し、コードを自動生成しているとのことです。勉強になります。
+全てのサービス・機能には対応していないようですが、多くの場合で利用できそうです。
+
+さすがにそのままだとバイナリサイズがとんでもない（約 500MB）ので、必要なサービスだけ使えるようにビルドして利用するのが推奨されています。そのために簡単にビルドできる仕組みも提供されています。CI/CD 用途で使うのにもやさしいです。
+
+アプローチが面白く、劇遅の AWS CLI の代わりに使いたくなりました。
+
+> 「AWS CLIをGoで実装してシングルバイナリにしてほしい」
+> Go と AWS を使ったことがある人であれば、全員が100回ぐらい考えたことがあるんじゃないかと思います。
+
+めちゃわかります。AWS CLI 触るたびに思ってた。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
+
+[^slow]: 実際に使うと体感できますが、基本もっさりしてます。
 
 # read more 🍘
 Productivity Weekly で出たネタを全て紹介したいけど紹介する体力が持たなかったネタを一言程度で書くコーナーです。
 
-- **news 📺**
 - **know-how 🎓**
 - **tool 🔨**
+  - [ニューラルかな漢字変換エンジン「Zenzai」をazooKey on macOSに搭載します](https://zenn.dev/azookey/articles/ea15bacf81521e)
 
 # あとがき
 
