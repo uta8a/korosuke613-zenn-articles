@@ -116,9 +116,6 @@ _本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 ## Making EC2 boot time 8x faster
 https://depot.dev/blog/faster-ec2-boot-time
 
-## AWA AndroidチームのCI/CD | CyberAgent Developers Blog
-https://developers.cyberagent.co.jp/blog/archives/48038/
-
 # tool 🔨
 
 ## awslim - Goで実装された高速なAWS CLIの代替品を作った - 酒日記 はてな支店
@@ -150,9 +147,25 @@ _本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 # read more 🍘
 Productivity Weekly で出たネタを全て紹介したいけど紹介する体力が持たなかったネタを一言程度で書くコーナーです。
 
+<!-- textlint-disable ja-technical-writing/no-mix-dearu-desumasu -->
+
 - **know-how 🎓**
+  - [AWA AndroidチームのCI/CD | CyberAgent Developers Blog](https://developers.cyberagent.co.jp/blog/archives/48038/)
+    - サイバーエージェントの AWS Android チームさんによる Android 開発における CI/CD の取り組みについての記事です
+    - コードベースが大きくなるにつれ、CI（ktLint、Android Lint、ユニットテスト）が長くかかるようになったため、変更のあったモジュール、および変更のあったモジュールに依存しているモジュールを自動で抽出し、Lint 対象のモジュールを限定するようにしたとのことです
+      - この話が特に面白かったですね
+      - 関係する部分だけ対象にするやり方の事例、もっと出てほしいです
+    - 他にも共通の CD のためのワークフローの話があるなど、大規模開発の CI/CD ノウハウが詰まっている記事です
 - **tool 🔨**
   - [ニューラルかな漢字変換エンジン「Zenzai」をazooKey on macOSに搭載します](https://zenn.dev/azookey/articles/ea15bacf81521e)
+    - macOS 向けのローカルで動作するニューラルかな漢字変換エンジン Zenzai を搭載した日本語 IME、azooKey on macOS の紹介記事です
+    - 日本語 IME の補完に GPT-2 を使っており、ローカルで推論させるというアイデアが面白かったです
+    - 記事ではどのようにエンジンを構築しているかや IME とどう統合するかが詳しく書かれています
+    - 試しに使ってみたのですが、macOS 標準 IME と比べて頭の良い変換をしてくれるパターンはちょくちょくあって面白かったです
+    - まだまだ開発中のようなので、今後の進化が楽しみです
+<!-- textlint-enable ja-technical-writing/no-mix-dearu-desumasu -->
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 # あとがき
 
