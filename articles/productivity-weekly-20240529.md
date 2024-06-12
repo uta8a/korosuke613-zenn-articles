@@ -102,6 +102,17 @@ _本項の執筆者: [@r4mimu](https://zenn.dev/r4mimu)_
 ## esbuild 最適化芸人 - Speaker Deck
 https://speakerdeck.com/exoego/esbuild-zui-shi-hua-yun-ren
 
+esbuild によるバンドルを AWS Lambda の Node.js 向けに最適化する方法についてのスライドです。
+
+筆者はコールドスタートを早くするために esbuild の 5 つの設定を適用し、99 パーセンタイルでデフォルトの状態と比べて起動時間を 806ms 短縮しています。また、バンドルサイズは 14.5 MB から 3.0MB まで削減しています。
+それぞれの設定の適用を段階的に計測しており、どの設定がどれだけ効果的なのかがわかりやすいです。
+
+また、変更によるバンドルサイズの変化を簡単に確認できるように、exoego/esbuild-bundle-analyzer という GitHub Action を作ったとのことです。
+
+バンドルサイズがコールドスタート時間に及ぼす影響って結構大きいんだな〜と感じました。esbuild の設定は全然いじったことがないので、デフォルト設定を変更するとこんなに変わるのかと驚きました。バンドルサイズを小さくしたい場合にとても参考になりそうです。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
+
 ## Making EC2 boot time 8x faster
 https://depot.dev/blog/faster-ec2-boot-time
 
