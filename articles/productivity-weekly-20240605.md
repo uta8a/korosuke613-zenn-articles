@@ -47,6 +47,24 @@ user_defined:
 ## Actions: Arm-based linux and windows runners are now in public beta - The GitHub Blog
 https://github.blog/changelog/2024-06-03-actions-arm-based-linux-and-windows-runners-are-now-in-public-beta/
 
+ついに GitHub Acttions の GitHub がホストしているランナーに Arm64 アーキテクチャのマシンが追加されました！！🎉
+
+まずはパブリックベータとして Team と Enterprise Cloud プランでのみ利用可能です。今年の終わりまでには OSS プロジェクト向けに使えるようにしたいとのことなので、その頃には GA になるのかもしれません。
+
+料金面では x64 の同性能のランナーよりも 37%安いとのことです。Larger Runner の料金ページに Linux と Windows の Arm64 ランナーの料金が追加されているので詳細はこちらから確認できます。
+https://docs.github.com/en/billing/managing-billing-for-github-actions/about-billing-for-github-actions#per-minute-rates-for-arm64-powered-larger-runners
+
+アナウンスでは特に明記されていませんでしたが、Larger Runner のためパブリックベータ中でも課金されると思われます[^beta_m1_price]。
+
+[^beta_m1_price]: 過去に M1 macOS ランナーがパブリックベータで追加された際にはベータ期間中でも課金が発生していました。
+
+Arm64 ランナーの使い道として現時点でニーズが高いのは Docker のマルチプラットフォームビルドだと思います。生産性向上チームの [@miyajan](https://twitter.com/miyajan) が早速 Arm64 ランナーを利用した Docker のマルチプラットフォームイメージのビルドを試していました。
+従来の x86 ランナーで QEMU を利用して Arm 版のイメージをビルドするのに比べてビルド時間がかなり短縮できるようです。Arm 版イメージのビルドを GitHub Actions で行っている方はぜひ新しい Arm64 ランナーを試してみてください。
+
+https://zenn.dev/cybozu_ept/articles/build-multi-platform-image-with-arm64-runner
+
+_本項の執筆者: [@Kesin11](https://zenn.dev/kesin11)_
+
 ## New Enterprise accounts have metered billing for Git LFS - The GitHub Blog
 https://github.blog/changelog/2024-06-03-new-enterprise-accounts-have-metered-billing-for-git-lfs/
 
