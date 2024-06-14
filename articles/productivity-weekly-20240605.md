@@ -36,7 +36,7 @@ user_defined:
 今週の共同著者は次の方です。
 - [@korosuke613](https://zenn.dev/korosuke613)
 <!-- - [@defaultcf](https://zenn.dev/defaultcf) -->
-<!-- - [@Kesin11](https://zenn.dev/kesin11) -->
+- [@Kesin11](https://zenn.dev/kesin11)
 <!-- - [@r4mimu](https://zenn.dev/r4mimu) -->
 <!-- - [@uta8a](https://zenn.dev/uta8a) -->
 
