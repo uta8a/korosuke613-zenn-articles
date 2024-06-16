@@ -81,7 +81,7 @@ https://xuwei-k.hatenablog.com/entry/2024/06/07/074942
 
 GitHub Actions で実行してきた step の実行時間の変化を簡易的に可視化したい時に役立つ方法を紹介されています。例えば、ビルド時間が遅いなと感じた時に、使い捨てでここ数ヶ月のログを使ってビルド時間の変化を分析する時に使えそうです。
 
-僕もやってみました。参考: 僕が試した様子を zenn の scrap に書いたもの [GitHub Actionsのstepの実行時間を簡易的に集計してグラフにする](https://zenn.dev/uta8a/scraps/5bde3397914e2d)
+僕もやってみました。参考: 僕が試した様子を Zenn の Scrap に書いたもの [GitHub Actionsのstepの実行時間を簡易的に集計してグラフにする](https://zenn.dev/uta8a/scraps/5bde3397914e2d)
 
 ワークフローファイル、job の名前、step の名前、と順番に絞り込んで `completed_at` から `started_at` を引いて秒数を算出するという流れなので、この絞り込むパートを書き換えれば色々応用できそうです。サッと試せてお手軽で良いですね。
 
