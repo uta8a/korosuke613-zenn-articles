@@ -1,11 +1,11 @@
-import type OpenAI from "https://deno.land/x/openai@v4.47.1/mod.ts";
-import type {
+import { DiagnosticResult } from "./ReviewDogJsonLine.ts";
+import {
   ChatCompletionCreateParamsNonStreaming,
   CompletionUsage,
-} from "https://deno.land/x/openai@v4.47.1/resources/mod.ts";
-import { DiagnosticResult } from "./ReviewDogJsonLine.ts";
-import * as log from "https://deno.land/std@0.224.0/log/mod.ts";
-import { LogRecord } from "https://deno.land/std@0.224.0/log/mod.ts";
+  log,
+  LogRecord,
+  OpenAI,
+} from "../deps.ts";
 
 export type ReviewResult = {
   review: {
@@ -42,6 +42,7 @@ export class AiReviewer {
 - セルフホストランナーは修正しない
 - 箇条書きの場合、文の終わりに句読点は不要
 - 文体の統一は指摘しないで良い
+- 読点の修正はしない
 
 出力は、5個以下とし、より優先的に修正すべきものを出力してください。
 また、markdown形式ではなく、以下のようなJSON形式で出力してください。reason には修正の理由を記述してください。
@@ -248,6 +249,16 @@ export class AiReviewer {
       throw e;
     }
 
+    // 対象文（error_line）と修正文（revised_line）が同じ場合は修正が行われていないため、除外する
+    result.review = result.review.filter((comment) => {
+      if (comment.error_line !== comment.revised_line) return true;
+      if (this.options.logging) {
+        log.warn(
+          `Removed unchanged comment: ${comment.error_line} -> ${comment.revised_line}`,
+        );
+      }
+    });
+
     AiReviewer.validateReviewResult(result);
 
     return result;
@@ -275,15 +286,19 @@ export class AiReviewer {
     for (const comment of reviewResult.review) {
       const errorLine = comment.error_line;
       const revisedLine = comment.revised_line;
-      const line = markdown.split("\n").findIndex((l) =>
-        l.includes(errorLine)
-      ) + 1; // 1行目から始まるため +1
+      const lines = markdown.split("\n");
+      const line = lines.findIndex((l) => l.includes(errorLine)) + 1; // 1行目から始まるため +1
       if (line === 0) {
         if (this.options.logging) {
-          log.warn(`error line not found: ${errorLine}`);
+          log.warn(`line not found: ${errorLine}`);
         }
         continue;
       }
+
+      const replacedLine = lines[line - 1].replace(
+        errorLine,
+        revisedLine,
+      );
 
       const range = {
         start: { line },
@@ -299,7 +314,7 @@ export class AiReviewer {
         suggestions: [
           {
             range,
-            text: revisedLine,
+            text: replacedLine,
           },
         ],
       });

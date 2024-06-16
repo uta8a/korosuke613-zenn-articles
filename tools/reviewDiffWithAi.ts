@@ -1,10 +1,9 @@
 // deno run --allow-env --allow-run=git --allow-write='./tools/dist,<TMP>' --allow-read=./articles --allow-net=api.openai.com ./tools/reviewDiffWithAi.ts 6e56188787a518f803a1bfadea5c82661ee9bfa7 6db7b3273333cae16fb7c5c1e14246e30327354c
 
-import OpenAI from "https://deno.land/x/openai@v4.47.1/mod.ts";
 import { AiReviewer } from "./libs/AiReviewer.ts";
 import { extractContents } from "./libs/lib.ts";
 import { Git } from "./libs/Git.ts";
-import { join } from "https://deno.land/std@0.224.0/path/join.ts";
+import { join, OpenAI } from "./deps.ts";
 
 const __dirname = new URL(".", import.meta.url).pathname;
 

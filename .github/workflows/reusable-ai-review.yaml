@@ -37,17 +37,27 @@ jobs:
           cat ${{ env.PR_JSON }}
           BASE_REF_NAME="$(jq -r .baseRefName <${{ env.PR_JSON }})"
           set -x
+
+          # 常に main ブランチの tools を利用するために一時的に tools をコピー
+          mkdir -p ${{ runner.temp }}/ai-review
+          \cp -r ./tools ./deno.lock ${{ runner.temp }}/ai-review
+
+          # PR のブランチに切り替える
           git fetch --update-head-ok origin "$BASE_REF_NAME:$BASE_REF_NAME"
           gh pr checkout --branch ${{ env.HEAD_BRANCH }} ${{ inputs.pr_number }}
           git branch
           echo "latest_git_sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
+          # PR のブランチに tools をコピー
+          \cp -f ${{ runner.temp }}/ai-review/deno.lock .
+          \cp -rf ${{ runner.temp }}/ai-review/tools .
+          ls deno.lock tools
+
           set +x
           echo "base_ref_name=${BASE_REF_NAME}" >> "$GITHUB_OUTPUT"
           echo "head_ref_name=${{ env.HEAD_BRANCH }}" >> "$GITHUB_OUTPUT"
 
-      - uses: denoland/setup-deno@v1
-        with:
-          deno-version: v1.x
+      - uses: ./.github/actions/setup-deno
 
       - name: Review PR diff with AI
         env:
@@ -75,7 +85,7 @@ jobs:
             echo '```'
           } >> "$GITHUB_STEP_SUMMARY"
 
-      - uses: reviewdog/action-setup@v1
+      - uses: reviewdog/action-setup@3f401fe1d58fe77e10d665ab713057375e39b887 # v1.3.0
 
       - name: Comment on PR with ReviewDog
         env:
