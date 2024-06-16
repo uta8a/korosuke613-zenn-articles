@@ -37,7 +37,7 @@ user_defined:
 - [@korosuke613](https://zenn.dev/korosuke613)
 <!-- - [@defaultcf](https://zenn.dev/defaultcf) -->
 <!-- - [@Kesin11](https://zenn.dev/kesin11) -->
-<!-- - [@r4mimu](https://zenn.dev/r4mimu) -->
+- [@r4mimu](https://zenn.dev/r4mimu)
 <!-- - [@uta8a](https://zenn.dev/uta8a) -->
 
 :::
@@ -70,11 +70,31 @@ https://www.publickey1.jp/blog/24/linuxkaspersky_virus_removal_tool_for_linux.ht
 ## 開発生産性 超入門 / development productivity introduction
 https://speakerdeck.com/igsr5/development-productivity-introduction
 
+プロダクト開発や開発生産性の定義に立ち返り、そこから開発生産性を向上させるための改善と改革について解説しています。
+発表の中では Wantedly さんの実際の改善事例を「把握->分析->対応」という改善サイクルに合わせて紹介されており、分かりやすかったです。
+
+_本項の執筆者: [@r4mimu](https://zenn.dev/r4mimu)_
+
 ## ユニットテストってもう言わない！ CI/CD時代のテスト分類に最適なテストサイズという考え方
 https://zenn.dev/koduki/articles/e0f8824adbe0e9
 
+従来の「単体テスト」や「結合テスト」といった分類方法は曖昧さを含んでいます。例えば、単体テストは「単体」が何を指すのか、DB へのアクセスを含むかどうかなどです。
+そこで、CI/CD の文脈では実行時間に基づく「テストサイズ」で分類することが有効だと述べています。Google では、Small、Medium、Large の 3 つのテストサイズに分類し、それぞれに応じた実行時間やリソースの基準を設定しており、テスト比率としては 70:20:10 のピラミッド型が望ましいとされています。これにより、テストの効率性と明確さが向上し、適切なタイミングでのテスト実行が可能となります。
+
+Small テストや Medium テストと言った呼び方は、単に方言だと思っており気にしていませんでしたが、背景を知れました。
+テストサイズを提唱した Google の記事は 14 年前のもので、以前から提唱されていた考え方だったのですね。
+
+_本項の執筆者: [@r4mimu](https://zenn.dev/r4mimu)_
+
 ## Playwrightを使ったE2Eテストを導入した話 - インフラ編 Playwright × Allure Report × AWS
 https://tech.uzabase.com/entry/2024/05/31/153530
+
+Playwright を使った E2E テストを AWS 上で実行している事例紹介です。
+具体的には、テスト実行のタイミングや、Slack コマンドを用いたデプロイとテスト実行のフロー、インフラのアーキテクチャ、Allure Report によるレポート生成、そして CodeBuild や CloudFront、Route53 の設定について詳しく解説しています。インフラ管理は AWS CDK で行っているそうで、そちらの紹介もされています。
+
+自分はこれまで、GitHub Actions で E2E テストを実行し、テストレポートを S3 にアップロードした経験がありますが、E2E テストの実行環境を AWS に寄せると、権限まわりで考えることが減り、テストのためのインフラ構成がシンプルになりそうでいいですね。
+
+_本項の執筆者: [@r4mimu](https://zenn.dev/r4mimu)_
 
 ## npmに公開していたパッケージをjsrにもpublishしてみた
 https://zenn.dev/kesin11/articles/20240530_publish_jsr
