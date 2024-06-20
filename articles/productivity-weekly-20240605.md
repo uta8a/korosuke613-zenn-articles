@@ -68,6 +68,29 @@ _本項の執筆者: [@Kesin11](https://zenn.dev/kesin11)_
 ## New Enterprise accounts have metered billing for Git LFS - The GitHub Blog
 https://github.blog/changelog/2024-06-03-new-enterprise-accounts-have-metered-billing-for-git-lfs/
 
+GitHub の LFS の料金体系が変わります。
+
+6/2 以降に作成された GitHub Enterprise Cloud のアカウントおよび所属 Org はすでに新体系となっています。それ以外のアカウントは数ヶ月以内に新体系に移行される予定です。
+
+これまでの LFS は前払いのプリペイド方式でしたが、新しい料金体系では後払いの従量課金方式に変更されます。
+
+- 従来の料金体系
+  - プリペイドでデータパックを購入する方式
+  - ストレージ: $5 / 50 GiB / month
+  - 帯域: $5 / 50 GiB / month
+- 新しい料金体系
+  - 後払いの従量課金方式
+  - ストレージ: $0.07 / 1 GiB / month
+  - 帯域: $0.0875 / 1 GiB / month
+  - 無料枠（ストレージ・帯域ともに同じ数字）
+    - Free・Pro・Org（Free）: 10 GiB
+    - Team・Enterprise: 250 GiB
+
+なお、新しい課金体系と共に課金プラットフォームも新しくなるらしく、より細かく利用状況を把握できるようになるとのことです。
+1 GiB あたりの料金は下がることとなりますが、従量課金となることで、予期せぬ課金が発生してしまう恐れがあります。LFS 利用者は確認しておきましょう。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
+
 ## terraform plan -light
 https://www.bejarano.io/terraform-plan-light/
 
