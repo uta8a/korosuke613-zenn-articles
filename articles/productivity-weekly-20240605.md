@@ -35,7 +35,7 @@ user_defined:
 
 今週の共同著者は次の方です。
 - [@korosuke613](https://zenn.dev/korosuke613)
-<!-- - [@defaultcf](https://zenn.dev/defaultcf) -->
+- [@defaultcf](https://zenn.dev/defaultcf)
 - [@Kesin11](https://zenn.dev/kesin11)
 - [@r4mimu](https://zenn.dev/r4mimu)
 <!-- - [@uta8a](https://zenn.dev/uta8a) -->
@@ -97,14 +97,30 @@ https://www.bejarano.io/terraform-plan-light/
 ## Best practices for using the Terraform AWS Provider
 https://docs.aws.amazon.com/ja_jp/prescriptive-guidance/latest/terraform-aws-provider-best-practices/introduction.html
 
+AWS 公式のドキュメントで、Terraform の AWS Provider を使う上でのベストプラクティスがまとまったページが登場しました。
+セキュリティ、ディレクトリ構造、バージョン管理の観点などで、AWS 公式が考えるベストプラクティスが書かれています。
+読んでいていくつか自分が重要そうと思ったものを挙げてみます。
+
+- IAM ポリシーは最小限に
+  - Terraform を利用しているユーザーとしてやはり気になるのは、Terraform の実行の時の IAM ポリシー
+  - 最小限のポリシーを設定するべき
+  - ポリシーを組む際は IAM Access Analyzer を使って、必要・不必要なポリシーを特定できる
+- IAM ユーザーより IAM ロールを使う
+  - AWS の他のサービスでもよく聞く
+  - 静的なアクセスキーより、一時的な認証情報を使う
+  - CI/CD の場合は OIDC を使うこと、とも書かれている
+- remote state はセキュアに
+  - S3 を使用している場合は、きちんと暗号化を設定し、パブリックアクセスが禁止になっていることを確認する
+
+他にもディレクトリ構造のベストプラクティスや、モジュール化の話、バージョン管理の話など、幅広くベストプラクティスが書かれていますので、AWS Provider を使用している方はぜひ一度読んでみると良いかと思います。
+
+_本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)_
+
 ## Buf - Connect RPC joins CNCF: gRPC you can bet your business on
 https://buf.build/blog/connect-rpc-joins-cncf
 
 ## PodmanでRosettaを使う - 赤帽エンジニアブログ
 https://rheb.hatenablog.com/entry/podman-rosetta
-
-## カスペルスキーがLinux専用の無料アンチウイルスソフト「Kaspersky Virus Removal Tool for Linux」公開 － Publickey
-https://www.publickey1.jp/blog/24/linuxkaspersky_virus_removal_tool_for_linux.html
 
 # know-how 🎓
 
@@ -142,6 +158,16 @@ https://zenn.dev/kesin11/articles/20240530_publish_jsr
 
 ## 1Passwordを利用したSSH時のToo many authentication failuresを回避する | DevelopersIO
 https://dev.classmethod.jp/articles/ssh-1password-avoiding-too-many-authentication-failures/
+
+1Password には SSH のエージェントが付属しており、秘密鍵を 1Password に安全に保管したまま他のマシンと共有できます。ただ複数の鍵を登録している場合、Too many authentication failures が発生することがあります。
+この記事ではそれがどうして発生するのか、どう解決できるかが詳しく載っています。
+
+私も仕事とプライベートの鍵 2 つを切り替えて使っているのですが、`~/.ssh/config` で公開鍵を指定することで切り替えて運用できるのは知りませんでした。
+記事中にもある通り、1Password のエージェントは `~/.config/1Password/ssh/agent.toml` に登録している鍵の分だけログインを試行します。2 回鍵の解除を求められて面倒だなと思っていたのですが、公開鍵を指定する方法ならホスト名を工夫するだけで上手く切り替えられそうです。
+
+設定を上手く工夫して、少しでも開発生産性を上げていきたいですね。
+
+_本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)_
 
 # tool 🔨
 
