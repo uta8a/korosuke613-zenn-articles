@@ -1,5 +1,5 @@
 ---
-title: ＜ここにタイトルを入力＞｜Productivity Weekly(2024-06-05)
+title: ActionsのArm64ランナーがパブリックベータに。LFS料金体系変更｜Productivity Weekly(2024-06-05)
 emoji: 🕌
 type: idea
 topics:
@@ -94,6 +94,19 @@ _本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 ## terraform plan -light
 https://www.bejarano.io/terraform-plan-light/
 
+Terraform に `-light` オプションを追加しようという提案です。
+
+`-light` オプションはコードで変更されたリソースとそれに依存するリソースのみを plan の対象とすることを示します。`-target` オプションに近いですが、`-target` は指定するリソースを自分で考える必要があります。
+
+個人的には、基本的に全てのリソースをプラン対象とするべきだとは思っていますが、大量のモジュールを使っているなどの理由で対象のリソース数がとても多い場合はやはり待ち時間がつらいです。僕も大量のリソースを持つ Terraform モジュールを扱うことがあり、`-target` オプションで対象のリソースを絞りたい場合はやはりあります。
+
+デカモジュールを扱う人にはあると嬉しいと思うので、追加されてほしいです。Terraform と OpenTofu の両方で Issue が立っているので、同じく追加されてほしい人は up vote してみましょう。
+
+- [terraform plan -light · Issue #35290 · hashicorp/terraform](https://github.com/hashicorp/terraform/issues/35290)
+- [tofu plan -light · Issue #1703 · opentofu/opentofu](https://github.com/opentofu/opentofu/issues/1703)
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
+
 ## Best practices for using the Terraform AWS Provider
 https://docs.aws.amazon.com/ja_jp/prescriptive-guidance/latest/terraform-aws-provider-best-practices/introduction.html
 
@@ -115,12 +128,6 @@ AWS 公式のドキュメントで、Terraform の AWS Provider を使う上で�
 他にもディレクトリ構造のベストプラクティスや、モジュール化の話、バージョン管理の話など、幅広くベストプラクティスが書かれていますので、AWS Provider を使用している方はぜひ一度読んでみると良いかと思います。
 
 _本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)_
-
-## Buf - Connect RPC joins CNCF: gRPC you can bet your business on
-https://buf.build/blog/connect-rpc-joins-cncf
-
-## PodmanでRosettaを使う - 赤帽エンジニアブログ
-https://rheb.hatenablog.com/entry/podman-rosetta
 
 # know-how 🎓
 
@@ -156,6 +163,16 @@ _本項の執筆者: [@r4mimu](https://zenn.dev/r4mimu)_
 ## npmに公開していたパッケージをjsrにもpublishしてみた
 https://zenn.dev/kesin11/articles/20240530_publish_jsr
 
+npm レジストリに公開しているパッケージを jsr にも公開する方法について紹介している記事です。
+
+記事では、JSR 上でのパッケージ作成から始まり、publish 方法や、npm と jsr でバージョンを揃えての publish、公開したパッケージの Deno、Node.js での動作確認、GitHub Actions 上での publish 時の provenance についてなどが書かれています。
+
+JSR のことはあまりよく知らなかったので、認証方法や利用方法、npm にも公開する際の工夫などが参考になりました。僕も JSR にも公開していきたいです。
+
+（実はこの記事はこの Productivity Weekly の共同執筆者である Kesin11 さんが書いた記事です）
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
+
 ## 1Passwordを利用したSSH時のToo many authentication failuresを回避する | DevelopersIO
 https://dev.classmethod.jp/articles/ssh-1password-avoiding-too-many-authentication-failures/
 
@@ -169,17 +186,23 @@ https://dev.classmethod.jp/articles/ssh-1password-avoiding-too-many-authenticati
 
 _本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)_
 
-# tool 🔨
 
 # read more 🍘
 Productivity Weekly で出たネタを全て紹介したいけど紹介する体力が持たなかったネタを一言程度で書くコーナーです。
 
-- **news 📺**
 - **know-how 🎓**
-- **tool 🔨**
+  - [PodmanでRosettaを使う - 赤帽エンジニアブログ](https://rheb.hatenablog.com/entry/podman-rosetta)
+    - Docker Desktop 代替ツール Podman で Rosetta が使えるようになったとのことです
+    - 昔から Podman を使っている人は新たな仮想マシンを作成する必要があるようなので、Podman 使いで Mac の人は試してみてください
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 # あとがき
+大変遅くなってしまいすみません。色々と忙しくて気づいたら 6 月も終わる時期になってしまいました。
 
+そういえば、サイボウズの生産性向上チームで、Software Design 2024 年 7 月号に寄稿させていただきました。GitHub Actions 実践講座というテーマです。気になる方はぜひ読んでみてください。
+
+https://x.com/gihyosd/status/1802904736037011849
 
 サイボウズの生産性向上チームでは社内エンジニアの開発生産性を上げるための活動を行なっています。そんな生産性向上チームが気になる方は下のリンクをクリック！
 https://speakerdeck.com/cybozuinsideout/engineering-productivity-team-recruitment-information
