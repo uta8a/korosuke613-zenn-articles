@@ -56,7 +56,7 @@ https://aws.amazon.com/jp/about-aws/whats-new/2024/06/manage-member-account-root
 
 AWS Organizations の各メンバーアカウントのルートメールアドレスを、組織の管理アカウント、または委任したアカウントから一元管理できるようになりました。
 これまではルートメールアドレスの変更のためには、ルートユーザでログインして変更する必要がありました。今後は AWS Organizations コンソールに加えて、SDK や CLI からも権限があれば変更できるようなので、ルートユーザの退職や異動に伴って変更を自動で反映させたい時に役立ちそうです。
-[AWS のドキュメント - Updating the root user email address for a member account](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_update_primary_email.html) を読むと、事前に AWS Organization の全ての機能を有効化しておく必要があるようです。
+[AWS のドキュメント - Updating the root user email address for a member account](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_update_primary_email.html) を読むと、事前に AWS Organizations の全ての機能を有効化しておく必要があるようです。
 
 _本項の執筆者: [@uta8a](https://zenn.dev/uta8a)_
 
