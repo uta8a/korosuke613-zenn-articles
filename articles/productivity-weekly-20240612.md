@@ -54,11 +54,23 @@ https://zenn.dev/yuma_prog/articles/vscode-chat-extension
 ## Centrally manage member account root email addresses across your AWS Organization - AWS
 https://aws.amazon.com/jp/about-aws/whats-new/2024/06/manage-member-account-root-email-addresses-aws-organization/
 
+AWS Organization の各メンバーアカウントのルートメールアドレスを、組織の管理アカウント、または委任したアカウントから一元管理できるようになりました。
+これまではルートメールアドレスの変更のためには、ルートユーザでログインして変更する必要がありました。今後は AWS Organization コンソールに加えて、SDK や CLI からも権限があれば変更できるようなので、ルートユーザの退職や異動に伴って変更を自動で反映させたい時に役立ちそうです。
+[AWS のドキュメント - Updating the root user email address for a member account](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_update_primary_email.html) を読むと、事前に AWS Organization の全ての機能を有効化しておく必要があるようです。
+
+_本項の執筆者: [@uta8a](https://zenn.dev/uta8a)_
+
 ## Amazon Q offers inline completions in the command line
 https://aws.amazon.com/jp/about-aws/whats-new/2024/06/amazon-q-inline-completions-command-line/
 
 ## [速報] IAMのMFA(多要素認証)でPasskeyが利用できるようになりました #AWSreInforce | DevelopersIO
 https://dev.classmethod.jp/articles/aws-iam-supported-passkey/
+
+MFA の手段として、AWS の root ユーザと IAM ユーザに対して Passkey がサポートされるようになりました。
+こちらの記事では 1Password を用いて、AWS の IAM ユーザの認証に Passkey を使ってログインするまでの様子が紹介されています。
+今回のリリースでは Passkey とパスワード認証を共に使う必要があります。Passkey は本来パスワードなしでセキュリティを担保できるように設計されています。今後 Passkey のみでログインできるようになるといいですね。
+
+_本項の執筆者: [@uta8a](https://zenn.dev/uta8a)_
 
 # know-how 🎓
 
