@@ -66,7 +66,7 @@ https://aws.amazon.com/jp/about-aws/whats-new/2024/06/amazon-q-inline-completion
 ## [速報] IAMのMFA(多要素認証)でPasskeyが利用できるようになりました #AWSreInforce | DevelopersIO
 https://dev.classmethod.jp/articles/aws-iam-supported-passkey/
 
-MFA の手段として、AWS の root ユーザと IAM ユーザに対して Passkey がサポートされるようになりました。
+MFA の手段として、AWS のルートユーザと IAM ユーザに対して Passkey がサポートされるようになりました。
 こちらの記事では 1Password を用いて、AWS の IAM ユーザの認証に Passkey を使ってログインするまでの様子が紹介されています。
 今回のリリースでは Passkey とパスワード認証を共に使う必要があります。Passkey は本来パスワードなしでセキュリティを担保できるように設計されています。今後 Passkey のみでログインできるようになるといいですね。
 
