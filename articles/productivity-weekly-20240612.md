@@ -37,7 +37,7 @@ user_defined:
 - [@korosuke613](https://zenn.dev/korosuke613)
 <!-- - [@defaultcf](https://zenn.dev/defaultcf) -->
 <!-- - [@Kesin11](https://zenn.dev/kesin11) -->
-<!-- - [@r4mimu](https://zenn.dev/r4mimu) -->
+- [@r4mimu](https://zenn.dev/r4mimu)
 <!-- - [@uta8a](https://zenn.dev/uta8a) -->
 
 :::
@@ -47,9 +47,15 @@ user_defined:
 ## Visual Studio Code May 2024
 https://code.visualstudio.com/updates/v1_90
 
-GitHub Copilot をカスタムできる? VS Code の Chat extensions とは
-https://zenn.dev/yuma_prog/articles/vscode-chat-extension
+Visual Studio Code の 2024 年 5 月のアップデート情報が公開されています。今回のアップデートの目玉は Chat extensions でしょうか。
+この機能では、独自の Chat participants を作成し、GitHub Copilot Chat の拡張機能の UI で独自のプロンプトをした LLM の呼び出しや、独自の関数を呼び出せるようになります。
+ここで、Chat participants とは `@vscode`, `@workspace`, `@terminal` などのことを指すようです。リリースノートにはサンプルとして、`@cat` で呼び出せる関数を作成する例が紹介されています。
 
+[GitHub Copilot をカスタムできる? VS Code の Chat extensions とは](https://zenn.dev/yuma_prog/articles/vscode-chat-extension)という記事でまとめてくださった方がいるので詳しくはこちらも参照してみてください。
+
+この機能を使えば、自分たちのコードベースや特定のコンテキストにカスタマイズした Chat participants を作成して、より効率的に開発したり、分析作業ができるといったことが期待されますね。
+
+_本項の執筆者: [@r4mimu](https://zenn.dev/r4mimu)_
 
 ## Centrally manage member account root email addresses across your AWS Organization - AWS
 https://aws.amazon.com/jp/about-aws/whats-new/2024/06/manage-member-account-root-email-addresses-aws-organization/
@@ -87,6 +93,15 @@ _本項の執筆者: [@uta8a](https://zenn.dev/uta8a)_
 
 ## Docker Build Cloudを導入してコンテナイメージビルド時間を80%削減しました | by Akira Kuriyama | Jun, 2024 | スタディスト Tech Blog
 https://studist.tech/docker-build-cloud-f5e1e3dfa114
+
+Docker Build Cloud を利用した CI/CD 環境でのコンテナイメージビルド時間を 80% 削減した事例が紹介されています。
+CI/CD 環境ではワークフローの実行ごとに環境が使い捨てられるため、デフォルトではキャッシュが効かず、毎回イメージをビルドする必要があります。そのため、ビルド時間がかかることがあります。BuildKit のキャッシュ機能を使うこともできますが、キャッシュの管理など考えなければならないことも増えます。
+
+Docker Build Cloud はコンテナイメージビルドを Docker 社のクラウド環境で行えるサービスです。ビルドキャッシュを共有したり、ハイスペックなマシンでビルドを行うことができるため、ビルド時間の短縮に効果的です。また、マルチアーキテクチャのビルドもサポートされており、CI/CD プラットフォームで複数のアーキテクチャのマシンを用意する必要がなくなります。
+
+注意点としては、Docker Build Cloud の環境が US East リージョンしかないためイメージの pull には時間がかかるそうです。今後 Asia リージョンが追加されることを期待しましょう。
+
+_本項の執筆者: [@r4mimu](https://zenn.dev/r4mimu)_
 
 ## 過去のGitHub Actionsのbuild時間を取得して集計してグラフにする - xuwei-k's blog
 https://xuwei-k.hatenablog.com/entry/2024/06/07/074942
