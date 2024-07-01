@@ -49,7 +49,7 @@ https://code.visualstudio.com/updates/v1_90
 
 Visual Studio Code の 2024 年 5 月のアップデート情報が公開されています。今回のアップデートの目玉は Chat extensions でしょうか。
 この機能では、独自の Chat participants を作成し、GitHub Copilot Chat の拡張機能の UI で独自のプロンプトをした LLM の呼び出しや、独自の関数を呼び出せるようになります。
-ここで、Chat participants とは `@vscode, @workspace, @terminal` などのことを指すようです。リリースノートにはサンプルとして、`@cat` で呼び出せる関数を作成する例が紹介されています。
+ここで、Chat participants とは `@vscode`, `@workspace`, `@terminal` などのことを指すようです。リリースノートにはサンプルとして、`@cat` で呼び出せる関数を作成する例が紹介されています。
 
 [GitHub Copilot をカスタムできる? VS Code の Chat extensions とは](https://zenn.dev/yuma_prog/articles/vscode-chat-extension)という記事でまとめてくださった方がいるので詳しくはこちらも参照してみてください。
 
