@@ -1,13 +1,13 @@
 ---
-title: ＜ここにタイトルを入力＞｜Productivity Weekly(2024-06-12)
-emoji: 
+title: VSCode Chat Extensionやセキュリティ話など｜Productivity Weekly(2024-06-12)
+emoji: 🥋
 type: idea
 topics:
   - ProductivityWeekly
   - 生産性向上
-published: false
+published: true
 publication_name: cybozu_ept
-user_defined: 
+user_defined:
   publish_link: https://zenn.dev/cybozu_ept/articles/productivity-weekly-20240612
   note: |
     _本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
@@ -15,6 +15,7 @@ user_defined:
     _本項の執筆者: [@Kesin11](https://zenn.dev/kesin11)_
     _本項の執筆者: [@r4mimu](https://zenn.dev/r4mimu)_
     _本項の執筆者: [@uta8a](https://zenn.dev/uta8a)_
+published_at: 2024-07-02 10:00
 ---
 
 こんにちは。サイボウズ株式会社 [生産性向上チーム](https://note.com/cybozu_dev/n/n1c1b44bf72f6)の平木場です。
@@ -35,10 +36,8 @@ user_defined:
 
 今週の共同著者は次の方です。
 - [@korosuke613](https://zenn.dev/korosuke613)
-<!-- - [@defaultcf](https://zenn.dev/defaultcf) -->
-<!-- - [@Kesin11](https://zenn.dev/kesin11) -->
-<!-- - [@r4mimu](https://zenn.dev/r4mimu) -->
-<!-- - [@uta8a](https://zenn.dev/uta8a) -->
+- [@r4mimu](https://zenn.dev/r4mimu)
+- [@uta8a](https://zenn.dev/uta8a)
 
 :::
 
@@ -47,18 +46,55 @@ user_defined:
 ## Visual Studio Code May 2024
 https://code.visualstudio.com/updates/v1_90
 
-GitHub Copilot をカスタムできる? VS Code の Chat extensions とは
-https://zenn.dev/yuma_prog/articles/vscode-chat-extension
+Visual Studio Code の 2024 年 5 月のアップデート情報が公開されています。今回のアップデートの目玉は Chat extensions でしょうか。
+この機能では、独自の Chat participants を作成し、GitHub Copilot Chat の拡張機能の UI で独自のプロンプトをした LLM の呼び出しや、独自の関数を呼び出せるようになります。
+ここで、Chat participants とは `@vscode`, `@workspace`, `@terminal` などのことを指すようです。リリースノートにはサンプルとして、`@cat` で呼び出せる関数を作成する例が紹介されています。
 
+[GitHub Copilot をカスタムできる? VS Code の Chat extensions とは](https://zenn.dev/yuma_prog/articles/vscode-chat-extension)という記事でまとめてくださった方がいるので詳しくはこちらも参照してみてください。
+
+この機能を使えば、自分たちのコードベースや特定のコンテキストにカスタマイズした Chat participants を作成して、より効率的に開発したり、分析作業ができるといったことが期待されますね。
+
+_本項の執筆者: [@r4mimu](https://zenn.dev/r4mimu)_
 
 ## Centrally manage member account root email addresses across your AWS Organization - AWS
 https://aws.amazon.com/jp/about-aws/whats-new/2024/06/manage-member-account-root-email-addresses-aws-organization/
 
-## Amazon Q offers inline completions in the command line
-https://aws.amazon.com/jp/about-aws/whats-new/2024/06/amazon-q-inline-completions-command-line/
+AWS Organizations の各メンバーアカウントのルートメールアドレスを、組織の管理アカウント、または委任したアカウントから一元管理できるようになりました。
+これまではルートメールアドレスの変更のためには、ルートユーザでログインして変更する必要がありました。今後は AWS Organizations コンソールに加えて、SDK や CLI からも権限があれば変更できるようなので、ルートユーザの退職や異動に伴って変更を自動で反映させたい時に役立ちそうです。
+[AWS のドキュメント - Updating the root user email address for a member account](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_update_primary_email.html) を読むと、事前に AWS Organizations の全ての機能を有効化しておく必要があるようです。
+
+_本項の執筆者: [@uta8a](https://zenn.dev/uta8a)_
 
 ## [速報] IAMのMFA(多要素認証)でPasskeyが利用できるようになりました #AWSreInforce | DevelopersIO
 https://dev.classmethod.jp/articles/aws-iam-supported-passkey/
+
+MFA の手段として、AWS のルートユーザと IAM ユーザに対して Passkey がサポートされるようになりました。
+こちらの記事では 1Password を用いて、AWS の IAM ユーザの認証に Passkey を使ってログインするまでの様子が紹介されています。
+今回のリリースでは Passkey とパスワード認証を共に使う必要があります。Passkey は本来パスワードなしでセキュリティを担保できるように設計されています。今後 Passkey のみでログインできるようになるといいですね。
+
+_本項の執筆者: [@uta8a](https://zenn.dev/uta8a)_
+
+## Amazon Q offers inline completions in the command line
+https://aws.amazon.com/jp/about-aws/whats-new/2024/06/amazon-q-inline-completions-command-line/
+
+[旧 Amazon CodeWhisperer（旧 Fig.io）こと Amazon Q for command line](https://zenn.dev/cybozu_ept/articles/productivity-weekly-20240327#fig-is-sunsetting%2C-migrate-to-amazon-codewhisperer-%7C-fig) に、インライン補完機能（inline completions）が追加されました。
+
+inline completions はシェルにおいてコマンド入力時に AI による補完を提案してもらえる機能です。`git` と入力すると `push origin main` が提案される例が示されています。
+回答の生成のために、現在のシェルのコンテキスト、および最近のコマンド履歴が利用されるとのことです。
+
+面白くて便利そうな機能なのですが、この機能はデフォルトで有効です。
+個人的には、新たな種類のデータを送信するのであればデフォルト無効にしてオプトインできる形にしてほしかったです。特にシェルの履歴は個人的にソースコードより機密性が高いと思っており、勝手に外部サーバへ送信してほしくはなかったですね。
+（送信したデータを学習可能にするかは設定でオフにできます。）
+
+次のスクラップが参考になります。
+
+- [Amazon Q Developer ( 旧 Fig ) の inline compression 機能追加で「データ送信がデフォルトオン」になってる話](https://zenn.dev/naotama/scraps/e6c20f78d09de0)
+
+僕の場合はアップデートして設定欄を見た際に自動でオンになっていて驚きました。これまで Amazon Q for command line を使っていましたが、勝手に送信するデータの範囲を広げられることに不信感を持ったため、アンインストールしました。
+
+Amazon Q for command line を利用している方は注意しましょう。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 # know-how 🎓
 
@@ -75,6 +111,15 @@ _本項の執筆者: [@uta8a](https://zenn.dev/uta8a)_
 
 ## Docker Build Cloudを導入してコンテナイメージビルド時間を80%削減しました | by Akira Kuriyama | Jun, 2024 | スタディスト Tech Blog
 https://studist.tech/docker-build-cloud-f5e1e3dfa114
+
+Docker Build Cloud を利用した CI/CD 環境でのコンテナイメージビルド時間を 80% 削減した事例が紹介されています。
+CI/CD 環境ではワークフローの実行ごとに環境が使い捨てられるため、デフォルトではキャッシュが効かず、毎回イメージをビルドする必要があります。そのため、ビルド時間がかかることがあります。BuildKit のキャッシュ機能を使うこともできますが、キャッシュの管理など考えなければならないことも増えます。
+
+Docker Build Cloud はコンテナイメージビルドを Docker 社のクラウド環境で行えるサービスです。ビルドキャッシュを共有したり、ハイスペックなマシンでビルドを行うことができるため、ビルド時間の短縮に効果的です。また、マルチアーキテクチャのビルドもサポートされており、CI/CD プラットフォームで複数のアーキテクチャのマシンを用意する必要がなくなります。
+
+注意点としては、Docker Build Cloud の環境が US East リージョンしかないためイメージの pull には時間がかかるそうです。今後 Asia リージョンが追加されることを期待しましょう。
+
+_本項の執筆者: [@r4mimu](https://zenn.dev/r4mimu)_
 
 ## 過去のGitHub Actionsのbuild時間を取得して集計してグラフにする - xuwei-k's blog
 https://xuwei-k.hatenablog.com/entry/2024/06/07/074942
@@ -118,6 +163,23 @@ _本項の執筆者: [@uta8a](https://zenn.dev/uta8a)_
 ## macOS Sonoma 14.xでsudo実行時にTouch IDで認証する機能を有効化する手順 #TouchID - Qiita
 https://qiita.com/notakaos/items/fbc817741d43f24bf300
 
+<!-- textlint-disable ja-technical-writing/ja-no-redundant-expression -->
+
+macOS 14.x で sudo 実行時に Touch ID で認証する機能についての記事です。
+macOS では Touch ID という生体認証機能を利用できます。主にログイン時や GUI 上の特権操作を行うときに Touch ID を使った認証が可能です。
+
+コマンドライン上で sudo する際も Touch ID で認証することはこれまでも可能でしたが、macOS 14.x になるまでは、設定をしても OS 更新で設定が元に戻ってしまっていました。
+しかし、macOS 14.x では設定を永続化できるようになり、また、設定が簡単になったことがこの記事で紹介されています。
+
+僕も前の OS で sudo を Touch ID で認証する設定はやってたのですが、OS 更新のたびに設定するのが面倒だったのでそのうち設定しなくなっていました。
+この記事を読んで 14.x より設定を永続化できることを知ってさっそく設定しました。
+
+正直 sudo は滅多に使いませんが、やはり Touch ID で認証できるのは便利ですね。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
+
+<!-- textlint-enable ja-technical-writing/ja-no-redundant-expression -->
+
 # tool 🔨
 
 ## lintnet - General purpose linter powered by Jsonnet
@@ -135,15 +197,8 @@ lintnet は汎用的な linter で、現在は JSON, YAML, HCL, CSV といった
 
 _本項の執筆者: [@uta8a](https://zenn.dev/uta8a)_
 
-# read more 🍘
-Productivity Weekly で出たネタを全て紹介したいけど紹介する体力が持たなかったネタを一言程度で書くコーナーです。
-
-- **news 📺**
-- **know-how 🎓**
-- **tool 🔨**
-
 # あとがき
-
+最近雨が多いですね。そういえば 6/13 に 29 歳になりました。アラサーの極みです。
 
 サイボウズの生産性向上チームでは社内エンジニアの開発生産性を上げるための活動を行なっています。そんな生産性向上チームが気になる方は下のリンクをクリック！
 https://speakerdeck.com/cybozuinsideout/engineering-productivity-team-recruitment-information
