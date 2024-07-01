@@ -1,6 +1,6 @@
 ---
-title: ＜ここにタイトルを入力＞｜Productivity Weekly(2024-06-12)
-emoji: 
+title: VSCode Chat Extensionやセキュリティ話など｜Productivity Weekly(2024-06-12)
+emoji: 🥋
 type: idea
 topics:
   - ProductivityWeekly
@@ -35,10 +35,8 @@ user_defined:
 
 今週の共同著者は次の方です。
 - [@korosuke613](https://zenn.dev/korosuke613)
-<!-- - [@defaultcf](https://zenn.dev/defaultcf) -->
-<!-- - [@Kesin11](https://zenn.dev/kesin11) -->
 - [@r4mimu](https://zenn.dev/r4mimu)
-<!-- - [@uta8a](https://zenn.dev/uta8a) -->
+- [@uta8a](https://zenn.dev/uta8a)
 
 :::
 
@@ -66,9 +64,6 @@ AWS Organizations の各メンバーアカウントのルートメールアド�
 
 _本項の執筆者: [@uta8a](https://zenn.dev/uta8a)_
 
-## Amazon Q offers inline completions in the command line
-https://aws.amazon.com/jp/about-aws/whats-new/2024/06/amazon-q-inline-completions-command-line/
-
 ## [速報] IAMのMFA(多要素認証)でPasskeyが利用できるようになりました #AWSreInforce | DevelopersIO
 https://dev.classmethod.jp/articles/aws-iam-supported-passkey/
 
@@ -77,6 +72,28 @@ MFA の手段として、AWS のルートユーザと IAM ユーザに対して 
 今回のリリースでは Passkey とパスワード認証を共に使う必要があります。Passkey は本来パスワードなしでセキュリティを担保できるように設計されています。今後 Passkey のみでログインできるようになるといいですね。
 
 _本項の執筆者: [@uta8a](https://zenn.dev/uta8a)_
+
+## Amazon Q offers inline completions in the command line
+https://aws.amazon.com/jp/about-aws/whats-new/2024/06/amazon-q-inline-completions-command-line/
+
+[旧 Amazon CodeWhisperer（旧 Fig.io）こと Amazon Q for command line](https://zenn.dev/cybozu_ept/articles/productivity-weekly-20240327#fig-is-sunsetting%2C-migrate-to-amazon-codewhisperer-%7C-fig) に、インライン補完機能（inline completions）が追加されました。
+
+inline completions はシェルにおいてコマンド入力時に AI による補完を提案してもらえる機能です。`git` と入力すると `push origin main` が提案される例が示されています。
+回答の生成のために、現在のシェルのコンテキスト、および最近のコマンド履歴が利用されるとのことです。
+
+面白くて便利そうな機能なのですが、機能はデフォルトで有効です。
+個人的には、新たな種類のデータを送信するのであればデフォルト無効にしてオプトインできる形にしてほしかったです。特にシェルの履歴は個人的にソースコードより機密性が高いと思っており、勝手に外部サーバへ送信してほしくはなかったですね。
+（送信したデータを学習可能にするかは設定でオフにできます。）
+
+次のスクラップが参考になります。
+
+- [Amazon Q Developer ( 旧 Fig ) の inline compression 機能追加で「データ送信がデフォルトオン」になってる話](https://zenn.dev/naotama/scraps/e6c20f78d09de0)
+
+僕の場合はアップデートして設定欄を見た際に自動でオンになっていて驚きました。これまで Amazon Q for command line を使っていましたが、勝手に送信するデータの範囲を広げられることに不信感を持ったため、アンインストールしました。
+
+Amazon Q for command line を利用している方は注意しましょう。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 # know-how 🎓
 
@@ -145,6 +162,23 @@ _本項の執筆者: [@uta8a](https://zenn.dev/uta8a)_
 ## macOS Sonoma 14.xでsudo実行時にTouch IDで認証する機能を有効化する手順 #TouchID - Qiita
 https://qiita.com/notakaos/items/fbc817741d43f24bf300
 
+<!-- textlint-disable ja-technical-writing/ja-no-redundant-expression -->
+
+macOS 14.x で sudo 実行時に Touch ID で認証する機能についての記事です。
+macOS では Touch ID という生体認証機能を利用できます。主にログイン時や GUI 上の特権操作を行うときに Touch ID を使った認証が可能です。
+
+コマンドライン上で sudo する際も Touch ID で認証することはこれまでも可能でしたが、macOS 14.x になるまでは、設定をしても OS 更新で設定が元に戻ってしまっていました。
+しかし、macOS 14.x では設定を永続化できるようになり、また、設定が簡単になったことがこの記事で紹介されています。
+
+僕も前の OS で sudo を Touch ID で認証する設定はやってたのですが、OS 更新のたびに設定するのが面倒だったのでそのうち設定しなくなっていました。
+この記事を読んで 14.x より設定を永続化できることを知ってさっそく設定しました。
+
+正直 sudo は滅多に使いませんが、やはり Touch ID で認証できるのは便利ですね。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
+
+<!-- textlint-enable ja-technical-writing/ja-no-redundant-expression -->
+
 # tool 🔨
 
 ## lintnet - General purpose linter powered by Jsonnet
@@ -162,15 +196,8 @@ lintnet は汎用的な linter で、現在は JSON, YAML, HCL, CSV といった
 
 _本項の執筆者: [@uta8a](https://zenn.dev/uta8a)_
 
-# read more 🍘
-Productivity Weekly で出たネタを全て紹介したいけど紹介する体力が持たなかったネタを一言程度で書くコーナーです。
-
-- **news 📺**
-- **know-how 🎓**
-- **tool 🔨**
-
 # あとがき
-
+最近雨が多いですね。そういえば 6/13 に 29 歳になりました。アラサーの極みです。
 
 サイボウズの生産性向上チームでは社内エンジニアの開発生産性を上げるための活動を行なっています。そんな生産性向上チームが気になる方は下のリンクをクリック！
 https://speakerdeck.com/cybozuinsideout/engineering-productivity-team-recruitment-information
