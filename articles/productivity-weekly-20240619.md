@@ -69,9 +69,6 @@ custom properties も push rules もますます使いやすくなりました�
 
 _本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
-## New Copilot Enterprise features in VS Code (preview) - The GitHub Blog
-https://github.blog/changelog/2024-06-14-new-copilot-enterprise-features-in-vs-code-preview/
-
 ## The GitHub Enterprise Server 3.13 is generally available - The GitHub Blog
 https://github.blog/changelog/2024-06-18-the-github-enterprise-server-3-13-is-generally-available/
 
@@ -86,6 +83,19 @@ https://docs.github.com/en/enterprise-server@3.13/admin/release-notes
 
 
 _本項の執筆者: [@Kesin11](https://zenn.dev/kesin11)_
+
+## New Copilot Enterprise features in VS Code (preview) - The GitHub Blog
+https://github.blog/changelog/2024-06-14-new-copilot-enterprise-features-in-vs-code-preview/
+
+GitHub Copilot Enterprise のユーザは VSCode 上で Copilot ナレッジベースと Bing 検索結果によるコンテキストを強化したチャット機能を利用できるようになりました。
+
+[Copilot ナレッジベース](https://docs.github.com/en/enterprise-cloud@latest/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-github-copilot-features-in-your-organization/managing-copilot-knowledge-bases)は Copilot のコンテキストに含める任意の GitHub リポジトリのリストを作成・管理できる機能です。これまでは、作成したナレッジベースを利用して GitHub.com 上で GitHub Copilot Chat とチャットができましたが、今回のアップデートで VSCode 上でも同様の機能が利用できるようになりました。
+
+また、Bing の検索結果をコンテキストとして利用する機能も GitHub.com 上での Copilot Chat で利用できましたが、今回 VSCode 上のチャットでも利用できるようになりました。
+
+どんどん Copilot Enterprise が便利になっていきますね。良いですね。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 ## Docker DesktopからGitHub Actionsビルドの詳細が参照可能に。Windows on Arm版も登場したDocker Desktop 4.31正式版リリース － Publickey
 https://www.publickey1.jp/blog/24/docker_desktopgithub_actionswindows_on_armdocker_desktop_431.html
