@@ -47,6 +47,28 @@ user_defined:
 ## Repository updates June 12th 2024 - The GitHub Blog
 https://github.blog/changelog/2024-06-12-repository-updates-june-12th-2024/
 
+GitHub のリポジトリに関する 6 月のアップデート情報です。custom properties と push rules (public beta)の機能強化が紹介されています。
+
+- custom properties
+  - 新しいプロパティの種類を追加
+    - `Multi select`: 複数選択できるプロパティ
+    - `True/False`: 真偽値を持つプロパティ
+  - ルールセットのターゲット対象に絞り込む条件としていくつかのプロパティが利用可能に
+    - `fork`: fork したリポジトリかどうか
+    - `language`: プライマリ言語
+    - `visibility`: リポジトリの可視性（`public`, `private`, `internal`）
+- push rules (public beta)
+  - 新しいバイパスフローの追加
+    - バイパスリストに載ってないユーザが push rules にブロックされた場合、バイパスリストに載っているユーザに対して一時的なバイパスを要求できるようになった
+    - 詳しくは検証したのでこっちを参照ください〜
+      - [GitHub の Delegated bypass for push rules を試す](https://zenn.dev/korosuke613/scraps/244af7e2a97423)
+
+custom properties も push rules もますます使いやすくなりましたね。
+
+特に push rules のバイパスを要求できる機能はとても嬉しいかなと思います。push rules でブロックされるファイルに対してコントリビューションしたい場合、プルリクエストを送ることすらできません。一時的に push を許可するフローができたのは嬉しいですね。ただ、僕が調べた限り、この機能はファイル差分を見られなかったので、それが見られるようになるともっと使いやすくなるのかなと思いました。今後に期待ですね。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
+
 ## New Copilot Enterprise features in VS Code (preview) - The GitHub Blog
 https://github.blog/changelog/2024-06-14-new-copilot-enterprise-features-in-vs-code-preview/
 
