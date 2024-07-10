@@ -37,7 +37,7 @@ user_defined:
 - [@korosuke613](https://zenn.dev/korosuke613)
 <!-- - [@defaultcf](https://zenn.dev/defaultcf) -->
 - [@Kesin11](https://zenn.dev/kesin11)
-<!-- - [@r4mimu](https://zenn.dev/r4mimu) -->
+- [@r4mimu](https://zenn.dev/r4mimu)
 <!-- - [@uta8a](https://zenn.dev/uta8a) -->
 
 :::
@@ -68,6 +68,12 @@ _本項の執筆者: [@Kesin11](https://zenn.dev/kesin11)_
 ## Docker DesktopからGitHub Actionsビルドの詳細が参照可能に。Windows on Arm版も登場したDocker Desktop 4.31正式版リリース － Publickey
 https://www.publickey1.jp/blog/24/docker_desktopgithub_actionswindows_on_armdocker_desktop_431.html
 
+Docker Desktop v4.31 がリリースされ、GitHub Actions でビルドしたコンテナイメージの詳細を Docker Desktop から参照できる機能がベータ版として追加されました。自分は OrbStack ユーザーなので実際に確認できていないのですが、`Import builds` という項目が追加され、GitHub Actions のリモートビルドのパフォーマンス、キャッシュ使用率、エラーログが確認できるそうです。
+
+CI/CD でのビルドを分析して課題を発見し、Docker Build Cloud を使ってもらいたいという Docker 社の考えでしょうか。ビルドが遅くて困っている人には嬉しい機能かもしれません。
+
+_本項の執筆者: [@r4mimu](https://zenn.dev/r4mimu)_
+
 ## IAM Access Analyzer Update: Extending custom policy checks & guided revocation | AWS News Blog
 https://aws.amazon.com/jp/blogs/aws/iam-access-analyzer-update-extending-custom-policy-checks-guided-revocation/
 
@@ -78,6 +84,12 @@ https://tech.route06.co.jp/entry/2024/06/12/121511
 
 ## クラウドロックインされないアーキテクチャ「Cloud Agnostic Architecture」のすすめ | フューチャー技術ブログ
 https://future-architect.github.io/articles/20240617b/
+
+Cloud Agnostic Architecture の解説や実現方法について紹介している記事です。
+そもそも Cloud Agnostic Architecture とは何か、どのようなメリットがあるのか、どのように実現するのかを AWS と OSS を例に具体的に解説しています。
+また、解説に留まらず、デメリットやトレードオフといった注意点も紹介しているので、クラウドネイティブなアーキテクチャを構築する際にこれらの観点を踏まえて設計する助けになる記事です。
+
+_本項の執筆者: [@r4mimu](https://zenn.dev/r4mimu)_
 
 # tool 🔨
 
