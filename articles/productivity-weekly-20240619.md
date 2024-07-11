@@ -103,6 +103,23 @@ https://www.publickey1.jp/blog/24/docker_desktopgithub_actionswindows_on_armdock
 ## IAM Access Analyzer Update: Extending custom policy checks & guided revocation | AWS News Blog
 https://aws.amazon.com/jp/blogs/aws/iam-access-analyzer-update-extending-custom-policy-checks-guided-revocation/
 
+日本語: [IAM Access Analyzer の最新情報: カスタムポリシーチェックとガイド付き取り消しを拡張する | Amazon Web Services ブログ](https://aws.amazon.com/jp/blogs/news/iam-access-analyzer-update-extending-custom-policy-checks-guided-revocation/)
+
+AWS IAM Access Analyzer において、新たなカスタムポリシーチェックと未使用アクセス権の取り消しガイド機能が追加されました。
+
+新しいカスタムポリシーチェックは、ローカルに用意したポリシーが特定のリソースのパブリックアクセスを許可してるかどうか(`CheckNoNewAccess`)、アクセス権を有してるかどうか(`CheckAccessNotGranted`)を検出できる機能です。これを使うとポリシーをデプロイする前に意図せぬアクセス権を検出できるます。記事では CI に組み込んで継続的にチェックすることもおすすめされています。
+
+カスタムポリシーチェックについては、クラメソさんが解説と実演をブログにまとめてますので、大変参考になります。
+
+- [IAM Access Analyzerのカスタムポリシーチェックでパブリックアクセスと重要リソースアクセスのチェックが追加されました！ #AWSreInforce | DevelopersIO](https://dev.classmethod.jp/articles/iam-access-analyzer-check-public-access-and-resource-access/)
+
+未使用アクセス権の取り消しガイド機能は、IAM Access Analyzer で「Unused access」を検出したときに役立つ機能です。「Unused access」の検出では、利用していないアクセスキーや IAM ロールを検出できます。検出自体はこれまでもあった機能ですが、今回、検出結果に対してどういうアクションが推奨されているかが「Recommendations」に表示されるようになりました。
+検出されたはいいけどどうすればいいかわからない人には嬉しい機能ですね。
+
+IAM Access Analyzer を使うと IAM の棚卸しができたりセキュリティを向上できたりして良いですね。今後も機能を増やしていってほしいです。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
+
 # know-how 🎓
 
 ## モノレポでマージキューと必須ステータスチェックを運用するためのTips - ROUTE06 Tech Blog
