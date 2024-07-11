@@ -1,5 +1,5 @@
 ---
-title: ＜ここにタイトルを入力＞｜Productivity Weekly(2024-06-19)
+title: GitHubのカスタムプロパティのアプデの話など｜Productivity Weekly(2024-06-19)
 emoji: 🤿
 type: idea
 topics:
@@ -150,17 +150,17 @@ Cloud Agnostic Architecture の解説や実現方法について紹介してい�
 
 _本項の執筆者: [@r4mimu](https://zenn.dev/r4mimu)_
 
-# tool 🔨
-
-# read more 🍘
-Productivity Weekly で出たネタを全て紹介したいけど紹介する体力が持たなかったネタを一言程度で書くコーナーです。
-
-- **news 📺**
-- **know-how 🎓**
-- **tool 🔨**
-
 # あとがき
+大変遅くなってしまいすみません。今週号でした。ここ最近 AWS Summit とか開発生産性カンファレンスとかに参加してきて忙しかったです。
 
+近いうちに Sansan さんとサイボウズで祭りを行うので、よければ見に来てください。リアル参加枠はもう埋まっちゃいました。
+
+<!-- textlint-disable -->
+
+Sansan vs サイボウズ 開発生産性Tips夏祭り - connpass
+https://cybozu.connpass.com/event/322718/
+
+<!-- textlint-enable -->
 
 サイボウズの生産性向上チームでは社内エンジニアの開発生産性を上げるための活動を行なっています。そんな生産性向上チームが気になる方は下のリンクをクリック！
 https://speakerdeck.com/cybozuinsideout/engineering-productivity-team-recruitment-information
