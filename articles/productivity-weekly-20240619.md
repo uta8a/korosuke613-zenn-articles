@@ -47,8 +47,27 @@ user_defined:
 ## Repository updates June 12th 2024 - The GitHub Blog
 https://github.blog/changelog/2024-06-12-repository-updates-june-12th-2024/
 
-## New Copilot Enterprise features in VS Code (preview) - The GitHub Blog
-https://github.blog/changelog/2024-06-14-new-copilot-enterprise-features-in-vs-code-preview/
+GitHub のリポジトリに関する 6 月のアップデート情報です。custom properties と push rules (public beta)の機能強化が紹介されています。
+
+- custom properties
+  - 新しいプロパティの種類を追加
+    - `Multi select`: 複数選択できるプロパティ
+    - `True/False`: 真偽値を持つプロパティ
+  - ルールセットのターゲット対象に絞り込む条件としていくつかのプロパティが利用可能に
+    - `fork`: fork したリポジトリかどうか
+    - `language`: プライマリ言語
+    - `visibility`: リポジトリの可視性（`public`, `private`, `internal`）
+- push rules (public beta)
+  - 新しいバイパスフローの追加
+    - バイパスリストに載ってないユーザが push rules にブロックされた場合、バイパスリストに載っているユーザに対して一時的なバイパスを要求できるようになった
+    - 詳しくは検証したのでこっちを参照ください〜
+      - [GitHub の Delegated bypass for push rules を試す](https://zenn.dev/korosuke613/scraps/244af7e2a97423)
+
+custom properties も push rules もますます使いやすくなりましたね。
+
+特に push rules のバイパスを要求できる機能はとても嬉しいかなと思います。push rules でブロックされるファイルに対してコントリビューションしたい場合、プルリクエストを送ることすらできません。一時的に push を許可するフローができたのは嬉しいですね。ただ、僕が調べた限り、この機能はファイル差分を見られなかったので、それが見られるようになるともっと使いやすくなると思いました。今後に期待ですね。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 ## The GitHub Enterprise Server 3.13 is generally available - The GitHub Blog
 https://github.blog/changelog/2024-06-18-the-github-enterprise-server-3-13-is-generally-available/
@@ -65,6 +84,19 @@ https://docs.github.com/en/enterprise-server@3.13/admin/release-notes
 
 _本項の執筆者: [@Kesin11](https://zenn.dev/kesin11)_
 
+## New Copilot Enterprise features in VS Code (preview) - The GitHub Blog
+https://github.blog/changelog/2024-06-14-new-copilot-enterprise-features-in-vs-code-preview/
+
+GitHub Copilot Enterprise のユーザは VSCode 上で Copilot ナレッジベースと Bing 検索結果によるコンテキストを強化したチャット機能を利用できるようになりました。
+
+[Copilot ナレッジベース](https://docs.github.com/en/enterprise-cloud@latest/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-github-copilot-features-in-your-organization/managing-copilot-knowledge-bases)は Copilot のコンテキストに含める任意の GitHub リポジトリのリストを作成・管理できる機能です。これまでは、作成したナレッジベースを利用して GitHub.com 上で GitHub Copilot Chat とチャットができましたが、今回のアップデートで VSCode 上でも同様の機能が利用できるようになりました。
+
+また、Bing の検索結果をコンテキストとして利用する機能も GitHub.com 上での Copilot Chat で利用できましたが、今回 VSCode 上のチャットでも利用できるようになりました。
+
+どんどん Copilot Enterprise が便利になっていきますね。良いですね。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
+
 ## Docker DesktopからGitHub Actionsビルドの詳細が参照可能に。Windows on Arm版も登場したDocker Desktop 4.31正式版リリース － Publickey
 https://www.publickey1.jp/blog/24/docker_desktopgithub_actionswindows_on_armdocker_desktop_431.html
 
@@ -77,10 +109,37 @@ _本項の執筆者: [@r4mimu](https://zenn.dev/r4mimu)_
 ## IAM Access Analyzer Update: Extending custom policy checks & guided revocation | AWS News Blog
 https://aws.amazon.com/jp/blogs/aws/iam-access-analyzer-update-extending-custom-policy-checks-guided-revocation/
 
+日本語: [IAM Access Analyzer の最新情報: カスタムポリシーチェックとガイド付き取り消しを拡張する | Amazon Web Services ブログ](https://aws.amazon.com/jp/blogs/news/iam-access-analyzer-update-extending-custom-policy-checks-guided-revocation/)
+
+AWS IAM Access Analyzer において、新たなカスタムポリシーチェックと未使用アクセス権の取り消しガイド機能が追加されました。
+
+新しいカスタムポリシーチェックは、ローカルに用意したポリシーが特定のリソースのパブリックアクセスを許可しているかどうか(`CheckNoNewAccess`)、アクセス権を有しているかどうか(`CheckAccessNotGranted`)を検出できる機能です。これを使うとポリシーをデプロイする前に意図せぬアクセス権を検出できます。記事では CI に組み込んで継続的にチェックすることもおすすめされています。
+
+カスタムポリシーチェックについては、クラメソさんが解説と実演をブログにまとめてますので、大変参考になります。
+
+- [IAM Access Analyzerのカスタムポリシーチェックでパブリックアクセスと重要リソースアクセスのチェックが追加されました！ #AWSreInforce | DevelopersIO](https://dev.classmethod.jp/articles/iam-access-analyzer-check-public-access-and-resource-access/)
+
+未使用アクセス権の取り消しガイド機能は、IAM Access Analyzer で「Unused access」を検出したときに役立つ機能です。「Unused access」の検出では、利用していないアクセスキーや IAM ロールを検出できます。検出自体はこれまでもあった機能ですが、今回、検出結果に対してどういうアクションが推奨されているかが「Recommendations」に表示されるようになりました。
+検出されたはいいけどどうすればいいかわからない人には嬉しい機能ですね。
+
+IAM Access Analyzer を使うと IAM の棚卸しができたりセキュリティを向上できたりして良いですね。今後も機能を増やしていってほしいです。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
+
 # know-how 🎓
 
 ## モノレポでマージキューと必須ステータスチェックを運用するためのTips - ROUTE06 Tech Blog
 https://tech.route06.co.jp/entry/2024/06/12/121511
+
+ROUTE06 さんによる、GitHub のマージキューと必須ステータスチェックを運用するための Tips 紹介です。
+
+マージキューはそれぞれ便利な機能ですが、マージキューは複雑な仕様をしており（平木場の考え）、思った通りに設定をするのが大変です。
+この記事では、マージキューを運用するのにかかせない必須ステータスチェックをモノレポでうまく設定する方法が載っています。動的にジョブをスキップしたり、マトリックスジョブの後続ジョブをステータスチェック対象にしたりと、モノレポで嬉しい必須ステータスチェックと GitHub Actions の使い方が紹介されており参考になります。
+マージキューを運用し始めた感想も載っており、マージキュー利用の参考になります。
+
+マージキューのノウハウはまだまだ少ない気がするので、マージキュー関連の記事が出てくると嬉しいですね。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 ## クラウドロックインされないアーキテクチャ「Cloud Agnostic Architecture」のすすめ | フューチャー技術ブログ
 https://future-architect.github.io/articles/20240617b/
