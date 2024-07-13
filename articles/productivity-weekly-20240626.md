@@ -70,8 +70,8 @@ https://github.blog/changelog/2024-06-24-github-actions-ubuntu-24-04-image-now-a
 ## New JavaScript Set methods | MDN Blog 
 https://developer.mozilla.org/en-US/blog/javascript-set-methods/
 
-JavaScript にはコレクションを扱うことができる Set オブジェクトが 2014 年くらいからありますが、2 つのコレクションの差分や共通の値を出すメソッドは無く、サードパーティーのライブラリを使用するか自前で実装する必要がありました。
-あれから時が経ち、2023 年後半から主要ブラウザに差分や共通の値を出すメソッドが実装されるようになり、2024 年 6 月についに Firefox に実装されました。これによりこれらメソッドの Baseline では Widely supported と表示され、開発者は安心して使用することができます。
+JavaScript には集合を扱うことができる Set オブジェクトが 2014 年くらいからありますが、2 つの集合の差分や共通の値を出すメソッドは無く、サードパーティーのライブラリを使用するか自前で実装する必要がありました。
+あれから時が経ち、2023 年後半から主要ブラウザに集合の差分や共通の値を出すメソッドが実装されるようになり、2024 年 6 月についに Firefox にも実装されました。これによりこれらメソッドの Baseline では Widely supported と表示され、開発者は安心して使用できます。
 
 ようやくという気がしますが、便利になって嬉しいですね。
 
