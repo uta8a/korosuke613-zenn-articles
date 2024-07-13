@@ -42,7 +42,7 @@ user_defined:
 <!-- - [@defaultcf](https://zenn.dev/defaultcf) -->
 <!-- - [@Kesin11](https://zenn.dev/kesin11) -->
 <!-- - [@r4mimu](https://zenn.dev/r4mimu) -->
-<!-- - [@uta8a](https://zenn.dev/uta8a) -->
+- [@uta8a](https://zenn.dev/uta8a)
 
 :::
 
@@ -50,6 +50,23 @@ user_defined:
 
 ## Artifact Attestations is generally available - The GitHub Blog
 https://github.blog/changelog/2024-06-25-artifact-attestations-is-generally-available/
+
+以前 [2024/05/08 号](https://zenn.dev/cybozu_ept/articles/productivity-weekly-20240508#introducing-artifact-attestations%E2%80%93now-in-public-beta---the-github-blog) でも触れた Artifact Attestations が GA になりました。この機能を使うことで、コンテナイメージやバイナリといったソフトウェアのビルド成果物が、どのワークフローで作られたものかという来歴を証明できます。
+attestation の付与は Public Repository ならどのプランでも利用可能で、[Private Repository は GitHub Enterprise Cloud ライセンスが必要なようです](https://github.com/orgs/community/discussions/129761#discussioncomment-10010109)。
+
+また、Kubernetes admission controller を用いてクラスタ内で attestation の検証を行えるようになりました。導入方法は [Enforcing artifact attestations with a Kubernetes admission controller](https://docs.github.com/ja/actions/security-guides/enforcing-artifact-attestations-with-a-kubernetes-admission-controller) に詳しく書かれていますが、簡単に説明します。
+
+次のようにクラスタ内の attestation の検証を設定します。
+
+1. Sigstore Policy Controller をデプロイする
+2. TrustRoot に GitHub を追加し、ポリシーを設定する
+3. ポリシーの有効化
+
+ポリシーを有効化すると、TrustRoot で指定した鍵置き場のみを attestation の検証に用いて、ポリシーに従って検証します。Artifact attestation は Private Repository で GitHub の Private の Sigstore インスタンスを使用するので、GitHub を TrustRoot に追加しておく必要があります。また、ポリシーのデフォルトの挙動は attestation の検証が通ったものは全て許可となっているため、特定の Image に制限したいといった細かな設定は `ClusterImagePolicy` で行いましょう。
+
+また、直接この記事と関連しませんが、Trail of Bits の引用で Homebrew について触れられていたところが面白かったです。[homebrew 4.3.0](https://brew.sh/2024/05/14/homebrew-4.3.0/) から `export HOMEBREW_VERIFY_ATTESTATIONS=1` としておくと `brew install` する際に attestation の検証も行われるようになりました。まだ[early betaなので通常利用は推奨されていません](https://blog.trailofbits.com/2024/05/14/a-peek-into-build-provenance-for-homebrew/)が、attestation の活用の広まりを感じます。
+
+_本項の執筆者: [@uta8a](https://zenn.dev/uta8a)_
 
 ## Anthropic’s Claude 3.5 Sonnet model now available in Amazon Bedrock: Even more intelligence than Claude 3 Opus at one-fifth the cost | AWS News Blog 
 https://aws.amazon.com/jp/blogs/aws/anthropics-claude-3-5-sonnet-model-now-available-in-amazon-bedrock-the-most-intelligent-claude-model-yet/
@@ -66,6 +83,20 @@ https://opentofu.org/blog/help-us-test-opentofu-1-8-0-alpha1/
 ## Fastlyが開発者向けの無料プランを提供開始。CDNやDDoS対策、Wasm対応ランタイム、KVストアなど提供 － Publickey
 https://www.publickey1.jp/blog/24/fastlycdnddoswasmkv.html
 
+CDN で有名な Fastly が開発者向けの無料プランの提供を開始しました。クレジットカードの登録なしで使えるのは嬉しいですね。
+
+機能としては CDN, サーバレスランタイム, 画像の配信最適化などです。[私もアカウントを作って機能をざっと眺めてみたところ](https://zenn.dev/uta8a/scraps/cb5bff850bf020)、特に面白そうに感じたのは次の 3 点です。
+
+- Compute というサーバレスランタイムが Rust SDK をサポートしている
+  - 公式には [Rust, JavaScript, Go](https://www.fastly.com/documentation/guides/compute/) の SDK が利用可能
+  - Wasm にコンパイルされて、wasmtime というランタイム上で動かすので、他の言語も Wasm に変換できれば動く
+- Observability という Compute や CDN のサービスのメトリクスダッシュボードが充実している
+- Labs の AI ワークフローがまだ beta だけど面白そう
+
+Cloudflare Workers も Wasm をサポートしていますし、エッジのサーバレス系で Wasm 利用が一般的になってきたのを感じます。
+
+_本項の執筆者: [@uta8a](https://zenn.dev/uta8a)_
+
 # know-how 🎓
 
 ## 開発生産性指標を向上させるためにやってはいけないアンチパターン - Findy Tech Blog
@@ -74,11 +105,47 @@ https://tech.findy.co.jp/entry/2024/06/24/090000
 ## 継続的テスト（continuous testing）とシフトレフトな活動をアジャイルにどう取り入れるか？／風間裕也・執筆 - Agile Journey
 https://agilejourney.uzabase.com/entry/2024/06/25/103000
 
+テストは DevOps のサイクルの中のどのフェーズでも行えるものだという継続的テストモデルの紹介と、テスト活動をシフトレフトしていくためにはどうしたら良いかという話が書かれています。
+
+ここでいうテストはテストコードを書く自動テストだけでなく、品質保証のための活動として広く捉えているようです。そのため、コードの実装前の仕様決定の段階であっても、テストの観点から仕様の不備を見つけることで、早い段階から不具合の発生を防いて開発全体のコストを下げる取り組みができる、という話がされています。
+
+DevOps の歴史からシフトレフトするための具体的な活動まで触れられていて分かりやすかったです。品質保証やテストのシフトレフトに興味のある方はぜひ読んでみてください。
+
+_本項の執筆者: [@uta8a](https://zenn.dev/uta8a)_
+
 ## feature flag と OpenTelemetry - Speaker Deck
 https://speakerdeck.com/biwashi/feature-flag-to-opentelemetry
 
+Feature flag とオブザーバビリティ周辺の話題について触れられています。
+
+プロダクトの新機能の公開や変更を単一のコードベースで簡単に行うために、コード内にフラグを埋め込んで機能のオンオフを制御する Feature flag という仕組みがあります。Feature flag を導入する際にはモニタリング・オブザーバビリティの複雑化に対処する必要があり、フラグの管理システムが必要になります。その管理システムはベンダーごとに差異があるため、OpenFeature という規格が作られました。OpenFeature は各ベンダーと実装の間の抽象化層としての SDK を提供しています。
+
+この発表の中ではさらに OpenFeature と OpenTelemetry の関係性についても触れられていました。フラグの値は動的であり、実行時に解決されます。この過程は評価と呼び、Evaluation API を用いて解決されます。例えば次のように、`v2_enabled` という Feature flag が true になっているかどうかを評価して、返却された結果 `v2Enabled` を使って分岐します。
+
+```go
+v2Enabled, _ := client.BooleanValue(
+    context.Background(), "v2_enabled", true, openfeature.EvaluationContext{},
+)
+// Use the returned flag value
+if v2Enabled {
+    fmt.Println("v2 is enabled")
+}
+
+// reference: https://openfeature.dev/docs/reference/technologies/server/go
+```
+
+評価には Before, After, Error, Finally の 4 つのライフサイクルがあり、このサイクルの各フェーズに対してロギングのような任意の処理を挟める OpenFeature Hooks という仕組みが提供されています。資料の中では Hooks を用いて Datadog にイベントを送る際に、どの Feature flag が原因でこのイベントが起こったかフィルタをしやすくするために、関数単位で Feature flag を設定して Datadog Facets を用いると検索しやすくなるという実例も紹介されていました。
+
+_本項の執筆者: [@uta8a](https://zenn.dev/uta8a)_
+
 ## Gobra で見る形式検証 (mercari.go #26) - Speaker Deck
 https://speakerdeck.com/artoy/gobra-dejian-ruxing-shi-jian-zheng-mercari-dot-go-number-26
+
+Gobra という、Go にアノテーションをつけることで Go のプログラムを形式検証できるツールについて紹介されています。
+
+関数の実行前に成り立っている事前条件、関数の実行後に成り立っている事後条件をアノテーションとして Go の関数の前に書いて Gobra を使うと検証ができるようです。Goroutine を含むプログラムの検証も行えるのは興味深いなと思いました。
+
+_本項の執筆者: [@uta8a](https://zenn.dev/uta8a)_
 
 ## CUR による AWS コスト構造の継続的モニタリング
 https://zenn.dev/simpleform_blog/articles/20240617-aws-cost-structure-monitoring
