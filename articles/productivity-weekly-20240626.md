@@ -167,6 +167,17 @@ _本項の執筆者: [@uta8a](https://zenn.dev/uta8a)_
 ## CUR による AWS コスト構造の継続的モニタリング
 https://zenn.dev/simpleform_blog/articles/20240617-aws-cost-structure-monitoring
 
+SimpleForm さんによる、AWS のコスト構造を継続的にモニタリングを AWS Cost and Usage Report (CUR) を使って行う方法を紹介している記事です。
+
+元々 AWS Cost Categories を用いてコスト分類を検討したそうですが、Cost Categories が要望に満たなかったため、より柔軟にコスト分類を実現できる AWS CUR を使うことにしたそうです。
+
+記事では、コスト構造の定義例、Cost Categories の課題、CUR を使ったコスト構造の継続的モニタリングのためのアーキテクチャ、各フェーズの実装概要が載っています。
+コスト構造の定義例、定義したコスト構造に分類するための流れがわかりやすく、似たようなことをしたい際に参考になりそうです。
+
+コスト分析をしていく上でこういった事例はとても参考になります。CUR、活用していきたいですね。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
+
 ## GitHub からの AWS CloudFormation デプロイ自動化 | Amazon Web Services ブログ
 https://aws.amazon.com/jp/blogs/news/automate-safe-aws-cloudformation-deployments-from-github-jp/
 
@@ -178,20 +189,19 @@ GitHub Codespace を使っていたり、GitHub Actions を使って CI を組�
 
 _本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)_
 
-## GitLab、ソフトウェア開発の現状に関する企業調査レポートを発表 ―経営幹部と実務担当者の間にAI、セキュリティ、生産性に対する意識の差 | gihyo.jp
-https://gihyo.jp/article/2024/06/gitlab-research2024
-
-## AWS Summit Japan 2024セッションレポートまとめ（6/25 13:30更新） | DevelopersIO
-https://dev.classmethod.jp/articles/aws-summit-japan-2024-matome/
-
-# tool 🔨
-
 # read more 🍘
 Productivity Weekly で出たネタを全て紹介したいけど紹介する体力が持たなかったネタを一言程度で書くコーナーです。
 
-- **news 📺**
 - **know-how 🎓**
-- **tool 🔨**
+  - [GitLab、ソフトウェア開発の現状に関する企業調査レポートを発表 ―経営幹部と実務担当者の間にAI、セキュリティ、生産性に対する意識の差 | gihyo.jp](https://gihyo.jp/article/2024/06/gitlab-research2024)
+    - GitLab が公開したソフトウェア開発に関する企業調査レポートを技術評論社さんが紹介しています
+    - 日本とその他の国で傾向にどういう違いがあるかをいくつかのトピックで紹介してくれていて良いです
+    - 気になる人は大元のレポートも読みましょう
+  - [AWS Summit Japan 2024セッションレポートまとめ（6/25 13:30更新） | DevelopersIO](https://dev.classmethod.jp/articles/aws-summit-japan-2024-matome/)
+    - 先日開催された AWS Summit Japan 2024 セッションのクラスメソッドさんによるレポートをリストアップした記事です
+    - いくつかのセッションがどんな内容だったかなんとなくわかります
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 # あとがき
 
