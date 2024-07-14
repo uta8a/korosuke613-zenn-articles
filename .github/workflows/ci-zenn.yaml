@@ -7,6 +7,11 @@ permissions:
   contents: read
   pull-requests: write
 
+env:
+  # deno が package.json にあるパッケージを deno.lock で管理しようとするのを防ぐ
+  # ref: https://github.com/denoland/deno/issues/17916
+  DENO_NO_PACKAGE_JSON: 1
+
 jobs:  
   validate-zenn-metadata:
     name: Validate metadata
