@@ -102,7 +102,7 @@ _本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)_
 https://opentofu.org/blog/help-us-test-opentofu-1-8-0-alpha1/
 
 OpenTofu v1.8.0 のアルファ版の紹介です。
-Early variable/locals evaluation という新機能により、backend や module source に変数が使えるようになります。つまり、変数でモジュールのバージョン指定が出来るようになる地味に嬉しいアップデートです。Terraform では `source` に変数を使いたいと、ちょいちょい議論されていましたが、OpenTofu では実現されるようです。コミュニティベース開発の良さと言えるかも知れませんね。これに伴い、Terraform との互換性がなくなるので `.tofu` 拡張子が作られ、`.tofu` ファイルを `.tf` ファイルよりも優先で見るようになるそうです。ついにといったところでしょうか。
+Early variable/locals evaluation という新機能により、backend や module source に変数が使えるようになります。つまり、変数でモジュールのバージョン指定ができるようになる地味に嬉しいアップデートです。Terraform では `source` に変数を使いたいと、ちょいちょい議論されていましたが、OpenTofu では実現されるようです。コミュニティベース開発の良さと言えるかも知れませんね。これに伴い、Terraform との互換性がなくなるので `.tofu` 拡張子が作られ、`.tofu` ファイルを `.tf` ファイルよりも優先で見るようになるそうです。ついにといったところでしょうか。
 
 余談ですが、OpenTofu のブログのサムネが可愛いですね。
 
