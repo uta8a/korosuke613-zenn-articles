@@ -41,7 +41,7 @@ user_defined:
 - [@korosuke613](https://zenn.dev/korosuke613)
 - [@defaultcf](https://zenn.dev/defaultcf)
 <!-- - [@Kesin11](https://zenn.dev/kesin11) -->
-<!-- - [@r4mimu](https://zenn.dev/r4mimu) -->
+- [@r4mimu](https://zenn.dev/r4mimu)
 - [@uta8a](https://zenn.dev/uta8a)
 
 :::
@@ -84,6 +84,10 @@ _本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)_
 ## GitHub Actions: Ubuntu 24.04 image now available for arm64 runners - The GitHub Blog
 https://github.blog/changelog/2024-06-24-github-actions-ubuntu-24-04-image-now-available-for-arm64-runners/
 
+2024 年 6 月時点で Public Beta として提供されている GitHub Actions Arm ランナーに Ubuntu 24.04 のイメージが追加されました。[以前のアナウンス](https://github.blog/changelog/2024-06-03-actions-arm-based-linux-and-windows-runners-are-now-in-public-beta/)と同様、Larger runner としての提供のため、GitHub Team または GitHub Enterprise プランでのみ利用可能です。さらなる進展を待ちましょう！
+
+_本項の執筆者: [@r4mimu](https://zenn.dev/r4mimu)_
+
 ## New JavaScript Set methods | MDN Blog 
 https://developer.mozilla.org/en-US/blog/javascript-set-methods/
 
@@ -96,6 +100,13 @@ _本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)_
 
 ## Help us test OpenTofu 1.8.0-alpha1
 https://opentofu.org/blog/help-us-test-opentofu-1-8-0-alpha1/
+
+OpenTofu v1.8.0 のアルファ版の紹介です。
+Early variable/locals evaluation という新機能により、backend や module source に変数が使えるようになります。つまり、変数でモジュールのバージョン指定が出来るようになる地味に嬉しいアップデートです。Terraform では `source` に変数を使いたいと、ちょいちょい議論されていましたが、OpenTofu では実現されるようです。コミュニティベース開発の良さと言えるかも知れませんね。これに伴い、Terraform との互換性がなくなるので `.tofu` 拡張子が作られ、`.tofu` ファイルを `.tf` ファイルよりも優先で見るようになるそうです。ついにといったところでしょうか。
+
+余談ですが、OpenTofu のブログのサムネが可愛いですね。
+
+_本項の執筆者: [@r4mimu](https://zenn.dev/r4mimu)_
 
 ## Fastlyが開発者向けの無料プランを提供開始。CDNやDDoS対策、Wasm対応ランタイム、KVストアなど提供 － Publickey
 https://www.publickey1.jp/blog/24/fastlycdnddoswasmkv.html
@@ -118,6 +129,10 @@ _本項の執筆者: [@uta8a](https://zenn.dev/uta8a)_
 
 ## 開発生産性指標を向上させるためにやってはいけないアンチパターン - Findy Tech Blog
 https://tech.findy.co.jp/entry/2024/06/24/090000
+
+Four Keys 指標に基づいた開発生産性の向上を取り組むうえでのアンチパターンを紹介している記事です。複数のアンチパターンが述べられており、具体例とともに改善点や注意点が記載されていて、指標活用において参考になる内容となっています。いずれのアンチパターンにも共通する根本的な問題として、指標を改善することを目的としてしまうことが挙げられており、指標を向上させることが目的ではなく、開発生産性を向上させた結果が Four Keys 指標の向上に繋がることだと DORA の原典に立ち返って述べられています。いわゆるグッドハートの法則に陥らないように注意が必要ですね。
+
+_本項の執筆者: [@r4mimu](https://zenn.dev/r4mimu)_
 
 ## 継続的テスト（continuous testing）とシフトレフトな活動をアジャイルにどう取り入れるか？／風間裕也・執筆 - Agile Journey
 https://agilejourney.uzabase.com/entry/2024/06/25/103000
