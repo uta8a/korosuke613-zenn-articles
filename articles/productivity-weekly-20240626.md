@@ -1,5 +1,5 @@
 ---
-title: ＜ここにタイトルを入力＞｜Productivity Weekly(2024-06-26)
+title: attestationsやfeature flagの話など｜Productivity Weekly(2024-06-26)
 emoji: 🏷️
 type: idea
 topics:
@@ -15,6 +15,7 @@ user_defined:
     _本項の執筆者: [@Kesin11](https://zenn.dev/kesin11)_
     _本項の執筆者: [@r4mimu](https://zenn.dev/r4mimu)_
     _本項の執筆者: [@uta8a](https://zenn.dev/uta8a)_
+published_at: 2024-07-17 12:00
 ---
 
 こんにちは。サイボウズ株式会社 [生産性向上チーム](https://note.com/cybozu_dev/n/n1c1b44bf72f6)の平木場です。
@@ -219,7 +220,15 @@ Productivity Weekly で出たネタを全て紹介したいけど紹介する体
 _本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 # あとがき
+遅くなってすみません今週号でした。
+実は来週 Sansan さんとの合同イベントを開催します。現地参加枠はすでに埋まってしまいましたが、オンライン視聴枠はまだ空いてます。興味のある方はぜひご参加ください！
 
+<!-- textlint-disable -->
+
+Sansan vs サイボウズ 開発生産性Tips夏祭り - connpass
+https://cybozu.connpass.com/event/322718/
+
+<!-- textlint-enable -->
 
 :::message
 2024-07-03 号の Productivity Weekly は社内イベントのためお休みです。
