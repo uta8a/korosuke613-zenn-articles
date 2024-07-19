@@ -59,6 +59,21 @@ https://github.blog/changelog/2024-07-05-github-copilot-enterprise-on-gpt-4o/
 ## Visual Studio Code June 2024
 https://code.visualstudio.com/updates/v1_91
 
+## AWS Lambda で、Lambda 関数のログの検索、フィルタリング、集計を容易にする新しいコントロールを新たに導入
+https://aws.amazon.com/jp/about-aws/whats-new/2024/07/aws-lambda-search-filter-aggregate-function-logs/
+
+2023 年 11 月から、AWS Lambda のログの出力に JSON 形式を選択できるようになっています。
+JSON 形式で出力することで、ログを機械的に分析できるようになります。
+また関数側ではログ出力を別途ライブラリに任せることなく、直接メッセージを出力するだけで良いことになります。
+
+CloudWatch Logs に出力されるログレベルも、関数、プラットフォームでそれぞれ変更可能になっています。デフォルトではどちらも INFO となっていますが、これを変更すると INFO かそれより下のログレベルのみが出力されるようになります。例えば WARN に変更すると、CloudWatch Logs にはログレベルが WARN, ERROR, FATAL のログが出力されます。
+
+また出力先のロググループも変更可能になっています。以前までは関数名で自動的に決まっていました。
+
+[以前出たブログ記事](https://aws.amazon.com/jp/blogs/compute/introducing-advanced-logging-controls-for-aws-lambda-functions/)と比較すると、特に新しい情報は無さそうに思います。
+テキストで自由に出力されるより JSON 形式の方が検索などで便利ですので、使っていきたいですね。
+
+_本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)_
 
 # know-how 🎓
 
@@ -67,6 +82,18 @@ https://blog.g-gen.co.jp/entry/docker-image-pipeline-with-github-actions
 
 ## terraform importで数年やってきたがImport blockの良さに気づきました
 https://zenn.dev/aeonpeople/articles/d63e84494d9e2c
+
+2023 年 6 月にリリースされた Terraform v1.5.0 から、import ブロックが登場しています。
+
+この記事では、terraform import コマンドから import ブロックへの移行のメリットが詳しく書かれています。
+特に CI/CD パイプライン上で terraform plan, apply をしている場合、そのパイプライン上で import が可能になります。個人のマシンにクラウドまわりの強い権限を渡す必要が無くなり、また state を意識してインポートする必要が（ほぼ）無くなります。
+
+なにより、terraform import 実行時に state に変更が入ってしまうため、そこから実環境と差分が無いように設定を直してリポジトリに急いで push する必要がありました。その間に CI/CD のワークフローなどで apply が動いてしまったら、下手したらリソースが消えてしまいます。
+それが import ブロックを使うことで CI/CD のフローに載せることができるようになり、事前に検証が可能になりました。ワークフローの競合も解決します。
+
+import ブロックを使っていきましょう。
+
+_本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)_
 
 <!-- textlint-disable prh -->
 
@@ -82,6 +109,16 @@ https://zenn.dev/shunsuke_suzuki/articles/github-actions-timeout-minutes
 
 ## 暗号化に対応した次世代dotenvツールdotenvxを使う
 https://zenn.dev/moozaru/articles/edb09434f0680b
+
+dotenv の作者の方が新たに作った dotenvx が登場しました。
+dotenv と同じことを解決するツールですが、いくつか新たな機能があるようです。
+
+dotenv と同じように、アプリケーションにライブラリを組み込んで使うこともできますし、実行時に dotenvx コマンドでラップしてやることで環境変数を読み込んでくれる機能が追加されています。
+また、dotenv ファイルを暗号化して運用できるようになっており、Git でバージョン管理して運用できそうです。
+
+今はアプリケーションをコンテナで実行することが増え、直接環境変数で渡すことが多くなっているように感じますが、dotenvx もまだまだ需要がありそうです。
+
+_本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)_
 
 ## 次世代のMarkdownみたいなDjotの話
 https://zenn.dev/sorairolake/articles/nextgen-markdown-djot
