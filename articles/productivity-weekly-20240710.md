@@ -36,7 +36,7 @@ user_defined:
 今週の共同著者は次の方です。
 - [@korosuke613](https://zenn.dev/korosuke613)
 <!-- - [@defaultcf](https://zenn.dev/defaultcf) -->
-<!-- - [@Kesin11](https://zenn.dev/kesin11) -->
+- [@Kesin11](https://zenn.dev/kesin11)
 <!-- - [@r4mimu](https://zenn.dev/r4mimu) -->
 <!-- - [@uta8a](https://zenn.dev/uta8a) -->
 
@@ -47,11 +47,47 @@ user_defined:
 ## GitHub Issues & Projects - GraphQL and webhook support for project status updates and more! - The GitHub Blog
 https://github.blog/changelog/2024-06-27-github-issues-projects-graphql-and-webhook-support-for-project-status-updates-and-more/
 
+GitHub Project の webhook で対応するイベントが増えたり、中身の JSON が少し改良されたりしたようです。
+
+1 つは最近追加された [Status updates](https://docs.github.com/en/issues/planning-and-tracking-with-projects/learning-about-projects/sharing-project-updates) に対応する webhook が追加されたという内容で、もう 1 つは Project 内のアイテムが更新されたときの webhook についてカスタムフィールドの情報が含まれるようになりました。
+
+個人的には後者のカスタムフィールドの情報が含まれるようになったことが嬉しいです。個人開発の TODO 管理に GitHub Projects を利用しており、アイテムを `In progress` や `Done` に移動させたとき（Status フィールドに変更があったとき）に別のカスタムフィールドの値を自動的に更新するための bot を自作しているのですが、今までは Status フィールドに更新があったことしか webhook に含まれていませんでした。
+
+今までは GraphQL API で Status フィールドの値を取得して初めて `Done` に移動されたことなどを検知していたのですが、今回のアップデートで webhook 内にカスタムフィールドが `from` から `to` の値に更新されたという情報も含まれるようになったため、bot の処理をより簡単にできそうです。
+
+地味なアップデートですが、GitHub Project の bot を自作している人には嬉しいアップデートだと思います。
+
+_本項の執筆者: [@Kesin11](https://zenn.dev/kesin11)_
+
 ## Dependabot auto-triage rules are generally available - The GitHub Blog
 https://github.blog/changelog/2024-06-26-dependabot-auto-triage-rules-are-generally-available/
 
 ## GitHub Actions: GPU hosted runners are now generally available - The GitHub Blog
 https://github.blog/changelog/2024-07-08-github-actions-gpu-hosted-runners-are-now-generally-available/
+
+GitHub が提供する GitHub Actions のランナーに GPU が搭載された Linux と Windows のランナーが追加されました。
+
+自分自身は CI で GPU を使う処理を実行した経験はあまりないのですが、機械学習やゲームの開発など GPU を必要とする処理のために今までどうしてもセルフホストランナーを使わざるを得なかった人にとっては朗報かもしれません。
+
+GPU 付きのランナーは Larger runner として用意されているため、利用するためには最初に Larger runner としてセットアップする必要があります。ちなみにスペックと価格はこのあたりのドキュメントに記載されています。
+
+https://docs.github.com/en/actions/using-github-hosted-runners/about-larger-runners/about-larger-runners
+https://docs.github.com/en/billing/managing-billing-for-github-actions/about-billing-for-github-actions#per-minute-rates-for-gpu-powered-larger-runners
+
+気になるお値段を比較しやすいように近い金額のものを並べてみました[^runner_price]。近い金額で比較すると、GPU 付きの Linux や Windows は 16 コアより若干高め、macOS のランナーより若干安いぐらいなお値段になっています。
+
+[^runner_price]: 2024 年 7 月時点の価格です。詳細はリンク先のドキュメントを参照してください。
+
+|ランナー種別|OS, スペック|価格（USD/分）|
+|----|---|---|
+|x64 LargerRunner|Linux 16-core|$0.064|
+|**GPU付きLargerRunner**| **Linux 4-core**|$0.07|
+|StandardRunner| macOS 3 or 4 (M1 or Intel)|$0.08|
+|x64 LargerRunner|Windows 16-core|$0.128|
+|**GPU付きLargerRunner** |**Windows 4-core**|$0.14|
+|Arm LargerRunner|macOS 6-core (M1)|$0.16|
+
+_本項の執筆者: [@Kesin11](https://zenn.dev/kesin11)_
 
 ## GitHub Copilot Enterprise on GPT-4o - The GitHub Blog
 https://github.blog/changelog/2024-07-05-github-copilot-enterprise-on-gpt-4o/
