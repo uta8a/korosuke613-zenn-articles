@@ -202,6 +202,10 @@ Productivity Weekly で出たネタを全て紹介したいけど紹介する体
       - [2023-11-01 号](https://zenn.dev/cybozu_ept/articles/productivity-weekly-20231101?redirected=1#dependabot-user-defined-rules-for-security-updates-and-alerts%3B-enforcement-of-auto-triage-rules-and-presets-for-organizations-(public-beta)---the-github-blog)
 - **know-how 🎓**
   - [GitHub ActionsでDockerイメージをビルド&プッシュしてCloud Run Jobsを更新するパイプラインを考えてみた - G-gen Tech Blog](https://blog.g-gen.co.jp/entry/docker-image-pipeline-with-github-actions)
+    - G-gen さんによる GitHub Actions で Cloud Run Jobs を更新するパイプラインの構築方法を紹介した記事です
+    - どういうフロー、どういう構成で実現するのかがわかりやすく、ソースコード例もあって真似しやすいです
+    - 実際に動かした時のスクリーンショットもあってイメージしやすいです
+    - Weekly では、GAR へのプッシュに docker/build-push-action を使わなかった理由でもちょっと盛り上がりました
 - **tool 🔨**
   - [次世代のMarkdownみたいなDjotの話](https://zenn.dev/sorairolake/articles/nextgen-markdown-djot)
     - Djot という次世代 Markdown を CommonMark の主要開発者が開発しているようです
