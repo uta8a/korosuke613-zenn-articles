@@ -1,5 +1,5 @@
 ---
-title: ＜ここにタイトルを入力＞｜Productivity Weekly(2024-07-10)
+title: GitHub Projectsのwebhookの対応イベントが増えたなど｜Productivity Weekly(2024-07-10)
 emoji: 🔊
 type: idea
 topics:
@@ -35,7 +35,7 @@ user_defined:
 
 今週の共同著者は次の方です。
 - [@korosuke613](https://zenn.dev/korosuke613)
-<!-- - [@defaultcf](https://zenn.dev/defaultcf) -->
+- [@defaultcf](https://zenn.dev/defaultcf)
 - [@Kesin11](https://zenn.dev/kesin11)
 <!-- - [@r4mimu](https://zenn.dev/r4mimu) -->
 <!-- - [@uta8a](https://zenn.dev/uta8a) -->
@@ -213,7 +213,15 @@ Productivity Weekly で出たネタを全て紹介したいけど紹介する体
     - 流行ってほしいですね
 
 # あとがき
+今週号でした。ネタが盛りだくさんでしたね。
+実は今週 Sansan さんとの合同イベントを開催します。現地参加枠はすでに埋まってしまいましたが、オンライン視聴枠はまだ空いてます。興味のある方はぜひご参加ください！
 
+<!-- textlint-disable -->
+
+Sansan vs サイボウズ 開発生産性Tips夏祭り - connpass
+https://cybozu.connpass.com/event/322718/
+
+<!-- textlint-enable -->
 
 サイボウズの生産性向上チームでは社内エンジニアの開発生産性を上げるための活動を行なっています。そんな生産性向上チームが気になる方は下のリンクをクリック！
 https://speakerdeck.com/cybozuinsideout/engineering-productivity-team-recruitment-information
