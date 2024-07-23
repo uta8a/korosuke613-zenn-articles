@@ -118,7 +118,16 @@ Enterprise の価値を高めるためにあえて Individual、Business はそ�
 _本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 ## Incoming/Outgoing changes graph preview | Visual Studio Code June 2024
-https://code.visualstudio.com/updates/v1_91
+https://code.visualstudio.com/updates/v1_91#_incomingoutgoing-changes-graph-preview
+
+VSCode v1.91 において、バージョン管理システムの変更をグラフで可視化する機能が追加されました（experimental）。
+
+よく見る Git の history 図って感じです。これまではこれを見るために拡張機能を入れている人もいたと思いますが、これで標準機能としてグラフを見られるようになります。
+設定するには、`scm.experimental.showHistoryGraph` を有効にしましょう。
+
+ようやく来たかという感じですね。個人的には無くてもそんな困らないけどあると嬉しい機能です。とりあえず有効化しました。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 ## AWS Lambda で、Lambda 関数のログの検索、フィルタリング、集計を容易にする新しいコントロールを新たに導入
 https://aws.amazon.com/jp/about-aws/whats-new/2024/07/aws-lambda-search-filter-aggregate-function-logs/
@@ -156,13 +165,6 @@ import ブロックを使っていきましょう。
 
 _本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)_
 
-<!-- textlint-disable prh -->
-
-## Github Actionsで複数環境のterraform planを自動化する
-https://zenn.dev/makoto1995/articles/65de69bdaa34b3
-
-<!-- textlint-enable prh -->
-
 # tool 🔨
 
 ## GitHub Actions の timeout-minutes の linter 及び一括設定ツール
@@ -181,13 +183,6 @@ dotenv と同じように、アプリケーションにライブラリを組み�
 
 _本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)_
 
-## 次世代のMarkdownみたいなDjotの話
-https://zenn.dev/sorairolake/articles/nextgen-markdown-djot
-
-## Forests and trees of evergreen notes
-https://www.jonmsterling.com/tfmt-000R.xml
-
-
 # read more 🍘
 Productivity Weekly で出たネタを全て紹介したいけど紹介する体力が持たなかったネタを一言程度で書くコーナーです。
 
@@ -199,6 +194,8 @@ Productivity Weekly で出たネタを全て紹介したいけど紹介する体
       - [2023-11-01 号](https://zenn.dev/cybozu_ept/articles/productivity-weekly-20231101?redirected=1#dependabot-user-defined-rules-for-security-updates-and-alerts%3B-enforcement-of-auto-triage-rules-and-presets-for-organizations-(public-beta)---the-github-blog)
 - **know-how 🎓**
 - **tool 🔨**
+  - [次世代のMarkdownみたいなDjotの話](https://zenn.dev/sorairolake/articles/nextgen-markdown-djot)
+  - [Forests and trees of evergreen notes](https://www.jonmsterling.com/tfmt-000R.xml)
 
 # あとがき
 
