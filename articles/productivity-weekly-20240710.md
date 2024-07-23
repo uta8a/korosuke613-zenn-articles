@@ -204,7 +204,9 @@ Productivity Weekly で出たネタを全て紹介したいけど紹介する体
   - [GitHub ActionsでDockerイメージをビルド&プッシュしてCloud Run Jobsを更新するパイプラインを考えてみた - G-gen Tech Blog](https://blog.g-gen.co.jp/entry/docker-image-pipeline-with-github-actions)
 - **tool 🔨**
   - [次世代のMarkdownみたいなDjotの話](https://zenn.dev/sorairolake/articles/nextgen-markdown-djot)
-  - [Forests and trees of evergreen notes](https://www.jonmsterling.com/tfmt-000R.xml)
+    - Djot という次世代 Markdown を CommonMark の主要開発者が開発しているようです
+    - CommonMark にないけど GitHub Flavored Markdown にあるような文法もサポートしているようです
+    - 流行ってほしいですね
 
 # あとがき
 
