@@ -59,9 +59,6 @@ GitHub Project の webhook で対応するイベントが増えたり、中身�
 
 _本項の執筆者: [@Kesin11](https://zenn.dev/kesin11)_
 
-## Dependabot auto-triage rules are generally available - The GitHub Blog
-https://github.blog/changelog/2024-06-26-dependabot-auto-triage-rules-are-generally-available/
-
 ## GitHub Actions: GPU hosted runners are now generally available - The GitHub Blog
 https://github.blog/changelog/2024-07-08-github-actions-gpu-hosted-runners-are-now-generally-available/
 
@@ -92,8 +89,45 @@ _本項の執筆者: [@Kesin11](https://zenn.dev/kesin11)_
 ## GitHub Copilot Enterprise on GPT-4o - The GitHub Blog
 https://github.blog/changelog/2024-07-05-github-copilot-enterprise-on-gpt-4o/
 
-## Visual Studio Code June 2024
-https://code.visualstudio.com/updates/v1_91
+GitHub Copilot Enterprise、および、GitHub Mobile の GitHub Copilot Chat で GPT-4o が使われるようになりました。
+
+これまで Copilot Chat では GPT-4 が使われていました。
+今回対象でない Individual、Business プランも早く GPT-4o になるといいですね。
+
+:::message
+今回は Mobile と Enterprise プランのみの変更になりますが、OpenAI 社のサイトによると、一般向けでは GPT-4 より GPT-4o の方が安いため、なんで Mobile と Enterprise だけなんだろうとは思いました。
+
+[価格（2024/07/23 時点）](https://openai.com/api/pricing/)
+
+|モデル|コンテキスト数|input tokens(1M)|output tokens(1M)|
+|---|---|---|---|
+|gpt-4o|128K|$5.00|$15.00|
+|gpt-4o-mini|128K|$0.150|$0.600|
+|gpt-4-turbo|128K|$10.00|$30.00|
+|gpt-4|8K|$30.00|$60.00|
+|gpt-4-32k|32K|$60.00|$120.00|
+
+（GPT-4o-mini やっすいな）
+
+Enterprise の価値を高めるためにあえて Individual、Business はそのままなのかなとも思ったのですが、それなら Mobile はなぜ...？という感じです。Mobile はたしかプランによる機能差がなかったので、内部的な仕組みが違うんでしょうけど。
+
+まあそもそも MS と OpenAI の関係だから一般向け価格を参考にしても意味ないかもしれません。
+
+:::
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
+
+## Incoming/Outgoing changes graph preview | Visual Studio Code June 2024
+https://code.visualstudio.com/updates/v1_91#_incomingoutgoing-changes-graph-preview
+
+VSCode v1.91 において、バージョン管理システムの変更をグラフで可視化する機能が追加されました（experimental）。
+
+よく見る Git の history 図って感じです。これまではこれを見るために拡張機能を入れている人もいたと思いますが、これで標準機能としてグラフを見られるようになります。
+設定するには、`scm.experimental.showHistoryGraph` を有効にしましょう。
+
+ようやく来たかという感じですね。個人的には無くてもそんな困らないけどあると嬉しい機能です。とりあえず有効化しました。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 ## AWS Lambda で、Lambda 関数のログの検索、フィルタリング、集計を容易にする新しいコントロールを新たに導入
 https://aws.amazon.com/jp/about-aws/whats-new/2024/07/aws-lambda-search-filter-aggregate-function-logs/
@@ -113,9 +147,6 @@ _本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)_
 
 # know-how 🎓
 
-## GitHub ActionsでDockerイメージをビルド&プッシュしてCloud Run Jobsを更新するパイプラインを考えてみた - G-gen Tech Blog
-https://blog.g-gen.co.jp/entry/docker-image-pipeline-with-github-actions
-
 ## terraform importで数年やってきたがImport blockの良さに気づきました
 https://zenn.dev/aeonpeople/articles/d63e84494d9e2c
 
@@ -131,17 +162,21 @@ import ブロックを使っていきましょう。
 
 _本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)_
 
-<!-- textlint-disable prh -->
-
-## Github Actionsで複数環境のterraform planを自動化する
-https://zenn.dev/makoto1995/articles/65de69bdaa34b3
-
-<!-- textlint-enable prh -->
-
 # tool 🔨
 
 ## GitHub Actions の timeout-minutes の linter 及び一括設定ツール
 https://zenn.dev/shunsuke_suzuki/articles/github-actions-timeout-minutes
+
+GitHub Actions の timeout-minutes を一括で設定するツール suzuki-shunsuke/ghatm の紹介と、timeout-minutes が設定されているかをチェックする linter の紹介記事です。
+ツール作者・著者は GitHub Actions や Terraform に関連するツールでお馴染みの suzuki-shunsuke さんです。
+
+GitHub Actions のデフォルトタイムアウト時間は 360 分ととても長いですが、実際 360 分近くかかるジョブはあまりないと思います。そのため、もっと短い時間に設定し、早く失敗に気づけるようにする、無駄なリソース消費を抑えるのが良いというモチベーションから、一括設定ツールと linter を作成したようです。
+
+記事では、timeout-minutes 設定がされているか検知するための lint のやり方や、suzuki-shunsuke/ghatm による一括設定方法、複数リポジトリへの対応方法が紹介されています。
+
+確かにタイムアウト 6 時間は長いよなーとこの記事を読んで思いました。1 時間超えることすらそうない（E2E テストなどくらいしか）ので、確かに基本的に短めにしたいです。良いツールだなと思いました。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 ## 暗号化に対応した次世代dotenvツールdotenvxを使う
 https://zenn.dev/moozaru/articles/edb09434f0680b
@@ -156,19 +191,26 @@ dotenv と同じように、アプリケーションにライブラリを組み�
 
 _本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)_
 
-## 次世代のMarkdownみたいなDjotの話
-https://zenn.dev/sorairolake/articles/nextgen-markdown-djot
-
-## Forests and trees of evergreen notes
-https://www.jonmsterling.com/tfmt-000R.xml
-
-
 # read more 🍘
 Productivity Weekly で出たネタを全て紹介したいけど紹介する体力が持たなかったネタを一言程度で書くコーナーです。
 
 - **news 📺**
+  - [Dependabot auto-triage rules are generally available - The GitHub Blog](https://github.blog/changelog/2024-06-26-dependabot-auto-triage-rules-are-generally-available/)
+    - 去年の 9 月にパブリックベータ版がリリースされた Dependabot の auto-triage rules が GA になりました
+    - Productivity Weekly でも過去取り上げてるので、参考にしてください
+      - [2023-09-20 号](https://zenn.dev/cybozu_ept/articles/productivity-weekly-20230920?redirected=1#introducing-auto-triage-rules-for-dependabot---the-github-blog)
+      - [2023-11-01 号](https://zenn.dev/cybozu_ept/articles/productivity-weekly-20231101?redirected=1#dependabot-user-defined-rules-for-security-updates-and-alerts%3B-enforcement-of-auto-triage-rules-and-presets-for-organizations-(public-beta)---the-github-blog)
 - **know-how 🎓**
+  - [GitHub ActionsでDockerイメージをビルド&プッシュしてCloud Run Jobsを更新するパイプラインを考えてみた - G-gen Tech Blog](https://blog.g-gen.co.jp/entry/docker-image-pipeline-with-github-actions)
+    - G-gen さんによる GitHub Actions で Cloud Run Jobs を更新するパイプラインの構築方法を紹介した記事です
+    - どういうフロー、どういう構成で実現するのかがわかりやすく、ソースコード例もあって真似しやすいです
+    - 実際に動かした時のスクリーンショットもあってイメージしやすいです
+    - Weekly では、GAR へのプッシュに docker/build-push-action を使わなかった理由でもちょっと盛り上がりました
 - **tool 🔨**
+  - [次世代のMarkdownみたいなDjotの話](https://zenn.dev/sorairolake/articles/nextgen-markdown-djot)
+    - Djot という次世代 Markdown を CommonMark の主要開発者が開発しているようです
+    - CommonMark にないけど GitHub Flavored Markdown にあるような文法もサポートしているようです
+    - 流行ってほしいですね
 
 # あとがき
 
