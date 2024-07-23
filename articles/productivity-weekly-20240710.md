@@ -89,7 +89,35 @@ _本項の執筆者: [@Kesin11](https://zenn.dev/kesin11)_
 ## GitHub Copilot Enterprise on GPT-4o - The GitHub Blog
 https://github.blog/changelog/2024-07-05-github-copilot-enterprise-on-gpt-4o/
 
-## Visual Studio Code June 2024
+GitHub Copilot Enterprise、および、GitHub Mobile の GitHub Copilot Chat で GPT-4o が使われるようになりました。
+
+これまで Copilot Chat では GPT-4 が使われていました。
+今回対象でない Individual、Business プランも早く GPT-4o になるといいですね。
+
+:::message
+今回は Mobile と Enterprise プランのみの変更になりますが、OpenAI 社のサイトによると、一般向けでは GPT-4 より GPT-4o の方が安いため、なんで Mobile と Enterprise だけなんだろうとは思いました。
+
+[価格（2024/07/23 時点）](https://openai.com/api/pricing/)
+
+|モデル|コンテキスト数|input tokens(1M)|output tokens(1M)|
+|---|---|---|---|
+|gpt-4o|128K|$5.00|$15.00|
+|gpt-4o-mini|128K|$0.150|$0.600|
+|gpt-4-turbo|128K|$10.00|$30.00|
+|gpt-4|8K|$30.00|$60.00|
+|gpt-4-32k|32K|$60.00|$120.00|
+
+（GPT-4o-mini やっすいな）
+
+Enterprise の価値を高めるためにあえて Individual、Business はそのままなのかなとも思ったのですが、それなら Mobile はなぜ...？という感じです。Mobile はたしかプランによる機能差がなかったので、内部的な仕組みが違うんでしょうけど。
+
+まあそもそも MS と OpenAI の関係だから一般向け価格を参考にしても意味ないかもしれません。
+
+:::
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
+
+## Incoming/Outgoing changes graph preview | Visual Studio Code June 2024
 https://code.visualstudio.com/updates/v1_91
 
 ## AWS Lambda で、Lambda 関数のログの検索、フィルタリング、集計を容易にする新しいコントロールを新たに導入
