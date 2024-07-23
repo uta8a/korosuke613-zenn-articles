@@ -147,9 +147,6 @@ _本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)_
 
 # know-how 🎓
 
-## GitHub ActionsでDockerイメージをビルド&プッシュしてCloud Run Jobsを更新するパイプラインを考えてみた - G-gen Tech Blog
-https://blog.g-gen.co.jp/entry/docker-image-pipeline-with-github-actions
-
 ## terraform importで数年やってきたがImport blockの良さに気づきました
 https://zenn.dev/aeonpeople/articles/d63e84494d9e2c
 
@@ -169,6 +166,17 @@ _本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)_
 
 ## GitHub Actions の timeout-minutes の linter 及び一括設定ツール
 https://zenn.dev/shunsuke_suzuki/articles/github-actions-timeout-minutes
+
+GitHub Actions の timeout-minutes を一括で設定するツール suzuki-shunsuke/ghatm の紹介と、timeout-minutes が設定されているかをチェックする linter の紹介記事です。
+ツール作者・著者は GitHub Actions や Terraform に関連するツールでお馴染みの suzuki-shunsuke さんです。
+
+GitHub Actions のデフォルトタイムアウト時間は 360 分ととても長いですが、実際 360 分近くかかるジョブはあまりないと思います。そのため、もっと短い時間に設定し、早く失敗に気づけるようにする、無駄なリソース消費を抑えるのが良いというモチベーションから、一括設定ツールと linter を作成したようです。
+
+記事では、timeout-minutes 設定がされているか検知するための lint のやり方や、suzuki-shunsuke/ghatm による一括設定方法、複数リポジトリへの対応方法が紹介されています。
+
+確かにタイムアウト 6 時間は長いよなーとこの記事を読んで思いました。1 時間超えることすらそうない（E2E テストなどくらいしか）ので、確かに基本的に短めにしたいです。良いツールだなと思いました。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 ## 暗号化に対応した次世代dotenvツールdotenvxを使う
 https://zenn.dev/moozaru/articles/edb09434f0680b
@@ -193,6 +201,7 @@ Productivity Weekly で出たネタを全て紹介したいけど紹介する体
       - [2023-09-20 号](https://zenn.dev/cybozu_ept/articles/productivity-weekly-20230920?redirected=1#introducing-auto-triage-rules-for-dependabot---the-github-blog)
       - [2023-11-01 号](https://zenn.dev/cybozu_ept/articles/productivity-weekly-20231101?redirected=1#dependabot-user-defined-rules-for-security-updates-and-alerts%3B-enforcement-of-auto-triage-rules-and-presets-for-organizations-(public-beta)---the-github-blog)
 - **know-how 🎓**
+  - [GitHub ActionsでDockerイメージをビルド&プッシュしてCloud Run Jobsを更新するパイプラインを考えてみた - G-gen Tech Blog](https://blog.g-gen.co.jp/entry/docker-image-pipeline-with-github-actions)
 - **tool 🔨**
   - [次世代のMarkdownみたいなDjotの話](https://zenn.dev/sorairolake/articles/nextgen-markdown-djot)
   - [Forests and trees of evergreen notes](https://www.jonmsterling.com/tfmt-000R.xml)
