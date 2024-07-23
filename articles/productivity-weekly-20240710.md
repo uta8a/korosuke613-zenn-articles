@@ -59,9 +59,6 @@ GitHub Project の webhook で対応するイベントが増えたり、中身�
 
 _本項の執筆者: [@Kesin11](https://zenn.dev/kesin11)_
 
-## Dependabot auto-triage rules are generally available - The GitHub Blog
-https://github.blog/changelog/2024-06-26-dependabot-auto-triage-rules-are-generally-available/
-
 ## GitHub Actions: GPU hosted runners are now generally available - The GitHub Blog
 https://github.blog/changelog/2024-07-08-github-actions-gpu-hosted-runners-are-now-generally-available/
 
@@ -167,6 +164,11 @@ https://www.jonmsterling.com/tfmt-000R.xml
 Productivity Weekly で出たネタを全て紹介したいけど紹介する体力が持たなかったネタを一言程度で書くコーナーです。
 
 - **news 📺**
+  - [Dependabot auto-triage rules are generally available - The GitHub Blog](https://github.blog/changelog/2024-06-26-dependabot-auto-triage-rules-are-generally-available/)
+    - 去年の 9 月にパブリックベータ版がリリースされた Dependabot の auto-triage rules が GA になりました
+    - Productivity Weekly でも過去取り上げてるので、参考にしてください
+      - [2023-09-20 号](https://zenn.dev/cybozu_ept/articles/productivity-weekly-20230920?redirected=1#introducing-auto-triage-rules-for-dependabot---the-github-blog)
+      - [2023-11-01 号](https://zenn.dev/cybozu_ept/articles/productivity-weekly-20231101?redirected=1#dependabot-user-defined-rules-for-security-updates-and-alerts%3B-enforcement-of-auto-triage-rules-and-presets-for-organizations-(public-beta)---the-github-blog)
 - **know-how 🎓**
 - **tool 🔨**
 
