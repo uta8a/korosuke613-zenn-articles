@@ -47,6 +47,36 @@ user_defined:
 ## Code security configurations are now GA - The GitHub Blog
 https://github.blog/changelog/2024-07-10-code-security-configurations-are-now-ga/
 
+GitHub において、code security configurations 機能が GA となりました。この機能は今年 4 月にパブリックベータとしてリリースされています。
+
+code security configurations は、リポジトリに対してセキュリティ設定を一括で適用するための機能です。これにより、リポジトリごとに異なるセキュリティ設定を手動で設定する必要がなくなります。詳しくは[以前の記事](https://zenn.dev/cybozu_ept/articles/productivity-weekly-20240403#code-security-configurations-let-organizations-easily-roll-out-github-security-products-at-scale---the-github-blog)をご参照ください。
+
+パブリックベータからの変更点としては、以下が挙げられています。
+
+- [Code security configurations can now be enforced - The GitHub Blog](https://github.blog/changelog/2024-06-06-code-security-configurations-can-now-be-enforced/)
+  - code security configurations を強制できるように
+  - 強制しない場合はリポジトリ側で設定を変更できる
+- [Manage code security configurations via API - The GitHub Blog](https://github.blog/changelog/2024-06-20-manage-code-security-configurations-via-api/)
+  - REST API を使用して構成の作成・管理・アタッチが可能に
+- [Sunsetting security settings default parameters in the organization REST APIs - The GitHub Blog](https://github.blog/changelog/2024-07-09-sunsetting-security-settings-defaults-parameters-in-the-organizations-rest-api/)
+  - （おそらく）これまでのセキュリティ設定の更新・取得をする API が廃止
+  - これまでは次の API を使ってセキュリティ設定の更新・取得が可能だった。あくまでセキュリティ設定に限らない API であり、セキュリティ設定の更新・取得以外は引き続き利用可能っぽい
+    - `GET /orgs/{org}`: [Get an organization](https://docs.github.com/en/enterprise-cloud@latest/rest/orgs/orgs?apiVersion=2022-11-28#get-an-organization)
+      - いくつかのレスポンス[^deprecated_api]の description に廃止の旨が書かれている。ただし、`secret_scanning_push_protection_custom_link_enabled`, `secret_scanning_push_protection_custom_link` に関しては description に注意書きなし
+      - > **Deprecated.** Please use [code security configurations](https://docs.github.com/enterprise-cloud@latest//rest/code-security/configurations) instead.\n\nWhether GitHub Advanced Security is enabled for new repositories and repositories transferred to this organization.\n\nThis field is only visible to organization owners or members of a team with the security manager role.
+    - `PATCH /orgs/{org}`: [Update an organization](https://docs.github.com/en/enterprise-cloud@latest/rest/orgs/orgs?apiVersion=2022-11-28#update-an-organization)
+      - 廃止の旨が書かれている
+      - > Parameter deprecation notice: Code security product enablement for new repositories through the organization API is deprecated. Please use [code security configurations](https://docs.github.com/enterprise-cloud@latest//rest/code-security/configurations#set-a-code-security-configuration-as-a-default-for-an-organization) to set defaults instead. For more information on setting a default security configuration, see the [changelog](https://github.blog/changelog/2024-07-09-sunsetting-security-settings-defaults-parameters-in-the-organizations-rest-api/).
+  - なお、次のバージョンの REST API[^next_version]で完全に削除されるとのこと
+
+GA になったので導入しやすくなりましたね。複数リポジトリに設定を一括で適用できて便利です。すでに古い API を使っている方は新しい API に移行しましょう。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
+
+[^deprecated_api]: `advanced_security_enabled_for_new_repositories`, `dependabot_alerts_enabled_for_new_repositories`, `dependabot_security_updates_enabled_for_new_repositories`, `dependency_graph_enabled_for_new_repositories`, `secret_scanning_enabled_for_new_repositories`, `secret_scanning_push_protection_enabled_for_new_repositories`, `secret_scanning_validity_checks_enabled`, 
+
+[^next_version]: 次のバージョンの REST API がいつくるかは不明ですね。現在の API Version は `2022-11-28` です。GitHub が API Version を日付にしてからまだ新しいバージョンは出ていません。また、[latest でなくなったバージョンを最低 24 ヶ月サポートする](https://github.blog/developer-skills/github/to-infinity-and-beyond-enabling-the-future-of-githubs-rest-api-with-api-versioning/#how-often-will-you-release-new-versions-and-how-long-will-they-last)とのことなので、思ったより長生きするかもですね。
+
 ## Dependabot migration to GitHub Actions for Enterprise Cloud and Free, Pro, and Teams accounts with Actions enabled - The GitHub Blog
 https://github.blog/changelog/2024-07-10-dependabot-migration-to-github-actions-for-enterprise-cloud-and-free-pro-and-teams-accounts-with-actions-enabled/
 
