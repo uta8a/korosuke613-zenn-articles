@@ -80,7 +80,16 @@ _本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 ## Dependabot migration to GitHub Actions for Enterprise Cloud and Free, Pro, and Teams accounts with Actions enabled - The GitHub Blog
 https://github.blog/changelog/2024-07-10-dependabot-migration-to-github-actions-for-enterprise-cloud-and-free-pro-and-teams-accounts-with-actions-enabled/
 
+GitHub の Dependabot において、Dependabot で pull request を生成する処理が GitHub Actions として実行されるようになります（actions 有効リポジトリにおいて）。今後数週間でだんだんと移行されるようです。
 
+GitHub Actions として実行されることで、実行の高速化、トラブルシューティングの容易化、セルフホストランナーのサポートなどのメリットがあるとのことです。
+**Dependabot による GitHub Actions の実行は課金対象にならないため、無料です。**
+
+なお、順次移行を待たずに Actions 上で実行するようにしたい場合は、リポジトリ、organization 設定で有効化することで即時移行が可能とのことです。
+
+Dependabot 利用者はなぜか Dependabot によるプルリクエスト作成ができない場合などに原因を調査しやすくなって嬉しいですね。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 # know-how 🎓
 
