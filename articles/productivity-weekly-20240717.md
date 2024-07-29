@@ -119,10 +119,25 @@ Productivity Weekly で出たネタを全て紹介したいけど紹介する体
 - **news 📺**
 - **know-how 🎓**
   - [GitHub Actions でプライベートなネットワークにアクセスしたい | ドクセル](https://www.docswell.com/s/ussvgr/5EX4L7-gitHub-actions-private-network#p1)
+    - GitHub Actions の GitHub-hosted runner を Azure VNet[^vnet]内で実行する方法を紹介したスライドです
+    - 先日 Azure VNet 内で GitHub-hosted runner を実行できるようになりましたが、あまり事例を見かけませんでした。Azure をよく使う人は参考になりそうですね
+    - APCommunications さんの動作確認記事も参考になりそうです
+      - [GitHub ActionsとAzureのPrivate Networkとの統合がサポートされましたよ - APC 技術ブログ](https://techblog.ap-com.co.jp/entry/2023/12/08/120000)
   - [Apple シリコンの macOS で “Docker Desktop vs OrbStack” を検証してみた - PLAY DEVELOPERS BLOG](https://developers.play.jp/entry/2023/12/28/154822)
+    - Apple Silicon の macOS で Docker Desktop (QEMU、Rosetta for Linux) と OrbStack の速度を比較した記事です
+    - Apple Silicon の macOS 上では OrbStack が速いイメージを僕は持っていましたが、今の Docker Desktop も速いんですね
+    - 個人的に Rancher Desktop との比較も気になりました
   - [GCP という呼び名はもう古いので気をつける](https://zenn.dev/kou_pg_0131/articles/gcp-to-google-cloud)
+    - Google Cloud Platform は実は Google Cloud に変わっているという話です
+    - 知っていましたが、Google Cloud は略語が安定してないので個人的には普通に GCP と呼んでます
 - **tool 🔨**
   - [Linuxメモ : あると便利かもしれないRust製コマンドラインツール](https://wonderwall.hatenablog.com/entry/rust-command-line-tools)
+    - 様々な Rust 製コマンドラインツールの紹介記事です
+    - めちゃたくさんありますね。
+
+[^vnet]: AWS VPC に相当する Azure のサービス、という認識。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 # あとがき
 
