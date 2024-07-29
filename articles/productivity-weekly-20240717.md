@@ -1,5 +1,5 @@
 ---
-title: ＜ここにタイトルを入力＞｜Productivity Weekly(2024-07-17)
+title: 開発生産性系の話多し｜Productivity Weekly(2024-07-17)
 emoji: 🫗
 type: idea
 topics:
@@ -174,7 +174,10 @@ Productivity Weekly で出たネタを全て紹介したいけど紹介する体
 _本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 # あとがき
+今週号でした。久々に自分一人で書いたので、read more 多めでしたね。
+先日 Sansan さんと合同で開発生産性向上に関するイベントを開催しました。資料や動画も上がっているので、興味がある方はみて見てください。
 
+- [Sansan vs サイボウズ 開発生産性Tips夏祭り - connpass](https://cybozu.connpass.com/event/322718/)
 
 サイボウズの生産性向上チームでは社内エンジニアの開発生産性を上げるための活動を行なっています。そんな生産性向上チームが気になる方は下のリンクをクリック！
 https://speakerdeck.com/cybozuinsideout/engineering-productivity-team-recruitment-information
