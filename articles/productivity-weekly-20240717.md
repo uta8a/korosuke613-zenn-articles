@@ -35,10 +35,6 @@ user_defined:
 
 今週の共同著者は次の方です。
 - [@korosuke613](https://zenn.dev/korosuke613)
-<!-- - [@defaultcf](https://zenn.dev/defaultcf) -->
-<!-- - [@Kesin11](https://zenn.dev/kesin11) -->
-<!-- - [@r4mimu](https://zenn.dev/r4mimu) -->
-<!-- - [@uta8a](https://zenn.dev/uta8a) -->
 
 :::
 
@@ -93,9 +89,6 @@ _本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 # know-how 🎓
 
-## AMI の脆弱性をスキャンしてオートスケーリング起動インスタンスの脆弱性を可視化した話 - Adwaysエンジニアブログ
-https://blog.engineer.adways.net/entry/2024/07/12/143000
-
 ## Ubie における、小さく泥臭くはじめる開発生産性改善
 https://zenn.dev/ubie_dev/articles/53308d1458c44a
 
@@ -144,6 +137,13 @@ _本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 ## GitHub Actionsの脅威検知ツール tracee-action を触ってみる
 https://zenn.dev/melonattacker/articles/7a6d6128b0f788
+
+Tracee という eBPF を使った Linux 上のシステムコール検出ツールを GitHub Actions で使うためのアクション tracee-action を紹介した記事です。
+tracee-action の概要、検知ルール作成例、検知結果例が書かれています。
+
+こういうツールがあるのは知りませんでした。検知ルール作成が大変そうですが、脅威検知のために利用できそうですね。僕も調べてみたいです。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 # read more 🍘
 Productivity Weekly で出たネタを全て紹介したいけど紹介する体力が持たなかったネタを一言程度で書くコーナーです。
