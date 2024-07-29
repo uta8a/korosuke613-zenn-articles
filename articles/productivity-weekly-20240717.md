@@ -93,20 +93,52 @@ _本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 # know-how 🎓
 
+## AMI の脆弱性をスキャンしてオートスケーリング起動インスタンスの脆弱性を可視化した話 - Adwaysエンジニアブログ
+https://blog.engineer.adways.net/entry/2024/07/12/143000
+
 ## Ubie における、小さく泥臭くはじめる開発生産性改善
 https://zenn.dev/ubie_dev/articles/53308d1458c44a
 
-## 「開発生産性の教科書」という本を執筆しました - Findy Tech Blog
-https://tech.findy.co.jp/entry/2024/07/11/090000
+Ubie さんによる、開発生産性改善のためにやってきた・きていることを紹介した記事です。
+
+取り組みのゴール定義、計測（アンケート調査、GitHub の開発アクティビティデータ収集・可視化）、分析、開発メンバーの巻き込み、継続的に関心を引くための定期的な施策が紹介されています。
+開発生産性改善の一連のサイクル全体と、サイクルを回し続けるための工夫が載っており、開発生産性改善の進め方の参考になりそうです。
+
+個人的には開発メンバの巻き込み、継続的に関心を引くという部分を悩み事としてる組織は多そうだなと思っており、こういった事例は大変助かると思っています。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 ## 組織横断支援チームによるFour Keys計測基盤構築と活用に向けた取り組み | ドクセル
 https://www.docswell.com/s/r4mimu/KEN6J6-2024-06-29-164917
 
-## アーキテクチャレベルで考える開発生産性 / architecture-and-productivity - Speaker Deck
-https://speakerdeck.com/minodriven/architecture-and-productivity
+サイボウズの組織横断支援チームによる Four Keys 計測基盤構築と活用に向けた取り組みについてのスライドです。
+開発生産性カンファレンス 2024 で発表されたものになります。
 
-## AMI の脆弱性をスキャンしてオートスケーリング起動インスタンスの脆弱性を可視化した話 - Adwaysエンジニアブログ
-https://blog.engineer.adways.net/entry/2024/07/12/143000
+開発生産性を上げたい（インパクトを増やしたい）背景や、インパクトを増やすために何が必要か、開発チームへのヒアリング、Four Keys 計測基盤をどのように構築して展開するか、提供してからの気づきや課題などが書かれています。
+
+開発生産性を高めるために活動しているチームならではの悩みが載ってそうだなと思いました。似たような活動をしている方々の参考になりそうと思います。
+
+なお、このスライドはいつも Productivity Weekly を一緒に書いてくれている生産性向上チームの [@r4mimu](https://zenn.dev/r4mimu) さんが発表されたものです。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
+
+## 「開発生産性の教科書」という本を執筆しました - Findy Tech Blog
+https://tech.findy.co.jp/entry/2024/07/11/090000
+
+開発生産性計測・可視化基盤 Findy Team+ を作っていたり、開発生産性カンファレンスを開催しているなど、開発生産性に関する活動を多く行っている Findy さんの CTO の方が「開発生産性の教科書」という本を執筆したとのことです。
+
+入門から実践までを網羅した本当のことで、次の特徴が挙げられています。
+
+- 体系的に整理された開発生産性の知識が学べる
+- 実践への第一歩として、始めやすさにフォーカスした
+- 成功へのヒントとして事例を 5 社集めまとめた
+
+[目次](https://gihyo.jp/book/2024/978-4-297-14249-0)を読むと、開発生産性とは何か、開発生産性向上のためのステップ、開発生産性向上の取り組みを阻害する要因とその対策、パフォーマンスを測るための指標、各社事例が書かれているようです。
+
+特に各社事例が気になりますが、個人的に「体系的に整理された開発生産性の知識が学べる」というのも気になってます。
+気になる方は読んでみるといいですね。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 # tool 🔨
 
@@ -116,8 +148,10 @@ https://zenn.dev/melonattacker/articles/7a6d6128b0f788
 # read more 🍘
 Productivity Weekly で出たネタを全て紹介したいけど紹介する体力が持たなかったネタを一言程度で書くコーナーです。
 
-- **news 📺**
 - **know-how 🎓**
+  - [アーキテクチャレベルで考える開発生産性 / architecture-and-productivity - Speaker Deck](https://speakerdeck.com/minodriven/architecture-and-productivity)
+    - 開発生産性を上げるためにアーキテクチャをどう設計するかというスライドです
+    - ただ開発生産性を上げるのではなく、収益を上げるために競争優位性を高める、そのために機能性と変更用意性を高めるのが重要であり、それを実現するためにドメイン駆動設計が紹介されています
   - [GitHub Actions でプライベートなネットワークにアクセスしたい | ドクセル](https://www.docswell.com/s/ussvgr/5EX4L7-gitHub-actions-private-network#p1)
     - GitHub Actions の GitHub-hosted runner を Azure VNet[^vnet]内で実行する方法を紹介したスライドです
     - 先日 Azure VNet 内で GitHub-hosted runner を実行できるようになりましたが、あまり事例を見かけませんでした。Azure をよく使う人は参考になりそうですね
