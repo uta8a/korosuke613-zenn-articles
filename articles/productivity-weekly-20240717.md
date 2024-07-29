@@ -108,29 +108,21 @@ https://speakerdeck.com/minodriven/architecture-and-productivity
 ## AMI の脆弱性をスキャンしてオートスケーリング起動インスタンスの脆弱性を可視化した話 - Adwaysエンジニアブログ
 https://blog.engineer.adways.net/entry/2024/07/12/143000
 
-## Apple シリコンの macOS で “Docker Desktop vs OrbStack” を検証してみた - PLAY DEVELOPERS BLOG
-https://developers.play.jp/entry/2023/12/28/154822
-
-## GitHub Actions でプライベートなネットワークにアクセスしたい | ドクセル
-https://www.docswell.com/s/ussvgr/5EX4L7-gitHub-actions-private-network#p1
-
-## GCP という呼び名はもう古いので気をつける
-https://zenn.dev/kou_pg_0131/articles/gcp-to-google-cloud
-
 # tool 🔨
 
 ## GitHub Actionsの脅威検知ツール tracee-action を触ってみる
 https://zenn.dev/melonattacker/articles/7a6d6128b0f788
-
-## Linuxメモ : あると便利かもしれないRust製コマンドラインツール
-https://wonderwall.hatenablog.com/entry/rust-command-line-tools
 
 # read more 🍘
 Productivity Weekly で出たネタを全て紹介したいけど紹介する体力が持たなかったネタを一言程度で書くコーナーです。
 
 - **news 📺**
 - **know-how 🎓**
+  - [GitHub Actions でプライベートなネットワークにアクセスしたい | ドクセル](https://www.docswell.com/s/ussvgr/5EX4L7-gitHub-actions-private-network#p1)
+  - [Apple シリコンの macOS で “Docker Desktop vs OrbStack” を検証してみた - PLAY DEVELOPERS BLOG](https://developers.play.jp/entry/2023/12/28/154822)
+  - [GCP という呼び名はもう古いので気をつける](https://zenn.dev/kou_pg_0131/articles/gcp-to-google-cloud)
 - **tool 🔨**
+  - [Linuxメモ : あると便利かもしれないRust製コマンドラインツール](https://wonderwall.hatenablog.com/entry/rust-command-line-tools)
 
 # あとがき
 
