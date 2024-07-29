@@ -43,7 +43,7 @@ user_defined:
 ## Code security configurations are now GA - The GitHub Blog
 https://github.blog/changelog/2024-07-10-code-security-configurations-are-now-ga/
 
-GitHub において、code security configurations 機能が GA となりました。この機能は今年 4 月にパブリックベータとしてリリースされています。
+GitHub において、code security configurations 機能が GA となりました。この機能は今年 4 月にパブリックベータとしてリリースされました。
 
 code security configurations は、リポジトリに対してセキュリティ設定を一括で適用するための機能です。これにより、リポジトリごとに異なるセキュリティ設定を手動で設定する必要がなくなります。詳しくは[以前の記事](https://zenn.dev/cybozu_ept/articles/productivity-weekly-20240403#code-security-configurations-let-organizations-easily-roll-out-github-security-products-at-scale---the-github-blog)をご参照ください。
 
@@ -92,7 +92,7 @@ _本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 ## Ubie における、小さく泥臭くはじめる開発生産性改善
 https://zenn.dev/ubie_dev/articles/53308d1458c44a
 
-Ubie さんによる、開発生産性改善のためにやってきた・きていることを紹介した記事です。
+Ubie さんによる、開発生産性改善のためにやってきた・きていることを紹介する記事です。
 
 取り組みのゴール定義、計測（アンケート調査、GitHub の開発アクティビティデータ収集・可視化）、分析、開発メンバーの巻き込み、継続的に関心を引くための定期的な施策が紹介されています。
 開発生産性改善の一連のサイクル全体と、サイクルを回し続けるための工夫が載っており、開発生産性改善の進め方の参考になりそうです。
