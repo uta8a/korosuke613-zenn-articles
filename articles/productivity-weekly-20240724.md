@@ -117,7 +117,7 @@ _本項の執筆者: [@r4mimu](https://zenn.dev/r4mimu)_
 https://zenn.dev/yuta28/articles/terramate-empower-iac
 
 Terraform や OpenTofu といった IaC のオーケストレーションツールである Terramate の紹介記事です。マネージドサービスとしても提供されているそうですが、本記事では CLI 版の使い方が紹介されています。
-Terraform で長く運用をしていると state ファイルが肥大化してしまい、変更の確認・適用に時間がかかることがあります。Terramate は git と連携してブランチ内での変更を検知し、必要な state のみを取得して適用することで、運用を効率化できるようです。この点が Terraform のラッパーである Terragrunt との違いとして挙げられており、その他の IaC ツールにも適用でき所以とのことです。詳しくは [Terramate のブログ](https://terramate.io/rethinking-iac/terramate-and-terragrunt/)を参照してみてください。
+Terraform で長く運用をしていると state ファイルが肥大化してしまい、変更の確認・適用に時間がかかることがあります。Terramate は git と連携してブランチ内での変更を検知し、必要な state のみを取得して適用することで、運用を効率化できるようです。この点が Terraform のラッパーである Terragrunt との違いとして挙げられており、その他の IaC ツールにも適用できるとのことです。詳しくは [Terramate のブログ](https://terramate.io/rethinking-iac/terramate-and-terragrunt/)を参照してみてください。
 
 CI 上の Terraform の運用効率化に使えそうなので今後も要チェックです。
 
