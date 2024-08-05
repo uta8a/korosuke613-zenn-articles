@@ -73,14 +73,24 @@ https://sreake.com/blog/shellscript-good-practices/
 ## 完全ペアプロは「やりすぎ」だった。失敗を経て辿り着いた、ペアプロ×開発組織の最適解【Tebiki渋谷】 - レバテックラボ（レバテックLAB）
 https://levtech.jp/media/article/interview/detail_485/
 
-## 開発生産性を上げる"改善"は儲かるのか？──その問いに答えられるようにするには
-https://codezine.jp/article/detail/19739
-
 ## Four Keys(デリバリー能力)とアウトカムはどちらも大事！！両方高めて最高の開発組織にしよう！！｜ham
 https://note.com/hamchance/n/ne4f35886150a
 
+開発生産性の文脈で何かと目にする Four Keys ですが、「Four Keys 良くすれば開発生産性が上がる」や「Four Keys なんかよりも大事なのはアウトカム」のように捉えられてしまうことがあります。
+そのような誤解や対立構造と捉えられてしまうことに対して、本記事では Four Keys とアウトカムの関係性を説明し、どちらも大事であることを紹介しています。
+
+> Four Keysは開発チームのデリバリー能力を示しており、結果指標である。と認識すると良いと思っています。Four Keysを上げると開発生産性が上がるのではなく、開発生産性が上がるとFour Keysが上がるのです。
+
+こちらの表現はわかりやすいと思いました。指標のハックのような話題にも通じますが、指標の定義や成り立ち、アウトカムやその他指標との因果関係を理解して正しく活用することが重要だと思います。
+
+_本項の執筆者: [@r4mimu](https://zenn.dev/r4mimu)_
+
 ## tfcmtのいい感じのテンプレート
 https://zenn.dev/bm_sms/articles/b1e4778f5b40e9
+
+Terraform 差分を見やすく加工してくれる tfcmt において、変更内容ごとに色付けしたり、折りたたみをするテンプレートを紹介しています。こういったカスタマイズはなかなか自分で調べるきっかけがないので、ありがたいです！！
+
+_本項の執筆者: [@r4mimu](https://zenn.dev/r4mimu)_
 
 # tool 🔨
 
