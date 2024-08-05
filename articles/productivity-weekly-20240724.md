@@ -128,7 +128,7 @@ https://dasalog.hatenablog.jp/entry/2024/07/16/100252
 
 Grafana ダッシュボードは JSON で定義されるため、コードで管理できますが、メタデータが多いためレビューが大変です。そこで、Grafana Dashboards as Code を実現するためのツールとして Grizzly と Grafonnet が紹介されています。
 [Grizzly](https://github.com/grafana/grizzly) は Grafana ダッシュボードなどを管理する CLI ツールで、公式から提供されています。
-serve コマンドを使うことでリモートのデータソースに対してローカルでダッシュボードが立ち上がり、試行錯誤しながらダッシュボードを作成したら、作成内容が手元のファイルに保存されます。
+serve コマンドを使うことでリモートのデータソースに対してローカルでダッシュボードが立ち上がり、試行錯誤しながらダッシュボードを作成したり、作成内容が手元のファイルに保存されます。
 [Grafonnet](https://github.com/grafana/grafonnet) は Jsonnet のライブラリで、Grafana ダッシュボードを Jsonnet で記述するためのライブラリです。Kubernetes 関連で Jsonnet を使っている人には馴染みやすいかもしれません。
 
 便利そうですが、情報が少ない上に開発途上なようです。個人的にはまだ JSON で頑張るかなという感じですが、興味がある方は試してみてはいかがでしょうか。
