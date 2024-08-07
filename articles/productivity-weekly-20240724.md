@@ -1,6 +1,6 @@
 ---
-title: ＜ここにタイトルを入力＞｜Productivity Weekly(2024-07-24)
-emoji: 🍮
+title: OSSのメンテを楽にする話やペアプロの話など｜Productivity Weekly(2024-07-24)
+emoji: 🪇
 type: idea
 topics:
   - ProductivityWeekly
@@ -222,11 +222,27 @@ Productivity Weekly で出たネタを全て紹介したいけど紹介する体
 
 _本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
-# あとがき
+# おまけ： CYBOZU SUMMER BLOG FES '24 が始まってます（宣伝）
+https://cybozu.github.io/summer-blog-fes-2024/
 
+サイボウズでは今年の夏、サイボウズによるブログの祭典を行なっています。
+
+> 80名を超えるサイボウズのエンジニアとデザイナーが約100本の記事を投稿！
+
+すごいですね。
+
+詳しくは次の紹介記事も参照してほしいですが、なんか Stage がいくつかあったりしてフェスっぽい感じでやってます。特設サイトもフェスっぽいタイムテーブルがあったりするので、気になる人は楽しんでください。
+
+- [20日間に約100の記事を投稿する夏フェス「CYBOZU SUMMER BLOG FES '24」を開催します！ - Cybozu Inside Out | サイボウズエンジニアのブログ](https://blog.cybozu.io/entry/2024/07/25/163859)
+
+ちなみに僕、平木場も 8/13、8/17 に一本ずつなんかブログを投稿予定です。まだ一文字も書いてません（2024/08/07 時点）。読んでください。
+
+# あとがき
+今週号でした。めずらしく know-how、tool の比率が大きかったですね。先に紹介したブログフェス、皆さん楽しんでください。僕たちは楽しんでます。
 
 サイボウズの生産性向上チームでは社内エンジニアの開発生産性を上げるための活動を行なっています。そんな生産性向上チームが気になる方は下のリンクをクリック！
 https://speakerdeck.com/cybozuinsideout/engineering-productivity-team-recruitment-information
+
 
 <!-- :::message すみません、今週もおまけはお休みです...:::-->
 
