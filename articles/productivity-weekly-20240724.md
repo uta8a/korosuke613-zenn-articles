@@ -47,11 +47,11 @@ user_defined:
 ## 自分が管理する全 OSS の Issue や Pull Request を 1 つの GitHub Project に集約
 https://zenn.dev/shunsuke_suzuki/articles/add-github-issue-pr-to-project
 
-複数 Owner、リポジトリまたがる OSS の Issue や Pull Request を単一の GitHub Projects に集約する方法を紹介した記事です。筆者の suzuki-shunsuke さんは多くの OSS を開発・メンテしており、それぞれの Issue や PR を巡回してハンドリングするのが困難であったため、単一の GitHub Project に集約して管理することにしたようです。
+複数 Owner、リポジトリにまたがる OSS の Issue や Pull Request を単一の GitHub Projects に集約する方法を紹介した記事です。筆者の suzuki-shunsuke さんは多くの OSS を開発・メンテしており、それぞれの Issue や PR を巡回してハンドリングするのが困難であったため、単一の GitHub Project に集約して管理することにしたようです。
 
 記事では、GitHub Project に Issue、PR を自動追加する方法、この手法を実現するための認証方法、item 数上限回避のためのワークアラウンド、実際の GitHub Actions ワークフロー例などが載っています。
 
-また、自動追加をするための OSS、suzuki-shunsuke/ghproj を新たに作り、公開されています。Issue、PR を取得する GraphQL API を叩くためのクエリを詳細に設定でき、簡単にこの手法を実現できそうで良いですね。
+また、自動追加をするための OSS、suzuki-shunsuke/ghproj が新たに作られ、公開されています。Issue、PR を取得する GraphQL API を叩くためのクエリを詳細に設定でき、簡単にこの手法を実現できそうで良いですね。
 
 自動追加する方法、認証方法に関して、複数の方法とそのメリデメを書いてくれているのがとても参考になりました。「この認証方法でもいけるのでは？」と思って試したくなるので、先に書いてくれているのは嬉しいですね。
 
@@ -86,7 +86,7 @@ _本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 [^kotiku]: [philips-labs/terraform-aws-github-runner による GitHub Actions セルフホストランナーの大規模運用 | ドクセル](https://www.docswell.com/s/miyajan/ZW1XJX-large-scale-github-actions-self-hosted-runner-by-philips-terraform-module)
 
-[^philips]: というのも、どうやら僕たちがベースとして使っている [philips-labs/terraform-aws-github-runner](https://github.com/philips-labs/terraform-aws-github-runner) を参考として記事に載せていたので、まあ実践できているってなるよなという感じ。
+[^philips]: というのも、どうやら僕たちがベースとして使っている [philips-labs/terraform-aws-github-runner](https://github.com/philips-labs/terraform-aws-github-runner) が参考として記事に載せていたので、まあ実践できているってなるよなという感じ。
 
 ## 完全ペアプロは「やりすぎ」だった。失敗を経て辿り着いた、ペアプロ×開発組織の最適解【Tebiki渋谷】 - レバテックラボ（レバテックLAB）
 https://levtech.jp/media/article/interview/detail_485/
