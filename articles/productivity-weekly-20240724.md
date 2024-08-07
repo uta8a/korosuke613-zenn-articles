@@ -42,23 +42,6 @@ user_defined:
 
 :::
 
-# news 📺
-
-## Google、オープンソースのメンテナの負担をAIなどで軽減する「Project Oscar」を発表 － Publickey
-https://www.publickey1.jp/blog/24/googleaiproject_oscar.html
-
-## Security overview dashboards, secret scanning metrics and enablement trends reports are now generally available - The GitHub Blog
-https://github.blog/changelog/2024-07-19-security-overview-dashboards-secret-scanning-metrics-and-enablement-trends-reports-are-now-generally-available/
-
-## Cloud Run でデフォルト URL を無効化する機能が Preview
-https://cloud.google.com/run/docs/securing/ingress?hl=en#disable-url
-
-## Google Docs、Markdown形式でのドキュメントのエクスポート、インポートなど可能に － Publickey
-https://www.publickey1.jp/blog/24/google_docsmarkdow.html
-
-## On October 22, 2024, Monitoring Query Language (MQL) will no longer be a recommended query language for Cloud Monitoring.
-https://cloud.google.com/stackdriver/docs/deprecations/mql
-
 # know-how 🎓
 
 ## 自分が管理する全 OSS の Issue や Pull Request を 1 つの GitHub Project に集約
@@ -99,6 +82,7 @@ AWS 上で構築している前提となっていますが、大まかな考え�
 
 個人的には確かにと思える部分がよくまとまっていて良かったです。僕たち生産性向上チームでも AWS 上で大規模なセルフホストランナー環境を構築している[^kotiku]のですが、割とこのプラクティスを実践できているな[^philips]という話になりました（隙自語）。
 
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 [^kotiku]: [philips-labs/terraform-aws-github-runner による GitHub Actions セルフホストランナーの大規模運用 | ドクセル](https://www.docswell.com/s/miyajan/ZW1XJX-large-scale-github-actions-self-hosted-runner-by-philips-terraform-module)
 
@@ -217,8 +201,26 @@ _本項の執筆者: [@r4mimu](https://zenn.dev/r4mimu)_
 Productivity Weekly で出たネタを全て紹介したいけど紹介する体力が持たなかったネタを一言程度で書くコーナーです。
 
 - **news 📺**
-- **know-how 🎓**
-- **tool 🔨**
+  - [Google、オープンソースのメンテナの負担をAIなどで軽減する「Project Oscar」を発表 － Publickey](https://www.publickey1.jp/blog/24/googleaiproject_oscar.html)
+    - Google が OSS のメンテなの負担を軽減するためのプロジェクト、Project Oscar を発表しました
+    - まだ発表されただけですが、プロトタイプが golang/go ですでに動いているようです
+    - 気になりますね
+  - [Cloud Run でデフォルト URL を無効化する機能が Preview](https://cloud.google.com/run/docs/securing/ingress?hl=en#disable-url)
+    - Google Cloud において、Cloud Run のデフォルト URL を無効化する機能が生えたようです（プレビュー）
+    - ロードバランサー経由でのみアクセスさせるなどの場合、直接アクセスできる URL は必要ないので無効化できるようになったのは嬉しいですね。まだプレビューですが
+  - [Google Docs、Markdown形式でのドキュメントのエクスポート、インポートなど可能に － Publickey](https://www.publickey1.jp/blog/24/google_docsmarkdow.html)
+    - Google Docs において、Markdown 形式でドキュメントのインポート・エクスポートが可能になったようです
+    - 個人的にはエクスポートがとにかく嬉しいですね。何らかの理由で後から手動で Markdown 形式に書き写したりするので
+  - [Security overview dashboards, secret scanning metrics and enablement trends reports are now generally available - The GitHub Blog](https://github.blog/changelog/2024-07-19-security-overview-dashboards-secret-scanning-metrics-and-enablement-trends-reports-are-now-generally-available/)
+    - GitHub において、security overview dashboards、secret scanning metrics、enablement trends reports が GA になりました
+    - プッシュ保護がどれだけ昨日しているかや GitHub のセキュリティツールがどれだけ有効化されているかなどを把握しやすくなります
+  - [On October 22, 2024, Monitoring Query Language (MQL) will no longer be a recommended query language for Cloud Monitoring.](https://cloud.google.com/stackdriver/docs/deprecations/mql)
+    - Google Cloud の Cloud Monitoring において、2024 年 10 月 22 日から Monitoring Query Language (MQL) が推奨クエリ言語でなくなるようです
+    - 代わりにオープンソースである PromQL を使うのが推奨されています
+    - クラメソさんの記事が詳しいです
+      - [[アップデート] Monitoring Query Language (MQL) が非推奨へ | DevelopersIO](https://dev.classmethod.jp/articles/cloud-monitoring-mql-deprecated/)
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 # あとがき
 
