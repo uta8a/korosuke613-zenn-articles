@@ -83,8 +83,26 @@ _本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 ## AWS 上で大規模な GitHub Actions のセルフホステッドランナーを使用する際のベストプラクティス | Amazon Web Services ブログ
 https://aws.amazon.com/jp/blogs/news/best-practices-working-with-self-hosted-github-action-runners-at-scale-on-aws/
 
-## ShellScriptで自動化を楽にしたい時に知っておいても良いこと | sreake.com | 株式会社スリーシェイク
-https://sreake.com/blog/shellscript-good-practices/
+AWS 上での大規模な GitHub Actions セルフホストランナー使用のベストプラクティスが AWS ブログで紹介されています。
+AWS 上で構築している前提となっていますが、大まかな考え方は他の方法にも通じるものがあると思います。
+
+ベストプラクティスとして次の 8 つが紹介されています。気になった方はぜひ記事を読んでください。
+
+- セキュリティにおける責任を理解する
+- 認証情報は一時的なものを利用する
+- ephemeral ランナー（使い捨て）を使用する
+- セキュリティ要件に基づいてランナーグループでランナーを分離する
+- Amazon EC2 インスタンスをプールしてランナーの起動時間を最適化する
+- 最適化された AMI を使用してランナーの起動時間を最適化する
+- スポットインスタンスを利用してコストを最適化する
+- Amazon CloudWatch を使用してランナーのメトリクスを記録、監視する
+
+個人的には確かにと思える部分がよくまとまっていて良かったです。僕たち生産性向上チームでも AWS 上で大規模なセルフホストランナー環境を構築している[^kotiku]のですが、割とこのプラクティスを実践できているな[^philips]という話になりました（隙自語）。
+
+
+[^kotiku]: [philips-labs/terraform-aws-github-runner による GitHub Actions セルフホストランナーの大規模運用 | ドクセル](https://www.docswell.com/s/miyajan/ZW1XJX-large-scale-github-actions-self-hosted-runner-by-philips-terraform-module)
+
+[^philips]: というのも、どうやら僕たちがベースとして使っている [philips-labs/terraform-aws-github-runner](https://github.com/philips-labs/terraform-aws-github-runner) を参考として記事に載せていたので、まあ実践できているってなるよなという感じ。
 
 ## 完全ペアプロは「やりすぎ」だった。失敗を経て辿り着いた、ペアプロ×開発組織の最適解【Tebiki渋谷】 - レバテックラボ（レバテックLAB）
 https://levtech.jp/media/article/interview/detail_485/
