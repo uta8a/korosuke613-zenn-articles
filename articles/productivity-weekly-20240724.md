@@ -64,6 +64,22 @@ https://cloud.google.com/stackdriver/docs/deprecations/mql
 ## 自分が管理する全 OSS の Issue や Pull Request を 1 つの GitHub Project に集約
 https://zenn.dev/shunsuke_suzuki/articles/add-github-issue-pr-to-project
 
+複数 Owner、リポジトリまたがる OSS の Issue や Pull Request を単一の GitHub Projects に集約する方法を紹介した記事です。筆者の suzuki-shunsuke さんは多くの OSS を開発・メンテしており、それぞれの Issue や PR を巡回してハンドリングするのが困難であったため、単一の GitHub Project に集約して管理することにしたようです。
+
+記事では、GitHub Project に Issue、PR を自動追加する方法、この手法を実現するための認証方法、item 数上限回避のためのワークアラウンド、実際の GitHub Actions ワークフロー例などが載っています。
+
+また、自動追加をするための OSS、suzuki-shunsuke/ghproj を新たに作り、公開されています。Issue、PR を取得する GraphQL API を叩くためのクエリを詳細に設定でき、簡単にこの手法を実現できそうで良いですね。
+
+自動追加する方法、認証方法に関して、複数の方法とそのメリデメを書いてくれているのがとても参考になりました。「この認証方法でもいけるのでは？」と思って試したくなるので、先に書いてくれているのは嬉しいですね。
+
+> GitHub Project には 異なる GitHub Organizations や User の Issue や PR を追加できないと思いこんでいましたが、実は出来るということに気づきました。
+
+これ知りませんでした。Projects 便利ですね。
+
+僕は別にそんなに外向けの OSS を作っていませんが、自分で使うための OSS はいくつか持っているので、ghproj を使って集約を試してみたいです。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
+
 ## AWS 上で大規模な GitHub Actions のセルフホステッドランナーを使用する際のベストプラクティス | Amazon Web Services ブログ
 https://aws.amazon.com/jp/blogs/news/best-practices-working-with-self-hosted-github-action-runners-at-scale-on-aws/
 
