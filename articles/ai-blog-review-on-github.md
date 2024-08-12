@@ -1,7 +1,7 @@
 ---
 title: LLMを用いてブログ記事の文法間違い・誤字脱字検出を自動化する
 emoji: 🔍
-type: idea
+type: tech
 topics:
   - github
   - githubactions
