@@ -349,7 +349,11 @@ sequenceDiagram
 
 [^only_md]: Productivity Weekly で共同執筆者から送られる PR は、原則 1 つの PR につき 1 つのマークダウンの変更しか含みません。
 
+<!-- textlint-disable -->
+
 :::details 入力例
+
+<!-- textlint-enable -->
 
 次の PR の場合の入力例を示します。
 
@@ -501,8 +505,11 @@ const response = await openai.chat.completions.create(
   input,
 ).choices[0].message.content;
 ```
+<!-- textlint-disable -->
 
 :::details レビュー結果の JSON 例
+
+<!-- textlint-enable -->
 
 ```json
 {
@@ -544,7 +551,11 @@ rdjson 形式では、ざっくり次の内容を持っています。
 
 https://github.com/korosuke613/zenn-articles/blob/b7544193c7440fc7ad81b739f6d571289c6e9ca9/tools/libs/AiReviewer.ts#L304-L356
 
+<!-- textlint-disable -->
+
 :::details rdjson 形式のレビュー結果例
+
+<!-- textlint-enable -->
 
 ```json
 {
