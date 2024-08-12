@@ -2,7 +2,6 @@ name: Test AI Review on PR diff
 run-name: Test AI Review on PR diff (PR ${{ inputs.pr_number }})
 
 on:
-  # コメントでトリガーする
   workflow_dispatch:
     inputs:
       pr_number:
