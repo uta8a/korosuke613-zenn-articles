@@ -20,6 +20,7 @@ export type AiReviewerOptions = {
   model: "gpt-4o";
   logFilePath?: string;
   logging: boolean;
+  reviewNum: number;
 };
 
 export type OpenAIPricingData = {
@@ -47,7 +48,7 @@ export class AiReviewer {
 - 文体の統一は指摘しないで良い
 - 読点の修正はしない
 
-出力は、5個以下とし、より優先的に修正すべきものを出力してください。
+出力は、$review_num$個以下とし、より優先的に修正すべきものを出力してください。
 また、markdown形式ではなく、以下のようなJSON形式で出力してください。reason には修正の理由を記述してください。
 
 {
@@ -65,6 +66,7 @@ export class AiReviewer {
     max_tokens: 1024,
     model: "gpt-4o",
     logging: true,
+    reviewNum: 5,
   };
   options: AiReviewerOptions;
   lastUsage?: ReturnType<typeof this.getPricing>;
@@ -160,7 +162,10 @@ export class AiReviewer {
       messages: [
         {
           "role": "system",
-          "content": AiReviewer.SYSTEM_PROMPT,
+          "content": AiReviewer.SYSTEM_PROMPT.replace(
+            "$review_num$",
+            this.options.reviewNum.toString(),
+          ),
         },
         {
           "role": "user",

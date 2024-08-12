@@ -14,7 +14,10 @@ const main = async () => {
   }
 
   const openai = new OpenAI({ apiKey });
-  const aiReviewer = new AiReviewer(openai);
+  const aiReviewer = new AiReviewer(openai, {
+    max_tokens: 4096,
+    reviewNum: 20,
+  });
   const markdown = await Deno.readTextFile(Deno.args[0]);
 
   const reviewResult = await aiReviewer.review(extractContents(markdown));
