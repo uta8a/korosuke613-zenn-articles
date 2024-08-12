@@ -8,7 +8,7 @@ topics:
   - llm
   - chatgpt
 published: true
-published_at: "2024-08-13 15:00"
+published_at: 2024-08-13 15:00
 ---
 
 
