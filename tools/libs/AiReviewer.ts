@@ -204,6 +204,29 @@ export class AiReviewer {
     };
   };
 
+  normalizeDiff = (diff: string) => {
+    // remove the first 5 lines
+    const removedHeader = diff.split("\n").slice(5);
+
+    // extract lines starting with '+'
+    const filteredAddedLines = removedHeader.filter((line) =>
+      line.startsWith("+")
+    );
+
+    // remove the first character '+'
+    const removedPlus = filteredAddedLines.map((line) => line.slice(1)).join(
+      "\n",
+    );
+
+    // 空行のみを削除
+    const lines = removedPlus.split("\n").filter((line) => line !== "");
+    const contentWithoutSpaceLines = `${lines.join("\n")}\n`;
+
+    log.debug(`Extracted contents\n${contentWithoutSpaceLines}`);
+
+    return contentWithoutSpaceLines;
+  };
+
   review = async (markdown: string): Promise<ReviewResult> => {
     if (this.options.logging) log.info("Reviewing markdown...");
 
