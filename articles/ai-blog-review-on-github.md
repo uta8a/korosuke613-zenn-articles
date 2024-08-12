@@ -23,7 +23,7 @@ published: false
 
 # モチベーション
 
-僕たちのチームでは、毎週開発者の生産性を高めるネタをワイワイ話す会（Productivity Weekly）を社内で開催しており、そこで出たネタをほぼ毎週ブログとして社外発信しています。記事はチームメンバーの有志で共同執筆していますが、歴史的経緯から僕がリポジトリの管理と他者執筆部分のレビューをしています。
+僕たちのチームでは、毎週開発者の生産性を高めるネタをワイワイ話す会（[Productivity Weekly](https://zenn.dev/topics/productivityweekly?order=latest)）を社内で開催しており、そこで出たネタをほぼ毎週ブログとして社外発信しています。記事はチームメンバーの有志で共同執筆していますが、歴史的経緯から僕がリポジトリの管理と他者執筆部分のレビューをしています。
 
 レビュー自体は基本的に誤字や明らかに間違っていることを書いてないかを中心に見ていますが、やはり人間が読む以上、どうしても日本語的におかしい記述や誤字脱字を見逃してしまうことがあります。
 
@@ -33,7 +33,7 @@ https://engineers.ntt.com/entry/2024/04/17/084103
 
 上記記事では、ブログ記事のプルリクエスト(PR)に対して、GitHub Actions と Azure OpenAI API を用いて誤字や文法誤りを発見させ、PR にコメントする仕組みを説明しています。プロンプトも載っており、完成する前の試行錯誤の様子も載せてくれています。
 
-上記記事を読み、思ったより簡単に自分たちのブログ（Productivity Weekly）に導入できそうだと思ったため、実際に導入してみました。
+レビューを楽にするために、上記記事を参考に Productivity Weekly にも導入してみました。
 
 # できたもの
 https://github.com/korosuke613/zenn-articles/pull/784 より。
@@ -43,7 +43,7 @@ https://github.com/korosuke613/zenn-articles/pull/784 より。
 *PR 上で `/ai-review` とコメントすると*
 
 ![](/images/ai-blog-review-on-github/sample-response.png)
-*レビュー結果が複数個返ってくる。採用(`Commit Suggestion`)するかどうかはあなた次第。*
+*レビュー結果が複数個返ってくる。採用(`Commit Suggestion`)するかどうかはあなた次第*
 
 ![](/images/ai-blog-review-on-github/sample-diagnosis.png)
 *さらに何ドル使ったか教えてくれる。レビューログへのリンクも*
@@ -51,185 +51,7 @@ https://github.com/korosuke613/zenn-articles/pull/784 より。
 :::details レビューログ
 https://github.com/korosuke613/zenn-articles/actions/runs/10281126089#summary-28449969363 より。
 
-```log
-[2024-08-07T08:47:02.653Z DEBUG] Log file path is /home/runner/work/zenn-articles/zenn-articles/tools/dist/ai-review.log
-[2024-08-07T08:47:03.042Z INFO] Reviewing markdown...
-[2024-08-07T08:47:03.042Z DEBUG] OpenAI request
-{
-  "model": "gpt-4o",
-  "messages": [
-    {
-      "role": "system",
-      "content": "\nあなたは日本語文章を校正するアシスタントです。\n与えられたマークダウン形式の文章で、誤字・脱字、および、文法誤りのある行を抜き出し、修正した行を出力してください。\nその際、確実に修正すべき誤りのみを出力してください。\nまた、以下のルールに従って修正を行ってください。\n- 句読点の追加や削除はしない\n- 英単語のキャピタライゼーションはしない\n- 半角・全角の違いは修正しない\n- 見出しの誤字脱字は修正しない\n- 伸ばし棒の有無は修正しない\n- スペースの有無は修正しない\n- リストのインデントは修正しない\n- セルフホストランナーは修正しない\n- 箇条書きの場合、文の終わりに句読点は不要\n- 文体の統一は指摘しないで良い\n- 読点の修正はしない\n\n出力は、5個以下とし、より優先的に修正すべきものを出力してください。\nまた、markdown形式ではなく、以下のようなJSON形式で出力してください。reason には修正の理由を記述してください。\n\n{\n  review: [ {\"error_line\": \"...\", \"revised_line\": \"...\", \"reason\": \"...\"} ]\n}\n"
-    },
-    {
-      "role": "user",
-      "content": "# know-how 🎓\n## 自分が管理する全 OSS の Issue や Pull Request を 1 つの GitHub Project に集約\nhttps://zenn.dev/shunsuke_suzuki/articles/add-github-issue-pr-to-project\n複数 Owner、リポジトリまたがる OSS の Issue や Pull Request を単一の GitHub Projects に集約する方法を紹介した記事です。筆者の suzuki-shunsuke さんは多くの OSS を開発・メンテしており、それぞれの Issue や PR を巡回してハンドリングするのが困難であったため、単一の GitHub Project に集約して管理することにしたようです。\n記事では、GitHub Project に Issue、PR を自動追加する方法、この手法を実現するための認証方法、item 数上限回避のためのワークアラウンド、実際の GitHub Actions ワークフロー例などが載っています。\nまた、自動追加をするための OSS、suzuki-shunsuke/ghproj を新たに作り、公開されています。Issue、PR を取得する GraphQL API を叩くためのクエリを詳細に設定でき、簡単にこの手法を実現できそうで良いですね。\n自動追加する方法、認証方法に関して、複数の方法とそのメリデメを書いてくれているのがとても参考になりました。「この認証方法でもいけるのでは？」と思って試したくなるので、先に書いてくれているのは嬉しいですね。\n> GitHub Project には 異なる GitHub Organizations や User の Issue や PR を追加できないと思いこんでいましたが、実は出来るということに気づきました。\nこれ知りませんでした。Projects 便利ですね。\n僕は別にそんなに外向けの OSS を作っていませんが、自分で使うための OSS はいくつか持っているので、ghproj を使って集約を試してみたいです。\n_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_\nAWS 上での大規模な GitHub Actions セルフホストランナー使用のベストプラクティスが AWS ブログで紹介されています。\nAWS 上で構築している前提となっていますが、大まかな考え方は他の方法にも通じるものがあると思います。\nベストプラクティスとして次の 8 つが紹介されています。気になった方はぜひ記事を読んでください。\n- セキュリティにおける責任を理解する\n- 認証情報は一時的なものを利用する\n- ephemeral ランナー（使い捨て）を使用する\n- セキュリティ要件に基づいてランナーグループでランナーを分離する\n- Amazon EC2 インスタンスをプールしてランナーの起動時間を最適化する\n- 最適化された AMI を使用してランナーの起動時間を最適化する\n- スポットインスタンスを利用してコストを最適化する\n- Amazon CloudWatch を使用してランナーのメトリクスを記録、監視する\n個人的には確かにと思える部分がよくまとまっていて良かったです。僕たち生産性向上チームでも AWS 上で大規模なセルフホストランナー環境を構築している[^kotiku]のですが、割とこのプラクティスを実践できているな[^philips]という話になりました（隙自語）。\n_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_\n[^kotiku]: [philips-labs/terraform-aws-github-runner による GitHub Actions セルフホストランナーの大規模運用 | ドクセル](https://www.docswell.com/s/miyajan/ZW1XJX-large-scale-github-actions-self-hosted-runner-by-philips-terraform-module)\n[^philips]: というのも、どうやら僕たちがベースとして使っている [philips-labs/terraform-aws-github-runner](https://github.com/philips-labs/terraform-aws-github-runner) を参考として記事に載せていたので、まあ実践できているってなるよなという感じ。\n## ShellScriptで自動化を楽にしたい時に知っておいても良いこと | sreake.com | 株式会社スリーシェイク\nhttps://sreake.com/blog/shellscript-good-practices/\nスリーシェイクさんによる ShellScript を使って自動化を行う際に、より効率よく、信頼性高く実行するためのベストプラクティス、パターンを紹介した記事です。\nまずは自動化候補を出すための toil の判別方法からはじまり、その後に次のようなベストプラクティス、パターンが様々な観点から紹介されています。\n- エラーハンドリング：失敗に備える\n  - エラーで即時に停止\n  - トラップを使用したクリーンアップ\n  - 構造化ログの実装\n  - 再実行可能なスクリプトを書く\n- パフォーマンス最適化\n  - ループの最適化\n  - パイプラインを使用\n- セキュリティの考慮事項\n  - 入力のサニタイズ\n  - 変数の適切な引用\n  - 最小権限の原則\n  - 一時ファイルの安全な作成\n- クロスプラットフォームの考慮\n  - 可搬性のある shebang\n  - OS 依存の処理\n- テストとデバッグ\n  - ユニットテストの導入\n  - デバッグモード\n- バージョン管理との統合\n  - Git フックの活用\nShellScript は僕もよく書くため、こういうまとめは嬉しいですね。エラーハンドリング系とセキュリティ系はちゃんとやることが多いですが、パフォーマンス最適化や構造化ログやユニットテストはあまり意識したことがなかったので勉強になりました。\n実践していきたいです。\n_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_\n  - [Google、オープンソースのメンテナの負担をAIなどで軽減する「Project Oscar」を発表 － Publickey](https://www.publickey1.jp/blog/24/googleaiproject_oscar.html)\n    - Google が OSS のメンテなの負担を軽減するためのプロジェクト、Project Oscar を発表しました\n    - まだ発表されただけですが、プロトタイプが golang/go ですでに動いているようです\n    - 気になりますね\n  - [Cloud Run でデフォルト URL を無効化する機能が Preview](https://cloud.google.com/run/docs/securing/ingress?hl=en#disable-url)\n    - Google Cloud において、Cloud Run のデフォルト URL を無効化する機能が生えたようです（プレビュー）\n    - ロードバランサー経由でのみアクセスさせるなどの場合、直接アクセスできる URL は必要ないので無効化できるようになったのは嬉しいですね。まだプレビューですが\n  - [Google Docs、Markdown形式でのドキュメントのエクスポート、インポートなど可能に － Publickey](https://www.publickey1.jp/blog/24/google_docsmarkdow.html)\n    - Google Docs において、Markdown 形式でドキュメントのインポート・エクスポートが可能になったようです\n    - 個人的にはエクスポートがとにかく嬉しいですね。何らかの理由で後から手動で Markdown 形式に書き写したりするので\n  - [Security overview dashboards, secret scanning metrics and enablement trends reports are now generally available - The GitHub Blog](https://github.blog/changelog/2024-07-19-security-overview-dashboards-secret-scanning-metrics-and-enablement-trends-reports-are-now-generally-available/)\n    - GitHub において、security overview dashboards、secret scanning metrics、enablement trends reports が GA になりました\n    - プッシュ保護がどれだけ昨日しているかや GitHub のセキュリティツールがどれだけ有効化されているかなどを把握しやすくなります\n  - [On October 22, 2024, Monitoring Query Language (MQL) will no longer be a recommended query language for Cloud Monitoring.](https://cloud.google.com/stackdriver/docs/deprecations/mql)\n    - Google Cloud の Cloud Monitoring において、2024 年 10 月 22 日から Monitoring Query Language (MQL) が推奨クエリ言語でなくなるようです\n    - 代わりにオープンソースである PromQL を使うのが推奨されています\n    - クラメソさんの記事が詳しいです\n      - [[アップデート] Monitoring Query Language (MQL) が非推奨へ | DevelopersIO](https://dev.classmethod.jp/articles/cloud-monitoring-mql-deprecated/)\n_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_\n"
-    }
-  ],
-  "temperature": 1,
-  "max_tokens": 1024,
-  "top_p": 1,
-  "frequency_penalty": 0,
-  "presence_penalty": 0,
-  "response_format": {
-    "type": "json_object"
-  }
-}
-[2024-08-07T08:47:12.736Z INFO] OpenAI response
-{
-  "review": [
-    {
-      "error_line": "複数 Owner、リポジトリまたがる OSS の Issue や Pull Request を単一の GitHub Projects に集約する方法を紹介した記事です。",
-      "revised_line": "複数 Owner、リポジトリにまたがる OSS の Issue や Pull Request を単一の GitHub Projects に集約する方法を紹介した記事です。",
-      "reason": "助詞の誤りを修正。"
-    },
-    {
-      "error_line": "また、自動追加をするための OSS、suzuki-shunsuke/ghproj を新たに作り、公開されています。Issue、PR を取得する GraphQL API を叩くためのクエリを詳細に設定でき、簡単にこの手法を実現できそうで良いですね。",
-      "revised_line": "また、自動追加をするための OSS、suzuki-shunsuke/ghproj が新たに作られ、公開されています。Issue、PR を取得する GraphQL API を叩くためのクエリを詳細に設定でき、簡単にこの手法を実現できそうで良いですね。",
-      "reason": "主語と述語の不一致を修正。"
-    },
-    {
-      "error_line": "AWS 上での大規模な GitHub Actions セルフホストランナー使用のベストプラクティスが AWS ブログで紹介されています。",
-      "revised_line": "AWS 上での大規模な GitHub Actions セルフホストランナー使用のベストプラクティスが、AWS ブログで紹介されています。",
-      "reason": "読点を追加して文の区切りを明確化。"
-    },
-    {
-      "error_line": "というのも、どうやら僕たちがベースとして使っている [philips-labs/terraform-aws-github-runner](https://github.com/philips-labs/terraform-aws-github-runner) を参考として記事に載せていたので、まあ実践できているってなるよなという感じ。",
-      "revised_line": "というのも、どうやら僕たちがベースとして使っている [philips-labs/terraform-aws-github-runner](https://github.com/philips-labs/terraform-aws-github-runner) が参考として記事に載せていたので、まあ実践できているってなるよなという感じ。",
-      "reason": "助詞の誤りを修正。"
-    }
-  ]
-}
-[2024-08-07T08:47:12.736Z INFO] OpenAI usage
-{
-  "tokens": {
-    "prompt_tokens": 2547,
-    "completion_tokens": 579,
-    "total_tokens": 3126
-  },
-  "pricing": {
-    "input": "0.013 USD",
-    "output": "0.009 USD",
-    "total": "0.021 USD"
-  }
-}
-[2024-08-07T08:47:12.737Z DEBUG] ReviewDog Json
-{
-  "diagnostics": [
-    {
-      "message": "助詞の誤りを修正。\n※AI による自動修正提案です。修正を受け入れるかどうかはご自身で判断ください。",
-      "location": {
-        "path": "articles/productivity-weekly-20240724.md",
-        "range": {
-          "start": {
-            "line": 50
-          },
-          "end": {
-            "line": 50
-          }
-        }
-      },
-      "suggestions": [
-        {
-          "range": {
-            "start": {
-              "line": 50
-            },
-            "end": {
-              "line": 50
-            }
-          },
-          "text": "複数 Owner、リポジトリにまたがる OSS の Issue や Pull Request を単一の GitHub Projects に集約する方法を紹介した記事です。筆者の suzuki-shunsuke さんは多くの OSS を開発・メンテしており、それぞれの Issue や PR を巡回してハンドリングするのが困難であったため、単一の GitHub Project に集約して管理することにしたようです。"
-        }
-      ]
-    },
-    {
-      "message": "主語と述語の不一致を修正。\n※AI による自動修正提案です。修正を受け入れるかどうかはご自身で判断ください。",
-      "location": {
-        "path": "articles/productivity-weekly-20240724.md",
-        "range": {
-          "start": {
-            "line": 54
-          },
-          "end": {
-            "line": 54
-          }
-        }
-      },
-      "suggestions": [
-        {
-          "range": {
-            "start": {
-              "line": 54
-            },
-            "end": {
-              "line": 54
-            }
-          },
-          "text": "また、自動追加をするための OSS、suzuki-shunsuke/ghproj が新たに作られ、公開されています。Issue、PR を取得する GraphQL API を叩くためのクエリを詳細に設定でき、簡単にこの手法を実現できそうで良いですね。"
-        }
-      ]
-    },
-    {
-      "message": "読点を追加して文の区切りを明確化。\n※AI による自動修正提案です。修正を受け入れるかどうかはご自身で判断ください。",
-      "location": {
-        "path": "articles/productivity-weekly-20240724.md",
-        "range": {
-          "start": {
-            "line": 69
-          },
-          "end": {
-            "line": 69
-          }
-        }
-      },
-      "suggestions": [
-        {
-          "range": {
-            "start": {
-              "line": 69
-            },
-            "end": {
-              "line": 69
-            }
-          },
-          "text": "AWS 上での大規模な GitHub Actions セルフホストランナー使用のベストプラクティスが、AWS ブログで紹介されています。"
-        }
-      ]
-    },
-    {
-      "message": "助詞の誤りを修正。\n※AI による自動修正提案です。修正を受け入れるかどうかはご自身で判断ください。",
-      "location": {
-        "path": "articles/productivity-weekly-20240724.md",
-        "range": {
-          "start": {
-            "line": 89
-          },
-          "end": {
-            "line": 89
-          }
-        }
-      },
-      "suggestions": [
-        {
-          "range": {
-            "start": {
-              "line": 89
-            },
-            "end": {
-              "line": 89
-            }
-          },
-          "text": "[^philips]: というのも、どうやら僕たちがベースとして使っている [philips-labs/terraform-aws-github-runner](https://github.com/philips-labs/terraform-aws-github-runner) が参考として記事に載せていたので、まあ実践できているってなるよなという感じ。"
-        }
-      ]
-    }
-  ]
-}
-[2024-08-07T08:47:12.737Z INFO] Converted to ReviewDog Json
-```
-
+ログの保持期間が切れている場合は [gist](https://gist.github.com/korosuke613/7afb1ba0717c8ecf40dc4dac4556f465) を参照ください。
 :::
 
 # 要件
@@ -282,7 +104,7 @@ Productivity Weekly の特徴は次の通りです。
 ```mermaid
 sequenceDiagram
     participant O as OpenAI
-    participant D as Deno (TypeScript)
+    participant D as Deno (TypeScript)<br />on default branch
     participant A as GitHub Actions Workflow<br />on default branch
     participant P as PullRequest
     actor User
@@ -292,8 +114,8 @@ sequenceDiagram
         activate A
         A->>A: get diff PR branch ①
         A->>A: switch PR branch ②
-        A->>A: overwrite review program<br />on default branch to local ③
-        A->>+D: exec review program
+        A->>A: overwrite typescript code<br />on default branch to local ③
+        A->>+D: exec typescript code
         D->>+O: call openai api ④
         O-->>-D: review results
         D->>D: convert into reviewdog format ⑤
@@ -306,23 +128,24 @@ sequenceDiagram
     end
 ```
 
-全ての処理を GitHub Actions のステップ（シェルスクリプト）で行うのは大変なので、一部の処理は TypeScript で行います。分け方としては、シェルで簡単にできる処理はシェルスクリプト、それ以外の処理は TypeScript という感じです。
+全ての処理を GitHub Actions のステップ（シェルスクリプト）で行うのは大変なので、一部の処理は TypeScript で行います。分け方としては、シェルスクリプトで簡単にできる処理はシェルスクリプト、それ以外の処理は TypeScript という感じです。
 
-- GitHub Actions (シェルスクリプト)
+- GitHub Actions ワークフロー
   - Git/GitHub 操作
-    - プルリクエスト差分の取得 ①
-    - プルリクエストのブランチへの切り替え ②
-    - レビュープログラムの上書き ③
-    - ReviewDog でコメント ⑥
-- Deno (TypeScript)
-  - OpenAI API へのリクエスト ④
-  - レビュー結果の変換 ⑤
+    - [プルリクエスト差分の取得 ①](#%E3%83%97%E3%83%AB%E3%83%AA%E3%82%AF%E3%82%A8%E3%82%B9%E3%83%88%E5%B7%AE%E5%88%86%E3%81%AE%E5%8F%96%E5%BE%97-%E2%91%A0)
+    - [プルリクエストのブランチへの切り替え ②](#%E3%83%97%E3%83%AB%E3%83%AA%E3%82%AF%E3%82%A8%E3%82%B9%E3%83%88%E3%81%AE%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E3%81%B8%E3%81%AE%E5%88%87%E3%82%8A%E6%9B%BF%E3%81%88-%E2%91%A1)
+    - [TypeScript コードの上書き ③](#typescript-%E3%82%B3%E3%83%BC%E3%83%89%E3%81%AE%E4%B8%8A%E6%9B%B8%E3%81%8D-%E2%91%A2)
+    - [ReviewDog でコメント ⑥](#reviewdog-%E3%81%A7%E3%82%B3%E3%83%A1%E3%83%B3%E3%83%88-%E2%91%A5)
+- TypeScript コード
+  - [OpenAI API へのリクエスト ④](#openai-api-%E3%81%B8%E3%81%AE%E3%83%AA%E3%82%AF%E3%82%A8%E3%82%B9%E3%83%88-%E2%91%A3)
+  - [レビュー結果の変換 ⑤](#%E3%83%AC%E3%83%93%E3%83%A5%E3%83%BC%E7%B5%90%E6%9E%9C%E3%81%AE%E5%A4%89%E6%8F%9B-%E2%91%A4)
 
 ※ ① 〜 ⑥ はシーケンス図内の番号に対応しています。
 
-# 実装: レビュープログラム
+# 実装: TypeScript コード
+先に TypeScript コードから説明します。GitHub Actions ワークフロー部分は後述します。
 
-今回レビュープログラムは TypeScript で作成しました。TypeScript を採用した理由は自分が慣れている言語だからです。ランタイムについては Deno を採用しています。こちらの理由は TypeScript をネイティブでサポートしており、TypeScript 利用の準備が簡単だからです[^bun]。
+今回シェルスクリプトで書くのが面倒な処理は TypeScript で作成しました。TypeScript を採用した理由は自分が慣れている言語だからです。ランタイムについては Deno を採用しています。こちらの理由は TypeScript をネイティブでサポートしており、TypeScript 利用の準備が簡単だからです[^bun]。
 
 全てのコードを説明するのは非常に大変なので、要所要所を抜粋して説明します。
 フルのコードは、以下を参照ください。
@@ -334,7 +157,7 @@ sequenceDiagram
 
 **入出力**
 
-レビュープログラムの前提条件、入出力は次のように決めました。
+TypeScript コードの前提条件、入出力は次のように決めました。
 
 - 前提条件
   - プルリクエストの差分ファイルが存在する
@@ -650,7 +473,7 @@ https://github.com/korosuke613/zenn-articles/blob/b7544193c7440fc7ad81b739f6d571
 最終的に変換されたレビュー結果をファイルに保存し、プログラムは終了します。
 保存されたファイルはワークフローの残りのステップで利用します。
 
-# 実装: ワークフロー
+# 実装: GitHub Actions ワークフロー部分
 
 ワークフローについても全てのコードを説明するのは非常に大変なので、要所要所を抜粋して説明します。
 フルのコードは以下を参照ください。
@@ -670,7 +493,7 @@ on:
     types: [created]
 ```
 
-ただ、これだけでは PR だけでなく Issue へのコメントに対してもワークフローが実行されてしまうだけでなく、どのコメントでも誰のコメントでも関わらずワークフローが実行されてしまいます。これらを防ぐために、コメントの内容やコメントを書いたユーザをチェックする必要があります。
+ただ、これだけでは Issue へのコメントでも、どのコメントでも誰のコメントでもワークフローが実行されてしまいます。それを防ぐために、コメントの内容やコメントを書いたユーザをチェックする必要があります。
 
 ```yaml
 jobs:
@@ -686,7 +509,7 @@ jobs:
 
 ## プルリクエスト差分の取得 ①
 
-レビュープログラムで利用するために、プルリクエストの差分を取得、ファイルへ書き込みます。
+TypeScript コードで利用するために、プルリクエストの差分を取得、ファイルへ書き込みます。
 
 Git の差分の取り方はいろいろありますが、今回は個人的に簡単な方法である GitHub CLI を使った方法を採用します。
 
@@ -701,7 +524,7 @@ echo "diff_markdown_path=$(gh pr diff ${{ github.event.issue.number }} --name-on
 ```
 
 ## プルリクエストのブランチへの切り替え ②
-プルリクエスト上の対象のマークダウンを保持する必要があるため、プルリクエストのブランチに切り替えます。
+TypeScript コードでプルリクエスト上の対象のマークダウンを利用するため、プルリクエストのブランチに切り替えます。
 これも GitHub CLI を使って楽に行えます。また、後程必要になる最新のコミット SHA を `GITHUB_OUTPUT` に保存します。
 
 :::message
@@ -711,15 +534,15 @@ Productivity Weekly の場合、フォークされたリポジトリからのプ
 
 ```
 gh pr checkout --branch <任意のブランチ名> ${{ github.event.issue.number }}
-echo "latest_git_sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT" # reviewdog によるコメントで必要
+echo "latest_git_sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT" # reviewdog によるコメントを行う際に必要
 ```
 
-## レビュープログラムの上書き ③
-デフォルトブランチのレビュープログラムをローカルに上書きします。
-これはプルリクエスト作成者がレビュープログラムを変更して任意の LLM 利用を防ぐためです。
+## TypeScript コードの上書き ③
+デフォルトブランチの TypeScript コードをローカルに上書きします。
+これはプルリクエスト作成者がコードを変更して任意の LLM 利用を防ぐためです。
 （なお、`on.issue_comment` による実行のため、ワークフロー自体はデフォルトブランチのものが使われます。よってワークフローファイルの変更は気にしなくて大丈夫です）
 
-先の説明では省略しましたが、必ずデフォルトブランチのレビュープログラムを利用するために、ブランチ切り替え前に一時的にコピーを作成し、ブランチ切り替え後にコピーを元の場所に戻すようにします。
+先の説明では省略しましたが、必ずデフォルトブランチのコードを利用するために、ブランチ切り替え前に一時的にコピーを作成し、ブランチ切り替え後にコピーを元の場所に戻すようにします。
 
 ```sh
 # 常に main ブランチの tools を利用するために一時的に tools をコピー
@@ -734,8 +557,8 @@ cp -f ${{ runner.temp }}/ai-review/deno.lock .
 cp -rf ${{ runner.temp }}/ai-review/tools .
 ```
 
-## レビュープログラムの実行
-先で説明したレビュープログラムを実行し、レビュー結果をファイルに保存します。
+## TypeScript コードの実行
+先で説明した TypeScript コードを実行し、レビュー結果をファイルに保存します。
 
 https://github.com/korosuke613/zenn-articles/blob/b7544193c7440fc7ad81b739f6d571289c6e9ca9/.github/workflows/reusable-ai-review.yaml#L63-L77
 
@@ -762,10 +585,10 @@ ReviewDog を GitHub Actions 上で実行する場合、自動で PR 番号や�
 # 工夫
 
 ## LLM レビューを試行錯誤・デバッグしやすくする
-常にデフォルトブランチのワークフロー、レビュープログラムを使うようになっているため、今回の仕組みを変更したい際の動作確認が難しくなってしまっています。
-したがって、オーナー（平木場）のみデフォルトブランチ以外のワークフロー、レビュープログラムを利用できるようにしました。
+常にデフォルトブランチのワークフロー、TypeScript コードを使うようになっているため、今回の仕組みを変更したい際の動作確認が難しくなってしまっています。
+したがって、オーナー（平木場）のみデフォルトブランチ以外のワークフロー、TypeScript コードを利用できるようにしました。
 
-具体的には、`on.issue_comment` によるワークフロー実行と `on.workflow_dispatch` によるワークフロー実行を分け、`on.workflow_dispatch` によるワークフロー実行の際にはデフォルトブランチ以外のワークフロー、レビュープログラムを利用できるようにしました。
+具体的には、`on.issue_comment` によるワークフロー実行と `on.workflow_dispatch` によるワークフロー実行を分け、`on.workflow_dispatch` によるワークフロー実行の際にはデフォルトブランチ以外のワークフロー、TypeScript コードを利用できるようにしました。
 そのために LLM レビューの処理を reusable なワークフローとして切り出し、2 つのワークフローから呼び出せるようにしています。
 
 https://github.com/korosuke613/zenn-articles/blob/main/.github/workflows/test-ai-review.yaml
