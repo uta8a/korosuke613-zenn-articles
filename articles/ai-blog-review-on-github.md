@@ -151,8 +151,8 @@ sequenceDiagram
 全てのコードを説明するのは非常に大変なので、要所要所を抜粋して説明します。
 フルのコードは、以下を参照ください。
 
-- [tools/reviewDiffWithAi.ts](https://github.com/korosuke613/zenn-articles/blob/b7544193c7440fc7ad81b739f6d571289c6e9ca9/tools/reviewDiffWithAi.ts)
-- [tools/libs/AiReviewer.ts](https://github.com/korosuke613/zenn-articles/blob/b7544193c7440fc7ad81b739f6d571289c6e9ca9/tools/libs/AiReviewer.ts)
+- [tools/reviewDiffWithAi.ts](https://github.com/korosuke613/zenn-articles/blob/d93c516918eb64eb1b5fb313bd650bcc88b5a7e9/tools/reviewDiffWithAi.ts)
+- [tools/libs/AiReviewer.ts](https://github.com/korosuke613/zenn-articles/blob/3418afde337f12c47a899be740bd7d972baa5a62/tools/libs/AiReviewer.ts)
 
 [^bun]: 最近は似たようなものとして Bun も有名ですが、Bun は使ったことがないため今回は見送りました。
 
@@ -373,7 +373,7 @@ rdjson 形式では、ざっくり次の内容を持っています。
 
 これらを LLM から得られたレビュー結果より作成します。
 
-https://github.com/korosuke613/zenn-articles/blob/b7544193c7440fc7ad81b739f6d571289c6e9ca9/tools/libs/AiReviewer.ts#L304-L356
+https://github.com/korosuke613/zenn-articles/blob/3418afde337f12c47a899be740bd7d972baa5a62/tools/libs/AiReviewer.ts#L304-L356
 
 <!-- textlint-disable -->
 
@@ -479,8 +479,8 @@ https://github.com/korosuke613/zenn-articles/blob/b7544193c7440fc7ad81b739f6d571
 ワークフローについても全てのコードを説明するのは非常に大変なので、要所要所を抜粋して説明します。
 フルのコードは以下を参照ください。
 
-- [.github/workflows/ai-review.yaml](https://github.com/korosuke613/zenn-articles/blob/b7544193c7440fc7ad81b739f6d571289c6e9ca9/.github/workflows/ai-review.yaml)
-- [.github/workflows/reusable-ai-review.yaml](https://github.com/korosuke613/zenn-articles/blob/b7544193c7440fc7ad81b739f6d571289c6e9ca9/.github/workflows/reusable-ai-review.yaml)
+- [.github/workflows/ai-review.yaml](https://github.com/korosuke613/zenn-articles/blob/3418afde337f12c47a899be740bd7d972baa5a62/.github/workflows/ai-review.yaml)
+- [.github/workflows/reusable-ai-review.yaml](https://github.com/korosuke613/zenn-articles/blob/3418afde337f12c47a899be740bd7d972baa5a62/.github/workflows/reusable-ai-review.yaml)
 
 ## 特定のコメントで GitHub Actions のワークフローを実行させる
 
@@ -561,7 +561,7 @@ cp -rf ${{ runner.temp }}/ai-review/tools .
 ## TypeScript コードの実行
 先で説明した TypeScript コードを実行し、レビュー結果をファイルに保存します。
 
-https://github.com/korosuke613/zenn-articles/blob/b7544193c7440fc7ad81b739f6d571289c6e9ca9/.github/workflows/reusable-ai-review.yaml#L63-L77
+https://github.com/korosuke613/zenn-articles/blob/3418afde337f12c47a899be740bd7d972baa5a62/.github/workflows/reusable-ai-review.yaml#L63-L77
 
 ## ReviewDog でコメント ⑥
 
@@ -592,7 +592,7 @@ ReviewDog を GitHub Actions 上で実行する場合、自動で PR 番号や�
 具体的には、`on.issue_comment` によるワークフロー実行と `on.workflow_dispatch` によるワークフロー実行を分け、`on.workflow_dispatch` によるワークフロー実行の際にはデフォルトブランチ以外のワークフロー、TypeScript コードを利用できるようにしました。
 そのために LLM レビューの処理を reusable なワークフローとして切り出し、2 つのワークフローから呼び出せるようにしています。
 
-https://github.com/korosuke613/zenn-articles/blob/main/.github/workflows/test-ai-review.yaml
+https://github.com/korosuke613/zenn-articles/blob/3418afde337f12c47a899be740bd7d972baa5a62/.github/workflows/test-ai-review.yaml
 
 ![](/images/ai-blog-review-on-github/manual-trigger.png)
 *使いたいコードのあるブランチを指定して、コメントしたいプルリクエストを指定する感じ*
@@ -606,11 +606,11 @@ LLM を使うのにはお金がかかるのです。共同執筆者の皆様に�
 
 単価は OpenAI の[料金表](https://openai.com/api/pricing/)から持ってきています。最新の料金への追従は人力で行わないといけないのがつらいところですね。
 
-https://github.com/korosuke613/zenn-articles/blob/b7544193c7440fc7ad81b739f6d571289c6e9ca9/tools/libs/AiReviewer.ts#L57-L63
+https://github.com/korosuke613/zenn-articles/blob/3418afde337f12c47a899be740bd7d972baa5a62/tools/libs/AiReviewer.ts#L57-L63
 
 料金計算については、ChatCompletion API のレスポンスの中にある [CompletionUsage](https://github.com/openai/openai-node/blob/925a93062924f11759339b5f9318175c6c68e4cf/src/resources/chat/completions.ts#L83-L86) から得られる情報を使って利用トークン数から料金を計算しています。
 
-https://github.com/korosuke613/zenn-articles/blob/b7544193c7440fc7ad81b739f6d571289c6e9ca9/tools/libs/AiReviewer.ts#L186-L205
+https://github.com/korosuke613/zenn-articles/blob/3418afde337f12c47a899be740bd7d972baa5a62/tools/libs/AiReviewer.ts#L191-L210
 
 # やってみて
 
