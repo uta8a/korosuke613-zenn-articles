@@ -39,7 +39,7 @@ jobs:
         id: setup_branches
         run: |
           # 差分のマークダウンを取得
-          echo "diff_markdown_path=$(gh pr diff ${{ inputs.pr_number }} --name-only | grep 'productivity-weekly-' | head -1)" >> "$GITHUB_OUTPUT"
+          echo "diff_markdown_path=$(gh pr diff ${{ inputs.pr_number }} --name-only | grep '.md' | head -1)" >> "$GITHUB_OUTPUT"
           gh pr diff ${{ inputs.pr_number }} > ${{ env.PR_DIFF }}
           cat ${{ env.PR_DIFF }}
           echo "pr_diff_path=${{ env.PR_DIFF }}" >> "$GITHUB_OUTPUT"
