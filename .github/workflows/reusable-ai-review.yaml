@@ -34,33 +34,29 @@ jobs:
       - name: Setup branches
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          PR_JSON: ${{ runner.temp }}/pr.json
+          PR_DIFF: ${{ runner.temp }}/pr.diff
           HEAD_BRANCH: ai-review-head
         id: setup_branches
         run: |
-          gh pr view ${{ inputs.pr_number }} --json baseRefName,headRefName > ${{ env.PR_JSON }}
-          cat ${{ env.PR_JSON }}
-          BASE_REF_NAME="$(jq -r .baseRefName <${{ env.PR_JSON }})"
-          set -x
+          # 差分のマークダウンを取得
+          echo "diff_markdown_path=$(gh pr diff ${{ inputs.pr_number }} --name-only | grep 'productivity-weekly-' | head -1)" >> "$GITHUB_OUTPUT"
+          gh pr diff ${{ inputs.pr_number }} > ${{ env.PR_DIFF }}
+          cat ${{ env.PR_DIFF }}
+          echo "pr_diff_path=${{ env.PR_DIFF }}" >> "$GITHUB_OUTPUT"
 
           # 常に main ブランチの tools を利用するために一時的に tools をコピー
           mkdir -p ${{ runner.temp }}/ai-review
           \cp -r ./tools ./deno.lock ${{ runner.temp }}/ai-review
 
           # PR のブランチに切り替える
-          git fetch --update-head-ok origin "$BASE_REF_NAME:$BASE_REF_NAME"
           gh pr checkout --branch ${{ env.HEAD_BRANCH }} ${{ inputs.pr_number }}
           git branch
-          echo "latest_git_sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+          echo "latest_git_sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT" # reviewdog によるコメントで必要
 
           # PR のブランチに tools をコピー
           \cp -f ${{ runner.temp }}/ai-review/deno.lock .
           \cp -rf ${{ runner.temp }}/ai-review/tools .
           ls deno.lock tools
-
-          set +x
-          echo "base_ref_name=${BASE_REF_NAME}" >> "$GITHUB_OUTPUT"
-          echo "head_ref_name=${{ env.HEAD_BRANCH }}" >> "$GITHUB_OUTPUT"
 
       - uses: ./.github/actions/setup-deno
 
@@ -68,17 +64,17 @@ jobs:
         env:
           LOG_LEVEL: debug
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          DENO_NO_PACKAGE_JSON: 1
         run: |
-          git diff ${{ steps.setup_branches.outputs.base_ref_name }}...${{ steps.setup_branches.outputs.head_ref_name }} --name-only
           deno run \
             --allow-env \
             --allow-run=git \
             --allow-write=./tools/dist \
-            --allow-read=./articles \
+            --allow-read=./articles,${{ steps.setup_branches.outputs.pr_diff_path }} \
             --allow-net=api.openai.com \
             ./tools/reviewDiffWithAi.ts \
-            ${{ steps.setup_branches.outputs.base_ref_name }} \
-            ${{ steps.setup_branches.outputs.head_ref_name }}
+            ${{ steps.setup_branches.outputs.diff_markdown_path }} \
+            ${{ steps.setup_branches.outputs.pr_diff_path }}
 
       - name: Summarize AI Review log
         if: always()
