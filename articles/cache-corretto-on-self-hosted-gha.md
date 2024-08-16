@@ -31,7 +31,7 @@ https://speakerdeck.com/defaultcf/seruhuhosutorannatointanetutotonojian-nozhuan-
 [^kininaru]: 気になる人は「[philips-labs/terraform-aws-github-runner による GitHub Actions セルフホストランナーの大規模運用 | ドクセル](https://www.docswell.com/s/miyajan/ZW1XJX-large-scale-github-actions-self-hosted-runner-by-philips-terraform-module#p1)」を参照ください。
 
 我々のセルフホストランナーは AWS の EC2 インスタンスを利用しており、構成的にランナーとインターネットとの通信に NAT ゲートウェイを通るようになっています。
-NAT Gateway は転送量に応じて課金されます。VPC フローログを分析したところ、通信先のドメイン上位に `corretto.aws` がランクインしていました。
+NAT ゲートウェイは転送量に応じて課金されます。VPC フローログを分析したところ、通信先のドメイン上位に `corretto.aws` がランクインしていました。
 
 ![](/images/cache-corretto-on-self-hosted-gha/transfer-top.png)
 *https://speakerdeck.com/defaultcf/seruhuhosutorannatointanetutotonojian-nozhuan-song-liang-woxue-jian-siteiruhua?slide=9*
