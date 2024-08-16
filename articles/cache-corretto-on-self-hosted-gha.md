@@ -655,6 +655,22 @@ OpenJDK 64-Bit Server VM Corretto-21.0.4.7.1 (build 21.0.4+7-LTS, mixed mode, sh
 
 やりましたね！
 
+:::message
+***お気づきいただけただろうか...***
+
+> Print information about available versions
+  Retrieving available versions for **Coretto** took: 81.543ms
+Resolved latest version as 17.0.12+7.1
+
+
+上記実行ログの Corretto 17 をダウンロードする部分で、実は `Coretto` と typo してるんですよね。これは僕が写経をミスったとかそういうのではなく、setup-java の問題です。
+コントリビューションチャンスか！？と思いましたが、すでに修正されていました。-> [Fix typos on Corretto (#665) by johnshajiang · Pull Request #666 · actions/setup-java](https://github.com/actions/setup-java/pull/666)
+
+2 週間前に修正されたようで、すでに main ブランチに入っていますがリリースはされていないようですね。そのうちリリースされるでしょう。
+
+ちなみにこの typo は僕の記事を読んだ社内の方が発見してくれました。こんなの普通気づかないって 😇
+:::
+
 # やってみて
 
 冒頭でも説明した通り、今回の内容は[以前発表したスライド](https://speakerdeck.com/defaultcf/seruhuhosutorannatointanetutotonojian-nozhuan-song-liang-woxue-jian-siteiruhua)における、Amazon Corretto のキャッシュについて詳しく説明したものでした。
