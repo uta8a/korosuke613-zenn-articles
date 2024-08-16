@@ -229,7 +229,7 @@ export function findAllVersions(toolName: string, arch?: string): string[] {
 ```
 
 バージョンディレクトリ内のアーキテクチャごとに `<アーキテクチャ>.complete` というファイルがないとキャッシュされていないと判断されるようですね。
-これは注意が必要ですねぇ。~~なお、我々は最初 .complete ファイルの存在に気づいておらず、ちゃんとファイルを置いたのになぜダウンロードが走るのかと頭を抱えました。~~
+これは注意が必要ですねぇ。
 
 ## インストールで何をやっているか調べる
 
@@ -345,6 +345,8 @@ Ubuntu で Corretto 21 をインストールする場合のダウンロード UR
 `.complete` の中身についてですが、どうやら中身は空で良いようです。
 
 https://github.com/actions/toolkit/blob/f003268b3250d192cf66f306694b34a278011d9b/packages/tool-cache/src/tool-cache.ts#L686-L687
+
+~~なお、我々は最初 .complete ファイルの存在に気づいておらず、ちゃんと展開した tar.gz の中身を置いたのになぜダウンロードが走るのかと頭を抱えました。~~
 
 # setup-java のキャッシュの仕組みを再現する
 
