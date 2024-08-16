@@ -31,7 +31,7 @@ https://speakerdeck.com/defaultcf/seruhuhosutorannatointanetutotonojian-nozhuan-
 [^kininaru]: 気になる人は「[philips-labs/terraform-aws-github-runner による GitHub Actions セルフホストランナーの大規模運用 | ドクセル](https://www.docswell.com/s/miyajan/ZW1XJX-large-scale-github-actions-self-hosted-runner-by-philips-terraform-module#p1)」を参照ください。
 
 我々のセルフホストランナーは AWS の EC2 インスタンスを利用しており、構成的にランナーとインターネットとの通信に NAT ゲートウェイを通るようになっています。
-NAT Gateway は転送量に応じて課金されます。VPC フローログを分析したところ、通信先のドメイン上位に `corretto.aws` がランクインしていました。
+NAT ゲートウェイは転送量に応じて課金されます。VPC フローログを分析したところ、通信先のドメイン上位に `corretto.aws` がランクインしていました。
 
 ![](/images/cache-corretto-on-self-hosted-gha/transfer-top.png)
 *https://speakerdeck.com/defaultcf/seruhuhosutorannatointanetutotonojian-nozhuan-song-liang-woxue-jian-siteiruhua?slide=9*
@@ -71,7 +71,7 @@ AMI 自体は定期的に作成・更新されるようになっており、そ�
 インストールの大まかな流れは次のようになっています。
 
 1. インストール済みの JDK のバージョンとパスを取得する ([ref](https://github.com/actions/setup-java/blob/6a0805fcefea3d4657a47ac4c165951e33482018/src/distributions/base-installer.ts#L49))
-   1. キャッシュディレクトリより、キャッシュ済みのバージョン一覧を取得 ([ref](https://github.com/actions/setup-java/blob/6a0805fcefea3d4657a47ac4c165951e33482018/src/distributions/base-installer.ts#L102-L122))
+   1. キャッシュディレクトリより、キャッシュ済みバージョン一覧を取得 ([ref](https://github.com/actions/setup-java/blob/6a0805fcefea3d4657a47ac4c165951e33482018/src/distributions/base-installer.ts#L102-L122))
    2. キャッシュ済みバージョン一覧より、`with.java-version` で指定したバージョンを満たす JDK のバージョンとパスを取得 ([ref](https://github.com/actions/setup-java/blob/6a0805fcefea3d4657a47ac4c165951e33482018/src/distributions/base-installer.ts#L124-L137))
 2. 見つからなかった場合、JDK をインストールする ([ref](https://github.com/actions/setup-java/blob/6a0805fcefea3d4657a47ac4c165951e33482018/src/distributions/base-installer.ts#L53-L62))
    1. ダウンロード URL の取得 ([ref](https://github.com/actions/setup-java/blob/67fbd726daaf08212a7b021c1c4d117f94a81dd3/src/distributions/corretto/installer.ts#L55-L88))
@@ -229,7 +229,7 @@ export function findAllVersions(toolName: string, arch?: string): string[] {
 ```
 
 バージョンディレクトリ内のアーキテクチャごとに `<アーキテクチャ>.complete` というファイルがないとキャッシュされていないと判断されるようですね。
-これは注意が必要ですねぇ。~~なお、我々は最初 .complete ファイルの存在に気づいておらず、ちゃんとファイルを置いたのになぜダウンロードが走るのかと頭を抱えました。~~
+これは注意が必要ですねぇ。
 
 ## インストールで何をやっているか調べる
 
@@ -345,6 +345,8 @@ Ubuntu で Corretto 21 をインストールする場合のダウンロード UR
 `.complete` の中身についてですが、どうやら中身は空で良いようです。
 
 https://github.com/actions/toolkit/blob/f003268b3250d192cf66f306694b34a278011d9b/packages/tool-cache/src/tool-cache.ts#L686-L687
+
+~~なお、我々は最初 .complete ファイルの存在に気づいておらず、ちゃんと展開した tar.gz の中身を置いたのになぜダウンロードが走るのかと頭を抱えました。~~
 
 # setup-java のキャッシュの仕組みを再現する
 
@@ -655,6 +657,22 @@ OpenJDK 64-Bit Server VM Corretto-21.0.4.7.1 (build 21.0.4+7-LTS, mixed mode, sh
 
 やりましたね！
 
+:::message
+***お気づきいただけただろうか...***
+
+> Print information about available versions
+  Retrieving available versions for **Coretto** took: 81.543ms
+Resolved latest version as 17.0.12+7.1
+
+
+上記実行ログの Corretto 17 をダウンロードする部分で、実は `Coretto` と typo してるんですよね。これは僕が写経をミスったとかそういうのではなく、setup-java の問題です。
+コントリビューションチャンスか！？と思いましたが、すでに修正されていました。-> [Fix typos on Corretto (#665) by johnshajiang · Pull Request #666 · actions/setup-java](https://github.com/actions/setup-java/pull/666)
+
+2 週間前に修正されたようで、すでに main ブランチに入っていますがリリースはされていないようですね。そのうちリリースされるでしょう。
+
+ちなみにこの typo は僕の記事を読んだ社内の方が発見してくれました。こんなの普通気づかないって 😇
+:::
+
 # やってみて
 
 冒頭でも説明した通り、今回の内容は[以前発表したスライド](https://speakerdeck.com/defaultcf/seruhuhosutorannatointanetutotonojian-nozhuan-song-liang-woxue-jian-siteiruhua)における、Amazon Corretto のキャッシュについて詳しく説明したものでした。
@@ -668,6 +686,22 @@ OpenJDK 64-Bit Server VM Corretto-21.0.4.7.1 (build 21.0.4+7-LTS, mixed mode, sh
 
 とはいえ、発表スライドにもあるように、どの通信にお金がかかっているかを把握し、優先度をつけて対応することが大事です。まずは計測してみましょう。
 もし今後 setup-node や setup-python などのアクションを使った際の転送量が上位に来てまあまあな額になっていたら今回の方法はまた使えそうですね。
+
+:::message
+なお、今回触れませんでしたが、setup-java をランナー経由ではなくローカルで動かすことでキャッシュする方法もあると思います。
+
+当時の記憶はかすかで、記録にも残ってなかったのでなぜそれをやらなかったかはもはやわからないのですが、改めて今考えると、次の懸念はありそうだなと思います。
+
+- ランナー内でのみ有効な GitHub Actions 独自の環境変数に依存している場合それらを全て再現する必要がある
+- Node.js プロジェクトであることから多くの依存関係を持っており、upstream の依存関係の更新への追従が大変そう
+- AMI 作成のたびに setup-java を動かすための環境構築が必要となる
+
+これらの懸念と天秤にかけた時に依存を持たず数十行で書けるシェルスクリプトの方がメンテナンスコストが低いと判断したのではないかと考えます。
+
+もちろん setup-java をそのまま使うメリットもあり、setup-java の内部仕様が変わった場合の追従が楽にできると思います。今回の setup-java を再現する方法だと、setup-java の仕様が変わっても我々はすぐに気づくことができないです。とはいえキャッシュが利用できなくてもセルフホストランナー環境の利用者に害はなく、定期的に転送量上位を計測することでもし仕様変更があっても気づけると考えます。
+
+**でも実際やってみると案外簡単かもしれませんね。誰かぜひやってみてください！！！**
+:::
 
 # おわりに
 今回は GitHub Actions の setup-java における Amazon Corretto のキャッシュを再現し、ランナーを起動する前にキャッシュすることでダウンロードをスキップする方法を紹介しました。
