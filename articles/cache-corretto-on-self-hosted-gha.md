@@ -71,7 +71,7 @@ AMI 自体は定期的に作成・更新されるようになっており、そ�
 インストールの大まかな流れは次のようになっています。
 
 1. インストール済みの JDK のバージョンとパスを取得する ([ref](https://github.com/actions/setup-java/blob/6a0805fcefea3d4657a47ac4c165951e33482018/src/distributions/base-installer.ts#L49))
-   1. キャッシュディレクトリより、キャッシュ済みのバージョン一覧を取得 ([ref](https://github.com/actions/setup-java/blob/6a0805fcefea3d4657a47ac4c165951e33482018/src/distributions/base-installer.ts#L102-L122))
+   1. キャッシュディレクトリより、キャッシュ済みバージョン一覧を取得 ([ref](https://github.com/actions/setup-java/blob/6a0805fcefea3d4657a47ac4c165951e33482018/src/distributions/base-installer.ts#L102-L122))
    2. キャッシュ済みバージョン一覧より、`with.java-version` で指定したバージョンを満たす JDK のバージョンとパスを取得 ([ref](https://github.com/actions/setup-java/blob/6a0805fcefea3d4657a47ac4c165951e33482018/src/distributions/base-installer.ts#L124-L137))
 2. 見つからなかった場合、JDK をインストールする ([ref](https://github.com/actions/setup-java/blob/6a0805fcefea3d4657a47ac4c165951e33482018/src/distributions/base-installer.ts#L53-L62))
    1. ダウンロード URL の取得 ([ref](https://github.com/actions/setup-java/blob/67fbd726daaf08212a7b021c1c4d117f94a81dd3/src/distributions/corretto/installer.ts#L55-L88))
