@@ -61,17 +61,45 @@ _本項の執筆者: [@r4mimu](https://zenn.dev/r4mimu)_
 ## Run workflows set as workflow_dispatch manually - The GitHub Blog
 https://github.blog/changelog/2024-07-30-run-workflows-set-as-workflow_dispatch-manually/
 
-## Actions Usage Metrics is generally available - The GitHub Blog
-https://github.blog/changelog/2024-07-25-actions-usage-metrics-is-generally-available/
+GitHub Mobile において、GitHub Actions の `workflow_dispatch` を実行できるようになりました。これまで、Mobile ではジョブやワークフローを再実行できても、`workflow_dispatch` は実行できなかったので、これによりいつでもどこでもワークフローを手動で実行できるようになりました。
+
+僕は GitHub Mobile で CI の状況を見たり、失敗したジョブを再実行したりすることがたまにあり、以前何かで `workflow_dispatch` も使いたいことがあったので嬉しい機能追加ですね。
+
+_本稿の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 ## Ask sophisticated questions about diverse GitHub primitives on GitHub Mobile - The GitHub Blog
 https://github.blog/changelog/2024-07-30-ask-sophisticated-questions-about-diverse-github-primitives-on-github-mobile/
 
+GitHub Mobile 上の GitHub Copilot Chat のコンテキスト認識が強化され、表示している特定のファイルやリポジトリについての質問ができるようになりました。
+また、Copilot Enterprise ライセンスを持っている場合、Issue や Pull Request、Discussions に対しても質問ができるようになりました。
+
+Mobile 上でチャットが使えるようになった頃に触りましたが、汎用的な技術質問あるいは有名リポジトリに関する質問しかできなかったので、これでだいぶ使い勝手が向上するなと思いました。
+
+https://x.com/Shitimi_613/status/1793884909561688147
+
+特に Enterprise 向けの Pull Request に対する質問ができるようになったのは出先でコードレビューがしやすくなって良いなという感じです[^desaki]。
+覚えておきたいですね。
+
+[^desaki]: 出先でコードレビューすることがどれだけあるかという感じだけど。
+
+_本稿の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
+
+## Actions Usage Metrics is generally available - The GitHub Blog
+https://github.blog/changelog/2024-07-25-actions-usage-metrics-is-generally-available/
+
+GitHub において、[今年4月にベータとして登場した Actions Usage Metrics](https://zenn.dev/cybozu_ept/articles/productivity-weekly-20240403#actions-usage-metrics-public-beta---the-github-blog) が GA になりました。
+Actions Usage Metrics は GitHub Actions のワークフローやジョブが Organization 内のどこでどれだけ実行されているかを知れるダッシュボードです。
+
+なお、この機能は GitHub Enterprise Cloud ユーザにのみ利用可能です。
+
+GA するにあたってベータとの変更点はお知らせに載っておらず、機能は変わっていないと思われます。気になる人は上記リンクからどんな機能か見てみてください。
+嬉しい機能なので GA になって安心しました。今後も機能拡張を期待したいですね。
+
+_本稿の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
+
 ## 2024年7月27日時点におけるAWS CodeCommitとAmazon CloudSearchの新規利用に関して
 https://dev.classmethod.jp/articles/aws-start-to-restrict-codecommit-and-cloudsearch/
 
-## OpenTofu 1.8.0 is out with Early Evaluation, Provider Mocking, and a Coder-Friendly Future
-https://opentofu.org/blog/opentofu-1-8-0/
 
 ## Slack のスケジュール投稿がスレッド内でできるようになった
 https://x.com/SlackHQ/status/1816461445585916409
@@ -137,6 +165,7 @@ https://zenn.dev/cloud_ace/articles/cloud_build_repo_v2
 Productivity Weekly で出たネタを全て紹介したいけど紹介する体力が持たなかったネタを一言程度で書くコーナーです。
 
 - **news 📺**
+- [OpenTofu 1.8.0 is out with Early Evaluation, Provider Mocking, and a Coder-Friendly Future](https://opentofu.org/blog/opentofu-1-8-0/)
 - **know-how 🎓**
 - **tool 🔨**
 
