@@ -37,7 +37,7 @@ user_defined:
 - [@korosuke613](https://zenn.dev/korosuke613)
 <!-- - [@defaultcf](https://zenn.dev/defaultcf) -->
 - [@Kesin11](https://zenn.dev/kesin11)
-<!-- - [@r4mimu](https://zenn.dev/r4mimu) -->
+- [@r4mimu](https://zenn.dev/r4mimu)
 <!-- - [@uta8a](https://zenn.dev/uta8a) -->
 
 :::
@@ -47,8 +47,16 @@ user_defined:
 ## Copilot Enterprise Mixed Licensing beta - The GitHub Blog
 https://github.blog/changelog/2024-07-26-copilot-enterprise-mixed-licensing-beta/
 
+GitHub Copilot Enterprise のライセンスを Organization 単位で割り当てられる機能が Beta としてリリースされました。これまでは Enterprise 単位でしかライセンス管理が出来なかったので管理の柔軟性が増し、検証しやすくなりそうです。
+
+_本項の執筆者: [@r4mimu](https://zenn.dev/r4mimu)_
+
 ## Copilot text completion for pull request descriptions beta - The GitHub Blog
 https://github.blog/changelog/2024-07-24-copilot-text-completion-for-pull-request-descriptions-beta/
+
+GitHub Copilot Enterprise で Pull Request のテキストにおいて Copilot の補完機能が利用できるようになりました。リリースノートの Gif にあるように、Copilot のタブ補完のようなものだと思われます。
+
+_本項の執筆者: [@r4mimu](https://zenn.dev/r4mimu)_
 
 ## Run workflows set as workflow_dispatch manually - The GitHub Blog
 https://github.blog/changelog/2024-07-30-run-workflows-set-as-workflow_dispatch-manually/
@@ -67,6 +75,10 @@ https://opentofu.org/blog/opentofu-1-8-0/
 
 ## Slack のスケジュール投稿がスレッド内でできるようになった
 https://x.com/SlackHQ/status/1816461445585916409
+
+タイトル通りですが、Slack のスケジュール投稿がスレッド内でできるようになりました。チャンネル全体に伝えるほどではないが、ある議論内ではリマインドしたいという場面で便利そうです。
+
+_本項の執筆者: [@r4mimu](https://zenn.dev/r4mimu)_
 
 # know-how 🎓
 
