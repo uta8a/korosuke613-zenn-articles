@@ -47,7 +47,7 @@ user_defined:
 ## Copilot Enterprise Mixed Licensing beta - The GitHub Blog
 https://github.blog/changelog/2024-07-26-copilot-enterprise-mixed-licensing-beta/
 
-GitHub Copilot Enterprise のライセンスを Organization 単位で割り当てられる機能が Beta としてリリースされました。これまでは Enterprise 単位でしかライセンス管理が出来なかったので管理の柔軟性が増し、検証しやすくなりそうです。
+GitHub Copilot Enterprise のライセンスを Organization 単位で割り当てられる機能が Beta としてリリースされました。これまでは Enterprise 単位でしかライセンス管理ができなかったので管理の柔軟性が増し、検証しやすくなりそうです。
 
 _本項の執筆者: [@r4mimu](https://zenn.dev/r4mimu)_
 
