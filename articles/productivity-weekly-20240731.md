@@ -1,5 +1,5 @@
 ---
-title: ＜ここにタイトルを入力＞｜Productivity Weekly(2024-07-31)
+title: Copilot EnterpriseをOrg単位で割り当て可能になった話など｜Productivity Weekly(2024-07-31)
 emoji: 🍦
 type: idea
 topics:
@@ -51,6 +51,15 @@ GitHub Copilot Enterprise のライセンスを Organization 単位で割り当�
 
 _本項の執筆者: [@r4mimu](https://zenn.dev/r4mimu)_
 
+:::message
+@korosuke613 より（自分もちょっとコメントしたくなったのでおまけとして書かせてもらいます）
+
+Organization 単位で割り当てられるということは、GitHub Enterprise 単位よりも狭い範囲で Copilot Enterprise が使えるようになるということです。いやそのまんまやんけという感じですが、これはコスト面でのメリットがとても大きいです。
+
+Copilot Enterprise は Copilot Business と比べて 2 倍近く高いユーザー課金となっています。少人数の開発者で回っている組織の場合は全員に Copilot Enterprise ライセンスを付与しても増加コストを許容できるかもしれませんが、大規模な開発組織がある組織では Copilot Enterprise 導入のコスト面でのインパクトは凄まじいです。おそらくコスト対効果の観点から魅力的だけど導入を断念したという組織は少なくなのではないでしょうか？
+Copilot Enterprise は使いたいけど全員にライセンスを付与するのは難しいという組織にとって、この機能はとてもありがたいですね。
+:::
+
 ## Copilot text completion for pull request descriptions beta - The GitHub Blog
 https://github.blog/changelog/2024-07-24-copilot-text-completion-for-pull-request-descriptions-beta/
 
@@ -100,6 +109,12 @@ _本稿の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 ## 2024年7月27日時点におけるAWS CodeCommitとAmazon CloudSearchの新規利用に関して
 https://dev.classmethod.jp/articles/aws-start-to-restrict-codecommit-and-cloudsearch/
 
+AWS CodeCommit や Amazon CloudSearch、AWS Cloud9 などのいくつかのサービスで新規利用に制限がかかったとのことです。
+
+この件に関してはサービスによって状況や詳細が異なるため、ここでは詳しく説明しません。
+上記リンク先の記事（大変わかりやすいです。8/2 時点の情報であることに注意）、および、最新の情報を参照ください。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 ## Slack のスケジュール投稿がスレッド内でできるようになった
 https://x.com/SlackHQ/status/1816461445585916409
@@ -141,36 +156,48 @@ https://www.docker.com/ja-jp/blog/faster-multi-platform-builds-dockerfile-cross-
 
 [^mount_default]: ブログ中では `--mount=target=.` という記述になっており、日本語訳が微妙なので分かりにくいですが `type` を省略した場合は `type=bind` がデフォルトの挙動ですので、これは `--mount=type=bind,target=.` と等価なはずです。`type` を省略した場合の挙動は Dockerfile のリファレンスで確認しました。 https://github.com/moby/buildkit/blob/master/frontend/dockerfile/docs/reference.md#run---mount
 
-
-
-
-
 _本項の執筆者: [@Kesin11](https://zenn.dev/kesin11)_
 
-## 社内プライベートなprotoリポジトリへの移行 | CyberAgent Developers Blog
-https://developers.cyberagent.co.jp/blog/archives/48747/
-
-## GitHub の削除されたリポジトリや非公開のリポジトリに誰でもアクセスできるの？
-https://zenn.dev/kou_pg_0131/articles/github-repo-access
-
-## 生成 AI や Gemini の基本について学べる Generative AI Study Jam 開催のお知らせ
-https://developers-jp.googleblog.com/2024/07/gemini-gen-ai-study-jam.html
-
-## Cloud Build リポジトリ第 2 世代で変更された機能を紹介
-https://zenn.dev/cloud_ace/articles/cloud_build_repo_v2
-
-# tool 🔨
 
 # read more 🍘
 Productivity Weekly で出たネタを全て紹介したいけど紹介する体力が持たなかったネタを一言程度で書くコーナーです。
 
 - **news 📺**
-- [OpenTofu 1.8.0 is out with Early Evaluation, Provider Mocking, and a Coder-Friendly Future](https://opentofu.org/blog/opentofu-1-8-0/)
+  - [OpenTofu 1.8.0 is out with Early Evaluation, Provider Mocking, and a Coder-Friendly Future](https://opentofu.org/blog/opentofu-1-8-0/)
+    - OpenTofu 1.8.0 が正式リリースされました
+    - 詳しくは[アルファ版の際に以前紹介している](https://zenn.dev/cybozu_ept/articles/productivity-weekly-20240626#help-us-test-opentofu-1.8.0-alpha1)ので読んでみてください
 - **know-how 🎓**
-- **tool 🔨**
+  - [GitHub の削除されたリポジトリや非公開のリポジトリに誰でもアクセスできるの？](https://zenn.dev/kou_pg_0131/articles/github-repo-access)
+    - GitHub の削除されたリポジトリや非公開リポジトリにアクセスできる！？という件で一時期 SNS が盛り上がりましたね。それについて検証・まとめをしてくれている記事です
+    - 個人的にはなかなかのエッジケースじゃないと困らない問題であると思ったので特に対策などは考えませんでした（fork して private にする運用がレアだと思う）
+  - [生成 AI や Gemini の基本について学べる Generative AI Study Jam 開催のお知らせ](https://developers-jp.googleblog.com/2024/07/gemini-gen-ai-study-jam.html)
+    - 生成 AI や Google の Gemini について学べるオンラインプログラムを Google が開催しています
+    - 8/1 から 10/1 の間に受けられるようなので、気になる人は受けてみましょう
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
+
+# おまけ： CYBOZU SUMMER BLOG FES '24 が開催されました！（宣伝）
+https://cybozu.github.io/summer-blog-fes-2024/
+
+サイボウズでは今年の夏、サイボウズによるブログの祭典を行ないました。
+
+> 80名を超えるサイボウズのエンジニアとデザイナーが約100本の記事を投稿！
+
+すごいですね。
+
+僕もブログを投稿しました。しかも 2 本！
+
+https://zenn.dev/cybozu_ept/articles/ai-blog-review-on-github
+
+Productivity Weekly を LLM で誤字脱字レビューしてもらってるぜ！という記事です。じわじわといいねがついてて笑う。
+
+https://zenn.dev/cybozu_ept/articles/cache-corretto-on-self-hosted-gha
+
+セルフホストランナーの転送量削減のために setup-java の方法に従って Amazon Corretto をキャッシュする話です。こっちも伸びろ！（対象読者が少なすぎる問題）
 
 # あとがき
 
+本当にすみません。大変遅くなりました。上に書いた通り、フェスのブログ 2 本書いてたら Weekly 書く余裕皆無でした。自業自得。
 
 サイボウズの生産性向上チームでは社内エンジニアの開発生産性を上げるための活動を行なっています。そんな生産性向上チームが気になる方は下のリンクをクリック！
 https://www.docswell.com/s/cybozu-tech/5R2X3N-engineering-productivity-team-recruitment-information
