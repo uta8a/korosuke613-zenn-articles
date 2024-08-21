@@ -1,13 +1,13 @@
 ---
-title: ＜ここにタイトルを入力＞｜Productivity Weekly(2024-07-24)
-emoji: 🍮
+title: OSSのメンテを楽にする話やペアプロの話など｜Productivity Weekly(2024-07-24)
+emoji: 🪇
 type: idea
 topics:
   - ProductivityWeekly
   - 生産性向上
-published: false
+published: true
 publication_name: cybozu_ept
-user_defined: 
+user_defined:
   publish_link: https://zenn.dev/cybozu_ept/articles/productivity-weekly-20240724
   note: |
     _本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
@@ -15,6 +15,7 @@ user_defined:
     _本項の執筆者: [@Kesin11](https://zenn.dev/kesin11)_
     _本項の執筆者: [@r4mimu](https://zenn.dev/r4mimu)_
     _本項の執筆者: [@uta8a](https://zenn.dev/uta8a)_
+published_at: 2024-08-08 10:00
 ---
 
 こんにちは。サイボウズ株式会社 [生産性向上チーム](https://note.com/cybozu_dev/n/n1c1b44bf72f6)の平木場です。
@@ -42,33 +43,51 @@ user_defined:
 
 :::
 
-# news 📺
-
-## Google、オープンソースのメンテナの負担をAIなどで軽減する「Project Oscar」を発表 － Publickey
-https://www.publickey1.jp/blog/24/googleaiproject_oscar.html
-
-## Security overview dashboards, secret scanning metrics and enablement trends reports are now generally available - The GitHub Blog
-https://github.blog/changelog/2024-07-19-security-overview-dashboards-secret-scanning-metrics-and-enablement-trends-reports-are-now-generally-available/
-
-## Cloud Run でデフォルト URL を無効化する機能が Preview
-https://cloud.google.com/run/docs/securing/ingress?hl=en#disable-url
-
-## Google Docs、Markdown形式でのドキュメントのエクスポート、インポートなど可能に － Publickey
-https://www.publickey1.jp/blog/24/google_docsmarkdow.html
-
-## On October 22, 2024, Monitoring Query Language (MQL) will no longer be a recommended query language for Cloud Monitoring.
-https://cloud.google.com/stackdriver/docs/deprecations/mql
-
 # know-how 🎓
 
 ## 自分が管理する全 OSS の Issue や Pull Request を 1 つの GitHub Project に集約
 https://zenn.dev/shunsuke_suzuki/articles/add-github-issue-pr-to-project
 
+複数 Owner、リポジトリにまたがる OSS の Issue や Pull Request を単一の GitHub Projects に集約する方法を紹介した記事です。筆者の suzuki-shunsuke さんは多くの OSS を開発・メンテしており、それぞれの Issue や PR を巡回してハンドリングするのが困難であったため、単一の GitHub Project に集約して管理することにしたようです。
+
+記事では、GitHub Project に Issue、PR を自動追加する方法、この手法を実現するための認証方法、item 数上限回避のためのワークアラウンド、実際の GitHub Actions ワークフロー例などが載っています。
+
+また、自動追加をするための OSS、suzuki-shunsuke/ghproj が新たに作られ、公開されています。Issue、PR を取得する GraphQL API を叩くためのクエリを詳細に設定でき、簡単にこの手法を実現できそうで良いですね。
+
+自動追加する方法、認証方法に関して、複数の方法とそのメリデメを書いてくれているのがとても参考になりました。「この認証方法でもいけるのでは？」と思って試したくなるので、先に書いてくれているのは嬉しいですね。
+
+> GitHub Project には 異なる GitHub Organizations や User の Issue や PR を追加できないと思いこんでいましたが、実は出来るということに気づきました。
+
+これ知りませんでした。Projects 便利ですね。
+
+僕は別にそんなに外向けの OSS を作っていませんが、自分で使うための OSS はいくつか持っているので、ghproj を使って集約を試してみたいです。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
+
 ## AWS 上で大規模な GitHub Actions のセルフホステッドランナーを使用する際のベストプラクティス | Amazon Web Services ブログ
 https://aws.amazon.com/jp/blogs/news/best-practices-working-with-self-hosted-github-action-runners-at-scale-on-aws/
 
-## ShellScriptで自動化を楽にしたい時に知っておいても良いこと | sreake.com | 株式会社スリーシェイク
-https://sreake.com/blog/shellscript-good-practices/
+AWS 上での大規模な GitHub Actions セルフホストランナー使用のベストプラクティスが AWS ブログで紹介されています。
+AWS 上で構築している前提となっていますが、大まかな考え方は他の方法にも通じるものがあると思います。
+
+ベストプラクティスとして次の 8 つが紹介されています。気になった方はぜひ記事を読んでください。
+
+- セキュリティにおける責任を理解する
+- 認証情報は一時的なものを利用する
+- ephemeral ランナー（使い捨て）を使用する
+- セキュリティ要件に基づいてランナーグループでランナーを分離する
+- Amazon EC2 インスタンスをプールしてランナーの起動時間を最適化する
+- 最適化された AMI を使用してランナーの起動時間を最適化する
+- スポットインスタンスを利用してコストを最適化する
+- Amazon CloudWatch を使用してランナーのメトリクスを記録、監視する
+
+個人的には確かにと思える部分がよくまとまっていて良かったです。僕たち生産性向上チームでも AWS 上で大規模なセルフホストランナー環境を構築している[^kotiku]のですが、割とこのプラクティスを実践できているな[^philips]という話になりました（隙自語）。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
+
+[^kotiku]: [philips-labs/terraform-aws-github-runner による GitHub Actions セルフホストランナーの大規模運用 | ドクセル](https://www.docswell.com/s/miyajan/ZW1XJX-large-scale-github-actions-self-hosted-runner-by-philips-terraform-module)
+
+[^philips]: というのも、どうやら僕たちがベースとして使っている [philips-labs/terraform-aws-github-runner](https://github.com/philips-labs/terraform-aws-github-runner) が参考として記事に載せていたので、まあ実践できているってなるよなという感じ。
 
 ## 完全ペアプロは「やりすぎ」だった。失敗を経て辿り着いた、ペアプロ×開発組織の最適解【Tebiki渋谷】 - レバテックラボ（レバテックLAB）
 https://levtech.jp/media/article/interview/detail_485/
@@ -103,6 +122,40 @@ https://note.com/hamchance/n/ne4f35886150a
 こちらの表現はわかりやすいと思いました。指標のハックのような話題にも通じますが、指標の定義や成り立ち、アウトカムやその他指標との因果関係を理解して正しく活用することが重要だと思います。
 
 _本項の執筆者: [@r4mimu](https://zenn.dev/r4mimu)_
+
+## ShellScriptで自動化を楽にしたい時に知っておいても良いこと | sreake.com | 株式会社スリーシェイク
+https://sreake.com/blog/shellscript-good-practices/
+
+スリーシェイクさんによる ShellScript を使って自動化を行う際に、より効率よく、信頼性高く実行するためのベストプラクティス、パターンを紹介した記事です。
+
+まずは自動化候補を出すための toil の判別方法からはじまり、その後に次のようなベストプラクティス、パターンが様々な観点から紹介されています。
+
+- エラーハンドリング：失敗に備える
+  - エラーで即時に停止
+  - トラップを使用したクリーンアップ
+  - 構造化ログの実装
+  - 再実行可能なスクリプトを書く
+- パフォーマンス最適化
+  - ループの最適化
+  - パイプラインを使用
+- セキュリティの考慮事項
+  - 入力のサニタイズ
+  - 変数の適切な引用
+  - 最小権限の原則
+  - 一時ファイルの安全な作成
+- クロスプラットフォームの考慮
+  - 可搬性のある shebang
+  - OS 依存の処理
+- テストとデバッグ
+  - ユニットテストの導入
+  - デバッグモード
+- バージョン管理との統合
+  - Git フックの活用
+
+ShellScript は僕もよく書くため、こういうまとめは嬉しいですね。エラーハンドリング系とセキュリティ系はちゃんとやることが多いですが、パフォーマンス最適化や構造化ログやユニットテストはあまり意識したことがなかったので勉強になりました。
+実践していきたいです。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 ## tfcmtのいい感じのテンプレート
 https://zenn.dev/bm_sms/articles/b1e4778f5b40e9
@@ -149,14 +202,48 @@ _本項の執筆者: [@r4mimu](https://zenn.dev/r4mimu)_
 Productivity Weekly で出たネタを全て紹介したいけど紹介する体力が持たなかったネタを一言程度で書くコーナーです。
 
 - **news 📺**
-- **know-how 🎓**
-- **tool 🔨**
+  - [Google、オープンソースのメンテナの負担をAIなどで軽減する「Project Oscar」を発表 － Publickey](https://www.publickey1.jp/blog/24/googleaiproject_oscar.html)
+    - Google が OSS のメンテなの負担を軽減するためのプロジェクト、Project Oscar を発表しました
+    - まだ発表されただけですが、プロトタイプが golang/go ですでに動いているようです
+    - 気になりますね
+  - [Cloud Run でデフォルト URL を無効化する機能が Preview](https://cloud.google.com/run/docs/securing/ingress?hl=en#disable-url)
+    - Google Cloud において、Cloud Run のデフォルト URL を無効化する機能が生えたようです（プレビュー）
+    - ロードバランサー経由でのみアクセスさせるなどの場合、直接アクセスできる URL は必要ないので無効化できるようになったのは嬉しいですね。まだプレビューですが
+  - [Google Docs、Markdown形式でのドキュメントのエクスポート、インポートなど可能に － Publickey](https://www.publickey1.jp/blog/24/google_docsmarkdow.html)
+    - Google Docs において、Markdown 形式でドキュメントのインポート・エクスポートが可能になったようです
+    - 個人的にはエクスポートがとにかく嬉しいですね。何らかの理由で後から手動で Markdown 形式に書き写したりするので
+  - [Security overview dashboards, secret scanning metrics and enablement trends reports are now generally available - The GitHub Blog](https://github.blog/changelog/2024-07-19-security-overview-dashboards-secret-scanning-metrics-and-enablement-trends-reports-are-now-generally-available/)
+    - GitHub において、security overview dashboards、secret scanning metrics、enablement trends reports が GA になりました
+    - プッシュ保護がどれだけ昨日しているかや GitHub のセキュリティツールがどれだけ有効化されているかなどを把握しやすくなります
+  - [On October 22, 2024, Monitoring Query Language (MQL) will no longer be a recommended query language for Cloud Monitoring.](https://cloud.google.com/stackdriver/docs/deprecations/mql)
+    - Google Cloud の Cloud Monitoring において、2024 年 10 月 22 日から Monitoring Query Language (MQL) が推奨クエリ言語でなくなるようです
+    - 代わりにオープンソースである PromQL を使うのが推奨されています
+    - クラメソさんの記事が詳しいです
+      - [[アップデート] Monitoring Query Language (MQL) が非推奨へ | DevelopersIO](https://dev.classmethod.jp/articles/cloud-monitoring-mql-deprecated/)
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
+
+# おまけ： CYBOZU SUMMER BLOG FES '24 が始まってます（宣伝）
+https://cybozu.github.io/summer-blog-fes-2024/
+
+サイボウズでは今年の夏、サイボウズによるブログの祭典を行なっています。
+
+> 80名を超えるサイボウズのエンジニアとデザイナーが約100本の記事を投稿！
+
+すごいですね。
+
+詳しくは次の紹介記事も参照してほしいですが、なんか Stage がいくつかあったりしてフェスっぽい感じでやってます。特設サイトもフェスっぽいタイムテーブルがあったりするので、気になる人は楽しんでください。
+
+- [20日間に約100の記事を投稿する夏フェス「CYBOZU SUMMER BLOG FES '24」を開催します！ - Cybozu Inside Out | サイボウズエンジニアのブログ](https://blog.cybozu.io/entry/2024/07/25/163859)
+
+ちなみに僕、平木場も 8/13、8/17 に一本ずつなんかブログを投稿予定です。まだ一文字も書いてません（2024/08/07 時点）。読んでください。
 
 # あとがき
-
+今週号でした。めずらしく know-how、tool の比率が大きかったですね。先に紹介したブログフェス、皆さん楽しんでください。僕たちは楽しんでます。
 
 サイボウズの生産性向上チームでは社内エンジニアの開発生産性を上げるための活動を行なっています。そんな生産性向上チームが気になる方は下のリンクをクリック！
 https://speakerdeck.com/cybozuinsideout/engineering-productivity-team-recruitment-information
+
 
 <!-- :::message すみません、今週もおまけはお休みです...:::-->
 
