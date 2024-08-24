@@ -50,6 +50,33 @@ https://www.docker.com/ja-jp/blog/introducing-docker-build-checks/
 ## Revised release plan for Copilot subscription-based network routing - The GitHub Blog
 https://github.blog/changelog/2024-08-06-revised-release-plan-for-copilot-subscription-based-network-routing/
 
+GitHub Copilot の[ネットワークリクエストがサブスクリプションプランによってルーティングされるようになる変更](https://github.blog/changelog/2024-07-31-copilot-network-requests-are-now-routed-based-on-subscription/)が 7/31 に行われましたが、顧客側がファイアウォールの調整期間を確保するためにこの変更がロールバックされました。
+
+2024/10/31 に再度有効化されるとのことです。
+
+そもそもこの変更は何かというと、GitHub Copilot Individual、Business、Enterprise で Copilot が通信するホストが別れるというものになります。それぞれ次の接続先と通信するようになる予定です。
+
+- Individual: `https://*.individual.githubcopilot.com`
+- Business: `https://*.business.githubcopilot.com`
+- Enterprise: `https://*.enterprise.githubcopilot.com`
+
+この変更によりガバナンス強化を期待できます。需要の高そうなユースケースで言うと Copilot Individual へのアクセスをブロックするというものがあります。
+
+GitHub Copilot Individual は個人アカウントで契約するプランですが、デフォルトでは[「Copilot に送った情報を Copilot の改善のために GitHub が利用できる」設定](https://docs.github.com/en/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-copilot-policies-as-an-individual-subscriber#enabling-or-disabling-prompt-and-suggestion-collection)となっています。設定で Disable にはできます。なおこの設定は Business、Enterprise においてはデフォルトで Disable となっています（そもそも変更できなさそう）。
+また、訴訟などのリスク回避のためにパブリックコードとマッチする提案はさせない設定をオンにしたいかもしれません。
+
+これらの設定は Business、Enterprise プランでは一律で設定し、個人が有効無効を選択できないようにできます。
+Copilot の利用は構わないけど先の設定は安全側に倒したいという組織にとって、ガバナンスを効かせるために GitHub Copilot Individual の利用を禁止しているケースもあることでしょう。
+
+しかし、これまで Copilot Individual のみを機械的に利用できなくするというのは難しかったです（`*.githubcopilot.com` へのアクセスを制限すれば Copilot 自体の利用はブロックできたけど、Business、Enterprise も使えなくなるという問題があった。）。
+
+今回の変更により、 Copilot Business、Enterprise のみは許可し、Individual は利用できなくすることを強制できるようになって、上記のようなケースに対応できるようになりました。
+組織内ネットワークでの制限や、PC に入れたネットワークフィルタリングツールでの制限などで、業務コードでの Copilot 利用をより安全にできることでしょう。
+
+10 月 31 日に再度有効化されるとのことですので、Individual の利用をブロックしたい人はそれまでに情報システムや情報セキュリティ部門と調整しましょう。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
+
 ## What’s new with GitHub Copilot: July 2024 - The GitHub Blog
 https://github.blog/ai-and-ml/github-copilot/whats-new-with-github-copilot-july-2024/
 
@@ -67,6 +94,34 @@ https://github.blog/changelog/2024-08-13-sign-up-for-the-github-copilot-extensio
 
 ## GitHub Modelsのご紹介：GitHub上に新世代AIエンジニアを - GitHubブログ
 https://github.blog/jp/2024-08-02-introducing-github-models/
+
+GitHub が新たなサービス、GitHub Models を発表しました。
+
+GitHub Models はさまざまな LLM に対するプロンプトやパラメータを検証できるサービスです。Llama 3.1 や GPT-4o、Phi 3 などのさまざまなモデルがサポートされています。
+
+GitHub 上のプレイグラウンドでモデルの選択やパラメータ調整、プロンプトの作成・応答が可能です。また、GitHub Codespaces 上での利用も可能で、モデルに応じたコードのテンプレートから Codespaces を起動し、GitHub のトークン経由でコードからモデルを検証できます。
+
+なお、あくまで検証目的であるため、ちゃんと [rate limit](https://docs.github.com/github-models/prototyping-with-ai-models#rate-limits) が用意されています。
+例えば tier Low のモデル、かつ、Copilot 未契約/Copilot Individual の場合は以下になっています。
+
+- リクエスト上限（分）: 15
+- リクエスト上限（日）: 150
+- リクエストあたりのトークン上限: 8000 in, 4000 out
+- 同時リクエスト上限: 5
+
+モデルやプランによって rate limit は異なりますが、検証目的であれば困らない程度の制限かと思います。
+
+現在は limited public beta となっており、waitlist に入り使えるのを待つ必要があります。僕も waitlist に登録していたのですが、最近実は使えるようになっていることがわかりました（特にメールで使えるようになったよみたいなお知らせは来てなかった）。
+
+実際に使ってみたところ、色々なモデルを手軽に試せるようになったのはとても便利だと思いました。モデルを動かすためにハイスペックマシンを用意したり、OpenAI API のようなサービスに登録したりする必要がなく、GitHub アカウントのみでモデルを試せるようになったのはとても嬉しいですね。
+
+他にも使えるようになった方が Zenn のスクラップに触ってみた感想とか書いてくれてて参考になります。
+
+- [GitHub Modelsお試し](https://zenn.dev/kaakaa/scraps/c88309e9917d18)
+
+今後 LLM を使った何かを開発する際にまずは GitHub Models で性能を試そうとなりそうです。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 ## Introducing Structured Outputs in the API | OpenAI
 https://openai.com/index/introducing-structured-outputs-in-the-api/
