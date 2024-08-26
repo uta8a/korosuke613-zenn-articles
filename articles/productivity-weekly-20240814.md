@@ -103,7 +103,7 @@ larger runner なので Team または Enterprise プランが必要ですが、
 https://studist.tech/terraform-1password-dev-87891a4497af
 
 ローカル端末から Terraform コマンドを実行する際の認証情報の管理について、1Password CLI を利用してセキュアに管理する方法を紹介しています。
-具体的には、1Password CLI を利用してシークレットを取得するコマンドを、direnv の `.envrc` に記述することで、ディレクトリ事に環境変数への export と unset を自動化しつつ、ローカル端末のクリップボードや history に認証情報が残らないようにしています。
+具体的には、1Password CLI を利用してシークレットを取得するコマンドを、direnv の `.envrc` に記述することで、ディレクトリごとに環境変数への export と unset を自動化しつつ、ローカル端末のクリップボードや history に認証情報が残らないようにしています。
 
 自分は 1Password CLI で都度コマンドを実行していたので、direnv と組み合わせるのはなるほどなと思い参考にさせていただきました。
 
