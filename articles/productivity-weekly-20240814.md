@@ -115,7 +115,7 @@ https://technote.qualiarts.jp/article/79/
 GitHub で記事を管理している技術ブログにおいて、GitHub Actions で ChatGPT を利用したレビューの仕組みを導入した事例を紹介しています。
 数ある LLM のうち、なぜ ChatGPT を選択したのか選定理由や、ChatGPT に送るプロンプト、リクエストのパラメータも共有されており参考になります。レビュー結果はプルリクエストの suggestion として表示させるのが、地味にレビュイー体験が向上するポイントですね。
 
-実はこの Productivity Weekly も AI レビューを導入していて、かなり似た構成で運用しています。そちらについては @korosuke613 が記事を書いているので、興味がある方は[こちら](https://zenn.dev/cybozu_ept/articles/ai-blog-review-on-github)をご覧ください。
+実はこの Productivity Weekly も AI レビューを導入しており、かなり似た構成で運用しています。そちらについては @korosuke613 が記事を書いているので、興味がある方は[こちら](https://zenn.dev/cybozu_ept/articles/ai-blog-review-on-github)をご覧ください。
 
  _本項の執筆者: [@r4mimu](https://zenn.dev/r4mimu)_
 
