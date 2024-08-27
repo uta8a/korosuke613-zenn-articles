@@ -37,7 +37,7 @@ user_defined:
 - [@korosuke613](https://zenn.dev/korosuke613)
 <!-- - [@defaultcf](https://zenn.dev/defaultcf) -->
 <!-- - [@Kesin11](https://zenn.dev/kesin11) -->
-<!-- - [@r4mimu](https://zenn.dev/r4mimu) -->
+- [@r4mimu](https://zenn.dev/r4mimu)
 <!-- - [@uta8a](https://zenn.dev/uta8a) -->
 
 :::
@@ -91,14 +91,42 @@ https://info.zenn.dev/2024-08-05-publication-free-review
 ## GitHub Actions arm runnerはじめました - KAKEHASHI Tech Blog
 https://kakehashi-dev.hatenablog.com/entry/2024/08/05/100000
 
+GitHub Actions の larger runner において、パブリックベータとなった Arm ランナーのメリット・デメリットについて紹介しています。
+メリットとしては x86 の同性能のランナーと比較して 37% 料金が安いこと、Arm アーキテクチャ用のアプリケーションのビルドがネイティブに行えるため高速化が期待できることです。
+ちなみに、チームメンバーの @miyajan が Arm ランナーで Docker マルチプラットフォームビルドを検証してくださっていますので、[こちら](https://zenn.dev/cybozu_ept/articles/build-multi-platform-image-with-arm64-runner)も合わせてご覧ください。注意点としては、Arm バイナリが提供されていないツールやライブラリ、Action を利用している場合は、そのままではワークフローを利用できないことがあるため、事前に確認が必要です。
+
+larger runner なので Team または Enterprise プランが必要ですが、利用できる場合はメリットが大きいので、ぜひ検討してみてください。
+
+ _本項の執筆者: [@r4mimu](https://zenn.dev/r4mimu)_
+
 ## Terraformでセキュアに開発するwith 1Password - スタディスト Tech Blog
 https://studist.tech/terraform-1password-dev-87891a4497af
+
+ローカル端末から Terraform コマンドを実行する際の認証情報の管理について、1Password CLI を利用してセキュアに管理する方法を紹介しています。
+具体的には、1Password CLI を利用してシークレットを取得するコマンドを、direnv の `.envrc` に記述することで、ディレクトリごとに環境変数への export と unset を自動化しつつ、ローカル端末のクリップボードや history に認証情報が残らないようにしています。
+
+自分は 1Password CLI で都度コマンドを実行していたので、direnv と組み合わせるのはなるほどなと思い参考にさせていただきました。
+
+ _本項の執筆者: [@r4mimu](https://zenn.dev/r4mimu)_
 
 ## ChatGPTを活用したブログレビューシステム | QualiArtsエンジニアブログ
 https://technote.qualiarts.jp/article/79/
 
+GitHub で記事を管理している技術ブログにおいて、GitHub Actions で ChatGPT を利用したレビューの仕組みを導入した事例を紹介しています。
+数ある LLM のうち、なぜ ChatGPT を選択したのか選定理由や、ChatGPT に送るプロンプト、リクエストのパラメータも共有されており参考になります。レビュー結果はプルリクエストの suggestion として表示させるのが、地味にレビュイー体験が向上するポイントですね。
+
+実はこの Productivity Weekly も AI レビューを導入しており、かなり似た構成で運用しています。そちらについては @korosuke613 が記事を書いているので、興味がある方は[こちら](https://zenn.dev/cybozu_ept/articles/ai-blog-review-on-github)をご覧ください。
+
+ _本項の執筆者: [@r4mimu](https://zenn.dev/r4mimu)_
+
 ## E2Eテストの部分実行によるテスト時間短縮 - Cybozu Inside Out | サイボウズエンジニアのブログ
 https://blog.cybozu.io/entry/2024/08/13/110000
+
+サイボウズの kintone 開発チームにおける E2E テストの部分実行によるテスト時間短縮の取り組みについて紹介しています。
+Gradle の TestFilter には `includeTestsMatching` という機能があり、これを利用してテストクラスやメソッドを指定して部分実行することで、テスト時間を短縮しています。
+機能ごとにテストを実行する仕組みを導入できた理由として、プロダクトが大きくなったことに伴い機能ごとにサブチームに分割しており、さらにそれぞれのサブチーム内に QA がテストを整理していたことを挙げています。今回の取り組みではフロントエンドのでのテスト部分実行について述べられており、今後の課題として、サーバーサイドのテストにも適用できるかどうかが挙げられています。今後の展開が楽しみです。
+
+ _本項の執筆者: [@r4mimu](https://zenn.dev/r4mimu)_
 
 ## プラットフォームエンジニアリングのためのセルフサービス基盤の実装 | ドクセル
 https://www.docswell.com/s/yaegashi/KN1R1G-gamt4
