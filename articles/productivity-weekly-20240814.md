@@ -47,6 +47,77 @@ user_defined:
 ## Docker ビルドチェックの紹介: ベストプラクティスによるDockerfileの最適化 | Docker
 https://www.docker.com/ja-jp/blog/introducing-docker-build-checks/
 
+`docker build` 時に Dockerfile のベストプラクティスに従っているかどうかをチェックする機能、Docker Build Checks が登場しました。`docker build` 時に Docker 公式による Dockerfile のチェックが走り、必要に応じて警告を出してくれます。また、`docker build --check` のように `--check` オプションを付けることでビルドせずにチェックのみを行うことも可能です。
+
+今まで Dockerfile の linter は Docker 公式では存在せず、3rd party のもののみ存在しました。今回公式で機能が入ったことで、手軽にビルドせずに Dockerfile をチェックできるようになりました。
+
+なお、[Checking your build configuration | Docker Docs](https://docs.docker.com/build/checks/) によると、Docker Desktop 特有の機能ではなく、buildx v0.15.0 以降で利用可能とのことです。CI でも利用できて良いですね。
+
+> - Buildx version 0.15.0 and later
+> - docker/build-push-action version 6.6.0 and later
+> - docker/bake-action version 5.6.0 and later
+
+記事では、checks 機能は渡された引数や base image を含むビルド全体を評価するものであり、ただの静的解析ではないと説明されています。
+また、IDE との統合も行われており、VSCode 上で警告を確認している図もあります。
+
+僕は OrbStack 1.7.0 を利用しているのですが、内蔵 Buildx が v0.16.2 であったため、すぐに試すことができました。
+
+[nginxinc/docker-nginx の最古のタグである 1.7.5](https://github.com/nginxinc/docker-nginx/blob/1.7.5/Dockerfile) をビルドチェックしてみたところ、次のような結果が出ました。
+
+```text:docker build --check の例
+❯ docker build --check https://github.com/nginxinc/docker-nginx.git#1.7.5
+[+] Building 4.6s (5/5) FINISHED                                                                                                       docker:orbstack
+ => [internal] load git source https://github.com/nginxinc/docker-nginx.git#1.7.5                                                                 1.6s
+ => resolve image config for docker-image://docker.io/docker/dockerfile-upstream:1.8.1@sha256:e87caa74dcb7d46cd820352bfea12591f3dba3ddc4285e19c7  0.0s
+ => CACHED docker-image://docker.io/docker/dockerfile-upstream:1.8.1@sha256:e87caa74dcb7d46cd820352bfea12591f3dba3ddc4285e19c7dcd13359f7cefd      0.0s
+ => [internal] load metadata for docker.io/library/debian:wheezy                                                                                  2.9s
+ => [auth] library/debian:pull token for registry-1.docker.io                                                                                     0.0s
+
+WARNING: InvalidBaseImagePlatform
+Base image debian:wheezy was pulled with platform "linux/arm/v7", expected "linux/arm64" for current build
+Dockerfile:1
+\--------------------
+   1 | >>> FROM debian:wheezy
+   2 |
+   3 |     MAINTAINER NGINX Docker Maintainers "docker-maint@nginx.com"
+\--------------------
+
+WARNING: MaintainerDeprecated - https://docs.docker.com/go/dockerfile/rule/maintainer-deprecated/
+Maintainer instruction is deprecated in favor of using label
+Dockerfile:3
+\--------------------
+   1 |     FROM debian:wheezy
+   2 |
+   3 | >>> MAINTAINER NGINX Docker Maintainers "docker-maint@nginx.com"
+   4 |
+   5 |     RUN apt-key adv --keyserver pgp.mit.edu --recv-keys 573BFD6B3D8FBC641079A6ABABF5BD827BD9BF62
+\--------------------
+
+WARNING: LegacyKeyValueFormat - https://docs.docker.com/go/dockerfile/rule/legacy-key-value-format/
+"ENV key=value" should be used instead of legacy "ENV key value" format
+Dockerfile:8
+\--------------------
+   6 |     RUN echo "deb http://nginx.org/packages/mainline/debian/ wheezy nginx" >> /etc/apt/sources.list
+   7 |
+   8 | >>> ENV NGINX_VERSION 1.7.5-1~wheezy
+   9 |
+  10 |     RUN apt-get update && apt-get install -y nginx=${NGINX_VERSION}
+\--------------------
+```
+
+各種ソースを解決できるかの確認がされ、その後ルールに引っかかった項目が出力されました。
+プラットフォームの不一致、`MAINTAINER` の非推奨、`ENV` の古い書き方が警告されていますね。
+
+チェック項目は [Build checks | Docker Docs](https://docs.docker.com/reference/build-checks/) に載っています。項目自体はそこまで多くなく、まだまだ増えるのかなという感じです。個人的には [UndefinedVar](https://docs.docker.com/reference/build-checks/undefined-var/) なんかは間違いに気づかずにビルドしてこけて気づくことがたまにあるので先にチェックできるのは嬉しいですね。
+
+なお、スリーシェイクさんが検証記事を出してくれています。ありがたいですね。もっと詳しく知りたい方はこちらも参照ください。
+
+- [Docker Build Check について検証をしてみた | sreake.com | 株式会社スリーシェイク](https://sreake.com/blog/docker-build-check/)
+
+公式で出てくれたのが嬉しいですね。`docker build` 前にチェックをする癖をつけたいです。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
+
 ## Revised release plan for Copilot subscription-based network routing - The GitHub Blog
 https://github.blog/changelog/2024-08-06-revised-release-plan-for-copilot-subscription-based-network-routing/
 
@@ -76,21 +147,6 @@ Copilot の利用は構わないけど先の設定は安全側に倒したいと
 10 月 31 日に再度有効化されるとのことですので、Individual の利用をブロックしたい人はそれまでに情報システムや情報セキュリティ部門と調整しましょう。
 
 _本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
-
-## What’s new with GitHub Copilot: July 2024 - The GitHub Blog
-https://github.blog/ai-and-ml/github-copilot/whats-new-with-github-copilot-july-2024/
-
-## GitHub Copilot Chat and pull request summaries are now powered by GPT-4o - The GitHub Blog
-https://github.blog/changelog/2024-07-31-github-copilot-chat-and-pull-request-summaries-are-now-powered-by-gpt-4o/
-
-## Enterprise Team Metrics Now Available on the Copilot Metrics API - GitHub Changelog
-https://github.blog/changelog/2024-08-08-enterprise-team-metrics-now-available-on-the-copilot-metrics-api/
-
-Copilot Metrics API Organization Team Metrics - GitHub Changelog
-https://github.blog/changelog/2024-08-09-copilot-metrics-api-organization-team-metrics/
-
-## Sign-up for the GitHub Copilot Extensions waitlist - GitHub Changelog
-https://github.blog/changelog/2024-08-13-sign-up-for-the-github-copilot-extensions-waitlist/
 
 ## GitHub Modelsのご紹介：GitHub上に新世代AIエンジニアを - GitHubブログ
 https://github.blog/jp/2024-08-02-introducing-github-models/
@@ -126,20 +182,8 @@ _本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 ## Introducing Structured Outputs in the API | OpenAI
 https://openai.com/index/introducing-structured-outputs-in-the-api/
 
-## Enhanced Repo Insights Views - GitHub Changelog
-https://github.blog/changelog/2024-08-12-enhanced-repo-insights-views/
-
-## 【新機能】BigQuery で JSON オブジェクトのキーの一覧を取得できるようになりました | DevelopersIO
-https://dev.classmethod.jp/articles/gcp-bigquery-json-object-keys/
-
-## Go 1.23 Release Notes
-https://go.dev/doc/go1.23
-
-## AWS Weekly Roundup: Amazon Q Business, AWS CloudFormation, Amazon WorkSpaces update, and more (Aug 5, 2024) | AWS News Blog
-https://aws.amazon.com/jp/blogs/aws/aws-weekly-roundup-amazon-q-business-aws-cloudformation-amazon-workspaces-update-and-more-aug-5-2024/
-
-## Publication Free でもメンバー同士の記事レビューを体験できるようになりました | What's New in Zenn
-https://info.zenn.dev/2024-08-05-publication-free-review
+## Sign-up for the GitHub Copilot Extensions waitlist - GitHub Changelog
+https://github.blog/changelog/2024-08-13-sign-up-for-the-github-copilot-extensions-waitlist/
 
 # know-how 🎓
 
@@ -192,6 +236,14 @@ https://www.docswell.com/s/yaegashi/KN1R1G-gamt4
 Productivity Weekly で出たネタを全て紹介したいけど紹介する体力が持たなかったネタを一言程度で書くコーナーです。
 
 - **news 📺**
+  - [AWS Weekly Roundup: Amazon Q Business, AWS CloudFormation, Amazon WorkSpaces update, and more (Aug 5, 2024) | AWS News Blog](https://aws.amazon.com/jp/blogs/aws/aws-weekly-roundup-amazon-q-business-aws-cloudformation-amazon-workspaces-update-and-more-aug-5-2024/)
+  - [GitHub Copilot Chat and pull request summaries are now powered by GPT-4o - The GitHub Blog](https://github.blog/changelog/2024-07-31-github-copilot-chat-and-pull-request-summaries-are-now-powered-by-gpt-4o/)
+  - [What’s new with GitHub Copilot: July 2024 - The GitHub Blog](https://github.blog/ai-and-ml/github-copilot/whats-new-with-github-copilot-july-2024/)
+  - [Enterprise Team Metrics Now Available on the Copilot Metrics API - GitHub Changelog](https://github.blog/changelog/2024-08-08-enterprise-team-metrics-now-available-on-the-copilot-metrics-api/)
+    - [Copilot Metrics API Organization Team Metrics - GitHub Changelog](https://github.blog/changelog/2024-08-09-copilot-metrics-api-organization-team-metrics/)
+  - [Enhanced Repo Insights Views - GitHub Changelog](https://github.blog/changelog/2024-08-12-enhanced-repo-insights-views/)
+  - [【新機能】BigQuery で JSON オブジェクトのキーの一覧を取得できるようになりました | DevelopersIO](https://dev.classmethod.jp/articles/gcp-bigquery-json-object-keys/)
+  - [Publication Free でもメンバー同士の記事レビューを体験できるようになりました | What's New in Zenn](https://info.zenn.dev/2024-08-05-publication-free-review)
 - **know-how 🎓**
 - **tool 🔨**
 
