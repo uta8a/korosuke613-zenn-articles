@@ -141,7 +141,7 @@ https://www.docswell.com/s/yaegashi/KN1R1G-gamt4
 
 Custom Deployment Protection Rules 自体は公開時に Productivity Weekly でも[2023年5月](https://zenn.dev/cybozu_ept/articles/productivity-weekly-20230426#github-actions%3A-create-and-share-your-own-deployment-protection-rules-for-safe-and-controlled-deployments-%7C-github-changelog)に取り上げたことがあるのですが、そのときの自分にはあまり使い道が思いつきませんでした。今回の発表のような使い道は GitHub のドキュメントにも書かれていないので、自分は発明だと思いました。
 
-サイボウズでは GitHub Actions をヘビーに使いこなしているチームで似たようなポーリングを行っているワークフローがあり、こちらでは Azure のような GitHub Actions 外のサービスではなく GitHub Actions 内の別のワークフローの完了を待ってから実行するという使われ方でした。今回の発表の方法から考え方を参考にさせてもらい、このようなケースも Custom Deployment Protection Rules によってポーリングを置き換えるアイディアを思いついたので自分の方で検証してみました。この機能を使うために必要な GitHub App の作り方や、ワークフローの書き方など最初から試してみたのでそもそも Custom Deployment Protection Rules がどういう機能なのかもイメージがつくと思います。
+サイボウズでは GitHub Actions をヘビーに使いこなしているチームで似たようなポーリングを行っているワークフローがあり、こちらでは Azure のような GitHub Actions 外のサービスではなく、 GitHub Actions 内の別のワークフローの完了を待ってから実行するという使われ方でした。今回の発表を参考にさせてもらい、このようなケースも Custom Deployment Protection Rules によってポーリングを置き換えるアイディアを思いついたので、自分の方で検証してみました。この機能を使うために必要な GitHub App の作り方や、ワークフローの書き方など最初から試してみたのでそもそも Custom Deployment Protection Rules がどういう機能なのかもイメージがつくと思います。
 
 https://zenn.dev/kesin11/scraps/444f1b8e3454d0
 
