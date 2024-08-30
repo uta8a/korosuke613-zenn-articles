@@ -49,7 +49,7 @@ https://www.docker.com/ja-jp/blog/introducing-docker-build-checks/
 
 `docker build` 時に Dockerfile のベストプラクティスに従っているかどうかをチェックする機能、Docker Build Checks が登場しました。`docker build` 時に Docker 公式による Dockerfile のチェックが走り、必要に応じて警告を出してくれます。また、`docker build --check` のように `--check` オプションを付けることでビルドせずにチェックのみを行うことも可能です。
 
-今まで Dockerfile の linter は Docker 公式では存在せず、3rd party のもののみ存在しました。今回公式で機能が入ったことで、手軽にビルドせずに Dockerfile をチェックできるようになりました。
+今まで Dockerfile の linter は Docker 公式では存在せず、3rd party のもののみが存在しました。今回公式で機能が入ったことで、手軽にビルドせずに Dockerfile をチェックできるようになりました。
 
 なお、[Checking your build configuration | Docker Docs](https://docs.docker.com/build/checks/) によると、Docker Desktop 特有の機能ではなく、buildx v0.15.0 以降で利用可能とのことです。CI でも利用できて良いですね。
 
