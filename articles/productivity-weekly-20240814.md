@@ -250,17 +250,28 @@ https://www.docswell.com/s/yaegashi/KN1R1G-gamt4
 Productivity Weekly で出たネタを全て紹介したいけど紹介する体力が持たなかったネタを一言程度で書くコーナーです。
 
 - **news 📺**
-  - [AWS Weekly Roundup: Amazon Q Business, AWS CloudFormation, Amazon WorkSpaces update, and more (Aug 5, 2024) | AWS News Blog](https://aws.amazon.com/jp/blogs/aws/aws-weekly-roundup-amazon-q-business-aws-cloudformation-amazon-workspaces-update-and-more-aug-5-2024/)
   - [Sign-up for the GitHub Copilot Extensions waitlist - GitHub Changelog](https://github.blog/changelog/2024-08-13-sign-up-for-the-github-copilot-extensions-waitlist/)
+    - [以前紹介した GitHub Copilot を拡張できる GitHub Copilot Extensions](https://zenn.dev/cybozu_ept/articles/productivity-weekly-20240522#introducing-github-copilot-extensions%3A-unlocking-unlimited-possibilities-with-our-ecosystem-of-partners---the-github-blog) の waitlist が開始されました
+    - 元々 limited public beta で提供されており、だんだんと使えるようになるという話になっていましたが、waitlist が始まったことで興味ある人は早く使えるようになりそうです
+    - なお、waitlist は enterprise または org 単位での登録となります
   - [GitHub Copilot Chat and pull request summaries are now powered by GPT-4o - The GitHub Blog](https://github.blog/changelog/2024-07-31-github-copilot-chat-and-pull-request-summaries-are-now-powered-by-gpt-4o/)
+    - GitHub Copilot Chat および Copilot によるプルリクエストサマリ生成に、GPT-4o が利用されるようになりました
+    - 応答時間の短縮や正確で信頼性の高い応答が期待できるようです
   - [What’s new with GitHub Copilot: July 2024 - The GitHub Blog](https://github.blog/ai-and-ml/github-copilot/whats-new-with-github-copilot-july-2024/)
-  - [Enterprise Team Metrics Now Available on the Copilot Metrics API - GitHub Changelog](https://github.blog/changelog/2024-08-08-enterprise-team-metrics-now-available-on-the-copilot-metrics-api/)
-    - [Copilot Metrics API Organization Team Metrics - GitHub Changelog](https://github.blog/changelog/2024-08-09-copilot-metrics-api-organization-team-metrics/)
+    - GitHub Copilot の 7 月の新機能について紹介されています
+    - `@github` コマンドを使って、GitHub のインデックス化されたリポジトリに関する質問を Copilot Chat でできるようになったようです
+      - しかし、自分の環境では使えませんでした。条件があるのかも
   - [Enhanced Repo Insights Views - GitHub Changelog](https://github.blog/changelog/2024-08-12-enhanced-repo-insights-views/)
+    - GitHub のリポジトリインサイトビューの新 UI が利用できるようになりました（ベータ）
+    - 日付範囲が指定しやすくなったり、体験が良くなったようです
   - [【新機能】BigQuery で JSON オブジェクトのキーの一覧を取得できるようになりました | DevelopersIO](https://dev.classmethod.jp/articles/gcp-bigquery-json-object-keys/)
+    - BigQuery において、`JSON_KEYS` 関数が追加され、JSON オブジェクトのキーの一覧を取得できるようになりました
   - [Publication Free でもメンバー同士の記事レビューを体験できるようになりました | What's New in Zenn](https://info.zenn.dev/2024-08-05-publication-free-review)
-- **know-how 🎓**
-- **tool 🔨**
+    - Zenn の Publication Free において、記事レビューを体験できるようになりました
+    - ただ、一記事あたり 3 件のコメントまでと制限があります。あくまで体験ということですね
+    - 記事レビュー機能は Pro プランのみで元々使えました
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 # あとがき
 
