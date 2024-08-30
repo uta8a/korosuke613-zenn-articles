@@ -36,7 +36,7 @@ user_defined:
 今週の共同著者は次の方です。
 - [@korosuke613](https://zenn.dev/korosuke613)
 <!-- - [@defaultcf](https://zenn.dev/defaultcf) -->
-<!-- - [@Kesin11](https://zenn.dev/kesin11) -->
+- [@Kesin11](https://zenn.dev/kesin11)
 - [@r4mimu](https://zenn.dev/r4mimu)
 <!-- - [@uta8a](https://zenn.dev/uta8a) -->
 
@@ -243,6 +243,24 @@ Gradle の TestFilter には `includeTestsMatching` という機能があり、�
 
 ## プラットフォームエンジニアリングのためのセルフサービス基盤の実装 | ドクセル
 https://www.docswell.com/s/yaegashi/KN1R1G-gamt4
+
+自分も参加した [GitHub Actions Meetup Tokyo #4](https://gaugt.connpass.com/event/324715/) でのバンダイナムコスタジオさんの発表です。
+
+内容としては社内における自動化タスクの実行基盤として GitHub Actions を採用し、社内から使いやすいように独自の UI などを実装した話が中心でした。GitHub Actions を CI/CD というよりもタスクランナーとして活用する場合、Slack などを利用して chatbot から実行できるようにする事例[^gha_slack_chatbot]はよく耳にするのですが、ここまで独自の設定ファイルや UI を作り込んでいる事例は珍しいと思います。
+
+[^gha_slack_chatbot]: バンダイナムコスタジオと同じゲーム開発分野で、作り込んだ SlackApp から GitHub Actions を起動する事例 [UnityのアプリビルドをGitHub Actionsに移行した話【CAGC2024】](https://speakerdeck.com/cyberagentdevelopers/unitynoapuribirudowogithub-actionsniyi-xing-sitahua-cagc2024)
+
+個人的には GitHub Actions の [Custom Deployment Protection Rules](https://docs.github.com/en/actions/managing-workflow-runs-and-deployments/managing-deployments/creating-custom-deployment-protection-rules) の活用事例が興味深かったです。今回の発表では、GitHub Actions から Azure へのデプロイ処理後に再び GitHub Actions に処理を戻すという複雑なケースにおいて、今まではポーリングで実現していたのを Custom Deployment Protection Rules の仕組みに置き換えることで GitHub Actions の費用を削減できたという事例が紹介されていました。
+
+Custom Deployment Protection Rules 自体は公開時に Productivity Weekly でも[2023年5月](https://zenn.dev/cybozu_ept/articles/productivity-weekly-20230426#github-actions%3A-create-and-share-your-own-deployment-protection-rules-for-safe-and-controlled-deployments-%7C-github-changelog)に取り上げたことがあるのですが、そのときの自分にはあまり使い道が思いつきませんでした。今回の発表のような使い道は GitHub のドキュメントにも書かれていないので、自分は発明だと思いました。
+
+サイボウズでは GitHub Actions をヘビーに使いこなしているチームで似たようなポーリングを行っているワークフローがあり、こちらでは Azure のような GitHub Actions 外のサービスではなく、 GitHub Actions 内の別のワークフローの完了を待ってから実行するという使われ方でした。今回の発表を参考にさせてもらい、このようなケースも Custom Deployment Protection Rules によってポーリングを置き換えるアイディアを思いついたので、自分の方で検証してみました。この機能を使うために必要な GitHub App の作り方や、ワークフローの書き方など最初から試してみたのでそもそも Custom Deployment Protection Rules がどういう機能なのかもイメージがつくと思います。
+
+https://zenn.dev/kesin11/scraps/444f1b8e3454d0
+
+ニッチにニッチを重ねたような話ですが、GitHub Actions の使い方の幅が広がるという意味では興味深いと思うので興味がある方は参考になるかもしれません。
+
+_本項の執筆者: [@Kesin11](https://zenn.dev/kesin11)_
 
 # tool 🔨
 
