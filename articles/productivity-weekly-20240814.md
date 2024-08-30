@@ -182,8 +182,22 @@ _本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 ## Introducing Structured Outputs in the API | OpenAI
 https://openai.com/index/introducing-structured-outputs-in-the-api/
 
-## Sign-up for the GitHub Copilot Extensions waitlist - GitHub Changelog
-https://github.blog/changelog/2024-08-13-sign-up-for-the-github-copilot-extensions-waitlist/
+OpenAI API において、ユーザが設定したスキーマに応じて構造化された出力を返す機能 Structured Outputs が追加されました。
+
+これまで JSON 出力を強制させることはできましたが、スキーマについてはプロンプト文章内でいい感じに指示するといった方法が必要でした。あくまで文章内での指示であり、必ずしもスキーマ通りの出力が得られるとは限りませんでした。
+実際、上記記事によると、プロンプトでの指定は最新の GPT-4 だと 35% 程度、GPT-4o でも 85%程度の精度しか見込めていませんでした。今回追加された機能を用いることで 100%の精度を実現できたとのことです。
+
+Structured Outputs は、Function calling および `response_format` において実現できます。詳しくは [Structured Outputs - OpenAI API](https://platform.openai.com/docs/guides/structured-outputs) を参照してください。なお、古いモデルは対応しておらず、例えば 2024/08/29 時点で `gpt-4o` では対応しておらず、GPT-4o の最新のモデルである `gpt-4o-2024-08-06` は対応してたりします。
+
+僕は本ブログ記事である Productivity Weekly を OpenAI API を使って文法間違いや誤字脱字の検出を行なっています[^ai-review]。今回の機能追加に伴い、僕も Structured Outputs を使うようにしてみました。気になる人は参考ください。
+
+- [feat: support Structured Outputs by OpenAI API · korosuke613/zenn-articles@4eb3fe6](https://github.com/korosuke613/zenn-articles/commit/4eb3fe6c9f5a77652f0ea1aca67cf84f2b9faf7f)
+
+プロンプトでの指定よりも確実にスキーマ通りの出力を得られるようになったのはとても嬉しいですね。JSON を吐き出させてる人はぜひ使ってみてください。
+
+[^ai-review]: [LLMを用いてブログ記事の文法間違い・誤字脱字検出を自動化する](https://zenn.dev/cybozu_ept/articles/ai-blog-review-on-github) を読んでね✌️
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 # know-how 🎓
 
@@ -237,6 +251,7 @@ Productivity Weekly で出たネタを全て紹介したいけど紹介する体
 
 - **news 📺**
   - [AWS Weekly Roundup: Amazon Q Business, AWS CloudFormation, Amazon WorkSpaces update, and more (Aug 5, 2024) | AWS News Blog](https://aws.amazon.com/jp/blogs/aws/aws-weekly-roundup-amazon-q-business-aws-cloudformation-amazon-workspaces-update-and-more-aug-5-2024/)
+  - [Sign-up for the GitHub Copilot Extensions waitlist - GitHub Changelog](https://github.blog/changelog/2024-08-13-sign-up-for-the-github-copilot-extensions-waitlist/)
   - [GitHub Copilot Chat and pull request summaries are now powered by GPT-4o - The GitHub Blog](https://github.blog/changelog/2024-07-31-github-copilot-chat-and-pull-request-summaries-are-now-powered-by-gpt-4o/)
   - [What’s new with GitHub Copilot: July 2024 - The GitHub Blog](https://github.blog/ai-and-ml/github-copilot/whats-new-with-github-copilot-july-2024/)
   - [Enterprise Team Metrics Now Available on the Copilot Metrics API - GitHub Changelog](https://github.blog/changelog/2024-08-08-enterprise-team-metrics-now-available-on-the-copilot-metrics-api/)
