@@ -1,5 +1,5 @@
 ---
-title: ＜ここにタイトルを入力＞｜Productivity Weekly(2024-08-14,08-07)
+title: Docker Build Check登場やActionsの話など｜Productivity Weekly(2024-08-14,08-07)
 emoji: 🕯️
 type: idea
 topics:
@@ -17,7 +17,7 @@ user_defined:
     _本項の執筆者: [@uta8a](https://zenn.dev/uta8a)_
 ---
 
-こんにちは。サイボウズ株式会社 [生産性向上チーム](https://note.com/cybozu_dev/n/n1c1b44bf72f6)の平木場です。
+こんにちは。サイボウズ株式会社 [生産性向上チーム](https://www.docswell.com/s/cybozu-tech/5R2X3N-engineering-productivity-team-recruitment-information)の平木場です。
 
 僕たち生産性向上チームは毎週水曜日に Productivity Weekly という「1 週間の間に発見された開発者の生産性向上に関するネタを共有する会」を社内で開催しています。
 本記事はその時のネタをまとめたものです。
@@ -76,33 +76,33 @@ https://www.docker.com/ja-jp/blog/introducing-docker-build-checks/
 WARNING: InvalidBaseImagePlatform
 Base image debian:wheezy was pulled with platform "linux/arm/v7", expected "linux/arm64" for current build
 Dockerfile:1
-\--------------------
+--------------------
    1 | >>> FROM debian:wheezy
    2 |
    3 |     MAINTAINER NGINX Docker Maintainers "docker-maint@nginx.com"
-\--------------------
+--------------------
 
 WARNING: MaintainerDeprecated - https://docs.docker.com/go/dockerfile/rule/maintainer-deprecated/
 Maintainer instruction is deprecated in favor of using label
 Dockerfile:3
-\--------------------
+--------------------
    1 |     FROM debian:wheezy
    2 |
    3 | >>> MAINTAINER NGINX Docker Maintainers "docker-maint@nginx.com"
    4 |
    5 |     RUN apt-key adv --keyserver pgp.mit.edu --recv-keys 573BFD6B3D8FBC641079A6ABABF5BD827BD9BF62
-\--------------------
+--------------------
 
 WARNING: LegacyKeyValueFormat - https://docs.docker.com/go/dockerfile/rule/legacy-key-value-format/
 "ENV key=value" should be used instead of legacy "ENV key value" format
 Dockerfile:8
-\--------------------
+--------------------
    6 |     RUN echo "deb http://nginx.org/packages/mainline/debian/ wheezy nginx" >> /etc/apt/sources.list
    7 |
    8 | >>> ENV NGINX_VERSION 1.7.5-1~wheezy
    9 |
   10 |     RUN apt-get update && apt-get install -y nginx=${NGINX_VERSION}
-\--------------------
+--------------------
 ```
 
 各種ソースを解決できるかの確認がされ、その後ルールに引っかかった項目が出力されました。
@@ -262,8 +262,6 @@ https://zenn.dev/kesin11/scraps/444f1b8e3454d0
 
 _本項の執筆者: [@Kesin11](https://zenn.dev/kesin11)_
 
-# tool 🔨
-
 # read more 🍘
 Productivity Weekly で出たネタを全て紹介したいけど紹介する体力が持たなかったネタを一言程度で書くコーナーです。
 
@@ -292,7 +290,8 @@ Productivity Weekly で出たネタを全て紹介したいけど紹介する体
 _本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 # あとがき
-
+遅くなってすみません、08/07, 08/14 合併号でした。
+8/24-28 まで鹿児島、28-31 まで福岡に行ってたのですが、台風との戦いで楽しかったですね。なんだかんだ言っていい感じに回避できました。
 
 サイボウズの生産性向上チームでは社内エンジニアの開発生産性を上げるための活動を行なっています。そんな生産性向上チームが気になる方は下のリンクをクリック！
 https://www.docswell.com/s/cybozu-tech/5R2X3N-engineering-productivity-team-recruitment-information
