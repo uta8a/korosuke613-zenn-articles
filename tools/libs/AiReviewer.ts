@@ -17,7 +17,7 @@ export type ReviewResult = {
 
 export type AiReviewerOptions = {
   max_tokens: number;
-  model: "gpt-4o";
+  model: string;
   logFilePath?: string;
   logging: boolean;
   reviewNum: number;
@@ -49,11 +49,6 @@ export class AiReviewer {
 - 読点の修正はしない
 
 出力は、$review_num$個以下とし、より優先的に修正すべきものを出力してください。
-また、markdown形式ではなく、以下のようなJSON形式で出力してください。reason には修正の理由を記述してください。
-
-{
-  review: [ {"error_line": "...", "revised_line": "...", "reason": "..."} ]
-}
 `;
   private static readonly pricing: Record<string, OpenAIPricingData> = {
     // ref: https://openai.com/api/pricing/
@@ -61,10 +56,16 @@ export class AiReviewer {
       input: 5 / (1 * 1000000),
       output: 15 / (1 * 1000000),
     },
+    "gpt-4o-2024-08-06": {
+      input: 5 / (1 * 1000000),
+      output: 15 / (1 * 1000000),
+    },
   };
   static readonly defaultOptions: AiReviewerOptions = {
     max_tokens: 1024,
-    model: "gpt-4o",
+    // GPT-4o が Structured Outputs にまだ対応してないため、最新版である gpt-4o-2024-08-06 を使用
+    // TODO: GPT-4o が Structured Outputs に対応したら、GPT-4o を使用する
+    model: "gpt-4o-2024-08-06",
     logging: true,
     reviewNum: 5,
   };
@@ -158,7 +159,7 @@ export class AiReviewer {
 
   createReviewInput = (markdown: string) => {
     const input: ChatCompletionCreateParamsNonStreaming = {
-      model: "gpt-4o",
+      model: this.options.model,
       messages: [
         {
           "role": "system",
@@ -177,7 +178,33 @@ export class AiReviewer {
       top_p: 1,
       frequency_penalty: 0,
       presence_penalty: 0,
-      response_format: { type: "json_object" },
+      response_format: {
+        type: "json_schema",
+        json_schema: {
+          name: "reviews",
+          strict: true,
+          schema: {
+            type: "object",
+            properties: {
+              review: {
+                type: "array",
+                items: {
+                  type: "object",
+                  properties: {
+                    error_line: { type: "string" },
+                    revised_line: { type: "string" },
+                    reason: { type: "string" },
+                  },
+                  required: ["error_line", "revised_line", "reason"],
+                  additionalProperties: false,
+                },
+              },
+            },
+            required: ["review"],
+            additionalProperties: false,
+          },
+        },
+      },
     };
 
     return input;
