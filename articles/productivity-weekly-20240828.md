@@ -47,6 +47,37 @@ user_defined:
 ## Notice of upcoming deprecations and breaking changes in GitHub Actions runners - GitHub Changelog
 https://github.blog/changelog/2024-08-19-notice-of-upcoming-deprecations-and-breaking-changes-in-github-actions-runners/
 
+GitHub Actions における、今後半年以内に非推奨となる機能や破壊的変更のある機能のまとめお知らせです。
+
+次の内容が書かれています。
+
+- actions/upload-artifact v3, v4 においてデフォルトで隠しファイルが除外されるように変更 (9 月〜)
+- Ubuntu Arm ランナーの Ubuntu 22/20 ベースイメージが利用不可能に (9 月〜)
+  - 代わりに [Arm が提供する Ubuntu 24/22 イメージ](https://github.com/actions/partner-runner-images/tree/5e496b5c1eddaf72d0ae87d98d8de6ac5554357e)の使用が推奨されます
+- actions/runner において .Net6 から .Net8 へ移行 (10 月〜)
+  - セルフホストランナーを立てる際は、今後はランナー設定前に .Net8 が必要になります
+- macOS 12 ランナーが非推奨に（12 月までに完全に引退）
+- macOS のいくつかのラベルが利用不可能に（12 月〜）
+  - `macos-11.0`, `macos-12-xl`, `macos-13-xl`, `macos-13-xl-arm64`, `macos-latest-xl`, `macos-latest-xl-arm64`
+
+いろいろありますが、特に気をつけたいのが actions/upload-artifact の変更ですね。セキュリティアップデートという意味合いからか、メジャーアップデートではないため、`actions/upload-artifact@v4` のような指定をしている場合は変更が自動で適用されることになります（記事執筆時点ですでに期日を超えてしまっていますが）。
+
+さっそく検証してくれた方が記事を出してくれているので、どういう挙動になったかはこちらがわかりやすいです。
+
+- [actions/upload-artifact はデフォルトでは隠しファイルをアップロードしなくなった](https://zenn.dev/kou_pg_0131/articles/gh-actions-upload-artifact-hidden-files)
+
+この変更は以前話題になった、リポジトリ全体をアップロード対象に指定してしまうと `.git` にある `GITHUB_TOKEN` もアップロードされてしまい、セキュリティ的に問題があることを受けての変更だと思われます。
+
+> actions/checkoutはデフォルトでローカルの.gitにGITHUB_TOKENを保存するので、そのままartifactとしてリポジトリ全体をアップロードしてはいけない。
+> > ArtiPACKED: Hacking Giants Through a Race Condition in GitHub Actions Artifacts
+https://x.com/minamijoyo/status/1824997760107716906
+
+そのためメジャーアップデートでの変更とはならなかったようですが、この変更に関する Issue ([Upcoming breaking change: Hidden Files will be excluded by default · Issue #602 · actions/upload-artifact](https://github.com/actions/upload-artifact/issues/602)) では多くの down vote が付いており、この対応に満足していないユーザーは多そうでした。[指摘](https://unit42.paloaltonetworks.com/github-repo-artifacts-leak-tokens/)された一週間後にアナウンスを出し、その二週間後には変更されているため、変更されることを知らない人も多かったことでしょう。難しいですね。
+
+そもそもバージョンを厳密に固定してこまめにアップデートする運用をしておけばいきなり仕様が変わって困るということも回避できたと思うので、GitHub 公式アクションだとしてもバージョン固定するのがいいかもしれませんね。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
+
 ## Copilot Enterprise now helps you fix failed Actions jobs, plus other August updates (public beta) - GitHub Changelog
 https://github.blog/changelog/2024-08-15-copilot-enterprise-now-helps-you-fix-failed-actions-jobs-plus-other-august-updates-public-beta/
 
