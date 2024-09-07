@@ -81,6 +81,16 @@ _本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 ## Copilot Enterprise now helps you fix failed Actions jobs, plus other August updates (public beta) - GitHub Changelog
 https://github.blog/changelog/2024-08-15-copilot-enterprise-now-helps-you-fix-failed-actions-jobs-plus-other-august-updates-public-beta/
 
+GitHub Copilot Enterprise において、GitHub Actions のジョブ実行失敗について Copilot Chat に質問できるようになりました（ベータ）。
+
+失敗したジョブのログの画面に置いて Copilot Chat を呼び出し、ジョブが失敗した理由や対処方法を質問すると、ログの内容を解析して回答を返してくれるようです。
+
+Copilot Enterprise の機能であるため、Copilot Business、Individual では利用できません。利用するには Enterprise 管理画面から有効化する必要があります。
+
+CI の失敗理由はさまざまで、慣れている人が見るとすぐに原因がわかることもあると思いますが、あまり慣れてないコードベースでは何が何だかわからないかもしれません。そういう時に気軽に Copilot に質問して原因解決に役立てられるのは嬉しいですね。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
+
 ## AWS CodeBuild now supports using GitHub Apps to access source repositories - AWS
 https://aws.amazon.com/jp/about-aws/whats-new/2024/08/aws-codebuild-github-apps-access-source-repositories/
 
