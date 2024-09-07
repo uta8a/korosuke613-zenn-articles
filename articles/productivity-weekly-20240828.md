@@ -94,8 +94,21 @@ _本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 ## AWS CodeBuild now supports using GitHub Apps to access source repositories - AWS
 https://aws.amazon.com/jp/about-aws/whats-new/2024/08/aws-codebuild-github-apps-access-source-repositories/
 
-## AWS CodeBuild が macOS でのビルドをサポートしました | DevelopersIO
-https://dev.classmethod.jp/articles/codebuild-mac-builds/
+AWS CodeBuild が GitHub Apps によるリポジトリへのアクセスをサポートしました。
+
+[以前 AWS CodeBuild において GitHub Actions のセルフホストランナーを動かせるようになりました](https://zenn.dev/cybozu_ept/articles/productivity-weekly-20240501#aws-codebuild-%E3%81%8C%E3%83%9E%E3%83%8D%E3%83%BC%E3%82%B8%E3%83%89%E5%9E%8B%E3%81%AE-github-action-%E3%83%A9%E3%83%B3%E3%83%8A%E3%83%BC%E3%81%AE%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88%E3%82%92%E9%96%8B%E5%A7%8B)が、当時は OAuth Apps や Personal Access Token による認証が必要で、それらは個人に紐づくため、組織内での利用に少し壁がありました。
+
+今回、GitHub Apps による認証がサポートされたことで、App をリポジトリにインストールするだけで CodeBuild によるセルフホストランナーの利用が可能になると思われます（未検証）。また、GitHub Apps は Organization に紐づけられるため、個人の権限を気にせず組織内で利用できるようになるのも嬉しいです。
+
+AWS 上でセルフホストランナー環境を構築している場合、CodeBuild に移行するのを検討してもいいかもしれません。
+
+:::message
+ちなみに、同時期に AWS CodeBuild で macOS が使えるようになりました。手軽に macOS でのビルドができるようになりそうですが、EC2 で macOS を使う時と同じくリザーブドインスタンスとして使う必要があるとのことで、最低一日分の料金が必要になることは変わりなさそうです。
+
+- [AWS CodeBuild が macOS でのビルドをサポートしました | DevelopersIO](https://dev.classmethod.jp/articles/codebuild-mac-builds/)
+:::
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 ## Amazon S3 now supports conditional writes - AWS
 https://aws.amazon.com/jp/about-aws/whats-new/2024/08/amazon-s3-conditional-writes/
