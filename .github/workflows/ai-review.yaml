@@ -7,7 +7,7 @@ on:
 
 jobs:
   review:
-    if: github.event.issue.pull_request && github.event.comment.body == '/ai-review' && contains(fromJson('["korosuke613", "defaultcf", "Kesin11", "fchimpan", "uta8a"]'), github.event.comment.user.login)
+    if: github.event.issue.pull_request && github.event.comment.body == '/ai-review' && contains(fromJson('["korosuke613", "defaultcf", "Kesin11", "fchimpan", "uta8a", "ajfAfg"]'), github.event.comment.user.login)
     permissions:
       contents: read
       pull-requests: write
