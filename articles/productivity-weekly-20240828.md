@@ -1,5 +1,5 @@
 ---
-title: ＜ここにタイトルを入力＞｜Productivity Weekly(2024-08-28,08-21)
+title: AWS CodeBuildでGitHub Appsによる接続ができるようになってアツい｜Productivity Weekly(2024-08-28,08-21)
 emoji: 🌀
 type: idea
 topics:
@@ -18,7 +18,7 @@ user_defined:
 ---
 
 :::message alert
-投稿が大変遅くなってしまいすみません！！！この記事に書いているネタは 1 ヶ月ほど前のものとなって古いです。ご了承ください...
+**投稿が大変遅くなってしまいすみません！！！この記事に書いているネタは 1 ヶ月ほど前のものとなって古いです。ご了承ください...**
 :::
 
 
@@ -210,7 +210,12 @@ Productivity Weekly で出たネタを全て紹介したいけど紹介する体
 _本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 # あとがき
+<!-- textlint-disable ja-technical-writing/ja-no-mixed-period -->
 
+マジで遅くなってしまいすみませんでした。言い訳としてはインターン受け入れが 9 月前半にあって常にドタバタしてたのと、ちょっと僕に新たな業務が増えててんやわんやしてました。ほんとすみません。
+ちなみにインターンは感動のフィナーレを迎えられました ✌️
+
+<!-- textlint-enable ja-technical-writing/ja-no-mixed-period -->
 
 サイボウズの生産性向上チームでは社内エンジニアの開発生産性を上げるための活動を行なっています。そんな生産性向上チームが気になる方は下のリンクをクリック！
 https://www.docswell.com/s/cybozu-tech/5R2X3N-engineering-productivity-team-recruitment-information
