@@ -133,9 +133,28 @@ _本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 ## Terraform AWS Provider で AWS Chatbot を構築する - kakakakakku blog
 https://kakakakakku.hatenablog.com/entry/2024/08/04/132435
 
+Terraform AWS Provider v5.61.0 において、とうとう AWS Chatbot の Slack、MS Teams 通知を管理できるようになりました。これまでは AWS Provider でそれらの管理はできなかったため、別途 AWS CC Provider を使うなどの工夫が必要でした。
+
+この記事では、Terraform AWS Provider v5.61.0 で Chatbot の Slack、Teams 設定ができるようになったこと、これまでなぜ使えなかったのかという背景やどのようにする必要があったのか、どのように設定するかなどを紹介されています。
+
+僕もこの件は以前困ったことがあり、AWS CC Provider を使うことでなんとか回避していました。今回 AWS Provider で使えるようになったこともこの記事で知って、とても嬉しいです。
+
+ただ、現状 AWS CC Provider の併用で困っているわけでもないので機会があれば移行するや新たにリソース作成する場合に AWS Provider を使うといった対応を取る予定です。まあ依存するプロバイダを減らせてバージョン管理が楽になるというメリットもあるので、AWS Provider を使っていくことが将来的には楽だと思います。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 ## GitHubで扱うPersonal access tokenの利用方法をセキュアにする - 10X Product Blog
 https://product.10x.co.jp/entry/2024/08/19/164039
+
+10X さんによる GitHub の Personal access token (PAT) 利用のセキュリティ向上に関する記事です。GitHub のセキュリティリスク低減のために PAT 利用の最小化、PAT(classic)の利用禁止と PAT(fine-grained)利用を原則とする状態を目指し、いろいろ取り組みを行ったことが書かれています。
+
+記事では、PAT の課題やリスクと当時の状況、PAT 利用最小化のための利用状況の把握、PAT から GITHUB_TOKEN や GitHub Apps への置き換え、PAT(fine-grained)への置き換えとそれに伴うコンテナレジストリ移行、ポリシーの策定、やってみてどうだったかなどが書かれています。
+
+PAT のリスクや置き換えのための施策が載っており、PAT 周りに詳しくない人もセキュアにしていきたい人も参考になる記事だと思いました。個人的には PAT (fine-grained)をちゃんと使えてるのはすごいと思いました。PAT (fine-grained)はメリットの多い反面、ghcr への認証には対応してなかったり、有効期限を無期限にできなかったり（最大 1 年）と、使い勝手の悪い部分も目立ちます。有効期限についてはローテーションしていけばいい話ですが、期限までに気づく仕組みを作る必要があるし、手動でローテーションしていくのも大変です（そもそも多くの場合 GitHub Apps で事足りると思う）。有効期限はどれくらいにしているのかやローテーションはどのようにしていくのかは特に記事に載っていなかったので気になりました。
+
+PAT はなるべく使わないように努めていきたいですね。僕は GitHub API などの検証目的で一時的に PAT を使い、それ以外の永続的に利用する場合は GitHub Apps を使う場合が多いです。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 ## GitHub Actions ステップアップ Tips 〜高速化・セキュリティ・設計〜 #GitHubActions_findy | ドクセル
 https://www.docswell.com/s/uta8a/KYDW9P-2024-08-22-github-actions-tips
