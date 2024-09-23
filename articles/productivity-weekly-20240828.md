@@ -17,6 +17,11 @@ user_defined:
     _本項の執筆者: [@uta8a](https://zenn.dev/uta8a)_
 ---
 
+:::message alert
+投稿が大変遅くなってしまいすみません！！！この記事に書いているネタは 1 ヶ月ほど前のものとなって古いです。ご了承ください...
+:::
+
+
 こんにちは。サイボウズ株式会社 [生産性向上チーム](https://note.com/cybozu_dev/n/n1c1b44bf72f6)の平木場です。
 
 僕たち生産性向上チームは毎週水曜日に Productivity Weekly という「1 週間の間に発見された開発者の生産性向上に関するネタを共有する会」を社内で開催しています。
@@ -35,11 +40,6 @@ user_defined:
 
 今週の共同著者は次の方です。
 - [@korosuke613](https://zenn.dev/korosuke613)
-<!-- - [@defaultcf](https://zenn.dev/defaultcf) -->
-<!-- - [@Kesin11](https://zenn.dev/kesin11) -->
-<!-- - [@r4mimu](https://zenn.dev/r4mimu) -->
-<!-- - [@uta8a](https://zenn.dev/uta8a) -->
-
 :::
 
 # news 📺
@@ -110,38 +110,23 @@ AWS 上でセルフホストランナー環境を構築している場合、Code
 
 _本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
-## Amazon S3 now supports conditional writes - AWS
-https://aws.amazon.com/jp/about-aws/whats-new/2024/08/amazon-s3-conditional-writes/
-
-## Amazon ECS provides the ability to restart containers without requiring a task relaunch
-https://aws.amazon.com/jp/about-aws/whats-new/2024/08/amazon-ecs-restart-containers-task-relaunch/
-
-## Node.js Support | aqua
-https://aquaproj.github.io/docs/reference/nodejs-support/
-
-## Deno 1.46: The Last 1.x Release
-https://deno.com/blog/v1.46
-
-## Google Cloud Functions is now Cloud Run functions | Google Cloud Blog
-https://cloud.google.com/blog/products/serverless/google-cloud-functions-is-now-cloud-run-functions
-
-## Host your LLMs on Cloud Run | Google Cloud Blog
-https://cloud.google.com/blog/products/application-development/run-your-ai-inference-applications-on-cloud-run-with-nvidia-gpus
-
-## Terraform provider for Google Cloud 6.0 is now GA
-https://www.hashicorp.com/blog/terraform-provider-for-google-cloud-6-0-is-now-ga
-
-## 即座にリアルタイムを実現: 最新のインサイトを提供する BigQuery の継続的クエリを導入 | Google Cloud 公式ブログ
-https://cloud.google.com/blog/ja/products/data-analytics/bigquery-continuous-queries-makes-data-analysis-real-time/
-
 ## Custom models for GitHub Copilot are now in Limited Public Beta - GitHub Changelog
 https://github.blog/changelog/2024-08-27-custom-models-for-github-copilot-are-now-in-limited-public-beta/
 
-## AWS Lambda introduces recursive loop detection APIs | AWS Compute Blog 
-https://aws.amazon.com/jp/blogs/compute/aws-lambda-introduces-recursive-loop-detection-apis/
+GitHub Copilot Enterprise において、カスタムモデルを利用できるようになりました（limited public beta）。
 
-## Amazon Bedrock now supports cross-region inference
-https://aws.amazon.com/jp/about-aws/whats-new/2024/08/amazon-bedrock-cross-region-inference/
+カスタムモデルは自組織のコードベースを使用して調整したモデルであり、ベースとなるモデルに追加のトレーニングを行なったものになります。より組織のニーズに合わせたコードの提案を提供すると記事には書かれています。
+
+どのようにトレーニングするかについてですが、今回は GitHub リポジトリを指定するだけでトレーニングを行なってくれるようで、専門的な知識は必要なさそうに思えます。
+
+GitHub Copilot は IDE 上で開いてたり関連するコードをコンテキストとして利用しますが、大規模なリポジトリにおいては全てのコードの情報をコンテキストとして渡すのは厳しいため、こう言ったカスタムモデルが必要になるのかもしれません。
+ユースケースとしては、公開されていないライブラリや API、一般的でない言語を利用する場合にカスタムモデルの使用を検討するのが良いとされています。
+
+なお、コードベースが変更されるとカスタムモデルを自動で再トレーニングするように制御することも可能とのことです。
+
+気になる方はベータ登録してみてください。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 # know-how 🎓
 
