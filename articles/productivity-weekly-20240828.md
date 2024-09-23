@@ -159,13 +159,13 @@ _本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 ## GitHub Actions ステップアップ Tips 〜高速化・セキュリティ・設計〜 #GitHubActions_findy | ドクセル
 https://www.docswell.com/s/uta8a/KYDW9P-2024-08-22-github-actions-tips
 
-## Go製アプリケーション/ライブラリにおけるメンテナンス性を重視したGoのバージョン管理戦略 - Diary of a Perpetual Student
-https://blog.arthur1.dev/entry/2024/08/27/120000
+サイボウズ生産性向上チームの @uta8a さん[^weekly]による GitHub Actions の高速化やセキュリティ、設計に関する Tips 集のスライドです。
 
-# tool 🔨
+高速化のための実行時間の計測話や不必要ジョブのスキップ話、キャッシュ、シークレットの取り扱い、命名規則のすゝめなどまあまあなボリュームです。GitHub Actions をもっといい感じにしていきたいぜという人は参考になると思います。
 
-## Navigate and refactor your code with ease
-https://haystackeditor.com/
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
+
+[^weekly]: Productivity Weekly 執筆者の一人です！！！
 
 # read more 🍘
 Productivity Weekly で出たネタを全て紹介したいけど紹介する体力が持たなかったネタを一言程度で書くコーナーです。
