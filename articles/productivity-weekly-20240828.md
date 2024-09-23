@@ -171,8 +171,43 @@ _本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 Productivity Weekly で出たネタを全て紹介したいけど紹介する体力が持たなかったネタを一言程度で書くコーナーです。
 
 - **news 📺**
+  - [Amazon S3 が条件付き書き込みのサポートを開始 - AWS](https://aws.amazon.com/jp/about-aws/whats-new/2024/08/amazon-s3-conditional-writes/)
+    - Amazon S3 が条件付き書き込みをサポートしました。これにより、複数クライアントからオブジェクトを更新する際に競合が発生することを防ぐことができるとのことです
+    - Terraform のバックエンドに S3 を使っている場合、複数の人が同時に apply すると競合が発生して terraform state が壊れてしまう恐れがあるため、ロックするために DynamoDB を使っています。このロックの仕組みを S3 単体で行えるのではないかと期待しています
+    - Terraform および OpenTofu において、バックエンド S3 のロックを S3 のみで行えるようにする Issue が立っています。対応が楽しみですね
+      - Terraform: [S3 remote backend without DynamoDB · Issue #35625 · hashicorp/terraform](https://github.com/hashicorp/terraform/issues/35625)
+      - OpenTofu: [Unlocking Terraform's S3 Backend: Going DynamoDB-Free · Issue #599 · opentofu/opentofu](https://github.com/opentofu/opentofu/issues/599)
+  - [Amazon ECS provides the ability to restart containers without requiring a task relaunch](https://aws.amazon.com/jp/about-aws/whats-new/2024/08/amazon-ecs-restart-containers-task-relaunch/)
+    - Amazon ECS において、タスクを再起動せずにコンテナを再起動できるようになりました
+    - 基本的にはタスクを再起動するのが良いのでは？と思いましたが、サイドカー的なコンテナ（ロガーなど）はメインのコンテナをそのままに対象コンテナだけ再起動できると嬉しそうです（記事にも書いてある）
+  - [Node.js Support | aqua](https://aquaproj.github.io/docs/reference/nodejs-support/)
+    - aqua が Node.js のサポートを開始しました。[v4.216.0](https://github.com/aquaproj/aqua-registry/releases/tag/v4.216.0) より使えます
+    - かつてはサポートされていたのですが、グローバルインストールした npm パッケージの扱いに関する問題があってサポートされなくなったという過去があります
+    - 個人的には Node.js はヘビィに使うので嬉しいです
+  - [Host your LLMs on Cloud Run | Google Cloud Blog](https://cloud.google.com/blog/products/application-development/run-your-ai-inference-applications-on-cloud-run-with-nvidia-gpus)
+    - Google Cloud Run において、NVIDIA の GPU が使えるようになりました
+    - これにより、GPU を使った推論や画像生成などのアプリケーションを Cloud Run 上で動かすことができるようになります。便利ですね
+  - [Google Cloud Functions is now Cloud Run functions | Google Cloud Blog](https://cloud.google.com/blog/products/serverless/google-cloud-functions-is-now-cloud-run-functions)
+    - Google Cloud の Cloud Functions が Cloud Run に統合され、Cloud Run functions として提供されるようになりました
+    - これにより、名前が変わっただけでなく、Cloud Run の機能を Cloud Run functions で利用できるようになります（direct vpc egress や先ほど書いた NVIDIA GPU へのアクセスなど）
+  - [即座にリアルタイムを実現: 最新のインサイトを提供する BigQuery の継続的クエリを導入 | Google Cloud 公式ブログ](https://cloud.google.com/blog/ja/products/data-analytics/bigquery-continuous-queries-makes-data-analysis-real-time/)
+    - Google Cloud の BigQuery に継続的にクエリを実行する機能が追加されました
+    - イベント駆動でデータを受け取ってクエリ実行したり、スケジュールで定期的にクエリ実行できたりするそうです
+    - リアルタイムでデータを処理したい場合に使えそうですね
+  - [Terraform provider for Google Cloud 6.0 is now GA](https://www.hashicorp.com/blog/terraform-provider-for-google-cloud-6-0-is-now-ga)
+    - Google Cloud Terraform Provider v6 が GA になりました
+    - Terraform 1.8 で追加されたプロバイダ定義関数やデフォルトラベルを付与できるようになったようです（AWS でいうデフォルトタグに近い）
 - **know-how 🎓**
+  - [Go製アプリケーション/ライブラリにおけるメンテナンス性を重視したGoのバージョン管理戦略 - Diary of a Perpetual Student](https://blog.arthur1.dev/entry/2024/08/27/120000)
+    - Go 製プログラムのバージョン付与について、アプリケーション、ライブラリそれぞれの観点からどのようにバージョンを切っていくかについて書かれています
+    - 最近全然 Go を書いてなかったので、特に toolchain directive なんかはよくわかってないので勉強になりました
 - **tool 🔨**
+  - [Navigate and refactor your code with ease](https://haystackeditor.com/)
+    - Haystack Editor というエディタのページです。マルチウィンドウでファイルを開け、コードジャンプで関連するコード部分を新たなウィンドウで開いてつながりをわかりやすく表示してくれるっぽいです
+    - VSCode を fork しているようで、拡張機能なども使えます
+    - 試しに使ってみましたが、ウィンドウが開かれすぎて頭がこんがらがりました。使いこなせる人は少なそう
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 # あとがき
 
