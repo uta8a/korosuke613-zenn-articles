@@ -1,5 +1,5 @@
 ---
-title: AWS CodeBuildでGitHub Appsによる接続ができるようになってアツい｜Productivity Weekly(2024-08-28,08-21)
+title: CodeBuildでGitHub Apps使えるようになってアツい｜Productivity Weekly(2024-08-28,21)
 emoji: 🌀
 type: idea
 topics:
