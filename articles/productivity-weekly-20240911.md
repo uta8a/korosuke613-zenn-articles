@@ -101,10 +101,10 @@ _本項の執筆者: [@Kesin11](https://zenn.dev/kesin11)_
 ## Announcing TypeScript 5.6 - TypeScript
 https://devblogs.microsoft.com/typescript/announcing-typescript-5-6/
 
-5.6が来ました！！　わいわい！
+5.6 が来ました！！　わいわい！
 Breaking Change は無さそうです。
 
-15個のトピックのうち、個人的に目玉だと感じているものは以下です:
+15 個のトピックのうち、個人的に目玉だと感じているものは以下です:
 
 - Disallowed Nullish and Truthy Checks
 - Iterator Helper Methods
@@ -125,7 +125,7 @@ if (x => 0) {
 }
 ```
 
-同様にして、常に Falsy と評価される場合も以下の通りコンパイルエラーが出ます。
+同様にして、常に Falsy と評価される場合も次の通りコンパイルエラーが出ます。
 
 ```ts
 if (null) {
@@ -136,7 +136,7 @@ if (null) {
 
 なお、条件演算子（俗に三項演算子と呼ばれる演算子）の条件式においても同様のエラーが出ます。
 
-[本機能の実装](https://github.com/microsoft/TypeScript/pull/59217)を読んでみると、条件式の構文を見てエラーを出すか判断しているようです。そのために検出できない「常に Truthy」も存在していて、例えば以下のプログラムではエラーが出ません。他にも、正の数に対しては基本的にエラーが出ますが、`0` と `1` は例外的にエラーが出ない仕様になっていたりします。まだ改善の余地はありそうな機能ですが、TypeScript 5.5 で入った[正規表現構文チェック](https://zenn.dev/cybozu_frontend/articles/349e9a778dfe0b)と併せて利便性が爆上がりするポテンシャルを秘めていると思うので、今後も目が離せないですね。
+[本機能の実装](https://github.com/microsoft/TypeScript/pull/59217)を読んでみると、条件式の構文を見てエラーを出すか判断しているようです。そのために検出できない「常に Truthy」も存在していて、例えば次のプログラムではエラーが出ません。他にも、正の数に対しては基本的にエラーが出ますが、`0` と `1` は例外的にエラーが出ない仕様になっていたりします。まだ改善の余地はありそうな機能ですが、TypeScript 5.5 で入った[正規表現構文チェック](https://zenn.dev/cybozu_frontend/articles/349e9a778dfe0b)と併せて利便性が爆上がりするポテンシャルを秘めていると思うので、今後も目が離せないですね。
 
 ```ts
 if (new RegExp("0x[0-9a-f]")) {
@@ -172,7 +172,7 @@ for (const value of evenNumbers.take(5)) {
 
 イテレーターを作りたくなる日は割とある（字句解析器を書くときなど）ので、配列操作と同じノリで扱えると便利そうです。[Go 1.23 の range-over-func](https://go.dev/doc/go1.23) を始めとして、今イテレーターがアツい！！
 
-この機能の詳細は以下の記事がわかりやすいです:
+この機能の詳細は次の記事がわかりやすいです:
 https://qiita.com/uhyo/items/3855efd0d6c00c9f9c0f
 
 ### おまけ
@@ -205,7 +205,7 @@ _本項の執筆者: [@ajfAfg](https://zenn.dev/arjef)_
 ## Visual Studio Code August 2024
 https://code.visualstudio.com/updates/v1_93
 
-8月のリリース！　リリース機能が大量にあるので、個人的に気になったものをピックアップして紹介します。GitHub Copilot の話題中心です。
+8 月のリリース！　リリース機能が大量にあるので、個人的に気になったものをピックアップして紹介します。GitHub Copilot の話題中心です。
 
 ### Improved test generation
 
@@ -229,7 +229,7 @@ GitHub Copilot を用いて、プログラム中に記述した自然言語か�
 
 GitHub Copilot を用いて、あるテストカバレッジ的に網羅できていない部分のテストを生成可能になりました。こちらも[デモ動画が用意されています](https://code.visualstudio.com/assets/updates/1_93/generate-tests-code-lens.mp4)。
 
-テストカバレッジ100％を目指すべきかは議論があると思いますが、あった方がよいと判断できるテストはサクッと生成できて便利そうです。
+テストカバレッジ 100％を目指すべきかは議論があると思いますが、あった方がよいと判断できるテストはサクッと生成できて便利そうです。
 
 _本項の執筆者: [@ajfAfg](https://zenn.dev/arjef)_
 
@@ -253,7 +253,7 @@ _本項の執筆者: [@ajfAfg](https://zenn.dev/arjef)_
 ## node v22.7.x で TypeScript をそのまま実行する
 https://zenn.dev/mizchi/articles/experimental-node-typescript
 
-Experimental なオプション `--experimental-strip-types`/`--experimental-transform-types` を用いて、Node.js で TypeScript を実行する方法が紹介されています。v22.6.0で入った `--experimental-strip-types` は型アノテーションを消去するオプションで、v22.7.0 で入った `--experimental-transform-types` は TypeScript 限定の構文（e.g. `Enum`、`namespace`）を JavaScript コードに変換するオプションです。これらのオプションのユースケースとして、[zx](https://github.com/google/zx) を用いたスクリプトの記述が紹介されています。
+Experimental なオプション `--experimental-strip-types`/`--experimental-transform-types` を用いて、Node.js で TypeScript を実行する方法が紹介されています。v22.6.0 で入った `--experimental-strip-types` は型アノテーションを消去するオプションで、v22.7.0 で入った `--experimental-transform-types` は TypeScript 限定の構文（e.g. `Enum`、`namespace`）を JavaScript コードに変換するオプションです。これらのオプションのユースケースとして、[zx](https://github.com/google/zx) を用いたスクリプトの記述が紹介されています。
 
 記事中でも言及されていますが、TypeScript でスクリプトを書くときは deno が便利だし、deno も Node.js との互換性向上を頑張っている（[最近 Next.js が動くところまで行きました](https://docs.deno.com/runtime/tutorials/how_to_with_npm/next/)）ので、現状ではこれらのオプションを使う機会は結構少ないんじゃないかなーというのが正直な感想です。一方で、[TypeScript の Node.js ネイティブサポートに向けたロードマップ](https://github.com/nodejs/loaders/issues/217)が存在するほど力が入れられており、各 JavaScript エンジンのバトルは JavaScript 界隈の発展に欠かせないと思うので、今後に期待です。
 
@@ -282,7 +282,7 @@ https://tech.newmo.me/entry/2024/09/04/130000
 ## LLM-Term
 https://github.com/dh1011/llm-term
 
-シェルコマンドを自然言語で質問・実行できるRust製CLIです。現在サポートしているモデルは以下です:
+シェルコマンドを自然言語で質問・実行できる Rust 製 CLI です。現在サポートしているモデルは以下です:
 
 - OpenAI GPT-4 (gpt-4o)
 - OpenAI GPT-4 Mini (gpt-4o-mini)
