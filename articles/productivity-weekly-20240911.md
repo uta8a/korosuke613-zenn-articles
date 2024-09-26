@@ -35,7 +35,7 @@ user_defined:
 
 今週の共同著者は次の方です。
 - [@korosuke613](https://zenn.dev/korosuke613)
-<!-- - [@defaultcf](https://zenn.dev/defaultcf) -->
+- [@defaultcf](https://zenn.dev/defaultcf)
 - [@Kesin11](https://zenn.dev/kesin11)
 <!-- - [@r4mimu](https://zenn.dev/r4mimu) -->
 <!-- - [@uta8a](https://zenn.dev/uta8a) -->
@@ -47,6 +47,14 @@ user_defined:
 
 ## GitHub Actions: arm64 Linux and Windows runners are now generally available - GitHub Changelog
 https://github.blog/changelog/2024-09-03-github-actions-arm64-linux-and-windows-runners-are-now-generally-available/
+
+Arm64 Linux と Windows の GitHub-hosted ランナーが GA になりました🎉
+ただし Arm64 ランナーは Team か Enterprise Cloud Plan のユーザーにのみ提供されます。
+なお、GA になるにあたって追加された機能などは特に無いようです。
+
+特に Arm64 ランナーはコストパフォーマンスに優れていますから、Arm64 を使えるジョブであれば積極的に使っていきたいですね。
+
+_本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)_
 
 ## GitHub Enterprise Server 3.14 is generally available - GitHub Changelog
 https://github.blog/changelog/2024-08-29-github-enterprise-server-3-14-is-generally-available/
@@ -236,6 +244,16 @@ _本項の執筆者: [@ajfAfg](https://zenn.dev/arjef)_
 ## Amazon ECS now supports AWS Graviton-based Spot compute with AWS Fargate - AWS
 https://aws.amazon.com/jp/about-aws/whats-new/2024/09/amazon-ecs-graviton-based-spot-compute-fargate/
 
+Amazon ECS で Graviton ベースの Fargate Spot を使用可能になりました🎉
+Fargate Spot は ECS 用のサービスで、EC2 スポットインスタンスと同様に AWS の余剰リソースを利用できるもので、最大 70 ％のコスト削減が見込めます。
+
+今回 Graviton ベースの Fargate Spot が登場したことで、よりコストパフォーマンスの向上が見込めます。x86_64 より安く利用できることになります。
+使うにはキャパシティプロバイダに Fargate Spot を選択し、タスク定義で arm64 のアーキテクチャを指定するだけです。
+
+Arm64 で動かせるタスクがあれば、積極的に Graviton ベースの Fargate Spot で動かしたいですね。
+
+_本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)_
+
 ## Version support policy and ESLint v8.x end of life - ESLint - Pluggable JavaScript Linter
 https://eslint.org/blog/2024/09/eslint-v8-eol-version-support/
 
@@ -273,6 +291,17 @@ https://www.publickey1.jp/blog/24/51pc.html
 
 ## 円安を乗り越えるための Arm アーキテクチャへの移行が完了！ そのプロセスを公開します - カミナシ エンジニアブログ
 https://kaminashi-developer.hatenablog.jp/entry/2024/09/09/migration-to-arm-architecture
+
+AWS で x86_64 から Arm64 に移行した事例が紹介されています。
+RDS と ECS でそれぞれ移行したそうです。
+ECS では、Dockerfile の修正やビルドパイプラインの修正なども細かく紹介されており、移行する際に役立ちそうです。
+
+なお、文中で「（Arm64 の）Fargate Spot はサポートされていない」とありますが、この Productivity Weekly の冒頭の記事紹介にあるように、最近 Fargate Spot での Arm64 アーキテクチャがサポートされるようになりました！
+
+今回の Productivity Weekly では Arm64 の話題が 2 つ出てきました。
+やはりコストパフォーマンスを最大化するためにも Arm64 を積極的に活用していきたいものです。
+
+_本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)_
 
 ## GitHub ActionsのJobが落ちたときに何をするべきかを記述するPlaybookの仕組みを作って運用している話
 https://tech.newmo.me/entry/2024/09/04/130000
