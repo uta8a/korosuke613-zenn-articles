@@ -36,7 +36,7 @@ user_defined:
 今週の共同著者は次の方です。
 - [@korosuke613](https://zenn.dev/korosuke613)
 <!-- - [@defaultcf](https://zenn.dev/defaultcf) -->
-<!-- - [@Kesin11](https://zenn.dev/kesin11) -->
+- [@Kesin11](https://zenn.dev/kesin11)
 <!-- - [@r4mimu](https://zenn.dev/r4mimu) -->
 <!-- - [@uta8a](https://zenn.dev/uta8a) -->
 
@@ -50,14 +50,52 @@ https://github.blog/changelog/2024-09-03-github-actions-arm64-linux-and-windows-
 ## GitHub Enterprise Server 3.14 is generally available - GitHub Changelog
 https://github.blog/changelog/2024-08-29-github-enterprise-server-3-14-is-generally-available/
 
+GitHub Enterprise Server（GHES）3.14 が GA になりました。目玉としては SCIM への対応（public beta）のようですが、自分自身 SCIM についてシングルサインオン関連であることくらいしか分からないため解説できませんでした・・・社内で ID 管理をしている部署の方などは待望の機能だったのかもしれません。
+
+それ以外で個人的に注目したアップデートは以下です。
+
+- Dependabot でセキュリティアップデートのグループ化が可能になった
+- Organization でのセキュリティダッシュボードが追加
+- 任意の GitHub Actions ワークフローで GitHub Pages のデプロイが可能になった
+- 新 GitHub Projects で issue の自動クローズが可能になった
+
+3.14 のリリースノートは[こちら](https://docs.github.com/en/enterprise-server@3.14/admin/release-notes)なので全てのアップデートを確認したい方はこちらを参照してください。
+
+_本項の執筆者: [@Kesin11](https://zenn.dev/kesin11)_
+
 ## Copilot Chat in GitHub.com now can search across GitHub entities - GitHub Changelog
 https://github.blog/changelog/2024-08-29-copilot-chat-in-github-com-now-can-search-across-github-entities/
 
 ## Add repository permissions to custom organization roles - GitHub Changelog
 https://github.blog/changelog/2024-08-29-add-repository-permissions-to-custom-organization-roles/
 
+Organization 全体でのカスタムロールに対してより細かいリポジトリの権限設定が可能になりました。
+
+[以前のアップデート](https://github.blog/changelog/2024-07-10-pre-defined-organization-roles-that-grant-access-to-all-repositories/)で Organization 全体で事前に定義された read, write, triage, maintain, admin の 5 つのロールが追加されました。triage, maintain はこの時点では特殊なロールで、例えば triage ロールではリポジトリの issue に関しては操作する権限が与えられるなど、リポジトリの細かい権限が設定されていました。
+
+今回のアップデートではこのリポジトリの細かい権限を独自のカスタムロールでも設定できるようになりました。良い例が思いつかなかったのですが、例えば次の図のように Read ロールをベースにしつつ pull-request のクローズとリオープンだけは可能というような謎なロールも作成可能です。
+
+![repository-permission-to-custom-org-roles](/images/productivity-weekly-20240911/repository-permission-to-custom-org-roles.png)
+*Readをベースにしつつ個別の権限を追加したカスタムロールの作成画面*
+
+まだ全ての権限を付与できるわけではないように見えますが、例えば webhook の設定や wiki の設定など今までは admin が必要だった権限も一部設定できるようです。GitHub でユーザーの権限管理を検討する場合には単に Read, Write, Admin の 3 択だけではなくカスタムロールも検討してみるといいかもしれません。
+
+_本項の執筆者: [@Kesin11](https://zenn.dev/kesin11)_
+
 ## Push Rules are now generally available, and updates to custom properties - GitHub Changelog
 https://github.blog/changelog/2024-09-10-push-rules-are-now-generally-available-and-updates-to-custom-properties/
+
+Push Rules が GA になったのと、リポジトリの作成時に必須として設定されている Custom Properties を設定できるようになりました。
+
+Push Rules は特定の拡張子や特定のパスのファイルなど[^push-rules]を変更するコミットの push を禁止できる機能で、例えば `.github/workflows/**/*` を変更可能なユーザーを限定することなどが可能です。この機能が beta から GA になりました。
+
+[^push-rules]: 他にも制限可能な設定があります。詳しくは[ドキュメント](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets)を参照してください。
+
+Push Rules の話とは別で、[Custom Properties](https://docs.github.com/en/organizations/managing-organization-settings/managing-custom-properties-for-repositories-in-your-organization)をリポジトリの作成時に設定可能になりました。Custom Properties 自体については何度か紹介しているため[過去のProductivity Weeklyの記事](https://zenn.dev/cybozu_ept/articles/productivity-weekly-20231018?redirected=1#github-repository-custom-properties-beta---the-github-blog)を参照してもらえればと思います。
+
+Custom Properties は任意または必須が選択可能で、必須にした場合はデフォルト値が設定されます。今まではリポジトリ作成後に別画面から Custom Properties の設定が必要だったため、設定を忘れてしまうことが多かったかもしれません。今後はリポジトリ作成画面にて必須の Custom Properties の設定が可能になるため忘れずに設定できそうですね。
+
+_本項の執筆者: [@Kesin11](https://zenn.dev/kesin11)_
 
 ## Announcing TypeScript 5.6 - TypeScript
 https://devblogs.microsoft.com/typescript/announcing-typescript-5-6/
