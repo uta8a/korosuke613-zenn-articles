@@ -248,7 +248,7 @@ Amazon ECS で Graviton ベースの Fargate Spot を使用可能になりまし
 Fargate Spot は ECS 用のサービスで、EC2 スポットインスタンスと同様に AWS の余剰リソースを利用できるもので、最大 70 ％のコスト削減が見込めます。
 
 今回 Graviton ベースの Fargate Spot が登場したことで、よりコストパフォーマンスの向上が見込めます。x86_64 より安く利用できることになります。
-使うにはキャパシティプロバイダに Fargate Spot を選択し、タスク定義で arm64 のアーキテクチャを指定するだけです。
+使うにはキャパシティープロバイダーに Fargate Spot を選択し、タスク定義で arm64 のアーキテクチャを指定するだけです。
 
 Arm64 で動かせるタスクがあれば、積極的に Graviton ベースの Fargate Spot で動かしたいですね。
 
@@ -293,7 +293,7 @@ https://www.publickey1.jp/blog/24/51pc.html
 https://kaminashi-developer.hatenablog.jp/entry/2024/09/09/migration-to-arm-architecture
 
 AWS で x86_64 から Arm64 に移行した事例が紹介されています。
-RDS と ECS でそれぞれ移行したそうです。
+RDS と ECS でそれぞれ Arm64 に移行したそうです。
 ECS では、Dockerfile の修正やビルドパイプラインの修正なども細かく紹介されており、移行する際に役立ちそうです。
 
 なお、文中で「（Arm64 の）Fargate Spot はサポートされていない」とありますが、この Productivity Weekly の冒頭の記事紹介にあるように、最近 Fargate Spot での Arm64 アーキテクチャがサポートされるようになりました！
