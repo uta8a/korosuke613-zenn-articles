@@ -244,7 +244,7 @@ https://eslint.org/blog/2024/09/eslint-v8-eol-version-support/
 ## Terraformで不要になったmoved/import/removedブロックを楽に削除する - repl.info
 https://repl.info/archives/2024/08/
 
-moved/import/removedブロックを消すだけの Pull Request を手動で作るの面倒だよねということで、それらのブロックを自動的に消すツールを作り、GitHub Actions でそのPR作成を自動化できるようにした話です。
+moved/import/removed ブロックを消すだけの Pull Request を手動で作るの面倒だよねということで、それらのブロックを自動的に消すツールを作り、GitHub Actions でその PR 作成を自動化できるようにした話です。
 
 再利用可能な Terraform モジュールとして外部に公開している場合は、これらのブロックを消すとバージョン更新時に期待通り動かないケースが出そうです。一方で、チーム内で閉じて Terraform を利用している場合はそのようなケースがあまり考えられず、また moved/import/removed を行なった事実は git で追跡したい場合が多いと思うので便利そうです。
 
