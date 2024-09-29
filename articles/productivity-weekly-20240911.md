@@ -75,6 +75,12 @@ _本項の執筆者: [@Kesin11](https://zenn.dev/kesin11)_
 ## Copilot Chat in GitHub.com now can search across GitHub entities - GitHub Changelog
 https://github.blog/changelog/2024-08-29-copilot-chat-in-github-com-now-can-search-across-github-entities/
 
+GitHub Copilot Chat in GitHub.com において、コンテキストのリポジトリだけでなく、GitHub 全体を検索の対象とできるようになりました。例えば、自分に割り当てられている Issue や PR を Copilot Chat に問い合わせることもできるようです。
+
+Copilot Chat in GitHub.com は元々 GitHub Copilot Enterprise のみの機能でしたが、[最近 Individual、Business プランでも利用できる様になりました](https://github.blog/changelog/2024-09-26-copilot-in-github-com-now-available-on-copilot-individual-and-copilot-business-public-preview/)（public beta）。気になる方はポリシーから有効化して試してみてください。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
+
 ## Add repository permissions to custom organization roles - GitHub Changelog
 https://github.blog/changelog/2024-08-29-add-repository-permissions-to-custom-organization-roles/
 
