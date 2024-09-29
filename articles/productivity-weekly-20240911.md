@@ -263,6 +263,20 @@ _本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)_
 ## Version support policy and ESLint v8.x end of life - ESLint - Pluggable JavaScript Linter
 https://eslint.org/blog/2024/09/eslint-v8-eol-version-support/
 
+ESLint v8 が 2024/10/05 で EOL となります。それ以降は v9 以降のバージョンのみがサポートされます。
+
+ESLint v9 と言えば、Flat Config という新しい設定ファイルの形式が導入されたバージョンになります。Flat Config を使わずに従来の設定ファイル形式を使うには `ESLINT_USE_FLAT_CONFIG=false` 環境変数の設定で対応できますが、古い形式は非推奨であるため、早めに Flat Config に移行することが推奨されています。
+
+なお、どうしても v8 を使い続けたい場合は、[HeroDevs という会社の有償サポートを利用することで v8 を使い続けられる](https://www.herodevs.com/blog-posts/herodevs-partners-with-eslint-to-launch-eslint-nes-for-legacy-javascript-support)様です。
+
+僕も個人で ESLint を使っていましたが、検討した当時に typescript-eslint が v9 対応されていなかった[^ts_es]のもあり、結局 [Biome](https://biomejs.dev/) に移行しました。設定周りの面倒ごともありますが、利用しているプラグインが対応してないと厳しいパターンもありますね。
+
+もしまだ v8 を使っている場合は急いで v9 に移行しましょう。
+
+[^ts_es]: 最近調べたら、7 月末にリリースされた typescript-eslint　v8 で eslint v9 対応されてました。[Announcing typescript-eslint v8 | typescript-eslint](https://typescript-eslint.io/blog/announcing-typescript-eslint-v8)
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
+
 # know-how 🎓
 
 ## Terraformで不要になったmoved/import/removedブロックを楽に削除する - repl.info
