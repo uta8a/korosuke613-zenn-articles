@@ -23,6 +23,7 @@ jobs:
     permissions:
       contents: read
       pull-requests: write
+      statuses: write
     environment: ${{ inputs.environment }}
     runs-on: ubuntu-latest
     steps:
@@ -57,6 +58,19 @@ jobs:
           \cp -f ${{ runner.temp }}/ai-review/deno.lock .
           \cp -rf ${{ runner.temp }}/ai-review/tools .
           ls deno.lock tools
+
+      - name: Set pending status
+        uses: actions/github-script@v6
+        with:
+          script: |
+            await github.repos.createCommitStatus({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              sha: '${{ steps.setup_branches.outputs.latest_git_sha }}',
+              state: 'pending',
+              description: 'AI Review is in progress',
+              context: 'AI Review'
+            })
 
       - uses: ./.github/actions/setup-deno
 
@@ -112,3 +126,19 @@ jobs:
             echo '```'
           } >> "$COMMENT_FILE"
           gh pr comment ${{ inputs.pr_number }} --body-file "$COMMENT_FILE"
+
+      - name: Set final status
+        if: always()
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const state = github.context.job.conclusion === 'success' ? 'success' : 'failure';
+            const description = state === 'success' ? 'AI Review completed successfully' : 'AI Review failed';
+            await github.repos.createCommitStatus({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              sha: '${{ steps.setup_branches.outputs.latest_git_sha }}',
+              state: state,
+              description: description,
+              context: 'AI Review'
+            })
