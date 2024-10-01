@@ -1,5 +1,5 @@
 ---
-title: ＜ここにタイトルを入力＞｜Productivity Weekly(2024-09-11, 2024-09-04)
+title: TypeScript 5.6やGitHubの細かいorgロールなど｜Productivity Weekly(2024-09-11, 04)
 emoji: 🍷
 type: idea
 topics:
@@ -37,80 +37,16 @@ user_defined:
 - [@korosuke613](https://zenn.dev/korosuke613)
 - [@defaultcf](https://zenn.dev/defaultcf)
 - [@Kesin11](https://zenn.dev/kesin11)
-<!-- - [@r4mimu](https://zenn.dev/r4mimu) -->
-<!-- - [@uta8a](https://zenn.dev/uta8a) -->
-- [@ajfAfg](https://zenn.dev/arjef)
+- [@ajfAfg](https://zenn.dev/arjef) <- New!
+
+---
+
+！？
+[@ajfAfg](https://zenn.dev/arjef) さんが共同執筆者に加わっていますね。早速たくさん書いてくれました。すごいです。
 
 :::
 
 # news 📺
-
-## GitHub Actions: arm64 Linux and Windows runners are now generally available - GitHub Changelog
-https://github.blog/changelog/2024-09-03-github-actions-arm64-linux-and-windows-runners-are-now-generally-available/
-
-Arm64 Linux と Windows の GitHub-hosted ランナーが GA になりました🎉
-ただし Arm64 ランナーは Team か Enterprise Cloud Plan のユーザーにのみ提供されます。
-なお、GA になるにあたって追加された機能などは特に無いようです。
-
-特に Arm64 ランナーはコストパフォーマンスに優れていますから、Arm64 を使えるジョブであれば積極的に使っていきたいですね。
-
-_本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)_
-
-## GitHub Enterprise Server 3.14 is generally available - GitHub Changelog
-https://github.blog/changelog/2024-08-29-github-enterprise-server-3-14-is-generally-available/
-
-GitHub Enterprise Server（GHES）3.14 が GA になりました。目玉としては SCIM への対応（public beta）のようですが、自分自身 SCIM についてシングルサインオン関連であることくらいしか分からないため解説できませんでした・・・社内で ID 管理をしている部署の方などは待望の機能だったのかもしれません。
-
-それ以外で個人的に注目したアップデートは以下です。
-
-- Dependabot でセキュリティアップデートのグループ化が可能になった
-- Organization でのセキュリティダッシュボードが追加
-- 任意の GitHub Actions ワークフローで GitHub Pages のデプロイが可能になった
-- 新 GitHub Projects で issue の自動クローズが可能になった
-
-3.14 のリリースノートは[こちら](https://docs.github.com/en/enterprise-server@3.14/admin/release-notes)なので全てのアップデートを確認したい方はこちらを参照してください。
-
-_本項の執筆者: [@Kesin11](https://zenn.dev/kesin11)_
-
-## Copilot Chat in GitHub.com now can search across GitHub entities - GitHub Changelog
-https://github.blog/changelog/2024-08-29-copilot-chat-in-github-com-now-can-search-across-github-entities/
-
-GitHub Copilot Chat in GitHub.com において、コンテキストのリポジトリだけでなく、GitHub 全体を検索の対象とできるようになりました。例えば、自分に割り当てられている Issue や PR を Copilot Chat に問い合わせることもできるようです。
-
-Copilot Chat in GitHub.com は元々 GitHub Copilot Enterprise のみの機能でしたが、[最近 Individual、Business プランでも利用できる様になりました](https://github.blog/changelog/2024-09-26-copilot-in-github-com-now-available-on-copilot-individual-and-copilot-business-public-preview/)（public beta）。気になる方はポリシーから有効化して試してみてください。
-
-_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
-
-## Add repository permissions to custom organization roles - GitHub Changelog
-https://github.blog/changelog/2024-08-29-add-repository-permissions-to-custom-organization-roles/
-
-Organization 全体でのカスタムロールに対してより細かいリポジトリの権限設定が可能になりました。
-
-[以前のアップデート](https://github.blog/changelog/2024-07-10-pre-defined-organization-roles-that-grant-access-to-all-repositories/)で Organization 全体で事前に定義された read, write, triage, maintain, admin の 5 つのロールが追加されました。triage, maintain はこの時点では特殊なロールで、例えば triage ロールではリポジトリの issue に関しては操作する権限が与えられるなど、リポジトリの細かい権限が設定されていました。
-
-今回のアップデートではこのリポジトリの細かい権限を独自のカスタムロールでも設定できるようになりました。良い例が思いつかなかったのですが、例えば次の図のように Read ロールをベースにしつつ pull-request のクローズとリオープンだけは可能というような謎なロールも作成可能です。
-
-![repository-permission-to-custom-org-roles](/images/productivity-weekly-20240911/repository-permission-to-custom-org-roles.png)
-*Readをベースにしつつ個別の権限を追加したカスタムロールの作成画面*
-
-まだ全ての権限を付与できるわけではないように見えますが、例えば webhook の設定や wiki の設定など今までは admin が必要だった権限も一部設定できるようです。GitHub でユーザーの権限管理を検討する場合には単に Read, Write, Admin の 3 択だけではなくカスタムロールも検討してみるといいかもしれません。
-
-_本項の執筆者: [@Kesin11](https://zenn.dev/kesin11)_
-
-## Push Rules are now generally available, and updates to custom properties - GitHub Changelog
-https://github.blog/changelog/2024-09-10-push-rules-are-now-generally-available-and-updates-to-custom-properties/
-
-Push Rules が GA になったのと、リポジトリの作成時に必須として設定されている Custom Properties を設定できるようになりました。
-
-Push Rules は特定の拡張子や特定のパスのファイルなど[^push-rules]を変更するコミットの push を禁止できる機能で、例えば `.github/workflows/**/*` を変更可能なユーザーを限定することなどが可能です。この機能が beta から GA になりました。
-
-[^push-rules]: 他にも制限可能な設定があります。詳しくは[ドキュメント](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets)を参照してください。
-
-Push Rules の話とは別で、[Custom Properties](https://docs.github.com/en/organizations/managing-organization-settings/managing-custom-properties-for-repositories-in-your-organization)をリポジトリの作成時に設定可能になりました。Custom Properties 自体については何度か紹介しているため[過去のProductivity Weeklyの記事](https://zenn.dev/cybozu_ept/articles/productivity-weekly-20231018?redirected=1#github-repository-custom-properties-beta---the-github-blog)を参照してもらえればと思います。
-
-Custom Properties は任意または必須が選択可能で、必須にした場合はデフォルト値が設定されます。今まではリポジトリ作成後に別画面から Custom Properties の設定が必要だったため、設定を忘れてしまうことが多かったかもしれません。今後はリポジトリ作成画面にて必須の Custom Properties の設定が可能になるため忘れずに設定できそうですね。
-
-_本項の執筆者: [@Kesin11](https://zenn.dev/kesin11)_
 
 ## Announcing TypeScript 5.6 - TypeScript
 https://devblogs.microsoft.com/typescript/announcing-typescript-5-6/
@@ -216,6 +152,74 @@ eat(banana);
 
 _本項の執筆者: [@ajfAfg](https://zenn.dev/arjef)_
 
+
+## GitHub Actions: arm64 Linux and Windows runners are now generally available - GitHub Changelog
+https://github.blog/changelog/2024-09-03-github-actions-arm64-linux-and-windows-runners-are-now-generally-available/
+
+Arm64 Linux と Windows の GitHub-hosted ランナーが GA になりました🎉
+ただし Arm64 ランナーは Team か Enterprise Cloud Plan のユーザーにのみ提供されます。
+なお、GA になるにあたって追加された機能などは特に無いようです。
+
+特に Arm64 ランナーはコストパフォーマンスに優れていますから、Arm64 を使えるジョブであれば積極的に使っていきたいですね。
+
+_本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)_
+
+## GitHub Enterprise Server 3.14 is generally available - GitHub Changelog
+https://github.blog/changelog/2024-08-29-github-enterprise-server-3-14-is-generally-available/
+
+GitHub Enterprise Server（GHES）3.14 が GA になりました。目玉としては SCIM への対応（public beta）のようですが、自分自身 SCIM についてシングルサインオン関連であることくらいしか分からないため解説できませんでした・・・社内で ID 管理をしている部署の方などは待望の機能だったのかもしれません。
+
+それ以外で個人的に注目したアップデートは以下です。
+
+- Dependabot でセキュリティアップデートのグループ化が可能になった
+- Organization でのセキュリティダッシュボードが追加
+- 任意の GitHub Actions ワークフローで GitHub Pages のデプロイが可能になった
+- 新 GitHub Projects で issue の自動クローズが可能になった
+
+3.14 のリリースノートは[こちら](https://docs.github.com/en/enterprise-server@3.14/admin/release-notes)なので全てのアップデートを確認したい方はこちらを参照してください。
+
+_本項の執筆者: [@Kesin11](https://zenn.dev/kesin11)_
+
+## Copilot Chat in GitHub.com now can search across GitHub entities - GitHub Changelog
+https://github.blog/changelog/2024-08-29-copilot-chat-in-github-com-now-can-search-across-github-entities/
+
+GitHub Copilot Chat in GitHub.com において、コンテキストのリポジトリだけでなく、GitHub 全体を検索の対象とできるようになりました。例えば、自分に割り当てられている Issue や PR を Copilot Chat に問い合わせることもできるようです。
+
+Copilot Chat in GitHub.com は元々 GitHub Copilot Enterprise のみの機能でしたが、[最近 Individual、Business プランでも利用できる様になりました](https://github.blog/changelog/2024-09-26-copilot-in-github-com-now-available-on-copilot-individual-and-copilot-business-public-preview/)（public beta）。気になる方はポリシーから有効化して試してみてください。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
+
+## Add repository permissions to custom organization roles - GitHub Changelog
+https://github.blog/changelog/2024-08-29-add-repository-permissions-to-custom-organization-roles/
+
+Organization 全体でのカスタムロールに対してより細かいリポジトリの権限設定が可能になりました。
+
+[以前のアップデート](https://github.blog/changelog/2024-07-10-pre-defined-organization-roles-that-grant-access-to-all-repositories/)で Organization 全体で事前に定義された read, write, triage, maintain, admin の 5 つのロールが追加されました。triage, maintain はこの時点では特殊なロールで、例えば triage ロールではリポジトリの issue に関しては操作する権限が与えられるなど、リポジトリの細かい権限が設定されていました。
+
+今回のアップデートではこのリポジトリの細かい権限を独自のカスタムロールでも設定できるようになりました。良い例が思いつかなかったのですが、例えば次の図のように Read ロールをベースにしつつ pull-request のクローズとリオープンだけは可能というような謎なロールも作成可能です。
+
+![repository-permission-to-custom-org-roles](/images/productivity-weekly-20240911/repository-permission-to-custom-org-roles.png)
+*Readをベースにしつつ個別の権限を追加したカスタムロールの作成画面*
+
+まだ全ての権限を付与できるわけではないように見えますが、例えば webhook の設定や wiki の設定など今までは admin が必要だった権限も一部設定できるようです。GitHub でユーザーの権限管理を検討する場合には単に Read, Write, Admin の 3 択だけではなくカスタムロールも検討してみるといいかもしれません。
+
+_本項の執筆者: [@Kesin11](https://zenn.dev/kesin11)_
+
+## Push Rules are now generally available, and updates to custom properties - GitHub Changelog
+https://github.blog/changelog/2024-09-10-push-rules-are-now-generally-available-and-updates-to-custom-properties/
+
+Push Rules が GA になったのと、リポジトリの作成時に必須として設定されている Custom Properties を設定できるようになりました。
+
+Push Rules は特定の拡張子や特定のパスのファイルなど[^push-rules]を変更するコミットの push を禁止できる機能で、例えば `.github/workflows/**/*` を変更可能なユーザーを限定することなどが可能です。この機能が beta から GA になりました。
+
+[^push-rules]: 他にも制限可能な設定があります。詳しくは[ドキュメント](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets)を参照してください。
+
+Push Rules の話とは別で、[Custom Properties](https://docs.github.com/en/organizations/managing-organization-settings/managing-custom-properties-for-repositories-in-your-organization)をリポジトリの作成時に設定可能になりました。Custom Properties 自体については何度か紹介しているため[過去のProductivity Weeklyの記事](https://zenn.dev/cybozu_ept/articles/productivity-weekly-20231018?redirected=1#github-repository-custom-properties-beta---the-github-blog)を参照してもらえればと思います。
+
+Custom Properties は任意または必須が選択可能で、必須にした場合はデフォルト値が設定されます。今まではリポジトリ作成後に別画面から Custom Properties の設定が必要だったため、設定を忘れてしまうことが多かったかもしれません。今後はリポジトリ作成画面にて必須の Custom Properties の設定が可能になるため忘れずに設定できそうですね。
+
+_本項の執筆者: [@Kesin11](https://zenn.dev/kesin11)_
+
 ## Visual Studio Code August 2024
 https://code.visualstudio.com/updates/v1_93
 
@@ -297,18 +301,6 @@ Experimental なオプション `--experimental-strip-types`/`--experimental-tra
 
 _本項の執筆者: [@ajfAfg](https://zenn.dev/arjef)_
 
-## 開発者体験を意識した開発チームの生産性向上の取り組み - Speaker Deck
-https://speakerdeck.com/ham0215/kai-fa-zhe-ti-yan-woyi-shi-sitakai-fa-timunosheng-chan-xing-xiang-shang-noqu-rizu-mi
-
-## 目標設定と習慣化で今よりも一歩生産性を上げる - Speaker Deck
-https://speakerdeck.com/sansantech/sansan-20240829
-
-## Findy Team+に追加されたSPACEを計測できるチームサーベイ機能が良かった
-https://zenn.dev/pharmax/articles/62b126836f12dd
-
-## モブプログラミングは、なぜ5人が1台のPCで仕事をしているのに生産的になれるのか（前編）。モブプログラミングの生みの親が解説するその理由と効果とは？ － Publickey
-https://www.publickey1.jp/blog/24/51pc.html
-
 ## 円安を乗り越えるための Arm アーキテクチャへの移行が完了！ そのプロセスを公開します - カミナシ エンジニアブログ
 https://kaminashi-developer.hatenablog.jp/entry/2024/09/09/migration-to-arm-architecture
 
@@ -322,9 +314,6 @@ ECS では、Dockerfile の修正やビルドパイプラインの修正など�
 やはりコストパフォーマンスを最大化するためにも Arm64 を積極的に活用していきたいものです。
 
 _本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)_
-
-## GitHub ActionsのJobが落ちたときに何をするべきかを記述するPlaybookの仕組みを作って運用している話
-https://tech.newmo.me/entry/2024/09/04/130000
 
 # tool 🔨
 
@@ -355,11 +344,22 @@ Productivity Weekly で出たネタを全て紹介したいけど紹介する体
 
 - **news 📺**
   - [RIP 2024年こそ corepack を使おうとしたら終わった](https://zenn.dev/monicle/articles/b7a9314f9f1efb)
+    - Node.js において、プロジェクトごとに指定したパッケージマネージャを強制する仕組みである corepack が Node.js から削除されることが決まった様です
+    - この方も書かれていますが、「Node.js にバンドルされているからこそ corepack の価値があった」というのは共感できます。かなしみ
 - **know-how 🎓**
-- **tool 🔨**
+  - [目標設定と習慣化で今よりも一歩生産性を上げる - Speaker Deck](https://speakerdeck.com/sansantech/sansan-20240829)
+    - ある程度うまく開発が回ってるチームの生産性をさらに上げるための目標設定と実現のための習慣化の話です
+    - なぜ目標から離れた数値となっているかの分析と改善のための習慣化をうまく行なっていると感じました。すごい
+  - [Findy Team+に追加されたSPACEを計測できるチームサーベイ機能が良かった](https://zenn.dev/pharmax/articles/62b126836f12dd)
+    - Findy Team+ に SPACE を計測できるサーベイ機能が追加されたようです
+    - 面白い機能だなと思いつつ、最大でも頻度が 1 ヶ月までしか設定できないようで、個人的にはもうちょっと長い間隔で設定できると嬉しいかなと思いました
+  - [GitHub ActionsのJobが落ちたときに何をするべきかを記述するPlaybookの仕組みを作って運用している話](https://tech.newmo.me/entry/2024/09/04/130000)
+    - GitHub Actions のジョブが落ちた際の対応方法（Playbook）を用意し、失敗時に Job Summaries に出力する運用をしている話です
+    - ジョブ失敗時の対応はリポジトリに慣れている人はエラーを見るだけで対応できると思いますが、慣れてない人はどういうログを見ればいいかもエラーの原因を特定するのも修正も時間がかかってしまうと思います。Playbook が失敗したジョブに紐付いて見られると誰でも対応方法がわかって良いですね。メンテは大変そう
 
 # あとがき
-
+めちゃくちゃ遅れてすみません。相変わらず本業が忙しいです（言い訳）。
+今週号から新たに [@ajfAfg](https://zenn.dev/arjef) さんが執筆に加わりました！彼も生産性向上チームの一員で、今年入社の新卒の方です。将来有望ですね。
 
 サイボウズの生産性向上チームでは社内エンジニアの開発生産性を上げるための活動を行なっています。そんな生産性向上チームが気になる方は下のリンクをクリック！
 https://www.docswell.com/s/cybozu-tech/5R2X3N-engineering-productivity-team-recruitment-information
