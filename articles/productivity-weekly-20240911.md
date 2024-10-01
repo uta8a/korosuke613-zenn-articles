@@ -269,7 +269,7 @@ https://eslint.org/blog/2024/09/eslint-v8-eol-version-support/
 
 ESLint v8 が 2024/10/05 で EOL となります。それ以降は v9 以降のバージョンのみがサポートされます。
 
-ESLint v9 と言えば、Flat Config という新しい設定ファイルの形式が導入されたバージョンになります。Flat Config を使わずに従来の設定ファイル形式を使うには `ESLINT_USE_FLAT_CONFIG=false` 環境変数の設定で対応できますが、古い形式は非推奨であるため、早めに Flat Config に移行することが推奨されています。
+ESLint v9 と言えば、Flat Config という新しい設定ファイルの形式が導入されたバージョンになります。Flat Config を使わずに従来の設定ファイル形式を使うには `ESLINT_USE_FLAT_CONFIG=false` 環境変数の設定で対応できますが、従来の形式は非推奨であるため、早めに Flat Config に移行することが推奨されています。
 
 なお、どうしても v8 を使い続けたい場合は、[HeroDevs という会社の有償サポートを利用することで v8 を使い続けられる](https://www.herodevs.com/blog-posts/herodevs-partners-with-eslint-to-launch-eslint-nes-for-legacy-javascript-support)様です。
 
