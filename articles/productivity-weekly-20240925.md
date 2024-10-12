@@ -69,7 +69,7 @@ Copilot Autofix for Code QL code scanning alerts が Public リポジトリで�
 
 この機能自体は Advanced Security 向けにすでに GA となっており、今回は public リポジトリで GA になったアナウンスです。GitHub Copilot を契約していなくても GitHub Copilot Autofix を無料で試せるという点で、まだ AI 機能を使ったことがない方はぜひ試してみると良いでしょう。(参考: [`You do not need a subscription to GitHub Copilot to use GitHub Copilot Autofix.`](https://docs.github.com/en/code-security/code-scanning/managing-code-scanning-alerts/responsible-use-autofix-code-scanning))
 
-実際に試したみた様子を紹介します。
+実際に試してみた様子を紹介します。
 
 パブリックリポジトリの Settings から Security セクションの Code Scanning を選択します。
 
