@@ -133,7 +133,7 @@ https://github.blog/news-insights/product-news/enhancing-the-github-copilot-ecos
 
 今年 5 月に limited public beta として提供が始まった GitHub Copilot Extensions が、今回 Public beta として提供開始になりました。利用には Copilot individual, Business, Enterprise いずれかのサブスクリプションが必要です。Business, Enterprise については Organization/Enterprise で Settings から許可が必要になっています。
 
-Copilot Extensions は GitHub Copilot Chat に `@EXTENSION_NAME` で質問することで、`EXTENSION_NAME` に対応するデータソースを元に回答が生成できるような拡張機能です。実際には回答を生成する以外にも、拡張機能ごとに豊富な機能があります。例えば Docker の extension を入れて `@docker` を使って Chat へ入力すると、リポジトリを読んでコンテナ化する PR を自動で作成してくれるようです。(参考: [`docker/copilot-issues` のデモ動画](https://github.com/docker/copilot-issues))
+Copilot Extensions は GitHub Copilot Chat に `@EXTENSION_NAME` で質問することで、`EXTENSION_NAME` に対応するデータソースを元に回答を生成できるような拡張機能です。実際には回答を生成する以外にも、拡張機能ごとに豊富な機能があります。例えば Docker の extension を入れて `@docker` を使って Chat へ入力すると、リポジトリを読んでコンテナ化する PR を自動で作成してくれるようです。(参考: [`docker/copilot-issues` のデモ動画](https://github.com/docker/copilot-issues))
 [GitHub Marketplace > Copilot](https://github.com/marketplace?type=apps&copilot_app=true) から拡張機能の一覧が見られます。
 簡単に言うと、GitHub Copilot Chat に対してサービス独自のドキュメント等の情報をデータソースとして足した RAG のような機能を簡単に利用・作成できる点が Copilot Extensions の特徴です。
 今回、新しく Copilot Extensions Toolkit が提供されました。感覚的には VS Code の extensions を作るように、提供された SDK を用いて独自の GitHub Copilot Extensions を作成できるようです。
