@@ -56,6 +56,11 @@ GitHub Actions に今後半年かけて入る変更についての告知。githu
 
 1 つめは Incoming Webhook のレートリミット。2024 年 10 月 1 日から 1 リポジトリあたり、GitHub Actions に対する Incoming Webhook に 1250 リクエスト/10 秒のレートリミットが入ります。変更が入る前、bot が cron で動く場合に短時間で GitHub Actions へ Webhook を送ってレートリミットにかかる可能性もなくはないか、と考えていました。しかし今のところ弊社では問題になっていないので、GitHub も `no customers will be impacted by this change` と言っているように、ほとんどの方は気にする必要がない変更だと思います。
 
+:::message
+"Incoming Webhook" が何を指すのかはよく分かっていないです。チームでは GitHub Actions で webhook と言えば [`repository_dispatch`](https://docs.github.com/en/actions/writing-workflows/choosing-when-your-workflow-runs/events-that-trigger-workflows#repository_dispatch) もしくは GitHub の内部的な webhook(例: `pull_request` イベントが発生したら、GitHub Actions のシステムの方にイベントの webhook が飛ぶ)の 2 つだろうと言う話になりました。"Incoming Webhook"についての記述はドキュメントや Discussion 等を探しても見つけられていません。おそらく内部的な用語なのではないかと推測しています。
+何かご存知の方がいたらご一報よろしくお願いします。
+:::
+
 2 つめは [`actions/cache`](https://github.com/actions/cache) の v1, v2 の deprecation のお知らせ。2025 年 2 月 1 日から GitHub Actions のキャッシュストレージが新しいアーキテクチャに変更される影響で、v1, v2 が deprecation となります。アーキテクチャの変更以降に v1, v2 を使うとワークフローが失敗するようなのでアップデートを済ませておきましょう。actions/cache の最新は 2024 年 10 月 12 日執筆時点で v4.1.1 です。Copilot に GitHub Actions の補完を任せると古いバージョンを提案してくることがあるので、最新版の確認と、Renovate 等を用いた継続的な actions のバージョン更新をやっていきましょう。
 
 _本項の執筆者: [@uta8a](https://zenn.dev/uta8a)_
