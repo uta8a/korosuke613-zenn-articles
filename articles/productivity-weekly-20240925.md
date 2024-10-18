@@ -1,13 +1,13 @@
 ---
-title: ＜ここにタイトルを入力＞｜Productivity Weekly(2024-09-25, 2024-09-18)
+title: Docker Subscription値上げなど｜Productivity Weekly(2024-09-25,18)
 emoji: 🐸
 type: idea
 topics:
   - ProductivityWeekly
   - 生産性向上
-published: false
+published: true
 publication_name: cybozu_ept
-user_defined: 
+user_defined:
   publish_link: https://zenn.dev/cybozu_ept/articles/productivity-weekly-20240925
   note: |
     _本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
@@ -15,6 +15,7 @@ user_defined:
     _本項の執筆者: [@Kesin11](https://zenn.dev/kesin11)_
     _本項の執筆者: [@r4mimu](https://zenn.dev/r4mimu)_
     _本項の執筆者: [@uta8a](https://zenn.dev/uta8a)_
+published_at: 2024-10-17 15:15
 ---
 
 こんにちは。サイボウズ株式会社 [生産性向上チーム](https://www.docswell.com/s/cybozu-tech/5R2X3N-engineering-productivity-team-recruitment-information)の平木場です。
@@ -49,6 +50,63 @@ user_defined:
 ## アップグレードされたDockerプランの発表: よりシンプルに、より価値を、より優れた開発と生産性を実現  | Docker
 https://www.docker.com/ja-jp/blog/november-2024-updated-plans-announcement/
 
+2024/11/15 より、Docker Subscription の各プランの価格・付加価値が変わります。
+
+:::message
+ある程度ちゃんと調べたつもりですが、変更点が多すぎて不足してる点や誤っている点があるかもしれません。
+しっかりと Docker 社の発表、最新情報も確認してください。
+:::
+
+プランの価格の変更については次のとおりです。
+
+|プラン名|価格の変更内容|
+|---|---|
+|Docker Business|変更なし - $24/user/month (年払)|
+|Docker Team|$9/user/month -> $15/user/month (年払) <br/> $11/user/month -> $16/user/month (月払)|
+|Docker Pro|$5/month -> $9/month（年払）<br/> $7/month -> $11/month（月払）|
+|Docker Personal|変更なし - 無料|
+
+また、次のサービスについて変更があります。
+
+- Docker Hub
+  - pull rate limit が廃止あるいは変更。また、プル数に応じて従量課金が発生するように
+  - Docker Business: 1M pull/month の無料枠が含まれる
+  - Docker Team: 100K pull/month の無料枠が含まれる
+  - Docker Pro: 25K pull/month の無料枠が含まれる
+  - Docker Personal: 40 pull/user/hour の pull rate limit（もともとは 200 pull/user/6 hour）
+  - 非認証ユーザ: 10 pull/ip address/hour の pull rate limit（もともとは 100 pull/ip address/6 hour）
+- Docker Build Cloud
+  - 一部プランでシートごとに追加の課金が廃止され、プラン内のすべてのユーザが利用できるように
+  - Docker Business: 無料枠が 1500 minute/month へ増加（もともとは 800 minutes/month）
+  - Docker Team: 無料枠が 500 minute/month へ増加（もともとは 400 minutes/month）
+  - Docker Pro: 無料枠が 200 minute/month へ増加（もともとは 100 minutes/month）
+  - Docker Personal: 変更なし - 無料枠なし
+- Docker Scout
+  - 一部プランでリモートイメージスキャンのリポジトリ上限が廃止。一部プランで上限が縮小。
+  - Docker Business: リポジトリ無制限へ変更（もともとは無料枠が 3 リポジトリ）
+  - Docker Team: リポジトリ無制限へ変更（もともとは無料枠が 3 リポジトリ）
+  - Docker Pro: 変更なし - 2 リポジトリ（もともとは無料枠が 3 リポジトリ）
+  - Docker Personal: 変更なし - 1 リポジトリ（もともとは無料枠が 3 リポジトリ）
+- Testcontainers Cloud
+  - 一部プランでシートごとに追加の課金が廃止され、プラン全体として無料枠が追加されました（元々どうだったのかいまいちわからなく、自信がない）
+  - Docker Business: 無料枠が 1500 runtime minutes へ増加
+  - Docker Team: リポジトリ無制限へ変更
+  - Docker Pro: 変更なし - 2 リポジトリ
+  - Docker Personal: 変更なし - 1 リポジトリ
+
+:::message
+Docker Scout については、元々Free プラン、Scout Team プラン、Scout Business プランの 3 つがあり、Docker Subscription とは別に課金が必要でした。
+
+![](/images/productivity-weekly-20240925/docker_scout_old_plans.png)
+*[2024/08/27 時点の Docker Scout pricing](https://web.archive.org/web/20240827214306/https://www.docker.com/products/docker-scout/)*
+
+:::
+
+大きな企業と無料ユーザー以外にとっては値上げとなります。特に Docker Team はユーザあたり 60 % の値上げとなるため、契約している団体にとってはインパクトが大きそうです。
+また、有料ユーザの pull 数上限が設定されたのは Docker Hub ヘビーユーザーほどダメージが大きそうですね。新たにミラーレジストリの運用を考える必要がある団体も出てくるかもしれません。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
+
 ## Notice of upcoming deprecations and changes in GitHub Actions services - GitHub Changelog
 https://github.blog/changelog/2024-09-16-notice-of-upcoming-deprecations-and-changes-in-github-actions-services/
 
@@ -67,6 +125,20 @@ _本項の執筆者: [@uta8a](https://zenn.dev/uta8a)_
 
 ## 【Terraform】aws_iam_role リソースの inline_policy ブロックが非推奨になった
 https://zenn.dev/terraform_jp/articles/tf-aws-iam-role-inline-policy-deprecation
+
+Terraform AWS Provider v5.68.0 より `aws_iam_role` の `inline_policy` ブロックが deprecated となったようです。
+
+この記事では、deprecated となった `inline_policy` ブロック置き換えの選択肢（`aws_iam_role_policy` リソース、`aws_iam_role_policies_exclusive`）、および、それらの違いについて説明してくれています。
+
+僕は IAM Role のインラインポリシーを定義するときに毎回 `inline_policy` ブロックを使っており、インラインポリシー用のリソースがあることを知らなかったため、大変助かる内容の記事でした。2 つのリソースの違いについてもわかりやすくてよかったです。
+
+<!-- textlint-disable ja-technical-writing/ja-no-successive-word -->
+
+`inline_policy` ブロック自体はまだ残るようですが早め早めの移行をしていきたいですね。
+
+<!-- textlint-enable ja-technical-writing/ja-no-successive-word -->
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 ## Now available for free on all public repositories: Copilot Autofix for CodeQL code scanning alerts - GitHub Changelog
 https://github.blog/changelog/2024-09-18-now-available-for-free-on-all-public-repositories-copilot-autofix-for-codeql-code-scanning-alerts/
@@ -129,6 +201,16 @@ _本項の執筆者: [@uta8a](https://zenn.dev/uta8a)_
 
 ## Copilot Chat in GitHub.com is now aware of common support scenarios and GitHub’s documentation - GitHub Changelog
 https://github.blog/changelog/2024-09-10-copilot-chat-in-github-com-is-now-aware-of-common-support-scenarios-and-githubs-documentation/
+
+GitHub Copilot Chat in GitHub.com が GitHub のドキュメントやサポートシナリオを基にトレーニングされるようになりました。これにより、GitHub の機能に関する質問やトラブルシューティングへの回答精度の向上が見込めます。
+
+お知らせには、「Copilot Individual で Copilot ナレッジベースを使用できるか？」、「SSH の設定方法」、「ジョブがビルド後のクリーンアップでスタックしキャンセルやタイムアウトを拒否する。どうすれば停止できるか」という質問が例で挙げられています。これらの質問はドキュメントを読めばわかることですが、Copilot へ問い合わせることですばやく知ることができるのは嬉しいですね。
+
+似たような機能として、サポート問い合わせ時に先に Copilot へ問い合わせられる Copilot in GitHub Support という機能もあります[^copilot_support]。適材適所で使っていきましょう。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
+
+[^copilot_support]: [Copilot in GitHub SupportがGA！GitHubの仕様に関するわからないことをすばやく解決できやすくなったよ](https://zenn.dev/korosuke613/articles/copilot-in-github-support)
 
 ## Announcing the Public Beta of GitHub Copilot Extensions 🎉 - GitHub Changelog
 https://github.blog/changelog/2024-09-17-announcing-the-public-beta-of-github-copilot-extensions-%F0%9F%8E%89/
@@ -219,7 +301,7 @@ https://zenn.dev/shunsuke_suzuki/articles/ghatm-auto-timeout-minutes
 $ ghatm set -repo OWNER/REPO -auto
 ```
 
-```diff
+```yaml diff
  jobs:
    actions-timeline:
 +    timeout-minutes: 11
@@ -265,7 +347,11 @@ https://zenn.dev/estra/articles/nu-typed-shell
 
 型付きシェルスクリプトといえば [Cotowali](https://zenn.dev/zakuro9715/articles/mitou-2021-cotowali) とかもありますが、Nushell はインタラクティブシェルとしても使えるのが利点そうです。一方で、POSIX に準拠していない点は少し気になりました。
 
+<!-- textlint-disable ja-technical-writing/no-doubled-conjunctive-particle-ga -->
+
 僕はプログラミング言語オタクなので Nushell の型システムが壊れていないか少し試してみたのですが、嬉しいことに壊れている箇所は見つけられませんでした。部分型付けと Mutable 変数どちらもサポートしている点で悪さができそう（Java では次のプログラムのように、型検査は通るが型の不整合起因のランタイムエラーが出る場合があります）だと思ったんですが、少し変なことをしようとすると Any 型に丸められて実行時に型検査されるので、この壁を突破するのはなかなか難しかったです。しっかり型安全そうなので、安心して Nushell プログラムが書けますね。
+
+<!-- textlint-enable ja-technical-writing/no-doubled-conjunctive-particle-ga -->
 
 ```java
 class A { int x; A(int x){this.x = x;} }
@@ -281,15 +367,8 @@ System.out.println(foo[0].y); // ArrayStoreException
 
 _本項の執筆者: [@ajfAfg](https://zenn.dev/arjef)_
 
-# read more 🍘
-Productivity Weekly で出たネタを全て紹介したいけど紹介する体力が持たなかったネタを一言程度で書くコーナーです。
-
-- **news 📺**
-- **know-how 🎓**
-- **tool 🔨**
-
 # あとがき
-
+遅くなってしまいすみません。今週号めちゃネタ多かったんすけどチームメンバがめちゃ書いてくれてめちゃ助かりました。
 
 サイボウズの生産性向上チームでは社内エンジニアの開発生産性を上げるための活動を行なっています。そんな生産性向上チームが気になる方は下のリンクをクリック！
 https://www.docswell.com/s/cybozu-tech/5R2X3N-engineering-productivity-team-recruitment-information
