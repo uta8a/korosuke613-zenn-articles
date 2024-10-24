@@ -1,5 +1,5 @@
 ---
-title: ＜ここにタイトルを入力＞｜Productivity Weekly(2024-10-09)
+title: GitHub.com上でのCopilotがエンプラ以外に開放（beta）など｜Productivity Weekly(2024-10-09)
 emoji: 🫧
 type: idea
 topics:
@@ -35,10 +35,6 @@ user_defined:
 
 今週の共同著者は次の方です。
 - [@korosuke613](https://zenn.dev/korosuke613)
-<!-- - [@defaultcf](https://zenn.dev/defaultcf) -->
-<!-- - [@Kesin11](https://zenn.dev/kesin11) -->
-<!-- - [@r4mimu](https://zenn.dev/r4mimu) -->
-<!-- - [@uta8a](https://zenn.dev/uta8a) -->
 - [@ajfAfg](https://zenn.dev/arjef)
 
 :::
@@ -120,8 +116,20 @@ _本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 ## Amazon ElastiCache and Amazon MemoryDB announce support for Valkey | AWS Database Blog
 https://aws.amazon.com/jp/blogs/database/amazon-elasticache-and-amazon-memorydb-announce-support-for-valkey/
 
-## Streamlined coding, debugging, and testing with GitHub Copilot Chat in VS Code - GitHub Changelog
-https://github.blog/changelog/2024-10-03-streamlined-coding-debugging-and-testing-with-github-copilot-chat-in-vs-code/
+Amazon ElastiCache において、Valkey がサポートされました。Valkey は今年 Redis からフォークされた OSS のインメモリキーバリューストアです[^valkey]。
+
+発表内容によると、Serverless、ノードベース共に低価格を実現し、課金対象の最小キャッシュサイズも 100 MB からとなっている（Redis は 1GB から）、かつ、Redis OSS との API 互換性もあるため、低い移行コストで高いリターンを得られそうです。
+
+上記の発表とは別に、開始方法に関する AWS ブログや、サイバーエージェントさんによる Valkey サポートの何が嬉しいかを検証した記事なども上がっています。
+
+- [Amazon ElastiCache for Valkeyの開始方法 | Amazon Web Services ブログ](https://aws.amazon.com/jp/blogs/news/get-started-with-amazon-elasticache-for-valkey/)
+- [ElastiCacheでValkeyがサポートされたけど何が良いのか検証してみた - CyberAgent SRG #ca_srg](https://ca-srg.dev/6d99a5ff263346cbaebec589ee744db1)
+
+Amazon ElastiCache を使っている方は移行を検討してみましょう。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
+
+[^valkey]: 参考: [AWS、Redisをフォークした「Valkey」を、同社サービスのElastiCacheとMemoryDBで採用すると明らかに － Publickey](https://www.publickey1.jp/blog/24/awsredisvalkeyelasticachememorydb.html)
 
 ## Visual Studio Code September 2024
 https://code.visualstudio.com/updates/v1_94
@@ -145,12 +153,6 @@ VSCode の 9 月分の更新！　わいわい！
 
 _本項の執筆者: [@ajfAfg](https://zenn.dev/arjef)_
 
-## Copilot Chat in VS Code upleveled with new GitHub skills - GitHub Changelog
-https://github.blog/changelog/2024-10-07-copilot-chat-in-vs-code-upleveled-with-new-github-skills/
-
-## AWS、生成 AI を活用したバーチャルアシスタント AWS re:Post Agent を発表 - AWS
-https://aws.amazon.com/jp/about-aws/whats-new/2024/09/aws-re-post-agent-generative-ai-powered-virtual-assistant/
-
 # know-how 🎓
 
 ## terraform-aws-provider 5.68.0 で非推奨になった aws_iam_role の inline_policy の改修を行ったときのメモ✍️
@@ -161,30 +163,6 @@ https://sadayoshi-tada.hatenablog.com/entry/2024/09/28/150009
 微妙にハマりがちポイントだと思うので、知っておくと改修の際に役立ちそうです。
 
 _本項の執筆者: [@ajfAfg](https://zenn.dev/arjef)_
-
-## BunでNode.jsのツールをSingle-file executable binaryにしてバイナリを配布する | Web Scratch
-https://efcl.info/2024/10/06/bun-single-file-executable-binary/
-
-## GA になった BigQuery の history-based optimizations で SQL が最適化されるか確認してみた。
-https://dev.classmethod.jp/articles/ga-bigquery-history-based-optimizations-sql-check/
-
-## [アップデート] AWS CodePipeline で CodeBuild セットアップなしでコマンド実行が出来る新しいビルドアクション「Commands」を使ってみた
-https://dev.classmethod.jp/articles/codepipeline-action-commands/
-
-## 「GitHub CI/CD実践ガイド」イベント基調講演ダイジェスト＋FAQ #Forkwell_Library
-https://zenn.dev/tmknom/articles/github-cicd-book
-
-最近あったイベントの発表者自身によるブログまとめ
-https://forkwell.connpass.com/event/326361/
-
-## Four Keysを活用してチームの開発生産性を改善した時のふりかえりの考え方と手法を紹介します - ZOZO TECH BLOG
-https://techblog.zozo.com/entry/improve-mlops-team-capability
-
-## 【新刊】2024年10月26日発売『エンジニアチームの生産性の高め方〜開発効率を向上させて、人を育てる仕組みを作る』
-https://x.com/gihyo_hansoku/status/1843813933196685766
-
-## 「みんなで金塊堀太郎」という施策で億単位のコスト削減を達成 & 表彰されました | CyberAgent Developers Blog
-https://developers.cyberagent.co.jp/blog/archives/47408/
 
 # tool 🔨
 
@@ -236,13 +214,39 @@ Productivity Weekly で出たネタを全て紹介したいけど紹介する体
     - GitHub Actions のジョブ詳細画面においてアノテーションが表示されるようになりました
     - これまではワークフローサマリーの画面にしか表示されなかったため、正直どのジョブのことなのかやジョブ詳細画面でのアノテーションの確認ができなくて不便でした
     - 便利になりますが、デフォルトで折りたたまれているので個人的には展開してほしいです（気づかないため）
+  - [AWS、生成 AI を活用したバーチャルアシスタント AWS re:Post Agent を発表 - AWS](https://aws.amazon.com/jp/about-aws/whats-new/2024/09/aws-re-post-agent-generative-ai-powered-virtual-assistant/)
+    - AWS のコミュニティサイトである AWS re:Post において、生成 AI を活用したアシスタント AWS re:Post Agent が発表されました
+    - コミュニティでの質問に対してすぐさま回答してくれるそうです
+      - 例: https://repost.aws/questions/QUnqsxSXqxSN6My2Nvbokh-w
+      - どうやら時間差でサポートエンジニアによるレビュー、修正が入るようです
+    - 僕は AWS re:Post を全く使ったことがありませんが、便利そうですね
 - **know-how 🎓**
-- **tool 🔨**
+  - [BunでNode.jsのツールをSingle-file executable binaryにしてバイナリを配布する | Web Scratch](https://efcl.info/2024/10/06/bun-single-file-executable-binary/)
+    - Bun を使って Node.js で動くツールをシングルバイナリにして配布する方法を紹介しています
+    - Bun にはクロスコンパイルをして各種プラットフォーム向けのシングルバイナリを作る機能があるようで、どのようにビルドするかを説明してくれています
+      - 色々つまづき所もあるようで、対応されていない dynamic import をする場合の対処法なども
+    - Deno でも似たようなことをできるらしいですが、今回は技術的に厳しい部分もあって Bun を選んだようです
+    - ファイルサイズはどうなのかなと思い Releases を見にいきましたが、やはり Go などに比べると大きめですね
+  - [「GitHub CI/CD実践ガイド」イベント基調講演ダイジェスト＋FAQ #Forkwell_Library](https://zenn.dev/tmknom/articles/github-cicd-book)
+    - 今年発売した書籍「GitHub CI/CD 実践ガイド」の著者による本の内容に関する講演のダイジェストと FAQ をまとめてくれた記事です
+    - 多くの質問をイベント内でもらったようで、未回答となってしまったの質問にも回答してくれています（すごい）
+    - 僕も本を読みましたが、GitHub Actions に留まらず、CI/CD に関する基本や考え方も書いてくれていて良本だと思いました。ぜひ読んでみてください
+  - [Four Keysを活用してチームの開発生産性を改善した時のふりかえりの考え方と手法を紹介します - ZOZO TECH BLOG](https://techblog.zozo.com/entry/improve-mlops-team-capability)
+    - ZOZO さんによる、Four Keys を活用してチームの開発生産性を改善した時のふりかえりの考え方と手法の紹介記事です
+    - 背景、課題、工夫、効果が網羅されており、事例の 1 つとして参考にできます
+  - [【新刊】2024年10月26日発売『エンジニアチームの生産性の高め方〜開発効率を向上させて、人を育てる仕組みを作る』](https://x.com/gihyo_hansoku/status/1843813933196685766)
+    - 開発生産性に関する書籍が発売されました
+    - 最近は Findy さんが開発生産性に力を入れていたため、この本も関わっているのかなと思いましたが、著者プロフィール的に今回は関わってなさそうでした（LINE ヤフーさん多め）
+    - 開発生産性に関わるムーブメントの広がりを感じますね。いろんな視点でのお話を知っておきたいです
+  - [「みんなで金塊堀太郎」という施策で億単位のコスト削減を達成 & 表彰されました | CyberAgent Developers Blog](https://developers.cyberagent.co.jp/blog/archives/47408/)
+    - サイバーエージェントさんによるコスト削減を実現するための施策「みんなで金塊堀太郎」の紹介記事です
+    - コスト削減ってなかなか目立ちづらい取り組みだと思うので、ちゃんと削減できたことを表彰してもらえるのは良いことだなと思いました（生産性を極力下げないコスト削減が大事という前提）
 
 _本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 # あとがき
-
+今回もマジで遅くなってしまいすみません。最近は予算策定に給与評価にで大変空いた時間が少なくなってしまいました。
+今年から僕も評価する側に回ってしまったのでいつもより大変ですね（苦笑）
 
 サイボウズの生産性向上チームでは社内エンジニアの開発生産性を上げるための活動を行なっています。そんな生産性向上チームが気になる方は下のリンクをクリック！
 https://www.docswell.com/s/cybozu-tech/5R2X3N-engineering-productivity-team-recruitment-information
