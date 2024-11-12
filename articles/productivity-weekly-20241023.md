@@ -49,20 +49,57 @@ user_defined:
 ## Enterprises can create GitHub Apps for use within the Enterprise - GitHub Changelog
 https://github.blog/changelog/2024-10-22-enterprises-can-create-github-apps-for-use-within-the-enterprise/
 
+GitHub Apps を Enterprise レベルで利用できるようになりました（public beta）。これまで GitHub Apps は全世界 or Organization or 個人単位でしか作ることができなかったため、複数 Organization で同じ GitHub Apps を利用したい場合は、org ごとに内容の同じ app を作成・管理する必要がありました。
+
+今回の変更により、org ごとに同じ app を作らなくてよくなるほか、app を全世界公開にしてしまうリスクを減らせるようになります。
+org ごとに app を作らなくてなるのは手間を減らせる上、app 作成に org の Admin 権限を必要としない（enterprise の権限を持っていても org に app を作るには org の Admin 権限が必要となる）のが特に嬉しいです。
+
+前々から要望はありましたが、なかなか実現されなかった機能の 1 つでした。本文には「This also simplifies distribution and management for Copilot Extensions.」と書かれているので、最近登場した GitHub Copilot Extensions がこの機能の追加を後押ししたのかもしれません。
+
+自分はまだ使えてないのですが、早めに検証したいです。作成時の画面までは触ってみたのですが、`admin:enterprise` 系の権限の付与はまだできなさそうでした[^admin_en]。個人的には `admin:enterprise` 系の権限を個人のトークンに紐づけたくないので、Enterprise レベルの GitHub Apps に権限が付与できるようになるといいなという感じです。
+
+[^admin_en]: 例えば Enterprise 全体の billing の取得などに使える権限。https://docs.github.com/en/enterprise-cloud@latest/rest/enterprise-admin/billing?apiVersion=2022-11-28
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
+
 ## New PAT rotation policies preview and optional expiration for fine-grained PATs - GitHub Changelog
 https://github.blog/changelog/2024-10-18-new-pat-rotation-policies-preview-and-optional-expiration-for-fine-grained-pats/
+
+GitHub において、enterprise や organization 管理者が Personal Access Token の有効期限ポリシーを制限できるようになりました。また、Fine-grained PAT（俗にいうきめ細かい PAT）の有効期限を無制限にできるようになりました。
+
+有効期限ポリシーを設定することで、組織内で利用されるトークンのローテーション期間を強制でき、セキュリティ・ガバナンス強化につなげることができます。
+この設定は、上位組織のポリシー範囲内で自由に設定できるため、例えば enterprise で Fine-grained PAT の最大有効期限を 366 日にしている場合、organization では 367 日以上の最大有効期限を設定できません。
+
+また、今回の変更に合わせて、Fine-grained PAT の有効期限を無制限にできるようになりました。これまでは 366 日より多い有効期限を設定できなかったため、Classic PAT からの移行が厳しい状況がありました。今回の変更で、Classic PAT から Fine-grained PAT への移行がスムーズになることが期待されます。なお、Fine-grained PAT の有効期限ポリシーのデフォルトは 366 日となっており、まずはこれを変更しないと無制限に設定できません。
+
+![](/images/productivity-weekly-20241023/pat_expire_setting.png)
+*試しに私が所属する Organization で Fine-grained PAT の有効期限ポリシーを無制限にしようとしたところ、上位組織である Enterprise のポリシーが 366 日で設定されているためこれができないことが表示されました*
+
+Fine-grained PAT は Classic PAT と比べてセキュリティが強化されていますが、やはり有効期限の差からすぐの移行が難しいという問題がありました。今回の変更により、まずは無制限にした上で Fine-grained PAT に切り替え、ゆくゆくは有効期限を設定していくという段階的なセキュリティ強化が可能になります。良いですね。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 ## New Terminology for GitHub Previews - GitHub Changelog
 https://github.blog/changelog/2024-10-18-new-terminology-for-github-previews/
 
-## Announcing Deno 2
-https://deno.com/blog/v2.0
+GitHub において、「Beta」や「Preview」、「Sunset」といった機能の状態を示す用語が統一されました。
 
-## Announcing TypeScript 5.7 Beta
-https://devblogs.microsoft.com/typescript/announcing-typescript-5-7-beta/
+例えば、これまでは制限された新機能について「Private Beta」と表現したり、「Limited Public Beta」と表現したり、「Technical Preview」と表現したり、さまざまな表現があった上、何が違うのかユーザー目線だとわからないことが多々ありました（私はよく何が違うねんと困惑してました）。今回、用語が統一されただけでなく、それぞれの用語についての意味が明確になりました。
 
-## AWS CDK で cdk rollback コマンドが利用可能になりました | DevelopersIO
-https://dev.classmethod.jp/articles/aws-cdk-rollback/
+今後は次の 6 ステージで機能の状態を示すことになります。
+
+| 用語 | 意味 |
+| --- | --- |
+|Private Preview|非公開。限られた顧客のみ利用可能|
+|Technical Preview|GitHub Next の実験的機能。限られた顧客のみ利用可能|
+|Public Preview|Changelog で公開される。Docs に書かれる。対象者は誰でも使える場合もあれば、waiting list による限られた顧客のみ利用可能な場合もある|
+|General Availability|Changelog で公開される。Docs に書かれる。対象者は誰でも使える|
+|Closing Down|段階的に廃止されていく|
+|Retired|提供、サポート、保守が終了|
+
+大変わかりやすくなりましたね！**GitHub の Changelog を追っかけている身としては大変助かります！！**
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 ## AWS Lambda now detects and stops recursive loops between Lambda and Amazon S3 - AWS 
 https://aws.amazon.com/jp/about-aws/whats-new/2024/10/aws-lambda-detects-stops-recursive-loops-lambda-s3/
@@ -112,13 +149,6 @@ https://aws.amazon.com/jp/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide
 
 _本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)_
 
-## Terraform Stacks, explained
-https://www.hashicorp.com/blog/terraform-stacks-explained
-https://developer.hashicorp.com/terraform/language/stacks
-
-Terraform Stacks の機能と使い方を紹介 - APC 技術ブログ
-https://techblog.ap-com.co.jp/entry/2024/10/21/190000
-
 ## AWS、コンソールの操作をコードに変換してくれる「AWS Console-to-Code」正式リリース － Publickey
 https://www.publickey1.jp/blog/24/awsaws_console-to-code.html
 
@@ -136,22 +166,13 @@ IaC 初学者の人にとって非常に役立ちそうなサービスだと感�
 
 _本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)_
 
-## feat: add spot termination handler by npalm · Pull Request #4176 · philips-labs/terraform-aws-github-runner
-https://github.com/philips-labs/terraform-aws-github-runner/pull/4176
-
 ## Terraform v1.10 からは S3 Backend の State Lock に DynamoDB が必要なくなる
 https://zenn.dev/terraform_jp/articles/terraform-s3-state-lock
-
-## Go 1.24 から go.mod でのツール管理がより簡潔になるかもしれない 
-https://zenn.dev/uji/articles/adding-tool-dependencies-to-go-mod
 
 # know-how 🎓
 
 ## 「Self-hosted GitHub Actions runners in AWS CodeBuild」を使ったバッチ実行基盤 - エス・エム・エス エンジニア テックブログ
 https://tech.bm-sms.co.jp/entry/batch-platform-with-self-hosted-runner-in-codebuild
-
-## 2024 State of DevOps Report | Google Cloud
-https://cloud.google.com/resources/devops/state-of-devops?hl=ja
 
 ## ゼロダウンタイムで Amazon EC2 で稼働している nginx を AWS Fargate に移行した - 弁護士ドットコム株式会社 Creators’ blog
 https://creators.bengo4.com/entry/2024/10/22/073000
@@ -167,9 +188,6 @@ _本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)_
 
 ## tfaction でトランスパイルした JS をコミットするのを止めた
 https://zenn.dev/shunsuke_suzuki/articles/tfaction-stop-transpile-local
-
-## zsh + fzf で「あの時作業していたあのブランチ」を快適に探す
-https://www.mizdra.net/entry/2024/10/19/172323
 
 ## 「攻めた」AWS Fargate Spot比率の見直し時
 https://developer.hatenastaff.com/entry/2024/10/11/163931
@@ -207,26 +225,24 @@ ARN は API などでよく使うので、設定可能な文字は特に制限�
 
 _本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)_
 
-## terraform の細かすぎて伝わらない小ネタ GHAR Ubuntu 24.04 には Terraform が入ってない
-https://zenn.dev/terraform_jp/articles/2024-10-14_terraform_not_installed_github_runner
-
-# tool 🔨
-
-## 不要なGitHub Actionsのキャッシュを削除するdelete-action-cacheを作った | toshimaru/blog
-https://blog.toshimaru.net/delete-action-cache/
-
-## Stengo/DeskPad: A virtual monitor for screen sharing
-https://github.com/Stengo/DeskPad
-
-## denoland/nextgen-install
-https://github.com/denoland/nextgen-install
-
 # read more 🍘
 Productivity Weekly で出たネタを全て紹介したいけど紹介する体力が持たなかったネタを一言程度で書くコーナーです。
 
 - **news 📺**
+  - [Announcing Deno 2](https://deno.com/blog/v2.0)
+  - [Announcing TypeScript 5.7 Beta](https://devblogs.microsoft.com/typescript/announcing-typescript-5-7-beta/)
+  - [AWS CDK で cdk rollback コマンドが利用可能になりました | DevelopersIO](https://dev.classmethod.jp/articles/aws-cdk-rollback/)
+  - [Terraform Stacks, explained](https://www.hashicorp.com/blog/terraform-stacks-explained)
+    - https://developer.hashicorp.com/terraform/language/stacks
+    - [Terraform Stacks の機能と使い方を紹介 - APC 技術ブログ](https://techblog.ap-com.co.jp/entry/2024/10/21/190000)
+  - [Go 1.24 から go.mod でのツール管理がより簡潔になるかもしれない](https://zenn.dev/uji/articles/adding-tool-dependencies-to-go-mod)
 - **know-how 🎓**
+  - [zsh + fzf で「あの時作業していたあのブランチ」を快適に探す](https://www.mizdra.net/entry/2024/10/19/172323)
+  - [terraform の細かすぎて伝わらない小ネタ GHAR Ubuntu 24.04 には Terraform が入ってない](https://zenn.dev/terraform_jp/articles/2024-10-14_terraform_not_installed_github_runner)
 - **tool 🔨**
+  - [不要なGitHub Actionsのキャッシュを削除するdelete-action-cacheを作った | toshimaru/blog](https://blog.toshimaru.net/delete-action-cache/)
+  - [Stengo/DeskPad: A virtual monitor for screen sharing](https://github.com/Stengo/DeskPad)
+  - [denoland/nextgen-install](https://github.com/denoland/nextgen-install)
 
 # あとがき
 
