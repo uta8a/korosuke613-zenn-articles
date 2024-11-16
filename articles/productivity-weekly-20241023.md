@@ -48,7 +48,7 @@ https://github.blog/changelog/2024-10-22-enterprises-can-create-github-apps-for-
 GitHub Apps を Enterprise レベルで利用できるようになりました（public beta）。これまで GitHub Apps は全世界 or Organization or 個人単位でしか作ることができなかったため、複数 Organization で同じ GitHub Apps を利用したい場合は、org ごとに内容の同じ app を作成・管理する必要がありました。
 
 今回の変更により、org ごとに同じ app を作らなくてよくなるほか、app を全世界公開にしてしまうリスクを減らせるようになります。
-org ごとに app を作らなくてなるのは手間を減らせる上、app 作成に org の Admin 権限を必要としない（enterprise の権限を持っていても org に app を作るには org の Admin 権限が必要となる）のが特に嬉しいです。
+org ごとに app を作らなくて良くなるのは手間を減らせる上、app 作成に org の Admin 権限を必要としない（enterprise の権限を持っていても org に app を作るには org の Admin 権限が必要となる）のが特に嬉しいです。
 
 前々から要望はありましたが、なかなか実現されなかった機能の 1 つでした。本文には「This also simplifies distribution and management for Copilot Extensions.」と書かれているので、最近登場した GitHub Copilot Extensions がこの機能の追加を後押ししたのかもしれません。
 
