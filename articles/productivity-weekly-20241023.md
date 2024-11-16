@@ -248,20 +248,35 @@ Productivity Weekly で出たネタを全て紹介したいけど紹介する体
 
 - **news 📺**
   - [Announcing Deno 2](https://deno.com/blog/v2.0)
-  - [Announcing TypeScript 5.7 Beta](https://devblogs.microsoft.com/typescript/announcing-typescript-5-7-beta/)
+    - Deno 2.0 がリリースされました
+    - さまざまな新機能・破壊的変更が含まれています
+      - 参考: [Deno v2 が来たので何が変わったのか紹介](https://zenn.dev/ame_x/articles/d1742e77fa1351)
+    - また、[LTS の仕組み](https://docs.deno.com/runtime/fundamentals/stability_and_releases/)が導入されます。最初の LTS は 2024/11 リリース予定の v2.1 のようです
   - [AWS CDK で cdk rollback コマンドが利用可能になりました | DevelopersIO](https://dev.classmethod.jp/articles/aws-cdk-rollback/)
+    - AWS CDK において、自動ロールバックを停止していた際に手動で再開できるコマンド `cdk rollback` が追加されました
+    - ロールバックタイミングを調整できるので、便利そうです
   - [Terraform Stacks, explained](https://www.hashicorp.com/blog/terraform-stacks-explained)
-    - https://developer.hashicorp.com/terraform/language/stacks
-    - [Terraform Stacks の機能と使い方を紹介 - APC 技術ブログ](https://techblog.ap-com.co.jp/entry/2024/10/21/190000)
-  - [Go 1.24 から go.mod でのツール管理がより簡潔になるかもしれない](https://zenn.dev/uji/articles/adding-tool-dependencies-to-go-mod)
+    - Terraform Stacks が登場しました。現時点では HCP Terraform 向けの機能のようです
+    - 概念としては Terraform Workspace を束ねたものという感じのようです
+    - わかりやすい解説ブログが登場しています
+      - [Terraform Stacks の機能と使い方を紹介 - APC 技術ブログ](https://techblog.ap-com.co.jp/entry/2024/10/21/190000)
+      - [Terraform Stacksの構成要素を図解してみる | DevelopersIO](https://dev.classmethod.jp/articles/terraform-stacks-illustration/)
 - **know-how 🎓**
   - [zsh + fzf で「あの時作業していたあのブランチ」を快適に探す](https://www.mizdra.net/entry/2024/10/19/172323)
+    - fzf を使って git ブランチをいい感じに探す方法を紹介している記事です
+    - committer date 順に並び替えてたり、ミニウィンドウでコミットログが見られたりと、便利そうです
+    - 最後に実は公式プラグインがあることが判明しており、自分たちはそれを使うのが楽そうです
   - [terraform の細かすぎて伝わらない小ネタ GHAR Ubuntu 24.04 には Terraform が入ってない](https://zenn.dev/terraform_jp/articles/2024-10-14_terraform_not_installed_github_runner)
+    - GitHub Actions の GitHub-hosted runner の Ubuntu 24.04 より Terraform がプリインストールされないようになったようです
+    - そもそもプリインストールされていることを知りませんでした。必ず setup-terraform を使ってバージョン指定して terraform を使っていたので
 - **tool 🔨**
   - [不要なGitHub Actionsのキャッシュを削除するdelete-action-cacheを作った | toshimaru/blog](https://blog.toshimaru.net/delete-action-cache/)
+    - GitHub Actions の不要なキャッシュを削除するアクションを作ったという記事です
+    - トピックブランチ上のキャッシュはマージ後も残ってしまいますが、それらを自動で消してくれるようです
+    - 10GB 制限を超える場合は積極的に使っていきたいですね（そもそもトピックブランチではキャッシュを保存しないという選択肢も検討しよう）
   - [Stengo/DeskPad: A virtual monitor for screen sharing](https://github.com/Stengo/DeskPad)
-  - [denoland/nextgen-install](https://github.com/denoland/nextgen-install)
-
+    - macOS 向けの仮想ディスプレイを作成するツールです
+    - スクリーンシェア時に、物理スクリーンの解像度が高すぎると相手に見づらいことがあったり、シェアするウィンドウを制限してシェアしやすくするのに利用できそうです
 # あとがき
 
 
