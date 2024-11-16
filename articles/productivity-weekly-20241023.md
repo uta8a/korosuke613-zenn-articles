@@ -200,9 +200,6 @@ Route53 の加重ルーティングは他にもいろんなサービスの移行
 
 _本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)_
 
-## tfaction でトランスパイルした JS をコミットするのを止めた
-https://zenn.dev/shunsuke_suzuki/articles/tfaction-stop-transpile-local
-
 ## 「攻めた」AWS Fargate Spot比率の見直し時
 https://developer.hatenastaff.com/entry/2024/10/11/163931
 
@@ -258,6 +255,11 @@ Productivity Weekly で出たネタを全て紹介したいけど紹介する体
       - [Terraform Stacks の機能と使い方を紹介 - APC 技術ブログ](https://techblog.ap-com.co.jp/entry/2024/10/21/190000)
       - [Terraform Stacksの構成要素を図解してみる | DevelopersIO](https://dev.classmethod.jp/articles/terraform-stacks-illustration/)
 - **know-how 🎓**
+  - [tfaction でトランスパイルした JS をコミットするのを止めた](https://zenn.dev/shunsuke_suzuki/articles/tfaction-stop-transpile-local)
+    - GitHub Actions のカスタムアクションである JavaScript Action（TS 製）のトランスパイルに関する話です
+    - JS Action は TypeScript をそのまま利用できないため、JS のコードにトランスパイルする必要があります（＆依存関係も含める）
+    - 筆者は毎回トランスパイルしたものをコミットしてマージする運用をやっていましたが、さまざまな課題があったため、リリース時に CI でトランスパイルする運用にしたようです
+    - 個人的にもこの方法が良いと思います
   - [zsh + fzf で「あの時作業していたあのブランチ」を快適に探す](https://www.mizdra.net/entry/2024/10/19/172323)
     - fzf を使って git ブランチをいい感じに探す方法を紹介している記事です
     - committer date 順に並び替えてたり、ミニウィンドウでコミットログが見られたりと、便利そうです
