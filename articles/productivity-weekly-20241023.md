@@ -169,6 +169,16 @@ _本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)_
 ## Terraform v1.10 からは S3 Backend の State Lock に DynamoDB が必要なくなる
 https://zenn.dev/terraform_jp/articles/terraform-s3-state-lock
 
+[8 月に Amazon S3 が条件付き書き込みのサポートを開始しました](https://zenn.dev/cybozu_ept/articles/productivity-weekly-20240828#read-more-%F0%9F%8D%98)が、どうやら Terraform v1.10 から S3 バックエンドの tfstate において、条件付き書き込み機能を利用した排他制御ができるようになり、DynamoDB が必要なくなるようです。
+
+これまでは S3 バックエンドを利用する場合、S3 が複数のクライアントから同時に書き込みを受け付けることができてしまう理由より、tfstate ファイルの排他制御を DynamoDB で行っていました。v1.10 に入る予定のプルリクエストにより、今後は tfstate の排他制御を S3 単体で行えるようになる見込みです。
+
+この記事では、実際に正式リリース前の Terraform を使って S3 単体での tfstate のロックがどのように行われるかを紹介してくれています。ありがたいです。
+
+どういった動きになるかが気になる方は、ぜひ記事を読んでみてください。v1.10 リリースが楽しみですね。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
+
 # know-how 🎓
 
 ## 「Self-hosted GitHub Actions runners in AWS CodeBuild」を使ったバッチ実行基盤 - エス・エム・エス エンジニア テックブログ
