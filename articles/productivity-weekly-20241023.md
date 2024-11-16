@@ -184,6 +184,14 @@ _本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 ## 「Self-hosted GitHub Actions runners in AWS CodeBuild」を使ったバッチ実行基盤 - エス・エム・エス エンジニア テックブログ
 https://tech.bm-sms.co.jp/entry/batch-platform-with-self-hosted-runner-in-codebuild
 
+こ[れまでたびたび紹介してきた GitHub Actions の Self-hosted runner in AWS CodeBuild](https://zenn.dev/cybozu_ept/articles/productivity-weekly-20240828#aws-codebuild-now-supports-using-github-apps-to-access-source-repositories---aws) ですが、エス・エム・エスさんがこの機能を使ってバッチ実行基盤を構築した事例を紹介されています。
+
+GitHub Actions をバッチ実行基盤として使う時のメリデメ、ネットワークの壁を越えるための方法、Self-hosted runner in CodeBuild の説明、その他セキュリティ、証跡に関する Tips などが書かれています。
+
+Self-hosted runner in CodeBuild はまだ登場から浅く、実際の業務利用事例を全く見ていなかったので、事例を知れて嬉しかったです。Self-hosted runner の新たな選択肢の 1 つとしてもっと盛り上がってほしいですね。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
+
 ## ゼロダウンタイムで Amazon EC2 で稼働している nginx を AWS Fargate に移行した - 弁護士ドットコム株式会社 Creators’ blog
 https://creators.bengo4.com/entry/2024/10/22/073000
 

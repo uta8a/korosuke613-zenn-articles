@@ -19,5 +19,14 @@
   "deno.unstable": true,
   "[markdown]": {
     "editor.formatOnSave": false
-  }
+  },
+  "github.copilot.chat.codeGeneration.useInstructionFiles": true,
+  "github.copilot.chat.codeGeneration.instructions": [
+    {
+      "file": ".textlintrc"
+    },
+    {
+      "file": "prh.yml"
+    }
+  ]
 }
