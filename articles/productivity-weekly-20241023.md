@@ -1,5 +1,5 @@
 ---
-title: ＜ここにタイトルを入力＞｜Productivity Weekly(2024-10-23,16)
+title: EnterpriseレベルGitHub Appが作れるようになったぞ！｜Productivity Weekly(2024-10-23,16)
 emoji: 🛋️
 type: idea
 topics:
@@ -36,11 +36,7 @@ user_defined:
 
 今週の共同著者は次の方です。
 - [@korosuke613](https://zenn.dev/korosuke613)
-<!-- - [@defaultcf](https://zenn.dev/defaultcf) -->
-<!-- - [@Kesin11](https://zenn.dev/kesin11) -->
-<!-- - [@r4mimu](https://zenn.dev/r4mimu) -->
-<!-- - [@uta8a](https://zenn.dev/uta8a) -->
-<!-- - [@ajfAfg](https://zenn.dev/arjef) -->
+- [@defaultcf](https://zenn.dev/defaultcf)
 
 :::
 
@@ -277,11 +273,21 @@ Productivity Weekly で出たネタを全て紹介したいけど紹介する体
   - [Stengo/DeskPad: A virtual monitor for screen sharing](https://github.com/Stengo/DeskPad)
     - macOS 向けの仮想ディスプレイを作成するツールです
     - スクリーンシェア時に、物理スクリーンの解像度が高すぎると相手に見づらいことがあったり、シェアするウィンドウを制限してシェアしやすくするのに利用できそうです
-# あとがき
 
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
+
+# あとがき
+今週号でした。遅れてしまいマジですみません。最近はマネージャの仕事が忙しかったりその他諸々忙しかったりでウィークリーを書く時間が全く取れてません😭
 
 サイボウズの生産性向上チームでは社内エンジニアの開発生産性を上げるための活動を行なっています。そんな生産性向上チームが気になる方は下のリンクをクリック！
 https://www.docswell.com/s/cybozu-tech/5R2X3N-engineering-productivity-team-recruitment-information
+
+
+## Sansan VS サイボウズ - 品質向上 Tips 冬祭り - connpass
+そういえば、またもや Sansan さんとサイボウズでバトルします（？）。今回は「品質向上 Tips 冬祭り」というテーマで LT 回＆座談会をやります。場所は Sansan さんのオフィスです。興味がある方はぜひご参加ください！
+
+Sansan VS サイボウズ - 品質向上 Tips 冬祭り - connpass
+https://sansan.connpass.com/event/335070/
 
 <!-- :::message すみません、今週もおまけはお休みです...:::-->
 
