@@ -49,11 +49,37 @@ user_defined:
 ## Copilot subscription-based network routing is now enforced - GitHub Changelog
 https://github.blog/changelog/2024-11-04-copilot-subscription-based-network-routing-is-now-enforced/
 
+GitHub Copilot が通信するエンドポイントが、Copilot のプランに応じて別々になるよう変更されました。
+この件は 7/31 に変更告知が [Copilot network requests are now routed based on subscription - GitHub Changelog](https://github.blog/changelog/2024-07-31-copilot-network-requests-are-now-routed-based-on-subscription/) で、8/6 に日程変更が [Revised release plan for Copilot subscription-based network routing - GitHub Changelog](https://github.blog/changelog/2024-08-06-revised-release-plan-for-copilot-subscription-based-network-routing/) で告知されていましたね。
+
+11/4 より前は Copilot のプラン(Individual, Business, Enterprise)によらず `https://*.githubcopilot.com` に対して GitHub Copilot が通信していました。
+11/4 以降は Copilot Individual は `https://*.individual.githubcopilot.com` に、Copilot Business は `https://*.business.githubcopilot.com` に、Copilot Enterprise は `https://*.enterprise.githubcopilot.com` に対して通信するようになりました。
+
+この変更によって、例えば会社で Copilot Business を使っているなら `https://*.individual.githubcopilot.com` をブロックして、 `https://*.business.githubcopilot.com` を許可することで Copilot Individual を使ってしまう事態を防げます。シャドーIT をなくしていく際に役立ちそうですね。
+
+_本項の執筆者: [@uta8a](https://zenn.dev/uta8a)_
+
 ## GitHub Copilot code completion in Xcode is now available in public preview - GitHub Changelog 
 https://github.blog/changelog/2024-10-29-github-copilot-code-completion-in-xcode-is-now-available-in-public-preview/
 
+Xcode で公式に GitHub Copilot が使えるようになりました。補完などの機能が搭載されています。
+
+元々は [intitni/CopilotForXcode](https://github.com/intitni/CopilotForXcode) という非公式のツールが多く使われていました。今回の公式のツールも intitni/CopilotForXcode を元にしています。(参考: [github/CopilotForXcode の Acknowledgements](https://github.com/github/CopilotForXcode?tab=readme-ov-file#acknowledgements))
+オリジナルの intitni/CopilotForXcode は GitHub の公式ツールを許諾しているようで、今後は公式ツールとは別路線として LLM を選択可能にするなどの機能を検討しているそうです。(参考: [About GitHub’s CopilotForXcode](https://github.com/intitni/CopilotForXcode/discussions/597))
+
+_本項の執筆者: [@uta8a](https://zenn.dev/uta8a)_
+
 ## Copilot content exclusion is now generally available in IDEs - GitHub Changelog
 https://github.blog/changelog/2024-11-12-content-exclusion-ga/
+
+GitHub Copilot content exclusion が、Copilot Business, Copilot Enterprise ユーザに対して GA(Generally Available)になりました。Copilot content exclusion は `.env` のような秘密情報を含むファイルをパスで指定して、Copilot からの返答にそのファイルの情報を含まないようにする除外機能です。
+例えば、Copilot Chat の返答に `.env` に書いた環境変数の値を含まないようにしたい場合に利用できます。
+
+現在、Copilot content exclusion は Repository、Organization、Enterprise の 3 つの単位で利用可能です。設定や、設定の変更を Audit log からレビューする方法は[GitHub Docs: Configuring and auditing content exclusion](https://docs.github.com/en/copilot/managing-copilot/configuring-and-auditing-content-exclusion)にまとまっています。
+
+GA になったことによる変更はなく、Public Preview の時と除外設定の書式も変わらないようです。
+
+_本項の執筆者: [@uta8a](https://zenn.dev/uta8a)_
 
 ## Introducing an enhanced local IDE experience for AWS Lambda developers | AWS Compute Blog 
 https://aws.amazon.com/jp/blogs/compute/introducing-an-enhanced-local-ide-experience-for-aws-lambda-developers/
