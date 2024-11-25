@@ -1,6 +1,6 @@
 ---
 title: GitHub Universe 2024、API insightsなど｜Productivity Weekly(2024-10-30)
-emoji: 🎃
+emoji: 👻
 type: idea
 topics:
   - ProductivityWeekly
