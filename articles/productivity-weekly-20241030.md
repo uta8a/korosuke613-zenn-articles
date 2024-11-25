@@ -115,11 +115,19 @@ GitHub Actions 上の自動テスト時間を 54 分から約 11 分に縮め、
 
 _本項の執筆者: [@ajfAfg](https://zenn.dev/arjef)_
 
-## githubnext/copilot-workspace-user-manual: 📖 The user manual for GitHub Copilot Workspace
-https://github.com/githubnext/copilot-workspace-user-manual
-
 ## GitHub を活用したソフトウェアサプライチェーン下流のセキュリティ強化 - GitHubブログ
 https://github.blog/jp/2024-10-24-the-second-half-of-software-supply-chain-security-on-github/
+
+GitHub による、GitHub のアーティファクト証明書を活用したサプライチェーンのセキュリティ強化に関するブログです。
+
+昨今サプライチェーンのセキュリティが注目されている背景、ソフトウェアサプライチェーンの概要（SLSA）、GitHub を利用することでどうサプライチェーンセキュリティを向上させるかの簡単な説明が紹介されています。
+
+GitHub の機能については、artifact attestations（GitHub Actions 上で作った Artifacts に署名をする仕組み）を用いることで、SLSA ビルドトラックにおけるレベル 0 からレベル 2 への到達が可能になることを説明しています。
+さらに、組織内の reusable workflow によるビルド手順の制御も実施することで、レベル 3 へ到達可能であることも書かれており、ドキュメントと共に紹介されています。
+
+[Artifact Attestations 機能](https://zenn.dev/cybozu_ept/articles/productivity-weekly-20240626#artifact-attestations-is-generally-available---the-github-blog)は今年 GA となった新機能です。有意義な機能である反面、まだまだ広く活用されているようには主観ですが思えません。なぜあると嬉しいのかや活用事例を出してくれるのは個人的に嬉しいです。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 ## なんとなくから脱却する GitHub Actionsグッドプラクティス11選
 https://gihyo.jp/article/2024/10/good-practices-for-github-actions
@@ -132,16 +140,7 @@ https://gihyo.jp/article/2024/10/good-practices-for-github-actions
 
 _本項の執筆者: [@ajfAfg](https://zenn.dev/arjef)_
 
-## Go with Bazel
-https://zenn.dev/pddg/books/go-with-bazel
-
-## Nx Agentsを導入してフロントエンドのCIを約40%高速化しました - Findy Tech Blog
-https://tech.findy.co.jp/entry/2024/10/28/070000
-
 # tool 🔨
-
-## lock 機構のための GitHub Action を作った
-https://zenn.dev/shunsuke_suzuki/articles/github-lock-action
 
 ## Goのnil panicを防ぐ静的解析ツール：nilaway
 https://zenn.dev/sho_hata/articles/1a70781e5a0b95
@@ -181,7 +180,11 @@ Productivity Weekly で出たネタを全て紹介したいけど紹介する体
 
 - **news 📺**
 - **know-how 🎓**
+  - [githubnext/copilot-workspace-user-manual: 📖 The user manual for GitHub Copilot Workspace](https://github.com/githubnext/copilot-workspace-user-manual)
+  - [Go with Bazel](https://zenn.dev/pddg/books/go-with-bazel)
+  - [Nx Agentsを導入してフロントエンドのCIを約40%高速化しました - Findy Tech Blog](https://tech.findy.co.jp/entry/2024/10/28/070000)
 - **tool 🔨**
+  - [lock 機構のための GitHub Action を作った](https://zenn.dev/shunsuke_suzuki/articles/github-lock-action)
 
 # あとがき
 
