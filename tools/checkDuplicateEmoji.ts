@@ -22,7 +22,7 @@ const main = async () => {
   const emojiFiles = await grepWeeklyEmoji(emoji);
 
   if (emojiFiles.length > 1) {
-    throw new Error("Find duplicate emoji files, \n${emojiFiles}");
+    throw new Error(`Find duplicate emoji files, \n${emojiFiles}`);
   }
 
   console.log("Ok, duplicate emoji files is nothing.");
