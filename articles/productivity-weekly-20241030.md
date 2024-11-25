@@ -1,5 +1,5 @@
 ---
-title: ＜ここにタイトルを入力＞｜Productivity Weekly(2024-10-30)
+title: GitHub Universe 2024、API insightsなど｜Productivity Weekly(2024-10-30)
 emoji: 🎃
 type: idea
 topics:
@@ -36,10 +36,6 @@ user_defined:
 
 今週の共同著者は次の方です。
 - [@korosuke613](https://zenn.dev/korosuke613)
-<!-- - [@defaultcf](https://zenn.dev/defaultcf) -->
-<!-- - [@Kesin11](https://zenn.dev/kesin11) -->
-<!-- - [@r4mimu](https://zenn.dev/r4mimu) -->
-<!-- - [@uta8a](https://zenn.dev/uta8a) -->
 - [@ajfAfg](https://zenn.dev/arjef)
 
 :::
@@ -49,10 +45,52 @@ user_defined:
 ## View an organization’s REST API activity with API insights in public preview - GitHub Changelog
 https://github.blog/changelog/2024-10-29-view-an-organizations-rest-api-activity-with-api-insights-in-public-preview/
 
+GitHub Enterprise Cloud において、organization owner は REST API アクティビティを視覚化したダッシュボード、API Insights を使用できるようになりました（public preview）。また、org で `View organization API insights` 権限を持つカスタムロールを作成することで、owner 以外のユーザーにもアクセス権限を与えることができます。
+
+リクエスト数と primary rate limit に到達したリクエスト数を可視化して見ることができるほか、ユーザ・アプリ単位でどういった API を使用しているかがわかるようになっています。
+
+organization が大きくなってくると、リクエストが rate limit で弾かれた時にどのユーザ・アプリが原因なのかを特定するのが難しいです。この機能があれば、rate limit の原因を分析しやすくなるので、大規模な organization は特に便利な機能だと思います。また、何らかの自動化をしたい際に、rate limit が心配になる場合でもどれだけ許容できるかを把握するのにも役立ちそうです。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
+
 ## Universe 2024: GitHub Copilotのモデルの選択、アプリ構築ツールGitHub Spark、AIネイティブ開発者体験でソフトウェア開発者の選択肢を広げる - GitHubブログ
 https://github.blog/jp/2024-10-30-press-releases-github-universe-2024/
 
-https://github.blog/changelog/label/copilot/
+はい。今年もやって参りました。GitHub Universe 2024 です。この記事は GitHub Universe 2024 の公式日本語まとめ記事です。とにかく AI 系の発表が多い回でした。
+主に 10/29、30 に公開された Changelog を箇条書きでざっくりと紹介します。
+
+- GitHub Copilot
+  - マルチモデル対応（GPT-4o、o1-*、Gemini 1.5 Pro、Claude 3.5 Sonnet...）
+    - [OpenAI o1 is now available in GitHub Copilot Chat in public preview - GitHub Changelog](https://github.blog/changelog/2024-10-29-openai-o1-is-now-available-in-github-copilot-chat-in-public-preview/)
+  - VSCode での Copilot のカスタマイズ機能＆マルチファイル編集機能
+    - [Multi-file editing, code review, custom instructions, and more for GitHub Copilot in VS Code October release (v0.22) - GitHub Changelog](https://github.blog/changelog/2024-10-29-multi-file-editing-code-review-custom-instructions-and-more-for-github-copilot-in-vs-code-october-release-v0-22/)
+  - Xcode 対応
+    - [GitHub Copilot code completion in Xcode is now available in public preview - GitHub Changelog](https://github.blog/changelog/2024-10-29-github-copilot-code-completion-in-xcode-is-now-available-in-public-preview/)
+  - Copilot によるプルリクエストのレビュー
+    - [Refine and validate code review suggestions with Copilot Workspace (public preview) - GitHub Changelog](https://github.blog/changelog/2024-10-29-refine-and-validate-code-review-suggestions-with-copilot-workspace-public-preview/)
+    - [GitHub Copilot code review in Visual Studio Code (public preview) - GitHub Changelog](https://github.blog/changelog/2024-10-29-github-copilot-code-review-in-visual-studio-code-public-preview/)
+    - [GitHub Copilot code review in GitHub.com (public preview) - GitHub Changelog](https://github.blog/changelog/2024-10-29-github-copilot-code-review-in-github-com-public-preview/)
+  - GitHub Mobile の Copilot Chat で Copilot Extension が利用可能に
+    - [GitHub Copilot Extensions on GitHub Mobile now in public preview - GitHub Changelog](https://github.blog/changelog/2024-10-29-github-copilot-extensions-on-github-mobile-and-jetbrains-now-in-public-preview/)
+  - Copilot Autofix が ESLint のエラーを修正可能に
+    - [Copilot Autofix now supports partner code scanning tools - GitHub Changelog](https://github.blog/changelog/2024-10-29-copilot-autofix-now-supports-partner-code-scanning-tools/)
+  - Copilot Autofix on Dependabot が TypeScript で利用可能に。依存関係の更新による破壊的変更などへの対応を自動化
+    - [Copilot Autofix for Dependabot が TypeScript リポジトリで利用可能に (プライベート プレビュー) - GitHub Changelog](https://github.blog/changelog/2024-10-29-copilot-autofix-for-dependabot-now-available-for-typescript-repositories-private-preview/)
+  - Copilot Individual の Copilot Chat で Bing を使ったウェブ情報の参照が可能に
+    - [Web search in GitHub Copilot Chat now available for Copilot Individual - GitHub Changelog](https://github.blog/changelog/2024-10-29-web-search-in-github-copilot-chat-now-available-for-copilot-individual/)
+  - Windows Terminal で Copilot Chat が利用可能に
+    - [GitHub Copilot is now available in Windows Terminal - GitHub Changelog](https://github.blog/changelog/2024-10-29-github-copilot-is-now-available-in-windows-terminal/)
+  - Copilot Metrics API が GA に。変更点あり
+    - [GitHub Copilot Metrics API GA release now available - GitHub Changelog](https://github.blog/changelog/2024-10-30-github-copilot-metrics-api-ga-release-now-available/)
+- GitHub Spark 登場、自然言語でアプリを構築してくれるツール
+  - [GitHub Next | GitHub Spark](https://githubnext.com/projects/github-spark)
+- GitHub Models がパブリックプレビューに
+  - [GitHub Models is now available in public preview - GitHub Changelog](https://github.blog/changelog/2024-10-29-github-models-is-now-available-in-public-preview/)
+
+いやー多すぎますね。ちょっと把握しきれてないです。
+気になる人はリンク先を見てみてください。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 # know-how 🎓
 
@@ -77,11 +115,19 @@ GitHub Actions 上の自動テスト時間を 54 分から約 11 分に縮め、
 
 _本項の執筆者: [@ajfAfg](https://zenn.dev/arjef)_
 
-## githubnext/copilot-workspace-user-manual: 📖 The user manual for GitHub Copilot Workspace
-https://github.com/githubnext/copilot-workspace-user-manual
-
 ## GitHub を活用したソフトウェアサプライチェーン下流のセキュリティ強化 - GitHubブログ
 https://github.blog/jp/2024-10-24-the-second-half-of-software-supply-chain-security-on-github/
+
+GitHub による、GitHub のアーティファクト証明書を活用したサプライチェーンのセキュリティ強化に関するブログです。
+
+昨今サプライチェーンのセキュリティが注目されている背景、ソフトウェアサプライチェーンの概要（SLSA）、GitHub を利用することでどうサプライチェーンセキュリティを向上させるかの簡単な説明が紹介されています。
+
+GitHub の機能については、artifact attestations（GitHub Actions 上で作った artifacts に署名をする仕組み）を用いることで、SLSA ビルドトラックにおけるレベル 0 からレベル 2 への到達が可能になることを説明しています。
+さらに、組織内の reusable workflow によるビルド手順の制御も実施することで、レベル 3 へ到達可能であることも書かれており、ドキュメントと共に紹介されています。
+
+[Artifact Attestations 機能](https://zenn.dev/cybozu_ept/articles/productivity-weekly-20240626#artifact-attestations-is-generally-available---the-github-blog)は今年 GA となった新機能です。有意義な機能である反面、まだまだ広く活用されているようには主観ですが思えません。なぜあると嬉しいのかや活用事例を出してくれるのは個人的に嬉しいです。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 ## なんとなくから脱却する GitHub Actionsグッドプラクティス11選
 https://gihyo.jp/article/2024/10/good-practices-for-github-actions
@@ -94,16 +140,7 @@ https://gihyo.jp/article/2024/10/good-practices-for-github-actions
 
 _本項の執筆者: [@ajfAfg](https://zenn.dev/arjef)_
 
-## Go with Bazel
-https://zenn.dev/pddg/books/go-with-bazel
-
-## Nx Agentsを導入してフロントエンドのCIを約40%高速化しました - Findy Tech Blog
-https://tech.findy.co.jp/entry/2024/10/28/070000
-
 # tool 🔨
-
-## lock 機構のための GitHub Action を作った
-https://zenn.dev/shunsuke_suzuki/articles/github-lock-action
 
 ## Goのnil panicを防ぐ静的解析ツール：nilaway
 https://zenn.dev/sho_hata/articles/1a70781e5a0b95
@@ -143,13 +180,40 @@ Productivity Weekly で出たネタを全て紹介したいけど紹介する体
 
 - **news 📺**
 - **know-how 🎓**
+  - [githubnext/copilot-workspace-user-manual: 📖 The user manual for GitHub Copilot Workspace](https://github.com/githubnext/copilot-workspace-user-manual)
+    - GitHub Copilot Workspace のユーザーマニュアルです。実はリポジトリで管理されています
+    - 使い方がわかって良いのですが、特に嬉しいのは [Change log](https://github.com/githubnext/copilot-workspace-user-manual/blob/416c09f96b68d7fa2bc192d5b937449f118d87af/changes.md) のファイルです。いつどういう更新がされたのか事細かに書かれており、久々に触った際に変更点を追えやすいです
+  - [Go with Bazel](https://zenn.dev/pddg/books/go-with-bazel)
+    - Go と Bazel を使ってモノレポを構築する方法が書かれた Zenn Book です
+    - Bazel の基本的な使い方から、コンテナ化やリリースなどの実践的内容までワンパッケージでまとまっており、Bazel 気になってるぜって方や、Bazel もっといい感じに使いたいぜって方にちょうど良さそうな入門書という感じです
+    - 僕もちょっとずつ読み進めています。ハンズオン形式なのもいいですね
+  - [Nx Agentsを導入してフロントエンドのCIを約40%高速化しました - Findy Tech Blog](https://tech.findy.co.jp/entry/2024/10/28/070000)
+    - Findy さんによる、モノレポ管理ツール Nx のクラウドサービスである Nx Agents を使ってフロントエンドの CI を高速化した事例です
+    - Nx Agents は新しいサービスなので、どういう感じかわかって良いです
+    - また、Nx に限らない高速化のためのテクニックも書かれてて良いです
+    - ちょっと気になったのが、18 分が 11 分になって 40% 削減ということで、もともとそこまで時間がかかってなさそうなので、キャッチアップにかかるコストや料金的コストの変化はどう考慮されたか気になりました
 - **tool 🔨**
+  - [lock 機構のための GitHub Action を作った](https://zenn.dev/shunsuke_suzuki/articles/github-lock-action)
+    - suzuki-shunsuke さんの新作です。今回は GitHub Actions で lock 機構を実現するためのアクションを作成した話です
+    - github の branch を使って lock を実現しており、そういう方法もあるのかと思いました（github が持っているアクションも同じような仕組みらしい）
+    - だいぶ柔軟に lock/unlock ができそうです。ユースケースとしては一時的に terraform の何らかの作業中に terraform apply を禁止したい場合が紹介されていました
+    - 最初は concurrency 機能ではダメなのかなと思ったのですが、おそらくワークフローの実行状態に関わらず手動で lock/unlock できるのが嬉しそうだと思いました。そう考えると何らかの作業中にデプロイワークフローは動かしたくないといった場合にも使えそうですね
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 # あとがき
-
+<!-- textlint-disable ja-technical-writing/ja-no-successive-word -->
+毎度毎度遅くなってしまいすみません。マジで昔より平木場の余裕がなくなっちゃいました。ハッピーハロウィン 🎃
+<!-- textlint-enable ja-technical-writing/ja-no-successive-word -->
 
 サイボウズの生産性向上チームでは社内エンジニアの開発生産性を上げるための活動を行なっています。そんな生産性向上チームが気になる方は下のリンクをクリック！
 https://www.docswell.com/s/cybozu-tech/5R2X3N-engineering-productivity-team-recruitment-information
+
+## Sansan VS サイボウズ - 品質向上 Tips 冬祭り - connpass
+そういえば、またもや Sansan さんとサイボウズでバトルします（？）。今回は「品質向上 Tips 冬祭り」というテーマで LT 回＆座談会をやります。場所は Sansan さんのオフィスです。興味がある方はぜひご参加ください！
+
+Sansan VS サイボウズ - 品質向上 Tips 冬祭り - connpass
+https://sansan.connpass.com/event/335070/
 
 <!-- :::message すみません、今週もおまけはお休みです...:::-->
 
