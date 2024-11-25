@@ -28,7 +28,7 @@ jobs:
           echo "last_month=$first_day..$last_day" >> "$GITHUB_OUTPUT"
 
       - name: Run issue-metrics tool
-        uses: github/issue-metrics@a3ac7ff4d9fe096c7c18ccc794646fd17dbfc6ff # v3.8.0
+        uses: github/issue-metrics@baa452396191291251e07916fe662b10f3b100b5 # v3.15.2
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           # ワークフロー実行リポジトリで
@@ -36,7 +36,7 @@ jobs:
           SEARCH_QUERY: 'repo:${{ github.repository }} is:pr created:${{ steps.days.outputs.last_month }}'
 
       - name: Create issue
-        uses: peter-evans/create-issue-from-file@24452a72d85239eacf1468b0f1982a9f3fec4c94 # v5.0.0
+        uses: peter-evans/create-issue-from-file@e8ef132d6df98ed982188e460ebb3b5d4ef3a9cd # v5.0.1
         with:
           title: Monthly pull request metrics report (${{ steps.days.outputs.last_month }})
           token: ${{ secrets.GITHUB_TOKEN }}

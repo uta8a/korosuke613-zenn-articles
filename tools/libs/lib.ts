@@ -2,7 +2,7 @@ import { matter } from "../deps.ts";
 
 const _gitExecutor = async () => {
   const cmd = new Deno.Command("git", {
-    args: ["diff", "--name-only", "main"],
+    args: ["diff", "--name-only", "origin/main"],
     stdout: "piped",
     stderr: "piped",
   });
@@ -29,7 +29,7 @@ export const getGitDiffWeeklyFiles = async (
 
 const _grepExecutor = async (emoji: string) => {
   const cmd = new Deno.Command("grep", {
-    args: ["-r", "-n", "-w", "./articles", "-e", emoji],
+    args: ["-r", "-n", "-w", "./articles", "-e", `^emoji:\\s*\"*${emoji}\"*`],
   });
   const { code, stdout, stderr } = await cmd.output();
 
