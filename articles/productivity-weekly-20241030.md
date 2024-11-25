@@ -47,7 +47,7 @@ https://github.blog/changelog/2024-10-29-view-an-organizations-rest-api-activity
 
 GitHub Enterprise Cloud において、organization owner は REST API アクティビティを視覚化したダッシュボード、API Insights を使用できるようになりました（public preview）。また、org で `View organization API insights` 権限を持つカスタムロールを作成することで、owner 以外のユーザーにもアクセス権限を与えることができます。
 
-リクエスト数と primary rate limit に到達したリクエスト数を可視化して見ることができるほか、ユーザ・アプリ単位でどういった API を叩いているかがわかるようになっています。
+リクエスト数と primary rate limit に到達したリクエスト数を可視化して見ることができるほか、ユーザ・アプリ単位でどういった API を使用しているかがわかるようになっています。
 
 organization が大きくなってくると、リクエストが rate limit で弾かれた時にどのユーザ・アプリが原因なのかを特定するのが難しいです。この機能があれば、rate limit の原因を分析しやすくなるので、大規模な organization は特に便利な機能だと思います。また、何らかの自動化をしたい際に、rate limit が心配になる場合でもどれだけ許容できるかを把握するのにも役立ちそうです。
 
@@ -122,7 +122,7 @@ GitHub による、GitHub のアーティファクト証明書を活用したサ
 
 昨今サプライチェーンのセキュリティが注目されている背景、ソフトウェアサプライチェーンの概要（SLSA）、GitHub を利用することでどうサプライチェーンセキュリティを向上させるかの簡単な説明が紹介されています。
 
-GitHub の機能については、artifact attestations（GitHub Actions 上で作った Artifacts に署名をする仕組み）を用いることで、SLSA ビルドトラックにおけるレベル 0 からレベル 2 への到達が可能になることを説明しています。
+GitHub の機能については、artifact attestations（GitHub Actions 上で作った artifacts に署名をする仕組み）を用いることで、SLSA ビルドトラックにおけるレベル 0 からレベル 2 への到達が可能になることを説明しています。
 さらに、組織内の reusable workflow によるビルド手順の制御も実施することで、レベル 3 へ到達可能であることも書かれており、ドキュメントと共に紹介されています。
 
 [Artifact Attestations 機能](https://zenn.dev/cybozu_ept/articles/productivity-weekly-20240626#artifact-attestations-is-generally-available---the-github-blog)は今年 GA となった新機能です。有意義な機能である反面、まだまだ広く活用されているようには主観ですが思えません。なぜあると嬉しいのかや活用事例を出してくれるのは個人的に嬉しいです。
