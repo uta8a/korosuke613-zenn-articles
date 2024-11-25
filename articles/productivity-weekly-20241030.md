@@ -1,5 +1,5 @@
 ---
-title: ＜ここにタイトルを入力＞｜Productivity Weekly(2024-10-30)
+title: GitHub Universe 2024、API insightsなど｜Productivity Weekly(2024-10-30)
 emoji: 🎃
 type: idea
 topics:
@@ -181,16 +181,39 @@ Productivity Weekly で出たネタを全て紹介したいけど紹介する体
 - **news 📺**
 - **know-how 🎓**
   - [githubnext/copilot-workspace-user-manual: 📖 The user manual for GitHub Copilot Workspace](https://github.com/githubnext/copilot-workspace-user-manual)
+    - GitHub Copilot Workspace のユーザーマニュアルです。実はリポジトリで管理されています
+    - 使い方がわかって良いのですが、特に嬉しいのは [Change log](https://github.com/githubnext/copilot-workspace-user-manual/blob/416c09f96b68d7fa2bc192d5b937449f118d87af/changes.md) のファイルです。いつどういう更新がされたのか事細かに書かれており、久々に触った際に変更点を追えやすいです
   - [Go with Bazel](https://zenn.dev/pddg/books/go-with-bazel)
+    - Go と Bazel を使ってモノレポを構築する方法が書かれた Zenn Book です
+    - Bazel の基本的な使い方から、コンテナ化やリリースなどの実践的内容までワンパッケージでまとまっており、Bazel 気になってるぜって方や、Bazel もっといい感じに使いたいぜって方にちょうど良さそうな入門書という感じです
+    - 僕もちょっとずつ読み進めています。ハンズオン形式なのもいいですね
   - [Nx Agentsを導入してフロントエンドのCIを約40%高速化しました - Findy Tech Blog](https://tech.findy.co.jp/entry/2024/10/28/070000)
+    - Findy さんによる、モノレポ管理ツール Nx のクラウドサービスである Nx Agents を使ってフロントエンドの CI を高速化した事例です
+    - Nx Agents は新しいサービスなので、どういう感じかわかって良いです
+    - また、Nx に限らない高速化のためのテクニックも書かれてて良いです
+    - ちょっと気になったのが、18 分が 11 分になって 40% 削減ということで、もともとそこまで時間がかかってなさそうなので、キャッチアップにかかるコストや料金的コストの変化はどう考慮されたか気になりました
 - **tool 🔨**
   - [lock 機構のための GitHub Action を作った](https://zenn.dev/shunsuke_suzuki/articles/github-lock-action)
+    - suzuki-shunsuke さんの新作です。今回は GitHub Actions で lock 機構を実現するためのアクションを作成した話です
+    - github の branch を使って lock を実現しており、そういう方法もあるのかと思いました（github が持っているアクションも同じような仕組みらしい）
+    - だいぶ柔軟に lock/unlock ができそうです。ユースケースとしては一時的に terraform の何らかの作業中に terraform apply を禁止したい場合が紹介されていました
+    - 最初は concurrency 機能ではダメなのかなと思ったのですが、おそらくワークフローの実行状態に関わらず手動で lock/unlock できるのが嬉しそうだと思いました。そう考えると何らかの作業中にデプロイワークフローは動かしたくないといった場合にも使えそうですね
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 # あとがき
-
+<!-- textlint-disable ja-technical-writing/ja-no-successive-word -->
+毎度毎度遅くなってしまいすみません。マジで昔より平木場の余裕がなくなっちゃいました。ハッピーハロウィン 🎃
+<!-- textlint-enable ja-technical-writing/ja-no-successive-word -->
 
 サイボウズの生産性向上チームでは社内エンジニアの開発生産性を上げるための活動を行なっています。そんな生産性向上チームが気になる方は下のリンクをクリック！
 https://www.docswell.com/s/cybozu-tech/5R2X3N-engineering-productivity-team-recruitment-information
+
+## Sansan VS サイボウズ - 品質向上 Tips 冬祭り - connpass
+そういえば、またもや Sansan さんとサイボウズでバトルします（？）。今回は「品質向上 Tips 冬祭り」というテーマで LT 回＆座談会をやります。場所は Sansan さんのオフィスです。興味がある方はぜひご参加ください！
+
+Sansan VS サイボウズ - 品質向上 Tips 冬祭り - connpass
+https://sansan.connpass.com/event/335070/
 
 <!-- :::message すみません、今週もおまけはお休みです...:::-->
 
