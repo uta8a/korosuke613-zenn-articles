@@ -36,7 +36,7 @@ user_defined:
 
 今週の共同著者は次の方です。
 - [@korosuke613](https://zenn.dev/korosuke613)
-<!-- - [@defaultcf](https://zenn.dev/defaultcf) -->
+- [@defaultcf](https://zenn.dev/defaultcf)
 <!-- - [@Kesin11](https://zenn.dev/kesin11) -->
 <!-- - [@r4mimu](https://zenn.dev/r4mimu) -->
 <!-- - [@uta8a](https://zenn.dev/uta8a) -->
@@ -84,6 +84,21 @@ _本項の執筆者: [@uta8a](https://zenn.dev/uta8a)_
 ## Introducing an enhanced local IDE experience for AWS Lambda developers | AWS Compute Blog
 https://aws.amazon.com/jp/blogs/compute/introducing-an-enhanced-local-ide-experience-for-aws-lambda-developers/
 
+ローカルで AWS Lambda 関数を開発する際の体験が向上しました⤴️
+AWS が公式で提供している VSCode の拡張機能である「AWS Toolkit」に、AWS Lambda での開発に役立つ機能がいくつか追加されています。
+https://marketplace.visualstudio.com/items?itemName=AmazonWebServices.aws-toolkit-vscode
+
+AWS Toolkit の拡張機能で追加されるサイドパネルに、新たにアプリケーションビルダーという項目が追加されています。
+ウォークスルーを選択すると、ステップバイステップで SAM を使用した Lambda 関数の作成できます。
+また既存の SAM のプロジェクトを認識して、後述するツールを使用できます。
+
+「Open with Infrastructure Composer」のボタンをクリックすると、現在の SAM の構成をビジュアライズして表示してくれます。
+他にはローカル・クラウドでの関数の invoke ができます。ブレークポイントを付けて実行できるため、デバッグがより便利になりそうです。
+
+AWS 公式でこれらの機能を IDE で使えるのはありがたいですね。
+
+_本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)_
+
 ## Visual Studio Code October 2024
 https://code.visualstudio.com/updates/v1_95
 
@@ -110,13 +125,41 @@ _本項の執筆者: [@ajfAfg](https://zenn.dev/arjef)_
 ## AWS CodeBuild でビルドの自動再試行のサポートを開始 - AWS
 https://aws.amazon.com/jp/about-aws/whats-new/2024/10/aws-codebuild-retrying-builds-automatically/
 
+AWS CodeBuild でビルドの自動再試行を設定できるようになりました。
+AWS マネージドコンソールや AWS CLI などから、最大試行回数を設定できるようになっています。
+
+なにかの不具合やタイミングなどの問題で、単純に再試行すれば回避できる場合は、この設定で楽に運用できる場面もありそうです。
+
+_本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)_
+
 ## AWS Transit Gateway を経由する通信の送信元をセキュリティグループIDで制御できるようになりました | DevelopersIO
 https://dev.classmethod.jp/articles/general-availability-security-group-referencing-aws-transit-gateway/
 
 ## Amazon Aurora PostgreSQL Limitless Database is now generally available | AWS News Blog
 https://aws.amazon.com/jp/blogs/aws/amazon-aurora-postgresql-limitless-database-is-now-generally-available/
 
-## Announcing TypeScript 5.7 RC - TypeScript
+今まで Transit Gateway を介した通信の制御には、CIDR ブロックやプレフィクスリストを使ったものしか利用できませんでした。
+今回の変更により、通信の制御にセキュリティグループ ID が使用できるようになりました。
+ただし、インバウンドのセキュリティルールのみである点に注意です。また、別の VPC のセキュリティグループを参照できるように設定してあげる必要もあるそうです。
+
+AWS アカウント間でも機能するとのことですので、いろんなところで使い道がありそうです。
+
+_本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)_
+
+## Amazon Aurora PostgreSQL Limitless Database is now generally available | AWS News Blog 
+https://aws.amazon.com/jp/blogs/aws/amazon-aurora-postgresql-limitless-database-is-now-generally-available/
+
+Amazon Aurora PostgreSQL Limitless Database の一般提供が開始されました。
+
+このサービス自体は遅くとも 2023 年 12 月にプレビューで公開されており、今回満を持して一般提供された形です。
+https://aws.amazon.com/jp/blogs/news/join-the-preview-amazon-aurora-limitless-database/
+
+秒間数百万の書き込みトランザクションをサポートしていることから、ユースケースとしては非常にトラフィックの多い大規模なアプリケーションでの DB として採用されることがあるかもしれません。
+利用状況に Aurora Limitless Database が自動でスケーリングを行い、書き込みスループットとストレージ容量を確保してくれます。
+
+_本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)_
+
+## Announcing TypeScript 5.7 RC - TypeScript 
 https://devblogs.microsoft.com/typescript/announcing-typescript-5-7-rc/
 
 TypeScript 5.7 RC が発表されました！　わいわい！
@@ -217,8 +260,28 @@ https://speakerdeck.com/arthur1/go-toolchain-version
 ## AWS ECS Fargate Autoscaling の実戦的な基礎知識 | 外道父の匠
 https://blog.father.gedow.net/2024/11/08/aws-ecs-fargate-autoscaling-knowledge/
 
-## AWSアカウントを閉鎖する前に見るチェックリスト | DevelopersIO
+AWS ECS では開発者がタスクの AutoScaling の設定を工夫して、コストと可用性のバランスを取る必要があります。
+（コンピュートリソースに EC2 を使用する場合は、さらに EC2 の AutoScaling を考える必要があります）
+
+記事では AutoScaling の基準となるメトリクスの説明から始まり、その数値をどのように考えてしきい値を定めるべきかが詳しく書かれています。
+
+ECS の AutoScaling を考える時には、先日ご紹介した "「攻めた」AWS Fargate Spot 比率の見直し時" と一緒にこの記事を読んで、上手く値を考えたいものです。
+https://zenn.dev/cybozu_ept/articles/productivity-weekly-20241023#%E3%80%8C%E6%94%BB%E3%82%81%E3%81%9F%E3%80%8Daws-fargate-spot%E6%AF%94%E7%8E%87%E3%81%AE%E8%A6%8B%E7%9B%B4%E3%81%97%E6%99%82
+
+_本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)_
+
+## AWSアカウントを閉鎖する前に見るチェックリスト | DevelopersIO 
 https://dev.classmethod.jp/articles/aws-account-close-checklist/
+
+組織で AWS アカウントを管理していると、AWS アカウントを閉鎖することがあるかと思います。
+この記事では、AWS アカウントを閉鎖する前に管理者が確認すべきことがまとめられています。
+
+個人的には 8 の「30 日間で閉鎖したアカウントが（Organization）全体の 10% を超えていないか」について、そのようなクオータが存在することを知らなかったので驚きました。
+もし特定の Organization で大量にアカウントを閉鎖する必要がある場合は、留意する必要があります。
+
+本記事を読んだことで、改めて AWS アカウントの閉鎖について考えることができる、良い機会となりました。
+
+_本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)_
 
 ## Introducing Copilot Edits
 https://code.visualstudio.com/blogs/2024/11/12/introducing-copilot-edits
