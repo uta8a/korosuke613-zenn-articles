@@ -69,7 +69,7 @@ https://github.blog/changelog/2024-11-19-build-copilot-extensions-faster-with-sk
 ## Terraform Monorepo の CI の実行時間を可視化し 2 分以上高速化 - freee Developers Hub
 https://developers.freee.co.jp/entry/2024/11/19/100000
 
-改善の準備として OKR や SLI/SLO の設定と CI 実行時間の可視化に取り組み、それを元に CI を爆速にした話です。CI の可視化するツールはいくつかありますが、今回は step 単位でも実行時間を見るために [CIAnalyzer](https://github.com/Kesin11/CIAnalyzer) が採用されています。実行時間を可視化した結果、リポジトリの cehckout に多くの時間がかかっていると判明したため、この点を中心に改善されたとのことです。改善の具体例としては、リポジトリにコミットされている zip ファイルの削除や、[sparse checkout](https://git-scm.com/docs/git-sparse-checkout) を実施されたとのことです。
+改善の準備として OKR や SLI/SLO の設定と CI 実行時間の可視化に取り組み、それを元に CI を爆速にした話です。CI の可視化するツールはいくつかありますが、今回は step 単位でも実行時間を見るために [CIAnalyzer](https://github.com/Kesin11/CIAnalyzer) が採用されています。実行時間を可視化した結果、リポジトリの checkout に多くの時間がかかっていると判明したため、この点を中心に改善されたとのことです。改善の具体例としては、リポジトリにコミットされている zip ファイルの削除や、[sparse checkout](https://git-scm.com/docs/git-sparse-checkout) を実施されたとのことです。
 
 いつもの suzuki-shunsuke さんです。改善の成果もさることながら、個人的には改善の準備として OKR や SLI/SLO がしっかり設定されている点が参考になると感じました。ゴールが定まっていないと無限に改善できてしまうのでゴールの設定は大事だと考えているのですが、定量的なゴールの設定を僕は疎かにしがちなので身の引き締まる思いです。記事中でも言及されていますが、定量的なゴールの設定が誤っている場合は修正すればいいだけなので、間違いを恐れずに前のめりに数字を追っていきたいです。
 
