@@ -1,5 +1,5 @@
 ---
-title: ＜ここにタイトルを入力＞｜Productivity Weekly(2024-11-13, 2024-11-06)
+title: Copilot Individualを制限してシャドーIT撲滅など｜Productivity Weekly(2024-11-13, 06)
 emoji: 📐
 type: idea
 topics:
@@ -37,9 +37,7 @@ user_defined:
 今週の共同著者は次の方です。
 - [@korosuke613](https://zenn.dev/korosuke613)
 - [@defaultcf](https://zenn.dev/defaultcf)
-<!-- - [@Kesin11](https://zenn.dev/kesin11) -->
-<!-- - [@r4mimu](https://zenn.dev/r4mimu) -->
-<!-- - [@uta8a](https://zenn.dev/uta8a) -->
+- [@uta8a](https://zenn.dev/uta8a)
 - [@ajfAfg](https://zenn.dev/arjef)
 
 :::
@@ -134,9 +132,6 @@ _本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)_
 
 ## AWS Transit Gateway を経由する通信の送信元をセキュリティグループIDで制御できるようになりました | DevelopersIO
 https://dev.classmethod.jp/articles/general-availability-security-group-referencing-aws-transit-gateway/
-
-## Amazon Aurora PostgreSQL Limitless Database is now generally available | AWS News Blog
-https://aws.amazon.com/jp/blogs/aws/amazon-aurora-postgresql-limitless-database-is-now-generally-available/
 
 今まで Transit Gateway を介した通信の制御には、CIDR ブロックやプレフィクスリストを使ったものしか利用できませんでした。
 今回の変更により、通信の制御にセキュリティグループ ID が使用できるようになりました。
@@ -243,19 +238,7 @@ https://zenn.dev/uhyo/articles/rewrite-relative-import-extensions-read-before-us
 
 _本項の執筆者: [@ajfAfg](https://zenn.dev/arjef)_
 
-## Cloud RunがIAPでよりお手軽に認証できるようになりました！
-https://zenn.dev/iret/articles/cloud-run-iap-auth
-
-## The GitHub Enterprise Server 3.15 Release Candidate is available - GitHub Changelog
-https://github.blog/changelog/2024-11-12-the-github-enterprise-server-3-15-release-candidate-is-available/
-
-## おめでとう Go オープンソースリリース15周年！（お祝いメッセージです）
-https://go.dev/blog/15years
-
 # know-how 🎓
-
-## go.mod、DockerfileやCI設定に分散しがちなGoのバージョンをまとめて管理する / Go Connect #3 - Speaker Deck
-https://speakerdeck.com/arthur1/go-toolchain-version
 
 ## AWS ECS Fargate Autoscaling の実戦的な基礎知識 | 外道父の匠
 https://blog.father.gedow.net/2024/11/08/aws-ecs-fargate-autoscaling-knowledge/
@@ -265,8 +248,8 @@ AWS ECS では開発者がタスクの AutoScaling の設定を工夫して、�
 
 記事では AutoScaling の基準となるメトリクスの説明から始まり、その数値をどのように考えてしきい値を定めるべきかが詳しく書かれています。
 
-ECS の AutoScaling を考える時には、先日ご紹介した "「攻めた」AWS Fargate Spot 比率の見直し時" と一緒にこの記事を読んで、上手く値を考えたいものです。
-https://zenn.dev/cybozu_ept/articles/productivity-weekly-20241023#%E3%80%8C%E6%94%BB%E3%82%81%E3%81%9F%E3%80%8Daws-fargate-spot%E6%AF%94%E7%8E%87%E3%81%AE%E8%A6%8B%E7%9B%B4%E3%81%97%E6%99%82
+ECS の AutoScaling を考える時には、先日ご紹介した ["「攻めた」AWS Fargate Spot 比率の見直し時"](https://zenn.dev/cybozu_ept/articles/productivity-weekly-20241023#%E3%80%8C%E6%94%BB%E3%82%81%E3%81%9F%E3%80%8Daws-fargate-spot%E6%AF%94%E7%8E%87%E3%81%AE%E8%A6%8B%E7%9B%B4%E3%81%97%E6%99%82) と一緒にこの記事を読んで、上手く値を考えたいものです。
+
 
 _本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)_
 
@@ -283,27 +266,6 @@ https://dev.classmethod.jp/articles/aws-account-close-checklist/
 
 _本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)_
 
-## Introducing Copilot Edits
-https://code.visualstudio.com/blogs/2024/11/12/introducing-copilot-edits
-
-## "君は見ているが観察していない"で考えるインシデントマネジメント - Speaker Deck
-https://speakerdeck.com/grimoh/jun-hajian-teirugaguan-cha-siteinai-dekao-eruinsidentomanezimento
-
-## SREの組織類型に応じた リーダシップの考察 - Speaker Deck
-https://speakerdeck.com/kenta_hi/srenozu-zhi-lei-xing-niying-zita-ridasitupunokao-cha
-
-## FourKeys風の指標で開発生産性が4.5倍になった話 | CyberAgent Developers Blog
-https://developers.cyberagent.co.jp/blog/archives/50376/
-
-## Four Keysを活用してチームの開発生産性を改善した時のふりかえりの考え方と手法を紹介します - ZOZO TECH BLOG
-https://techblog.zozo.com/entry/improve-mlops-team-capability
-
-## Platform Engineeringの先人 メルカリに学ぶ！ プラットフォームチームの意義と実践のポイント (1/3)|CodeZine（コードジン）
-https://codezine.jp/article/detail/20282
-
-## データの信頼性を支える仕組みと技術 - Speaker Deck
-https://speakerdeck.com/chanyou0311/detanoxin-lai-xing-wozhi-erushi-zu-mitoji-shu
-
 ## git rebaseの苦労を減らすための覚え書き | Atusy's blog
 https://blog.atusy.net/2024/11/07/git-rebase/
 
@@ -317,16 +279,6 @@ https://blog.atusy.net/2024/11/07/git-rebase/
 過去の rebase 失敗を今なら救い出せそうです。
 
 _本項の執筆者: [@ajfAfg](https://zenn.dev/arjef)_
-
-## 日本人プログラマ向け、プログラミングに適した「フォント」まとめ。2024年版 － Publickey
-https://www.publickey1.jp/blog/24/2024_1.html
-
-## ZodとJSON modeを使ってChatGPTのレスポンスをJSONで取得 - 動かざることバグの如し
-https://blog.turai.work/entry/20241105/1730734168?utm_source=feed
-
-
-## 2024-11-01 Developer Productivity室のWeekly News
-https://zenn.dev/cadp/articles/9b24a50fdb7dab
 
 # tool 🔨
 
@@ -343,11 +295,35 @@ _本項の執筆者: [@ajfAfg](https://zenn.dev/arjef)_
 Productivity Weekly で出たネタを全て紹介したいけど紹介する体力が持たなかったネタを一言程度で書くコーナーです。
 
 - **news 📺**
+  - [The GitHub Enterprise Server 3.15 Release Candidate is available - GitHub Changelog](https://github.blog/changelog/2024-11-12-the-github-enterprise-server-3-15-release-candidate-is-available/)
+    - GHES 3.15 の release candidate が公開されました
+    - 3.15 では、projects に関する GraphQL、Webhook の強化やリポジトリのカスタムプロパティの種類が増える、シークレットスキャンのプッシュ保護が入るなどの変更があります
+  - [Introducing Copilot Edits](https://code.visualstudio.com/blogs/2024/11/12/introducing-copilot-edits)
+    - VSCode に GitHub Copilot Edits という複数ファイルを対象にした Copilot による編集提案機能が追加されました
+    - 例えばテストの修正とコードの修正を両方リンクした上で提案させられます。色々な場面で使えそうです
 - **know-how 🎓**
-- **tool 🔨**
+  - [go.mod、DockerfileやCI設定に分散しがちなGoのバージョンをまとめて管理する / Go Connect #3 - Speaker Deck](https://speakerdeck.com/arthur1/go-toolchain-version)
+    - はてなさんによる go.mod や Dockerfile、CI 設定などに分散しがちな Go のバージョンをまとめて管理する方法についてのスライドです
+    - 宣言したバージョン or それ以上なら OK という場合に使えるテクニックを紹介してくれています
+  - ["君は見ているが観察していない"で考えるインシデントマネジメント - Speaker Deck](https://speakerdeck.com/grimoh/jun-hajian-teirugaguan-cha-siteinai-dekao-eruinsidentomanezimento)
+    - LUUP さんによる、インシデントマネジメントにおける見ることと観察することの違いについてのスライドです
+    - 観察眼の代替としてどういうオブザーバビリティ、ランブックの工夫をすればいいか、観察眼を鍛える上でどういう取り組み（ポストモーテム、インシデント対応訓練など）をすればいいかといった内容が書かれています
+    - 自分も見ているだけになってそうなので、考えてみたいです
+  - [SREの組織類型に応じた リーダシップの考察 - Speaker Deck](https://speakerdeck.com/kenta_hi/srenozu-zhi-lei-xing-niying-zita-ridasitupunokao-cha)
+    - Topotal さんによる、SRE 系組織の中でのリーダシップについてのスライドです
+    - 周りの組織を動かすときに考慮する要素、どんな行動を取ると周りの組織を動かせるか、行動に適した組織の形はあるのかといった内容が書かれています
+    - 他の組織との関わり方は難しく、僕のいるチームでも参考にできそうです
+  - [FourKeys風の指標で開発生産性が4.5倍になった話 | CyberAgent Developers Blog](https://developers.cyberagent.co.jp/blog/archives/50376/)
+    - サイバーエージェントさんによる、FourKeys 風の指標で開発生産性が 4.5 倍になった話です
+    - なぜエンジニアリング活動の計測と可視化をするのか、可視化のためにデプロイフローを統一する話、その結果として開発生産性が上がったことなどが書かれています
+  - [Four Keysを活用してチームの開発生産性を改善した時のふりかえりの考え方と手法を紹介します - ZOZO TECH BLOG](https://techblog.zozo.com/entry/improve-mlops-team-capability)
+    - ZOZO さんによる、Four Keys を活用して開発生産性を改善した時のふりかえりに関する記事です
+    - 背景、課題、改善サイクルを回すために行なった工夫、ふりかえりのポイントなどが書かれています
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 # あとがき
-
+遅くなってすみません！！！！今週、先週号でした。年の瀬ですね。
 
 サイボウズの生産性向上チームでは社内エンジニアの開発生産性を上げるための活動を行なっています。そんな生産性向上チームが気になる方は下のリンクをクリック！
 https://www.docswell.com/s/cybozu-tech/5R2X3N-engineering-productivity-team-recruitment-information
