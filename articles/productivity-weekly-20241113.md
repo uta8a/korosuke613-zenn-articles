@@ -1,11 +1,11 @@
 ---
-title: ＜ここにタイトルを入力＞｜Productivity Weekly(2024-11-13, 2024-11-06)
+title: Copilot Individualを制限してシャドーIT撲滅など｜Productivity Weekly(2024-11-13, 06)
 emoji: 📐
 type: idea
 topics:
   - ProductivityWeekly
   - 生産性向上
-published: false
+published: true
 publication_name: cybozu_ept
 user_defined:
   publish_link: https://zenn.dev/cybozu_ept/articles/productivity-weekly-20241113
@@ -16,6 +16,7 @@ user_defined:
     _本項の執筆者: [@r4mimu](https://zenn.dev/r4mimu)_
     _本項の執筆者: [@uta8a](https://zenn.dev/uta8a)_
     _本項の執筆者: [@ajfAfg](https://zenn.dev/arjef)_
+published_at: 2024-12-03 11:00
 ---
 
 こんにちは。サイボウズ株式会社 [生産性向上チーム](https://www.docswell.com/s/cybozu-tech/5R2X3N-engineering-productivity-team-recruitment-information)の平木場です。
@@ -36,10 +37,8 @@ user_defined:
 
 今週の共同著者は次の方です。
 - [@korosuke613](https://zenn.dev/korosuke613)
-<!-- - [@defaultcf](https://zenn.dev/defaultcf) -->
-<!-- - [@Kesin11](https://zenn.dev/kesin11) -->
-<!-- - [@r4mimu](https://zenn.dev/r4mimu) -->
-<!-- - [@uta8a](https://zenn.dev/uta8a) -->
+- [@defaultcf](https://zenn.dev/defaultcf)
+- [@uta8a](https://zenn.dev/uta8a)
 - [@ajfAfg](https://zenn.dev/arjef)
 
 :::
@@ -84,6 +83,21 @@ _本項の執筆者: [@uta8a](https://zenn.dev/uta8a)_
 ## Introducing an enhanced local IDE experience for AWS Lambda developers | AWS Compute Blog
 https://aws.amazon.com/jp/blogs/compute/introducing-an-enhanced-local-ide-experience-for-aws-lambda-developers/
 
+ローカルで AWS Lambda 関数を開発する際の体験が向上しました⤴️
+AWS が公式で提供している VSCode の拡張機能である「AWS Toolkit」に、AWS Lambda での開発に役立つ機能がいくつか追加されています。
+https://marketplace.visualstudio.com/items?itemName=AmazonWebServices.aws-toolkit-vscode
+
+AWS Toolkit の拡張機能で追加されるサイドパネルに、新たにアプリケーションビルダーという項目が追加されています。
+ウォークスルーを選択すると、ステップバイステップで SAM を使用した Lambda 関数の作成できます。
+また既存の SAM のプロジェクトを認識して、後述するツールを使用できます。
+
+「Open with Infrastructure Composer」のボタンをクリックすると、現在の SAM の構成をビジュアライズして表示してくれます。
+他にはローカル・クラウドでの関数の invoke ができます。ブレークポイントを付けて実行できるため、デバッグがより便利になりそうです。
+
+AWS 公式でこれらの機能を IDE で使えるのはありがたいですね。
+
+_本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)_
+
 ## Visual Studio Code October 2024
 https://code.visualstudio.com/updates/v1_95
 
@@ -110,13 +124,38 @@ _本項の執筆者: [@ajfAfg](https://zenn.dev/arjef)_
 ## AWS CodeBuild でビルドの自動再試行のサポートを開始 - AWS
 https://aws.amazon.com/jp/about-aws/whats-new/2024/10/aws-codebuild-retrying-builds-automatically/
 
+AWS CodeBuild でビルドの自動再試行を設定できるようになりました。
+AWS マネージドコンソールや AWS CLI などから、最大試行回数を設定できるようになっています。
+
+なにかの不具合やタイミングなどの問題で、単純に再試行すれば回避できる場合は、この設定で楽に運用できる場面もありそうです。
+
+_本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)_
+
 ## AWS Transit Gateway を経由する通信の送信元をセキュリティグループIDで制御できるようになりました | DevelopersIO
 https://dev.classmethod.jp/articles/general-availability-security-group-referencing-aws-transit-gateway/
 
-## Amazon Aurora PostgreSQL Limitless Database is now generally available | AWS News Blog
+今まで Transit Gateway を介した通信の制御には、CIDR ブロックやプレフィクスリストを使ったものしか利用できませんでした。
+今回の変更により、通信の制御にセキュリティグループ ID が使用できるようになりました。
+ただし、インバウンドのセキュリティルールのみである点に注意です。また、別の VPC のセキュリティグループを参照できるように設定してあげる必要もあるそうです。
+
+AWS アカウント間でも機能するとのことですので、いろんなところで使い道がありそうです。
+
+_本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)_
+
+## Amazon Aurora PostgreSQL Limitless Database is now generally available | AWS News Blog 
 https://aws.amazon.com/jp/blogs/aws/amazon-aurora-postgresql-limitless-database-is-now-generally-available/
 
-## Announcing TypeScript 5.7 RC - TypeScript
+Amazon Aurora PostgreSQL Limitless Database の一般提供が開始されました。
+
+このサービス自体は遅くとも 2023 年 12 月にプレビューで公開されており、今回満を持して一般提供された形です。
+https://aws.amazon.com/jp/blogs/news/join-the-preview-amazon-aurora-limitless-database/
+
+秒間数百万の書き込みトランザクションをサポートしていることから、ユースケースとしては非常にトラフィックの多い大規模なアプリケーションでの DB として採用されることがあるかもしれません。
+利用状況に Aurora Limitless Database が自動でスケーリングを行い、書き込みスループットとストレージ容量を確保してくれます。
+
+_本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)_
+
+## Announcing TypeScript 5.7 RC - TypeScript 
 https://devblogs.microsoft.com/typescript/announcing-typescript-5-7-rc/
 
 TypeScript 5.7 RC が発表されました！　わいわい！
@@ -200,46 +239,33 @@ https://zenn.dev/uhyo/articles/rewrite-relative-import-extensions-read-before-us
 
 _本項の執筆者: [@ajfAfg](https://zenn.dev/arjef)_
 
-## Cloud RunがIAPでよりお手軽に認証できるようになりました！
-https://zenn.dev/iret/articles/cloud-run-iap-auth
-
-## The GitHub Enterprise Server 3.15 Release Candidate is available - GitHub Changelog
-https://github.blog/changelog/2024-11-12-the-github-enterprise-server-3-15-release-candidate-is-available/
-
-## おめでとう Go オープンソースリリース15周年！（お祝いメッセージです）
-https://go.dev/blog/15years
-
 # know-how 🎓
-
-## go.mod、DockerfileやCI設定に分散しがちなGoのバージョンをまとめて管理する / Go Connect #3 - Speaker Deck
-https://speakerdeck.com/arthur1/go-toolchain-version
 
 ## AWS ECS Fargate Autoscaling の実戦的な基礎知識 | 外道父の匠
 https://blog.father.gedow.net/2024/11/08/aws-ecs-fargate-autoscaling-knowledge/
 
-## AWSアカウントを閉鎖する前に見るチェックリスト | DevelopersIO
+AWS ECS では開発者がタスクの AutoScaling の設定を工夫して、コストと可用性のバランスを取る必要があります。
+（コンピュートリソースに EC2 を使用する場合は、さらに EC2 の AutoScaling を考える必要があります）
+
+記事では AutoScaling の基準となるメトリクスの説明から始まり、その数値をどのように考えてしきい値を定めるべきかが詳しく書かれています。
+
+ECS の AutoScaling を考える時には、先日ご紹介した ["「攻めた」AWS Fargate Spot 比率の見直し時"](https://zenn.dev/cybozu_ept/articles/productivity-weekly-20241023#%E3%80%8C%E6%94%BB%E3%82%81%E3%81%9F%E3%80%8Daws-fargate-spot%E6%AF%94%E7%8E%87%E3%81%AE%E8%A6%8B%E7%9B%B4%E3%81%97%E6%99%82) と一緒にこの記事を読んで、上手く値を考えたいものです。
+
+
+_本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)_
+
+## AWSアカウントを閉鎖する前に見るチェックリスト | DevelopersIO 
 https://dev.classmethod.jp/articles/aws-account-close-checklist/
 
-## Introducing Copilot Edits
-https://code.visualstudio.com/blogs/2024/11/12/introducing-copilot-edits
+組織で AWS アカウントを管理していると、AWS アカウントを閉鎖することがあるかと思います。
+この記事では、AWS アカウントを閉鎖する前に管理者が確認すべきことがまとめられています。
 
-## "君は見ているが観察していない"で考えるインシデントマネジメント - Speaker Deck
-https://speakerdeck.com/grimoh/jun-hajian-teirugaguan-cha-siteinai-dekao-eruinsidentomanezimento
+個人的には 8 の「30 日間で閉鎖したアカウントが（Organization）全体の 10% を超えていないか」について、そのようなクオータが存在することを知らなかったので驚きました。
+もし特定の Organization で大量にアカウントを閉鎖する必要がある場合は、留意する必要があります。
 
-## SREの組織類型に応じた リーダシップの考察 - Speaker Deck
-https://speakerdeck.com/kenta_hi/srenozu-zhi-lei-xing-niying-zita-ridasitupunokao-cha
+本記事を読んだことで、改めて AWS アカウントの閉鎖について考えることができる、良い機会となりました。
 
-## FourKeys風の指標で開発生産性が4.5倍になった話 | CyberAgent Developers Blog
-https://developers.cyberagent.co.jp/blog/archives/50376/
-
-## Four Keysを活用してチームの開発生産性を改善した時のふりかえりの考え方と手法を紹介します - ZOZO TECH BLOG
-https://techblog.zozo.com/entry/improve-mlops-team-capability
-
-## Platform Engineeringの先人 メルカリに学ぶ！ プラットフォームチームの意義と実践のポイント (1/3)|CodeZine（コードジン）
-https://codezine.jp/article/detail/20282
-
-## データの信頼性を支える仕組みと技術 - Speaker Deck
-https://speakerdeck.com/chanyou0311/detanoxin-lai-xing-wozhi-erushi-zu-mitoji-shu
+_本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)_
 
 ## git rebaseの苦労を減らすための覚え書き | Atusy's blog
 https://blog.atusy.net/2024/11/07/git-rebase/
@@ -254,16 +280,6 @@ https://blog.atusy.net/2024/11/07/git-rebase/
 過去の rebase 失敗を今なら救い出せそうです。
 
 _本項の執筆者: [@ajfAfg](https://zenn.dev/arjef)_
-
-## 日本人プログラマ向け、プログラミングに適した「フォント」まとめ。2024年版 － Publickey
-https://www.publickey1.jp/blog/24/2024_1.html
-
-## ZodとJSON modeを使ってChatGPTのレスポンスをJSONで取得 - 動かざることバグの如し
-https://blog.turai.work/entry/20241105/1730734168?utm_source=feed
-
-
-## 2024-11-01 Developer Productivity室のWeekly News
-https://zenn.dev/cadp/articles/9b24a50fdb7dab
 
 # tool 🔨
 
@@ -280,11 +296,35 @@ _本項の執筆者: [@ajfAfg](https://zenn.dev/arjef)_
 Productivity Weekly で出たネタを全て紹介したいけど紹介する体力が持たなかったネタを一言程度で書くコーナーです。
 
 - **news 📺**
+  - [The GitHub Enterprise Server 3.15 Release Candidate is available - GitHub Changelog](https://github.blog/changelog/2024-11-12-the-github-enterprise-server-3-15-release-candidate-is-available/)
+    - GHES 3.15 の release candidate が公開されました
+    - 3.15 では、projects に関する GraphQL、Webhook の強化やリポジトリのカスタムプロパティの種類が増える、シークレットスキャンのプッシュ保護が入るなどの変更があります
+  - [Introducing Copilot Edits](https://code.visualstudio.com/blogs/2024/11/12/introducing-copilot-edits)
+    - VSCode に GitHub Copilot Edits という複数ファイルを対象にした Copilot による編集提案機能が追加されました
+    - 例えばテストの修正とコードの修正を両方リンクした上で提案させられます。色々な場面で使えそうです
 - **know-how 🎓**
-- **tool 🔨**
+  - [go.mod、DockerfileやCI設定に分散しがちなGoのバージョンをまとめて管理する / Go Connect #3 - Speaker Deck](https://speakerdeck.com/arthur1/go-toolchain-version)
+    - はてなさんによる go.mod や Dockerfile、CI 設定などに分散しがちな Go のバージョンをまとめて管理する方法についてのスライドです
+    - 宣言したバージョン or それ以上なら OK という場合に使えるテクニックを紹介してくれています
+  - ["君は見ているが観察していない"で考えるインシデントマネジメント - Speaker Deck](https://speakerdeck.com/grimoh/jun-hajian-teirugaguan-cha-siteinai-dekao-eruinsidentomanezimento)
+    - LUUP さんによる、インシデントマネジメントにおける見ることと観察することの違いについてのスライドです
+    - 観察眼の代替としてどういうオブザーバビリティ、ランブックの工夫をすればいいか、観察眼を鍛える上でどういう取り組み（ポストモーテム、インシデント対応訓練など）をすればいいかといった内容が書かれています
+    - 自分も見ているだけになってそうなので、考えてみたいです
+  - [SREの組織類型に応じた リーダシップの考察 - Speaker Deck](https://speakerdeck.com/kenta_hi/srenozu-zhi-lei-xing-niying-zita-ridasitupunokao-cha)
+    - Topotal さんによる、SRE 系組織の中でのリーダシップについてのスライドです
+    - 周りの組織を動かすときに考慮する要素、どんな行動を取ると周りの組織を動かせるか、行動に適した組織の形はあるのかといった内容が書かれています
+    - 他の組織との関わり方は難しく、僕のいるチームでも参考にできそうです
+  - [FourKeys風の指標で開発生産性が4.5倍になった話 | CyberAgent Developers Blog](https://developers.cyberagent.co.jp/blog/archives/50376/)
+    - サイバーエージェントさんによる、FourKeys 風の指標で開発生産性が 4.5 倍になった話です
+    - なぜエンジニアリング活動の計測と可視化をするのか、可視化のためにデプロイフローを統一する話、その結果として開発生産性が上がったことなどが書かれています
+  - [Four Keysを活用してチームの開発生産性を改善した時のふりかえりの考え方と手法を紹介します - ZOZO TECH BLOG](https://techblog.zozo.com/entry/improve-mlops-team-capability)
+    - ZOZO さんによる、Four Keys を活用して開発生産性を改善した時のふりかえりに関する記事です
+    - 背景、課題、改善サイクルを回すために行なった工夫、ふりかえりのポイントなどが書かれています
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 # あとがき
-
+遅くなってすみません！！！！今週、先週号でした。年の瀬ですね。
 
 サイボウズの生産性向上チームでは社内エンジニアの開発生産性を上げるための活動を行なっています。そんな生産性向上チームが気になる方は下のリンクをクリック！
 https://www.docswell.com/s/cybozu-tech/5R2X3N-engineering-productivity-team-recruitment-information
