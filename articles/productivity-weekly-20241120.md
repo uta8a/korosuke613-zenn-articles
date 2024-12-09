@@ -46,20 +46,66 @@ user_defined:
 
 # news 📺
 
+## AWS Organizations を使用するお客様のためのルートアクセスの一元管理 | Amazon Web Services ブログ
+https://aws.amazon.com/jp/blogs/news/centrally-managing-root-access-for-customers-using-aws-organizations/
+
+AWS Organizations において、メンバーアカウントのルートアクセスを一元管理できるようになりました。実際にできるようになった主なことは次の通りです。
+
+- メンバーアカウントからルート認証情報を削除可能に / ルート認証情報のリカバリの禁止可能に
+- ルート認証情報なしでメンバーアカウントを作成可能に
+- ルートアカウントからメンバーアカウントへのルートアクションを可能に（ルートセッションという機能らしい）
+  - ルートユーザー認証情報の確認
+  - ルート認証情報なしでのアカウントリカバリの再アクティブ化
+  - コンソールパスワード、アクセスキー、署名証明書、および MFA デバイスの削除
+  - S3 バケットポリシーのロック解除
+  - SQS キューポリシーのロック解除
+
+何が嬉しいかや実際に試している様子はクラメソさんの記事がわかりやすいです。
+
+- [待望！管理アカウントでメンバーアカウントのルートユーザ操作禁止などが設定できる Root access management がリリースされました！　| DevelopersIO](https://dev.classmethod.jp/articles/root-access-management/)
+
+メンバーアカウントのルートユーザ管理をしなくてよくなる（MFA も）＆メンバーアカウント作成が楽になるのが個人的にとても嬉しいです。検証したいです。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
+
+## AWS Organizations の新しいタイプの認可ポリシーであるリソースコントロールポリシー (RCP) のご紹介 | Amazon Web Services ブログ
+https://aws.amazon.com/jp/blogs/news/introducing-resource-control-policies-rcps-a-new-authorization-policy/
+
+AWS Organizations において、新たに Resource Control Policies (RCP) というポリシーが追加されました。
+すでにある Service Control Policies (SCP) が IAM ロールに対するアクセス許可を制限できたのに対して、RCP はリソースに対するアクセス許可を制限できます。
+
+SCP と RCP の違いや、何が嬉しいかはこれまたクラメソさんの記事を見るとわかりやすいです。いつもありがとうございます。
+
+- [Organizationsでの新たなる統制、Resource Control Policies (RCPs)がリリースされました！ | DevelopersIO](https://dev.classmethod.jp/articles/organizations-resource-control-policies-rcps/)
+
+> 組織外のアカウントからのアクセスを網羅的に禁止することはSCPだけでは難しかったので、厳しい制約を設けたい環境ではかなり重要な機能になるのかと感じます
+
+組織外からのリソースアクセスを制限できるようになるのは良いですね。
+ガバナンスを強めていきましょう。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
+
 ## Enhancing VPC Security with Amazon VPC Block Public Access | Networking & Content Delivery
 https://aws.amazon.com/jp/blogs/networking-and-content-delivery/vpc-block-public-access/
 
-## Organizationsでの新たなる統制、Resource Control Policies (RCPs)がリリースされました！ | DevelopersIO
-https://dev.classmethod.jp/articles/organizations-resource-control-policies-rcps/
+Amazon VPC において、VPC に対するパブリックアクセスをブロックする Block Public Access  (BPA) 機能が追加されました。
 
-## Centrally managing root access for customers using AWS Organizations | AWS News Blog
-https://aws.amazon.com/jp/blogs/aws/centrally-managing-root-access-for-customers-using-aws-organizations/
+BPA は VPC とインターネット間の通信を制御するための機能で、これまで Security Group などでリソースごとに制御していたインターネット通信を VPC レベルで一括管理できるようになります。
 
-待望！管理アカウントでメンバーアカウントのルートユーザ操作禁止などが設定できる Root access management がリリースされました！　| DevelopersIO
-https://dev.classmethod.jp/articles/root-access-management/
+正直自分はまだ検証ができておらず、ちゃんと機能を理解できているか怪しいのでここでは深く語りません。
+すでに様々な方々が解説記事や検証記事を出してくれおり、ググればたくさん出てきます。AWS ブログ、ドキュメントに加えてそれらも参考にするのが良いです。
 
-## Streamline container application networking with built-in Amazon ECS support in Amazon VPC Lattice | AWS News Blog
-https://aws.amazon.com/jp/blogs/aws/streamline-container-application-networking-with-native-amazon-ecs-support-in-amazon-vpc-lattice/
+なお、次の記事の「これまでのネットワークアクセス制御との違い」節がこれまでの制御方法との比較があって嬉しかったです。
+
+- [［構成図で見る］VPC Block Public Access を利用したセキュアな構成 #AWS - Qiita](https://qiita.com/j2-yano/items/5963c6ac5d46f6cb2bbc)
+
+なお、今回の機能により、リソースからインターネットに対する通信をしたいがために public subnet & private subnet & NAT Gateway を使うというよくある構成を不要にできるのでは？という話で会が盛り上がったのですが、どうやら BPA を使っても外向きの通信に NAT Gateway（もしくは IPv6 のみ利用可能な Egress-only Internet Gateway）は必要のようなので、上記構成は変わらなさそうでした。
+
+> When ingress-only block is enabled or egress-only exclusions are permitted, only NAT Gateways and EIGWs allow egress from a VPC.
+
+予期せぬパブリックアクセスを防ぐためにもちゃんと検証してなるべく使ってみたいです。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 ## Build Copilot Extensions faster with skillsets - GitHub Changelog
 https://github.blog/changelog/2024-11-19-build-copilot-extensions-faster-with-skillsets/
