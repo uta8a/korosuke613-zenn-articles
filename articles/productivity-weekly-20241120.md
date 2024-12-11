@@ -36,10 +36,6 @@ user_defined:
 
 今週の共同著者は次の方です。
 - [@korosuke613](https://zenn.dev/korosuke613)
-<!-- - [@defaultcf](https://zenn.dev/defaultcf) -->
-<!-- - [@Kesin11](https://zenn.dev/kesin11) -->
-<!-- - [@r4mimu](https://zenn.dev/r4mimu) -->
-<!-- - [@uta8a](https://zenn.dev/uta8a) -->
 - [@ajfAfg](https://zenn.dev/arjef)
 
 :::
@@ -107,9 +103,6 @@ BPA は VPC とインターネット間の通信を制御するための機能�
 
 _本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
-## Build Copilot Extensions faster with skillsets - GitHub Changelog
-https://github.blog/changelog/2024-11-19-build-copilot-extensions-faster-with-skillsets/
-
 # know-how 🎓
 
 ## Terraform Monorepo の CI の実行時間を可視化し 2 分以上高速化 - freee Developers Hub
@@ -153,12 +146,6 @@ toUri({keyword: 'Session-IPA', area: 'kyoto', secret: 'TSKaigi-Kansai'}); // `/s
 
 _本項の執筆者: [@ajfAfg](https://zenn.dev/arjef)_
 
-## OpenAIのプロンプトジェネレーターで至高のプロンプトを生成する - Taste of Tech Topics
-https://acro-engineer.hatenablog.com/entry/2024/11/18/120000
-
-Prompt generation - OpenAI API
-https://platform.openai.com/docs/guides/prompt-generation
-
 # tool 🔨
 
 ## 生成AIによるプログラミング支援のCodeium、VSCodeフォークの「Windsurf」エディタ発表。変数名を1カ所変更して残りの修正を生成AIが行うなど高度な開発支援を提供へ － Publickey
@@ -176,8 +163,18 @@ _本項の執筆者: [@ajfAfg](https://zenn.dev/arjef)_
 Productivity Weekly で出たネタを全て紹介したいけど紹介する体力が持たなかったネタを一言程度で書くコーナーです。
 
 - **news 📺**
+  - [Build Copilot Extensions faster with skillsets - GitHub Changelog](https://github.blog/changelog/2024-11-19-build-copilot-extensions-faster-with-skillsets/)
+    - GitHub Copilot Extensions を比較的容易に作れる機能 Skillsets for Copilot Extensions が登場しました
+    - これまでの Copilot Extensions はリクエスト、追加情報の取得などユーザーコードの実行、レスポンスまで全てを Agent という形で用意する必要がありました。Skillset は Agent の中でもユーザーコード実行の部分のみを用意すればよいようになっており、より簡単に Copilot Extensions を作れるようになりました
+    - Skillset と Agent の違いは本文とドキュメントを読んでください
+    - 僕はまだこれらを使える環境ではないため、検証できていません 😭
 - **know-how 🎓**
-- **tool 🔨**
+  - [OpenAIのプロンプトジェネレーターで至高のプロンプトを生成する - Taste of Tech Topics](https://acro-engineer.hatenablog.com/entry/2024/11/18/120000)
+    - OpenAI において、LLM に渡すプロンプトを生成するツールが追加されたようです
+    - 人間が一から頑張ってプロンプトを作るのではなく、一旦プロンプトを作らせてそれを修正する感じで使えそうですね
+    - [Prompt generation - OpenAI API](https://platform.openai.com/docs/guides/prompt-generation)
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 # あとがき
 
