@@ -35,10 +35,6 @@ user_defined:
 
 今週の共同著者は次の方です。
 - [@korosuke613](https://zenn.dev/korosuke613)
-<!-- - [@defaultcf](https://zenn.dev/defaultcf) -->
-<!-- - [@Kesin11](https://zenn.dev/kesin11) -->
-<!-- - [@r4mimu](https://zenn.dev/r4mimu) -->
-<!-- - [@uta8a](https://zenn.dev/uta8a) -->
 - [@ajfAfg](https://zenn.dev/arjef)
 
 :::
@@ -143,38 +139,6 @@ _本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 [^multi_lang]: なお、韓国語、スペイン語、ポルトガル語 (ブラジル)にも対応したようです。
 
-## Improved support for labeled Actions runners in CodeQL code scanning - GitHub Changelog
-https://github.blog/changelog/2024-12-03-improved-support-for-labeled-actions-runners-in-codeql-code-scanning/
-
-## GitHub Copilot Extensions now supported in JetBrains IDEs - GitHub Changelog
-https://github.blog/changelog/2024-12-02-github-copilot-extensions-now-supported-in-jetbrains-ides/
-
-## AWS、WebアプリからAmazon S3にアクセスできるUIコンポーネント「Storage Browser for S3」正式リリース － Publickey
-https://www.publickey1.jp/blog/24/awswebamazon_s3uistorage_browser_for_s3_1.html
-
-## Terraform 1.10 improves handling secrets in state with ephemeral values
-https://www.hashicorp.com/blog/terraform-1-10-improves-handling-secrets-in-state-with-ephemeral-values
-
-## Go1.24からWasmで使える型が緩和される話
-https://zenn.dev/monicle/articles/b43dae1a9fb847
-
-## CloudFront 新機能！VPCオリジンでプライベートなALBをセキュアに公開してみた | DevelopersIO
-https://dev.classmethod.jp/articles/cloudfront-vpc-origins-internal-alb/
-
-## Amazon CloudFront now accepts your applications’ gRPC calls | AWS News Blog
-https://aws.amazon.com/jp/blogs/aws/amazon-cloudfront-now-accepts-your-applications-grpc-calls/
-
-## Introducing Amazon Nova: Frontier intelligence and industry leading price performance | AWS News Blog 
-https://aws.amazon.com/jp/blogs/aws/introducing-amazon-nova-frontier-intelligence-and-industry-leading-price-performance/
-
-## ［速報］「Amazon Aurora DSQL」プレビュー公開、事実上無限にスケールする高性能なPostgreSQL互換の大規模分散データベース － Publickey
-https://www.publickey1.jp/blog/24/amazon_aurora_dsqlpostgresql.html
-
-## Amazon Aurora Serverless v2 がゼロキャパシティへのスケーリングをサポート - AWS
-https://aws.amazon.com/jp/about-aws/whats-new/2024/11/amazon-aurora-serverless-v2-scaling-zero-capacity/
-
-https://dev.classmethod.jp/articles/amazon-aurora-serverless-v2-supports-acu0-pause-resume/
-
 ## オラクルが所有する「JavaScript」商標登録の取り消し、Denoが米国特許商標庁に申請したと発表
 https://www.publickey1.jp/blog/24/javascriptdeno.html
 
@@ -261,24 +225,6 @@ Fatal error: exception Crowbar.TestFailure
 
 _本項の執筆者: [@ajfAfg](https://zenn.dev/arjef)_
 
-## docker buildx bake で高速並列ビルド - 誰かの役に立てばいいブログ
-https://ymmt.hatenablog.com/entry/2024/12/04/004608
-
-## Terraform職人のためのOpenTofu再入門2024 #Terraform - Qiita
-https://qiita.com/minamijoyo/items/2738b9ad5f6754b68400
-
-## Terraform を活用した効率的な S3 バケット管理手法 [DeNA インフラ SRE] | BLOG - DeNA Engineering
-https://engineering.dena.com/blog/2024/11/terraform-s3-management/
-
-## GitHub ActionsのSelf Hosted Runner向けにImage Cache Proxyを導入しました - Hatena Developer Blog
-https://developer.hatenastaff.com/entry/2024/11/26/151801
-
-## Kubernetes だけじゃない！Amazon ECS で実現するクラウドネイティブな GitHub Actions セルフホストランナー / CNDW2024 - Speaker Deck
-https://speakerdeck.com/ponkio_o/cndw2024
-
-## 強いチームと開発生産性 - Speaker Deck
-https://speakerdeck.com/onk/2024-11-15-prefer-output-focused-development-team
-
 ## terraform plan/applyをファイル単位で(スマートに)実行する | iret.media
 https://iret.media/128453
 
@@ -288,14 +234,8 @@ https://iret.media/128453
 
 _本項の執筆者: [@ajfAfg](https://zenn.dev/arjef)_
 
-## AWS アクセス管理を一歩先へ！カミナシのセキュアな AWS アクセス管理を実現するシステムの紹介 - カミナシ エンジニアブログ
-https://kaminashi-developer.hatenablog.jp/entry/2024/12/04/080000
-
 
 # tool 🔨
-
-## Introducing GitHub Copilot for Azure
-https://code.visualstudio.com/blogs/2024/11/15/introducing-github-copilot-for-azure
 
 ## 【JavaScript × Terraform】次世代のモダン AltJS「JS.tf」の紹介
 https://zenn.dev/terraform_jp/articles/jstf-introduction
@@ -329,8 +269,19 @@ Productivity Weekly で出たネタを全て紹介したいけど紹介する体
 
 - **news 📺**
   - [GitHub Enterprise Server 3.15 is now generally available - GitHub Changelog](https://github.blog/changelog/2024-12-03-github-enterprise-server-3-15-is-now-generally-available/)
-  - [Improved pull request merge experience now in public preview - GitHub Changelog](https://github.blog/changelog/2024-12-03-improved-pull-request-merge-experience-now-in-public-preview/)
+  - [Improved support for labeled Actions runners in CodeQL code scanning - GitHub Changelog](https://github.blog/changelog/2024-12-03-improved-support-for-labeled-actions-runners-in-codeql-code-scanning/)
+  - [GitHub Copilot Extensions now supported in JetBrains IDEs - GitHub Changelog](https://github.blog/changelog/2024-12-02-github-copilot-extensions-now-supported-in-jetbrains-ides/)
+  - [AWS、WebアプリからAmazon S3にアクセスできるUIコンポーネント「Storage Browser for S3」正式リリース － Publickey](https://www.publickey1.jp/blog/24/awswebamazon_s3uistorage_browser_for_s3_1.html)
+  - [Terraform 1.10 improves handling secrets in state with ephemeral values](https://www.hashicorp.com/blog/terraform-1-10-improves-handling-secrets-in-state-with-ephemeral-values)
+  - [Introducing Amazon Nova: Frontier intelligence and industry leading price performance | AWS News Blog](https://aws.amazon.com/jp/blogs/aws/introducing-amazon-nova-frontier-intelligence-and-industry-leading-price-performance/)
 - **know-how 🎓**
+  - [docker buildx bake で高速並列ビルド - 誰かの役に立てばいいブログ](https://ymmt.hatenablog.com/entry/2024/12/04/004608)
+  - [Terraform職人のためのOpenTofu再入門2024 #Terraform - Qiita](https://qiita.com/minamijoyo/items/2738b9ad5f6754b68400)
+  - [Terraform を活用した効率的な S3 バケット管理手法 [DeNA インフラ SRE] | BLOG - DeNA Engineering](https://engineering.dena.com/blog/2024/11/terraform-s3-management/)
+  - [GitHub ActionsのSelf Hosted Runner向けにImage Cache Proxyを導入しました - Hatena Developer Blog](https://developer.hatenastaff.com/entry/2024/11/26/151801)
+  - [Kubernetes だけじゃない！Amazon ECS で実現するクラウドネイティブな GitHub Actions セルフホストランナー / CNDW2024 - Speaker Deck](https://speakerdeck.com/ponkio_o/cndw2024)
+  - [AWS アクセス管理を一歩先へ！カミナシのセキュアな AWS アクセス管理を実現するシステムの紹介 - カミナシ エンジニアブログ](https://kaminashi-developer.hatenablog.jp/entry/2024/12/04/080000)
+  - [強いチームと開発生産性 - Speaker Deck](https://speakerdeck.com/onk/2024-11-15-prefer-output-focused-development-team)
 - **tool 🔨**
 
 # あとがき
