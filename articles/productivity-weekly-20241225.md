@@ -1,10 +1,6 @@
 ---
-{{ if .Env.PW_PREV_DAY -}}
-title: ＜ここにタイトルを入力＞｜Productivity Weekly({{ .Env.PW_YEAR }}-{{ .Env.PW_MONTH }}-{{ .Env.PW_DAY }}, {{ .Env.PW_PREV_YEAR }}-{{ .Env.PW_PREV_MONTH }}-{{ .Env.PW_PREV_DAY }})
-{{- else -}}
-title: ＜ここにタイトルを入力＞｜Productivity Weekly({{ .Env.PW_YEAR }}-{{ .Env.PW_MONTH }}-{{ .Env.PW_DAY }})
-{{- end }}
-emoji:
+title: ＜ここにタイトルを入力＞｜Productivity Weekly(2024-12-25)
+emoji: 🩻
 type: idea
 topics:
   - ProductivityWeekly
@@ -12,7 +8,7 @@ topics:
 published: false
 publication_name: cybozu_ept
 user_defined:
-  publish_link: https://zenn.dev/cybozu_ept/articles/productivity-weekly-{{ .Env.PW_YEAR }}{{ .Env.PW_MONTH }}{{ .Env.PW_DAY }}
+  publish_link: https://zenn.dev/cybozu_ept/articles/productivity-weekly-20241225
   note: |
     _本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
     _本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)_
@@ -31,13 +27,9 @@ user_defined:
 
 
 2023-01-25 号から、基本的に隔週で連載することとしました。たまに単独でも投稿するかもしれません。
-{{ if .Env.PW_PREV_DAY -}}
-今週は {{ .Env.PW_YEAR }}-{{ .Env.PW_MONTH }}-{{ .Env.PW_DAY }}, {{ .Env.PW_PREV_YEAR }}-{{ .Env.PW_PREV_MONTH }}-{{ .Env.PW_PREV_DAY }} 合併号です。
-{{- else -}}
-今週は {{ .Env.PW_YEAR }}-{{ .Env.PW_MONTH }}-{{ .Env.PW_DAY }} 単独号です。
-{{- end }}
+今週は 2024-12-25 単独号です。
 
-今回が第 {{ .Env.PW_COUNT }} 回目です。過去の記事は[こちら](https://zenn.dev/topics/productivityweekly?order=latest)。
+今回が第 173 回目です。過去の記事は[こちら](https://zenn.dev/topics/productivityweekly?order=latest)。
 
 :::message
 2023-05-10 号から、生産性向上チームの他メンバーにいくつかのトピックを紹介していただくことにしています。
@@ -49,7 +41,7 @@ user_defined:
 <!-- - [@defaultcf](https://zenn.dev/defaultcf) -->
 <!-- - [@Kesin11](https://zenn.dev/kesin11) -->
 <!-- - [@r4mimu](https://zenn.dev/r4mimu) -->
-<!-- - [@uta8a](https://zenn.dev/uta8a) -->
+- [@uta8a](https://zenn.dev/uta8a)
 <!-- - [@ajfAfg](https://zenn.dev/arjef) -->
 <!-- - [@takoeight0821](https://zenn.dev/takoeight0821) -->
 <!-- - [@takamin55](https://zenn.dev/takamin55) -->
@@ -58,9 +50,41 @@ user_defined:
 
 # news 📺
 
+## Copilot Chat on GitHub is now generally available for all users - GitHub Changelog
+https://github.blog/changelog/2024-12-18-copilot-chat-on-github-is-now-generally-available-for-all-users/
+
+## Announcing GitHub Copilot Free - GitHub Changelog
+https://github.blog/changelog/2024-12-18-announcing-github-copilot-free/
+
+## OpenAI’s latest o1 model now available in GitHub Copilot and GitHub Models - The GitHub Blog
+https://github.blog/news-insights/openais-o1-model-available-in-copilot-chat-and-github-models/
+
+## REST API insights for organizations is now generally available - GitHub Changelog
+https://github.blog/changelog/2024-12-20-rest-api-insights-for-organizations-is-now-generally-available/
+
+## Release v6.0.0 · philips-labs/terraform-aws-github-runner
+https://github.com/philips-labs/terraform-aws-github-runner/releases/tag/v6.0.0
+
 # know-how 🎓
 
+## マルチプロダクト開発の現場でAWS Security Hubを1年以上運用して得た教訓やあれこれ - ANDPAD Tech Blog
+https://tech.andpad.co.jp/entry/2024/12/19/100000
+
+## CI/CD基盤のコスト削減とDocker Hubのレートリミットを回避するためのミラーサーバーを導入した話
+https://swet.dena.com/entry/2024/12/19/120000
+
+## 2024年のDenoのまとめと今後について
+https://zenn.dev/uki00a/articles/whats-new-for-deno-in-2024
+
+## 質の高いブログを素早く書く | Wantedly Engineer Blog https://www.wantedly.com/companies/wantedly/post_articles/945876
+
 # tool 🔨
+
+## HTTP Lambdaをルーティングする lamux - fujiwara-ware 2024 day 24
+https://zenn.dev/fujiwara/articles/fujiwara-ware-2024-lamux
+
+## tfmv - Terraform のリソース名のリファクタリング
+https://zenn.dev/shunsuke_suzuki/articles/tfmv-terraform-resource-renaming
 
 # read more 🍘
 Productivity Weekly で出たネタを全て紹介したいけど紹介する体力が持たなかったネタを一言程度で書くコーナーです。
