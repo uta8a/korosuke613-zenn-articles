@@ -17,6 +17,7 @@ user_defined:
     _本項の執筆者: [@uta8a](https://zenn.dev/uta8a)_
     _本項の執筆者: [@ajfAfg](https://zenn.dev/arjef)_
     _本項の執筆者: [@takoeight0821](https://zenn.dev/takoeight0821)_
+    _本項の執筆者: [@takamin55](https://zenn.dev/takamin55)_
 ---
 
 こんにちは。サイボウズ株式会社 [生産性向上チーム](https://www.docswell.com/s/cybozu-tech/5R2X3N-engineering-productivity-team-recruitment-information)の平木場です。
@@ -43,6 +44,7 @@ user_defined:
 - [@uta8a](https://zenn.dev/uta8a)
 - [@ajfAfg](https://zenn.dev/arjef)
 - [@takoeight0821](https://zenn.dev/takoeight0821)
+- [@takamin55](https://zenn.dev/takamin55)
 
 :::
 
@@ -59,6 +61,36 @@ https://github.blog/changelog/2024-12-17-copilot-autofix-can-now-be-generated-wi
 
 ## Bun's new text-based lockfile | Bun Blog
 https://bun.sh/blog/bun-lock-text-lockfile
+
+Bun のロックファイルをテキスト形式で扱えるようになりました 🎉
+
+可愛いキャラクターでお馴染みの JavaScript ランタイムである Bun ですが、`bun install` コマンドを使ってインストールしたパッケージの情報を記載した `bun.lockb` ファイルはバイナリ形式で書かれており、プルリクエストのレビューがしづらい問題や、コンフリクト発生時に解決しにくい問題など、いくつか可愛くない問題を抱えていました。
+
+しかし今回新たに `--save-text-lockfile` オプションが登場し、このオプションを使うことでロックファイルを bun.lock というテキスト形式のファイルで表現することが可能になりました！
+
+こちらが実際の中身の様子です。json 形式で書かれているので、`package-lock.json` を扱っていた人にとっては今までに近い見た目で嬉しいですね。
+
+```json
+{
+  "lockfileVersion": 0,
+  "workspaces": {
+    "": {
+      "dependencies": {
+        "uWebSocket.js": "uNetworking/uWebSockets.js#v20.51.0",
+      },
+    },
+  },
+  "packages": {
+    "uWebSocket.js": ["uWebSockets.js@github:uNetworking/uWebSockets.js#6609a88", {}, "uNetworking-uWebSockets.js-6609a88"],
+  }
+}
+```
+
+`bun install --save-text-lockfile` コマンドは `bun.lockb` や `package-lock.json` がある場合はそちらに書かれた内容をもとにテキストファイルを生成してくれます。npm や yarn などの他のパッケージマネージャーからの移行もスムーズになりそうです。
+
+この機能は 2024 年 12 月 17 日にリリースされた Bun v.1.1.39 から使用でき、Bun v1.2 からはテキストファイルでのロックファイル管理をデフォルトにすることを計画しているようです。
+
+_本項の執筆者: [@takamin55](https://zenn.dev/takamin55)_
 
 ## Go Protobuf: The new Opaque API - The Go Programming Language
 https://go.dev/blog/protobuf-opaque
