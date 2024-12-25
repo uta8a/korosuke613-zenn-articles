@@ -128,6 +128,14 @@ https://zenn.dev/uki00a/articles/whats-new-for-deno-in-2024
 ## HTTP Lambdaをルーティングする lamux - fujiwara-ware 2024 day 24
 https://zenn.dev/fujiwara/articles/fujiwara-ware-2024-lamux
 
+HTTP リクエストを適した Lambda 関数にルーティング（リバースプロキシ）するライブラリの紹介記事です。Lambda 関数にはエイリアス（e.g. `foo`, `bar`）がつけられるので、例えば `foo.example.com` というエンドポイントにリクエストが来ると、`foo` というエイリアスがつけられた Lambda 関数にルーティングされるといった仕組みになっています。ユースケースとしては、ブランチごとにプレビュー環境を作る場合が紹介されています。このユースケースで lamux を使う場合のアーキテクチャ図を、紹介記事からいかに引用します:
+
+![lamux でブランチごとにプレビュー環境を作る場合のアーキテクチャ図](https://res.cloudinary.com/zenn/image/fetch/s--pT1xUOi9--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_1200/https://storage.googleapis.com/zenn-user-upload/deployed-images/02102443c6480fed1be96698.png%3Fsha%3D1bc89bb3af136f4a0807ff63a7ac26dd62957b71)
+
+面白いアイディアだなと感じました。個人的にプレビュー環境がちょっと盛り上がって来ているので、参考になりそうです。
+
+_本項の執筆者: [@ajfAfg](https://zenn.dev/arjef)_
+
 ## tfmv - Terraform のリソース名のリファクタリング
 https://zenn.dev/shunsuke_suzuki/articles/tfmv-terraform-resource-renaming
 
