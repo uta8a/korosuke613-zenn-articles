@@ -1,5 +1,5 @@
 ---
-title: TS 5.7やimmutableなactionなど｜Productivity Weekly(2024-12-04, 11-27)
+title: Deno 2.1やimmutableなactionなど｜Productivity Weekly(2024-12-04, 11-27)
 emoji: 🧑‍🎄
 type: idea
 topics:
@@ -45,17 +45,6 @@ published_at: 2024-12-26 10:00
 :::
 
 # news 📺
-
-## Announcing TypeScript 5.7 - TypeScript
-https://devblogs.microsoft.com/typescript/announcing-typescript-5-7/
-
-ついに TypeScript 5.7 のリリースです！　わいわい！
-
-追加される機能は [TypeScript 5.7 RC](https://devblogs.microsoft.com/typescript/announcing-typescript-5-7-rc/) で発表された内容と同じです。個人的に面白かった機能は、以下に示す過去の Weekly で紹介しているので、そちらをご覧ください。
-
-https://zenn.dev/cybozu_ept/articles/productivity-weekly-20241113#announcing-typescript-5.7-rc---typescript
-
-_本項の執筆者: [@ajfAfg](https://zenn.dev/arjef)_
 
 ## Deno 2.1: Wasm Imports and other enhancements
 https://deno.com/blog/v2.1
@@ -109,6 +98,17 @@ Deno プログラムに与える権限を必要十分にする作業がかなり
 `deno task` には今回たくさんの機能が追加されていますが、個人的に最も嬉しい変更は、定義したタスクの依存関係を元にタスクを実行可能になったことです。例えば、タスク A がタスク B に依存している場合、タスク B を実行しようとするとその前に自動でタスク A も実行してくれます。Makefile や Taskfile でよくあるアレです。タスクの依存関係が循環している場合もしっかり考慮されていて、そのような場合はタスク実行前に怒ってくれます。パッケージ間のタスク依存はまだサポートされていませんが、サポートの予定はあるとのことです。
 
 どんどん使いやすくなっていいですね。
+
+_本項の執筆者: [@ajfAfg](https://zenn.dev/arjef)_
+
+## Announcing TypeScript 5.7 - TypeScript
+https://devblogs.microsoft.com/typescript/announcing-typescript-5-7/
+
+ついに TypeScript 5.7 のリリースです！　わいわい！
+
+追加される機能は [TypeScript 5.7 RC](https://devblogs.microsoft.com/typescript/announcing-typescript-5-7-rc/) で発表された内容と同じです。個人的に面白かった機能は、以下に示す過去の Weekly で紹介しているので、そちらをご覧ください。
+
+https://zenn.dev/cybozu_ept/articles/productivity-weekly-20241113#announcing-typescript-5.7-rc---typescript
 
 _本項の執筆者: [@ajfAfg](https://zenn.dev/arjef)_
 
