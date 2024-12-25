@@ -16,6 +16,7 @@ user_defined:
     _本項の執筆者: [@r4mimu](https://zenn.dev/r4mimu)_
     _本項の執筆者: [@uta8a](https://zenn.dev/uta8a)_
     _本項の執筆者: [@ajfAfg](https://zenn.dev/arjef)_
+    _本項の執筆者: [@takoeight0821](https://zenn.dev/takoeight0821)_
 ---
 
 こんにちは。サイボウズ株式会社 [生産性向上チーム](https://www.docswell.com/s/cybozu-tech/5R2X3N-engineering-productivity-team-recruitment-information)の平木場です。
@@ -40,7 +41,8 @@ user_defined:
 <!-- - [@Kesin11](https://zenn.dev/kesin11) -->
 <!-- - [@r4mimu](https://zenn.dev/r4mimu) -->
 - [@uta8a](https://zenn.dev/uta8a)
-<!-- - [@ajfAfg](https://zenn.dev/arjef) -->
+- [@ajfAfg](https://zenn.dev/arjef)
+- [@takoeight0821](https://zenn.dev/takoeight0821)
 
 :::
 
@@ -60,6 +62,18 @@ https://bun.sh/blog/bun-lock-text-lockfile
 
 ## Go Protobuf: The new Opaque API - The Go Programming Language
 https://go.dev/blog/protobuf-opaque
+
+Go の Protocol Buffers 実装である [google.golang.org/protobuf](https://pkg.go.dev/google.golang.org/protobuf)で、従来よりも効率的なコード生成を行うための新しい API が導入されました。
+
+従来の実装では、Protocol Buffers 上の message に対応する Go の構造体が生成され、プログラマはその構造体のフィールドを直接自由に操作できました。
+新しい Opaque API では、構造体の各フィールドはエクスポートされず、代わりに `GetFoo()` や `SetHoo()` などのアクセサメソッドを介してのみアクセスできます。
+Opaque API では構造体の詳細が隠蔽されるため、bit field や遅延読み込みなどの最適化が可能になります。
+また、アクセサメソッドを介することで、誤った使い方を防ぐ狙いもあるようです。
+
+従来の API は引き続き利用可能で、移行の必要はありませんが、新規開発では Opaque API を利用することが推奨されています。
+従来の API と Opaque API の間を取り持つ Hybrid API も提供されており、これを用いた[移行ツールと移行ガイド](https://protobuf.dev/reference/go/opaque-migration/)も公開されています。
+
+_本項の執筆者: [@takoeight0821](https://zenn.dev/takoeight0821)_
 
 ## Google、Web IDE上で自然言語を適切なコマンドラインに変換して実行できる「Interactive Chat」プレビュー公開。Project IDXの新機能として － Publickey
 https://www.publickey1.jp/blog/24/googleweb_ideinteractive_chatproject_idx.html
