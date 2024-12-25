@@ -78,6 +78,13 @@ https://developers.cyberagent.co.jp/blog/archives/52815/
 ## NilAway による静的解析で「10 億ドル」を節約する #kyotogo / Kyoto Go 56th - Speaker Deck
 https://speakerdeck.com/ytaka23/kyoto-go-56th
 
+Go プログラムに `nil` が存在しないか検査する静的解析ツール NilAway の紹介スライドです。
+[以前に Productivity Weekly でも紹介した](https://zenn.dev/cybozu_ept/articles/productivity-weekly-20241030#go%E3%81%AEnil-panic%E3%82%92%E9%98%B2%E3%81%90%E9%9D%99%E7%9A%84%E8%A7%A3%E6%9E%90%E3%83%84%E3%83%BC%E3%83%AB%EF%BC%9Anilaway) NilAway 再来です。
+
+実は社内の LT 会で似た内容を喋ろうと考えていたので、先を越された……！という気持ちです。10 億ドルのくだりも同じで草。アルゴリズムの詳細でも喋ろうかな……。
+
+_本項の執筆者: [@ajfAfg](https://zenn.dev/arjef)_
+
 ## GitHub Actionsのガードを高くする - Techouse Developers Blog
 https://developers.techouse.com/entry/high-robustness-github-actions
 
@@ -98,6 +105,14 @@ https://zenn.dev/kmtym1998/articles/202412160900
 
 ## テストの sharding を効率化する Tenbin というツールを作った
 https://zenn.dev/cybozu_frontend/articles/create-tenbin
+
+ここで言う Sharding とは、ある単位（e.g. 実行時間）でテストを均等に分割することです。分割されたテストを並列に実行して、テストにかかる時間を短縮することが目的です。紹介記事では、この Sharding を従来手法よりいい感じにできる実装と、それを Jest/Vitest/Playwright に組み込む方法が紹介されています。（「いい感じにできる実装」という部分をより詳しく話すと、Sharding から帰着できる数分割問題という計算問題の近似解を求めるアルゴリズムを実装したよ、という感じです。）
+
+Sharding をちゃんと解こうとするのはあんまり見かけないのでいいね！！！！という気持ちです。ちゃんとした姿勢で近似解を求めるならその精度も気になるところですが、今回実装されている手法は、最適値の $\frac{4}{3}-frac{1}{3m}$ 倍以下なのでいい感じです（$m$ は分割する個数）（c.f. [数分割問題 | opt100](https://scmopt.github.io/opt100/76npp.html#%E8%A4%87%E6%95%B0%E8%A3%85%E7%BD%AE%E3%82%B9%E3%82%B1%E3%82%B8%E3%83%A5%E3%83%BC%E3%83%AA%E3%83%B3%E3%82%B0%E5%95%8F%E9%A1%8C)）。計算量も $\mathcal{O}(n \log n)$（$n$ は分割前の個数）です。
+
+Greedy に解くより大抵全然いい結果が得られるので、どんどん取り入られてほしい（取り入れていきたい）ですね。
+
+_本項の執筆者: [@ajfAfg](https://zenn.dev/arjef)_
 
 # read more 🍘
 Productivity Weekly で出たネタを全て紹介したいけど紹介する体力が持たなかったネタを一言程度で書くコーナーです。
