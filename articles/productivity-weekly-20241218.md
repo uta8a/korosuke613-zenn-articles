@@ -39,7 +39,7 @@ user_defined:
 <!-- - [@defaultcf](https://zenn.dev/defaultcf) -->
 <!-- - [@Kesin11](https://zenn.dev/kesin11) -->
 <!-- - [@r4mimu](https://zenn.dev/r4mimu) -->
-<!-- - [@uta8a](https://zenn.dev/uta8a) -->
+- [@uta8a](https://zenn.dev/uta8a)
 <!-- - [@ajfAfg](https://zenn.dev/arjef) -->
 
 :::
@@ -83,6 +83,13 @@ https://developers.techouse.com/entry/high-robustness-github-actions
 
 ## 自作キーボードのキーマップ最適化のためにキー入力分析基盤を作ってみた（前編）
 https://zenn.dev/tacoms/articles/7c35fdb78ee16e
+
+分割キーボード Keyball44 のキーマップを、実際の打鍵データに基づいて可視化するためにデータ収集・分析・可視化の基盤を作ったそうです。
+これは前半として、PC でローカルに動作するキーロガーの実装を紹介されています。
+キー入力を ELK スタック(Elasticsearch, Logstash, Kibana)でリアルタイムに Kibana に反映されるようにしていて、ヒートマップのような図が面白いです。バックスペース、エンター、母音が多いのは納得ですね。
+DuckDB を使ったらどうなるだろうかとか、キーロガーをキーボード側に実装できないだろうかとか、色々興味が湧きました。僕も自分の持っている分割キーボードでできないか調べてみます。
+
+_本項の執筆者: [@uta8a](https://zenn.dev/uta8a)_
 
 # tool 🔨
 
