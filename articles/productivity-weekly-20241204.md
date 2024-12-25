@@ -364,7 +364,7 @@ Productivity Weekly で出たネタを全て紹介したいけど紹介する体
     - GitHub Copilot Extensions が JetBrains IDE で使えるようになりました
     - 本体やプラグインを更新しましょう
   - [AWS、WebアプリからAmazon S3にアクセスできるUIコンポーネント「Storage Browser for S3」正式リリース － Publickey](https://www.publickey1.jp/blog/24/awswebamazon_s3uistorage_browser_for_s3_1.html)
-    - 以前[アルファ版として登場](https://zenn.dev/cybozu_ept/articles/productivity-weekly-20241023#%E3%82%A6%E3%82%A7%E3%83%96%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E7%94%A8-storage-browser-for-amazon-s3-%E3%81%AE%E7%99%BA%E8%A1%A8-(%E3%82%A2%E3%83%AB%E3%83%95%E3%82%A1%E3%83%AA%E3%83%AA%E3%83%BC%E3%82%B9)---aws)した Storage Blower for S3 が正式リリースされました
+    - 以前[アルファ版として登場](https://zenn.dev/cybozu_ept/articles/productivity-weekly-20241023#%E3%82%A6%E3%82%A7%E3%83%96%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E7%94%A8-storage-browser-for-amazon-s3-%E3%81%AE%E7%99%BA%E8%A1%A8-(%E3%82%A2%E3%83%AB%E3%83%95%E3%82%A1%E3%83%AA%E3%83%AA%E3%83%BC%E3%82%B9)---aws)した Storage Browser for S3 が正式リリースされました
     - S3 をファイルサーバとして使いたいような場合などに簡単にアクセスできて便利そうですね
   - [Introducing Amazon Nova: Frontier intelligence and industry leading price performance | AWS News Blog](https://aws.amazon.com/jp/blogs/aws/introducing-amazon-nova-frontier-intelligence-and-industry-leading-price-performance/)
     - Amazon Nova という新たなマルチモーダルなモデルが登場したようです
