@@ -44,7 +44,7 @@ user_defined:
 - [@uta8a](https://zenn.dev/uta8a)
 - [@ajfAfg](https://zenn.dev/arjef)
 - [@takoeight0821](https://zenn.dev/takoeight0821)
-<!-- - [@takamin55](https://zenn.dev/takamin55) -->
+- [@takamin55](https://zenn.dev/takamin55)
 
 :::
 
@@ -108,6 +108,15 @@ https://tech.andpad.co.jp/entry/2024/12/19/100000
 
 ## CI/CD基盤のコスト削減とDocker Hubのレートリミットを回避するためのミラーサーバーを導入した話
 https://swet.dena.com/entry/2024/12/19/120000
+
+GitHub Actions セルフホストランナーを AWS 上で運用しているチームが、Docker ミラーサーバーを立てることで大幅なコスト削減を実現した記事です。
+計算上だと週あたり 1600 GB の通信量の削減を実現したと記事では紹介されていました。月ではなく週ですので驚きの削減量ですね。
+
+勝手ながら計算させていただいたのですが、NAT Gateway は 1GB あたり 0.062 USD の料金がかかるため、0.062 × 1600 × 4 = 毎月約 400 USD の節約になっています。記事中では 1vCPU 2GB の Fargate 5 台程度でパフォーマンスが出せると検証されていますので、十分にお釣りが来ています。
+
+ミラーサーバーを導入するにあたって考慮するべき観点や、技術選定、パフォーマンス検証、取得メトリクスなどの詳細情報が紹介されているため、AWS 上で大規模な CI 環境を提供している場合はとても参考になりそうです。
+
+_本項の執筆者: [@takamin55](https://zenn.dev/takamin55)_
 
 ## 2024年のDenoのまとめと今後について
 https://zenn.dev/uki00a/articles/whats-new-for-deno-in-2024
