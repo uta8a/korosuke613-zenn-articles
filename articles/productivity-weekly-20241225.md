@@ -42,7 +42,7 @@ user_defined:
 <!-- - [@Kesin11](https://zenn.dev/kesin11) -->
 <!-- - [@r4mimu](https://zenn.dev/r4mimu) -->
 - [@uta8a](https://zenn.dev/uta8a)
-<!-- - [@ajfAfg](https://zenn.dev/arjef) -->
+- [@ajfAfg](https://zenn.dev/arjef)
 - [@takoeight0821](https://zenn.dev/takoeight0821)
 <!-- - [@takamin55](https://zenn.dev/takamin55) -->
 
@@ -121,6 +121,12 @@ https://zenn.dev/fujiwara/articles/fujiwara-ware-2024-lamux
 
 ## tfmv - Terraform のリソース名のリファクタリング
 https://zenn.dev/shunsuke_suzuki/articles/tfmv-terraform-resource-renaming
+
+Terraform のリソース名を一括して置換し、加えて `moved` ブロックを作ってくれるツールの紹介記事です。
+親の顔より見た 🐧
+単純な文字列の置換なら `sed` で十分ですが、`tfmv` は `moved` ブロックも作ってくれる点が嬉しそうです。
+
+_本項の執筆者: [@ajfAfg](https://zenn.dev/arjef)_
 
 # read more 🍘
 Productivity Weekly で出たネタを全て紹介したいけど紹介する体力が持たなかったネタを一言程度で書くコーナーです。
