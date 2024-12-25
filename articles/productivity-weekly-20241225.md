@@ -53,6 +53,20 @@ user_defined:
 ## Copilot Chat on GitHub is now generally available for all users - GitHub Changelog
 https://github.blog/changelog/2024-12-18-copilot-chat-on-github-is-now-generally-available-for-all-users/
 
+Copilot Chat in github.com が一般提供開始(GA)になりました。
+
+ブラウザ上で [github.com/copilot](https://github.com/copilot) という URL から Copilot とチャットを開始できたり、Issue, Pull Request, コードの画面で Copilot ボタンを押すことで要約や解説をしてもらうことができるようです。
+
+できることの一覧は [Currently available skills](https://docs.github.com/en/copilot/using-github-copilot/asking-github-copilot-questions-in-github#currently-available-skills) にまとまっています。Release や discussion の要約は役立ちそうですね。
+
+また、GA に伴い index できるリポジトリの数の制限が解除されたようです。多くのリポジトリを扱う場合であっても、Copilot は制限なくそれらのリポジトリを読んで回答を返してくれます。
+
+注意点として、Copilot Chat in github.com は GA になりましたが、opt in できる機能には Preview のものが含まれます。(具体的には preview features のテキスト補完と、workflow が失敗した理由を説明してくれる機能の 2 つ)
+また、Pull Request の要約は GA ですが、Pull Request を Copilot と協力して作る機能は Copilot Workspace が関連するので Preview です。
+Copilot は GA と Preview で規約が異なっていたりするので、組織で有効化する際にはどの機能を有効化すべきか注意してください。
+
+_本項の執筆者: [@uta8a](https://zenn.dev/uta8a)_
+
 ## Announcing GitHub Copilot Free - GitHub Changelog
 https://github.blog/changelog/2024-12-18-announcing-github-copilot-free/
 
