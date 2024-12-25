@@ -38,7 +38,7 @@ user_defined:
 
 今週の共同著者は次の方です。
 - [@korosuke613](https://zenn.dev/korosuke613)
-<!-- - [@defaultcf](https://zenn.dev/defaultcf) -->
+- [@defaultcf](https://zenn.dev/defaultcf)
 <!-- - [@Kesin11](https://zenn.dev/kesin11) -->
 <!-- - [@r4mimu](https://zenn.dev/r4mimu) -->
 - [@uta8a](https://zenn.dev/uta8a)
@@ -114,6 +114,20 @@ https://www.publickey1.jp/blog/24/googleweb_ideinteractive_chatproject_idx.html
 
 ## STORESのAWSルートユーザーを全部削除しました - STORES Product Blog 
 https://product.st.inc/entry/2024/12/16/090000
+
+2024 年 11 月に登場した Root access management を使うことで、AWS ルートユーザーしかできなかった操作の一部が他のユーザーでできるようになりました。この記事では、AWS Organizations 下の AWS ルートユーザー全てを削除（正確にはルートユーザーの認証情報を削除）したこと、およびそこまでの意思決定の様子が書かれています。
+
+これによりセキュリティ向上と、ルートユーザーの認証情報の管理の煩雑さからの解放というメリットが得られたとのことです。
+
+ただし、Security Hub で警告が出るようになってしまうとのこと。ルートユーザーには MFA が設定されているべきですが、今回の認証情報を削除したことでこのルールに抵触してしまうそうです。これは AWS 側の対応が待たれますね。
+
+https://docs.aws.amazon.com/securityhub/latest/userguide/iam-controls.html#iam-6
+
+認証情報削除などの具体的な手順については記事に書かれていません。DeveloperIO さんの記事が詳しいので、そちらをご覧になると良いかもしれません。
+
+- [待望！管理アカウントでメンバーアカウントのルートユーザ操作禁止などが設定できるRoot access managementがリリースされました！ | DevelopersIO](https://dev.classmethod.jp/articles/root-access-management/)
+
+_本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)_
 
 ## LINEのアプリ開発を支えるコードオーナー管理
 https://techblog.lycorp.co.jp/ja/20241217a
