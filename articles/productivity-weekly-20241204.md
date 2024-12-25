@@ -1,6 +1,6 @@
 ---
-title: ＜ここにタイトルを入力＞｜Productivity Weekly(2024-12-04, 11-27)
-emoji: 🔮
+title: TS 5.7やimmutableなactionなど｜Productivity Weekly(2024-12-04, 11-27)
+emoji: 🧑‍🎄
 type: idea
 topics:
   - ProductivityWeekly
@@ -35,23 +35,15 @@ user_defined:
 
 今週の共同著者は次の方です。
 - [@korosuke613](https://zenn.dev/korosuke613)
-<!-- - [@defaultcf](https://zenn.dev/defaultcf) -->
-<!-- - [@Kesin11](https://zenn.dev/kesin11) -->
-<!-- - [@r4mimu](https://zenn.dev/r4mimu) -->
-<!-- - [@uta8a](https://zenn.dev/uta8a) -->
 - [@ajfAfg](https://zenn.dev/arjef)
 
 :::
 
+:::message alert
+マジで遅くなってしまいすみません。平木場の普通の仕事がキャパギリギリなのが問題です。さすがになんとかしようとしてチーム内でもっと早く出せるように現在改善中です...
+:::
+
 # news 📺
-
-## GitHub Immutable Actionsのご紹介 - APC 技術ブログ
-https://techblog.ap-com.co.jp/entry/2024/10/30/154345
-
-## GitHub Certification 日本語対応するらしい
-
-> GitHub Certification 日本語対応したのか！嬉しすぎる受けよう（公開はまだらしい） #GitHubUniverseRecap
-https://x.com/Shitimi_613/status/1861622654551347557
 
 ## Announcing TypeScript 5.7 - TypeScript
 https://devblogs.microsoft.com/typescript/announcing-typescript-5-7/
@@ -119,37 +111,60 @@ Deno プログラムに与える権限を必要十分にする作業がかなり
 
 _本項の執筆者: [@ajfAfg](https://zenn.dev/arjef)_
 
-## Improved support for labeled Actions runners in CodeQL code scanning - GitHub Changelog
-https://github.blog/changelog/2024-12-03-improved-support-for-labeled-actions-runners-in-codeql-code-scanning/
+## GitHub Immutable Actionsのご紹介 - APC 技術ブログ
+https://techblog.ap-com.co.jp/entry/2024/10/30/154345
 
-## GitHub Copilot Extensions now supported in JetBrains IDEs - GitHub Changelog
-https://github.blog/changelog/2024-12-02-github-copilot-extensions-now-supported-in-jetbrains-ides/
+GitHub Actions の Custom Action をセキュリティ的に強固にする新機能、Immutable Actions が登場しました（パブリックプレビュー）。
 
-## AWS、WebアプリからAmazon S3にアクセスできるUIコンポーネント「Storage Browser for S3」正式リリース － Publickey
-https://www.publickey1.jp/blog/24/awswebamazon_s3uistorage_browser_for_s3_1.html
+attestation 機能を使った provenance 証明、タグの変更不可、コンテナイメージとして保存など、サプライチェーン攻撃の脅威を減らせる...という感じの機能っぽいです。
+
+パブリックプレビューではありますが、waitlist に入る必要があり、自分はまだこの機能をさわれていません。早く触りたいです。
+
+皆さんの使ってみた記事をお待ちしています。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 ## Terraform 1.10 improves handling secrets in state with ephemeral values
 https://www.hashicorp.com/blog/terraform-1-10-improves-handling-secrets-in-state-with-ephemeral-values
 
-## Go1.24からWasmで使える型が緩和される話
-https://zenn.dev/monicle/articles/b43dae1a9fb847
+Terraform 1.10 がリリースされました。現在の最新版は [v1.10.3](https://github.com/hashicorp/terraform/releases/tag/v1.10.3) です。
 
-## CloudFront 新機能！VPCオリジンでプライベートなALBをセキュアに公開してみた | DevelopersIO
-https://dev.classmethod.jp/articles/cloudfront-vpc-origins-internal-alb/
+今回は新たに Ephemeral values という tfstate に値を保存せずに plan/apply 時に都度値を外部に取りに行く機能が追加されました。variables、output、resource などの場所で使うことになります。
+詳しくはクラメソさんの記事が参考になります。
 
-## Amazon CloudFront now accepts your applications’ gRPC calls | AWS News Blog
-https://aws.amazon.com/jp/blogs/aws/amazon-cloudfront-now-accepts-your-applications-grpc-calls/
+- [Terraform 1.10がGAになり、Ephemeral Valuesが使えるようになりました | DevelopersIO](https://dev.classmethod.jp/articles/terraform-1-10-is-now-generally-available/)
 
-## Introducing Amazon Nova: Frontier intelligence and industry leading price performance | AWS News Blog
-https://aws.amazon.com/jp/blogs/aws/introducing-amazon-nova-frontier-intelligence-and-industry-leading-price-performance/
+また、待望の [S3 Native State Locking](https://developer.hashicorp.com/terraform/language/v1.10.x/upgrade-guides?product_intent=terraform#s3-native-state-locking) 機能も入りました。DynamoDB を使わずとも S3 の tfstate を排他制御できる機能です。個人的にはこれが一番嬉しいです。
+以前の Weekly でも紹介した次の記事がわかりやすいです（GA 前のバージョンではありますが）。
 
-## ［速報］「Amazon Aurora DSQL」プレビュー公開、事実上無限にスケールする高性能なPostgreSQL互換の大規模分散データベース － Publickey
-https://www.publickey1.jp/blog/24/amazon_aurora_dsqlpostgresql.html
+- [Terraform v1.10 からは S3 Backend の State Lock に DynamoDB が必要なくなる](https://zenn.dev/terraform_jp/articles/terraform-s3-state-lock)
 
-## Amazon Aurora Serverless v2 がゼロキャパシティへのスケーリングをサポート - AWS
-https://aws.amazon.com/jp/about-aws/whats-new/2024/11/amazon-aurora-serverless-v2-scaling-zero-capacity/
+S3 バックエンドを使っていたらどんどんロックを有効化していきたいですね。
 
-https://dev.classmethod.jp/articles/amazon-aurora-serverless-v2-supports-acu0-pause-resume/
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
+
+## ㊗️GitHub認定試験が日本語に対応しました！
+https://x.com/GitHubJapan/status/1867012915125158169
+
+GitHub Certifications こと、GitHub 認定試験が日本語に対応しました！
+
+次の試験が日本語で受けられるようになりました[^multi_lang]。
+
+- GitHub Foundations
+- GitHub Administration
+- GitHub Actions
+
+残った GitHub Advanced Security 試験、GitHub Copilot 試験はまだ未対応とのことですが、今後対応するようです。
+
+僕も受けました。感想は次のツイートにぶら下げています。
+
+https://x.com/Shitimi_613/status/1871505561432527298
+
+GitHub に関する勉強や腕試し、他者との話を進める上でこういった資格取得は役立ちそうですね。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
+
+[^multi_lang]: なお、韓国語、スペイン語、ポルトガル語 (ブラジル)にも対応したようです。
 
 ## オラクルが所有する「JavaScript」商標登録の取り消し、Denoが米国特許商標庁に申請したと発表
 https://www.publickey1.jp/blog/24/javascriptdeno.html
@@ -246,9 +261,6 @@ https://ymmt.hatenablog.com/entry/2024/12/04/004608
 
 _本項の執筆者: [@ajfAfg](https://zenn.dev/arjef)_
 
-## Terraform職人のためのOpenTofu再入門2024 #Terraform - Qiita
-https://qiita.com/minamijoyo/items/2738b9ad5f6754b68400
-
 ## Terraform を活用した効率的な S3 バケット管理手法 [DeNA インフラ SRE] | BLOG - DeNA Engineering
 https://engineering.dena.com/blog/2024/11/terraform-s3-management/
 
@@ -279,15 +291,6 @@ for 式を駆使してバケット名を作ることで実際のバケット名�
 
 _本項の執筆者: [@ajfAfg](https://zenn.dev/arjef)_
 
-## GitHub ActionsのSelf Hosted Runner向けにImage Cache Proxyを導入しました - Hatena Developer Blog
-https://developer.hatenastaff.com/entry/2024/11/26/151801
-
-## Kubernetes だけじゃない！Amazon ECS で実現するクラウドネイティブな GitHub Actions セルフホストランナー / CNDW2024 - Speaker Deck
-https://speakerdeck.com/ponkio_o/cndw2024
-
-## 強いチームと開発生産性 - Speaker Deck
-https://speakerdeck.com/onk/2024-11-15-prefer-output-focused-development-team
-
 ## terraform plan/applyをファイル単位で(スマートに)実行する | iret.media
 https://iret.media/128453
 
@@ -306,10 +309,19 @@ https://kaminashi-developer.hatenablog.jp/entry/2024/12/04/080000
 
 _本項の執筆者: [@ajfAfg](https://zenn.dev/arjef)_
 
-# tool 🔨
+## Terraform職人のためのOpenTofu再入門2024 #Terraform - Qiita
+https://qiita.com/minamijoyo/items/2738b9ad5f6754b68400
+Terraform 職人、お豆腐職人でお馴染みの minamijoyo さんによる、Terraform 使いのための OpenTofu 再入門 2024 です。[去年も同じ時期に書いてくださってました](https://zenn.dev/cybozu_ept/articles/productivity-weekly-20231206?redirected=1#terraform%E8%81%B7%E4%BA%BA%E3%81%AE%E3%81%9F%E3%82%81%E3%81%AEopentofu%E5%85%A5%E9%96%80-%23terraform---qiita)。
 
-## Introducing GitHub Copilot for Azure
-https://code.visualstudio.com/blogs/2024/11/15/introducing-github-copilot-for-azure
+あれから一年たち、GA となったり Terraform にはない機能が追加されたり、逆に Terraform のみの機能が登場したり、Terraform、OpenTofu に関する常識も大きく変わっています。今回の改訂版には Terraform のコアメンバーの移籍だったり、`.tofu` 拡張子だったり、IBM 買収話だったり、今年の出来事も含まれています。
+
+2023 の内容も含まれているようなので（たまにリンクされてる）、2023 を読んだことがない人でも 2024 を読めば良いと思います。
+
+自力でこの 2 つのソフトウェア、陣営の情報を集めるのは大変なので、こういったまとめ記事は本当に助かります。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
+
+# tool 🔨
 
 ## 【JavaScript × Terraform】次世代のモダン AltJS「JS.tf」の紹介
 https://zenn.dev/terraform_jp/articles/jstf-introduction
@@ -343,12 +355,38 @@ Productivity Weekly で出たネタを全て紹介したいけど紹介する体
 
 - **news 📺**
   - [GitHub Enterprise Server 3.15 is now generally available - GitHub Changelog](https://github.blog/changelog/2024-12-03-github-enterprise-server-3-15-is-now-generally-available/)
-  - [Improved pull request merge experience now in public preview - GitHub Changelog](https://github.blog/changelog/2024-12-03-improved-pull-request-merge-experience-now-in-public-preview/)
+    - GHES 3.15 が GA になりました
+    - 3.15 では、projects に関する GraphQL、Webhook の強化やリポジトリのカスタムプロパティの種類が増える、シークレットスキャンのプッシュ保護が入るなどの変更があります
+  - [Improved support for labeled Actions runners in CodeQL code scanning - GitHub Changelog](https://github.blog/changelog/2024-12-03-improved-support-for-labeled-actions-runners-in-codeql-code-scanning/)
+    - GitHub の Code scanning の規定のセットアップにおいて、実行するランナーの指定にカスタムラベルを使えるようになりました
+    - 以前は `code-scanning` ラベルである必要があったようです
+  - [GitHub Copilot Extensions now supported in JetBrains IDEs - GitHub Changelog](https://github.blog/changelog/2024-12-02-github-copilot-extensions-now-supported-in-jetbrains-ides/)
+    - GitHub Copilot Extensions が JetBrains IDE で使えるようになりました
+    - 本体やプラグインを更新しましょう
+  - [AWS、WebアプリからAmazon S3にアクセスできるUIコンポーネント「Storage Browser for S3」正式リリース － Publickey](https://www.publickey1.jp/blog/24/awswebamazon_s3uistorage_browser_for_s3_1.html)
+    - 以前[アルファ版として登場](https://zenn.dev/cybozu_ept/articles/productivity-weekly-20241023#%E3%82%A6%E3%82%A7%E3%83%96%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E7%94%A8-storage-browser-for-amazon-s3-%E3%81%AE%E7%99%BA%E8%A1%A8-(%E3%82%A2%E3%83%AB%E3%83%95%E3%82%A1%E3%83%AA%E3%83%AA%E3%83%BC%E3%82%B9)---aws)した Storage Browser for S3 が正式リリースされました
+    - S3 をファイルサーバとして使いたいような場合などに簡単にアクセスできて便利そうですね
+  - [Introducing Amazon Nova: Frontier intelligence and industry leading price performance | AWS News Blog](https://aws.amazon.com/jp/blogs/aws/introducing-amazon-nova-frontier-intelligence-and-industry-leading-price-performance/)
+    - Amazon Nova という新たなマルチモーダルなモデルが登場したようです
+    - マルチモーダルなので、テキストだけでなく動画の入出力も対応してるとか。楽しみですね
 - **know-how 🎓**
-- **tool 🔨**
+  - [GitHub ActionsのSelf Hosted Runner向けにImage Cache Proxyを導入しました - Hatena Developer Blog](https://developer.hatenastaff.com/entry/2024/11/26/151801)
+    - はてなさんによる GitHub Actions の Self Hosted Runner でのコンテナイメージキャッシュプロキシ構築事例です
+    - ネットワーク費の節約にコンテナイメージのキャッシュが効果的そうなら参考にしていきたいですね
+  - [Kubernetes だけじゃない！Amazon ECS で実現するクラウドネイティブな GitHub Actions セルフホストランナー / CNDW2024 - Speaker Deck](https://speakerdeck.com/ponkio_o/cndw2024)
+    - DeNA さんによる Amazon ECS を使った GitHub Actions セルフホストランナー環境構築の事例です
+    - なぜ k8s を採用しなかったかや ECS を使って運用してきてどうだったか、運用の工夫が書かれていて参考になります。ダッシュボード・SLO 的に待ち時間を扱う話めちゃ面白いです
+  - [強いチームと開発生産性 - Speaker Deck](https://speakerdeck.com/onk/2024-11-15-prefer-output-focused-development-team)
+    - はてなさんによる、開発生産性の高い強いチームにするために何をやっていくかのスライドです
+    - 開発生産性に関連する様々な要素（FourKeys などの指標やアウトプットなど）をどう使うかが書かれていて参考になります
+    - 開発チームにおいてはデリバリーが先という考え方を意識するのは大事そう
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 # あとがき
+メリークリスマス🎄🎅🤶🪅🧑‍🎄
 
+マジで遅くなってしまいすみません。平木場の普通の仕事がキャパギリギリなのが問題です。さすがになんとかしようとしてチーム内でもっと早く出せるように現在改善中です...
 
 サイボウズの生産性向上チームでは社内エンジニアの開発生産性を上げるための活動を行なっています。そんな生産性向上チームが気になる方は下のリンクをクリック！
 https://www.docswell.com/s/cybozu-tech/5R2X3N-engineering-productivity-team-recruitment-information
