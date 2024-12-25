@@ -1,6 +1,6 @@
 ---
 title: ＜ここにタイトルを入力＞｜Productivity Weekly(2024-12-18)
-emoji:
+emoji: 🕋
 type: idea
 topics:
   - ProductivityWeekly
@@ -55,6 +55,22 @@ https://github.blog/changelog/2024-12-17-find-and-fix-actions-workflows-vulnerab
 
 ## GitHub Issues & Projects – Close issue as a duplicate, REST API for sub-issues, and more! - GitHub Changelog
 https://github.blog/changelog/2024-12-12-github-issues-projects-close-issue-as-a-duplicate-rest-api-for-sub-issues-and-more/
+
+GitHub Issues、Projects において、Issue を重複（duplicate）扱いにしてクローズできるようになりました。これまで重複であることを明示的に示したい場合は label を付与するなどのユーザー側の工夫が必要でした。
+これにより、なぜクローズされたかがますます分かりやすくなりましたね。
+
+なお、上記記事では他のアップデートも書かれています。
+- Sub Issue に関する REST API が利用可能に
+- Sub Issue と Issue Type の制限値が緩和
+  - Parent Issue ごとに最大 100 件の Sub Issue を付与可能に（+50 件）
+  - Organization 内で利用できる Issue Type が最大 25 件に（+15 件）
+- GitHub Mobile で Issue Type の表示、追加、更新が可能に
+- Sub Issue と Issue Type のフィルタリングに `has:` と `no:` が使えるように
+- その他もろもろ
+
+GitHub の Issue 管理がますます柔軟にできるようになってきましたね。活用していきたいです。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 ## Copilot Autofix can now be generated with the REST API (Public Preview) - GitHub Changelog
 https://github.blog/changelog/2024-12-17-copilot-autofix-can-now-be-generated-with-the-rest-api-public-preview/
@@ -147,6 +163,22 @@ _本項の執筆者: [@ajfAfg](https://zenn.dev/arjef)_
 
 ## GitHub Actionsのガードを高くする - Techouse Developers Blog
 https://developers.techouse.com/entry/high-robustness-github-actions
+
+Techouse さんによる GitHub Actions のセキュリティリスクを減らすガード策の紹介記事です。
+
+GitHub Actions は便利で自由度が高い反面、さまざまなセキュリティリスクが存在します。この記事では、セキュリティリスクごとのリスクを軽減できるツールと、それらを用いてワークフローを監査するワークフロー例が紹介されています。
+
+取り上げられているセキュリティリスクは次の 3 つです。
+
+- 使用している action が汚染されないか
+- GITHUB_TOKEN の権限が広く設定されていないか
+- シェルスクリプトの実装ミスがないか
+
+それぞれなぜリスクたり得るのかと対策ツールの何が嬉しいのかが説明されており、GitHub Actions のセキュリティを高めたい場合に参考になると思います。また、対抗策を適用できるすぐに使えるワークフローも MIT ライセンスで用意されているので、どのように実践すれば良いのかすぐにわかることも嬉しいですね。
+
+皆さんも GitHub Actions のセキュリティ意識を高めて安心安全な開発ライフを送っていきましょう。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 ## 自作キーボードのキーマップ最適化のためにキー入力分析基盤を作ってみた（前編）
 https://zenn.dev/tacoms/articles/7c35fdb78ee16e
