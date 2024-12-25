@@ -43,7 +43,7 @@ user_defined:
 <!-- - [@r4mimu](https://zenn.dev/r4mimu) -->
 - [@uta8a](https://zenn.dev/uta8a)
 <!-- - [@ajfAfg](https://zenn.dev/arjef) -->
-<!-- - [@takoeight0821](https://zenn.dev/takoeight0821) -->
+- [@takoeight0821](https://zenn.dev/takoeight0821)
 <!-- - [@takamin55](https://zenn.dev/takamin55) -->
 
 :::
@@ -70,8 +70,30 @@ _本項の執筆者: [@uta8a](https://zenn.dev/uta8a)_
 ## Announcing GitHub Copilot Free - GitHub Changelog
 https://github.blog/changelog/2024-12-18-announcing-github-copilot-free/
 
+Announcing GitHub Copilot Free - GitHub Changelog
+https://github.blog/changelog/2024-12-18-announcing-github-copilot-free/
+
+GitHub Copilot に無料プランがやってきました。
+無料プランでは、月あたり 2000 回の補完と 50 件のチャットが使えます。
+また、複数ファイルを同時に編集する[Copilot Edits](https://code.visualstudio.com/docs/copilot/copilot-edits)や、Copilot Extensions も利用できます。
+
+月あたり 2000 回の補完の制限がどれくらいのものなのかが気になりますが、
+気軽に無料で GitHub Copilot を試せるのは嬉しいですね。
+
+_本項の執筆者: [@takoeight0821](https://zenn.dev/takoeight0821)_
+
 ## OpenAI’s latest o1 model now available in GitHub Copilot and GitHub Models - The GitHub Blog
 https://github.blog/news-insights/openais-o1-model-available-in-copilot-chat-and-github-models/
+
+OpenAI’s latest o1 model now available in GitHub Copilot and GitHub Models - The GitHub Blog
+https://github.blog/news-insights/openais-o1-model-available-in-copilot-chat-and-github-models/ 
+
+GitHub Copilot で、OpenAI の最新モデル o1 が使えるようになりました。
+ただし、Copilot Business と Copilot Enterprise では、管理者が o1 モデルへのアクセスを有効化する必要があります。
+
+まだ手元では試せていませんが、コーディングを含む複雑なタスクがぐっと得意になったと噂の o1 モデルを使ったコード補完の品質がどれほどなのか気になります。
+
+_本項の執筆者: [@takoeight0821](https://zenn.dev/takoeight0821)_
 
 ## REST API insights for organizations is now generally available - GitHub Changelog
 https://github.blog/changelog/2024-12-20-rest-api-insights-for-organizations-is-now-generally-available/
