@@ -98,6 +98,14 @@ _本項の執筆者: [@takoeight0821](https://zenn.dev/takoeight0821)_
 ## REST API insights for organizations is now generally available - GitHub Changelog
 https://github.blog/changelog/2024-12-20-rest-api-insights-for-organizations-is-now-generally-available/
 
+GitHub.com の REST API Insights 機能が Enterprise Cloud プランで利用可能になりました。この機能は組織（Organization）で利用でき、デフォルトでは組織のオーナー権限が必要です。ただし、View Organization API insights 権限をカスタムロールに割り当て、その後メンバーやチームに割り当てることで、オーナー以外にもアクセス権を付与できます。
+
+API アクセスが時間軸、アプリ、API エンドポイントごとに可視化されます。例えば「API レートリミットにかかったのでは？」と疑いがある際に、API Insights で素早く確認できるのは嬉しいですね。
+
+ある組織における私の過去 7 日間のアクセスは、Visual Studio Code が 120、GitHub CLI が 5 でした。同じ組織でのトップアクセスはセルフホステッドランナーで 123.7k でした。
+
+_本項の執筆者: [@naotama](https://zenn.dev/naotama)_
+
 ## Release v6.0.0 · philips-labs/terraform-aws-github-runner
 https://github.com/philips-labs/terraform-aws-github-runner/releases/tag/v6.0.0
 
@@ -127,7 +135,14 @@ uki00a さんによる 2024 年の Deno まとめ。uki00a さんは [週刊Deno
 
 _本項の執筆者: [@uta8a](https://zenn.dev/uta8a)_
 
-## 質の高いブログを素早く書く | Wantedly Engineer Blog https://www.wantedly.com/companies/wantedly/post_articles/945876
+## 質の高いブログを素早く書く | Wantedly Engineer Blog
+https://www.wantedly.com/companies/wantedly/post_articles/945876
+
+業務で技術ブログを書く方も多いのではないでしょうか。この記事では技術ブログの質を担保しながら素早く書く方法が紹介されています。
+
+内容の 1 つに、ブログを書く前に発散と収束のプロセスを設けるという方法がありました。いわゆるブレインストーミングですね。構成は考えるものの、記事の要素をブレインストーミングすることは今までなかったため勉強になりました。
+
+なお、この Productivity Weekly でも執筆の生産性を高める取り組みとして、GitHub を使った共同編集、リンターを使った校正の自動化、AI によるレビュー機能などを活用しています。
 
 # tool 🔨
 
