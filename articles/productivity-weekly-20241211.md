@@ -75,9 +75,9 @@ _本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 ## GitHub Copilot is now available on your GitHub dashboard in public preview - GitHub Changelog
 https://github.blog/changelog/2024-12-05-github-copilot-is-now-available-on-your-github-dashboard-in-public-preview/
 
-GitHub Copilot in github.com において、GitHub のダッシュボードから GitHub Copilot Chat に全画面で尋ねることができるようになりました。
+GitHub Copilot in github.com において、GitHub のダッシュボード画面上で GitHub Copilot Chat に尋ねることができるようになりました。
 
-僕はまだ GitHub Copilot in github.com が使えてないので正直今までの GitHub 上での Copilot Chat とどれだけ体験が違うのかよくわかりませんが、でかい画面で Copilot とお話しできるのは良いですね。
+僕はまだ GitHub Copilot in github.com が使えてないので正直今までの GitHub 上での Copilot Chat とどれだけ体験が違うのかよくわかりませんが、すぐに Copilot とお話しできるのは良いですね。
 
 _本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
@@ -99,10 +99,26 @@ GitHub において、enterprise レベルのカスタムプロパティ、enter
 ### Enterprise custom properties 
 これまでは org レベルで custom properties を設定できましたが、enterprise レベルはなかったため、enterprise 全体で利用する custom properties を使いたい場合は org ごとに同じ custom properties の設定が必要でした。
 
-### Enterprise rulesets
+プロパティ設定が容易になりますね。
 
+### Enterprise rulesets
+こちらも org レベルでの rulesets しかなかったため、enterprise 全体で利用する rulesets を使いたい場合は org ごとに同じ rulesets の設定が必要でした。
+そういった設定の使い回しを容易にするというメリットもありますが、先ほどの custom properties と違い、enterprise の権限で各 org に特定の rulesets を強制できる機能でもあります。
+custom properties と組み合わせ、production に関わるリポジトリは org 問わずタグの push やマージ前の特定のチェックを強制するなどのガバナンスを強める使い方が浮かびますね。
 
 ### Enterprise repository policy
+repository policy ですが、この機能はおそらく全く新しい機能です。リポジトリの操作に関する統制を強化できる機能で、次の項目を各 org に強制出来ます。
+
+- 可視性の制限
+  - public、internal、private を複数選択可能
+- 作成の制限
+- 削除の制限
+- 移譲（transfer）の制限
+- リポジトリ名の制限
+  - 正規表現で指定
+
+制限項目と同時に許可するロールや App、Team を指定できます。例えば特定のチームのみリポジトリ削除を許可することも可能です。
+使いこなすのはむずそうですが、上手く使うと高い自由と高いガバナンスの両立もできそうで面白いです。
 
 _本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
