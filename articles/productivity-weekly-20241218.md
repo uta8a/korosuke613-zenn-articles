@@ -195,6 +195,20 @@ _本項の執筆者: [@uta8a](https://zenn.dev/uta8a)_
 ## ワークフローの完了をローカルに通知する GitHub CLI 拡張機能を作りました
 https://zenn.dev/kmtym1998/articles/202412160900
 
+ワークフローの完了をローカルで音と通知で知らせてくれる Mac 向けの GitHub CLI 拡張機能を作ったそうです。
+実際に動かしてみました。
+
+![gh-prowl-waiting](/images/productivity-weekly-20241218/gh-prowl-waiting.png)
+*gh prowl コマンドを打って待っている間の画面*
+
+![gh-prowl-done](/images/productivity-weekly-20241218/gh-prowl-done.png)
+*check が success になった時の画面*
+
+ワークフローが完了すると「ピロリン」と音が鳴ります。CI 終わらないかな〜と Pull Request の画面を見に行くのをやめられそうでいいですね。
+記事の内容としては実装についても触れられていたのが良かったです。CLI から音を出す方法や Mac での通知の出し方など参考になりそうです。
+
+_本項の執筆者: [@uta8a](https://zenn.dev/uta8a)_
+
 ## テストの sharding を効率化する Tenbin というツールを作った
 https://zenn.dev/cybozu_frontend/articles/create-tenbin
 
