@@ -98,6 +98,14 @@ _本項の執筆者: [@takoeight0821](https://zenn.dev/takoeight0821)_
 ## REST API insights for organizations is now generally available - GitHub Changelog
 https://github.blog/changelog/2024-12-20-rest-api-insights-for-organizations-is-now-generally-available/
 
+GitHub.com の REST API Insights 機能が Enterprise Cloud プランで利用可能になりました。この機能は組織（Organization）で利用でき、デフォルトでは組織のオーナー権限が必要です。ただし、View Organization API insights 権限をカスタムロールに割り当て、その後メンバーやチームに割り当てることで、オーナー以外にもアクセス権を付与できます。
+
+API アクセスが時間軸、アプリ、API エンドポイントごとに可視化されます。例えば「API レートリミットにかかったのでは？」と疑いがある際に、API Insights で素早く確認できるのは嬉しいですね。
+
+ある組織における私の過去 7 日間のアクセスは、Visual Studio Code が 120、GitHub CLI が 5 でした。同じ組織でのトップアクセスはセルフホステッドランナーで 123.7k でした。
+
+_本項の執筆者: [@naotama](https://zenn.dev/naotama)_
+
 ## Release v6.0.0 · philips-labs/terraform-aws-github-runner
 https://github.com/philips-labs/terraform-aws-github-runner/releases/tag/v6.0.0
 
