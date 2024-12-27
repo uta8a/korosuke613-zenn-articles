@@ -121,7 +121,14 @@ _本項の執筆者: [@takamin55](https://zenn.dev/takamin55)_
 ## 2024年のDenoのまとめと今後について
 https://zenn.dev/uki00a/articles/whats-new-for-deno-in-2024
 
-## 質の高いブログを素早く書く | Wantedly Engineer Blog https://www.wantedly.com/companies/wantedly/post_articles/945876
+## 質の高いブログを素早く書く | Wantedly Engineer Blog
+https://www.wantedly.com/companies/wantedly/post_articles/945876
+
+業務で技術ブログを書く方も多いのではないでしょうか。この記事では技術ブログの質を担保しながら素早く書く方法が紹介されています。
+
+内容の 1 つに、ブログを書く前に発散と収束のプロセスを設けるという方法がありました。いわゆるブレインストーミングですね。構成は考えるものの、記事の要素をブレインストーミングすることは今までなかったため勉強になりました。
+
+なお、この Productivity Weekly でも執筆の生産性を高める取り組みとして、GitHub を使った共同編集、リンターを使った校正の自動化、AI によるレビュー機能などを活用しています。
 
 # tool 🔨
 
