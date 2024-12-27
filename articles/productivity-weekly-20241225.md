@@ -129,6 +129,12 @@ _本項の執筆者: [@takamin55](https://zenn.dev/takamin55)_
 ## 2024年のDenoのまとめと今後について
 https://zenn.dev/uki00a/articles/whats-new-for-deno-in-2024
 
+uki00a さんによる 2024 年の Deno まとめ。uki00a さんは [週刊Deno](https://uki00a.github.io/deno-weekly/) で毎週の Deno 周辺の話題をまとめてくださっています。代表的な Deno や周辺エコシステムのアップデートが網羅的に載っている印象で、年末に Deno の最新事情をキャッチアップするのに役立ちそうです。
+
+2024 年は、Deno v2、JSR を筆頭に、deno の CLI のコマンド拡充(add, outdated, fmt/lint のアップデート)や npm 互換性向上といった様々な出来事がありましたね。個人的には静的サイトジェネレーターの Lume が v2.1 から LumeCMS が入ったり frontmatter の共通規格の FFF に対応したこと、AWS 等で Deno Deploy のようなコード実行基盤がセルフホストできる Deno Deploy NextGen の今後が気になっています。
+
+_本項の執筆者: [@uta8a](https://zenn.dev/uta8a)_
+
 ## 質の高いブログを素早く書く | Wantedly Engineer Blog
 https://www.wantedly.com/companies/wantedly/post_articles/945876
 
