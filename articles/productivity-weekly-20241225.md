@@ -114,6 +114,20 @@ https://github.com/philips-labs/terraform-aws-github-runner/releases/tag/v6.0.0
 ## マルチプロダクト開発の現場でAWS Security Hubを1年以上運用して得た教訓やあれこれ - ANDPAD Tech Blog
 https://tech.andpad.co.jp/entry/2024/12/19/100000
 
+Security Hub を導入して 1 年とのことで、組織内でどのように活用しているかがまとまっています。
+
+記事を読んで私が新たに得られた学びは次の通りでした。
+- AWS により追加されるコントロールは、自動では有効にしない
+  - 失敗の検出数が多くなると通知が増え、チームの負荷が高まるため
+- Slack への通知は、検出された初回だけ行う仕組みを作る
+  - 何度も通知が来ると、チームの負荷が高まるため
+- 通知回数を可視化する
+  - どれだけの通知が来ることで負荷と感じるかを定量化でき、改善に結びつけることができるため
+
+やはり Security Hub を導入した効果は大きいとのことで、私も積極的に使っていきたいなと思いました。
+
+_本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)_
+
 ## CI/CD基盤のコスト削減とDocker Hubのレートリミットを回避するためのミラーサーバーを導入した話
 https://swet.dena.com/entry/2024/12/19/120000
 
