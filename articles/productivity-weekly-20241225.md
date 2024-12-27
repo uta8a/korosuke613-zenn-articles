@@ -18,6 +18,7 @@ user_defined:
     _本項の執筆者: [@ajfAfg](https://zenn.dev/arjef)_
     _本項の執筆者: [@takoeight0821](https://zenn.dev/takoeight0821)_
     _本項の執筆者: [@takamin55](https://zenn.dev/takamin55)_
+    _本項の執筆者: [@naotama](https://zenn.dev/naotama)_
 ---
 
 こんにちは。サイボウズ株式会社 [生産性向上チーム](https://www.docswell.com/s/cybozu-tech/5R2X3N-engineering-productivity-team-recruitment-information)の平木場です。
@@ -38,13 +39,14 @@ user_defined:
 
 今週の共同著者は次の方です。
 - [@korosuke613](https://zenn.dev/korosuke613)
-<!-- - [@defaultcf](https://zenn.dev/defaultcf) -->
+- [@defaultcf](https://zenn.dev/defaultcf)
 <!-- - [@Kesin11](https://zenn.dev/kesin11) -->
 <!-- - [@r4mimu](https://zenn.dev/r4mimu) -->
 - [@uta8a](https://zenn.dev/uta8a)
 - [@ajfAfg](https://zenn.dev/arjef)
 - [@takoeight0821](https://zenn.dev/takoeight0821)
 - [@takamin55](https://zenn.dev/takamin55)
+- [@naotama](https://zenn.dev/naotama)
 
 :::
 
@@ -106,9 +108,6 @@ API アクセスが時間軸、アプリ、API エンドポイントごとに可
 
 _本項の執筆者: [@naotama](https://zenn.dev/naotama)_
 
-## Release v6.0.0 · philips-labs/terraform-aws-github-runner
-https://github.com/philips-labs/terraform-aws-github-runner/releases/tag/v6.0.0
-
 # know-how 🎓
 
 ## マルチプロダクト開発の現場でAWS Security Hubを1年以上運用して得た教訓やあれこれ - ANDPAD Tech Blog
@@ -158,6 +157,8 @@ https://www.wantedly.com/companies/wantedly/post_articles/945876
 
 なお、この Productivity Weekly でも執筆の生産性を高める取り組みとして、GitHub を使った共同編集、リンターを使った校正の自動化、AI によるレビュー機能などを活用しています。
 
+_本項の執筆者: [@takamin55](https://zenn.dev/takamin55)_
+
 # tool 🔨
 
 ## HTTP Lambdaをルーティングする lamux - fujiwara-ware 2024 day 24
@@ -179,13 +180,6 @@ Terraform のリソース名を一括して置換し、加えて `moved` ブロ�
 単純な文字列の置換なら `sed` で十分ですが、`tfmv` は `moved` ブロックも作ってくれる点が嬉しそうです。
 
 _本項の執筆者: [@ajfAfg](https://zenn.dev/arjef)_
-
-# read more 🍘
-Productivity Weekly で出たネタを全て紹介したいけど紹介する体力が持たなかったネタを一言程度で書くコーナーです。
-
-- **news 📺**
-- **know-how 🎓**
-- **tool 🔨**
 
 # あとがき
 
