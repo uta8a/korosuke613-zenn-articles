@@ -19,7 +19,6 @@ user_defined:
     _本項の執筆者: [@takoeight0821](https://zenn.dev/takoeight0821)_
     _本項の執筆者: [@takamin55](https://zenn.dev/takamin55)_
     _本項の執筆者: [@naotama](https://zenn.dev/naotama)_
-published_at: 2025-01-01 10:00
 ---
 
 こんにちは。サイボウズ株式会社 [生産性向上チーム](https://www.docswell.com/s/cybozu-tech/5R2X3N-engineering-productivity-team-recruitment-information)の平木場です。
