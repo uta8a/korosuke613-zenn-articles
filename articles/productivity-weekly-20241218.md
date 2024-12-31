@@ -1,11 +1,11 @@
 ---
-title: ＜ここにタイトルを入力＞｜Productivity Weekly(2024-12-18)
+title: CodeQLの対象にActions追加、bun.lock登場など｜Productivity Weekly(2024-12-18)
 emoji: 🕋
 type: idea
 topics:
   - ProductivityWeekly
   - 生産性向上
-published: false
+published: true
 publication_name: cybozu_ept
 user_defined:
   publish_link: https://zenn.dev/cybozu_ept/articles/productivity-weekly-20241218
@@ -39,19 +39,39 @@ user_defined:
 今週の共同著者は次の方です。
 - [@korosuke613](https://zenn.dev/korosuke613)
 - [@defaultcf](https://zenn.dev/defaultcf)
-<!-- - [@Kesin11](https://zenn.dev/kesin11) -->
-<!-- - [@r4mimu](https://zenn.dev/r4mimu) -->
 - [@uta8a](https://zenn.dev/uta8a)
 - [@ajfAfg](https://zenn.dev/arjef)
-- [@takoeight0821](https://zenn.dev/takoeight0821)
-- [@takamin55](https://zenn.dev/takamin55)
+- [@takoeight0821](https://zenn.dev/takoeight0821) **← NEW!!**
+- [@takamin55](https://zenn.dev/takamin55) **← NEW!!**
 
+！？
+なんと、新たに二人の共同著者がやってきました。やばいっすね。
 :::
 
 # news 📺
 
 ## Find and fix Actions workflows vulnerabilities with CodeQL (Public Preview) - GitHub Changelog
 https://github.blog/changelog/2024-12-17-find-and-fix-actions-workflows-vulnerabilities-with-codeql-public-preview/
+
+GitHub Code scanning の CodeQL において、GitHub Actions のワークフローがサポートされました（public preview）。
+
+CodeQL はコードを走査して脆弱性につながる記述を教えてくれる静的解析ツールです。これまで JS/TS や Go などがサポートされていましたが、今回 GitHub Actions のワークフローもサポートされました。
+
+利用するには各リポジトリの CodeQL 設定で `GitHub Actions` を有効化する必要があります。CodeQL をすでに有効化している場合でも改めて設定が必要です。たくさんリポジトリを持っていると面倒ですね。
+
+試しに自分のホームページを管理しているリポジトリで有効化してみました。怒られすぎ。
+
+![](/images/productivity-weekly-20241218/code-scanning.png)
+*一覧画面*
+
+![](/images/productivity-weekly-20241218/code-scanning-details.png)
+*詳細の一つ*
+
+permission をしっかり設定しろとか、non-immutable なアクションの指定はやめろとか当たり前だけど大事なことを言っていますね。（permission に関してはリポジトリのデフォルトを read にしているから設定していなかった。google-github-action はめんどくてやれていなかった...）
+
+みなさんも有効化してみてはいかがでしょうか。もちろん private/internal リポジトリにおいては GitHub Advanced Security が必要で有料です。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 ## GitHub Issues & Projects – Close issue as a duplicate, REST API for sub-issues, and more! - GitHub Changelog
 https://github.blog/changelog/2024-12-12-github-issues-projects-close-issue-as-a-duplicate-rest-api-for-sub-issues-and-more/
@@ -71,9 +91,6 @@ GitHub Issues、Projects において、Issue を重複（duplicate）扱いに�
 GitHub の Issue 管理がますます柔軟にできるようになってきましたね。活用していきたいです。
 
 _本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
-
-## Copilot Autofix can now be generated with the REST API (Public Preview) - GitHub Changelog
-https://github.blog/changelog/2024-12-17-copilot-autofix-can-now-be-generated-with-the-rest-api-public-preview/
 
 ## Bun's new text-based lockfile | Bun Blog
 https://bun.sh/blog/bun-lock-text-lockfile
@@ -123,9 +140,6 @@ Opaque API では構造体の詳細が隠蔽されるため、bit field や遅�
 
 _本項の執筆者: [@takoeight0821](https://zenn.dev/takoeight0821)_
 
-## Google、Web IDE上で自然言語を適切なコマンドラインに変換して実行できる「Interactive Chat」プレビュー公開。Project IDXの新機能として － Publickey
-https://www.publickey1.jp/blog/24/googleweb_ideinteractive_chatproject_idx.html
-
 # know-how 🎓
 
 ## STORESのAWSルートユーザーを全部削除しました - STORES Product Blog 
@@ -144,12 +158,6 @@ https://docs.aws.amazon.com/securityhub/latest/userguide/iam-controls.html#iam-6
 - [待望！管理アカウントでメンバーアカウントのルートユーザ操作禁止などが設定できるRoot access managementがリリースされました！ | DevelopersIO](https://dev.classmethod.jp/articles/root-access-management/)
 
 _本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)_
-
-## LINEのアプリ開発を支えるコードオーナー管理
-https://techblog.lycorp.co.jp/ja/20241217a
-
-## myshoesとCycloud-hosted runner 2024年総まとめ | CyberAgent Developers Blog
-https://developers.cyberagent.co.jp/blog/archives/52815/
 
 ## NilAway による静的解析で「10 億ドル」を節約する #kyotogo / Kyoto Go 56th - Speaker Deck
 https://speakerdeck.com/ytaka23/kyoto-go-56th
@@ -195,6 +203,20 @@ _本項の執筆者: [@uta8a](https://zenn.dev/uta8a)_
 ## ワークフローの完了をローカルに通知する GitHub CLI 拡張機能を作りました
 https://zenn.dev/kmtym1998/articles/202412160900
 
+ワークフローの完了をローカルで音と通知で知らせてくれる Mac 向けの GitHub CLI 拡張機能を作ったそうです。
+実際に動かしてみました。
+
+![gh-prowl-waiting](/images/productivity-weekly-20241218/gh-prowl-waiting.png)
+*gh prowl コマンドを打って待っている間の画面*
+
+![gh-prowl-done](/images/productivity-weekly-20241218/gh-prowl-done.png)
+*check が success になった時の画面*
+
+ワークフローが完了すると「ピロリン」と音が鳴ります。CI 終わらないかな〜と Pull Request の画面を見に行くのをやめられそうでいいですね。
+記事の内容としては実装についても触れられていたのが良かったです。CLI から音を出す方法や Mac での通知の出し方など参考になりそうです。
+
+_本項の執筆者: [@uta8a](https://zenn.dev/uta8a)_
+
 ## テストの sharding を効率化する Tenbin というツールを作った
 https://zenn.dev/cybozu_frontend/articles/create-tenbin
 
@@ -210,11 +232,15 @@ _本項の執筆者: [@ajfAfg](https://zenn.dev/arjef)_
 Productivity Weekly で出たネタを全て紹介したいけど紹介する体力が持たなかったネタを一言程度で書くコーナーです。
 
 - **news 📺**
-- **know-how 🎓**
-- **tool 🔨**
+  - [Copilot Autofix can now be generated with the REST API (Public Preview) - GitHub Changelog](https://github.blog/changelog/2024-12-17-copilot-autofix-can-now-be-generated-with-the-rest-api-public-preview/)
+    - Copilot Autofix が REST API 経由で生成を要求できるようになりました
+    - 使い道としてはアラートができたら速攻で autofix させる...とか？
+  - [Google、Web IDE上で自然言語を適切なコマンドラインに変換して実行できる「Interactive Chat」プレビュー公開。Project IDXの新機能として － Publickey](https://www.publickey1.jp/blog/24/googleweb_ideinteractive_chatproject_idx.html)
+    - Google が開発している IDE、Project IDX に「Interactive Chat」機能が追加されました
+    - 自然言語の指示を元にコマンドラインのコマンドを生成して実行できるようです
 
 # あとがき
-
+年の瀬ですね。紅白を見ながらこのあとがきを書いています。あと一個今年の分も残ってるので、それまで出してから年を越したい。
 
 サイボウズの生産性向上チームでは社内エンジニアの開発生産性を上げるための活動を行なっています。そんな生産性向上チームが気になる方は下のリンクをクリック！
 https://www.docswell.com/s/cybozu-tech/5R2X3N-engineering-productivity-team-recruitment-information
