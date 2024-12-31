@@ -1,5 +1,5 @@
 ---
-title: ＜ここにタイトルを入力＞｜Productivity Weekly(2024-12-25)
+title: GitHub Copilot無料版登場！Chat in GitHubはGA！｜Productivity Weekly(2024-12-25)
 emoji: 🩻
 type: idea
 topics:
@@ -38,15 +38,15 @@ user_defined:
 対象のトピックでは、文章の最後に `本項の執筆者: <執筆者名>` を追加しています。
 
 今週の共同著者は次の方です。
-- [@korosuke613](https://zenn.dev/korosuke613)
 - [@defaultcf](https://zenn.dev/defaultcf)
-<!-- - [@Kesin11](https://zenn.dev/kesin11) -->
-<!-- - [@r4mimu](https://zenn.dev/r4mimu) -->
 - [@uta8a](https://zenn.dev/uta8a)
 - [@ajfAfg](https://zenn.dev/arjef)
 - [@takoeight0821](https://zenn.dev/takoeight0821)
 - [@takamin55](https://zenn.dev/takamin55)
-- [@naotama](https://zenn.dev/naotama)
+- [@naotama](https://zenn.dev/naotama) **← NEW!**
+
+！！？
+二週連続で新しい共同著者の登場です。マジでありがたいっす。
 
 :::
 
@@ -72,23 +72,16 @@ _本項の執筆者: [@uta8a](https://zenn.dev/uta8a)_
 ## Announcing GitHub Copilot Free - GitHub Changelog
 https://github.blog/changelog/2024-12-18-announcing-github-copilot-free/
 
-Announcing GitHub Copilot Free - GitHub Changelog
-https://github.blog/changelog/2024-12-18-announcing-github-copilot-free/
-
 GitHub Copilot に無料プランがやってきました。
 無料プランでは、月あたり 2000 回の補完と 50 件のチャットが使えます。
 また、複数ファイルを同時に編集する[Copilot Edits](https://code.visualstudio.com/docs/copilot/copilot-edits)や、Copilot Extensions も利用できます。
 
-月あたり 2000 回の補完の制限がどれくらいのものなのかが気になりますが、
-気軽に無料で GitHub Copilot を試せるのは嬉しいですね。
+月あたり 2000 回の補完の制限がどれくらいのものなのかが気になりますが、気軽に無料で GitHub Copilot を試せるのは嬉しいですね。
 
 _本項の執筆者: [@takoeight0821](https://zenn.dev/takoeight0821)_
 
 ## OpenAI’s latest o1 model now available in GitHub Copilot and GitHub Models - The GitHub Blog
 https://github.blog/news-insights/openais-o1-model-available-in-copilot-chat-and-github-models/
-
-OpenAI’s latest o1 model now available in GitHub Copilot and GitHub Models - The GitHub Blog
-https://github.blog/news-insights/openais-o1-model-available-in-copilot-chat-and-github-models/ 
 
 GitHub Copilot で、OpenAI の最新モデル o1 が使えるようになりました。
 ただし、Copilot Business と Copilot Enterprise では、管理者が o1 モデルへのアクセスを有効化する必要があります。
@@ -182,7 +175,13 @@ Terraform のリソース名を一括して置換し、加えて `moved` ブロ�
 _本項の執筆者: [@ajfAfg](https://zenn.dev/arjef)_
 
 # あとがき
+。。。
+最近自分が Weekly を出すのが遅すぎたため、Weekly 執筆のやり方を変えました。具体的には毎週の Weekly 
+が終わった直後に書きたい人たちですぐにネタの解説を書くという感じですね。
+そのやり方に変えて、僕が溜まっていた先々週号を書いてる間に今週号はみんなが書いてくれました。僕はほとんど全く書いてません。いよいよ引退の時期かもしれません。
 
+この文章を書いているのは 12/31 21:42 頃です。Twice が歌い始めました。
+いよいよ 2025 年ですね。良いお年を！！！
 
 サイボウズの生産性向上チームでは社内エンジニアの開発生産性を上げるための活動を行なっています。そんな生産性向上チームが気になる方は下のリンクをクリック！
 https://www.docswell.com/s/cybozu-tech/5R2X3N-engineering-productivity-team-recruitment-information
