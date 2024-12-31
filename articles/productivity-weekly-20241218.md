@@ -59,7 +59,7 @@ CodeQL はコードを走査して脆弱性につながる記述を教えてく�
 
 利用するには各リポジトリの CodeQL 設定で `GitHub Actions` を有効化する必要があります。CodeQL をすでに有効化している場合でも改めて設定が必要です。たくさんリポジトリを持っていると面倒ですね。
 
-試しに自分のホームページを管理してるリポジトリで有効化してみました。怒られすぎ。
+試しに自分のホームページを管理しているリポジトリで有効化してみました。怒られすぎ。
 
 ![](/images/productivity-weekly-20241218/code-scanning.png)
 *一覧画面*
@@ -67,7 +67,7 @@ CodeQL はコードを走査して脆弱性につながる記述を教えてく�
 ![](/images/productivity-weekly-20241218/code-scanning-details.png)
 *詳細の一つ*
 
-permission をしっかり設定しろとか、non-immutable なアクションの指定はやめろとか当たり前だけど大事なことを言ってますね。（permission に関してはリポジトリのデフォルトを read にしてるから設定してなかった。google-github-action はめんどくてやれてなかった...）
+permission をしっかり設定しろとか、non-immutable なアクションの指定はやめろとか当たり前だけど大事なことを言っていますね。（permission に関してはリポジトリのデフォルトを read にしているから設定していなかった。google-github-action はめんどくてやれていなかった...）
 
 みなさんも有効化してみてはいかがでしょうか。もちろん private/internal リポジトリにおいては GitHub Advanced Security が必要で有料です。
 
