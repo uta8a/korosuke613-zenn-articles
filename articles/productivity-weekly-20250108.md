@@ -50,6 +50,26 @@ user_defined:
 
 # news 📺
 
+## Node.js Now Supports TypeScript By Default | Total TypeScript
+https://www.totaltypescript.com/typescript-is-coming-to-node-23
+
+## Expanding Access to the GitHub Copilot Workspace Technical Preview - GitHub Changelog
+https://github.blog/changelog/2024-12-30-expanding-access-to-the-github-copilot-workspace-technical-preview/
+
+GitHub Copilot Workspace（technical preview）が全ての有料 copilot ユーザで使えるようになりました。これまでは waitlist に入る必要がありました。なお、Enterprise Managed User は利用できません。
+
+もし Organization で使いたい場合は、Copilot Extension の有効化、Copilot in GitHub.com のプレビュー機能の有効化、Copilot Workspace の Oauth app の承認が必要と記事には書かれています。
+（これ Organization においては Copilot Extension 扱いなんですね...ややこしすぎる。個人リポジトリでは普通に使えるのは嬉しいです。）
+
+使い方は次のリポジトリ、ブログが参考になるとのことです。
+- https://github.com/githubnext/copilot-workspace-user-manual 
+- https://github.blog/ai-and-ml/github-copilot/5-tips-and-tricks-when-using-github-copilot-workspace/
+
+2 ヶ月くらい前に waitlist から使えるようになったので触ったのですが、どういう設計をするかのブレインストーミングをできるのが個人的に特に面白いと思いました。いかんせん英語で出力されるのでそこがネックですが...
+色々アプデもされてるみたいですが、最近触れていないのでまた触ってみたいと思います。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
+
 # know-how 🎓
 
 # tool 🔨
