@@ -38,11 +38,11 @@ user_defined:
 
 今週の共同著者は次の方です。
 - [@korosuke613](https://zenn.dev/korosuke613)
-<!-- - [@defaultcf](https://zenn.dev/defaultcf) -->
+- [@defaultcf](https://zenn.dev/defaultcf)
 <!-- - [@Kesin11](https://zenn.dev/kesin11) -->
 <!-- - [@r4mimu](https://zenn.dev/r4mimu) -->
 <!-- - [@uta8a](https://zenn.dev/uta8a) -->
-<!-- - [@ajfAfg](https://zenn.dev/arjef)
+- [@ajfAfg](https://zenn.dev/arjef)
 <!-- - [@takoeight0821](https://zenn.dev/takoeight0821) -->
 <!-- - [@takamin55](https://zenn.dev/takamin55) -->
 
@@ -71,6 +71,33 @@ GitHub Copilot Workspace（technical preview）が全ての有料 copilot ユー
 _本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 # know-how 🎓
+
+## GitHub ActionsでGoのコンテナイメージをビルド・プッシュする際のベストプラクティスを考える
+https://zenn.dev/micin/articles/build-and-push-go-app-iamge-in-github-actions
+
+## GitHub Actionsで定期実行（cron）のワークフローを組んだユーザーが退職すると、ワークフローは無効化される - shmokmt's blog
+https://shmokmt.hatenablog.com/entry/2024/12/26/142250
+
+GitHub Actions ではワークフローの実行のトリガーに cron を指定できますが、それには罠があって、cron 式の変更を最後にコミットしたユーザーがワークフローの実行権限を失うと、cron での定期実行が停止します。
+
+これは公式ドキュメント上にも注意事項が記載されています。
+> When the last user to commit to the cron schedule of a workflow is removed from the organization, the scheduled workflow will be disabled. If a user with write permissions to the repository makes a commit that changes the cron schedule, the scheduled workflow will be reactivated. Note that, in this situation, the workflow is not reactivated by any change to the workflow file; you must alter the cron value and commit this change.
+
+以前、生産性向上チームでもこの罠を踏みまして、急いで該当する全ての cron 式をコミットし直しました。
+しかもこれを検出する方法は、ワークフローの実行を外部で記録する以外に無いのです...
+Datadog などの外部サービスでワークフローの実行をモニタリングし、指定時間以内に実行が記録されない場合にアラートを出すなどの対策が必要です。
+
+GitHub Actions の cron でのワークフロー実行では、大きな罠が 2 つあります。
+- cron 式で指定した時間丁度に実行されない、GitHub の負荷が高い時間帯は数十分遅れ、場合によっては実行されないことがある
+- cron 式の変更を最後にコミットしたユーザーがワークフローの実行権限を失うと、定期実行そのものが停止する
+
+時間丁度に必ず実行してほしい、ユーザーの入れ替わりがそれなりにあるリポジトリでのワークフロー実行には、cron でのトリガーはやめて外部から dispatch するなどの方法が望ましいです。
+
+_本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)_
+
+## 実践セキュリティ監視基盤構築
+https://zenn.dev/mizutani/books/secmon-platform
+
 ## Goの古いコードが動かなくなることはほぼない理由
 https://zenn.dev/catatsuy/articles/fda1e42acad421
 
