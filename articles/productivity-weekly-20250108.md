@@ -1,6 +1,6 @@
 ---
 title: ＜ここにタイトルを入力＞｜Productivity Weekly(2025-01-08)
-emoji:
+emoji: 🍆
 type: idea
 topics:
   - ProductivityWeekly
@@ -42,10 +42,10 @@ user_defined:
 - [@defaultcf](https://zenn.dev/defaultcf)
 <!-- - [@Kesin11](https://zenn.dev/kesin11) -->
 <!-- - [@r4mimu](https://zenn.dev/r4mimu) -->
-<!-- - [@uta8a](https://zenn.dev/uta8a) -->
+- [@uta8a](https://zenn.dev/uta8a)
 - [@ajfAfg](https://zenn.dev/arjef)
 <!-- - [@takoeight0821](https://zenn.dev/takoeight0821) -->
-<!-- - [@takamin55](https://zenn.dev/takamin55) -->
+- [@takamin55](https://zenn.dev/takamin55)
 - [@naotama](https://zenn.dev/naotama)
 :::
 
@@ -149,6 +149,22 @@ Findy さんはタスクの対応漏れ・考慮漏れなどの手戻りを防�
 _本項の執筆者: [@takamin55](https://zenn.dev/takamin55)_
 
 ## 2024 年振り返り
+https://zenn.dev/shunsuke_suzuki/articles/look-back-on-2024
+
+shunsuke-suzuki さんの 2024 年の活動振り返り。
+shunsuke-suzuki さんは主に GitHub Actions とセキュリティ周辺で様々な OSS を出されているので、ざっと眺めてみると気になる OSS が見つかるかもしれません。
+また、ブログで作成された OSS のユースケースを詳しく解説されていたりするので、ブログも目を通してみると良いでしょう。
+
+個人的な感想としては、[aqua が Node.js をサポート](https://zenn.dev/shunsuke_suzuki/articles/aqua-nodejs-support) が大きなニュースでした。
+これにより asdf から aqua に統一的に切り替える選択肢がかなり現実的になってきたと思います。
+また、[release-js-action](https://github.com/suzuki-shunsuke/release-js-action) という、JavaScript Action をリリースする際に main ブランチに生成物を直接 commit せずに、別ブランチに置くようにして一連の処理を actions にまとめるツールも便利だと思いました。今後 Immutable Actions が GA になるまではこれ一択なのではと思っています。
+細かいところでは [ghatm](https://github.com/suzuki-shunsuke/ghatm) でジョブの timeout-minutes をいい感じにセットできたりするのもよかったですね。
+[lintnet](https://github.com/lintnet/lintnet)はかなり汎用的なツールで面白いなと思って探求していました。個人的にはまだ lintnet がハマるケースを発見できてないですが、可能性を秘めていると思っています。
+
+_本項の執筆者: [@uta8a](https://zenn.dev/uta8a)_
+
+## ClineとAIコーディングツールの現状 - laiso
+https://laiso.hatenablog.com/entry/2025/01/07/045009#fn-6779a6d5
 
 # tool 🔨
 
