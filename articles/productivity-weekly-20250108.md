@@ -18,6 +18,7 @@ user_defined:
     _本項の執筆者: [@ajfAfg](https://zenn.dev/arjef)_
     _本項の執筆者: [@takoeight0821](https://zenn.dev/takoeight0821)_
     _本項の執筆者: [@takamin55](https://zenn.dev/takamin55)_
+    _本項の執筆者: [@naotama](https://zenn.dev/naotama)_
 ---
 
 こんにちは。サイボウズ株式会社 [生産性向上チーム](https://www.docswell.com/s/cybozu-tech/5R2X3N-engineering-productivity-team-recruitment-information)の平木場です。
@@ -45,7 +46,7 @@ user_defined:
 - [@ajfAfg](https://zenn.dev/arjef)
 <!-- - [@takoeight0821](https://zenn.dev/takoeight0821) -->
 <!-- - [@takamin55](https://zenn.dev/takamin55) -->
-
+- [@naotama](https://zenn.dev/naotama)
 :::
 
 # news 📺
@@ -117,6 +118,25 @@ Go にジェネリクスが導入されたモチベーションや Go での実�
 個人的には、ジェネリクスの実装方法が一番面白かったです。Go では基本的に C++ と同じく使用されうる型それぞれの関数を生成していますが、コンパイル時間が伸びがちなので、ポインタ型に関しては *uint8 でまとめて実行時に個別の型を割り振っているみたいです。かしこい。
 
 _本項の執筆者: [@ajfAfg](https://zenn.dev/arjef)_
+
+## S3のメタデータを用いた攻撃
+https://zenn.dev/p0n/articles/3a6139cce9fa17
+
+## perplexityのスペース機能がソフトウェアの調べものに便利 - mrwk update
+https://mrwk.hateblo.jp/entry/2025/01/03/081055
+
+Perplexity に新たに追加された「スペース」機能により、URL やファイル[^perplexity-space-01]を情報源として登録し、それらを基にチャット形式で質問や情報共有が可能になりました。
+
+指定した URL のページだけでなく、その配下も含めて再帰的に情報を取得してくれる[^perplexity-space-02]のが便利です。同種の先行サービスである [NotebookLM](https://notebooklm.google/) では、 [PEGASUS](https://github.com/Sunwood-ai-labs/PEGASUS) のようなツールでクロールし、Markdown に変換したファイルを NotebookLM で利用するなどのひと手間が必要だったため、一歩先に進んだ感じがします。再帰的に情報を取得してくれる特性を活かして、「公式ドキュメント」を読み込ませ、実装時に参照すると便利に使えます。
+
+[^perplexity-space-01]: ファイルは `Pro` ユーザのみ利用可能です。
+[^perplexity-space-02]: URL を追加する際にどの深さまで情報を取得するのか指定がないため、クロールされることを嫌がるサイトが出てくる可能性があるのが少し気になります。
+
+質問した時「特定ワードを入れずとも、指定した情報源から優先して回答してくれる」動きは思いのほか快適です。
+
+_本項の執筆者: [@naotama](https://zenn.dev/naotama)_
+
+
 
 # tool 🔨
 ## Ghostty
