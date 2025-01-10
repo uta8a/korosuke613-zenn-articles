@@ -137,8 +137,24 @@ Perplexity に新たに追加された「スペース」機能により、URL �
 _本項の執筆者: [@naotama](https://zenn.dev/naotama)_
 
 
+## Findyの爆速開発を支えるタスク分解 - Findy Tech Blog
+https://tech.findy.co.jp/entry/2025/01/07/090000
+
+開発生産性の向上に力を入れている Findy さんのタスク分解のやり方が紹介されている記事です。
+Findy さんはタスクの対応漏れ・考慮漏れなどの手戻りを防ぐためや、Pull Request の粒度を適切に保つために、タスクブレイクダウンをレビューするプロセスを取っています。
+そのタスクブレイクダウンのテンプレートが紹介されているので、すぐに試せますよ。
+
+タスクの肥大化や Pull Request の肥大化に困っている場合は、ぜひ参考にしたいです。
+
+_本項の執筆者: [@takamin55](https://zenn.dev/takamin55)_
+
+## 2024 年振り返り
 
 # tool 🔨
+
+## 「Google Agentspace」発表、生成AIがGoogleドライブ、Slack、SharePoint、JIRAなど社内情報を横断的に読み取って質問に答えてくれる － Publickey
+https://www.publickey1.jp/blog/25/google_agentspaceaigoogleslacksharepointjira.html
+
 ## Ghostty
 https://ghostty.org/
 
@@ -149,6 +165,9 @@ https://ghostty.org/
 今後も使い続けていきたいアプリでした。
 
 _本項の執筆者: [@ajfAfg](https://zenn.dev/arjef)_
+
+## Google Timeline の代替探しの旅
+https://namorz.com/blog/2024/location/
 
 # read more 🍘
 Productivity Weekly で出たネタを全て紹介したいけど紹介する体力が持たなかったネタを一言程度で書くコーナーです。
