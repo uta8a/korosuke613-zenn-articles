@@ -39,7 +39,7 @@ user_defined:
 
 今週の共同著者は次の方です。
 - [@korosuke613](https://zenn.dev/korosuke613)
-<!-- - [@defaultcf](https://zenn.dev/defaultcf) -->
+- [@defaultcf](https://zenn.dev/defaultcf)
 - [@uta8a](https://zenn.dev/uta8a)
 - [@ajfAfg](https://zenn.dev/arjef)
 - [@takoeight0821](https://zenn.dev/takoeight0821)
@@ -83,6 +83,17 @@ https://aws.amazon.com/jp/blogs/aws/announcing-the-new-aws-asia-pacific-thailand
 ## ECSのIaCあるある『Serviceとタスクの更新をどこでやる問題』に向き合う一例 - Nealle Developer's Blog
 https://nealle-dev.hatenablog.com/entry/2025/01/08/175433 
 
+Terraform などで IaC をする際、アプリケーションのデプロイまでを IaC の責務とするかどうかは悩ましい問題です。
+この記事では、Terraform は最初のタスク定義だけを作成する責務を負い、サービスでは data で取得した最新のタスク定義を参照するようにしています。
+さらに ecspresso は各環境の設定の差分を吸収し、タスク定義を JSON として出力するために使用されています。
+ecspresso でそのような使い方ができるのは知らなかったので、なるほどと思いました。
+
+最近、弊チームでもこの問題に向き合いまして、この記事と似た構成で構築しました。
+違う点は、構築するサービスの環境がそこまで複雑でないことから、タスク定義の各 attribute は ignore せず、サービスからのタスク定義の参照を ignore しています。
+また ecspresso は使用せずに GitHub Actions 内で AWS CLI を実行し、最新のタスク定義の JSON を取得しています。
+これにより、タスク定義のほとんどを IaC の責務としつつ、イメージだけを aws-actions/amazon-ecs-render-task-definition で更新できるようになりました。
+
+今後環境の差分が多くなってきたら、差分を ecspresso に吸収させる仕組みを検討してみたいと思います。
 
 _本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)_
 
