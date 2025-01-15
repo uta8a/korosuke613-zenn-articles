@@ -76,6 +76,20 @@ _本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 ## GitHub ActionsでGoのコンテナイメージをビルド・プッシュする際のベストプラクティスを考える
 https://zenn.dev/micin/articles/build-and-push-go-app-iamge-in-github-actions
 
+GitHub Actions 上で Go のコンテナイメージをビルドする際に起きうるケースについて、速度を比較検証している記事です。
+例えば、キャッシュなし、レイヤーキャッシュの有無とその置き場、Go キャッシュの有無、どの環境でビルドするかなど、合計で 8 つのケースが比較検証されています。
+
+実は生産性向上チームでも GitHub Actions 上での Go のコンテナイメージビルドの高速化させた際の記事を公開しているのですが、8 つのケースのうちの 1 つの方法としてその記事が紹介されていました。参照していただき光栄です。ありがとうございます（宣伝）。
+
+8 ケースの中から自チームで取り入れられそうな手法を選択すれば、簡単に自チームの Go のコンテナイメージビルドを高速化できそうですね。
+
+なお、最も高速な方法は、「GitHub Actions のホスト環境で [ko-build/ko](https://github.com/ko-build/ko) というツールを使ってビルドする」でした。
+`ko-build/ko` は知らなかったので勉強になりました。Go 専用のコンテナイメージビルドツールで、Docker を使わずに高速かつ安全にコンテナイメージをビルドできるようです。欠点としては、Dockerfile 内で少し複雑な処理を行う場合には使いにくいという点が紹介されています。
+
+シンプルに `go build` するだけのような場合は、`ko-build/ko` を採用しても良いかもしれませんね。
+
+_本項の執筆者: [@takamin55](https://zenn.dev/takamin55)_
+
 ## GitHub Actionsで定期実行（cron）のワークフローを組んだユーザーが退職すると、ワークフローは無効化される - shmokmt's blog
 https://shmokmt.hatenablog.com/entry/2024/12/26/142250
 
