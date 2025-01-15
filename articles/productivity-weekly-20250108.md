@@ -40,19 +40,14 @@ user_defined:
 今週の共同著者は次の方です。
 - [@korosuke613](https://zenn.dev/korosuke613)
 - [@defaultcf](https://zenn.dev/defaultcf)
-<!-- - [@Kesin11](https://zenn.dev/kesin11) -->
-<!-- - [@r4mimu](https://zenn.dev/r4mimu) -->
 - [@uta8a](https://zenn.dev/uta8a)
 - [@ajfAfg](https://zenn.dev/arjef)
-<!-- - [@takoeight0821](https://zenn.dev/takoeight0821) -->
+- [@takoeight0821](https://zenn.dev/takoeight0821)
 - [@takamin55](https://zenn.dev/takamin55)
 - [@naotama](https://zenn.dev/naotama)
 :::
 
 # news 📺
-
-## Node.js Now Supports TypeScript By Default | Total TypeScript
-https://www.totaltypescript.com/typescript-is-coming-to-node-23
 
 ## Expanding Access to the GitHub Copilot Workspace Technical Preview - GitHub Changelog
 https://github.blog/changelog/2024-12-30-expanding-access-to-the-github-copilot-workspace-technical-preview/
@@ -202,6 +197,15 @@ https://laiso.hatenablog.com/entry/2025/01/07/045009#fn-6779a6d5
 
 ## 「Google Agentspace」発表、生成AIがGoogleドライブ、Slack、SharePoint、JIRAなど社内情報を横断的に読み取って質問に答えてくれる － Publickey
 https://www.publickey1.jp/blog/25/google_agentspaceaigoogleslacksharepointjira.html
+
+Gmail や Google ドライブなど、様々なデータソースを参照した対話型 AI サービスが Google から発表されました。
+NotebookLM によるデータ分析や、企業固有のエージェントの作成など、AI とデータ活用に関する様々な機能が提供されるようです。
+また、標準のデータソースとして、GitHub や Slack、SharePoint など多くのサービスがサポートされています。
+
+ソフトウェア開発においても、GitHub や Slack に散らばっている情報を一元的に参照したり、いろいろ活用できそうです。
+こういったサービスの今後の発展や活用の広がりが楽しみです。
+
+_本項の執筆者: [@takoeight0821](https://zenn.dev/takoeight0821)_
 
 ## Ghostty
 https://ghostty.org/
