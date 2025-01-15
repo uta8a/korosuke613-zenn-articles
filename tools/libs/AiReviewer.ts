@@ -32,8 +32,8 @@ export type OpenAIPricingData = {
 export class AiReviewer {
   private readonly openai: OpenAI;
   private static readonly SYSTEM_PROMPT = `
-あなたは日本語文章を校正するアシスタントです。
-与えられたマークダウン形式の文章で、誤字・脱字、および、文法誤りのある行を抜き出し、修正した行を出力してください。
+あなたは日本語技術記事を校正するアシスタントです。
+与えられたマークダウン形式の文章で、誤字・脱字、文法誤り、論理的に誤っている行を抜き出し、修正した行を出力してください。
 その際、確実に修正すべき誤りのみを出力してください。
 また、以下のルールに従って修正を行ってください。
 - 句読点の追加や削除はしない
@@ -53,19 +53,13 @@ export class AiReviewer {
   private static readonly pricing: Record<string, OpenAIPricingData> = {
     // ref: https://openai.com/api/pricing/
     "gpt-4o": {
-      input: 5 / (1 * 1000000),
-      output: 15 / (1 * 1000000),
-    },
-    "gpt-4o-2024-08-06": {
-      input: 5 / (1 * 1000000),
-      output: 15 / (1 * 1000000),
+      input: 2.5 / (1 * 1000000),
+      output: 10 / (1 * 1000000),
     },
   };
   static readonly defaultOptions: AiReviewerOptions = {
     max_tokens: 1024,
-    // GPT-4o が Structured Outputs にまだ対応してないため、最新版である gpt-4o-2024-08-06 を使用
-    // TODO: GPT-4o が Structured Outputs に対応したら、GPT-4o を使用する
-    model: "gpt-4o-2024-08-06",
+    model: "gpt-4o",
     logging: true,
     reviewNum: 5,
   };
