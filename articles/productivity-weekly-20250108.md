@@ -148,6 +148,12 @@ _本項の執筆者: [@ajfAfg](https://zenn.dev/arjef)_
 ## S3のメタデータを用いた攻撃
 https://zenn.dev/p0n/articles/3a6139cce9fa17
 
+サーバを介さず、S3 にファイルを直接アップロードするようなユースケースにおいて、一部不適切な実装をしてしまうと XSS が発生する実装になってしまう話。
+S3 のメタデータの、特に Content-Type に関わる部分について署名付き URL、Post Policy の 2 つの観点から XSS が発生する実装を開設されています。
+署名に何を含めるかあまり意識せず `getSignedUrl()` 関数を使ってしまいがちなので、`signableHeaders` として適切なものを指定したり、バリデーションを適切に行っていきたいと思いました。
+
+_本項の執筆者: [@uta8a](https://zenn.dev/uta8a)_
+
 ## perplexityのスペース機能がソフトウェアの調べものに便利 - mrwk update
 https://mrwk.hateblo.jp/entry/2025/01/03/081055
 
