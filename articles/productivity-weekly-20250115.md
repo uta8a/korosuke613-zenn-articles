@@ -128,6 +128,11 @@ _本項の執筆者: [@takoeight0821](https://zenn.dev/takoeight0821)_
 ## anyhowユーザー向けeyre/miette入門
 https://zenn.dev/yukinarit/articles/ee9617f20b0361
 
+Rust でエラーハンドリングを行う際に役立つ crate(ライブラリ)、eyre, miette の紹介です。
+有名どころで anyhow, thiserror という crate がありますが、eyre は anyhow と似た API を持ちながら、出力結果が色付けされていてエラー表示をカスタマイズできます。
+CLI のユーザーに対するエラー表示などに役立ちそうですね。
+miette は `Diagnostics` トレイトをユーザ定義のエラー型に実装し、そのエラーの表示を分かりやすく表示する crate です。こちらもリッチな見た目で良いですね。
+利用の際のデメリットにも触れられているので、Rust のエラー表示が気になる方は読んでみましょう。
 
 _本項の執筆者: [@uta8a](https://zenn.dev/uta8a)_
 
