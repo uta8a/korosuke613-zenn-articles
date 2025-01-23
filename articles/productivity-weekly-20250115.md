@@ -69,6 +69,21 @@ _本項の執筆者: [@ajfAfg](https://zenn.dev/arjef)_
 ## Evolving GitHub Issues (public preview) - GitHub Changelog
 https://github.blog/changelog/2025-01-13-evolving-github-issues-public-preview/
 
+GitHub Issue の機能アップデートがありいくつかの機能が public preview になりました。
+- 大きめの課題を Sub-issues に分割し、親子関係で管理できるようになりました
+- 組織内のリポジトリで共通の issue を管理できるようになりました
+- リポジトリの課題ページから、AND および OR キーワードと括弧を使用して高度な検索を作成できるようになりました
+- etc...
+
+この中から Sub-issues を少し深掘りします。
+
+Sub-issue を作成することで、Sub-issue の担当者を決めたり、進捗状況を個別に追跡したりすることが可能になります。親課題の進捗状況は、Sub-issue の完了状況に応じて自動的に更新されるのも便利ですし、自分の進捗が正しく可視化されると心が落ち着きます。
+
+従来、チェックボックス + 別タスクのように独自管理していたものが、GitHub 上で完結できるようになります。また、Drag&Drop で Sub-issue の順番入れ替え可能でタスク実行順序も簡単に可視化可能です。
+
+8 階層まで Sub-issues 内でネスト可能ですが、ネストさせたい気持ちが芽生えたら、親タスク粒度が大きすぎるかもしれません...
+
+詳しくは [Sub-issues Public Preview - discussions](https://github.com/orgs/community/discussions/148714), [sub-issue について - docs](https://docs.github.com/ja/issues/tracking-your-work-with-issues/about-issues#about-sub-issues) をご確認ください。
 
 _本項の執筆者: [@naotama](https://zenn.dev/naotama)_
 
