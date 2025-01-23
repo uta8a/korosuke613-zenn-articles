@@ -90,6 +90,12 @@ _本項の執筆者: [@naotama](https://zenn.dev/naotama)_
 ## GitHub Models introduces JSON schema support for response formats - GitHub Changelog
 https://github.blog/changelog/2025-01-08-github-models-introduces-json-schema-support-for-response-formats/
 
+GitHub Models は、様々な LLM を試せるプレイグラウンドサービスです。
+従来から、LLM の出力フォーマットを自然文と JSON の２つから選べていました。
+今回のアップデートで、JSON スキーマを指定して出力できるようになりました。
+ただし、JSON スキーマに対応しているモデルは GPT 4o の api-version `2024-08-01-preview` のみです。
+
+GitHub Models は、GitHub PAT を使った無料の API も提供しています。LLM を使ったツールのプロトタイプ実装で活躍しそうです。
 
 _本項の執筆者: [@takoeight0821](https://zenn.dev/takoeight0821)_
 
@@ -137,6 +143,10 @@ _本項の執筆者: [@ajfAfg](https://zenn.dev/arjef)_
 ## Rustプロジェクトのビルド高速化に関するベストプラクティス（ローカル環境編）
 https://zenn.dev/fairydevices/articles/59cd718341da58
 
+Rust はビルド時間が悩みのタネになりがちです。
+この記事では、高速なリンカ mold、プロジェクト間でビルド成果物をキャッシュ・共有する sccache、依存クレートのビルド成果物をイメージレイヤーとしてキャッシュする cargo chef を使ったローカルビルドの高速化の方法が紹介されています。
+
+次回は CI/CD パイプラインでのビルド高速化が紹介されるそうです。こちらも楽しみですね。
 
 _本項の執筆者: [@takoeight0821](https://zenn.dev/takoeight0821)_
 
