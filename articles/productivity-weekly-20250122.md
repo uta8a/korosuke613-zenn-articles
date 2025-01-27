@@ -40,7 +40,7 @@ user_defined:
 今週の共同著者は次の方です。
 - [@korosuke613](https://zenn.dev/korosuke613)
 - [@defaultcf](https://zenn.dev/defaultcf)
-<!-- - [@uta8a](https://zenn.dev/uta8a) -->
+- [@uta8a](https://zenn.dev/uta8a)
 - [@ajfAfg](https://zenn.dev/arjef)
 - [@takoeight0821](https://zenn.dev/takoeight0821)
 <!-- - [@takamin55](https://zenn.dev/takamin55) -->
@@ -51,6 +51,17 @@ user_defined:
 
 ## GitHub Actions: Ubuntu 20 runner image brownout dates and other breaking changes - GitHub Changelog
 https://github.blog/changelog/2025-01-15-github-actions-ubuntu-20-runner-image-brownout-dates-and-other-breaking-changes/
+
+GitHub Actions で廃止となる機能や Breaking Changes の予告がされています。同じ内容で何度か GitHub から告知がされていますね。(以前 2024/12/11 の Productivity Weekly でも取り上げています)
+改めて内容を確認していきましょう。
+
+- Ubuntu 20 のイメージが 2025/4/1 に廃止。その前準備として、3/4 から 3/25 にかけて、決められた時期に `ubuntu-20.04` を使用するジョブが失敗するようです。
+- `actions/upload-artifact`, `actions/download-artifact` の v3 が 2025/1/30 日に廃止されます。1/16, 1/23 にも一時的に使用できなくなるようです。これは GitHub Enterprise Server には影響がありません。
+- `actions/cache` の v1, v2 と `actions/toolkit` の cache package の 4.0.0 以前が 2025/3/1 から使えなくなります。これも artifact と同様 GitHub Enterprise Server には影響ありません。
+
+心当たりがあればバージョンアップをして対応していきましょう！
+
+_本項の執筆者: [@uta8a](https://zenn.dev/uta8a)_
 
 ## Linux arm64 hosted runners now available for free in public repositories (Public Preview) - GitHub Changelog
 https://github.blog/changelog/2025-01-16-linux-arm64-hosted-runners-now-available-for-free-in-public-repositories-public-preview/
@@ -92,7 +103,7 @@ AWS のイベントに関するユーザーへの通知を CloudFormation で組
 
 生産性向上チームでも CloudFormation は使用しており、ありがたい機能追加です。
 ただ IaC はどちらかというと Terraform を主に使用しており、今回の機能もできれば Terraform で扱いたいものです...
-現時点の Terraform の最新の AWS Provider（v5.84.0） には User Notifications に関するリソースはありませんが、機能追加の issue はあります。
+現時点の Terraform の最新の AWS Provider（v5.84.0）には User Notifications に関するリソースはありませんが、機能追加の issue はあります。
 https://github.com/hashicorp/terraform-provider-aws/issues/34969
 
 Terraform でも AWS User Notifications を扱えるようになるのが楽しみです。
@@ -118,6 +129,13 @@ _本項の執筆者: [@takoeight0821](https://zenn.dev/takoeight0821)_
 
 ## Deno in 2024
 https://deno.com/blog/deno-in-2024
+
+Deno 公式からの 2024 年の Deno のまとめ記事です。以前 2024 年 12 月 25 日の Productivity Weekly では、uki00a さんによる Deno の 2024 年まとめを紹介しました。そちらを見られた方はスムーズに読めそうです。
+大きく取り上げられているのは Node, npm との互換性、package 管理ツールの高速性、新しい JavaScript の Registry である JSR、実行可能バイナリを作成できる deno compile など、2024 年に Deno で起きたビッグイベントが並んでいます。
+
+個人的には「Deno Standard library, stabilized」に書かれている npm での有名ライブラリと対応する Deno の std ライブラリの表が面白かったです。npm でいうところの〇〇を Deno で使いたい、という時に役立ちそうですね。
+
+_本項の執筆者: [@uta8a](https://zenn.dev/uta8a)_
 
 ## 誤解されがちなnever型の危険性: 「存在しない」について #TypeScript - Qiita
 https://qiita.com/uhyo/items/97941f855b2df0a99c60
