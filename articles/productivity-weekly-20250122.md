@@ -41,7 +41,7 @@ user_defined:
 - [@korosuke613](https://zenn.dev/korosuke613)
 <!-- - [@defaultcf](https://zenn.dev/defaultcf) -->
 <!-- - [@uta8a](https://zenn.dev/uta8a) -->
-<!-- - [@ajfAfg](https://zenn.dev/arjef) -->
+- [@ajfAfg](https://zenn.dev/arjef)
 <!-- - [@takoeight0821](https://zenn.dev/takoeight0821) -->
 <!-- - [@takamin55](https://zenn.dev/takamin55) -->
 <!-- - [@naotama](https://zenn.dev/naotama) -->
@@ -57,6 +57,12 @@ https://github.blog/changelog/2025-01-16-linux-arm64-hosted-runners-now-availabl
 
 ## Copilot Users Can Ask About A Failed Actions Job (GA) - GitHub Changelog
 https://github.blog/changelog/2025-01-15-copilot-users-can-ask-about-a-failed-actions-job-ga/
+
+GitHub Actions のジョブが失敗した原因を Copilot に質問できる機能が GA になりました。ブラウザ上でボタンをワンポチするだけで原因を説明してくれます。
+
+GitHub の中でスムーズに原因究明できて嬉しいですね。サイボウズ社内では、「Jenkins おじさんの仕事が供養された」や「LLM の良い使われ方だな」といった絶賛の声が上がっていました。
+
+_本項の執筆者: [@ajfAfg](https://zenn.dev/arjef)_
 
 ## Code scanning caches dependencies for Java, Go & C# - GitHub Changelog
 https://github.blog/changelog/2025-01-21-code-scanning-caches-dependencies-for-java-go-c/
@@ -80,6 +86,19 @@ https://deno.com/blog/deno-in-2024
 
 ## 誤解されがちなnever型の危険性: 「存在しない」について #TypeScript - Qiita
 https://qiita.com/uhyo/items/97941f855b2df0a99c60
+
+`never` 型の値は存在しちゃいけないので、`as never` すると型検査に大きな穴を作りかねないよという啓蒙的な話です。
+流石に `as never` をやる人は少ないと思いますが、例えば Branded Type を `type UserId = string & { __userIdBrand: never };` と定義してしまうと、`(foo as UserId).__userIdBrand : never` という形で `never` 型の値が得られてしまいます。このケースでは、`never` 型の代わりに `unknown` を使うとよいとされています。例を「[Branded Type ベストプラクティス 検索](https://qiita.com/uhyo/items/de4cb2085fdbdf484b83)」から次に引用します:
+
+```ts
+const userIdBrand = Symbol();
+
+export type UserId = string & { [userIdBrand]: unknown };
+```
+
+気をつけましょう！
+
+_本項の執筆者: [@ajfAfg](https://zenn.dev/arjef)_
 
 ## スタディストではCursor Businessを導入しました - スタディスト Tech Blog
 https://studist.tech/introducing-cursor-business-33d53346e603
