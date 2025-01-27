@@ -42,7 +42,7 @@ user_defined:
 <!-- - [@defaultcf](https://zenn.dev/defaultcf) -->
 <!-- - [@uta8a](https://zenn.dev/uta8a) -->
 - [@ajfAfg](https://zenn.dev/arjef)
-<!-- - [@takoeight0821](https://zenn.dev/takoeight0821) -->
+- [@takoeight0821](https://zenn.dev/takoeight0821)
 <!-- - [@takamin55](https://zenn.dev/takamin55) -->
 <!-- - [@naotama](https://zenn.dev/naotama) -->
 :::
@@ -54,6 +54,14 @@ https://github.blog/changelog/2025-01-15-github-actions-ubuntu-20-runner-image-b
 
 ## Linux arm64 hosted runners now available for free in public repositories (Public Preview) - GitHub Changelog
 https://github.blog/changelog/2025-01-16-linux-arm64-hosted-runners-now-available-for-free-in-public-repositories-public-preview/
+
+パブリックリポジトリでも Linux arm64 ランナーが使えるようになりました。
+arm64 ランナーは Microsoft が開発した CPU「Cobalt 100」上で動作しており、性能が高いだけでなく消費電力も低く抑えられているそうです。 
+Arm64 をターゲットにしたバイナリのビルドや、Docker のマルチプラットフォームイメージのビルドに QEMU が不要になり、CI/CD の高速化が期待できます。
+
+生産性向上チームが以前試した記事はこちら: [GitHub Actions に Arm64 ランナーが来たので Docker のマルチプラットフォームイメージをビルドしてみる](https://zenn.dev/cybozu_ept/articles/build-multi-platform-image-with-arm64-runner)
+
+_本項の執筆者: [@takoeight0821](https://zenn.dev/takoeight0821)_
 
 ## Copilot Users Can Ask About A Failed Actions Job (GA) - GitHub Changelog
 https://github.blog/changelog/2025-01-15-copilot-users-can-ask-about-a-failed-actions-job-ga/
@@ -78,6 +86,18 @@ https://aws.amazon.com/jp/about-aws/whats-new/2025/01/aws-user-notifications-ga-
 
 ## Go1.24 New Features
 https://zenn.dev/koya_iwamura/articles/ca9ab62ff760c2
+
+2 月にリリースが予定されている Go 1.24 の新機能が紹介されています。
+いろいろな話題が盛りだくさんです。特に会で話題に上がったのは次の機能です。
+
+- Type alias が Generics で使えるように : `type A[T any] = B[T]` のように、型パラメータを含む型エイリアスが書ける。
+- encoding/json が omitzero タグをサポート : `IsZero() bool` を実装している型のフィールドを `omitzero` タグで省略できる。
+- `testing.(T|B|F)` に `Context() context.Context` が追加 : テストケースごとにわざわざ `context.WithCancel` を呼ぶ必要がなくなる。
+- `os.Root` が追加 : 指定したディレクトリ配下のみを操作できる型 `os.Root` が追加され、意図しないディレクトリを操作するミスを防げる。
+
+Go 1.24 のリリースが楽しみですね。
+
+_本項の執筆者: [@takoeight0821](https://zenn.dev/takoeight0821)_
 
 # know-how 🎓
 
