@@ -1,6 +1,6 @@
 ---
-title: ＜ここにタイトルを入力＞｜Productivity Weekly(2025-01-15)
-emoji: ⛓️‍💥
+title: Node.jsでTypeScriptをネイティブ実行可能に｜Productivity Weekly(2025-01-15)
+emoji: ⛓️
 type: idea
 topics:
   - ProductivityWeekly
@@ -102,11 +102,13 @@ _本項の執筆者: [@takoeight0821](https://zenn.dev/takoeight0821)_
 ## Malware detection prevents Docker Desktop to start · Issue #7527 · docker/for-mac
 https://github.com/docker/for-mac/issues/7527
 
+1 月初め、Docker Desktop for Mac において、macOS が Docker Desktop をマルウェアとして検出し、起動や動作に失敗する問題が報告されていました。現在は問題を解決したバージョンが出されており、多くの方がすでに対応されているかと思います。
+
+まだ対応されていない方は Issue、あるいは [Fix startup issue for Mac | Docker Docs](https://docs.docker.com/desktop/cert-revoke-solution/) を確認して対応しましょう。
+
+すでにパッチ済みなので、基本的には最新版に更新することで解決します。内部ファイルの署名が一部正しくできていなかったことが原因っぽいですね。
 
 _本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
-
-## Announcing the new AWS Asia Pacific (Thailand) Region | AWS News Blog
-https://aws.amazon.com/jp/blogs/aws/announcing-the-new-aws-asia-pacific-thailand-region/
 
 # know-how 🎓
 
@@ -161,20 +163,18 @@ miette は `Diagnostics` トレイトをユーザ定義のエラー型に実装�
 
 _本項の執筆者: [@uta8a](https://zenn.dev/uta8a)_
 
-## オラクル、JavaScriptの商標を自主的に手放すつもりはないとDenoに通告 － Publickey
-https://www.publickey1.jp/blog/25/javascriptdeno_1.html
-
-# tool 🔨
-
 # read more 🍘
 Productivity Weekly で出たネタを全て紹介したいけど紹介する体力が持たなかったネタを一言程度で書くコーナーです。
 
 - **news 📺**
-- **know-how 🎓**
-- **tool 🔨**
+  - [Announcing the new AWS Asia Pacific (Thailand) Region | AWS News Blog](https://aws.amazon.com/jp/blogs/aws/announcing-the-new-aws-asia-pacific-thailand-region/)
+    - AWS が新たにタイ王国リージョン（`ap-southeast-7`）を設置しました
+    - 新たなアジアリージョンの仲間ができましたね。タイでビジネスを展開してる人は気になりますね
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 # あとがき
-
+今週号でした。最近寒いですね。ガンダムが今アツいです。ガンダムファンの人はさっさとジークアクスを観に行きましょう。
 
 サイボウズの生産性向上チームでは社内エンジニアの開発生産性を上げるための活動を行なっています。そんな生産性向上チームが気になる方は下のリンクをクリック！
 https://www.docswell.com/s/cybozu-tech/5R2X3N-engineering-productivity-team-recruitment-information
