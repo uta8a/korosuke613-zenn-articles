@@ -39,7 +39,7 @@ user_defined:
 
 今週の共同著者は次の方です。
 - [@korosuke613](https://zenn.dev/korosuke613)
-<!-- - [@defaultcf](https://zenn.dev/defaultcf) -->
+- [@defaultcf](https://zenn.dev/defaultcf)
 <!-- - [@uta8a](https://zenn.dev/uta8a) -->
 - [@ajfAfg](https://zenn.dev/arjef)
 - [@takoeight0821](https://zenn.dev/takoeight0821)
@@ -83,6 +83,21 @@ https://aws.amazon.com/jp/about-aws/whats-new/2025/01/aws-codebuild-test-splitti
 
 ## Announcing AWS User Notifications GA on AWS CloudFormation - AWS
 https://aws.amazon.com/jp/about-aws/whats-new/2025/01/aws-user-notifications-ga-cloudformation/
+
+CloudFormation で AWS User Notifications を扱うことができるようになりました。
+AWS User Notifications は、AWS 上の様々なイベントをユーザーに通知するサービスです。
+
+AWS のイベントに関するユーザーへの通知を CloudFormation で組む場合、以前は EventBridge や Amazon SNS を組み合わせて実装する必要がありました。
+今回、CloudFormation で扱えるようになった User Notifications を使用することで、より簡単に実現できます。
+
+生産性向上チームでも CloudFormation は使用しており、ありがたい機能追加です。
+ただ IaC はどちらかというと Terraform を主に使用しており、今回の機能もできれば Terraform で扱いたいものです...
+現時点の Terraform の最新の AWS Provider（v5.84.0） には User Notifications に関するリソースはありませんが、機能追加の issue はあります。
+https://github.com/hashicorp/terraform-provider-aws/issues/34969
+
+Terraform でも AWS User Notifications を扱えるようになるのが楽しみです。
+
+_本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)_
 
 ## Go1.24 New Features
 https://zenn.dev/koya_iwamura/articles/ca9ab62ff760c2
