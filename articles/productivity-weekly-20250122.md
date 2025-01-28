@@ -86,11 +86,47 @@ _本項の執筆者: [@ajfAfg](https://zenn.dev/arjef)_
 ## Code scanning caches dependencies for Java, Go & C# - GitHub Changelog
 https://github.blog/changelog/2025-01-21-code-scanning-caches-dependencies-for-java-go-c/
 
+Code scanning 実行時の依存関係のキャッシュが Java, Go, C# で可能になりました。これにより、スキャンにかかる時間を短縮できます。
+
+code scanning の設定が Default Setup の場合は、GitHub Hosted なランナーを使っている限り自動でこちらの設定が有効化されます。便利ですね！。Advanced Setup の場合は手動での有効化が必要なようです。
+
+Code scanning は GitHub リポジトリのコードを分析し、セキュリティの脆弱性やエラーを見つけられる静的解析機能です。CodeQL と呼ばれる GitHub が開発した分析エンジンを用いて行われます。
+
+試しに Code scanning を使っている Go の OSS リポジトリを探したところ、[traefik/traefik](https://github.com/traefik/traefik) というリポジトリを見つけました。ワークフローを見ると、キャッシュ機能がリリースされた 2025 年 01 月 21 日以降は `go: downloading` のログが消え、実行時間が 13~14 分台から 9 分台まで高速化されていました。
+
+_本項の執筆者: [@takamin55](https://zenn.dev/takamin55)_
+
 ## The AWS Management Console now supports simultaneous sign-in for multiple AWS accounts - AWS
 https://aws.amazon.com/jp/about-aws/whats-new/2025/01/aws-management-console-simultaneous-sign-in-multiple-accounts/
 
+AWS コンソールのマルチセッションが可能になりました。これにより、複数の AWS アカウントにログインしたり、同じ AWS アカウントで別の IAM User や Role でログインしたりできます。
+
+今までは private window を開いて頑張って 2 つの AWS アカウントにログインしていた方もいらっしゃるのではないでしょうか？その必要はもうありません！便利ですね。
+
+マルチセッションは最大 5 つまで可能で、全リージョンで有効な機能です。コンソールの右上のメニューから「マルチセッションサポートをオンにする」を押すだけで有効化でき、無効化もいつでもできます。
+
+有効化した後に他のセッションを追加すると、メニュー「その他に x 件のアクティブなセッション」というセクションが追加され、そこから他のセッション画面に簡単にアクセスできました。
+
+なお、有効化するとコンソールの URL が変わり、セッションごとにサブドメインが追加されます。そのため、有効化後に今までのマネジメントコンソール URL に直接アクセスしてもコンソールには行かず、セッションを選択する画面が表示されます。もしマネジメントコンソールの URL をブックマークしている場合は、これからはアカウントごとの URL をブックマークすると良いかもしれません。
+
+なお、マルチセッションにより便利になった反面、リソース操作の事故も起きやすくなったと言えるため気をつけましょう。
+
+_本項の執筆者: [@takamin55](https://zenn.dev/takamin55)_
+
 ## AWS CodeBuild now supports test splitting and parallelism - AWS
 https://aws.amazon.com/jp/about-aws/whats-new/2025/01/aws-codebuild-test-splitting-parallelism/
+
+CodeBuild でテストを並列に実行可能になり、実行にかかる時間を短縮できるようになりました。
+並列で起動するシャード数を指定し、`--files-search` オプションをつかってうまくテストファイルを渡すことで、設定に応じてテストファイルが自動で配分され、それらを各シャードで実行してくれます。
+
+現在ではテストファイルを均等に配分する `Equal-distribution` と、ハッシュアルゴリズムを利用して常に同じシャードに配分する `Stability` の 2 つの配分アルゴリズムを選択できるようです。
+
+各言語での `buildspec.yml` の書き方の例もドキュメントにまとまっており、すぐに開始できます。
+https://docs.aws.amazon.com/ja_jp/codebuild/latest/userguide/sample-parallel-test.html
+
+なお、シャード数の方が配分するテストファイルの数より多い場合、配分されなかったシャードがエラーとなりビルド全体での結果がエラーとなってしまうので、ご注意ください。
+
+_本項の執筆者: [@takamin55](https://zenn.dev/takamin55)_
 
 ## Announcing AWS User Notifications GA on AWS CloudFormation - AWS
 https://aws.amazon.com/jp/about-aws/whats-new/2025/01/aws-user-notifications-ga-cloudformation/
@@ -155,6 +191,15 @@ _本項の執筆者: [@ajfAfg](https://zenn.dev/arjef)_
 
 ## スタディストではCursor Businessを導入しました - スタディスト Tech Blog
 https://studist.tech/introducing-cursor-business-33d53346e603
+
+2024 年頃から X やブログ記事で話題になっている AI 支援コードエディタの Cursor に関する記事です。スタディストさんが業務で利用できるようにしたようで、こちらの記事では背景、検討事項、社内展開の流れが紹介されています。
+
+AI 系のツールは学習データとして使われることへの懸念がありますが、Cursor Business を契約すると組織単位で privacy mode をオンにできるため、個人の設定ミスなどが起きず安心です。
+社内にツールを浸透させるためにドキュメント整備や勉強会の開催などを行ったようでした。
+
+Cursor で開発生産性を上げていきましょう⤴
+
+_本項の執筆者: [@takamin55](https://zenn.dev/takamin55)_
 
 # read more 🍘
 Productivity Weekly で出たネタを全て紹介したいけど紹介する体力が持たなかったネタを一言程度で書くコーナーです。
