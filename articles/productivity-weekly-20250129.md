@@ -71,6 +71,18 @@ https://deno.com/blog/intro-to-wasm
 ## Bun 1.2 | Bun Blog
 https://bun.sh/blog/bun-v1.2
 
+Bun 1.2 がリリースされました！
+Bun 1.2 では、S3 の組み込みサポートが追加されました。
+S3 API を実装しているクラウドサービス（Amazon S3, Google Cloud Strage, Cloudflare R2）を、軽量なインターフェースで利用できます。
+
+```javascript
+import { s3 } from "bun";
+const file = s3.file("folder/my-file.txt");
+const content = await file.text();
+```
+
+S3 クライアントはネイティブ実装されており、`@aws-sdk/client-s3` と比較してダウンロードが 5 倍速いそうです。
+
 _本項の執筆者: [@takoeight0821](https://zenn.dev/takoeight0821)_
 
 ## 企業がChrome拡張を管理できる「Chrome Web Store for Enterprise」、Google Cloudが発表 － Publickey
@@ -97,6 +109,10 @@ https://zenn.dev/layerx/articles/5ef844aa73f051
 
 ## 監査ログの出力スキーマをProtocol Buffersで定義する - ベースマキナ エンジニアブログ
 https://tech.basemachina.jp/entry/audit-log-protocol-buffers-schema
+
+巨大なスプレッドシートで管理されていた監査ログの仕様を、Protocol Buffers を使って定義し直した話です。
+protoc を使い、Protocol Buffers の定義から監査ログ用のロガーへの出力メソッドを自動生成しているそうです。
+スキーマ定義言語とコード生成を使ったデータ処理の応用の幅広さを感じる記事でした。
 
 _本項の執筆者: [@takoeight0821](https://zenn.dev/takoeight0821)_
 
