@@ -52,6 +52,9 @@ user_defined:
 ## Amazon EventBridge announces direct delivery to cross-account targets
 https://aws.amazon.com/jp/about-aws/whats-new/2025/01/amazon-eventbridge-direct-delivery-cross-account-targets/
 
+Amazon EventBridge Event Bus がクロスアカウントでイベントを送信できるようになりました。記事では、別のアカウントの SQS にイベントを送信する例が書かれており、他にも Lambda に Kinesis Data Stream, SNS, API Gateway にイベントを送信できるようです。
+もともとクロスアカウントでイベント駆動のサービスや仕組みを作成するには、イベント送信用に Lambda などの仕組みを別途用意する必要がありましたが、その必要がなくなりそうで便利ですね。
+
 _本項の執筆者: [@takamin55](https://zenn.dev/takamin55)_
 
 ## TypeScript 5.8のerasableSyntaxOnlyフラグ。enumやnamespaceが消える日が来た
@@ -134,6 +137,22 @@ https://www.tohoho-web.com/ot/retirement.html
 
 ## 注目のAIエンジニア「Devin」を入れてみた！購入から初期設定まで | DevelopersIO
 https://dev.classmethod.jp/articles/devin-init/
+
+2024 年 12 月に GA になった今話題の AI ツール Devin を入れてみた記事です。
+Devin は ChatGPT や GitHub Copilot とは違った形の AI ツールで、これらが単一の作業を効率化してくれるツールであるのに対し、Devin は与えられた指示に従って自律的に行動するツールとなっています。
+
+<!-- textlint-disable ja-technical-writing/no-doubled-conjunctive-particle-ga -->
+本当はより詳細な指示が必要ですが、例えば「テストコードを書いて PR を出して」という指示を出すと、リポジトリのクローンからテストコードの作成、コミット、プッシュ、PR の作成、CI 結果の確認と修正などの一連の作業を Devin が行ってくれます。
+テストコードを例に上げましたが、Devin GA の発表記事では "While Devin can be an all-purpose tool, we recommend starting with:" と書かれてあり、得意なものはあるようですが all-purpose を謳っています。
+<!-- textlint-enable ja-technical-writing/no-doubled-conjunctive-particle-ga -->
+
+https://www.cognition.ai/blog/devin-generally-available
+
+もし本当に all-purpose に使えるのであれば、チームの中で滞っているタスクで優先度や重要度の低いタスクを進めてもらうのにぴったりですね。
+
+Devin とは Slack 上でやりとりができ、しかもフィードバックに従ってタスクの精度も上がっていくとのことなので、まるで一人のエンジニアのチームメイトが増えたかような感覚を抱けそうです。
+
+こちらの記事では初期設定までの流れが掲載されているので、Devin を使い始める場合に参考になりそうです。Devin, ぜひ使ってみたいですね！
 
 _本項の執筆者: [@takamin55](https://zenn.dev/takamin55)_
 
