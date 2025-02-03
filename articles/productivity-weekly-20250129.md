@@ -57,8 +57,11 @@ _本項の執筆者: [@takamin55](https://zenn.dev/takamin55)_
 ## TypeScript 5.8のerasableSyntaxOnlyフラグ。enumやnamespaceが消える日が来た
 https://zenn.dev/ubie_dev/articles/ts-58-erasable-syntax-only
 
-TypeScript 5.8 Ships --erasableSyntaxOnly To Disable Enums | Total TypeScript
-https://www.totaltypescript.com/erasable-syntax-only
+enum や namespace が含まれる TypeScript コードに対して警告を出すフラグ `erasableSyntaxOnly` が、TypeScript 5.8 から使用可能になる予定とのことです。
+
+Node.js v23.6.0 では、TypeScript をネイティブに実行可能になりましたが、enum や namespace をはじめとする TypeScript 独自の機能はサポートされていませんでした。これからは `--experimental-strip-types` と併用することで、サポートされない機能を事前に検知できます。
+
+enum や namespace が含まれていても実行できるフラグ `--experimental-transform-types` は以前から存在していたので、今回の追加は少し驚きました。TypeScript としても、今後は enum や namespace を非推奨にしていくなのかもしれません。今後にますます期待ですね。
 
 _本項の執筆者: [@ajfAfg](https://zenn.dev/arjef)_
 
@@ -72,6 +75,10 @@ _本項の執筆者: [@takoeight0821](https://zenn.dev/takoeight0821)_
 
 ## 企業がChrome拡張を管理できる「Chrome Web Store for Enterprise」、Google Cloudが発表 － Publickey
 https://www.publickey1.jp/blog/25/chromechrome_web_store_for_enterprisegoogle_cloud.html
+
+企業の従業員がインストール可能な Google Chrome の拡張機能を、管理者（e.g. IT 部門）が機械的に制限できる機能が発表されました。
+
+これまでは自然言語によるルールとして制限してきたので、これからはそれを自動化できて嬉しそうです。ただし、ホワイトリスト形式だと新しい拡張機能のお試しが難しくなるので、その辺りをいい感じにする仕組みづくりも大事になってきそうです。
 
 _本項の執筆者: [@ajfAfg](https://zenn.dev/arjef)_
 
