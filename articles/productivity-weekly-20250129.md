@@ -100,6 +100,34 @@ _本項の執筆者: [@ajfAfg](https://zenn.dev/arjef)_
 ## Legacy Docker Registry closing down - GitHub Changelog
 https://github.blog/changelog/2025-01-23-legacy-docker-registry-closing-down/
 
+2025/02/24 に GitHub Packages の Docker Registry (docker.pkg.github.com) が終了します。**ghcr.io で知られる Container Registry とは別物です！**
+
+Docker Registry は ghcr.io が登場する前まで使われていた Docker イメージのレジストリでした。ghcr.io が GA になった際、既存の Docker レジストリ内のイメージは自動で ghcr.io に移行されました。
+しかし、名前空間が衝突したイメージについては自動移行がされなかったようです。
+当時 ghcr.io が GA になった際の記事が [Productivity Weekly (2021-06-23号)](https://zenn.dev/korosuke613/articles/productivity-weekly-20210623#github-packages-container-registry-is-generally-available) 号に書かれていました。懐かしいですね。あんまり記憶がないけど docker.pkg.github.com は使いづらかったらしい。
+
+Docker Registry が終了することにより、docker.pkg.github.com 上のパッケージは全て削除されます。
+
+多くの人は影響がないと思われますが、一応 [`GET /users/{username}/docker/conflicts`](https://docs.github.com/en/rest/packages/packages?apiVersion=2022-11-28#get-list-of-conflicting-packages-during-docker-migration-for-user) を使って自動移行が行われなかったイメージが存在するかを確認しておくと良いです。
+僕の場合は空配列が返ってきたので多分大丈夫だと思います。なお、`USERNAME` に当たる部分を organization 名に変えても API が実行できたので、org に対しての確認にも使えそうです。
+
+```
+❯ gh api \
+  -H "Accept: application/vnd.github+json" \
+  -H "X-GitHub-Api-Version: 2022-11-28" \
+  /users/korosuke613/docker/conflicts
+[]
+```
+
+もしくは https://github.com/korosuke613?ecosystem=docker&tab=packages を開いて Docker Registry にイメージが存在するかどうかを調べる方法も使えると思います。
+いずれも僕の場合は全て ghcr.io に移行済で今回関係ありませんでした。
+
+なお、docker.pkg.github.com に対するリクエストがどうなるのかが気になりましたが、元ページによると、次のようなので、おそらく自動で ghcr.io へのリクエストとしてくれそうです。たぶん。
+
+> If you are not in the small group with conflicting packages, no action is needed, as all requests will automatically forward to GHCR.
+
+正直存在を忘れていましたね。知らないうちにイメージが消失しないように気をつけましょう。
+
 _本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 ## はてなブログにWebhook機能を追加しました！外部システムとの連携が容易になります - はてなブログ開発ブログ
