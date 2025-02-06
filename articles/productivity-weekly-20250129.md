@@ -153,6 +153,27 @@ https://zenn.dev/ubie_dev/articles/e9d68da8a88cf2
 ## ECSとRDSをやめて、AWSコストを9割削減しました
 https://zenn.dev/beenos_tech/articles/lambda-sqlite-application
 
+AWS での構成を ECS + RDS から Lambda + EFS の構成に変更することで、9 割もコストを削減できたとのお話です。
+記事ではアプリケーションをどのように変更したかが詳しく書かれています。
+
+Web Adapter を入れるだけで、ECS で動いていたコンテナイメージが Lambda で動くというのは楽で良さそうです。
+社内システムで、同時に書き込むユーザーが数人の場合はこの方法で良いかもしれません。
+
+ただし、ユーザー数の多いシステムの場合は上手くいかない場合も考えられます。
+まず EFS の使用についてです。Amazon EFS は NFS の仕組みで提供されており、そこで SQLite を使うのには賛否両論あります。
+特に SQLite によるロックの処理が NFS だと上手く動かないのではないかということです。
+
+ただ、Amazon EFS は NFSv4 プロトコルを使用しているらしく、ロック処理が改善しているという話もあります。
+https://docs.aws.amazon.com/ja_jp/efs/latest/ug/features.html#consistency
+
+検索してみると、実際に検証されている方がいらっしゃっていて、ロックは上手く機能しているとのことです。
+https://zenn.dev/galette/articles/sqlite-on-efs-locking
+
+次にコスト面です。Lambda も EFS も、実行時間や転送量による従量課金となり、アクセス数や書き込みの量によって料金は変動することになります。
+場合によっては ECS + RDS の料金を上回ることも考えられ、あらかじめ試算しておく必要があります。
+
+これらの理由により、すべての場合で上手くいくとは言えませんが、それでも一考の余地があると言えそうです。
+
 _本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)_
 
 ## 高級ホテルの客室タブレットに潜む危険：他客室も操作、盗聴可能だった脆弱性を発見するまで
