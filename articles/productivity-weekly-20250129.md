@@ -71,6 +71,14 @@ _本項の執筆者: [@ajfAfg](https://zenn.dev/arjef)_
 ## Intro to Wasm in Deno
 https://deno.com/blog/intro-to-wasm
 
+2024 年 11 月に [Deno 2.1 がリリースされました](https://deno.com/blog/v2.1)が、その中には WebAssembly をシンプルに扱えるアップデートがありました。
+
+今回の記事は Deno で WebAssembly を使う際の入門記事という位置づけです。 `.wat` 形式のファイルを Deno で実行する方法と Rust を実行する方法の 2 つが書かれています。
+
+Deno の活躍の幅が広がりそうです。
+
+_本項の執筆者: [@takamin55](https://zenn.dev/takamin55)_
+
 ## Bun 1.2 | Bun Blog
 https://bun.sh/blog/bun-v1.2
 
