@@ -1,6 +1,6 @@
 ---
-title: ＜ここにタイトルを入力＞｜Productivity Weekly(2025-01-29)
-emoji: 🦅
+title: TS5.8やらAmazon EventBridgeやらDenoやら｜Productivity Weekly(2025-01-29)
+emoji: 🐭
 type: idea
 topics:
   - ProductivityWeekly
@@ -45,6 +45,10 @@ user_defined:
 - [@takoeight0821](https://zenn.dev/takoeight0821)
 - [@takamin55](https://zenn.dev/takamin55)
 <!-- - [@naotama](https://zenn.dev/naotama) -->
+:::
+
+:::message
+2025-02-05 号は社内イベントがあるためお休みです。
 :::
 
 # news 📺
@@ -138,13 +142,7 @@ Docker Registry が終了することにより、docker.pkg.github.com 上のパ
 
 _本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
-## はてなブログにWebhook機能を追加しました！外部システムとの連携が容易になります - はてなブログ開発ブログ
-https://staff.hatenablog.com/entry/2025/01/28/123436
-
 # know-how 🎓
-
-## pnpm workspace を利用したモノレポで「この PR の影響を受けるパッケージ」をフィルタする
-https://zenn.dev/layerx/articles/5ef844aa73f051
 
 ## 監査ログの出力スキーマをProtocol Buffersで定義する - ベースマキナ エンジニアブログ
 https://tech.basemachina.jp/entry/audit-log-protocol-buffers-schema
@@ -154,9 +152,6 @@ protoc を使い、Protocol Buffers の定義から監査ログ用のロガー�
 スキーマ定義言語とコード生成を使ったデータ処理の応用の幅広さを感じる記事でした。
 
 _本項の執筆者: [@takoeight0821](https://zenn.dev/takoeight0821)_
-
-## Go 製 CLI ツールにおける selfupdate の実装
-https://zenn.dev/ubie_dev/articles/e9d68da8a88cf2
 
 ## ECSとRDSをやめて、AWSコストを9割削減しました
 https://zenn.dev/beenos_tech/articles/lambda-sqlite-application
@@ -183,12 +178,6 @@ https://zenn.dev/galette/articles/sqlite-on-efs-locking
 これらの理由により、すべての場合で上手くいくとは言えませんが、それでも一考の余地があると言えそうです。
 
 _本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)_
-
-## 高級ホテルの客室タブレットに潜む危険：他客室も操作、盗聴可能だった脆弱性を発見するまで
-https://devblog.lac.co.jp/entry/20250124
-
-## とほほの退職入門
-https://www.tohoho-web.com/ot/retirement.html
 
 # tool 🔨
 
@@ -217,11 +206,26 @@ _本項の執筆者: [@takamin55](https://zenn.dev/takamin55)_
 Productivity Weekly で出たネタを全て紹介したいけど紹介する体力が持たなかったネタを一言程度で書くコーナーです。
 
 - **news 📺**
+  - [はてなブログにWebhook機能を追加しました！外部システムとの連携が容易になります - はてなブログ開発ブログ](https://staff.hatenablog.com/entry/2025/01/28/123436)
+    - はてなブログで記事公開時や更新時などに webhook で情報を送れるようになったようです（有料プラン利用者向け）
+    - 例えば GitHub Actions と組み合わせて記事が公開されるたびに SNS に自動投稿などできそうですね
 - **know-how 🎓**
-- **tool 🔨**
+  - [pnpm workspace を利用したモノレポで「この PR の影響を受けるパッケージ」をフィルタする](https://zenn.dev/layerx/articles/5ef844aa73f051)
+    - pnpm workspace において、ファイルの差分から影響を受けるパッケージを抽出できる機能があるようです
+    - 知りませんでした。workspace だからこそ実現しやすそうですね。npm にも来い
+  - [高級ホテルの客室タブレットに潜む危険：他客室も操作、盗聴可能だった脆弱性を発見するまで - ラック・セキュリティごった煮ブログ](https://devblog.lac.co.jp/entry/20250124)
+    - ホテルに置いてるタブレットが怪しかったので奥さんの就寝中に解析して脆弱性を発見したとのこと
+    - 既に報告・改修済みとのことですが、ガチ盗聴可能だったのはマジで怖いですね
+    - 我々一般利用者にできることは据え置きタブレット的なのを見つけたら布でも被せておくくらいか...
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
 
 # あとがき
+今週号でした。この前ディズニーシーに古めかしいスーツを着て行ったんですけど、キャストさんにめちゃくちゃ格好褒められてまんざらでもなかったです。
 
+:::message
+2025-02-05 号は社内イベントがあるためお休みです。
+:::
 
 サイボウズの生産性向上チームでは社内エンジニアの開発生産性を上げるための活動を行なっています。そんな生産性向上チームが気になる方は下のリンクをクリック！
 https://www.docswell.com/s/cybozu-tech/5R2X3N-engineering-productivity-team-recruitment-information
