@@ -39,11 +39,11 @@ user_defined:
 
 今週の共同著者は次の方です。
 - [@korosuke613](https://zenn.dev/korosuke613)
-<!-- - [@defaultcf](https://zenn.dev/defaultcf) -->
-<!-- - [@uta8a](https://zenn.dev/uta8a) -->
-<!-- - [@ajfAfg](https://zenn.dev/arjef) -->
-<!-- - [@takoeight0821](https://zenn.dev/takoeight0821) -->
-<!-- - [@takamin55](https://zenn.dev/takamin55) -->
+- [@defaultcf](https://zenn.dev/defaultcf)
+- [@uta8a](https://zenn.dev/uta8a)
+- [@ajfAfg](https://zenn.dev/arjef)
+- [@takoeight0821](https://zenn.dev/takoeight0821)
+- [@takamin55](https://zenn.dev/takamin55)
 <!-- - [@naotama](https://zenn.dev/naotama) -->
 :::
 
@@ -63,6 +63,8 @@ _本項の執筆者: [@ajfAfg](https://zenn.dev/arjef)_
 
 ## Announcing TypeScript 5.8 Beta - TypeScript
 https://devblogs.microsoft.com/typescript/announcing-typescript-5-8-beta/
+
+_本項の執筆者: [@ajfAfg](https://zenn.dev/arjef)_
 
 ## Copilot Language Server SDK is now available - GitHub Changelog
 https://github.blog/changelog/2025-02-10-copilot-language-server-sdk-is-now-available/
@@ -85,8 +87,43 @@ https://training.linuxfoundation.org/ja/training/introduction-to-kubernetes-lfs1
 ## Actions Get workflow usage and Get workflow run usage endpoints closing down - GitHub Changelog
 https://github.blog/changelog/2025-02-02-actions-get-workflow-usage-and-get-workflow-run-usage-endpoints-closing-down/
 
+GitHub API において、GitHub Actions の利用状況を取得する `GET
+/repos/{owner}/{repo}/actions/workflows/{workflow_id}/timing`、`GET
+/repos/{owner}/{repo}/actions/runs/{run_id}/timing` API が廃止されます。
+
+この取り組みは、Enterprise、Team プランの顧客を新しい課金プラットフォームへの移行の一環として行われるそうです。
+
+期限について、2025 年 4 月 1 日までに完了する予定と書かれていますが、あくまで移行完了が 4/1 と書かれているだけで、API 廃止も同じタイミングになるのかどうか僕には判断できませんでした。
+
+> The transition of Enterprise and Team plan customers to the new billing platform will complete by April 1, 2025.
+
+[新しい課金プラットフォーム](https://docs.github.com/en/billing/using-the-new-billing-platform/about-the-new-billing-platform)とは Enterprise、Organization 単位で 2024 年末ごろから利用できるようになった機能です。
+ダッシュボードから actions や lfs などの細かい使用料金を視覚的に確認できるようになったり、新しく使えるようになった料金取得 API が利用できるようになったりしています。
+
+新しく使えるようになった利用料取得 API `GET
+/enterprises/{enterprise}/settings/billing/usage` は以前から存在している `GET
+/enterprises/{enterprise}/settings/billing/actions`、`GET
+/enterprises/{enterprise}/settings/billing/packages` と違い、Actions、Packages 以外の利用料が取得できるだけでなく、さらに細かいランナーの種類、使用量に加えて発生する課金額なども取得できます。
+新しい API はこれら 2 つの API の完全上位互換に近く、断然使い勝手は良いです。
+
+なお、今回の API 廃止に、`GET
+/enterprises/{enterprise}/settings/billing/actions`、`GET
+/enterprises/{enterprise}/settings/billing/packages` は含まれていません。
+新しい課金プラットフォームへの移行を促すならこれら 2 つも廃止対象になりそうですが、実際どうなるのか不明です。
+
+ちなみに僕もこれまで `GET
+/enterprises/{enterprise}/settings/billing/actions`、`GET
+/enterprises/{enterprise}/settings/billing/packages` を使って利用量を定期的に取得・記録するのをやっていましたが、新しい課金プラットフォームが登場したのでそちらの API を使うようにシステムをすでに改修しました。
+前の API は情報がいつまで経っても古い（新しいランナーが追加されても反映されないなど）など、なかなか使い勝手が悪かったのでとても嬉しいです。
+
+もし似たようなことをやってる人がいたら早めに新しい課金プラットフォームの API を使うようにしましょう。
+
+_本項の執筆者: [@korosuke613](https://zenn.dev/korosuke613)_
+
 ## Edit and validate Copilot Autofix suggestions with Copilot Workspace - GitHub Changelog
 https://github.blog/changelog/2025-01-31-edit-and-validate-copilot-autofix-suggestions-with-copilot-workspace/
+
+_本項の執筆者: [@uta8a](https://zenn.dev/uta8a)_
 
 ## Larger hosted runner enhancements: Edit runner size and Windows Server 4vCPU runner availability - GitHub Changelog
 https://github.blog/changelog/2025-01-30-larger-hosted-runner-enhancements-edit-runner-size-and-windows-server-4vcpu-runner-availability/
@@ -99,11 +136,12 @@ https://deno.com/blog/deno-v-oracle2
 ## re:Invent2024で広がった AWS Verified Accessの可能性を探る - Speaker Deck
 https://speakerdeck.com/maimyyym/reinvent-2024-verified-access-update-potentiality
 
+_本項の執筆者: [@uta8a](https://zenn.dev/uta8a)_
+
 ## Terraform v1.11 の Write-Only Attributes を試してみる
 https://zenn.dev/terraform_jp/articles/tf-write-only-attributes
 
-## Datadogダッシュボードをスクショして毎日Slackに送る
-https://zenn.dev/babarot/articles/datadog-dashboard-to-slack-channel
+_本項の執筆者: [@takamin55](https://zenn.dev/takamin55)_
 
 ## Four Keys導入からはじめる開発プロセスの改善 - enechain Tech Blog
 https://techblog.enechain.com/entry/four-keys
@@ -111,8 +149,12 @@ https://techblog.enechain.com/entry/four-keys
 ## GoアプリのCI/CDを4倍高速化した汎用的手法まとめ【txdb】
 https://zenn.dev/jcat/articles/323ce8b4e4744d
 
+_本項の執筆者: [@ajfAfg](https://zenn.dev/arjef)_
+
 ## APIリファレンスを生成するプロンプトを考える (Dart/Flutter)
 https://zenn.dev/szktty/articles/flutter-generate-api-doc
+
+_本項の執筆者: [@takoeight0821](https://zenn.dev/takoeight0821)_
 
 ## いかにしてココナラはCursor Businessを導入したのか? 〜生成AIツール導入のための社内調整術〜
 https://zenn.dev/coconala/articles/coconala-cursor-business-introduction
@@ -121,6 +163,8 @@ https://zenn.dev/coconala/articles/coconala-cursor-business-introduction
 
 ## Terraform State をビジュアルで確認できるOSS「terraform-tui」の紹介 | DevelopersIO
 https://dev.classmethod.jp/articles/hands-on-terraform-visual-state-explorer/
+
+_本項の執筆者: [@defaultcf](https://zenn.dev/defaultcf)_
 
 # read more 🍘
 Productivity Weekly で出たネタを全て紹介したいけど紹介する体力が持たなかったネタを一言程度で書くコーナーです。
