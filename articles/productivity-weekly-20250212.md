@@ -67,6 +67,15 @@ https://devblogs.microsoft.com/typescript/announcing-typescript-5-8-beta/
 ## Copilot Language Server SDK is now available - GitHub Changelog
 https://github.blog/changelog/2025-02-10-copilot-language-server-sdk-is-now-available/
 
+GitHub Copilot を[Language Server Protocol](https://microsoft.github.io/language-server-protocol/)経由で使うための SDK が公開されました。
+すでに Vim や Xcode など色々なエディタ・IDE が GitHub Copilot をサポートしていますが、SDK を使うことでより手軽に Copilot を導入できるようになりそうです。
+
+_本項の執筆者: [@takoeight0821](https://zenn.dev/takoeight0821)_
+
+:::message
+特に LSP 対応はしてるけど GitHub Copilot 未対応エディタみたいなエディタなんかを使っている場合は自作できていいですね。関係者は少なそうですが（平木場）。
+:::
+
 ## Linux Foundation、無料オンラインコース「Kubernetes入門」の提供を開始
 https://www.linuxfoundation.jp/press-release/2025/01/free-online-course-introduction-to-kubernetes-now-available-in-japanese/
 
@@ -117,6 +126,8 @@ https://dev.classmethod.jp/articles/hands-on-terraform-visual-state-explorer/
 Productivity Weekly で出たネタを全て紹介したいけど紹介する体力が持たなかったネタを一言程度で書くコーナーです。
 
 - **news 📺**
+  - [Go 1.24 is released! - The Go Programming Language](https://go.dev/blog/go1.24)
+    - [前回のProductivity Weekly](https://zenn.dev/cybozu_ept/articles/productivity-weekly-20250122#go1.24-new-features)で取り上げた Go 1.24 が正式リリースされました！
 - **know-how 🎓**
 - **tool 🔨**
 
