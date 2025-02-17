@@ -55,6 +55,12 @@ https://github.blog/news-insights/product-news/github-copilot-the-agent-awakens/
 ## 自分のOSSのマルウェア入り偽物を作られたので通報した - 酒日記 はてな支店
 https://sfujiwara.hatenablog.com/entry/2025/02/11/094755
 
+タイトルの通り、自作 OSS の偽物（しかもマルウェア入り）が公開される被害に遭われた話です。攻撃者は偽物を公開するだけでなく、捨て垢でその偽物のスター数を稼いでいたとのことです。
+
+fujiwara さんの注意喚起の通り、スター数だけで OSS の信頼度を評価するとうっかり被害に遭ってしまいそうです。[LayerX さんも似た被害に遭われており](https://x.com/LayerX_tech/status/1889225974547636719)、今一度 OSS のコード読みやバージョン固定を徹底していきたいです。
+
+_本項の執筆者: [@ajfAfg](https://zenn.dev/arjef)_
+
 ## Announcing TypeScript 5.8 Beta - TypeScript
 https://devblogs.microsoft.com/typescript/announcing-typescript-5-8-beta/
 
